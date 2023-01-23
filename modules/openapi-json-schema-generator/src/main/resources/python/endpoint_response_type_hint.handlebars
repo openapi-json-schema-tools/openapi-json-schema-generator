@@ -1,15 +1,17 @@
 {{#each statusCodeResponses}}
 {{#gte @key 200}}
 {{#lte @key 299}}
-response_{{@key}}.ApiResponse,
+response_{{@key}}.{{name.getCamelCaseName}}.response_cls,
 {{/lte}}
 {{/gte}}
 {{/each}}
 {{#each wildcardCodeResponses}}
 {{#eq @key 2}}
-response_{{@key}}xx.ApiResponse,
+response_{{@key}}xx.{{name.getCamelCaseName}}.response_cls,
 {{/eq}}
 {{/each}}
 {{#if defaultResponse}}
-response_default.ApiResponse,
+{{#with defaultResponse}}
+response_default.{{name.getCamelCaseName}}.response_cls,
+{{/with}}
 {{/if}}

@@ -17,7 +17,7 @@ cookie_params=cookie_params,
 {{/if}}
 {{#with requestBody}}
     {{#if refInfo}}
-        {{#each refInfo.getRef.content}}
+        {{#each getDeepestRef.content}}
         {{#if @first}}
 content_type=content_type,
         {{/if}}

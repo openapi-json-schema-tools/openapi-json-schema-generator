@@ -23,9 +23,9 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 
 from .. import path
+from .responses import response_200
 from .parameters import parameter_0
 
 
@@ -39,7 +39,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[parameter_0.foo.Foo, ],
+            'mapBean': typing.Union[parameter_0._0.schema, ],
         },
         total=False
     )
@@ -56,12 +56,12 @@ class RequestQueryParameters:
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.SuccessDescriptionOnly,
+        '200': response_200._200,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
-    '200': response_200.SuccessDescriptionOnly,
-})
+_status_code_to_response: __StatusCodeToResponse = {
+    '200': response_200._200,
+}
 
 
 class BaseApi(api_client.Api):
@@ -73,7 +73,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -93,7 +93,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -165,7 +165,7 @@ class RefObjectInQuery(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -185,7 +185,7 @@ class RefObjectInQuery(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -215,7 +215,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -235,7 +235,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

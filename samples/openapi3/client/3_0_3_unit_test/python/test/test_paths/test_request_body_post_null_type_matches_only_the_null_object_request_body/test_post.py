@@ -42,7 +42,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 1.1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -57,7 +57,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -71,7 +71,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 False
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -85,7 +85,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -99,7 +99,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 True
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -113,7 +113,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 0
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -127,7 +127,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 ""
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -140,7 +140,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
             payload = (
                 None
             )
-            body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -172,7 +172,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -186,7 +186,7 @@ class TestRequestBodyPostNullTypeMatchesOnlyTheNullObjectRequestBody(ApiTestMixi
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

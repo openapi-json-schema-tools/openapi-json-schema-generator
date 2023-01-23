@@ -41,7 +41,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             payload = (
                 "foo\rbar"
             )
-            body = post.request_body.enum_with_escaped_characters.EnumWithEscapedCharacters.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -71,7 +71,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
             payload = (
                 "foo\nbar"
             )
-            body = post.request_body.enum_with_escaped_characters.EnumWithEscapedCharacters.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -102,7 +102,7 @@ class TestRequestBodyPostEnumWithEscapedCharactersRequestBody(ApiTestMixin, unit
                 "abc"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.enum_with_escaped_characters.EnumWithEscapedCharacters.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

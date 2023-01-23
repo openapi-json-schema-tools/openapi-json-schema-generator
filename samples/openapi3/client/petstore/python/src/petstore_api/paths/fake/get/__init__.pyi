@@ -24,8 +24,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 
+from .responses import response_200
 from .responses import response_404
 from . import request_body
 from .parameters import parameter_0
@@ -46,10 +46,10 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_query_string_array': typing.Union[parameter_2.schema.Schema, list, tuple, ],
-            'enum_query_string': typing.Union[parameter_3.schema.Schema, str, ],
-            'enum_query_integer': typing.Union[parameter_4.schema.Schema, decimal.Decimal, int, ],
-            'enum_query_double': typing.Union[parameter_5.schema.Schema, decimal.Decimal, int, float, ],
+            'enum_query_string_array': typing.Union[parameter_2._2.schema, list, tuple, ],
+            'enum_query_string': typing.Union[parameter_3._3.schema, str, ],
+            'enum_query_integer': typing.Union[parameter_4._4.schema, decimal.Decimal, int, ],
+            'enum_query_double': typing.Union[parameter_5._5.schema, decimal.Decimal, int, float, ],
         },
         total=False
     )
@@ -75,8 +75,8 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'enum_header_string_array': typing.Union[parameter_0.schema.Schema, list, tuple, ],
-            'enum_header_string': typing.Union[parameter_1.schema.Schema, str, ],
+            'enum_header_string_array': typing.Union[parameter_0._0.schema, list, tuple, ],
+            'enum_header_string': typing.Union[parameter_1._1.schema, str, ],
         },
         total=False
     )
@@ -107,7 +107,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -122,7 +122,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -151,7 +151,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -256,7 +256,7 @@ class EnumParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -271,7 +271,7 @@ class EnumParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -300,7 +300,7 @@ class EnumParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -342,7 +342,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -357,7 +357,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -386,7 +386,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

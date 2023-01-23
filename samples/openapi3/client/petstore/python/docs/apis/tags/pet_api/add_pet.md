@@ -138,10 +138,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
-405 | [response_405.ApiResponse](#response_405ApiResponse) | Invalid input
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+405 | [_405.response_cls](#response_405response_cls) | Invalid input
 
-#### <a id="response_405ApiResponse" >response_405.ApiResponse</a>
+#### <a id="response_405response_cls" >_405.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

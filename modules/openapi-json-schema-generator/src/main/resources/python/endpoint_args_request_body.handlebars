@@ -1,10 +1,10 @@
 {{#if requestBody.refInfo}}
-    {{#if requestBody.refInfo.getRef.required}}
-        {{#with requestBody.refInfo.getRef}}
+    {{#if requestBody.getDeepestRef.required}}
+        {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}],
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -12,7 +12,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.refInfo.getRef}}
+                {{#with requestBody.getDeepestRef}}
                     {{#each content}}
                         {{#eq @key.getName ../../contentType}}
                             {{#if @first}}
@@ -27,7 +27,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.refInfo.getRef}}
+            {{#with requestBody.getDeepestRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key.getName}}}',
@@ -41,7 +41,7 @@
     skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
-                {{#with requestBody.refInfo.getRef}}
+                {{#with requestBody.getDeepestRef}}
                     {{#each getContent}}
                         {{#eq @key.getName ../../contentType}}
                             {{#if @first}}
@@ -56,7 +56,7 @@
     content_type: str = ...,
             {{/neq}}
         {{else}}
-            {{#with requestBody.refInfo.getRef}}
+            {{#with requestBody.getDeepestRef}}
                 {{#each getContent}}
                     {{#if @first}}
     content_type: str = '{{{@key.getName}}}',
@@ -64,11 +64,11 @@
                 {{/each}}
             {{/with}}
         {{/if}}
-        {{#with requestBody.refInfo.retRef}}
+        {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> model_templates/schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}

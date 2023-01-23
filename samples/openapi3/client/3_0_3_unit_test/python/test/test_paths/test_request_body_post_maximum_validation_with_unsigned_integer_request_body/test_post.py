@@ -41,7 +41,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 299.97
             )
-            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
                 300.5
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -85,7 +85,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 300
             )
-            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostMaximumValidationWithUnsignedIntegerRequestBody(ApiTest
             payload = (
                 300.0
             )
-            body = post.request_body.maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -24,9 +24,9 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.request_bodies import request_body_client as request_body
 
 from .responses import response_200
+from . import request_body
 
 _all_accept_content_types = (
     'application/json',
@@ -37,34 +37,34 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -75,20 +75,20 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -114,7 +114,7 @@ class BaseApi(api_client.Api):
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        serialized_data = request_body.Client.serialize(body, content_type)
+        serialized_data = request_body.RequestBody.serialize(body, content_type)
         _headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             _fields = serialized_data['fields']
@@ -159,34 +159,34 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
     def classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
     @typing.overload
     def classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -197,20 +197,20 @@ class Classname(BaseApi):
     @typing.overload
     def classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def classname(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -233,34 +233,34 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -271,20 +271,20 @@ class ApiForpatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
     def patch(
         self,
-        body: typing.Union[request_body.Client.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

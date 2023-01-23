@@ -35,7 +35,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[parameter_0.schema.Schema, str, ],
+            'order_id': typing.Union[parameter_0._0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -61,10 +61,10 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
         '404': response_404._404,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
+_status_code_to_response: __StatusCodeToResponse = {
     '400': response_400._400,
     '404': response_404._404,
-})
+}
 
 
 class BaseApi(api_client.Api):

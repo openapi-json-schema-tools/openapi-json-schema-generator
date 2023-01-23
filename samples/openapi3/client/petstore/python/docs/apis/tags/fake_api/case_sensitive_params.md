@@ -50,26 +50,26 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [parameter_0.schema](#parameter_0schema) | | 
-SomeVar | [parameter_1.schema](#parameter_1schema) | | 
-some_var | [parameter_2.schema](#parameter_2schema) | | 
+someVar | [_0.schema](#parameter_0schema) | | 
+SomeVar | [_1.schema](#parameter_1schema) | | 
+some_var | [_2.schema](#parameter_2schema) | | 
 
 
-# parameter_0.schema
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# parameter_1.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_2.schema
+# <a id="parameter_1schema" >_1.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+# <a id="parameter_2schema" >_2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -81,7 +81,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ### Authorization
 

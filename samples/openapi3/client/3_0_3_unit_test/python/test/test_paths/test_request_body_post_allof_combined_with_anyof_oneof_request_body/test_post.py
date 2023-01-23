@@ -42,7 +42,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 2
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -56,7 +56,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 5
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -70,7 +70,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 15
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -84,7 +84,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 6
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -97,7 +97,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
             payload = (
                 30
             )
-            body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -128,7 +128,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 10
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -142,7 +142,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 3
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -156,7 +156,7 @@ class TestRequestBodyPostAllofCombinedWithAnyofOneofRequestBody(ApiTestMixin, un
                 1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

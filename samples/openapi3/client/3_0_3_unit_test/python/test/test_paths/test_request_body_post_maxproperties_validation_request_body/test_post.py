@@ -49,7 +49,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -66,7 +66,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
                     3,
                 ]
             )
-            body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -96,7 +96,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 12
             )
-            body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -126,7 +126,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 "foobar"
             )
-            body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -159,7 +159,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
                         1,
                 }
             )
-            body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -194,7 +194,7 @@ class TestRequestBodyPostMaxpropertiesValidationRequestBody(ApiTestMixin, unitte
                         2,
                 }
             )
-            body = post.request_body.maxproperties_validation.MaxpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

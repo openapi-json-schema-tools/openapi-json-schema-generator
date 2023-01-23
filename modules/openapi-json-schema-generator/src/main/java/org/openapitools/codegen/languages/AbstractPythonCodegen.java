@@ -41,12 +41,13 @@ import static org.openapitools.codegen.utils.StringUtils.underscore;
 public abstract class AbstractPythonCodegen extends DefaultCodegen implements CodegenConfig {
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractPythonCodegen.class);
 
-    protected String packageName = "openapi_client";
     protected String packageVersion = "1.0.0";
     protected String projectName; // for setup.py, e.g. petstore-api
 
     public AbstractPythonCodegen() {
         super();
+
+        packageName = "openapi_client";
 
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(

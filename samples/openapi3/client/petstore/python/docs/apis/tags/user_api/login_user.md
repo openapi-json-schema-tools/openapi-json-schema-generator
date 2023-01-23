@@ -50,18 +50,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_0.schema](#parameter_0schema) | | 
-password | [parameter_1.schema](#parameter_1schema) | | 
+username | [_0.schema](#parameter_0schema) | | 
+password | [_1.schema](#parameter_1schema) | | 
 
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_1.schema
+# <a id="parameter_1schema" >_1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -73,10 +73,10 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_200.ApiResponse](#response_200ApiResponse) | successful operation
-400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid username/password supplied
+200 | [_200.response_cls](#response_200response_cls) | successful operation
+400 | [_400.response_cls](#response_400response_cls) | Invalid username/password supplied
 
-#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
+#### <a id="response_200response_cls" >_200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -105,7 +105,7 @@ X-Rate-Limit | [_200.headers.header_x_rate_limit.content.application_json.schema
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
 X-Expires-After | [_200.headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
-stringHeader | [StringHeader.schema](../../../components/headers/header_string_header.md#header_string_headerschema) | | 
+stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
 # <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >_200.headers.header_x_rate_limit.content.application_json.schema</a>
@@ -122,7 +122,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
+#### <a id="response_400response_cls" >_400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

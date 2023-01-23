@@ -23,8 +23,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 
+from .responses import response_200
 from .parameters import parameter_0
 from .parameters import parameter_1
 from .parameters import parameter_2
@@ -38,12 +38,12 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'pipe': typing.Union[parameter_0.schema.Schema, list, tuple, ],
-            'ioutil': typing.Union[parameter_1.schema.Schema, list, tuple, ],
-            'http': typing.Union[parameter_2.schema.Schema, list, tuple, ],
-            'url': typing.Union[parameter_3.schema.Schema, list, tuple, ],
-            'context': typing.Union[parameter_4.schema.Schema, list, tuple, ],
-            'refParam': typing.Union[parameter_5.string_with_validation.StringWithValidation, ],
+            'pipe': typing.Union[parameter_0._0.schema, list, tuple, ],
+            'ioutil': typing.Union[parameter_1._1.schema, list, tuple, ],
+            'http': typing.Union[parameter_2._2.schema, list, tuple, ],
+            'url': typing.Union[parameter_3._3.schema, list, tuple, ],
+            'context': typing.Union[parameter_4._4.schema, list, tuple, ],
+            'refParam': typing.Union[parameter_5._5.schema, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -167,7 +167,7 @@ class QueryParameterCollectionFormat(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -187,7 +187,7 @@ class QueryParameterCollectionFormat(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -217,7 +217,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -237,7 +237,7 @@ class ApiForput(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

@@ -96,18 +96,7 @@ paths:
               default: available
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+          $ref: '#/components/responses/SuccessfulXmlAndJsonArrayOfPet'
         '400':
           description: Invalid status value
       security:
@@ -137,18 +126,7 @@ paths:
               type: string
       responses:
         '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Pet'
+          $ref: '#/components/responses/RefSuccessfulXmlAndJsonArrayOfPet'
         '400':
           description: Invalid tag value
       security:
@@ -181,7 +159,7 @@ paths:
                 $ref: '#/components/schemas/Pet'
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/RefPet'
         '400':
           description: Invalid ID supplied
         '404':
@@ -413,7 +391,7 @@ paths:
         default:
           description: successful operation
       requestBody:
-        $ref: '#/components/requestBodies/UserArray'
+        $ref: '#/components/requestBodies/RefUserArray'
   /user/login:
     get:
       tags:
@@ -452,7 +430,7 @@ paths:
                 type: string
                 format: date-time
             stringHeader:
-              $ref: '#/components/headers/StringHeader'
+              $ref: '#/components/headers/RefStringHeader'
             numberHeader:
               $ref: '#/components/headers/NumberHeader'
             int32:
@@ -479,7 +457,7 @@ paths:
       operationId: logoutUser
       responses:
         default:
-          $ref: '#/components/responses/SuccessDescriptionOnly'
+          $ref: '#/components/responses/RefSuccessDescriptionOnly'
   '/user/{username}':
     get:
       tags:
@@ -530,7 +508,7 @@ paths:
       description: This can only be done by the logged in user.
       operationId: deleteUser
       parameters:
-        - $ref: '#/components/parameters/PathUserName'
+        - $ref: '#/components/parameters/RefPathUserName'
       responses:
         '200':
           $ref: '#/components/responses/SuccessDescriptionOnly'
@@ -1641,6 +1619,8 @@ components:
       required: true
       schema:
         type: string
+    RefPathUserName:
+      $ref: '#/components/parameters/PathUserName'
     RefSchemaStringWithValidation:
       name: RSstringWithValidation
       in: path
@@ -1658,13 +1638,30 @@ components:
           schema:
             $ref: '#/components/schemas/StringWithValidation'
   responses:
+    SuccessfulXmlAndJsonArrayOfPet:
+      description: successful operation
+      content:
+        application/xml:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Pet'
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RefPet'
+    RefSuccessfulXmlAndJsonArrayOfPet:
+      $ref: '#/components/responses/SuccessfulXmlAndJsonArrayOfPet'
     SuccessDescriptionOnly:
       description: Success
+    RefSuccessDescriptionOnly:
+      $ref: '#/components/responses/SuccessDescriptionOnly'
     SuccessWithJsonApiResponse:
       description: successful operation
       headers:
         stringHeader:
-          $ref: '#/components/headers/StringHeader'
+          $ref: '#/components/headers/RefStringHeader'
         numberHeader:
           $ref: '#/components/headers/NumberHeader'
         int32:
@@ -1700,6 +1697,8 @@ components:
               $ref: '#/components/schemas/User'
       description: List of user object
       required: true
+    RefUserArray:
+      $ref: '#/components/requestBodies/UserArray'
     Client:
       content:
         application/json:
@@ -1714,7 +1713,7 @@ components:
             $ref: '#/components/schemas/Pet'
         application/xml:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/RefPet'
       description: Pet object that needs to be added to the store
       required: true
   headers:
@@ -1723,6 +1722,8 @@ components:
       required: true
       schema:
         type: string
+    RefStringHeader:
+      $ref: '#/components/headers/StringHeader'
     NumberHeader:
       description: number header description
       schema:
@@ -1932,6 +1933,8 @@ components:
             - sold
       xml:
         name: Pet
+    RefPet:
+      $ref: '#/components/schemas/Pet'
     ApiResponse:
       type: object
       properties:

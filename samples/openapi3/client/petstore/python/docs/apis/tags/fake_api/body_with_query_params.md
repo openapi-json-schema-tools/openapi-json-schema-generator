@@ -71,10 +71,10 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [parameter_0.schema](#parameter_0schema) | | 
+query | [_0.schema](#parameter_0schema) | | 
 
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -86,7 +86,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ### Authorization
 

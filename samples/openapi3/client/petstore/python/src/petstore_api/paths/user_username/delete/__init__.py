@@ -23,11 +23,11 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
-from petstore_api.components.parameters import parameter_path_user_name
 
 from .. import path
+from .responses import response_200
 from .responses import response_404
+from .parameters import parameter_0
 
 
 
@@ -35,7 +35,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_path_user_name.schema.Schema, str, ],
+            'username': typing.Union[parameter_0._0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -51,20 +51,20 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_path_user_name.PathUserName,
+        parameter_0._0,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.SuccessDescriptionOnly,
+        '200': response_200._200,
         '404': response_404._404,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
-    '200': response_200.SuccessDescriptionOnly,
+_status_code_to_response: __StatusCodeToResponse = {
+    '200': response_200._200,
     '404': response_404._404,
-})
+}
 
 
 class BaseApi(api_client.Api):
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -169,7 +169,7 @@ class DeleteUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -189,7 +189,7 @@ class DeleteUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -219,7 +219,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -239,7 +239,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

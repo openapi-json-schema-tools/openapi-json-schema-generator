@@ -59,11 +59,11 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_0.schema.Schema, str, ],
-            'aB': typing.Union[parameter_1.schema.Schema, str, ],
-            'Ab': typing.Union[parameter_2.schema.Schema, str, ],
-            'self': typing.Union[parameter_3.schema.Schema, str, ],
-            'A-B': typing.Union[parameter_4.schema.Schema, str, ],
+            '1': typing.Union[parameter_0._0.schema, str, ],
+            'aB': typing.Union[parameter_1._1.schema, str, ],
+            'Ab': typing.Union[parameter_2._2.schema, str, ],
+            'self': typing.Union[parameter_3._3.schema, str, ],
+            'A-B': typing.Union[parameter_4._4.schema, str, ],
         },
         total=False
     )
@@ -90,10 +90,10 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_5.schema.Schema, str, ],
-            'aB': typing.Union[parameter_6.schema.Schema, str, ],
-            'self': typing.Union[parameter_7.schema.Schema, str, ],
-            'A-B': typing.Union[parameter_8.schema.Schema, str, ],
+            '1': typing.Union[parameter_5._5.schema, str, ],
+            'aB': typing.Union[parameter_6._6.schema, str, ],
+            'self': typing.Union[parameter_7._7.schema, str, ],
+            'A-B': typing.Union[parameter_8._8.schema, str, ],
         },
         total=False
     )
@@ -114,11 +114,11 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            '1': typing.Union[parameter_9.schema.Schema, str, ],
-            'aB': typing.Union[parameter_10.schema.Schema, str, ],
-            'Ab': typing.Union[parameter_11.schema.Schema, str, ],
-            'self': typing.Union[parameter_12.schema.Schema, str, ],
-            'A-B': typing.Union[parameter_13.schema.Schema, str, ],
+            '1': typing.Union[parameter_9._9.schema, str, ],
+            'aB': typing.Union[parameter_10._10.schema, str, ],
+            'Ab': typing.Union[parameter_11._11.schema, str, ],
+            'self': typing.Union[parameter_12._12.schema, str, ],
+            'A-B': typing.Union[parameter_13._13.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -150,11 +150,11 @@ class RequestCookieParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            '1': typing.Union[parameter_14.schema.Schema, str, ],
-            'aB': typing.Union[parameter_15.schema.Schema, str, ],
-            'Ab': typing.Union[parameter_16.schema.Schema, str, ],
-            'self': typing.Union[parameter_17.schema.Schema, str, ],
-            'A-B': typing.Union[parameter_18.schema.Schema, str, ],
+            '1': typing.Union[parameter_14._14.schema, str, ],
+            'aB': typing.Union[parameter_15._15.schema, str, ],
+            'Ab': typing.Union[parameter_16._16.schema, str, ],
+            'self': typing.Union[parameter_17._17.schema, str, ],
+            'A-B': typing.Union[parameter_18._18.schema, str, ],
         },
         total=False
     )
@@ -178,9 +178,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
         '200': response_200._200,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
+_status_code_to_response: __StatusCodeToResponse = {
     '200': response_200._200,
-})
+}
 _all_accept_content_types = (
     'application/json',
 )
@@ -201,7 +201,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -218,7 +218,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -251,7 +251,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -372,7 +372,7 @@ class ParameterCollisions(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -389,7 +389,7 @@ class ParameterCollisions(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -422,7 +422,7 @@ class ParameterCollisions(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -470,7 +470,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -487,7 +487,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
 
@@ -520,7 +520,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

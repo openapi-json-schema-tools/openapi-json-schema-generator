@@ -54,7 +54,7 @@ class TestRequestBodyPostPropertiesWithEscapedCharactersRequestBody(ApiTestMixin
                         1,
                 }
             )
-            body = post.request_body.properties_with_escaped_characters.PropertiesWithEscapedCharacters.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -98,7 +98,7 @@ class TestRequestBodyPostPropertiesWithEscapedCharactersRequestBody(ApiTestMixin
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.properties_with_escaped_characters.PropertiesWithEscapedCharacters.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

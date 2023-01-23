@@ -883,8 +883,13 @@ class TestParameter(unittest.TestCase):
         )
         for test_case in test_cases:
             class Parameter(api_client.HeaderParameter):
+
+
+                class __MediaType(api_client.MediaType):
+                    schema = schemas.AnyTypeSchema
+
                 name='color'
-                content={'application/json': schemas.AnyTypeSchema}
+                content={'application/json': __MediaType}
 
             serialization = Parameter.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
@@ -942,8 +947,13 @@ class TestParameter(unittest.TestCase):
         )
         for test_case in test_cases:
             class Parameter(api_client.QueryParameter):
+
+
+                class __MediaType(api_client.MediaType):
+                    schema = schemas.AnyTypeSchema
+
                 name='color'
-                content={'application/json': schemas.AnyTypeSchema}
+                content={'application/json': __MediaType}
 
             serialization = Parameter.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
@@ -951,8 +961,13 @@ class TestParameter(unittest.TestCase):
     def test_throws_error_for_unimplemented_serialization(self):
         with self.assertRaises(NotImplementedError):
             class Parameter(api_client.HeaderParameter):
+
+
+                class __MediaType(api_client.MediaType):
+                    schema = schemas.AnyTypeSchema
+
                 name='color'
-                content={'text/plain': schemas.AnyTypeSchema}
+                content={'text/plain': __MediaType}
 
             Parameter.serialize(None)
 

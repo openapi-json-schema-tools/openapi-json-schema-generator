@@ -42,7 +42,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.maxlength_validation.MaxlengthValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -55,7 +55,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 100
             )
-            body = post.request_body.maxlength_validation.MaxlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -85,7 +85,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "f"
             )
-            body = post.request_body.maxlength_validation.MaxlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "💩💩"
             )
-            body = post.request_body.maxlength_validation.MaxlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -145,7 +145,7 @@ class TestRequestBodyPostMaxlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "fo"
             )
-            body = post.request_body.maxlength_validation.MaxlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -87,34 +87,34 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [parameter_0.schema](#parameter_0schema) | | 
-required_int64_group | [parameter_2.schema](#parameter_2schema) | | 
-string_group | [parameter_3.schema](#parameter_3schema) | | optional
-int64_group | [parameter_5.schema](#parameter_5schema) | | optional
+required_string_group | [_0.schema](#parameter_0schema) | | 
+required_int64_group | [_2.schema](#parameter_2schema) | | 
+string_group | [_3.schema](#parameter_3schema) | | optional
+int64_group | [_5.schema](#parameter_5schema) | | optional
 
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_2.schema
+# <a id="parameter_2schema" >_2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# parameter_3.schema
+# <a id="parameter_3schema" >_3.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# parameter_5.schema
+# <a id="parameter_5schema" >_5.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -126,17 +126,17 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [parameter_1.schema](#parameter_1schema) | | 
-boolean_group | [parameter_4.schema](#parameter_4schema) | | optional
+required_boolean_group | [_1.schema](#parameter_1schema) | | 
+boolean_group | [_4.schema](#parameter_4schema) | | optional
 
-# parameter_1.schema
+# <a id="parameter_1schema" >_1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-# parameter_4.schema
+# <a id="parameter_4schema" >_4.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -148,7 +148,7 @@ str,  | str,  |  | must be one of ["true", "false", ]
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_success_description_only.ApiResponse](../../../components/responses/response_success_description_only.md) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ### Authorization
 

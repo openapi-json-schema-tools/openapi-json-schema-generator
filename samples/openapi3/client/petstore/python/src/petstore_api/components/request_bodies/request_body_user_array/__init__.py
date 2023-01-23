@@ -9,7 +9,7 @@
 import typing
 import typing_extensions
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client
 from .content.application_json import schema as application_json_schema
 
 class UserArray(api_client.RequestBody):
@@ -20,7 +20,7 @@ class UserArray(api_client.RequestBody):
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': __ApplicationJsonMediaType,
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {

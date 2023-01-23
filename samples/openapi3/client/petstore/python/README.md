@@ -324,6 +324,7 @@ HTTP request | Method | Description
  - [Quadrilateral](docs/components/schema/quadrilateral.Quadrilateral.md)
  - [QuadrilateralInterface](docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md)
  - [ReadOnlyFirst](docs/components/schema/read_only_first.ReadOnlyFirst.md)
+ - [RefPet](docs/components/schema/ref_pet.RefPet.md)
  - [ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md)
  - [ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md)
  - [ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md)
@@ -362,13 +363,17 @@ HTTP request | Method | Description
 
 - [Client](docs/components/request_bodies/request_body_client.md)
 - [Pet](docs/components/request_bodies/request_body_pet.md)
+- [RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md)
 - [UserArray](docs/components/request_bodies/request_body_user_array.md)
 
 ## Component Responses
 
+- [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md)
+- [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md)
 - [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
 - [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
 - [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
+- [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_successful_xml_and_json_array_of_pet.md)
 
 ## Component Headers
 
@@ -376,12 +381,14 @@ HTTP request | Method | Description
 - [NumberHeader](docs/components/headers/header_number_header.md)
 - [RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md)
 - [RefSchemaHeader](docs/components/headers/header_ref_schema_header.md)
+- [RefStringHeader](docs/components/headers/header_ref_string_header.md)
 - [StringHeader](docs/components/headers/header_string_header.md)
 
 ## Component Parameters
 
 - [ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
 - [PathUserName](docs/components/parameters/parameter_path_user_name.md)
+- [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md)
 - [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization

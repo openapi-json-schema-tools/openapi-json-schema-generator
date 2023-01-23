@@ -48,7 +48,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                         None,
                 }
             )
-            body = post.request_body.allof_with_base_schema.AllofWithBaseSchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -84,7 +84,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_with_base_schema.AllofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -103,7 +103,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_with_base_schema.AllofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -120,7 +120,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_with_base_schema.AllofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -139,7 +139,7 @@ class TestRequestBodyPostAllofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.allof_with_base_schema.AllofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

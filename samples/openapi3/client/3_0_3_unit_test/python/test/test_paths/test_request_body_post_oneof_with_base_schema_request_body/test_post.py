@@ -42,7 +42,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.oneof_with_base_schema.OneofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -56,7 +56,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
                 3
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.oneof_with_base_schema.OneofWithBaseSchema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -69,7 +69,7 @@ class TestRequestBodyPostOneofWithBaseSchemaRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "foobar"
             )
-            body = post.request_body.oneof_with_base_schema.OneofWithBaseSchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

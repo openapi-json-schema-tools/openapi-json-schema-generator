@@ -42,7 +42,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                 [
                 ]
             )
-            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 12
             )
-            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -104,7 +104,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -117,7 +117,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
             payload = (
                 ""
             )
-            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -152,7 +152,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                         2,
                 }
             )
-            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -185,7 +185,7 @@ class TestRequestBodyPostMinpropertiesValidationRequestBody(ApiTestMixin, unitte
                         1,
                 }
             )
-            body = post.request_body.minproperties_validation.MinpropertiesValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

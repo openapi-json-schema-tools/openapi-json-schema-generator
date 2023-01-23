@@ -39,6 +39,17 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
 
     public CodegenRefInfo<CodegenRequestBody> getRefInfo() { return refInfo; }
 
+    public CodegenRequestBody getDeepestRef() {
+        if (refInfo == null) {
+            return null;
+        }
+        CodegenRequestBody refObject = refInfo.getRef();
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.getRef();
+        }
+        return refObject;
+    }
+
     public void setRefInfo(CodegenRefInfo<CodegenRequestBody> refInfo) { this.refInfo = refInfo; }
 }
 

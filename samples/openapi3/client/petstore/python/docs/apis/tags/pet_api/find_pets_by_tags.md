@@ -114,7 +114,6 @@ with petstore_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -124,10 +123,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | [parameter_0.schema](#parameter_0schema) | | 
+tags | [_0.schema](#parameter_0schema) | | 
 
 
-# parameter_0.schema
+# <a id="parameter_0schema" >_0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -144,41 +143,10 @@ items | str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_200.ApiResponse](#response_200ApiResponse) | successful operation
-400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid tag value
+200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation
+400 | [_400.response_cls](#response_400response_cls) | Invalid tag value
 
-#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
-
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) | [**Pet**](../../../components/schema/pet.Pet.md) |  |
-
-#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
+#### <a id="response_400response_cls" >_400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

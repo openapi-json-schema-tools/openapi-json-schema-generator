@@ -44,7 +44,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -83,7 +83,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -134,7 +134,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -173,7 +173,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -206,7 +206,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     True,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -239,7 +239,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     2,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -276,7 +276,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     ],
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -310,7 +310,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -343,7 +343,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     False,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -394,7 +394,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     },
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -427,7 +427,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     False,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -464,7 +464,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     ],
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -497,7 +497,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     True,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -538,7 +538,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -577,7 +577,7 @@ class TestRequestBodyPostUniqueitemsFalseValidationRequestBody(ApiTestMixin, uni
                     1,
                 ]
             )
-            body = post.request_body.uniqueitems_false_validation.UniqueitemsFalseValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -49,10 +49,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam | [parameter_0.schema](#parameter_0schema) | | 
+someParam | [_0.content.application_json.schema](#parameter_0contentapplication_jsonschema) | | 
 
 
-# parameter_0.schema
+# <a id="parameter_0contentapplication_jsonschema" >_0.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -64,9 +64,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [response_200.ApiResponse](#response_200ApiResponse) | success
+200 | [_200.response_cls](#response_200response_cls) | success
 
-#### <a id="response_200ApiResponse" >response_200.ApiResponse</a>
+#### <a id="response_200response_cls" >_200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

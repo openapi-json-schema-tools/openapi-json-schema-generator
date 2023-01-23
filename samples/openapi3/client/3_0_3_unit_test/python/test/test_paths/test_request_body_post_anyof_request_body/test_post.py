@@ -41,7 +41,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 2.5
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -72,7 +72,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
                 1.5
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.anyof.Anyof.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -85,7 +85,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 3
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostAnyofRequestBody(ApiTestMixin, unittest.TestCase):
             payload = (
                 1
             )
-            body = post.request_body.anyof.Anyof.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

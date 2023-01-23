@@ -42,7 +42,7 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
                 [
                 ]
             )
-            body = post.request_body.required_validation.RequiredValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -75,7 +75,7 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
                         1,
                 }
             )
-            body = post.request_body.required_validation.RequiredValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -105,7 +105,7 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 12
             )
-            body = post.request_body.required_validation.RequiredValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -135,7 +135,7 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
             payload = (
                 ""
             )
-            body = post.request_body.required_validation.RequiredValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -169,7 +169,7 @@ class TestRequestBodyPostRequiredValidationRequestBody(ApiTestMixin, unittest.Te
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.required_validation.RequiredValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

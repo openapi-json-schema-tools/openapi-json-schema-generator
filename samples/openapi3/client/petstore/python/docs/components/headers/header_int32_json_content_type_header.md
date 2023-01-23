@@ -1,4 +1,5 @@
-# petstore_api.components.headers.header_int32_json_content_type_header
+## petstore_api.components.headers.header_int32_json_content_type_header
+# Int32JsonContentTypeHeader
 
 # <a id="header_int32_json_content_type_headercontentapplication_jsonschema" >Int32JsonContentTypeHeader.content.application_json.schema</a>
 

@@ -23,9 +23,9 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 
 from .. import path
+from .responses import response_200
 from .responses import response_default
 from .parameters import parameter_0
 
@@ -35,7 +35,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'id': typing.Union[parameter_0.schema.Schema, str, ],
+            'id': typing.Union[parameter_0._0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -58,12 +58,12 @@ default_response = response_default.Default
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.SuccessDescriptionOnly,
+        '200': response_200._200,
     }
 )
-_status_code_to_response = __StatusCodeToResponse({
-    '200': response_200.SuccessDescriptionOnly,
-})
+_status_code_to_response: __StatusCodeToResponse = {
+    '200': response_200._200,
+}
 
 
 class BaseApi(api_client.Api):
@@ -75,8 +75,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
     ]: ...
 
     @typing.overload
@@ -96,8 +96,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -169,8 +169,8 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
     ]: ...
 
     @typing.overload
@@ -190,8 +190,8 @@ class DeleteCoffee(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -221,8 +221,8 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
     ]: ...
 
     @typing.overload
@@ -242,8 +242,8 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
-        response_default.ApiResponse,
+        response_200._200.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

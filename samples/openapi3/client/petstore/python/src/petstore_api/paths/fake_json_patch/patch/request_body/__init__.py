@@ -9,19 +9,18 @@
 import typing
 import typing_extensions
 
-from petstore_api import api_client, exceptions
-
-from petstore_api.components.schema import json_patch_request
+from petstore_api import api_client
+from .content.application_json_patchjson import schema as application_json_patchjson_schema
 
 class RequestBody(api_client.RequestBody):
 
 
     class __ApplicationJsonPatchjsonMediaType(api_client.MediaType):
-        schema: typing.Type[json_patch_request.JSONPatchRequest] = json_patch_request.JSONPatchRequest
+        schema: typing.Type[application_json_patchjson_schema.Schema] = application_json_patchjson_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json-patch+json': __ApplicationJsonPatchjsonMediaType,
+            'application/json-patch+json': typing.Type[__ApplicationJsonPatchjsonMediaType],
         }
     )
     content: __Content = {

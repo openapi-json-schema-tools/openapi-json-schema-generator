@@ -65,7 +65,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 71);
+            Assert.assertEquals(files.size(), 91);
 
             // Check expected generated files
             // api sanity check
@@ -150,7 +150,7 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 45);
+            Assert.assertEquals(files.size(), 65);
 
             // Check API is written and Test is not
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PetApi.java");

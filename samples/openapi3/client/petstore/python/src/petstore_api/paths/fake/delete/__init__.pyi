@@ -24,8 +24,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.responses import response_success_description_only as response_200
 
+from .responses import response_200
 from .parameters import parameter_0
 from .parameters import parameter_1
 from .parameters import parameter_2
@@ -39,15 +39,15 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_string_group': typing.Union[parameter_0.schema.Schema, str, ],
-            'required_int64_group': typing.Union[parameter_2.schema.Schema, decimal.Decimal, int, ],
+            'required_string_group': typing.Union[parameter_0._0.schema, str, ],
+            'required_int64_group': typing.Union[parameter_2._2.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'string_group': typing.Union[parameter_3.schema.Schema, str, ],
-            'int64_group': typing.Union[parameter_5.schema.Schema, decimal.Decimal, int, ],
+            'string_group': typing.Union[parameter_3._3.schema, str, ],
+            'int64_group': typing.Union[parameter_5._5.schema, decimal.Decimal, int, ],
         },
         total=False
     )
@@ -68,13 +68,13 @@ class RequestHeaderParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_boolean_group': typing.Union[parameter_1.schema.Schema, str, ],
+            'required_boolean_group': typing.Union[parameter_1._1.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'boolean_group': typing.Union[parameter_4.schema.Schema, str, ],
+            'boolean_group': typing.Union[parameter_4._4.schema, str, ],
         },
         total=False
     )
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -121,7 +121,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -206,7 +206,7 @@ class GroupParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -228,7 +228,7 @@ class GroupParameters(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -261,7 +261,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
     ]: ...
 
     @typing.overload
@@ -283,7 +283,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_200._200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

@@ -43,7 +43,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -57,7 +57,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -71,7 +71,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 None
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -84,7 +84,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             payload = (
                 1.0
             )
-            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -115,7 +115,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 1.1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -129,7 +129,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 True
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -142,7 +142,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
             payload = (
                 1
             )
-            body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -173,7 +173,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 "1"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -188,7 +188,7 @@ class TestRequestBodyPostIntegerTypeMatchesIntegersRequestBody(ApiTestMixin, uni
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.integer_type_matches_integers.IntegerTypeMatchesIntegers.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

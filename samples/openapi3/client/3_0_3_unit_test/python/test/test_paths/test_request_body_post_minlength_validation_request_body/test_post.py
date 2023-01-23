@@ -42,7 +42,7 @@ class TestRequestBodyPostMinlengthValidationRequestBody(ApiTestMixin, unittest.T
                 "f"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.minlength_validation.MinlengthValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -56,7 +56,7 @@ class TestRequestBodyPostMinlengthValidationRequestBody(ApiTestMixin, unittest.T
                 "💩"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.minlength_validation.MinlengthValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -69,7 +69,7 @@ class TestRequestBodyPostMinlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "foo"
             )
-            body = post.request_body.minlength_validation.MinlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -99,7 +99,7 @@ class TestRequestBodyPostMinlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 1
             )
-            body = post.request_body.minlength_validation.MinlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -129,7 +129,7 @@ class TestRequestBodyPostMinlengthValidationRequestBody(ApiTestMixin, unittest.T
             payload = (
                 "fo"
             )
-            body = post.request_body.minlength_validation.MinlengthValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

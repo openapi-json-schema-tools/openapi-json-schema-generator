@@ -75,24 +75,24 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [parameter_path_user_name.schema](../../../components/parameters/parameter_path_user_name.md) | | 
+username | [PathUserName](../../../components/parameters/parameter_path_user_name.md) | | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [response_400.ApiResponse](#response_400ApiResponse) | Invalid user supplied
-404 | [response_404.ApiResponse](#response_404ApiResponse) | User not found
+400 | [_400.response_cls](#response_400response_cls) | Invalid user supplied
+404 | [_404.response_cls](#response_404response_cls) | User not found
 
-#### <a id="response_400ApiResponse" >response_400.ApiResponse</a>
+#### <a id="response_400response_cls" >_400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404ApiResponse" >response_404.ApiResponse</a>
+#### <a id="response_404response_cls" >_404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

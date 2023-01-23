@@ -2734,6 +2734,20 @@ public class DefaultCodegen implements CodegenConfig {
         return !isReservedWord(name);
     }
 
+    protected String getImport(CodegenRefInfo refInfo) {
+        String prefix = "from " + packageName + ".components.";
+        if (refInfo.getRef() instanceof CodegenRequestBody) {
+            return prefix + "request_bodies import " + refInfo.getRefModule();
+        } else if (refInfo.getRef() instanceof CodegenHeader) {
+            return prefix + "headers import " + refInfo.getRefModule();
+        } else if (refInfo.getRef() instanceof CodegenResponse) {
+            return prefix + "responses import " + refInfo.getRefModule();
+        } else if (refInfo.getRef() instanceof CodegenParameter) {
+            return prefix + "parameters import " + refInfo.getRefModule();
+        }
+        return null;
+    }
+
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
             return schema.getRefInfo().getRefClass();
@@ -2866,6 +2880,11 @@ public class DefaultCodegen implements CodegenConfig {
         String ref = p.get$ref();
         setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
         if (ref != null) {
+            if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+                property.imports = new TreeSet<>();
+                addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
+            }
+            // TODO with 3.1.0 schemas continue processing
             return property;
         }
 
@@ -3231,9 +3250,8 @@ public class DefaultCodegen implements CodegenConfig {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             op.requestBody = requestBody;
 
-            CodegenRefInfo<CodegenRequestBody> refInfo = requestBody.getRefInfo();
-            if (refInfo != null) {
-                if (refInfo.getRef().required) {
+            if (requestBody.getRefInfo() != null) {
+                if (requestBody.getDeepestRef().required) {
                     requiredParams.add(requestBody);
                 } else {
                     optionalParams.add(requestBody);
@@ -3263,9 +3281,8 @@ public class DefaultCodegen implements CodegenConfig {
                 i++;
 
                 CodegenParameter paramOrRef = p;
-                CodegenRefInfo<CodegenParameter> refInfo = p.getRefInfo();
-                if (refInfo != null) {
-                    paramOrRef = refInfo.getRef();
+                if (p.getRefInfo() != null) {
+                    paramOrRef = p.getDeepestRef();
                 }
                 if (paramOrRef.isQueryParam) {
                     queryParams.add(p);
@@ -3284,9 +3301,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
-            CodegenRefInfo<CodegenParameter> refInfo = cp.getRefInfo();
-            if (refInfo != null) {
-                if (refInfo.getRef().required) { //required parameters
+            if (cp.getRefInfo() != null) {
+                if (cp.getDeepestRef().required) { //required parameters
                     requiredParams.add(cp);
                 } else { // optional parameters
                     optionalParams.add(cp);
@@ -3366,6 +3382,7 @@ public class DefaultCodegen implements CodegenConfig {
         String responseRef = response.get$ref();
         setResponseLocationInfo(responseRef, sourceJsonPath, sourceJsonPath, r);
         if (responseRef != null) {
+            r.imports.add(getImport(r.getRefInfo()));
             return r;
         }
 
@@ -3389,7 +3406,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
             r.setHeaders(responseHeaders);
         }
-        r.setContent(getContent(response.getContent(), r.imports, sourceJsonPath + "/content"));
+        r.setContent(getContent(response.getContent(), sourceJsonPath + "/content"));
 
         return r;
     }
@@ -3464,6 +3481,7 @@ public class DefaultCodegen implements CodegenConfig {
         String headerRef = header.get$ref();
         setHeaderLocationInfo(headerRef, sourceJsonPath, sourceJsonPath, codegenHeader);
         if (headerRef != null) {
+            codegenHeader.imports.add(getImport(codegenHeader.getRefInfo()));
             return codegenHeader;
         }
 
@@ -3487,7 +3505,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (requestBody.getContent() != null) {
             Content content = requestBody.getContent();
-            codegenRequestBody.setContent(getContent(content, codegenRequestBody.imports, sourceJsonPath + "/content"));
+            codegenRequestBody.setContent(getContent(content, sourceJsonPath + "/content"));
         }
     }
 
@@ -3519,9 +3537,6 @@ public class DefaultCodegen implements CodegenConfig {
                     usedSourceJsonPath
             );
             codegenHeader.setSchema(prop);
-            if (prop.getRefInfo() != null && prop.getRefInfo().getRefModule() != null) {
-                codegenHeader.imports.add(getImport(null, prop));
-            }
         }
 
         // the default value is false
@@ -3562,6 +3577,7 @@ public class DefaultCodegen implements CodegenConfig {
         String parameterRef = parameter.get$ref();
         setParameterLocationInfo(parameterRef, sourceJsonPath, sourceJsonPath, codegenParameter);
         if (parameterRef != null) {
+            codegenParameter.imports.add(getImport(codegenParameter.getRefInfo()));
             return codegenParameter;
         }
 
@@ -4885,7 +4901,7 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, Set<String> imports, String sourceJsonPath) {
+    protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, String sourceJsonPath) {
         if (content == null) {
             return null;
         }
@@ -4942,9 +4958,6 @@ public class DefaultCodegen implements CodegenConfig {
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
             CodegenKey ck = getKey(contentType);
             cmtContent.put(ck, codegenMt);
-            if (schemaProp != null && schemaProp.getRefInfo() != null && schemaProp.getRefInfo().getRefModule() != null) {
-                imports.add(getImport(null, schemaProp));
-            }
         }
         return cmtContent;
     }
@@ -5107,6 +5120,7 @@ public class DefaultCodegen implements CodegenConfig {
         String bodyRef = requestBody.get$ref();
         setRequestBodyLocationInfo(bodyRef, sourceJsonPath, sourceJsonPath, codegenRequestBody);
         if (bodyRef != null) {
+            codegenRequestBody.imports.add(getImport(codegenRequestBody.getRefInfo()));
             return codegenRequestBody;
         }
 

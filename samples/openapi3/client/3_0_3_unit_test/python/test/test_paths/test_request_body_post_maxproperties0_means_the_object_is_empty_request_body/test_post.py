@@ -42,7 +42,7 @@ class TestRequestBodyPostMaxproperties0MeansTheObjectIsEmptyRequestBody(ApiTestM
                 {
                 }
             )
-            body = post.request_body.maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -76,7 +76,7 @@ class TestRequestBodyPostMaxproperties0MeansTheObjectIsEmptyRequestBody(ApiTestM
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )

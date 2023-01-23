@@ -41,7 +41,7 @@ class TestRequestBodyPostAllofWithOneEmptySchemaRequestBody(ApiTestMixin, unitte
             payload = (
                 1
             )
-            body = post.request_body.allof_with_one_empty_schema.AllofWithOneEmptySchema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

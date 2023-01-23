@@ -48,7 +48,7 @@ class TestRequestBodyPostAdditionalpropertiesAreAllowedByDefaultRequestBody(ApiT
                         True,
                 }
             )
-            body = post.request_body.additionalproperties_are_allowed_by_default.AdditionalpropertiesAreAllowedByDefault.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )

@@ -42,7 +42,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 [
                 ]
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -73,7 +73,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 {
                 }
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -103,7 +103,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 None
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -133,7 +133,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 1.0
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -164,7 +164,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
                 "abc"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
@@ -177,7 +177,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 True
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -207,7 +207,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 "aaa"
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -237,7 +237,7 @@ class TestRequestBodyPostPatternValidationRequestBody(ApiTestMixin, unittest.Tes
             payload = (
                 123
             )
-            body = post.request_body.pattern_validation.PatternValidation.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
