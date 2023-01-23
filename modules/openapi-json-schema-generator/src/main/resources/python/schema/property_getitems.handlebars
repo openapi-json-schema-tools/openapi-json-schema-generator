@@ -43,7 +43,7 @@ def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> refclass_with_m
 def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     {{/with}}
 
-{{> model_templates/property_getitem methodName="__getitem__" }}
+{{> schema/property_getitem methodName="__getitem__" }}
 {{else}}
     {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}
@@ -99,7 +99,7 @@ def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> refc
 def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     {{/with}}
 
-{{> model_templates/property_getitem methodName="get_item_" }}
+{{> schema/property_getitem methodName="get_item_" }}
 {{else}}
     {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}

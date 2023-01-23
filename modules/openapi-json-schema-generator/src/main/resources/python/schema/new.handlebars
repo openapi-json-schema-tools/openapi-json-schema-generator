@@ -1,12 +1,12 @@
 def __new__(
     cls,
 {{#if getHasMultipleTypes}}
-    *args_: typing.Union[{{> model_templates/schema_python_types }}],
+    *args_: typing.Union[{{> schema/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}]{{/if}}{{/with}}]],
+    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
-    *args_: typing.Union[{{> model_templates/schema_python_types }}],
+    *args_: typing.Union[{{> schema/schema_python_types }}],
 {{/if}}
 {{/if}}
 {{#unless isNull}}
@@ -19,12 +19,12 @@ def __new__(
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-    {{@key.getName}}: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}],
         {{else}}
-    {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}],
         {{/if}}
     {{else}}
-    {{@key.getName}}: typing.Union[schemas.AnyTypeSchema, {{> model_templates/schema_python_types }}],
+    {{@key.getName}}: typing.Union[schemas.AnyTypeSchema, {{> schema/schema_python_types }}],
     {{/if}}
 {{/if}}
 {{/with}}
@@ -37,7 +37,7 @@ def __new__(
 {{#if refInfo.refClass}}
     {{@key.getName}}: typing.Union['{{> refclass_with_module }}', schemas.Unset] = schemas.unset,
 {{else}}
-    {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
 {{/if}}
 {{/each}}
@@ -47,7 +47,7 @@ def __new__(
 {{#if refInfo.refClass}}
     **kwargs: '{{> refclass_with_module }}',
 {{else}}
-    **kwargs: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> model_templates/schema_python_types }}],
+    **kwargs: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> schema/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}

@@ -2,10 +2,10 @@
 {
 {{#each value}}
 {{#with @key}}
-    {{> model_templates/payload_renderer endChar=':'}}
+    {{> schema/payload_renderer endChar=':'}}
 {{/with}}
 {{#with this}}
-        {{> model_templates/payload_renderer endChar=','}}
+        {{> schema/payload_renderer endChar=','}}
 {{/with}}
 {{/each}}
 }{{endChar}}
@@ -13,7 +13,7 @@
 {{#if isArray}}
 [
 {{#each value}}
-    {{> model_templates/payload_renderer endChar=','}}
+    {{> schema/payload_renderer endChar=','}}
 {{/each}}
 ]{{endChar}}
 {{/if}}

@@ -4,7 +4,7 @@
 
 {{#with response}}
 {{#if refInfo}}
-{{> model_templates/imports }}
+{{> schema/imports }}
 {{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses

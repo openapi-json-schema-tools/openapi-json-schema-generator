@@ -4,11 +4,11 @@
 
 {{#with schema}}
     {{#if refInfo}}
-{{> model_templates/imports }}
-{{> model_templates/schema_switch_case }}
+{{> schema/imports }}
+{{> schema/schema_switch_case }}
     {{else}}
-{{> model_templates/imports_schema_types }}
-{{> model_templates/schema_switch_case }}
-{{> model_templates/imports }}
+{{> schema/imports_schema_types }}
+{{> schema/schema_switch_case }}
+{{> schema/imports }}
     {{/if}}
 {{/with}}

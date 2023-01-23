@@ -3,11 +3,11 @@
 class {{name.getCamelCaseName}}(
 {{#if getIsAnyType}}
     {{#if getFormat}}
-    {{> model_templates/format_base }}
+    {{> schema/format_base }}
     {{/if}}
     schemas.AnyTypeSchema,
 {{else}}
-    {{> model_templates/xbase_schema }}
+    {{> schema/xbase_schema }}
 {{/if}}
 ):
 {{#if componentModule}}
@@ -27,7 +27,7 @@ class {{name.getCamelCaseName}}(
 {{#if isAnyType}}
         # any type
 {{/if}}
-        {{> model_templates/types }}
+        {{> schema/types }}
 {{#if getFormat}}
         format = '{{getFormat}}'
 {{/if}}
@@ -41,23 +41,23 @@ class {{name.getCamelCaseName}}(
 {{/with}}
 {{/if}}
 {{#if getItems}}
-        {{> model_templates/list_partial }}
+        {{> schema/list_partial }}
 {{/if}}
 {{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
-        {{> model_templates/dict_partial }}
+        {{> schema/dict_partial }}
 {{/or}}
 {{#unless isStub}}
 {{#if hasValidation}}
-        {{> model_templates/validations }}
+        {{> schema/validations }}
 {{/if}}
 {{/unless}}
 {{#or allOf anyOf oneOf not}}
-        {{> model_templates/composed_schemas }}
+        {{> schema/composed_schemas }}
 {{/or}}
 {{#if isEnum}}
-    {{> model_templates/enums }}
+    {{> schema/enums }}
 {{/if}}
 
-    {{> model_templates/property_type_hints }}
+    {{> schema/property_type_hints }}
 
-    {{> model_templates/new }}
+    {{> schema/new }}

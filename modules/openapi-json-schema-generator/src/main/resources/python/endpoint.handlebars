@@ -12,8 +12,8 @@ from urllib3._collections import HTTPHeaderDict
 {{/with}}
 
 from {{packageName}} import api_client, exceptions
-{{> model_templates/imports_schema_types }}
-{{> model_templates/imports }}
+{{> schema/imports_schema_types }}
+{{> schema/imports }}
 {{#with operation}}
 
 {{#unless isStub}}

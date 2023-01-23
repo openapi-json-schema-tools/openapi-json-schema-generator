@@ -19,7 +19,7 @@ class {{name.getCamelCaseName}}(
 
 
     class Schema_:
-        {{> model_templates/dict_partial }}
+        {{> schema/dict_partial }}
 {{/or}}
 {{else}}
 {{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties hasValidation}}
@@ -27,10 +27,10 @@ class {{name.getCamelCaseName}}(
 
     class Schema_:
         types = {frozendict.frozendict}
-        {{> model_templates/dict_partial }}
-        {{> model_templates/validations }}
+        {{> schema/dict_partial }}
+        {{> schema/validations }}
 {{/or}}
 {{/if}}
-    {{> model_templates/property_type_hints }}
+    {{> schema/property_type_hints }}
 
-    {{> model_templates/new }}
+    {{> schema/new }}
