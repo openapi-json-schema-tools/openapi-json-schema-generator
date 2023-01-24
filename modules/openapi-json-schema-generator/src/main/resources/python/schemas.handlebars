@@ -1,6 +1,6 @@
 # coding: utf-8
 
-{{>partial_header}}
+{{> _helper_header }}
 
 import collections
 import datetime
@@ -1478,11 +1478,11 @@ class Schema:
     def __new__(
         cls,
         *args_: typing.Union[
-            {{> types_all_incl_schema }}
+            {{> _helper_types_all_incl_schema }}
         ],
         configuration_: typing.Optional[configuration_module.Configuration] = None,
         **kwargs: typing.Union[
-            {{> types_all_incl_schema }}
+            {{> _helper_types_all_incl_schema }}
             Unset
         ]
     ):
@@ -2048,14 +2048,14 @@ class DictBase:
 
 def cast_to_allowed_types(
     arg: typing.Union[
-        {{> types_all_incl_schema }}
+        {{> _helper_types_all_incl_schema }}
     ],
     from_server: bool,
     validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]],
     path_to_item: typing.Tuple[typing.Union[str, int], ...],
     path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
 ) -> typing.Union[
-    {{> types_all_accessed }}
+    {{> _helper_types_all_accessed }}
 ]:
     """
     Casts the input payload arg into the allowed types

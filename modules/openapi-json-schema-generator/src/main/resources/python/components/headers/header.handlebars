@@ -1,6 +1,6 @@
 # coding: utf-8
 
-{{>partial_header}}
+{{> _helper_header }}
 
 {{#with header}}
 {{#if refInfo}}
@@ -28,6 +28,6 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
     {{/if}}
 
 
-{{> parameter_instance noName=true }}
+{{> components/param_or_header_instance noName=true }}
 {{/if}}
 {{/with}}

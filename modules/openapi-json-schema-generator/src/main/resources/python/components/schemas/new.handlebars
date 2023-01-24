@@ -4,7 +4,7 @@ def __new__(
     *args_: typing.Union[{{> components/schemas/schema_python_types }}],
 {{else}}
 {{#if isArray }}
-    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}]{{/if}}{{/with}}]],
+    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}]{{/if}}{{/with}}]],
 {{else}}
     *args_: typing.Union[{{> components/schemas/schema_python_types }}],
 {{/if}}
@@ -15,7 +15,7 @@ def __new__(
 {{#if @key.getNameIsValid}}
 {{#with this}}
 {{#if refInfo.refClass}}
-    {{@key.getName}}: '{{> refclass_with_module }}',
+    {{@key.getName}}: '{{> components/schemas/refclass_with_module }}',
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
@@ -35,7 +35,7 @@ def __new__(
 {{#each optionalProperties}}
 {{#if @key.getNameIsValid}}
 {{#if refInfo.refClass}}
-    {{@key.getName}}: typing.Union['{{> refclass_with_module }}', schemas.Unset] = schemas.unset,
+    {{@key.getName}}: typing.Union['{{> components/schemas/refclass_with_module }}', schemas.Unset] = schemas.unset,
 {{else}}
     {{@key.getName}}: typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}schemas.Unset] = schemas.unset,
 {{/if}}
@@ -45,14 +45,14 @@ def __new__(
 {{#with additionalProperties}}
 {{#unless getIsBooleanSchemaFalse}}
 {{#if refInfo.refClass}}
-    **kwargs: '{{> refclass_with_module }}',
+    **kwargs: '{{> components/schemas/refclass_with_module }}',
 {{else}}
     **kwargs: typing.Union[Schema_.{{name.getCamelCaseName}}, {{> components/schemas/schema_python_types }}],
 {{/if}}
 {{/unless}}
 {{else}}
 {{#or isMap isAnyType}}
-    **kwargs: typing.Union[{{> types_all_incl_schema_oneline }}],
+    **kwargs: typing.Union[{{> components/schemas/types_all_incl_schema_oneline }}],
 {{/or}}
 {{/with}}
 ) -> '{{name.getCamelCaseName}}':
