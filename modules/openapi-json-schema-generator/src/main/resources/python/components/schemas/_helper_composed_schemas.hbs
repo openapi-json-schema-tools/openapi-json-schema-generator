@@ -4,9 +4,9 @@ class AllOf:
 {{#each allOf}}
 {{#if refInfo.refClass}}
 
-    {{> components/schemas/refClassStaticmethod }}
+    {{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-    {{> components/schemas/schema_switch_case }}
+    {{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/each}}
     classes = [
@@ -25,9 +25,9 @@ class OneOf:
 {{#each oneOf}}
 {{#if refInfo.refClass}}
 
-    {{> components/schemas/refClassStaticmethod }}
+    {{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-    {{> components/schemas/schema_switch_case }}
+    {{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/each}}
     classes = [
@@ -46,9 +46,9 @@ class AnyOf:
 {{#each anyOf}}
 {{#if refInfo.refClass}}
 
-    {{> components/schemas/refClassStaticmethod }}
+    {{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-    {{> components/schemas/schema_switch_case }}
+    {{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/each}}
     classes = [
@@ -65,9 +65,9 @@ class AnyOf:
 {{#with not}}
 {{#if refInfo.refClass}}
 
-{{> components/schemas/refClassStaticmethod }}
+{{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-{{> components/schemas/schema_switch_case }}
+{{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/with}}
 {{/if}}

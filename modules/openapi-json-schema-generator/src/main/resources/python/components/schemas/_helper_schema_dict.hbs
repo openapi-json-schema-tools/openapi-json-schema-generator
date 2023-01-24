@@ -28,7 +28,7 @@ class {{name.getCamelCaseName}}(
     class Schema_:
         types = {frozendict.frozendict}
         {{> components/schemas/_helper_dict_partial }}
-        {{> components/schemas/validations }}
+        {{> components/schemas/_helper_validations }}
 {{/or}}
 {{/if}}
     {{> components/schemas/_helper_property_type_hints }}

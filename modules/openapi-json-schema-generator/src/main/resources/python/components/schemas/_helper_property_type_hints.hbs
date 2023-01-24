@@ -4,7 +4,7 @@
         {{#if @key.nameIsValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-{{@key.getName}}: '{{> components/schemas/refclass_with_module }}'
+{{@key.getName}}: '{{> components/schemas/_helper_refclass_with_module }}'
                 {{else}}
                     {{#if name}}
                         {{#if schemaIsFromAdditionalProperties}}

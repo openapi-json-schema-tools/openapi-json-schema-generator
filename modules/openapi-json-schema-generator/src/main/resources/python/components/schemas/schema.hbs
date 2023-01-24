@@ -5,10 +5,10 @@
 {{#with schema}}
     {{#if refInfo}}
 {{> _helper_imports }}
-{{> components/schemas/schema_switch_case }}
+{{> components/schemas/_helper_schema_switch_case }}
     {{else}}
 {{> _helper_imports_schema_types }}
-{{> components/schemas/schema_switch_case }}
+{{> components/schemas/_helper_schema_switch_case }}
 {{> _helper_imports }}
     {{/if}}
 {{/with}}

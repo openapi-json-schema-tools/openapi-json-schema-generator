@@ -11,7 +11,7 @@
 ### {{> components/anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> components/schemas/schema_python_types }} | {{> components/schemas/schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
             {{/with}}
         {{/each}}
     {{/with}}

@@ -8,17 +8,17 @@ class {{xParamsName}}:
 {{#if refInfo}}
     {{#if getDeepestRef.required}}
         {{#if getDeepestRef.schema}}
-            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> components/schemas/schema_python_types }}{{/with}}],
+            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{else}}
     {{#if required}}
         {{#if schema}}
-            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}],
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{/if}}
@@ -32,17 +32,17 @@ class {{xParamsName}}:
 {{#if refInfo}}
     {{#unless getDeepestRef.required}}
         {{#if getDeepestRef.schema}}
-            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> components/schemas/schema_python_types }}{{/with}}],
+            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with getDeepestRef.schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{getDeepestRef.baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getDeepestRef.getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{else}}
     {{#unless required}}
         {{#if schema}}
-            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}],
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.schema, {{#with schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> components/schemas/schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{baseName}}': typing.Union[{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}.content["{{#each getContent}}{{{@key.getName}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{/if}}

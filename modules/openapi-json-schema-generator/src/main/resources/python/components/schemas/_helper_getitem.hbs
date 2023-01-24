@@ -17,7 +17,7 @@ def {{methodName}}(
         str
 {{/with}}
     ]
-){{#not properties}}{{#not getRequiredProperties}}{{#with additionalProperties}}{{#unless getIsBooleanSchemaFalse}} -> {{#if refInfo.refClass}}'{{> components/schemas/refclass_with_module }}'{{else}}Schema_.{{name.getName}}{{/if}}{{/unless}}{{/with}}{{/not}}{{/not}}:
+){{#not properties}}{{#not getRequiredProperties}}{{#with additionalProperties}}{{#unless getIsBooleanSchemaFalse}} -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.getName}}{{/if}}{{/unless}}{{/with}}{{/not}}{{/not}}:
 {{#eq methodName "__getitem__"}}
     # dict_instance[name] accessor
 {{/eq}}

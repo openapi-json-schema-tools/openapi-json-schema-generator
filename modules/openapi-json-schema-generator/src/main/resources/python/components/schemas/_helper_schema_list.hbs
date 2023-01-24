@@ -20,12 +20,12 @@ class {{name.getCamelCaseName}}(
     class Schema_:
         types = {tuple}
 {{#if hasValidation}}
-        {{> components/schemas/validations }}
+        {{> components/schemas/_helper_validations }}
 {{/if}}
         {{> components/schemas/_helper_list_partial }}
 {{/or}}
 
     {{> components/schemas/_helper_new }}
 
-    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
+    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
         return super().__getitem__(i)

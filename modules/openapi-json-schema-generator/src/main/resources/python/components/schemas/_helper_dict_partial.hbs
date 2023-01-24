@@ -29,9 +29,9 @@ class Properties:
 {{#each properties}}
 {{#if refInfo.refClass}}
 
-    {{> components/schemas/refClassStaticmethod }}
+    {{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-    {{> components/schemas/schema_switch_case }}
+    {{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/each}}
     __annotations__ = {
@@ -47,8 +47,8 @@ class Properties:
 {{#with additionalProperties}}
 {{#if refInfo.refClass}}
 
-{{> components/schemas/refClassStaticmethod }}
+{{> components/schemas/_helper_refclass_staticmethod }}
 {{else}}
-{{> components/schemas/schema_switch_case }}
+{{> components/schemas/_helper_schema_switch_case }}
 {{/if}}
 {{/with}}

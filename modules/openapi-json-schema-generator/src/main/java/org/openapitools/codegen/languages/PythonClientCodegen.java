@@ -303,16 +303,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointDocTemplateFiles.add("paths/path/verb/endpoint_doc.handlebars");
         pathEndpointTestTemplateFiles.add("paths/path/verb/endpoint_test.handlebars");
 
-        modelDocTemplateFiles.put("components/schemas/schema_doc.handlebars", ".md");
-        modelTestTemplateFiles.put("components/schemas/schema_test.handlebars", ".py");
+        modelDocTemplateFiles.put("components/schemas/schema_doc.hbs", ".md");
+        modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
         requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
         parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
         headerDocTemplateFiles.put("components/headers/header_doc.hbs", ".md");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
-        schemaTemplates.put("components/schemas/schema.handlebars", ".py");
-        schemaTemplates.put("components/schemas/schema_stub.handlebars", ".pyi");
+        schemaTemplates.put("components/schemas/schema.hbs", ".py");
+        schemaTemplates.put("components/schemas/schema_stub.hbs", ".pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates

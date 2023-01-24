@@ -1,40 +1,40 @@
 {{#or allOf anyOf oneOf not}}
     {{#if getIsBooleanSchemaFalse}}
-{{> components/schemas/var_equals_cls }}
+{{> components/schemas/_helper_var_equals_cls }}
     {{else}}
-{{> components/schemas/schema_composed_or_anytype }}
+{{> components/schemas/_helper_schema_composed_or_anytype }}
     {{/if}}
 {{else}}
     {{#if getHasMultipleTypes}}
-{{> components/schemas/schema_composed_or_anytype }}
+{{> components/schemas/_helper_schema_composed_or_anytype }}
     {{else}}
         {{#or isMap isArray isAnyType}}
             {{#if isMap}}
                 {{#or properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
-{{> components/schemas/schema_dict }}
+{{> components/schemas/_helper_schema_dict }}
                 {{else}}
-{{> components/schemas/var_equals_cls }}
+{{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
             {{#if isArray}}
                 {{#or hasItems hasValidation}}
-{{> components/schemas/schema_list }}
+{{> components/schemas/_helper_schema_list }}
                 {{else}}
-{{> components/schemas/var_equals_cls }}
+{{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
             {{#if isAnyType}}
                 {{#or isEnum properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping items getFormat}}
-{{> components/schemas/schema_composed_or_anytype }}
+{{> components/schemas/_helper_schema_composed_or_anytype }}
                 {{else}}
-{{> components/schemas/var_equals_cls }}
+{{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
         {{else}}
             {{#or isEnum hasValidation}}
-{{> components/schemas/schema_simple }}
+{{> components/schemas/_helper_schema_simple }}
             {{else}}
-{{> components/schemas/var_equals_cls }}
+{{> components/schemas/_helper_var_equals_cls }}
             {{/or}}
         {{/or}}
     {{/if}}
