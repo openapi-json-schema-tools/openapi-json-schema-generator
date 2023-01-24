@@ -39,7 +39,7 @@ class {{name.getCamelCaseName}}(
 {{/or}}
 {{/unless}}
 {{#if isEnum}}
-    {{> components/schemas/enums }}
+    {{> components/schemas/_helper_enums }}
 {{/if}}
 {{#if isStub}}
 {{#if hasValidation}}

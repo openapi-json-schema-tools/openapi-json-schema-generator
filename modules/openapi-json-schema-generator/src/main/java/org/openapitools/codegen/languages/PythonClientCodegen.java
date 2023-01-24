@@ -305,10 +305,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         modelDocTemplateFiles.put("components/schemas/schema_doc.handlebars", ".md");
         modelTestTemplateFiles.put("components/schemas/schema_test.handlebars", ".py");
-        requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.handlebars", ".md");
-        parameterDocTemplateFiles.put("components/parameters/parameter_doc.handlebars", ".md");
-        responseDocTemplateFiles.put("components/responses/response_doc.handlebars", ".md");
-        headerDocTemplateFiles.put("components/headers/header_doc.handlebars", ".md");
+        requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
+        parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
+        responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
+        headerDocTemplateFiles.put("components/headers/header_doc.hbs", ".md");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("components/schemas/schema.handlebars", ".py");
@@ -323,7 +323,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("components/headers/header.handlebars", "__init__.py")
+                Collections.singletonMap("components/headers/header.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
@@ -331,7 +331,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                Collections.singletonMap("components/parameters/parameter.handlebars", "__init__.py")
+                Collections.singletonMap("components/parameters/parameter.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
@@ -339,7 +339,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("components/request_bodies/request_body.handlebars", "__init__.py")
+                Collections.singletonMap("components/request_bodies/request_body.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
@@ -347,11 +347,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                Collections.singletonMap("components/responses/response.handlebars", "__init__.py")
+                Collections.singletonMap("components/responses/response.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                Collections.singletonMap("components/schemas/__init__schema.handlebars", "__init__.py")
+                Collections.singletonMap("components/schemas/__init__schema.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
@@ -508,7 +508,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String modelPackages = modelPackage + "s";
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
-            supportingFiles.add(new SupportingFile("components/schemas/__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {

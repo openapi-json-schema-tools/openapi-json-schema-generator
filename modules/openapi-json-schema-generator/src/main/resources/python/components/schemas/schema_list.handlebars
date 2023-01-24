@@ -22,10 +22,10 @@ class {{name.getCamelCaseName}}(
 {{#if hasValidation}}
         {{> components/schemas/validations }}
 {{/if}}
-        {{> components/schemas/list_partial }}
+        {{> components/schemas/_helper_list_partial }}
 {{/or}}
 
-    {{> components/schemas/new }}
+    {{> components/schemas/_helper_new }}
 
     def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
         return super().__getitem__(i)

@@ -3,7 +3,18 @@
 class {{name.getCamelCaseName}}(
 {{#if getIsAnyType}}
     {{#if getFormat}}
-    {{> components/schemas/format_base }}
+        {{#eq getFormat "uuid"}}
+    schemas.UUIDBase,
+        {{/eq}}
+        {{#eq getFormat "date"}}
+    schemas.DateBase,
+        {{/eq}}
+        {{#eq getFormat "date-time"}}
+    schemas.DateTimeBase,
+        {{/eq}}
+        {{#eq getFormat "number"}}
+    schemas.DecimalBase,
+        {{/eq}}
     {{/if}}
     schemas.AnyTypeSchema,
 {{else}}
@@ -41,10 +52,10 @@ class {{name.getCamelCaseName}}(
 {{/with}}
 {{/if}}
 {{#if getItems}}
-        {{> components/schemas/list_partial }}
+        {{> components/schemas/_helper_list_partial }}
 {{/if}}
 {{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
-        {{> components/schemas/dict_partial }}
+        {{> components/schemas/_helper_dict_partial }}
 {{/or}}
 {{#unless isStub}}
 {{#if hasValidation}}
@@ -52,12 +63,12 @@ class {{name.getCamelCaseName}}(
 {{/if}}
 {{/unless}}
 {{#or allOf anyOf oneOf not}}
-        {{> components/schemas/composed_schemas }}
+        {{> components/schemas/_helper_composed_schemas }}
 {{/or}}
 {{#if isEnum}}
-    {{> components/schemas/enums }}
+    {{> components/schemas/_helper_enums }}
 {{/if}}
 
-    {{> components/schemas/property_type_hints }}
+    {{> components/schemas/_helper_property_type_hints }}
 
-    {{> components/schemas/new }}
+    {{> components/schemas/_helper_new }}

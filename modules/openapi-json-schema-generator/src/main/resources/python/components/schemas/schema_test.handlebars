@@ -21,7 +21,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
 {{#if valid}}
         {{name.getCamelCaseName}}.from_openapi_data_(
 {{#with data}}
-            {{> components/schemas/payload_renderer endChar=',' }}
+            {{> components/schemas/_helper_payload_renderer endChar=',' }}
 {{/with}}
             configuration_=self.configuration_
         )
@@ -29,7 +29,7 @@ class Test{{name.getCamelCaseName}}(unittest.TestCase):
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
             {{name.getCamelCaseName}}.from_openapi_data_(
 {{#with data}}
-                {{> components/schemas/payload_renderer endChar=','}}
+                {{> components/schemas/_helper_payload_renderer endChar=','}}
 {{/with}}
                 configuration_=self.configuration_
             )

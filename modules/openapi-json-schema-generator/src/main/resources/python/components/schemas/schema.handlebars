@@ -4,11 +4,11 @@
 
 {{#with schema}}
     {{#if refInfo}}
-{{> components/schemas/imports }}
+{{> _helper_imports }}
 {{> components/schemas/schema_switch_case }}
     {{else}}
-{{> components/schemas/imports_schema_types }}
+{{> _helper_imports_schema_types }}
 {{> components/schemas/schema_switch_case }}
-{{> components/schemas/imports }}
+{{> _helper_imports }}
     {{/if}}
 {{/with}}

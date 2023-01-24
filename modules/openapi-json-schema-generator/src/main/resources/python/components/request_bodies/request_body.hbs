@@ -4,7 +4,7 @@
 
 {{#with requestBody}}
 {{#if refInfo}}
-{{> components/schemas/imports }}
+{{> _helper_imports }}
 {{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing

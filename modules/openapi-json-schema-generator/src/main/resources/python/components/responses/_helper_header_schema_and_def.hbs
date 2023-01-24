@@ -5,7 +5,7 @@ class {{xParamsName}}:
         'RequiredParams',
         {
 {{#each xParams}}
-{{> components/responses/response_header_required_oneline }}
+{{> components/responses/_helper_header_required_oneline }}
 {{/each}}
         }
     )
@@ -13,7 +13,7 @@ class {{xParamsName}}:
         'OptionalParams',
         {
 {{#each xParams}}
-{{> components/responses/response_header_optional_oneline }}
+{{> components/responses/_helper_header_optional_oneline }}
 {{/each}}
         },
         total=False

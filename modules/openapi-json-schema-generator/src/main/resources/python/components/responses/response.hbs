@@ -4,7 +4,7 @@
 
 {{#with response}}
 {{#if refInfo}}
-{{> components/schemas/imports }}
+{{> _helper_imports }}
 {{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
@@ -31,7 +31,7 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
 from .headers import {{name.getSnakeCaseName}}
     {{/each}}
     {{#if headers}}
-{{> components/responses/response_header_schema_and_def xParams=headers xParamsName="Header" }}
+{{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
     {{/if}}
 
 

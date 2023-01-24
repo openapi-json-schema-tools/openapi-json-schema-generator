@@ -2,15 +2,16 @@
 
 {{> _helper_header }}
 
-{{#with header}}
+{{#with parameter}}
 {{#if refInfo}}
-{{> components/schemas/imports }}
+{{> _helper_imports }}
 {{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
 import typing_extensions
 
 from {{packageName}} import api_client
+
     {{#if schema}}
         {{#with schema}}
 from . import {{name.getSnakeCaseName}}
@@ -28,6 +29,6 @@ from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {
     {{/if}}
 
 
-{{> components/param_or_header_instance noName=true }}
+{{> components/param_or_header_instance }}
 {{/if}}
 {{/with}}
