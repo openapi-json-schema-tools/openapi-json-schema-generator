@@ -295,10 +295,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        apiTemplateFiles.put("api.handlebars", ".py");
-        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
-        apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
-        apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
+        apiTemplateFiles.put("apis/api.handlebars", ".py");
+        apiDocTemplateFiles.put("apis/api_doc.handlebars", ".md");
+        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.handlebars", "tag_to_api.py");
+        apiXToApiTemplateFiles.put("apis/apis_path_to_api.handlebars", "path_to_api.py");
 
         pathEndpointDocTemplateFiles.add("paths/path/verb/endpoint_doc.handlebars");
         pathEndpointTestTemplateFiles.add("paths/path/verb/endpoint_test.handlebars");
@@ -351,7 +351,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                Collections.singletonMap("__init__schema.handlebars", "__init__.py")
+                Collections.singletonMap("components/schemas/__init__schema.handlebars", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
@@ -508,11 +508,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String modelPackages = modelPackage + "s";
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
-            supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("components/schemas/__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {
-            supportingFiles.add(new SupportingFile("__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
+            supportingFiles.add(new SupportingFile("apis/__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
         }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
