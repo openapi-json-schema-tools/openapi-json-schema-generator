@@ -1,0 +1,14 @@
+# coding: utf-8
+
+{{>partial_header}}
+
+{{#with schema}}
+    {{#if refInfo}}
+{{> components/schemas/imports }}
+{{> components/schemas/schema_switch_case }}
+    {{else}}
+{{> components/schemas/imports_schema_types }}
+{{> components/schemas/schema_switch_case }}
+{{> components/schemas/imports }}
+    {{/if}}
+{{/with}}

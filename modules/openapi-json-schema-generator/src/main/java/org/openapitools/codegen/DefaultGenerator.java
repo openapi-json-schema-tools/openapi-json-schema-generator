@@ -464,7 +464,6 @@ public class DefaultGenerator implements Generator {
             LOGGER.warn("Skipping generation of paths because the specification document lacks them.");
             return;
         }
-        List<List<Object>> pathsFiles = new ArrayList<>();
         List<List<Object>> apisFiles = new ArrayList<>();
         List<List<Object>> testFiles = new ArrayList<>();
         List<List<Object>> apiDocFiles = new ArrayList<>();
@@ -653,7 +652,6 @@ public class DefaultGenerator implements Generator {
 
         boolean shouldGenerateApiTests = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_TESTS);
         boolean shouldGenerateApiDocs = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_API_DOCS);
-        generateFiles(pathsFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(apisFiles, shouldGenerateApis, CodegenConstants.APIS, files);
         generateFiles(testFiles, shouldGenerateApiTests, CodegenConstants.API_TESTS, files);
         generateFiles(apiDocFiles, shouldGenerateApiDocs, CodegenConstants.API_DOCS, files);

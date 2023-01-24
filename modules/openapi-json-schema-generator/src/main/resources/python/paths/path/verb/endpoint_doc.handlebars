@@ -84,7 +84,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#unless requestBody.refInfo}}
 
 ### <a id="request_body" >body</a>
-{{> request_body/request_body_doc requestBody=requestBody }}
+{{> components/request_bodies/request_body_doc requestBody=requestBody }}
     {{/unless}}
     {{/if}}
     {{#if queryParams}}
@@ -111,7 +111,7 @@ Key | Input Type | Description  | Notes
         {{#each queryParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> parameter/parameter_doc complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -138,7 +138,7 @@ Key | Input Type | Description  | Notes
         {{#each headerParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> parameter/parameter_doc complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -165,7 +165,7 @@ Key | Input Type | Description  | Notes
         {{#each pathParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> parameter/parameter_doc complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -192,7 +192,7 @@ Key | Input Type | Description  | Notes
         {{#each cookieParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> parameter/parameter_doc complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc complexTypePrefix="../../../components/schema/" }}
         {{/unless}}
         {{/each}}
     {{/if}}
@@ -224,7 +224,7 @@ default | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}res
 {{#each responses}}
 {{#unless refInfo.refModule}}
 
-{{> response/response_doc response=this complexTypePrefix="../../../components/schema/" }}
+{{> components/responses/response_doc response=this complexTypePrefix="../../../components/schema/" }}
 {{/unless}}
 {{/each}}
 

@@ -1,0 +1,55 @@
+{{#with header}}
+    {{#if componentModule}}
+## {{packageName}}.components.headers.{{componentModule}}
+# {{name.getCamelCaseName}}
+    {{/if}}
+    {{#if refInfo}}
+        {{#with getDeepestRef}}
+            {{#if schema}}
+                {{#with schema}}
+### {{> anchor_fancy schemaNamePrefix1=../../name }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../refInfo.refClass}}.schema](../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> components/schemas/schema_python_types }} | {{> components/schemas/schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
+                {{/with}}
+            {{/if}}
+            {{#each content}}
+                {{#with this.schema}}
+### {{> anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> components/schemas/schema_python_types }} | {{> components/schemas/schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+                {{/with}}
+            {{/each}}
+        {{/with}}
+    {{else}}
+        {{#if schema}}
+            {{#with schema}}
+                {{#if ../componentModule}}
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name }}
+                {{else}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../name.getSnakeCaseName }}
+                {{/if}}
+            {{/with}}
+        {{else}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+                        {{#if ../componentModule}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName}}
+                        {{else}}
+
+{{> api_doc_schema_type_hint anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.getSnakeCaseName schemaNamePrefix4="content" schemaNamePrefix5=../@key.getSnakeCaseName}}
+                        {{/if}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if componentModule}}
+
+[[Back to top]](#top) {{> footer_links readmePath="../../../" headersLink=true }}
+    {{/if}}
+{{/with}}

@@ -1,0 +1,111 @@
+{{#if getRequiredProperties}}
+{{#each getRequiredProperties}}
+{{#with this}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> '{{> refclass_with_module }}': ...
+{{else}}
+    {{#if name}}
+        {{#if schemaIsFromAdditionalProperties}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.{{name.getCamelCaseName}}: ...
+        {{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
+        {{/if}}
+    {{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> schemas.AnyTypeSchema: ...
+    {{/if}}
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{#if optionalProperties}}
+{{#each optionalProperties}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> '{{> refclass_with_module }}': ...
+{{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
+{{/if}}
+{{/each}}
+{{/if}}
+{{#or properties getRequiredProperties}}
+    {{#with additionalProperties}}
+        {{#unless getIsBooleanSchemaFalse}}
+
+@typing.overload
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}: ...
+        {{/unless}}
+    {{else}}
+
+@typing.overload
+def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    {{/with}}
+
+{{> components/schemas/property_getitem methodName="__getitem__" }}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless getIsBooleanSchemaFalse}}
+
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}:
+    # dict_instance[name] accessor
+    return super().__getitem__(name)
+        {{/unless}}
+    {{/with}}
+{{/or}}
+{{#if getRequiredProperties}}
+{{#each getRequiredProperties}}
+{{#with this}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> '{{> refclass_with_module }}': ...
+{{else}}
+    {{#if name}}
+        {{#if schemaIsFromAdditionalProperties}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.{{name.getCamelCaseName}}: ...
+        {{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> Schema_.Properties.{{name.getCamelCaseName}}: ...
+        {{/if}}
+    {{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> schemas.AnyTypeSchema: ...
+    {{/if}}
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{#if optionalProperties}}
+{{#each optionalProperties}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> typing.Union['{{> refclass_with_module }}', schemas.Unset]: ...
+{{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.getName}}}"]) -> typing.Union[Schema_.Properties.{{name.getCamelCaseName}}, schemas.Unset]: ...
+{{/if}}
+{{/each}}
+{{/if}}
+{{#or properties getRequiredProperties}}
+    {{#with additionalProperties}}
+        {{#unless getIsBooleanSchemaFalse}}
+
+@typing.overload
+def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}, schemas.Unset]: ...
+        {{/unless}}
+    {{else}}
+
+@typing.overload
+def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    {{/with}}
+
+{{> components/schemas/property_getitem methodName="get_item_" }}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless getIsBooleanSchemaFalse}}
+
+def get_item_(self, name: str) -> {{#if refInfo.refClass}}'{{> refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}:
+    return super().get_item_(name)
+        {{/unless}}
+    {{/with}}
+{{/or}}

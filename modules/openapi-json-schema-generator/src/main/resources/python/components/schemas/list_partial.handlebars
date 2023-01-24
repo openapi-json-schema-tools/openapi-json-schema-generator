@@ -1,0 +1,8 @@
+{{#with items}}
+{{#if refInfo.refClass}}
+
+{{> components/schemas/refClassStaticmethod }}
+{{else}}
+{{> components/schemas/schema_switch_case }}
+{{/if}}
+{{/with}}
