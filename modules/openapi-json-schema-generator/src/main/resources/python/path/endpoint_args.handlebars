@@ -1,6 +1,6 @@
     self,
 {{#if requestBody}}
-{{> endpoint_args_request_body }}
+{{> path/endpoint_args_request_body }}
 {{else}}
     {{#if isOverload}}
         {{#eq skipDeserialization "True"}}
@@ -43,14 +43,14 @@
 {{/eq}}
 {{#eq skipDeserialization "False"}}
 ) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
-    {{> endpoint_response_type_hint }}
+    {{> path/endpoint_response_type_hint }}
 ]: ...
     {{/if}}
 {{/eq}}
 {{#eq skipDeserialization "null"}}
 {{#if isOverload}}
 ) -> typing.Union[
-    {{> endpoint_response_type_hint }}
+    {{> path/endpoint_response_type_hint }}
     api_client.ApiResponseWithoutDeserialization,
 ]: ...
 {{else}}

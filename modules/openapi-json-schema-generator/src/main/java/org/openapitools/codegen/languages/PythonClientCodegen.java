@@ -300,10 +300,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
 
-        pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
-        pathEndpointDocTemplateFiles.add("endpoint_doc.handlebars");
-        pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
-        pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+        pathEndpointTemplateFiles.put("path/endpoint.handlebars",  "__init__.py");
+        pathEndpointDocTemplateFiles.add("path/endpoint_doc.handlebars");
+        pathEndpointTemplateFiles.put("path/endpoint_stub.handlebars",  "__init__.pyi");
+        pathEndpointTestTemplateFiles.add("path/endpoint_test.handlebars");
 
         modelDocTemplateFiles.put("schema/schema_doc.handlebars", ".md");
         modelTestTemplateFiles.put("schema/schema_test.handlebars", ".py");

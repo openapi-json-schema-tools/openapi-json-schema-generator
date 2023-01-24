@@ -36,10 +36,10 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
-    {{> endpoint_test_response_content responseClassName=../name.getCamelCaseName }}
+    {{> path/endpoint_test_response_content responseClassName=../name.getCamelCaseName }}
             {{/with}}
         {{else}}
-    {{> endpoint_test_response_content responseClassName=name.getCamelCaseName }}
+    {{> path/endpoint_test_response_content responseClassName=name.getCamelCaseName }}
         {{/if}}
     {{/if}}
 {{/each}}
@@ -69,7 +69,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
-            {{> endpoint_test_partial }}
+            {{> path/endpoint_test_partial }}
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, schemas.Unset)
