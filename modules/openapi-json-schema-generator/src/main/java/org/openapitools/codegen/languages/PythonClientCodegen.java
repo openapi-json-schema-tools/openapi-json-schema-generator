@@ -310,7 +310,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         requestBodyDocTemplateFiles.put("request_body/request_body_doc.handlebars", ".md");
         parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
         responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-        headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+        headerDocTemplateFiles.put("header/header_doc.handlebars", ".md");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("schema/schema.handlebars", ".py");
@@ -325,7 +325,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("header.handlebars", "__init__.py")
+                Collections.singletonMap("header/header.handlebars", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
