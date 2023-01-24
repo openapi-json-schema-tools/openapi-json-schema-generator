@@ -224,7 +224,7 @@ default | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}res
 {{#each responses}}
 {{#unless refInfo.refModule}}
 
-{{> response_doc response=this complexTypePrefix="../../../components/schema/" }}
+{{> response/response_doc response=this complexTypePrefix="../../../components/schema/" }}
 {{/unless}}
 {{/each}}
 
