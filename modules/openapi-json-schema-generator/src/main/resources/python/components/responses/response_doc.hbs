@@ -25,7 +25,7 @@ headers | {{#unless headers}}Unset{{else}}[{{name.getSnakeCaseName}}.Headers](#{
     {{#each content}}
         {{#with this.schema}}
 
-{{> components/schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
         {{/with}}
     {{/each}}
     {{#if headers}}

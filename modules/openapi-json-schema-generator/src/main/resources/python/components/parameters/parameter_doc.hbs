@@ -8,7 +8,7 @@
     {{#with getDeepestRef}}
         {{#if schema}}
             {{#with schema}}
-### {{> components/anchor_fancy schemaNamePrefix1=../../name }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../name }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../refInfo.refClass}}.schema](../../components/parameters/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
@@ -16,7 +16,7 @@ Ref Class | Input Type | Accessed Type | Description
         {{else}}
             {{#each getDeepestRef.getContent}}
                 {{#with this.schema}}
-### {{> components/anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
@@ -27,12 +27,12 @@ Ref Class | Input Type | Accessed Type | Description
 {{else}}
     {{#if schema}}
         {{#with schema}}
-{{> components/schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name }}
         {{/with}}
     {{else}}
         {{#each getContent}}
             {{#with this.schema}}
-{{> components/schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
             {{/with}}
         {{/each}}
     {{/if}}
