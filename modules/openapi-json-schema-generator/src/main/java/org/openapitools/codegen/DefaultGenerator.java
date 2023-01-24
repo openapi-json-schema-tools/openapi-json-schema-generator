@@ -557,7 +557,7 @@ public class DefaultGenerator implements Generator {
                         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
                         testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
                         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
-                        testFiles.add(Arrays.asList(new HashMap<>(), "__init__.handlebars", outputFilename));
+                        testFiles.add(Arrays.asList(new HashMap<>(), "__init__.hbs", outputFilename));
 
                     }
                 }
@@ -603,7 +603,7 @@ public class DefaultGenerator implements Generator {
 
         if (!config.pathEndpointTestTemplateFiles().isEmpty()) {
             outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
-            testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.handlebars", outputFilename));
+            testFiles.add(Arrays.asList(new HashMap<>(), "__init__test_paths.hbs", outputFilename));
         }
 
         // Note: __init__apis.handlebars is generated as a supporting file

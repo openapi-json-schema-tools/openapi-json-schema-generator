@@ -91,7 +91,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
     private DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
 
-    private String templateExtension;
     protected CodegenIgnoreProcessor ignoreProcessor;
     protected TemplateProcessor templateProcessor = null;
 
@@ -274,7 +273,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 te,
                 new TemplatePathLocator[]{generatorTemplateLocator, commonTemplateLocator}
         );
-        templateExtension = te.getIdentifier();
 
         String ignoreFileLocation = this.getIgnoreFilePathOverride();
         if (ignoreFileLocation != null) {
@@ -450,26 +448,26 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         String readmePath = "README.md";
-        String readmeTemplate = "README." + templateExtension;
+        String readmeTemplate = "README.hbs";
         if (generateSourceCodeOnly) {
             readmePath = packagePath() + "_" + readmePath;
-            readmeTemplate = "README_onlypackage." + templateExtension;
+            readmeTemplate = "README_onlypackage.hbs";
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
 
         if (!generateSourceCodeOnly) {
-            supportingFiles.add(new SupportingFile("tox." + templateExtension, "", "tox.ini"));
-            supportingFiles.add(new SupportingFile("test-requirements." + templateExtension, "", "test-requirements.txt"));
-            supportingFiles.add(new SupportingFile("requirements." + templateExtension, "", "requirements.txt"));
+            supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
+            supportingFiles.add(new SupportingFile("test-requirements.hbs", "", "test-requirements.txt"));
+            supportingFiles.add(new SupportingFile("requirements.hbs", "", "requirements.txt"));
 
-            supportingFiles.add(new SupportingFile("git_push.sh." + templateExtension, "", "git_push.sh"));
-            supportingFiles.add(new SupportingFile("gitignore." + templateExtension, "", ".gitignore"));
-            supportingFiles.add(new SupportingFile("travis." + templateExtension, "", ".travis.yml"));
-            supportingFiles.add(new SupportingFile("gitlab-ci." + templateExtension, "", ".gitlab-ci.yml"));
-            supportingFiles.add(new SupportingFile("pyproject." + templateExtension, "", "pyproject.toml"));
+            supportingFiles.add(new SupportingFile("git_push.hbs", "", "git_push.sh"));
+            supportingFiles.add(new SupportingFile("gitignore.hbs", "", ".gitignore"));
+            supportingFiles.add(new SupportingFile("travis.hbs", "", ".travis.yml"));
+            supportingFiles.add(new SupportingFile("gitlab-ci.hbs", "", ".gitlab-ci.yml"));
+            supportingFiles.add(new SupportingFile("pyproject.hbs", "", "pyproject.toml"));
         }
-        supportingFiles.add(new SupportingFile("configuration." + templateExtension, packagePath(), "configuration.py"));
-        supportingFiles.add(new SupportingFile("__init__package." + templateExtension, packagePath(), "__init__.py"));
+        supportingFiles.add(new SupportingFile("configuration.hbs", packagePath(), "configuration.py"));
+        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
 
         // If the package name consists of dots(openapi.client), then we need to create the directory structure like openapi/client with __init__ files.
         String[] packageNameSplits = packageName.split("\\.");
@@ -479,30 +477,20 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 currentPackagePath = currentPackagePath + File.separatorChar;
             }
             currentPackagePath = currentPackagePath + packageNameSplits[i];
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, currentPackagePath, "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", currentPackagePath, "__init__.py"));
         }
 
-        supportingFiles.add(new SupportingFile("exceptions." + templateExtension, packagePath(), "exceptions.py"));
+        supportingFiles.add(new SupportingFile("exceptions.hbs", packagePath(), "exceptions.py"));
 
         if (Boolean.FALSE.equals(excludeTests)) {
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder, "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder, "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder + File.separator + "components", "__init__.py"));
         }
 
-        supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
-
-        if ("asyncio".equals(getLibrary())) {
-            supportingFiles.add(new SupportingFile("asyncio/rest." + templateExtension, packagePath(), "rest.py"));
-            additionalProperties.put("asyncio", "true");
-        } else if ("tornado".equals(getLibrary())) {
-            supportingFiles.add(new SupportingFile("tornado/rest." + templateExtension, packagePath(), "rest.py"));
-            additionalProperties.put("tornado", "true");
-        } else {
-            supportingFiles.add(new SupportingFile("rest." + templateExtension, packagePath(), "rest.py"));
-        }
-
-        supportingFiles.add(new SupportingFile("schemas." + templateExtension, packagePath(), "schemas.py"));
+        supportingFiles.add(new SupportingFile("api_client.hbs", packagePath(), "api_client.py"));
+        supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
+        supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
@@ -512,14 +500,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {
-            supportingFiles.add(new SupportingFile("apis/__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
+            supportingFiles.add(new SupportingFile("apis/__init__apis.hbs", packagePath() + File.separatorChar + apiPackage, "__init__.py"));
         }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
         List<CodegenSecurity> authMethods = fromSecurity(securitySchemeMap);
         if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
-            supportingFiles.add(new SupportingFile("signing." + templateExtension, packagePath(), "signing.py"));
+            supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
         }
 
         // check library option to ensure only urllib3 is supported
