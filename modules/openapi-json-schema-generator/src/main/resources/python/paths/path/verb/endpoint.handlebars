@@ -31,16 +31,16 @@ from .parameters import {{name.getSnakeCaseName}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
-{{> path/endpoint_parameter_schema_and_def xParams=queryParams xParamsName="RequestQueryParameters" }}
+{{> paths/path/verb/endpoint_parameter_schema_and_def xParams=queryParams xParamsName="RequestQueryParameters" }}
     {{/if}}
     {{#if headerParams}}
-{{> path/endpoint_parameter_schema_and_def xParams=headerParams xParamsName="RequestHeaderParameters" }}
+{{> paths/path/verb/endpoint_parameter_schema_and_def xParams=headerParams xParamsName="RequestHeaderParameters" }}
     {{/if}}
     {{#if pathParams}}
-{{> path/endpoint_parameter_schema_and_def xParams=pathParams xParamsName="RequestPathParameters" }}
+{{> paths/path/verb/endpoint_parameter_schema_and_def xParams=pathParams xParamsName="RequestPathParameters" }}
     {{/if}}
     {{#if cookieParams}}
-{{> path/endpoint_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
+{{> paths/path/verb/endpoint_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
     {{/if}}
 {{/or}}
 {{#unless isStub}}
@@ -127,27 +127,27 @@ _all_accept_content_types = (
 class BaseApi(api_client.Api):
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> path/endpoint_args_baseapi_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/endpoint_args_baseapi_wrapper contentType=@key this=this}}
 
     {{/each}}
-    {{> path/endpoint_args_baseapi_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/endpoint_args_baseapi_wrapper contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def _{{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def _{{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def _{{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
 
     def _{{operationId}}(
-    {{> path/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
         """
     {{#if summary}}
         {{summary}}
@@ -233,17 +233,17 @@ class BaseApi(api_client.Api):
         _body = None
     {{#if refInfo}}
         {{#if getDeepestRef.required}}
-        {{> path/endpoint_body_serialization }}
+        {{> paths/path/verb/endpoint_body_serialization }}
         {{else}}
         if body is not schemas.unset:
-            {{> path/endpoint_body_serialization }}
+            {{> paths/path/verb/endpoint_body_serialization }}
         {{/if}}
     {{else}}
         {{#if required}}
-        {{> path/endpoint_body_serialization }}
+        {{> paths/path/verb/endpoint_body_serialization }}
         {{else}}
         if body is not schemas.unset:
-            {{> path/endpoint_body_serialization }}
+            {{> paths/path/verb/endpoint_body_serialization }}
         {{/if}}
     {{/if}}
     {{/with}}
@@ -313,29 +313,29 @@ class {{operationIdCamelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> path/endpoint_args_operationid_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/endpoint_args_operationid_wrapper contentType=@key this=this}}
 
     {{/each}}
-    {{> path/endpoint_args_operationid_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/endpoint_args_operationid_wrapper contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def {{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def {{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def {{operationId}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
 
     def {{operationId}}(
-    {{> path/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
         return self._{{operationId}}(
-            {{> path/endpoint_args_passed }}
+            {{> paths/path/verb/endpoint_args_passed }}
         )
 
 
@@ -344,29 +344,29 @@ class ApiFor{{httpMethod}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> path/endpoint_args_httpmethod_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/endpoint_args_httpmethod_wrapper contentType=@key this=this}}
 
     {{/each}}
-    {{> path/endpoint_args_httpmethod_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/endpoint_args_httpmethod_wrapper contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def {{httpMethod}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def {{httpMethod}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def {{httpMethod}}(
-    {{> path/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="null" contentType="null"}}
 
     def {{httpMethod}}(
-    {{> path/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/endpoint_args isOverload=false skipDeserialization="null" contentType="null"}}
         return self._{{operationId}}(
-            {{> path/endpoint_args_passed }}
+            {{> paths/path/verb/endpoint_args_passed }}
         )
 
 

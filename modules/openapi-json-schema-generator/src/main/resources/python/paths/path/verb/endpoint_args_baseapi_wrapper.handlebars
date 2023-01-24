@@ -1,0 +1,5 @@
+@typing.overload
+{{#with this}}
+def _{{operationId}}(
+{{> paths/path/verb/endpoint_args isOverload=true skipDeserialization="False" contentType=contentType}}
+{{/with}}

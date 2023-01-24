@@ -300,10 +300,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
 
-        pathEndpointTemplateFiles.put("path/endpoint.handlebars",  "__init__.py");
-        pathEndpointDocTemplateFiles.add("path/endpoint_doc.handlebars");
-        pathEndpointTemplateFiles.put("path/endpoint_stub.handlebars",  "__init__.pyi");
-        pathEndpointTestTemplateFiles.add("path/endpoint_test.handlebars");
+        pathEndpointDocTemplateFiles.add("paths/path/verb/endpoint_doc.handlebars");
+        pathEndpointTestTemplateFiles.add("paths/path/verb/endpoint_test.handlebars");
 
         modelDocTemplateFiles.put("schema/schema_doc.handlebars", ".md");
         modelTestTemplateFiles.put("schema/schema_test.handlebars", ".py");
@@ -357,8 +355,20 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("__init__paths.handlebars", "__init__.py")
+                Collections.singletonMap("paths/__init__paths.handlebars", "__init__.py")
         );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
+                Collections.singletonMap("paths/path/__init__path.handlebars", "__init__.py")
+        );
+        HashMap<String, String> operationTemplates = new HashMap<>();
+        operationTemplates.put("paths/path/verb/endpoint.handlebars", "__init__.py");
+        operationTemplates.put("paths/path/verb/endpoint_stub.handlebars", "__init__.pyi");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+                operationTemplates
+        );
+
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
                 Collections.singletonMap("__init__.handlebars", "__init__.py")
