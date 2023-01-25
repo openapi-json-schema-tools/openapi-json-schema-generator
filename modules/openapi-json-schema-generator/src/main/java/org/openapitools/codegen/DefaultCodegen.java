@@ -5297,10 +5297,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
         List<CodegenServer> codegenServers = new LinkedList<>();
         for (Server server : servers) {
-            CodegenServer cs = new CodegenServer();
-            cs.description = escapeText(server.getDescription());
-            cs.url = server.getUrl();
-            cs.variables = this.fromServerVariables(server.getVariables());
+            CodegenServer cs = new CodegenServer(
+                server.getUrl(),
+                escapeText(server.getDescription()),
+                fromServerVariables(server.getVariables())
+            );
             codegenServers.add(cs);
         }
         return codegenServers;

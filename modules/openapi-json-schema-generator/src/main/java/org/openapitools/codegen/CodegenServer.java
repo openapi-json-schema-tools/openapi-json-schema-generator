@@ -4,9 +4,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class CodegenServer {
-    public String url;
-    public String description;
-    public List<CodegenServerVariable> variables;
+    public final String url;
+    public final String description;
+    public final List<CodegenServerVariable> variables;
+
+    public CodegenServer(String url, String description, List<CodegenServerVariable> variables) {
+        this.url = url;
+        this.description = description;
+        this.variables = variables;
+    }
 
     @Override
     public boolean equals(Object o) {
