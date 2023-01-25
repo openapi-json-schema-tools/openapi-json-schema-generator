@@ -4,11 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 public class CodegenServerVariable {
-    public String name;
-    public String defaultValue;
-    public String description;
-    public List<String> enumValues;
-    public String value;
+    public final String name;
+    public final String defaultValue;
+    public final String description;
+    public final List<String> enumValues;
+    public final String value;
+
+    public CodegenServerVariable(String name, String defaultValue, String description, List<String> enumValues, String value) {
+        this.name = name;
+        this.defaultValue = defaultValue;
+        this.description = description;
+        this.enumValues = enumValues;
+        this.value = value;
+    }
 
     @Override
     public boolean equals(Object o) {

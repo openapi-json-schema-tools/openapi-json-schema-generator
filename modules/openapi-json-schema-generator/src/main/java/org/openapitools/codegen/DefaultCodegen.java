@@ -5316,21 +5316,14 @@ public class DefaultCodegen implements CodegenConfig {
 
         List<CodegenServerVariable> codegenServerVariables = new LinkedList<>();
         for (Entry<String, ServerVariable> variableEntry : variables.entrySet()) {
-            CodegenServerVariable codegenServerVariable = new CodegenServerVariable();
             ServerVariable variable = variableEntry.getValue();
             List<String> enums = variable.getEnum();
-
-            codegenServerVariable.defaultValue = variable.getDefault();
-            codegenServerVariable.description = escapeText(variable.getDescription());
-            codegenServerVariable.enumValues = enums;
-            codegenServerVariable.name = variableEntry.getKey();
-
             // Sets the override value for a server variable pattern.
             // NOTE: OpenAPI Specification doesn't prevent multiple server URLs with variables. If multiple objects have the same
             //       variables pattern, user overrides will apply to _all_ of these patterns. We may want to consider indexed overrides.
+            String value;
             if (variableOverrides != null && !variableOverrides.isEmpty()) {
-                String value = variableOverrides.getOrDefault(variableEntry.getKey(), variable.getDefault());
-                codegenServerVariable.value = value;
+                value = variableOverrides.getOrDefault(variableEntry.getKey(), variable.getDefault());
 
                 if (enums != null && !enums.isEmpty() && !enums.contains(value)) {
                     if (LOGGER.isWarnEnabled()) { // prevents calculating StringUtils.join when debug isn't enabled
@@ -5338,9 +5331,15 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                 }
             } else {
-                codegenServerVariable.value = variable.getDefault();
+                value = variable.getDefault();
             }
-
+            CodegenServerVariable codegenServerVariable = new CodegenServerVariable(
+                    variableEntry.getKey(),
+                    variable.getDefault(),
+                    escapeText(variable.getDescription()),
+                    enums,
+                    value
+            );
             codegenServerVariables.add(codegenServerVariable);
         }
         return codegenServerVariables;
