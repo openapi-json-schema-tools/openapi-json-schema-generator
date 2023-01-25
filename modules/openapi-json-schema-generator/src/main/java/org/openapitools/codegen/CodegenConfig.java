@@ -180,8 +180,6 @@ public interface CodegenConfig {
 
     Map<String, String> parameterDocTemplateFiles();
 
-    Map<String, String> pathEndpointTemplateFiles();
-
     Set<String> pathEndpointTestTemplateFiles();
 
     Set<String> pathEndpointDocTemplateFiles();

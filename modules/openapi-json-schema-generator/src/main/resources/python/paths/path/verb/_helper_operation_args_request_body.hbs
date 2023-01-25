@@ -1,0 +1,149 @@
+{{#if requestBody.refInfo}}
+    {{#if requestBody.getDeepestRef.required}}
+        {{#with requestBody.getDeepestRef}}
+        {{#eq ../contentType "null"}}
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/each}}],
+        {{else}}
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+        {{/eq}}
+        {{/with}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+            {{/eq}}
+            {{#neq contentType "null"}}
+                {{#with requestBody.getDeepestRef}}
+                    {{#each content}}
+                        {{#eq @key.getName ../../contentType}}
+                            {{#if @first}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"] = ...,
+                            {{else}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"],
+                            {{/if}}
+                        {{/eq}}
+                    {{/each}}
+                {{/with}}
+            {{else}}
+    content_type: str = ...,
+            {{/neq}}
+        {{else}}
+            {{#with requestBody.getDeepestRef}}
+                {{#each getContent}}
+                    {{#if @first}}
+    content_type: str = '{{{@key.getName}}}',
+                    {{/if}}
+                {{/each}}
+            {{/with}}
+        {{/if}}
+    {{else}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+            {{/eq}}
+            {{#neq contentType "null"}}
+                {{#with requestBody.getDeepestRef}}
+                    {{#each getContent}}
+                        {{#eq @key.getName ../../contentType}}
+                            {{#if @first}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"] = ...,
+                            {{else}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"],
+                            {{/if}}
+                        {{/eq}}
+                    {{/each}}
+                {{/with}}
+            {{else}}
+    content_type: str = ...,
+            {{/neq}}
+        {{else}}
+            {{#with requestBody.getDeepestRef}}
+                {{#each getContent}}
+                    {{#if @first}}
+    content_type: str = '{{{@key.getName}}}',
+                    {{/if}}
+                {{/each}}
+            {{/with}}
+        {{/if}}
+        {{#with requestBody.getDeepestRef}}
+        {{#eq ../contentType "null"}}
+    body: typing.Union[{{#each getContent}}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+        {{else}}
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../../requestBody.name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+        {{/eq}}
+        {{/with}}
+    {{/if}}
+{{else}}
+    {{#if requestBody.required}}
+        {{#with requestBody}}
+        {{#eq ../contentType "null"}}
+    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/each}}],
+        {{else}}
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+        {{/eq}}
+        {{/with}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+            {{/eq}}
+            {{#neq contentType "null"}}
+                {{#with requestBody}}
+                    {{#each content}}
+                        {{#eq @key.getName ../../contentType}}
+                            {{#if @first}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"] = ...,
+                            {{else}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"],
+                            {{/if}}
+                        {{/eq}}
+                    {{/each}}
+                {{/with}}
+            {{else}}
+    content_type: str = ...,
+            {{/neq}}
+        {{else}}
+            {{#with requestBody}}
+                {{#each getContent}}
+                    {{#if @first}}
+    content_type: str = '{{{@key.getName}}}',
+                    {{/if}}
+                {{/each}}
+            {{/with}}
+        {{/if}}
+    {{else}}
+        {{#if isOverload}}
+            {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+            {{/eq}}
+            {{#neq contentType "null"}}
+                {{#with requestBody}}
+                    {{#each getContent}}
+                        {{#eq @key.getName ../../contentType}}
+                            {{#if @first}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"] = ...,
+                            {{else}}
+    content_type: typing_extensions.Literal["{{{@key.getName}}}"],
+                            {{/if}}
+                        {{/eq}}
+                    {{/each}}
+                {{/with}}
+            {{else}}
+    content_type: str = ...,
+            {{/neq}}
+        {{else}}
+            {{#with requestBody}}
+                {{#each getContent}}
+                    {{#if @first}}
+    content_type: str = '{{{@key.getName}}}',
+                    {{/if}}
+                {{/each}}
+            {{/with}}
+        {{/if}}
+        {{#with requestBody}}
+        {{#eq ../contentType "null"}}
+    body: typing.Union[{{#each getContent}}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/each}}schemas.Unset] = schemas.unset,
+        {{else}}
+    body: typing.Union[{{#each getContent}}{{#eq @key.getName ../../contentType }}request_body.{{../name.getCamelCaseName}}.content["{{{@key.getName}}}"].schema, {{#with this.schema}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+        {{/eq}}
+        {{/with}}
+    {{/if}}
+{{/if}}

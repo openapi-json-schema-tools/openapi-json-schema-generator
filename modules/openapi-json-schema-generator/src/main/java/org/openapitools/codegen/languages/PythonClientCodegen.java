@@ -91,7 +91,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
     private DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
 
-    private String templateExtension;
     protected CodegenIgnoreProcessor ignoreProcessor;
     protected TemplateProcessor templateProcessor = null;
 
@@ -274,7 +273,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 te,
                 new TemplatePathLocator[]{generatorTemplateLocator, commonTemplateLocator}
         );
-        templateExtension = te.getIdentifier();
 
         String ignoreFileLocation = this.getIgnoreFilePathOverride();
         if (ignoreFileLocation != null) {
@@ -295,81 +293,91 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        apiTemplateFiles.put("api.handlebars", ".py");
-        apiDocTemplateFiles.put("api_doc.handlebars", ".md");
-        apiXToApiTemplateFiles.put("apis_tag_to_api.handlebars", "tag_to_api.py");
-        apiXToApiTemplateFiles.put("apis_path_to_api.handlebars", "path_to_api.py");
+        apiTemplateFiles.put("apis/api.hbs", ".py");
+        apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
+        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
+        apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
 
-        pathEndpointTemplateFiles.put("endpoint.handlebars",  "__init__.py");
-        pathEndpointDocTemplateFiles.add("endpoint_doc.handlebars");
-        pathEndpointTemplateFiles.put("endpoint_stub.handlebars",  "__init__.pyi");
-        pathEndpointTestTemplateFiles.add("endpoint_test.handlebars");
+        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
+        pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
 
-        modelDocTemplateFiles.put("model_doc.handlebars", ".md");
-        modelTestTemplateFiles.put("model_test.handlebars", ".py");
-        requestBodyDocTemplateFiles.put("request_body_doc.handlebars", ".md");
-        parameterDocTemplateFiles.put("parameter_doc.handlebars", ".md");
-        responseDocTemplateFiles.put("response_doc.handlebars", ".md");
-        headerDocTemplateFiles.put("header_doc.handlebars", ".md");
+        modelDocTemplateFiles.put("components/schemas/schema_doc.hbs", ".md");
+        modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
+        requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
+        parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
+        responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
+        headerDocTemplateFiles.put("components/headers/header_doc.hbs", ".md");
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
-        schemaTemplates.put("model.handlebars", ".py");
-        schemaTemplates.put("model_stub.handlebars", ".pyi");
+        schemaTemplates.put("components/schemas/schema.hbs", ".py");
+        schemaTemplates.put("components/schemas/schema_stub.hbs", ".pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("header.handlebars", "__init__.py")
+                Collections.singletonMap("components/headers/header.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                Collections.singletonMap("parameter.handlebars", "__init__.py")
+                Collections.singletonMap("components/parameters/parameter.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("request_body.handlebars", "__init__.py")
+                Collections.singletonMap("components/request_bodies/request_body.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                Collections.singletonMap("response.handlebars", "__init__.py")
+                Collections.singletonMap("components/responses/response.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                Collections.singletonMap("__init__schema.handlebars", "__init__.py")
+                Collections.singletonMap("components/schemas/__init__schema.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("__init__paths.handlebars", "__init__.py")
+                Collections.singletonMap("paths/__init__paths.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
+                Collections.singletonMap("paths/path/__init__path.hbs", "__init__.py")
+        );
+        HashMap<String, String> operationTemplates = new HashMap<>();
+        operationTemplates.put("paths/path/verb/operation.hbs", "__init__.py");
+        operationTemplates.put("paths/path/verb/operation_stub.hbs", "__init__.pyi");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+                operationTemplates
+        );
+
+        jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
@@ -440,26 +448,26 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         String readmePath = "README.md";
-        String readmeTemplate = "README." + templateExtension;
+        String readmeTemplate = "README.hbs";
         if (generateSourceCodeOnly) {
             readmePath = packagePath() + "_" + readmePath;
-            readmeTemplate = "README_onlypackage." + templateExtension;
+            readmeTemplate = "README_onlypackage.hbs";
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
 
         if (!generateSourceCodeOnly) {
-            supportingFiles.add(new SupportingFile("tox." + templateExtension, "", "tox.ini"));
-            supportingFiles.add(new SupportingFile("test-requirements." + templateExtension, "", "test-requirements.txt"));
-            supportingFiles.add(new SupportingFile("requirements." + templateExtension, "", "requirements.txt"));
+            supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
+            supportingFiles.add(new SupportingFile("test-requirements.hbs", "", "test-requirements.txt"));
+            supportingFiles.add(new SupportingFile("requirements.hbs", "", "requirements.txt"));
 
-            supportingFiles.add(new SupportingFile("git_push.sh." + templateExtension, "", "git_push.sh"));
-            supportingFiles.add(new SupportingFile("gitignore." + templateExtension, "", ".gitignore"));
-            supportingFiles.add(new SupportingFile("travis." + templateExtension, "", ".travis.yml"));
-            supportingFiles.add(new SupportingFile("gitlab-ci." + templateExtension, "", ".gitlab-ci.yml"));
-            supportingFiles.add(new SupportingFile("pyproject." + templateExtension, "", "pyproject.toml"));
+            supportingFiles.add(new SupportingFile("git_push.hbs", "", "git_push.sh"));
+            supportingFiles.add(new SupportingFile("gitignore.hbs", "", ".gitignore"));
+            supportingFiles.add(new SupportingFile("travis.hbs", "", ".travis.yml"));
+            supportingFiles.add(new SupportingFile("gitlab-ci.hbs", "", ".gitlab-ci.yml"));
+            supportingFiles.add(new SupportingFile("pyproject.hbs", "", "pyproject.toml"));
         }
-        supportingFiles.add(new SupportingFile("configuration." + templateExtension, packagePath(), "configuration.py"));
-        supportingFiles.add(new SupportingFile("__init__package." + templateExtension, packagePath(), "__init__.py"));
+        supportingFiles.add(new SupportingFile("configuration.hbs", packagePath(), "configuration.py"));
+        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
 
         // If the package name consists of dots(openapi.client), then we need to create the directory structure like openapi/client with __init__ files.
         String[] packageNameSplits = packageName.split("\\.");
@@ -469,47 +477,37 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 currentPackagePath = currentPackagePath + File.separatorChar;
             }
             currentPackagePath = currentPackagePath + packageNameSplits[i];
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, currentPackagePath, "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", currentPackagePath, "__init__.py"));
         }
 
-        supportingFiles.add(new SupportingFile("exceptions." + templateExtension, packagePath(), "exceptions.py"));
+        supportingFiles.add(new SupportingFile("exceptions.hbs", packagePath(), "exceptions.py"));
 
         if (Boolean.FALSE.equals(excludeTests)) {
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder, "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
-            supportingFiles.add(new SupportingFile("__init__." + templateExtension, testFolder + File.separator + "components", "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder, "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("__init__.hbs", testFolder + File.separator + "components", "__init__.py"));
         }
 
-        supportingFiles.add(new SupportingFile("api_client." + templateExtension, packagePath(), "api_client.py"));
-
-        if ("asyncio".equals(getLibrary())) {
-            supportingFiles.add(new SupportingFile("asyncio/rest." + templateExtension, packagePath(), "rest.py"));
-            additionalProperties.put("asyncio", "true");
-        } else if ("tornado".equals(getLibrary())) {
-            supportingFiles.add(new SupportingFile("tornado/rest." + templateExtension, packagePath(), "rest.py"));
-            additionalProperties.put("tornado", "true");
-        } else {
-            supportingFiles.add(new SupportingFile("rest." + templateExtension, packagePath(), "rest.py"));
-        }
-
-        supportingFiles.add(new SupportingFile("schemas." + templateExtension, packagePath(), "schemas.py"));
+        supportingFiles.add(new SupportingFile("api_client.hbs", packagePath(), "api_client.py"));
+        supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
+        supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
         boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
         if (generateModels) {
-            supportingFiles.add(new SupportingFile("__init__schemas." + templateExtension, packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
+            supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         if (generateApis) {
-            supportingFiles.add(new SupportingFile("__init__apis." + templateExtension, packagePath() + File.separatorChar + apiPackage, "__init__.py"));
+            supportingFiles.add(new SupportingFile("apis/__init__apis.hbs", packagePath() + File.separatorChar + apiPackage, "__init__.py"));
         }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
         List<CodegenSecurity> authMethods = fromSecurity(securitySchemeMap);
         if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
-            supportingFiles.add(new SupportingFile("signing." + templateExtension, packagePath(), "signing.py"));
+            supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
         }
 
         // check library option to ensure only urllib3 is supported

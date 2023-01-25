@@ -1,0 +1,33 @@
+{{#with requestBody}}
+{{#if componentModule}}
+## {{packageName}}.components.request_bodies.{{componentModule}}
+# {{name.getCamelCaseName}}
+{{/if}}
+{{#if refInfo}}
+    {{#with getDeepestRef}}
+        {{#each content}}
+            {{#with this.schema}}
+
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+            {{/with}}
+        {{/each}}
+    {{/with}}
+{{else}}
+    {{#each content}}
+    {{#with this.schema}}
+    {{#if ../componentModule}}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.getSnakeCaseName anchorContainsPeriod=true complexTypePrefix="../../components/schema/" }}
+    {{else}}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.getSnakeCaseName anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
+    {{/if}}
+    {{/with}}
+    {{/each}}
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" requestBodiesLink=true}}
+{{/if}}
+{{/with}}

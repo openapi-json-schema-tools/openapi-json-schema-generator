@@ -1,0 +1,59 @@
+    self,
+{{#if requestBody}}
+{{> paths/path/verb/_helper_operation_args_request_body }}
+{{else}}
+    {{#if isOverload}}
+        {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True],
+        {{/eq}}
+    {{/if}}
+{{/if}}
+{{#if queryParams}}
+    query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+{{/if}}
+{{#if headerParams}}
+    header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+{{/if}}
+{{#if pathParams}}
+    path_params: RequestPathParameters.Params = frozendict.frozendict(),
+{{/if}}
+{{#if cookieParams}}
+    cookie_params: RequestCookieParameters.Params = frozendict.frozendict(),
+{{/if}}
+{{#if produces}}
+    accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+{{/if}}
+{{#if servers}}
+    host_index: typing.Optional[int] = None,
+{{/if}}
+    stream: bool = False,
+    timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    {{#if isOverload}}
+        {{#eq skipDeserialization "False"}}
+    skip_deserialization: typing_extensions.Literal[False] = ...,
+        {{/eq}}
+        {{#eq skipDeserialization "null"}}
+    skip_deserialization: bool = ...,
+        {{/eq}}
+    {{else}}
+    skip_deserialization: bool = False,
+    {{/if}}
+{{#eq skipDeserialization "True"}}
+) -> api_client.ApiResponseWithoutDeserialization: ...
+{{/eq}}
+{{#eq skipDeserialization "False"}}
+) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
+    {{> paths/path/verb/_helper_operation_response_type_hint }}
+]: ...
+    {{/if}}
+{{/eq}}
+{{#eq skipDeserialization "null"}}
+{{#if isOverload}}
+) -> typing.Union[
+    {{> paths/path/verb/_helper_operation_response_type_hint }}
+    api_client.ApiResponseWithoutDeserialization,
+]: ...
+{{else}}
+):
+{{/if}}
+{{/eq}}

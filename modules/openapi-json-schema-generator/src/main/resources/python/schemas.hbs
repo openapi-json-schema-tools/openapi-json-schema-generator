@@ -1,0 +1,2504 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+import collections
+import datetime
+import functools
+import decimal
+import io
+import re
+import types
+import typing
+import uuid
+
+from dateutil import parser
+from dateutil.parser.isoparser import _takes_ascii
+import frozendict
+
+from {{packageName}} import exceptions
+from {{packageName}} import configuration as configuration_module
+
+
+class Unset(object):
+    """
+    An instance of this class is set as the default value for object type(dict) properties that are optional
+    When a property has an unset value, that property will not be assigned in the dict
+    """
+    pass
+
+unset = Unset()
+
+none_type = type(None)
+file_type = io.IOBase
+
+
+class FileIO(io.FileIO):
+    """
+    A class for storing files
+    Note: this class is not immutable
+    """
+
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader]):
+        if isinstance(arg_, (io.FileIO, io.BufferedReader)):
+            if arg_.closed:
+                raise exceptions.ApiValueError('Invalid file state; file is closed and must be open')
+            arg_.close()
+            inst = super(FileIO, cls).__new__(cls, arg_.name)
+            super(FileIO, inst).__init__(arg_.name)
+            return inst
+        raise exceptions.ApiValueError('FileIO must be passed arg_ which contains the open file')
+
+    def __init__(self, arg_: typing.Union[io.FileIO, io.BufferedReader]):
+        pass
+
+
+def update(d: dict, u: dict):
+    """
+    Adds u to d
+    Where each dict is collections.defaultdict(set)
+    """
+    if not u:
+        return d
+    for k, v in u.items():
+        if k not in d:
+            d[k] = v
+        else:
+            d[k] = d[k] | v
+
+
+class ValidationMetadata(frozendict.frozendict):
+    """
+    A class storing metadata that is needed to validate OpenApi Schema payloads
+    """
+    def __new__(
+        cls,
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        configuration: configuration_module.Configuration,
+        seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
+        validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
+    ):
+        """
+        Args:
+            path_to_item: the path to the current data being instantiated.
+                For {'a': [1]} if the code is handling, 1, then the path is ('args[0]', 'a', 0)
+                This changes from location to location
+            configuration: the configuration_module.Configuration instance to use
+                This is needed because in configuration_module.Configuration:
+                - one can disable validation checking
+                This does not change from location to location
+            seen_classes: when deserializing data that matches multiple schemas, this is used to store
+                the schemas that have been traversed. This is used to stop processing when a cycle is seen.
+                This changes from location to location
+            validated_path_to_schemas: stores the already validated schema classes for a given path location
+                This does not change from location to location
+        """
+        return super().__new__(
+            cls,
+            path_to_item=path_to_item,
+            configuration=configuration,
+            seen_classes=seen_classes,
+            validated_path_to_schemas=validated_path_to_schemas
+        )
+
+    def validation_ran_earlier(self, cls: type) -> bool:
+        validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
+        validation_ran_earlier = validated_schemas and cls in validated_schemas
+        if validation_ran_earlier:
+            return True
+        if cls in self.seen_classes:
+            return True
+        return False
+
+    @property
+    def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
+        return self['path_to_item']
+
+    @property
+    def configuration(self) -> configuration_module.Configuration:
+        return self['configuration']
+
+    @property
+    def seen_classes(self) -> typing.FrozenSet[typing.Type]:
+        return self['seen_classes']
+
+    @property
+    def validated_path_to_schemas(self) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]]:
+        return self['validated_path_to_schemas']
+
+
+def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_to_schemas: dict):
+    # this is called if validation_ran_earlier and current and deeper locations need to be added
+    current_path_to_item = validation_metadata.path_to_item
+    other_path_to_schemas = {}
+    for path_to_item, schemas in validation_metadata.validated_path_to_schemas.items():
+        if len(path_to_item) < len(current_path_to_item):
+            continue
+        path_begins_with_current_path = path_to_item[:len(current_path_to_item)] == current_path_to_item
+        if path_begins_with_current_path:
+            other_path_to_schemas[path_to_item] = schemas
+    update(path_to_schemas, other_path_to_schemas)
+
+
+class Singleton:
+    """
+    Enums and singletons are the same
+    The same instance is returned for a given key of (cls, arg_)
+    """
+    _instances = {}
+
+    def __new__(cls, arg_: typing.Any, **kwargs):
+        """
+        cls base classes: BoolClass, NoneClass, str, decimal.Decimal
+        The 3rd key is used in the tuple below for a corner case where an enum contains integer 1
+        However 1.0  can also be ingested into that enum schema because 1.0 == 1 and
+        Decimal('1.0') == Decimal('1')
+        But if we omitted the 3rd value in the key, then Decimal('1.0') would be stored as Decimal('1')
+        and json serializing that instance would be '1' rather than the expected '1.0'
+        Adding the 3rd value, the str of arg_ ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
+        """
+        key = (cls, arg_, str(arg_))
+        if key not in cls._instances:
+            if isinstance(arg_, (none_type, bool, BoolClass, NoneClass)):
+                inst = super().__new__(cls)
+                cls._instances[key] = inst
+            else:
+                cls._instances[key] = super().__new__(cls, arg_)
+        return cls._instances[key]
+
+    def __repr__(self):
+        if isinstance(self, NoneClass):
+            return f'<{self.__class__.__name__}: None>'
+        elif isinstance(self, BoolClass):
+            if bool(self):
+                return f'<{self.__class__.__name__}: True>'
+            return f'<{self.__class__.__name__}: False>'
+        return f'<{self.__class__.__name__}: {super().__repr__()}>'
+
+
+class classproperty:
+
+    def __init__(self, fget):
+        self.fget = fget
+
+    def __get__(self, owner_self, owner_cls):
+        return self.fget(owner_cls)
+
+
+class NoneClass(Singleton):
+    @classproperty
+    def NONE(cls):
+        return cls(None)
+
+    def __bool__(self) -> bool:
+        return False
+
+
+class BoolClass(Singleton):
+    @classproperty
+    def TRUE(cls):
+        return cls(True)
+
+    @classproperty
+    def FALSE(cls):
+        return cls(False)
+
+    @functools.lru_cache()
+    def __bool__(self) -> bool:
+        for key, instance in self._instances.items():
+            if self is instance:
+                return bool(key[1])
+        raise ValueError('Unable to find the boolean value of this instance')
+
+
+class SchemaTyped:
+    types: typing.Optional[typing.Set[typing.Type]]
+    exclusive_maximum: typing.Union[int, float]
+    inclusive_maximum: typing.Union[int, float]
+    exclusive_minimum: typing.Union[int, float]
+    inclusive_minimum: typing.Union[int, float]
+    max_items: int
+    min_items: int
+    discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
+
+
+    class Properties:
+        # to hold object properties
+        pass
+
+    additionalProperties: typing.Optional[typing.Type['Schema']]
+    max_properties: int
+    min_properties: int
+    AllOf: typing.List[typing.Type['Schema']]
+    OneOf: typing.List[typing.Type['Schema']]
+    AnyOf: typing.List[typing.Type['Schema']]
+    _not: typing.Type['Schema']
+    max_length: int
+    min_length: int
+    items: typing.Type['Schema']
+
+PathToSchemasType = typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]
+
+
+def __get_valid_classes_phrase(input_classes):
+    """Returns a string phrase describing what types are allowed"""
+    all_classes = list(input_classes)
+    all_classes = sorted(all_classes, key=lambda cls: cls.__name__)
+    all_class_names = [cls.__name__ for cls in all_classes]
+    if len(all_class_names) == 1:
+        return "is {0}".format(all_class_names[0])
+    return "is one of [{0}]".format(", ".join(all_class_names))
+
+
+def __type_error_message(
+    var_value=None, var_name=None, valid_classes=None, key_type=None
+):
+    """
+    Keyword Args:
+        var_value (any): the variable which has the type_error
+        var_name (str): the name of the variable which has the typ error
+        valid_classes (tuple): the accepted classes for current_item's
+                                  value
+        key_type (bool): False if our value is a value in a dict
+                         True if it is a key in a dict
+                         False if our item is an item in a tuple
+    """
+    key_or_value = "value"
+    if key_type:
+        key_or_value = "key"
+    valid_classes_phrase = __get_valid_classes_phrase(valid_classes)
+    msg = "Invalid type. Required {1} type {2} and " "passed type was {3}".format(
+        var_name,
+        key_or_value,
+        valid_classes_phrase,
+        type(var_value).__name__,
+    )
+    return msg
+
+
+def __get_type_error(var_value, path_to_item, valid_classes, key_type=False):
+    error_msg = __type_error_message(
+        var_name=path_to_item[-1],
+        var_value=var_value,
+        valid_classes=valid_classes,
+        key_type=key_type,
+    )
+    return exceptions.ApiTypeError(
+        error_msg,
+        path_to_item=path_to_item,
+        valid_classes=valid_classes,
+        key_type=key_type,
+    )
+
+
+def validate_types(
+    arg: typing.Any,
+    allowed_types: typing.Set[typing.Type],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if type(arg) not in allowed_types:
+        raise __get_type_error(
+            arg,
+            validation_metadata.path_to_item,
+            allowed_types,
+            key_type=False,
+        )
+    return None
+
+def validate_enum(
+    arg: typing.Any,
+    enum_value_to_name: typing.Dict[typing.Any, str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if arg not in enum_value_to_name:
+        raise exceptions.ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, enum_value_to_name.keys()))
+    return None
+
+
+def _raise_validation_error_message(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):
+    raise exceptions.ApiValueError(
+        "Invalid value `{value}`, {constraint_msg} `{constraint_value}`{additional_txt} at {path_to_item}".format(
+            value=value,
+            constraint_msg=constraint_msg,
+            constraint_value=constraint_value,
+            additional_txt=additional_txt,
+            path_to_item=path_to_item,
+        )
+    )
+
+
+def validate_unique_items(
+    arg: typing.Any,
+    unique_items_value: bool,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not unique_items_value or not isinstance(arg, tuple):
+        return None
+    if len(arg) > len(set(arg)):
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
+            constraint_value='unique_items==True',
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_items(
+    arg: typing.Any,
+    min_items: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, tuple):
+        return None
+    if len(arg) < min_items:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="number of items must be greater than or equal to",
+            constraint_value=min_items,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_items(
+    arg: typing.Any,
+    max_items: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, tuple):
+        return None
+    if len(arg) > max_items:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="number of items must be less than or equal to",
+            constraint_value=max_items,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_properties(
+    arg: typing.Any,
+    min_properties: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    if len(arg) < min_properties:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="number of properties must be greater than or equal to",
+            constraint_value=min_properties,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_properties(
+    arg: typing.Any,
+    max_properties: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    if len(arg) > max_properties:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="number of properties must be less than or equal to",
+            constraint_value=max_properties,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_min_length(
+    arg: typing.Any,
+    min_length: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    if len(arg) < min_length:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="length must be greater than or equal to",
+            constraint_value=min_length,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_max_length(
+    arg: typing.Any,
+    max_length: int,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    if len(arg) > max_length:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="length must be less than or equal to",
+            constraint_value=max_length,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_inclusive_minimum(
+    arg: typing.Any,
+    inclusive_minimum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg < inclusive_minimum:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="must be a value greater than or equal to",
+            constraint_value=inclusive_minimum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_exclusive_minimum(
+    arg: typing.Any,
+    exclusive_minimum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg <= exclusive_minimum:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="must be a value greater than",
+            constraint_value=exclusive_minimum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_inclusive_maximum(
+    arg: typing.Any,
+    inclusive_maximum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg > inclusive_maximum:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="must be a value less than or equal to",
+            constraint_value=inclusive_maximum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_exclusive_maximum(
+    arg: typing.Any,
+    exclusive_maximum: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if arg >= exclusive_minimum:
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="must be a value less than",
+            constraint_value=exclusive_maximum,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+def validate_multiple_of(
+    arg: typing.Any,
+    multiple_of: typing.Union[int, float],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, decimal.Decimal):
+        return None
+    if (not (float(arg) / multiple_of).is_integer()):
+        # Note 'multipleOf' will be as good as the floating point arithmetic.
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="value must be a multiple of",
+            constraint_value=multiple_of,
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+def validate_regex(
+    arg: typing.Any,
+    regex_dict: typing.Dict,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, str):
+        return None
+    flags = regex_dict.get('flags', 0)
+    if not re.search(regex_dict['pattern'], arg, flags=flags):
+        if flags != 0:
+            # Don't print the regex flags if the flags are not
+            # specified in the OAS document.
+            _raise_validation_error_message(
+                value=arg,
+                constraint_msg="must match regular expression",
+                constraint_value=regex_dict['pattern'],
+                path_to_item=validation_metadata.path_to_item,
+                additional_txt=" with flags=`{}`".format(flags)
+            )
+        _raise_validation_error_message(
+            value=arg,
+            constraint_msg="must match regular expression",
+            constraint_value=regex_dict['pattern'],
+            path_to_item=validation_metadata.path_to_item
+        )
+    return None
+
+
+__int32_inclusive_minimum = decimal.Decimal(-2147483648)
+__int32_inclusive_maximum = decimal.Decimal(2147483647)
+__int64_inclusive_minimum = decimal.Decimal(-9223372036854775808)
+__int64_inclusive_maximum = decimal.Decimal(9223372036854775807)
+__float_inclusive_minimum = decimal.Decimal(-3.4028234663852886e+38)
+__float_inclusive_maximum = decimal.Decimal(3.4028234663852886e+38)
+__double_inclusive_minimum = decimal.Decimal(-1.7976931348623157E+308)
+__double_inclusive_maximum = decimal.Decimal(1.7976931348623157E+308)
+
+def __validate_numeric_format(
+    arg: decimal.Decimal,
+    format: str,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if format[:3] == 'int':
+        # there is a json schema test where 1.0 validates as an integer
+        if arg != int(arg):
+            raise exceptions.ApiValueError(
+                "Invalid non-integer value '{}' for type {} at {}".format(
+                    arg, format, validation_metadata.path_to_item
+                )
+            )
+        if format == 'int32':
+            if not __int32_inclusive_minimum <= arg <= __int32_inclusive_maximum:
+                raise exceptions.ApiValueError(
+                    "Invalid value '{}' for type int32 at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        elif format == 'int64':
+            if not __int64_inclusive_minimum <= arg <= __int64_inclusive_maximum:
+                raise exceptions.ApiValueError(
+                    "Invalid value '{}' for type int64 at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        return None
+    elif format in {'float', 'double'}:
+        if format == 'float':
+            if not __float_inclusive_minimum <= arg <= __float_inclusive_maximum:
+                raise exceptions.ApiValueError(
+                    "Invalid value '{}' for type float at {}".format(arg, validation_metadata.path_to_item)
+                )
+            return None
+        # double
+        if not __double_inclusive_minimum <= arg <= __double_inclusive_maximum:
+            raise exceptions.ApiValueError(
+                "Invalid value '{}' for type double at {}".format(arg, validation_metadata.path_to_item)
+            )
+        return None
+    return None
+
+
+class CustomIsoparser(parser.isoparser):
+    @_takes_ascii
+    def parse_isodatetime(self, dt_str):
+        components, pos = self._parse_isodate(dt_str)
+        if len(dt_str) > pos:
+            if self._sep is None or dt_str[pos:pos + 1] == self._sep:
+                components += self._parse_isotime(dt_str[pos + 1:])
+            else:
+                raise ValueError('String contains unknown ISO components')
+
+        if len(components) > 3 and components[3] == 24:
+            components[3] = 0
+            return datetime.datetime(*components) + datetime.timedelta(days=1)
+
+        if len(components) <= 3:
+            raise ValueError('Value is not a datetime')
+
+        return datetime.datetime(*components)
+
+    @_takes_ascii
+    def parse_isodate(self, datestr):
+        components, pos = self._parse_isodate(datestr)
+
+        if len(datestr) > pos:
+            raise ValueError('String contains invalid time components')
+
+        if len(components) > 3:
+            raise ValueError('String contains invalid time components')
+
+        return datetime.date(*components)
+
+
+DEFAULT_ISOPARSER = CustomIsoparser()
+
+
+def __validate_string_format(
+    arg: str,
+    format: str,
+    validation_metadata: ValidationMetadata
+) -> None:
+    if format == 'uuid':
+        try:
+            uuid.UUID(arg)
+            return None
+        except ValueError:
+            raise exceptions.ApiValueError(
+                "Invalid value '{}' for type UUID at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'number':
+        try:
+            decimal.Decimal(arg)
+            return None
+        except decimal.InvalidOperation:
+            raise exceptions.ApiValueError(
+                "Value cannot be converted to a decimal. "
+                "Invalid value '{}' for type decimal at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'date':
+        try:
+            DEFAULT_ISOPARSER.parse_isodate(arg)
+            return None
+        except ValueError:
+            raise exceptions.ApiValueError(
+                "Value does not conform to the required ISO-8601 date format. "
+                "Invalid value '{}' for type date at {}".format(arg, validation_metadata.path_to_item)
+            )
+    elif format == 'date-time':
+        try:
+            DEFAULT_ISOPARSER.parse_isodatetime(arg)
+            return None
+        except ValueError:
+            raise exceptions.ApiValueError(
+                "Value does not conform to the required ISO-8601 datetime format. "
+                "Invalid value '{}' for type datetime at {}".format(arg, validation_metadata.path_to_item)
+            )
+    return None
+
+
+def validate_format(
+    arg: typing.Any,
+    format: str,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    # formats work for strings + numbers
+    if isinstance(arg, decimal.Decimal):
+        return __validate_numeric_format(
+            arg,
+            format,
+            validation_metadata
+        )
+    elif isinstance(arg, str):
+        return __validate_string_format(
+            arg,
+            format,
+            validation_metadata
+        )
+    return None
+
+
+def validate_required(
+    arg: typing.Any,
+    required: typing.Set[str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    missing_required_arguments = required - arg.keys()
+    if missing_required_arguments:
+        missing_required_arguments = list(missing_required_arguments)
+        missing_required_arguments.sort()
+        raise exceptions.ApiTypeError(
+            "{} is missing {} required argument{}: {}".format(
+                cls.__name__,
+                len(missing_required_arguments),
+                "s" if len(missing_required_arguments) > 1 else "",
+                missing_required_arguments
+            )
+        )
+    return None
+
+
+def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
+    if isinstance(item_cls, types.FunctionType):
+        # referenced schema
+        return item_cls()
+    elif isinstance(item_cls, staticmethod):
+        # referenced schema
+        return item_cls.__func__()
+    return item_cls
+
+
+def validate_items(
+    arg: typing.Any,
+    item_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> PathToSchemasType:
+    if not isinstance(arg, tuple):
+        return None
+    item_cls = _get_class(item_cls)
+    path_to_schemas = {}
+    for i, value in enumerate(arg):
+        item_validation_metadata = ValidationMetadata(
+            path_to_item=validation_metadata.path_to_item+(i,),
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if item_validation_metadata.validation_ran_earlier(item_cls):
+            add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = item_cls._validate(
+            value, validation_metadata=item_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_properties(
+    arg: typing.Any,
+    properties: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    path_to_schemas = {}
+    present_properties = {k: v for k, v, in arg.items() if k in properties.__annotations__}
+    for property_name, value in present_properties.items():
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        schema = properties.__annotations__[property_name]
+        schema = _get_class(schema)
+        arg_validation_metadata = ValidationMetadata(
+            path_to_item=path_to_item,
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if arg_validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema._validate(value, validation_metadata=arg_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_additional_properties(
+    arg: typing.Any,
+    additional_properties_schema: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    schema = _get_class(additional_properties_schema)
+    path_to_schemas = {}
+    properties_annotations = cls.Schema_.Properties.__annotations__ if hasattr(cls.Schema_, 'Properties') else {}
+    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
+    for property_name, value in present_additional_properties.items():
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        arg_validation_metadata = ValidationMetadata(
+            path_to_item=path_to_item,
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if arg_validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(arg_validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema._validate(value, validation_metadata=arg_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_one_of(
+    arg: typing.Any,
+    one_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    discriminated_cls: typing.Optional['Schema'],
+    **kwargs
+{{/if}}
+) -> PathToSchemasType:
+    oneof_classes = []
+    path_to_schemas = collections.defaultdict(set)
+    for one_of_cls in one_of_container_cls.classes:
+        schema = _get_class(one_of_cls)
+        if schema in path_to_schemas[validation_metadata.path_to_item]:
+            oneof_classes.append(schema)
+            continue
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate on it because that is recursive
+            """
+            oneof_classes.append(schema)
+            continue
+        if validation_metadata.validation_ran_earlier(schema):
+            oneof_classes.append(schema)
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+        try:
+            path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
+        except (exceptions.ApiValueError, exceptions.ApiTypeError) as ex:
+            # silence exceptions because the code needs to accumulate oneof_classes
+            continue
+        oneof_classes.append(schema)
+    if not oneof_classes:
+        {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        if discriminated_cls:
+            """
+            return without exception because code was generated with
+            nonCompliantUseDiscriminatorIfCompositionFails=true
+            """
+            return {}
+        {{/if}}
+        raise exceptions.ApiValueError(
+            "Invalid inputs given to generate an instance of {}. None "
+            "of the oneOf schemas matched the input data.".format(cls)
+        )
+    elif len(oneof_classes) > 1:
+        {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        if discriminated_cls:
+            """
+            return without exception because code was generated with
+            nonCompliantUseDiscriminatorIfCompositionFails=true
+            """
+            return {}
+        {{/if}}
+        raise exceptions.ApiValueError(
+            "Invalid inputs given to generate an instance of {}. Multiple "
+            "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
+        )
+    # exactly one class matches
+    return path_to_schemas
+
+
+def validate_any_of(
+    arg: typing.Any,
+    any_of_container_cls: typing.Type,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    discriminated_cls: typing.Optional['Schema'],
+    **kwargs
+{{/if}}
+) -> PathToSchemasType:
+    anyof_classes = []
+    path_to_schemas = collections.defaultdict(set)
+    for any_of_cls in any_of_container_cls.classes:
+        schema = _get_class(any_of_cls)
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate on it because that is recursive
+            """
+            anyof_classes.append(schema)
+            continue
+        if validation_metadata.validation_ran_earlier(schema):
+            anyof_classes.append(schema)
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+
+        try:
+            other_path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
+        except (exceptions.ApiValueError, exceptions.ApiTypeError) as ex:
+            # silence exceptions because the code needs to accumulate anyof_classes
+            continue
+        anyof_classes.append(schema)
+        update(path_to_schemas, other_path_to_schemas)
+    if not anyof_classes:
+        {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        if discriminated_cls:
+            """
+            return without exception because code was generated with
+            nonCompliantUseDiscriminatorIfCompositionFails=true
+            """
+            return {}
+        {{/if}}
+        raise exceptions.ApiValueError(
+            "Invalid inputs given to generate an instance of {}. None "
+            "of the anyOf schemas matched the input data.".format(cls)
+        )
+    return path_to_schemas
+
+
+def validate_all_of(
+    arg: typing.Any,
+    all_of_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> PathToSchemasType:
+    path_to_schemas = collections.defaultdict(set)
+    for allof_cls in all_of_cls.classes:
+        schema = _get_class(allof_cls)
+        if schema is cls:
+            """
+            optimistically assume that cls schema will pass validation
+            do not invoke _validate on it because that is recursive
+            """
+            continue
+        if validation_metadata.validation_ran_earlier(schema):
+            add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+            continue
+        other_path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
+def validate_not(
+    arg: typing.Any,
+    not_cls: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    not_schema = _get_class(not_cls)
+    other_path_to_schemas = None
+    not_exception = exceptions.ApiValueError(
+        "Invalid value '{}' was passed in to {}. Value is invalid because it is disallowed by {}".format(
+            arg,
+            cls.__name__,
+            not_schema.__name__,
+        )
+    )
+    if validation_metadata.validation_ran_earlier(not_schema):
+        raise not_exception
+
+    try:
+        other_path_to_schemas = not_schema._validate(arg, validation_metadata=validation_metadata)
+    except (exceptions.ApiValueError, exceptions.ApiTypeError):
+        pass
+    if other_path_to_schemas:
+        raise not_exception
+    return None
+
+
+def __ensure_discriminator_value_present(
+    disc_property_name: str,
+    validation_metadata: ValidationMetadata,
+    arg
+):
+    if disc_property_name not in arg:
+        # The input data does not contain the discriminator property
+        raise exceptions.ApiValueError(
+            "Cannot deserialize input data due to missing discriminator. "
+            "The discriminator property '{}' is missing at path: {}".format(disc_property_name, validation_metadata.path_to_item)
+        )
+
+
+def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: str):
+    """
+    Used in schemas with discriminators
+    """
+    if not hasattr(cls.Schema_, 'discriminator'):
+        return None
+    disc = cls.Schema_.discriminator()
+    if disc_property_name not in disc:
+        return None
+    discriminated_cls = disc[disc_property_name].get(disc_payload_value)
+    if discriminated_cls is not None:
+        return discriminated_cls
+    if not (
+        hasattr(cls.Schema_, 'AllOf') or
+        hasattr(cls.Schema_, 'OneOf') or
+        hasattr(cls.Schema_, 'AnyOf')
+    ):
+        return None
+    # TODO stop traveling if a cycle is hit
+    if hasattr(cls.Schema_, 'AllOf'):
+        for allof_cls in cls.Schema_.AllOf.classes:
+            allof_cls = _get_class(allof_cls)
+            discriminated_cls = __get_discriminated_class(
+                allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.Schema_, 'OneOf'):
+        for oneof_cls in cls.Schema_.OneOf.classes:
+            oneof_cls = _get_class(oneof_cls)
+            discriminated_cls = __get_discriminated_class(
+                oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    if hasattr(cls.Schema_, 'AnyOf'):
+        for anyof_cls in cls.Schema_.AnyOf.classes:
+            anyof_cls = _get_class(anyof_cls)
+            discriminated_cls = __get_discriminated_class(
+                anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
+            if discriminated_cls is not None:
+                return discriminated_cls
+    return None
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+
+def _get_discriminated_class_and_exception(
+    arg: typing.Any,
+    cls: 'Schema',
+    validation_metadata: ValidationMetadata
+) -> typing.Tuple[typing.Optional['Schema'], typing.Optional[Exception]]:
+    if not isinstance(arg, frozendict.frozendict):
+        return None, None
+    discriminator = cls.Schema_.discriminator()
+    disc_prop_name = list(discriminator.keys())[0]
+    try:
+        __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
+    except exceptions.ApiValueError as ex:
+        return None, ex
+    return (
+        __get_discriminated_class(
+            cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
+        ),
+        None
+    )
+{{/if}}
+
+
+def validate_discriminator(
+    arg: typing.Any,
+    discriminator_fn: typing.Type,
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    discriminated_cls: typing.Optional['Schema'],
+    ensure_discriminator_value_present_exc: typing.Optional[Exception],
+{{/if}}
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, frozendict.frozendict):
+        return None
+    discriminator = discriminator_fn.__func__()
+    disc_prop_name = list(discriminator.keys())[0]
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    if ensure_discriminator_value_present_exc:
+        raise ensure_discriminator_value_present_exc
+{{else}}
+    __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
+    discriminated_cls = __get_discriminated_class(
+        cls, disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name]
+    )
+{{/if}}
+    if discriminated_cls is None:
+        raise exceptions.ApiValueError(
+            "Invalid discriminator value was passed in to {}.{} Only the values {} are allowed at {}".format(
+                cls.__name__,
+                disc_prop_name,
+                list(discriminator[disc_prop_name].keys()),
+                validation_metadata.path_to_item + (disc_prop_name,)
+            )
+        )
+    if discriminated_cls is cls:
+        """
+        Optimistically assume that cls will pass validation
+        If the code invoked _validate on cls it would infinitely recurse
+        """
+        return None
+    if validation_metadata.validation_ran_earlier(discriminated_cls):
+        path_to_schemas = {}
+        add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+        return path_to_schemas
+    updated_vm = ValidationMetadata(
+        path_to_item=validation_metadata.path_to_item,
+        configuration=validation_metadata.configuration,
+        seen_classes=validation_metadata.seen_classes | frozenset({cls}),
+        validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+    )
+    return discriminated_cls._validate(arg, validation_metadata=updated_vm)
+
+
+json_schema_keyword_to_validator = {
+    'types': validate_types,
+    'enum_value_to_name': validate_enum,
+    'unique_items': validate_unique_items,
+    'min_items': validate_min_items,
+    'max_items': validate_max_items,
+    'min_properties': validate_min_properties,
+    'max_properties': validate_max_properties,
+    'min_length': validate_min_length,
+    'max_length': validate_max_length,
+    'inclusive_minimum': validate_inclusive_minimum,
+    'exclusive_minimum': validate_exclusive_minimum,
+    'inclusive_maximum': validate_inclusive_maximum,
+    'exclusive_maximum': validate_exclusive_maximum,
+    'multiple_of': validate_multiple_of,
+    'regex': validate_regex,
+    'format': validate_format,
+    'required': validate_required,
+    'items': validate_items,
+    'Items': validate_items,
+    'Properties': validate_properties,
+    'AdditionalProperties': validate_additional_properties,
+    'additional_properties': validate_additional_properties,
+    'OneOf': validate_one_of,
+    'AnyOf': validate_any_of,
+    'AllOf': validate_all_of,
+    '_not': validate_not,
+    '_Not': validate_not,
+    'ModelNot': validate_not,
+    'discriminator': validate_discriminator
+}
+
+
+class Schema:
+    """
+    the base class of all swagger/openapi schemas/models
+    """
+    __inheritable_primitive_types_set = {decimal.Decimal, str, tuple, frozendict.frozendict, FileIO, bytes, BoolClass, NoneClass}
+    Schema_: SchemaTyped
+    __excluded_cls_properties = {
+        '__module__',
+        '__dict__',
+        '__weakref__',
+        '__doc__',
+    }
+
+    @classmethod
+    def _validate(
+        cls,
+        arg,
+        validation_metadata: ValidationMetadata,
+    ) -> PathToSchemasType:
+        """
+        Schema validate
+        All keyword validation except for type checking was done in calling stack frames
+        If those validations passed, the validated classes are collected in path_to_schemas
+        """
+        json_schema_data = {
+            k: v
+            for k, v in vars(cls.Schema_).items()
+            if k not in cls.__excluded_cls_properties
+            and k
+            not in validation_metadata.configuration.disabled_json_schema_python_keywords
+        }
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        kwargs = {}
+        if 'discriminator' in json_schema_data:
+            discriminated_cls, ensure_discriminator_value_present_exc = _get_discriminated_class_and_exception(
+                arg,
+                cls,
+                validation_metadata
+            )
+            kwargs = {
+                'discriminated_cls': discriminated_cls,
+                'ensure_discriminator_value_present_exc': ensure_discriminator_value_present_exc
+            }
+{{/if}}
+        path_to_schemas = {}
+        for keyword, val in json_schema_data.items():
+            validator =  json_schema_keyword_to_validator[keyword]
+
+            other_path_to_schemas = validator(
+                arg,
+                val,
+                cls,
+                validation_metadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+                **kwargs
+{{/if}}
+            )
+            if other_path_to_schemas:
+                update(path_to_schemas, other_path_to_schemas)
+
+        base_class = type(arg)
+        if validation_metadata.path_to_item not in path_to_schemas:
+            path_to_schemas[validation_metadata.path_to_item] = set()
+        path_to_schemas[validation_metadata.path_to_item].add(cls)
+        path_to_schemas[validation_metadata.path_to_item].add(base_class)
+        return path_to_schemas
+
+    @staticmethod
+    def _process_schema_classes(
+        schema_classes: typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]
+    ):
+        """
+        Processes and mutates schema_classes
+        If a SomeSchema is a subclass of DictSchema then remove DictSchema because it is already included
+        """
+        if len(schema_classes) < 2:
+            return
+        if len(schema_classes) > 2 and UnsetAnyTypeSchema in schema_classes:
+            schema_classes.remove(UnsetAnyTypeSchema)
+        x_schema = schema_type_classes & schema_classes
+        if not x_schema:
+            return
+        # the only way len == 2 is to have one be AnyTypeSchema
+        x_schema = x_schema.pop() if len(x_schema) == 1 else AnyTypeSchema
+        if any(c is not x_schema and issubclass(c, x_schema) for c in schema_classes):
+            # needed to not have a mro error in get_new_class
+            schema_classes.remove(x_schema)
+
+    @staticmethod
+    def __bases_by_type():
+        return {
+            str: (UnsetAnyTypeSchema, str),
+            decimal.Decimal: (UnsetAnyTypeSchema, decimal.Decimal),
+            BoolClass: (UnsetAnyTypeSchema, BoolClass),
+            NoneClass: (UnsetAnyTypeSchema, NoneClass),
+            tuple: (UnsetAnyTypeSchema, tuple),
+            frozendict.frozendict: (UnsetAnyTypeSchema, frozendict.frozendict),
+            bytes: (UnsetAnyTypeSchema, bytes),
+            FileIO: (UnsetAnyTypeSchema, FileIO),
+        }
+
+    @classmethod
+    def __get_new_cls(
+        cls,
+        arg,
+        validation_metadata: ValidationMetadata,
+        path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
+    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]:
+        """
+        Make a new dynamic class and return an instance of that class
+        We are making an instance of cls, but instead of making cls
+        make a new class, new_cls
+        which includes dynamic bases including cls
+        return an instance of that new class
+
+        Dict property + List Item Assignment Use cases:
+        1. value is NOT an instance of the required schema class
+            the value is validated by _validate
+            _validate returns a key value pair
+            where the key is the path to the item, and the value will be the required manufactured class
+            made out of the matching schemas
+        2. value is an instance of the correct schema type
+            the value is NOT validated by _validate, _validate only checks that the instance is of the correct schema type
+            for this value, _validate does NOT return an entry for it in _path_to_schemas
+            and in list/dict _get_items,_get_properties the value will be directly assigned
+            because value is of the correct type, and validation was run earlier when the instance was created
+        """
+        _path_to_schemas = {}
+        if validation_metadata.validation_ran_earlier(cls):
+            add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
+        else:
+            other_path_to_schemas = cls._validate(arg, validation_metadata=validation_metadata)
+            update(_path_to_schemas, other_path_to_schemas)
+        # loop through it make a new class for each entry
+        # do not modify the returned result because it is cached and we would be modifying the cached value
+        path_to_schemas = {}
+        for path, schema_classes in _path_to_schemas.items():
+            """
+            Use cases
+            1. N number of schema classes + enum + type != bool/None, classes in path_to_schemas: tuple/frozendict.frozendict/str/Decimal/bytes/FileIo
+                needs Singleton added
+            2. N number of schema classes + enum + type == bool/None, classes in path_to_schemas: BoolClass/NoneClass
+                Singleton already added
+            3. N number of schema classes, classes in path_to_schemas: BoolClass/NoneClass/tuple/frozendict.frozendict/str/Decimal/bytes/FileIo
+            """
+            cls._process_schema_classes(schema_classes)
+            enum_schema = any(
+                issubclass(this_cls, Schema) and hasattr(this_cls.Schema_, "enum_value_to_name")
+                for this_cls in schema_classes
+            )
+            inheritable_primitive_type = schema_classes.intersection(cls.__inheritable_primitive_types_set)
+            chosen_schema_classes = schema_classes - inheritable_primitive_type
+            suffix = tuple(inheritable_primitive_type)
+            if enum_schema and suffix[0] not in {NoneClass, BoolClass}:
+                suffix = (Singleton,) + suffix
+
+            used_classes = tuple(sorted(chosen_schema_classes, key=lambda a_cls: a_cls.__name__)) + suffix
+            mfg_cls = get_new_class(class_name='DynamicSchema', bases=used_classes)
+            path_to_schemas[path] = mfg_cls
+
+        """
+        For locations that validation did not check
+        the code still needs to mfg a class to hold those values
+        All of these classes will be based on UnsetAnyTypeSchema
+        """
+        missing_paths = path_to_type.keys() - path_to_schemas.keys()
+        for missing_path in missing_paths:
+            value_type = path_to_type[missing_path]
+            bases = cls.__bases_by_type()[value_type]
+            mfg_cls = get_new_class(class_name='DynamicSchema', bases=bases)
+            path_to_schemas[missing_path] = mfg_cls
+
+        return path_to_schemas
+
+    @classmethod
+    def _get_new_instance_without_conversion(
+        cls,
+        arg: typing.Any,
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
+        # We have a Dynamic class and we are making an instance of it
+        if issubclass(cls, frozendict.frozendict) and issubclass(cls, DictBase):
+            properties = cls._get_properties(arg, path_to_item, path_to_schemas)
+            return super(Schema, cls).__new__(cls, properties)
+        elif issubclass(cls, tuple) and issubclass(cls, ListBase):
+            items = cls._get_items(arg, path_to_item, path_to_schemas)
+            return super(Schema, cls).__new__(cls, items)
+        """
+        str = openapi str, datetime.date, and datetime.datetime
+        decimal.Decimal = openapi int and float
+        FileIO = openapi binary type and the user inputs a file
+        bytes = openapi binary type and the user inputs bytes
+        """
+        return super(Schema, cls).__new__(cls, arg)
+
+    @classmethod
+    def from_openapi_data_(
+        cls,
+        arg: typing.Union[
+            str,
+            int,
+            float,
+            bool,
+            None,
+            dict,
+            list,
+            io.FileIO,
+            io.BufferedReader,
+            bytes
+        ],
+        configuration_: typing.Optional[configuration_module.Configuration] = None
+    ):
+        """
+        Schema from_openapi_data_
+        """
+        from_server = True
+        validated_path_to_schemas = {}
+        path_to_type = {}
+        arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
+        validation_metadata = ValidationMetadata(
+            path_to_item=('args[0]',),
+            configuration=configuration_ or configuration_module.Configuration(),
+            validated_path_to_schemas=frozendict.frozendict(validated_path_to_schemas)
+        )
+        path_to_schemas = cls.__get_new_cls(arg, validation_metadata, path_to_type)
+        new_cls = path_to_schemas[validation_metadata.path_to_item]
+        new_inst = new_cls._get_new_instance_without_conversion(
+            arg,
+            validation_metadata.path_to_item,
+            path_to_schemas
+        )
+        return new_inst
+
+    @staticmethod
+    def __get_input_dict(*args, **kwargs) -> frozendict.frozendict:
+        input_dict = {}
+        if args and isinstance(args[0], (dict, frozendict.frozendict)):
+            input_dict.update(args[0])
+        if kwargs:
+            input_dict.update(kwargs)
+        return frozendict.frozendict(input_dict)
+
+    @staticmethod
+    def __remove_unsets(kwargs):
+        return {key: val for key, val in kwargs.items() if val is not unset}
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            {{> _helper_types_all_incl_schema }}
+        ],
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
+        **kwargs: typing.Union[
+            {{> _helper_types_all_incl_schema }}
+            Unset
+        ]
+    ):
+        """
+        Schema __new__
+
+        Args:
+            args_ (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
+            kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
+            configuration_: contains the configuration_module.Configuration that enables json schema validation keywords
+                like minItems, minLength etc
+
+        Note: double underscores are used here because pycharm thinks that these variables
+        are instance properties if they are named normally :(
+        """
+        __kwargs = cls.__remove_unsets(kwargs)
+        if not args_ and not __kwargs:
+            raise TypeError(
+                'No input given. args or kwargs must be given.'
+            )
+        if not __kwargs and args_ and not isinstance(args_[0], dict):
+            __arg = args_[0]
+        else:
+            __arg = cls.__get_input_dict(*args_, **__kwargs)
+        __from_server = False
+        __validated_path_to_schemas = {}
+        __path_to_type = {}
+        __arg = cast_to_allowed_types(
+            __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
+        __validation_metadata = ValidationMetadata(
+            path_to_item=('args[0]',),
+            configuration=configuration_ or configuration_module.Configuration(),
+            validated_path_to_schemas=frozendict.frozendict(__validated_path_to_schemas)
+        )
+        __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata, __path_to_type)
+        __new_cls = __path_to_schemas[__validation_metadata.path_to_item]
+        return __new_cls._get_new_instance_without_conversion(
+            __arg,
+            __validation_metadata.path_to_item,
+            __path_to_schemas
+        )
+
+    def __init__(
+        self,
+        *args_: typing.Union[
+            dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema'],
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
+        **kwargs: typing.Union[
+            dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema', Unset
+        ]
+    ):
+        """
+        this is needed to fix 'Unexpected argument' warning in pycharm
+        this code does nothing because all Schema instances are immutable
+        this means that all input data is passed into and used in new, and after the new instance is made
+        no new attributes are assigned and init is not used
+        """
+        pass
+
+"""
+import itertools
+data_types = ('None', 'FrozenDict', 'Tuple', 'Str', 'Decimal', 'Bool')
+type_to_cls = {
+    'None': 'NoneClass',
+    'FrozenDict': 'frozendict.frozendict',
+    'Tuple': 'tuple',
+    'Str': 'str',
+    'Decimal': 'decimal.Decimal',
+    'Bool': 'BoolClass'
+}
+cls_tuples = [v for v in itertools.combinations(data_types, 5)]
+typed_classes = [f"class {''.join(cls_tuple)}Mixin({', '.join(type_to_cls[typ] for typ in cls_tuple)}):\n    pass" for cls_tuple in cls_tuples]
+for cls in typed_classes:
+    print(cls)
+object_classes = [f"{''.join(cls_tuple)}Mixin = object" for cls_tuple in cls_tuples]
+for cls in object_classes:
+    print(cls)
+"""
+if typing.TYPE_CHECKING:
+    # qty 1
+    NoneMixin = NoneClass
+    FrozenDictMixin = frozendict.frozendict
+    TupleMixin = tuple
+    StrMixin = str
+    DecimalMixin = decimal.Decimal
+    BoolMixin = BoolClass
+    BytesMixin = bytes
+    FileMixin = FileIO
+    # qty 2
+    class BinaryMixin(bytes, FileIO):
+        pass
+    class NoneFrozenDictMixin(NoneClass, frozendict.frozendict):
+        pass
+    class NoneTupleMixin(NoneClass, tuple):
+        pass
+    class NoneStrMixin(NoneClass, str):
+        pass
+    class NoneDecimalMixin(NoneClass, decimal.Decimal):
+        pass
+    class NoneBoolMixin(NoneClass, BoolClass):
+        pass
+    class FrozenDictTupleMixin(frozendict.frozendict, tuple):
+        pass
+    class FrozenDictStrMixin(frozendict.frozendict, str):
+        pass
+    class FrozenDictDecimalMixin(frozendict.frozendict, decimal.Decimal):
+        pass
+    class FrozenDictBoolMixin(frozendict.frozendict, BoolClass):
+        pass
+    class TupleStrMixin(tuple, str):
+        pass
+    class TupleDecimalMixin(tuple, decimal.Decimal):
+        pass
+    class TupleBoolMixin(tuple, BoolClass):
+        pass
+    class StrDecimalMixin(str, decimal.Decimal):
+        pass
+    class StrBoolMixin(str, BoolClass):
+        pass
+    class DecimalBoolMixin(decimal.Decimal, BoolClass):
+        pass
+    # qty 3
+    class NoneFrozenDictTupleMixin(NoneClass, frozendict.frozendict, tuple):
+        pass
+    class NoneFrozenDictStrMixin(NoneClass, frozendict.frozendict, str):
+        pass
+    class NoneFrozenDictDecimalMixin(NoneClass, frozendict.frozendict, decimal.Decimal):
+        pass
+    class NoneFrozenDictBoolMixin(NoneClass, frozendict.frozendict, BoolClass):
+        pass
+    class NoneTupleStrMixin(NoneClass, tuple, str):
+        pass
+    class NoneTupleDecimalMixin(NoneClass, tuple, decimal.Decimal):
+        pass
+    class NoneTupleBoolMixin(NoneClass, tuple, BoolClass):
+        pass
+    class NoneStrDecimalMixin(NoneClass, str, decimal.Decimal):
+        pass
+    class NoneStrBoolMixin(NoneClass, str, BoolClass):
+        pass
+    class NoneDecimalBoolMixin(NoneClass, decimal.Decimal, BoolClass):
+        pass
+    class FrozenDictTupleStrMixin(frozendict.frozendict, tuple, str):
+        pass
+    class FrozenDictTupleDecimalMixin(frozendict.frozendict, tuple, decimal.Decimal):
+        pass
+    class FrozenDictTupleBoolMixin(frozendict.frozendict, tuple, BoolClass):
+        pass
+    class FrozenDictStrDecimalMixin(frozendict.frozendict, str, decimal.Decimal):
+        pass
+    class FrozenDictStrBoolMixin(frozendict.frozendict, str, BoolClass):
+        pass
+    class FrozenDictDecimalBoolMixin(frozendict.frozendict, decimal.Decimal, BoolClass):
+        pass
+    class TupleStrDecimalMixin(tuple, str, decimal.Decimal):
+        pass
+    class TupleStrBoolMixin(tuple, str, BoolClass):
+        pass
+    class TupleDecimalBoolMixin(tuple, decimal.Decimal, BoolClass):
+        pass
+    class StrDecimalBoolMixin(str, decimal.Decimal, BoolClass):
+        pass
+    # qty 4
+    class NoneFrozenDictTupleStrMixin(NoneClass, frozendict.frozendict, tuple, str):
+        pass
+    class NoneFrozenDictTupleDecimalMixin(NoneClass, frozendict.frozendict, tuple, decimal.Decimal):
+        pass
+    class NoneFrozenDictTupleBoolMixin(NoneClass, frozendict.frozendict, tuple, BoolClass):
+        pass
+    class NoneFrozenDictStrDecimalMixin(NoneClass, frozendict.frozendict, str, decimal.Decimal):
+        pass
+    class NoneFrozenDictStrBoolMixin(NoneClass, frozendict.frozendict, str, BoolClass):
+        pass
+    class NoneFrozenDictDecimalBoolMixin(NoneClass, frozendict.frozendict, decimal.Decimal, BoolClass):
+        pass
+    class NoneTupleStrDecimalMixin(NoneClass, tuple, str, decimal.Decimal):
+        pass
+    class NoneTupleStrBoolMixin(NoneClass, tuple, str, BoolClass):
+        pass
+    class NoneTupleDecimalBoolMixin(NoneClass, tuple, decimal.Decimal, BoolClass):
+        pass
+    class NoneStrDecimalBoolMixin(NoneClass, str, decimal.Decimal, BoolClass):
+        pass
+    class FrozenDictTupleStrDecimalMixin(frozendict.frozendict, tuple, str, decimal.Decimal):
+        pass
+    class FrozenDictTupleStrBoolMixin(frozendict.frozendict, tuple, str, BoolClass):
+        pass
+    class FrozenDictTupleDecimalBoolMixin(frozendict.frozendict, tuple, decimal.Decimal, BoolClass):
+        pass
+    class FrozenDictStrDecimalBoolMixin(frozendict.frozendict, str, decimal.Decimal, BoolClass):
+        pass
+    class TupleStrDecimalBoolMixin(tuple, str, decimal.Decimal, BoolClass):
+        pass
+    # qty 5
+    class NoneFrozenDictTupleStrDecimalMixin(NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal):
+        pass
+    class NoneFrozenDictTupleStrBoolMixin(NoneClass, frozendict.frozendict, tuple, str, BoolClass):
+        pass
+    class NoneFrozenDictTupleDecimalBoolMixin(NoneClass, frozendict.frozendict, tuple, decimal.Decimal, BoolClass):
+        pass
+    class NoneFrozenDictStrDecimalBoolMixin(NoneClass, frozendict.frozendict, str, decimal.Decimal, BoolClass):
+        pass
+    class NoneTupleStrDecimalBoolMixin(NoneClass, tuple, str, decimal.Decimal, BoolClass):
+        pass
+    class FrozenDictTupleStrDecimalBoolMixin(frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass):
+        pass
+    # qty 6
+    class NoneFrozenDictTupleStrDecimalBoolMixin(NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass):
+        pass
+    # qty 8
+    class NoneFrozenDictTupleStrDecimalBoolFileBytesMixin(NoneClass, frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass, FileIO, bytes):
+        pass
+else:
+    # qty 1
+    class NoneMixin:
+        pass
+    class FrozenDictMixin:
+        pass
+    class TupleMixin:
+        pass
+    class StrMixin:
+        pass
+    class DecimalMixin:
+        pass
+    class BoolMixin:
+        pass
+    class BytesMixin:
+        pass
+    class FileMixin:
+        pass
+    # qty 2
+    class BinaryMixin:
+        pass
+    class NoneFrozenDictMixin:
+        pass
+    class NoneTupleMixin:
+        pass
+    class NoneStrMixin:
+        pass
+    class NoneDecimalMixin:
+        pass
+    class NoneBoolMixin:
+        pass
+    class FrozenDictTupleMixin:
+        pass
+    class FrozenDictStrMixin:
+        pass
+    class FrozenDictDecimalMixin:
+        pass
+    class FrozenDictBoolMixin:
+        pass
+    class TupleStrMixin:
+        pass
+    class TupleDecimalMixin:
+        pass
+    class TupleBoolMixin:
+        pass
+    class StrDecimalMixin:
+        pass
+    class StrBoolMixin:
+        pass
+    class DecimalBoolMixin:
+        pass
+    # qty 3
+    class NoneFrozenDictTupleMixin:
+        pass
+    class NoneFrozenDictStrMixin:
+        pass
+    class NoneFrozenDictDecimalMixin:
+        pass
+    class NoneFrozenDictBoolMixin:
+        pass
+    class NoneTupleStrMixin:
+        pass
+    class NoneTupleDecimalMixin:
+        pass
+    class NoneTupleBoolMixin:
+        pass
+    class NoneStrDecimalMixin:
+        pass
+    class NoneStrBoolMixin:
+        pass
+    class NoneDecimalBoolMixin:
+        pass
+    class FrozenDictTupleStrMixin:
+        pass
+    class FrozenDictTupleDecimalMixin:
+        pass
+    class FrozenDictTupleBoolMixin:
+        pass
+    class FrozenDictStrDecimalMixin:
+        pass
+    class FrozenDictStrBoolMixin:
+        pass
+    class FrozenDictDecimalBoolMixin:
+        pass
+    class TupleStrDecimalMixin:
+        pass
+    class TupleStrBoolMixin:
+        pass
+    class TupleDecimalBoolMixin:
+        pass
+    class StrDecimalBoolMixin:
+        pass
+    # qty 4
+    class NoneFrozenDictTupleStrMixin:
+        pass
+    class NoneFrozenDictTupleDecimalMixin:
+        pass
+    class NoneFrozenDictTupleBoolMixin:
+        pass
+    class NoneFrozenDictStrDecimalMixin:
+        pass
+    class NoneFrozenDictStrBoolMixin:
+        pass
+    class NoneFrozenDictDecimalBoolMixin:
+        pass
+    class NoneTupleStrDecimalMixin:
+        pass
+    class NoneTupleStrBoolMixin:
+        pass
+    class NoneTupleDecimalBoolMixin:
+        pass
+    class NoneStrDecimalBoolMixin:
+        pass
+    class FrozenDictTupleStrDecimalMixin:
+        pass
+    class FrozenDictTupleStrBoolMixin:
+        pass
+    class FrozenDictTupleDecimalBoolMixin:
+        pass
+    class FrozenDictStrDecimalBoolMixin:
+        pass
+    class TupleStrDecimalBoolMixin:
+        pass
+    # qty 5
+    class NoneFrozenDictTupleStrDecimalMixin:
+        pass
+    class NoneFrozenDictTupleStrBoolMixin:
+        pass
+    class NoneFrozenDictTupleDecimalBoolMixin:
+        pass
+    class NoneFrozenDictStrDecimalBoolMixin:
+        pass
+    class NoneTupleStrDecimalBoolMixin:
+        pass
+    class FrozenDictTupleStrDecimalBoolMixin:
+        pass
+    # qty 6
+    class NoneFrozenDictTupleStrDecimalBoolMixin:
+        pass
+    # qty 8
+    class NoneFrozenDictTupleStrDecimalBoolFileBytesMixin:
+        pass
+
+
+class BoolBase:
+    def is_true_(self) -> bool:
+        """
+        A replacement for x is True
+        True if the instance is a BoolClass True Singleton
+        """
+        if not issubclass(self.__class__, BoolClass):
+            return False
+        return bool(self)
+
+    def is_false_(self) -> bool:
+        """
+        A replacement for x is False
+        True if the instance is a BoolClass False Singleton
+        """
+        if not issubclass(self.__class__, BoolClass):
+            return False
+        return bool(self) is False
+
+
+class NoneBase:
+    def is_none_(self) -> bool:
+        """
+        A replacement for x is None
+        True if the instance is a NoneClass None Singleton
+        """
+        if issubclass(self.__class__, NoneClass):
+            return True
+        return False
+
+
+class StrBase:
+    Schema_: SchemaTyped
+
+    @property
+    def as_str_(self) -> str:
+        return self
+
+    @property
+    def as_date_(self) -> datetime.date:
+        raise Exception('not implemented')
+
+    @property
+    def as_datetime_(self) -> datetime.datetime:
+        raise Exception('not implemented')
+
+    @property
+    def as_decimal_(self) -> decimal.Decimal:
+        raise Exception('not implemented')
+
+    @property
+    def as_uuid_(self) -> uuid.UUID:
+        raise Exception('not implemented')
+
+
+class UUIDBase:
+    @property
+    @functools.lru_cache()
+    def as_uuid_(self) -> uuid.UUID:
+        return uuid.UUID(self)
+
+
+class DateBase:
+    @property
+    @functools.lru_cache()
+    def as_date_(self) -> datetime.date:
+        return DEFAULT_ISOPARSER.parse_isodate(self)
+
+
+class DateTimeBase:
+    @property
+    @functools.lru_cache()
+    def as_datetime_(self) -> datetime.datetime:
+        return DEFAULT_ISOPARSER.parse_isodatetime(self)
+
+
+class DecimalBase:
+    """
+    A class for storing decimals that are sent over the wire as strings
+    These schemas must remain based on StrBase rather than NumberBase
+    because picking base classes must be deterministic
+    """
+
+    @property
+    @functools.lru_cache()
+    def as_decimal_(self) -> decimal.Decimal:
+        return decimal.Decimal(self)
+
+
+class NumberBase:
+    Schema_: SchemaTyped
+
+    @property
+    def as_int_(self) -> int:
+        try:
+            return self._as_int
+        except AttributeError:
+            """
+            Note: for some numbers like 9.0 they could be represented as an
+            integer but our code chooses to store them as
+            >>> Decimal('9.0').as_tuple()
+            DecimalTuple(sign=0, digits=(9, 0), exponent=-1)
+            so we can tell that the value came from a float and convert it back to a float
+            during later serialization
+            """
+            if self.as_tuple().exponent < 0:
+                # this could be represented as an integer but should be represented as a float
+                # because that's what it was serialized from
+                raise exceptions.ApiValueError(f'{self} is not an integer')
+            self._as_int = int(self)
+            return self._as_int
+
+    @property
+    def as_float_(self) -> float:
+        try:
+            return self._as_float
+        except AttributeError:
+            if self.as_tuple().exponent >= 0:
+                raise exceptions.ApiValueError(f'{self} is not a float')
+            self._as_float = float(self)
+            return self._as_float
+
+
+class ListBase:
+    Schema_: SchemaTyped
+
+    @classmethod
+    def _get_items(
+        cls: 'Schema',
+        arg: typing.List[typing.Any],
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
+        '''
+        ListBase _get_items
+        '''
+        cast_items = []
+
+        for i, value in enumerate(arg):
+            item_path_to_item = path_to_item + (i,)
+            item_cls = path_to_schemas[item_path_to_item]
+            new_value = item_cls._get_new_instance_without_conversion(
+                value,
+                item_path_to_item,
+                path_to_schemas
+            )
+            cast_items.append(new_value)
+
+        return cast_items
+
+
+class DictBase:
+    @classmethod
+    def _get_properties(
+        cls,
+        arg: typing.Dict[str, typing.Any],
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
+        """
+        DictBase _get_properties, this is how properties are set
+        These values already passed validation
+        """
+        dict_items = {}
+
+        for property_name_js, value in arg.items():
+            property_path_to_item = path_to_item + (property_name_js,)
+            property_cls = path_to_schemas[property_path_to_item]
+            new_value = property_cls._get_new_instance_without_conversion(
+                value,
+                property_path_to_item,
+                path_to_schemas
+            )
+            dict_items[property_name_js] = new_value
+
+        return dict_items
+
+    def __setattr__(self, name: str, value: typing.Any):
+        if not isinstance(self, FileIO):
+            raise AttributeError('property setting not supported on immutable instances')
+
+    def __getattr__(self, name: str):
+        """
+        for instance.name access
+        Properties are only type hinted for required properties
+        so that hasattr(instance, 'optionalProp') is False when that key is not present
+        """
+        if not isinstance(self, frozendict.frozendict):
+            return super().__getattr__(name)
+        if name not in self.__class__.__annotations__:
+            raise AttributeError(f"{self} has no attribute '{name}'")
+        try:
+            value = self[name]
+            return value
+        except KeyError as ex:
+            raise AttributeError(str(ex))
+
+    def get_item_(self, name: str) -> typing.Union['AnyTypeSchema', Unset]:
+        # dict_instance[name] accessor
+        if not isinstance(self, frozendict.frozendict):
+            raise NotImplementedError()
+        try:
+            return super().__getitem__(name)
+        except KeyError:
+            return unset
+
+
+def cast_to_allowed_types(
+    arg: typing.Union[
+        {{> _helper_types_all_incl_schema }}
+    ],
+    from_server: bool,
+    validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]],
+    path_to_item: typing.Tuple[typing.Union[str, int], ...],
+    path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
+) -> typing.Union[
+    {{> _helper_types_all_accessed }}
+]:
+    """
+    Casts the input payload arg into the allowed types
+    The input validated_path_to_schemas is mutated by running this function
+
+    When from_server is False then
+    - date/datetime is cast to str
+    - int/float is cast to Decimal
+
+    If a Schema instance is passed in it is converted back to a primitive instance because
+    One may need to validate that data to the original Schema class AND additional different classes
+    those additional classes will need to be added to the new manufactured class for that payload
+    If the code didn't do this and kept the payload as a Schema instance it would fail to validate to other
+    Schema classes and the code wouldn't be able to mfg a new class that includes all valid schemas
+    TODO: store the validated schema classes in validation_metadata
+
+    Args:
+        arg: the payload
+        from_server: whether this payload came from the server or not
+        validated_path_to_schemas: a dict that stores the validated classes at any path location in the payload
+    """
+    if isinstance(arg, Schema) and not isinstance(arg, UnsetAnyTypeSchema):
+        """
+        store the already run validations
+        but omit UnsetAnyTypeSchema instances because they were not validated
+        """
+        schema_classes = set()
+        for cls in arg.__class__.__bases__:
+            if cls is Singleton:
+                # Skip Singleton
+                continue
+            schema_classes.add(cls)
+        validated_path_to_schemas[path_to_item] = schema_classes
+
+    type_error = exceptions.ApiTypeError(f"Invalid type. Required value type is str and passed type was {type(arg)} at {path_to_item}")
+    if isinstance(arg, str):
+        path_to_type[path_to_item] = str
+        return str(arg)
+    elif isinstance(arg, (dict, frozendict.frozendict)):
+        path_to_type[path_to_item] = frozendict.frozendict
+        return frozendict.frozendict(
+            {
+                key: cast_to_allowed_types(
+                    val,
+                    from_server,
+                    validated_path_to_schemas,
+                    path_to_item + (key,),
+                    path_to_type,
+                )
+                for key, val in arg.items()
+            }
+        )
+    elif isinstance(arg, (bool, BoolClass)):
+        path_to_type[path_to_item] = BoolClass
+        """
+        this check must come before isinstance(arg, (int, float))
+        because isinstance(True, int) is True
+        """
+        if arg:
+            return BoolClass.TRUE
+        return BoolClass.FALSE
+    elif isinstance(arg, int):
+        path_to_type[path_to_item] = decimal.Decimal
+        return decimal.Decimal(arg)
+    elif isinstance(arg, float):
+        path_to_type[path_to_item] = decimal.Decimal
+        decimal_from_float = decimal.Decimal(arg)
+        if decimal_from_float.as_integer_ratio()[1] == 1:
+            # 9.0 -> Decimal('9.0')
+            # 3.4028234663852886e+38 -> Decimal('340282346638528859811704183484516925440.0')
+            return decimal.Decimal(str(decimal_from_float)+'.0')
+        return decimal_from_float
+    elif isinstance(arg, (tuple, list)):
+        path_to_type[path_to_item] = tuple
+        return tuple(
+            [
+                cast_to_allowed_types(
+                    item,
+                    from_server,
+                    validated_path_to_schemas,
+                    path_to_item + (i,),
+                    path_to_type,
+                )
+                for i, item in enumerate(arg)
+            ]
+        )
+    elif isinstance(arg, (none_type, NoneClass)):
+        path_to_type[path_to_item] = NoneClass
+        return NoneClass.NONE
+    elif isinstance(arg, (datetime.date, datetime.datetime)):
+        path_to_type[path_to_item] = str
+        if not from_server:
+            return arg.isoformat()
+        raise type_error
+    elif isinstance(arg, uuid.UUID):
+        path_to_type[path_to_item] = str
+        if not from_server:
+            return str(arg)
+        raise type_error
+    elif isinstance(arg, decimal.Decimal):
+        path_to_type[path_to_item] = decimal.Decimal
+        return decimal.Decimal(arg)
+    elif isinstance(arg, bytes):
+        path_to_type[path_to_item] = bytes
+        return bytes(arg)
+    elif isinstance(arg, (io.FileIO, io.BufferedReader)):
+        path_to_type[path_to_item] = FileIO
+        return FileIO(arg)
+    raise ValueError('Invalid type passed in got input={} type={}'.format(arg, type(arg)))
+
+
+class ListSchema(
+    ListBase,
+    Schema,
+    TupleMixin
+):
+    class Schema_:
+        types = {tuple}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class NoneSchema(
+    NoneBase,
+    Schema,
+    NoneMixin
+):
+    class Schema_:
+        types = {NoneClass}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: None, **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class NumberSchema(
+    NumberBase,
+    Schema,
+    DecimalMixin
+):
+    """
+    This is used for type: number with no format
+    Both integers AND floats are accepted
+    """
+    class Schema_:
+        types = {decimal.Decimal}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class IntBase:
+    @property
+    def as_int_(self) -> int:
+        try:
+            return self._as_int
+        except AttributeError:
+            self._as_int = int(self)
+            return self._as_int
+
+
+class IntSchema(IntBase, NumberSchema):
+    class Schema_:
+        types = {decimal.Decimal}
+        format = 'int'
+
+    @classmethod
+    def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class Int32Schema(
+    IntSchema
+):
+    class Schema_:
+        types = {decimal.Decimal}
+        format = 'int32'
+
+
+class Int64Schema(
+    IntSchema
+):
+    class Schema_:
+        types = {decimal.Decimal}
+        format = 'int64'
+
+
+class Float32Schema(
+    NumberSchema
+):
+    class Schema_:
+        types = {decimal.Decimal}
+        format = 'float'
+
+    @classmethod
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+
+class Float64Schema(
+    NumberSchema
+):
+    class Schema_:
+        types = {decimal.Decimal}
+        format = 'double'
+
+    @classmethod
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+
+class StrSchema(
+    StrBase,
+    Schema,
+    StrMixin
+):
+    """
+    date + datetime string types must inherit from this class
+    That is because one can validate a str payload as both:
+    - type: string (format unset)
+    - type: string, format: date
+    """
+    class Schema_:
+        types = {str}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class UUIDSchema(UUIDBase, StrSchema):
+    class Schema_:
+        types = {str}
+        format = 'uuid'
+
+    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class DateSchema(DateBase, StrSchema):
+    class Schema_:
+        types = {str}
+        format = 'date'
+
+    def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class DateTimeSchema(DateTimeBase, StrSchema):
+    class Schema_:
+        types = {str}
+        format = 'date-time'
+
+    def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class DecimalSchema(DecimalBase, StrSchema):
+    class Schema_:
+        types = {str}
+        format = 'number'
+
+    def __new__(cls, arg_: str, **kwargs: configuration_module.Configuration):
+        """
+        Note: Decimals may not be passed in because cast_to_allowed_types is only invoked once for payloads
+        which can be simple (str) or complex (dicts or lists with nested values)
+        Because casting is only done once and recursively casts all values prior to validation then for a potential
+        client side Decimal input if Decimal was accepted as an input in DecimalSchema then one would not know
+        if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
+        where it should stay as Decimal.
+        """
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class BytesSchema(
+    Schema,
+    BytesMixin
+):
+    """
+    this class will subclass bytes and is immutable
+    """
+    class Schema_:
+        types = {bytes}
+
+    def __new__(cls, arg_: bytes, **kwargs: configuration_module.Configuration):
+        return super(Schema, cls).__new__(cls, arg_)
+
+
+class FileSchema(
+    Schema,
+    FileMixin
+):
+    """
+    This class is NOT immutable
+    Dynamic classes are built using it for example when AnyType allows in binary data
+    Al other schema classes ARE immutable
+    If one wanted to make this immutable one could make this a DictSchema with required properties:
+    - data = BytesSchema (which would be an immutable bytes based schema)
+    - file_name = StrSchema
+    and cast_to_allowed_types would convert bytes and file instances into dicts containing data + file_name
+    The downside would be that data would be stored in memory which one may not want to do for very large files
+
+    The developer is responsible for closing this file and deleting it
+
+    This class was kept as mutable:
+    - to allow file reading and writing to disk
+    - to be able to preserve file name info
+    """
+    class Schema_:
+        types = {FileIO}
+
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: configuration_module.Configuration):
+        return super(Schema, cls).__new__(cls, arg_)
+
+
+class BinarySchema(
+    Schema,
+    BinaryMixin
+):
+    class Schema_:
+        types = {FileIO, bytes}
+        format = 'binary'
+
+        class OneOf:
+            classes = [
+                BytesSchema,
+                FileSchema,
+            ]
+
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: configuration_module.Configuration):
+        return super().__new__(cls, arg_)
+
+
+class BoolSchema(
+    BoolBase,
+    Schema,
+    BoolMixin
+):
+    class Schema_:
+        types = {BoolClass}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, arg_: bool, **kwargs: ValidationMetadata):
+        return super().__new__(cls, arg_, **kwargs)
+
+
+class AnyTypeSchema(
+    DictBase,
+    ListBase,
+    NumberBase,
+    StrBase,
+    BoolBase,
+    NoneBase,
+    Schema,
+    NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
+):
+    # Python representation of a schema defined as true or {}
+    class Schema_:
+        pass
+
+
+class UnsetAnyTypeSchema(AnyTypeSchema):
+    # Used when additionalProperties/items was not explicitly defined and a defining schema is needed
+    pass
+
+
+class NotAnyTypeSchema(AnyTypeSchema):
+    """
+    Python representation of a schema defined as false or {'not': {}}
+    Does not allow inputs in of AnyType
+    Note: validations on this class are never run because the code knows that no inputs will ever validate
+    """
+
+    class Schema_:
+        _not = AnyTypeSchema
+
+    def __new__(
+        cls,
+        *args_,
+        configuration_: typing.Optional[configuration_module.Configuration] = None,
+    ) -> 'NotAnyTypeSchema':
+        return super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+        )
+
+
+class DictSchema(
+    DictBase,
+    Schema,
+    FrozenDictMixin
+):
+    class Schema_:
+        types = {frozendict.frozendict}
+
+    @classmethod
+    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+        return super().from_openapi_data_(arg, configuration_=configuration_)
+
+    def __new__(cls, *args_: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
+        return super().__new__(cls, *args_, **kwargs)
+
+
+schema_type_classes = {NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema}
+
+
+@functools.lru_cache()
+def get_new_class(
+    class_name: str,
+    bases: typing.Tuple[typing.Type[typing.Union[Schema, typing.Any]], ...]
+) -> typing.Type[Schema]:
+    """
+    Returns a new class that is made with the subclass bases
+    """
+    new_cls: typing.Type[Schema] = type(class_name, bases, {})
+    return new_cls
+
+
+LOG_CACHE_USAGE = False
+
+
+def log_cache_usage(cache_fn):
+    if LOG_CACHE_USAGE:
+        print(cache_fn.__name__, cache_fn.cache_info())

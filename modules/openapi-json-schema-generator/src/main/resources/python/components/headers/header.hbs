@@ -1,0 +1,33 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+{{#with header}}
+{{#if refInfo}}
+{{> _helper_imports }}
+{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import typing
+import typing_extensions
+
+from {{packageName}} import api_client
+    {{#if schema}}
+        {{#with schema}}
+from . import {{name.getSnakeCaseName}}
+        {{/with}}
+    {{else}}
+        {{#if getContent}}
+            {{#each getContent}}
+                {{#with this}}
+                    {{#with schema}}
+from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/if}}
+
+
+{{> components/_helper_param_or_header_instance noName=true }}
+{{/if}}
+{{/with}}

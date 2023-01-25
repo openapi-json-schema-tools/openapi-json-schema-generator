@@ -1,0 +1,127 @@
+{{#with apiInfo}}
+{{#each apis}}
+{{#if @first}}
+{{#with operations}}
+{{#each operation}}
+{{#if @first}}
+{{> paths/path/verb/_helper_operation_doc_example }}
+{{/if}}
+{{/each}}
+{{/with}}
+{{/if}}
+{{/each}}
+{{/with}}
+
+## Endpoints
+
+All URIs are relative to *{{basePath}}*
+
+HTTP request | Method | Description
+------------ | ------ | -------------
+{{#each pathAndHttpMethodToOperation}}
+{{#with this}}
+**{{httpMethod}}** {{path}} | {{#each tags}}[{{getClassName}}]({{apiDocPath}}{{getClassName}}.md).[{{operationId}}]({{apiDocPath}}{{getModuleName}}/{{operationId}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+{{/with}}
+{{/each}}
+
+## Component Schemas
+
+{{#each schemas}}
+{{#with this}}
+ - [{{name.getCamelCaseName}}]({{modelDocPath}}{{getComponentModule}}.{{name.getCamelCaseName}}.md)
+{{/with}}
+{{/each}}
+{{#if requestBodies}}
+
+## Component RequestBodies
+
+{{#each requestBodies}}
+- {{#with this}}[{{name.getCamelCaseName}}](docs/components/request_bodies/{{getComponentModule}}.md){{/with}}
+{{/each}}
+{{/if}}
+{{#if responses}}
+
+## Component Responses
+
+{{#each responses}}
+- {{#with this}}[{{name.getCamelCaseName}}](docs/components/responses/{{getComponentModule}}.md){{/with}}
+{{/each}}
+{{/if}}
+{{#if headers}}
+
+## Component Headers
+
+{{#each headers}}
+- {{#with this}}[{{name.getCamelCaseName}}](docs/components/headers/{{getComponentModule}}.md){{/with}}
+{{/each}}
+{{/if}}
+{{#if parameters}}
+
+## Component Parameters
+
+{{#each parameters}}
+- {{#with this}}[{{name.getCamelCaseName}}](docs/components/parameters/{{getComponentModule}}.md){{/with}}
+{{/each}}
+{{/if}}
+
+## Documentation For Authorization
+
+{{#unless authMethods}}
+ All endpoints do not require authorization.
+{{/unless}}
+{{#each authMethods}}
+{{#if @last}} Authentication schemes defined for the API:{{/if}}
+## {{{name}}}
+
+{{#if isApiKey}}
+- **Type**: API key
+- **API key parameter name**: {{{keyParamName}}}
+- **Location**: {{#if isKeyInQuery}}URL query string{{/if}}{{#if isKeyInHeader}}HTTP header{{/if}}
+{{/if}}
+{{#if isBasic}}
+{{#if isBasicBasic}}
+- **Type**: HTTP basic authentication
+{{/if}}
+{{#if isBasicBearer}}
+- **Type**: Bearer authentication{{#if bearerFormat}} ({{{bearerFormat}}}){{/if}}
+{{/if}}
+{{#if isHttpSignature}}
+- **Type**: HTTP signature authentication
+{{/if}}
+{{/if}}
+{{#if isOAuth}}
+- **Type**: OAuth
+- **Flow**: {{{flow}}}
+- **Authorization URL**: {{{authorizationUrl}}}
+- **Scopes**: {{#unless scopes}}N/A{{/unless}}
+{{#each scopes}} - **{{{scope}}}**: {{{description}}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+
+## Author
+
+{{#with apiInfo}}{{#each apis}}{{#unless hasMore}}{{#if infoEmail}}{{infoEmail}}{{/if}}
+{{/unless}}{{/each}}{{/with}}
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in {{{packageName}}}.{{apiPackage}}.tags.tag_to_api and {{{packageName}}}.{{modelPackage}}s may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from {{{packageName}}}.{{apiPackage}}.default_api import DefaultApi`
+- `from {{{packageName}}}.{{apiPackage}}.paths.some_path import SomePath`
+- `from {{{packageName}}}.paths.some_path.get import ApiForget`
+- `from {{{packageName}}}.{{modelPackage}}.pet import Pet`
+
+Solution 2:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import {{{packageName}}}
+from {{{packageName}}}.{{apiPackage}}.tags.tag_to_api import *
+from {{{packageName}}}.{{modelPackage}}s import *
+```
