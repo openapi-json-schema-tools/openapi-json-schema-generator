@@ -14,7 +14,7 @@ def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
         payload = (
     {{#with data}}
-            {{> components/schemas/payload_renderer endChar='' }}
+            {{> components/schemas/_helper_payload_renderer endChar='' }}
     {{/with}}
         )
         mock_request.return_value = self.response(

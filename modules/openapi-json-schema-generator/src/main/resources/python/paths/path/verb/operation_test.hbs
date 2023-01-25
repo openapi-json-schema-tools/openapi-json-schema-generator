@@ -57,7 +57,7 @@ class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
 {{#with data}}
-                {{> components/schemas/payload_renderer endChar='' }}
+                {{> components/schemas/_helper_payload_renderer endChar='' }}
 {{/with}}
             )
 {{#if valid}}
