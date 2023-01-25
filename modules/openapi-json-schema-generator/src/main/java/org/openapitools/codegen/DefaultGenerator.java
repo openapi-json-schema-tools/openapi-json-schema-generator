@@ -629,7 +629,7 @@ public class DefaultGenerator implements Generator {
             Map<String, Object> initApiTagsMap = new HashMap<>();
             initApiTagsMap.put("packageName", packageName);
             outputFilename = packageFilename(Arrays.asList(apiPackage, "tags", "__init__.py"));
-            apisFiles.add(Arrays.asList(initApiTagsMap, "apis/__init__apis_tags.handlebars", outputFilename));
+            apisFiles.add(Arrays.asList(initApiTagsMap, "apis/__init__apis_tags.hbs", outputFilename));
 
             // apis.paths.__init__.py
             outputFilename = packageFilename(Arrays.asList(apiPackage, "paths", "__init__.py"));
@@ -646,7 +646,7 @@ public class DefaultGenerator implements Generator {
                 operationMap.put("apiClassName", apiClassName);
                 operationMap.put("pathItem", pi);
                 outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
-                apisFiles.add(Arrays.asList(operationMap, "apis/apis_path_module.handlebars", outputFilename));
+                apisFiles.add(Arrays.asList(operationMap, "apis/apis_path_module.hbs", outputFilename));
             }
         }
 

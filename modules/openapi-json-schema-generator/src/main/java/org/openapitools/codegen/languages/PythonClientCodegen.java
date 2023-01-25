@@ -293,10 +293,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        apiTemplateFiles.put("apis/api.handlebars", ".py");
-        apiDocTemplateFiles.put("apis/api_doc.handlebars", ".md");
-        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.handlebars", "tag_to_api.py");
-        apiXToApiTemplateFiles.put("apis/apis_path_to_api.handlebars", "path_to_api.py");
+        apiTemplateFiles.put("apis/api.hbs", ".py");
+        apiDocTemplateFiles.put("apis/api_doc.bhs", ".md");
+        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
+        apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
 
         pathEndpointDocTemplateFiles.add("paths/path/verb/endpoint_doc.handlebars");
         pathEndpointTestTemplateFiles.add("paths/path/verb/endpoint_test.handlebars");
@@ -317,7 +317,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
@@ -325,7 +325,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
@@ -333,7 +333,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
@@ -341,7 +341,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
@@ -369,15 +369,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
-                Collections.singletonMap("__init__.handlebars", "__init__.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
