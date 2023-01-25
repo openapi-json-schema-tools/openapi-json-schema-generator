@@ -294,12 +294,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
         apiTemplateFiles.put("apis/api.hbs", ".py");
-        apiDocTemplateFiles.put("apis/api_doc.bhs", ".md");
+        apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
 
-        pathEndpointDocTemplateFiles.add("paths/path/verb/endpoint_doc.handlebars");
-        pathEndpointTestTemplateFiles.add("paths/path/verb/endpoint_test.handlebars");
+        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
+        pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
 
         modelDocTemplateFiles.put("components/schemas/schema_doc.hbs", ".md");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
@@ -353,15 +353,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("paths/__init__paths.handlebars", "__init__.py")
+                Collections.singletonMap("paths/__init__paths.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
-                Collections.singletonMap("paths/path/__init__path.handlebars", "__init__.py")
+                Collections.singletonMap("paths/path/__init__path.hbs", "__init__.py")
         );
         HashMap<String, String> operationTemplates = new HashMap<>();
-        operationTemplates.put("paths/path/verb/endpoint.handlebars", "__init__.py");
-        operationTemplates.put("paths/path/verb/endpoint_stub.handlebars", "__init__.pyi");
+        operationTemplates.put("paths/path/verb/operation.hbs", "__init__.py");
+        operationTemplates.put("paths/path/verb/operation_stub.hbs", "__init__.pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates

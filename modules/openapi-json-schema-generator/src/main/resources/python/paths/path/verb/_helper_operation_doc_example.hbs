@@ -13,7 +13,7 @@ from {{packageName}}.{{apiPackage}}.tags import {{getModuleName}}
 {{{.}}}
 {{/each}}
 from pprint import pprint
-{{> paths/path/verb/doc_auth_partial }}
+{{> paths/path/verb/_helper_doc_auth_partial }}
 # Enter a context with an instance of the API client
 with {{{packageName}}}.ApiClient(configuration) as api_client:
     # Create an instance of the API class

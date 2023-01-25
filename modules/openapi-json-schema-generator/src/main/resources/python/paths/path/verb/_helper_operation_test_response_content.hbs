@@ -22,7 +22,7 @@ def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
             status=self.response_status
         )
     {{#if valid}}
-        {{> paths/path/verb/endpoint_test_partial }}
+        {{> paths/path/verb/_helper_operation_test_partial }}
 
         assert isinstance(api_response.response, urllib3.HTTPResponse)
         assert isinstance(api_response.body, self.response_body_schema)
