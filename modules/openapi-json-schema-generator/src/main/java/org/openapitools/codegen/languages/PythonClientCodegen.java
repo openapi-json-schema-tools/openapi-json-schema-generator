@@ -1539,7 +1539,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             propName = toVarName(propName);
             String propModelName = null;
             Object propExample = null;
-            if (discProp != null && propName.equals(discProp.name)) {
+            if (discProp != null && propName.equals(discProp.name())) {
                 propModelName = null;
                 propExample = discProp.example;
             } else {

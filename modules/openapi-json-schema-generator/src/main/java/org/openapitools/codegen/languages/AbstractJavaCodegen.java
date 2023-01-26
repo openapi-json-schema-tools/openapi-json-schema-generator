@@ -1077,8 +1077,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
         CodegenSchema schema = param.getSchema();
         if (schema == null) {
-            String contentType = (String) param.getContent().keySet().toArray()[0];
-            schema = param.getContent().get(contentType).getSchema();
+            String contentType = (String) param.content().keySet().toArray()[0];
+            schema = param.content().get(contentType).getSchema();
         }
 
         if (schema.isString) {
@@ -1853,7 +1853,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     /**
-     * Search for property by {@link CodegenSchema#name}
+     * Search for property by {@link CodegenSchema#name()}
      * @param name - name to search for
      * @param properties - list of properties
      * @return either found property or {@link Optional#empty()} if nothing has been found
@@ -1864,7 +1864,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         return properties.stream()
-            .filter(p -> p.name.equals(name))
+            .filter(p -> p.name().equals(name))
             .findFirst();
     }
 

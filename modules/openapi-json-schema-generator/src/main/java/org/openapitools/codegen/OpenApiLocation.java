@@ -17,7 +17,7 @@ public interface OpenApiLocation<T> {
     // module name (name.getSnakeCaseName)
     // class name (name.getCamelCaseName)
     // used when instances are defined inline and do not $ref another location
-    CodegenKey getName();
+    CodegenKey name();
 
     void setName(CodegenKey name);
 

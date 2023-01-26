@@ -177,12 +177,12 @@ public class CodegenOperation {
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
         if (requestBody.getRefInfo() != null) {
-            content = requestBody.getDeepestRef().getContent();
+            content = requestBody.getDeepestRef().content();
         } else {
-            content = requestBody.getContent();
+            content = requestBody.content();
         }
         for (CodegenKey contentKey: content.keySet()) {
-            contentTypeToOperation.put(contentKey.getName(), this);
+            contentTypeToOperation.put(contentKey.name, this);
         }
         return contentTypeToOperation;
     }

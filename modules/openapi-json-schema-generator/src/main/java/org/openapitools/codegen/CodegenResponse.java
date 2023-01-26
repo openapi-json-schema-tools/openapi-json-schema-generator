@@ -112,7 +112,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
 
     public void setRefInfo(CodegenRefInfo refInfo) { this.refInfo = refInfo; }
 
-    public CodegenKey getName() { return name; }
+    public CodegenKey name() { return name; }
 
     public void setName(CodegenKey name) { this.name=name; }
 }
