@@ -244,7 +244,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
         this.isBooleanSchemaFalse = isBooleanSchemaFalse;
     }
 
-    public String getDescription() {
+    public String description() {
         return description;
     }
 

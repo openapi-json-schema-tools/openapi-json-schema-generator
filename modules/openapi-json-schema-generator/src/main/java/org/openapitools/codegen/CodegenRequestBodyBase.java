@@ -81,8 +81,6 @@ abstract class CodegenRequestBodyBase {
         this.content = content;
     }
 
-    public String getDescription() { return description; }
-
     public void setDescription(String description) { this.description=description; }
 
     public String getExample() { return example; }
