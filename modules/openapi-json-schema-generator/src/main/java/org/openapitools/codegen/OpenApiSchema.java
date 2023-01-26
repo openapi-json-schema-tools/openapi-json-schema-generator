@@ -159,7 +159,7 @@ public interface OpenApiSchema {
 
     void setIsAnyType(boolean isAnyType);
 
-    CodegenRefInfo getRefInfo();
+    CodegenRefInfo refInfo();
 
     void setRefInfo(CodegenRefInfo refInfo);
 

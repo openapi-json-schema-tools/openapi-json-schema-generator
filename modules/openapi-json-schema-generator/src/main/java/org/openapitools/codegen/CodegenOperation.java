@@ -176,7 +176,7 @@ public class CodegenOperation {
             return null;
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
-        if (requestBody.getRefInfo() != null) {
+        if (requestBody.refInfo() != null) {
             content = requestBody.getDeepestRef().content();
         } else {
             content = requestBody.content();

@@ -781,7 +781,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
         }
-        if (cp.isNullable && cp.getRefInfo() == null) {
+        if (cp.isNullable && cp.refInfo() == null) {
             cp.setIsNull(true);
             cp.isNullable = false;
             cp.setHasMultipleTypes(true);
@@ -2033,7 +2033,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.getRefInfo().getRefModule();
+            return "from " + packageName() + ".components.schema import " + schema.refInfo().getRefModule();
         }
         String[] classPieces = className.split("\\.");
         return "from " + packageName() + ".components.schema import " + classPieces[0];

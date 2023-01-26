@@ -579,7 +579,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     }
 
     @Override
-    public CodegenRefInfo<CodegenSchema> getRefInfo() {
+    public CodegenRefInfo<CodegenSchema> refInfo() {
         return refInfo;
     }
 
@@ -889,7 +889,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
                 Objects.equals(contains, that.getContains()) &&
                 Objects.equals(dependentRequired, that.getDependentRequired()) &&
                 Objects.equals(format, that.getFormat()) &&
-                Objects.equals(refInfo, that.getRefInfo()) &&
+                Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(requiredProperties, that.getRequiredProperties()) &&
                 Objects.equals(optionalProperties, that.getOptionalProperties()) &&
                 Objects.equals(properties, that.getProperties()) &&

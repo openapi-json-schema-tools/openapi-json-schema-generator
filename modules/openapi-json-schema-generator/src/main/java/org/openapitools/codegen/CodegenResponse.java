@@ -46,8 +46,8 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         CodegenResponse that = (CodegenResponse) o;
         return Objects.equals(name, that.name) &&
                 Objects.equals(imports, that.imports) &&
-                Objects.equals(refInfo, that.getRefInfo()) &&
-                Objects.equals(content, that.getContent()) &&
+                Objects.equals(refInfo, that.refInfo) &&
+                Objects.equals(content, that.content) &&
                 Objects.equals(headers, that.getHeaders()) &&
                 Objects.equals(message, that.message) &&
                 Objects.equals(examples, that.examples) &&
@@ -64,7 +64,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         this.componentModule = componentModule;
     }
 
-    public LinkedHashMap<CodegenKey, CodegenMediaType> getContent() {
+    public LinkedHashMap<CodegenKey, CodegenMediaType> content() {
         return content;
     }
 
@@ -97,7 +97,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         return sb.toString();
     }
 
-    public CodegenRefInfo<CodegenResponse> getRefInfo() { return refInfo; }
+    public CodegenRefInfo<CodegenResponse> refInfo() { return refInfo; }
 
     public CodegenResponse getDeepestRef() {
         if (refInfo == null) {

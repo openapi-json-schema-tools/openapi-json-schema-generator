@@ -8,7 +8,7 @@ public interface OpenApiLocation<T> {
 
     void setComponentModule(String componentModule);
 
-    CodegenRefInfo<T> getRefInfo();
+    CodegenRefInfo<T> refInfo();
 
     void setRefInfo(CodegenRefInfo<T> refInfo);
 

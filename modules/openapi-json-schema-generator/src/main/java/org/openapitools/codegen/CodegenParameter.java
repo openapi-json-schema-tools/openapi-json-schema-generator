@@ -29,9 +29,9 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
             isCookieParam, isBodyParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public String baseName;
-    protected CodegenRefInfo<CodegenParameter> refInfo;
+    private CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenRefInfo<CodegenParameter> getRefInfo() { return refInfo; }
+    public CodegenRefInfo<CodegenParameter> refInfo() { return refInfo; }
 
     public CodegenParameter getDeepestRef() {
         if (refInfo == null) {

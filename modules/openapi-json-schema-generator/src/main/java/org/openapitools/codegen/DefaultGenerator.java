@@ -755,7 +755,7 @@ public class DefaultGenerator implements Generator {
                 generateHeader(files, header, headerJsonPath);
             }
         }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content();
         if (content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }

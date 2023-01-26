@@ -25,7 +25,7 @@ import java.util.Objects;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<CodegenHeader> {
-    protected CodegenRefInfo<CodegenHeader> refInfo;
+    private CodegenRefInfo<CodegenHeader> refInfo;
     @Override
     public int hashCode() {
         return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
@@ -53,7 +53,7 @@ public class CodegenHeader extends CodegenHeaderBase implements OpenApiLocation<
         return sb.toString();
     }
 
-    public CodegenRefInfo<CodegenHeader> getRefInfo() { return refInfo; }
+    public CodegenRefInfo<CodegenHeader> refInfo() { return refInfo; }
 
     public CodegenHeader getDeepestRef() {
         if (refInfo == null) {

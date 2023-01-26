@@ -8,7 +8,7 @@ import java.util.Objects;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenApiLocation<CodegenRequestBody> {
-    protected CodegenRefInfo<CodegenRequestBody> refInfo;
+    private CodegenRefInfo<CodegenRequestBody> refInfo;
 
     @Override
     public int hashCode() {
@@ -21,7 +21,7 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
         if (!(o instanceof CodegenRequestBody)) return false;
         if (! super.equals(o)) return false;
         CodegenRequestBody that = (CodegenRequestBody) o;
-        return Objects.equals(refInfo, that.getRefInfo());
+        return Objects.equals(refInfo, that.refInfo);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
@@ -37,7 +37,7 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
         return sb.toString();
     }
 
-    public CodegenRefInfo<CodegenRequestBody> getRefInfo() { return refInfo; }
+    public CodegenRefInfo<CodegenRequestBody> refInfo() { return refInfo; }
 
     public CodegenRequestBody getDeepestRef() {
         if (refInfo == null) {

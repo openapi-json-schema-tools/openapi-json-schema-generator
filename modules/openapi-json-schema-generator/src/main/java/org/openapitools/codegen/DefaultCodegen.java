@@ -2257,7 +2257,7 @@ public class DefaultCodegen implements CodegenConfig {
                                 "'{}' defines discriminator '{}', but the referenced OneOf schema '{}' is missing {}",
                                 composedSchemaName, discPropName, modelName, discPropName);
                     }
-                    if (cp != null && cp.getRefInfo() == null) {
+                    if (cp != null && cp.refInfo() == null) {
                         cp = thisCp;
                         continue;
                     }
@@ -2280,7 +2280,7 @@ public class DefaultCodegen implements CodegenConfig {
                                 "'{}' defines discriminator '{}', but the referenced AnyOf schema '{}' is missing {}",
                                 composedSchemaName, discPropName, modelName, discPropName);
                     }
-                    if (cp != null && cp.getRefInfo() == null) {
+                    if (cp != null && cp.refInfo() == null) {
                         cp = thisCp;
                         continue;
                     }
@@ -2746,7 +2746,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return schema.getRefInfo().getRefClass();
+            return schema.refInfo().getRefClass();
         }
         return className;
     }
@@ -2808,7 +2808,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         // referenced or inline schemas
-        if (schema.getRefInfo() != null && schema.getRefInfo().getRefModule() != null) {
+        if (schema.refInfo() != null && schema.refInfo().getRefModule() != null) {
             // self reference classes do not contain refModule
             imports.add(getImport(null, schema));
         }
@@ -3183,8 +3183,8 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     Integer firstNumber = Integer.parseInt(key.substring(0, 1));
                     op.wildcardCodeResponses.put(firstNumber, r);
-                    if (firstNumber > 3 && r.getContent() != null) {
-                        for (CodegenMediaType cm: r.getContent().values()) {
+                    if (firstNumber > 3 && r.content() != null) {
+                        for (CodegenMediaType cm: r.content().values()) {
                             if (cm.getSchema() != null) {
                                 op.hasErrorResponseObject = true;
                                 break;
@@ -3198,8 +3198,8 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 Integer statusCode = Integer.parseInt(key);
                 op.statusCodeResponses.put(statusCode, r);
-                if (statusCode > 299 && r.getContent() != null) {
-                    for (CodegenMediaType cm: r.getContent().values()) {
+                if (statusCode > 299 && r.content() != null) {
+                    for (CodegenMediaType cm: r.content().values()) {
                         if (cm.getSchema() != null) {
                             op.hasErrorResponseObject = true;
                             break;
@@ -3246,7 +3246,7 @@ public class DefaultCodegen implements CodegenConfig {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             op.requestBody = requestBody;
 
-            if (requestBody.getRefInfo() != null) {
+            if (requestBody.refInfo() != null) {
                 if (requestBody.getDeepestRef().required) {
                     requiredParams.add(requestBody);
                 } else {
@@ -3277,7 +3277,7 @@ public class DefaultCodegen implements CodegenConfig {
                 i++;
 
                 CodegenParameter paramOrRef = p;
-                if (p.getRefInfo() != null) {
+                if (p.refInfo() != null) {
                     paramOrRef = p.getDeepestRef();
                 }
                 if (paramOrRef.isQueryParam) {
@@ -3297,7 +3297,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
-            if (cp.getRefInfo() != null) {
+            if (cp.refInfo() != null) {
                 if (cp.getDeepestRef().required) { //required parameters
                     requiredParams.add(cp);
                 } else { // optional parameters
@@ -3378,7 +3378,7 @@ public class DefaultCodegen implements CodegenConfig {
         String responseRef = response.get$ref();
         setResponseLocationInfo(responseRef, sourceJsonPath, sourceJsonPath, r);
         if (responseRef != null) {
-            r.imports.add(getImport(r.getRefInfo()));
+            r.imports.add(getImport(r.refInfo()));
             return r;
         }
 
@@ -3477,7 +3477,7 @@ public class DefaultCodegen implements CodegenConfig {
         String headerRef = header.get$ref();
         setHeaderLocationInfo(headerRef, sourceJsonPath, sourceJsonPath, codegenHeader);
         if (headerRef != null) {
-            codegenHeader.imports.add(getImport(codegenHeader.getRefInfo()));
+            codegenHeader.imports.add(getImport(codegenHeader.refInfo()));
             return codegenHeader;
         }
 
@@ -3573,7 +3573,7 @@ public class DefaultCodegen implements CodegenConfig {
         String parameterRef = parameter.get$ref();
         setParameterLocationInfo(parameterRef, sourceJsonPath, sourceJsonPath, codegenParameter);
         if (parameterRef != null) {
-            codegenParameter.imports.add(getImport(codegenParameter.getRefInfo()));
+            codegenParameter.imports.add(getImport(codegenParameter.refInfo()));
             return codegenParameter;
         }
 
@@ -4566,7 +4566,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         Optional<Schema> referencedSchema = ModelUtils.getSchemas(openAPI).entrySet().stream()
-                .filter(entry -> Objects.equals(var.getRefInfo().getRefClass(), toModelName(entry.getKey())))
+                .filter(entry -> Objects.equals(var.refInfo().getRefClass(), toModelName(entry.getKey())))
                 .map(Map.Entry::getValue)
                 .findFirst();
         List<Map<String, Object>> enumVars = buildEnumVars(values, var);
@@ -5116,7 +5116,7 @@ public class DefaultCodegen implements CodegenConfig {
         String bodyRef = requestBody.get$ref();
         setRequestBodyLocationInfo(bodyRef, sourceJsonPath, sourceJsonPath, codegenRequestBody);
         if (bodyRef != null) {
-            codegenRequestBody.imports.add(getImport(codegenRequestBody.getRefInfo()));
+            codegenRequestBody.imports.add(getImport(codegenRequestBody.refInfo()));
             return codegenRequestBody;
         }
 
