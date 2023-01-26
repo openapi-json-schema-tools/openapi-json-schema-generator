@@ -28,10 +28,15 @@ import java.util.Objects;
  * Parameters may be located in a path, query, header or cookie.
  */
 abstract class CodegenHeaderBase extends CodegenRequestBodyBase {
-    public boolean isExplode;
-    public String style;
-    public boolean isDeprecated;
+    protected boolean isExplode;
+    protected String style;
+    protected boolean isDeprecated;
     protected CodegenSchema schema;
+
+    public boolean isExplode() { return isExplode; }
+    public String style() { return style; }
+    public boolean isDeprecated() { return isDeprecated; }
+    public CodegenSchema schema() { return schema; }
 
     public CodegenSchema getSetSchema() {
         if (schema != null) {
