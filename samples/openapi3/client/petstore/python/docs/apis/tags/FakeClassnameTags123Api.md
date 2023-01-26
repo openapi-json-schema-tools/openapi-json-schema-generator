@@ -5,6 +5,6 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**classname**](fake_classname_tags123_api/classname.md) | **patch** /fake_classname_test | To test class name in snake case
+[****](fake_classname_tags123_api/.md) | ****  | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

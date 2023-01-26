@@ -9,7 +9,6 @@
 from dataclasses import dataclass
 import typing_extensions
 import urllib3
-from urllib3._collections import HTTPHeaderDict
 
 from petstore_api import api_client, exceptions
 import datetime  # noqa: F401
@@ -25,74 +24,28 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_405
-from . import request_body
-from .parameters import parameter_0
 
 
-
-class RequestPathParameters:
-    RequiredParams = typing_extensions.TypedDict(
-        'RequiredParams',
-        {
-            'petId': typing.Union[parameter_0._0.schema, decimal.Decimal, int, ],
-        }
-    )
-    OptionalParams = typing_extensions.TypedDict(
-        'OptionalParams',
-        {
-        },
-        total=False
-    )
-
-
-    class Params(RequiredParams, OptionalParams):
-        pass
-
-
-    parameters = [
-        parameter_0._0,
-    ]
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _update_pet_with_form(
+    def _(
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def _update_pet_with_form(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def _update_pet_with_form(
+    def _(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _update_pet_with_form(
+    def _(
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -100,54 +53,23 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _update_pet_with_form(
+    def _(
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         """
-        Updates a pet in the store with form data
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
         used_path = path
-
-        _path_params = {}
-        for parameter in RequestPathParameters.parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
-
-        _headers = HTTPHeaderDict()
         # TODO add cookie handling
 
-        _fields = None
-        _body = None
-        if body is not schemas.unset:
-            serialized_data = request_body.RequestBody.serialize(body, content_type)
-            _headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post'.upper(),
-            headers=_headers,
-            fields=_fields,
-            body=_body,
-            auth_settings=_auth,
+            method=''.upper(),
             stream=stream,
             timeout=timeout,
         )
@@ -155,14 +77,7 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-            status = str(response.status)
-            if status in _status_code_to_response:
-                status: typing_extensions.Literal[
-                    '405',
-                ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)
-            else:
-                api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
         if not 200 <= response.status <= 299:
             raise exceptions.ApiException(
@@ -174,47 +89,27 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class UpdatePetWithForm(BaseApi):
+class (BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def update_pet_with_form(
+    def (
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def update_pet_with_form(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def update_pet_with_form(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def update_pet_with_form(
+    def (
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -222,66 +117,40 @@ class UpdatePetWithForm(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def update_pet_with_form(
+    def (
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._update_pet_with_form(
-            body=body,
-            path_params=path_params,
-            content_type=content_type,
+        return self._(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
         )
 
 
-class ApiForpost(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def post(
+    def (
         self,
-        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def post(
-        self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def post(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def post(
+    def (
         self,
-        content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -289,19 +158,13 @@ class ApiForpost(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def post(
+    def (
         self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._update_pet_with_form(
-            body=body,
-            path_params=path_params,
-            content_type=content_type,
+        return self._(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

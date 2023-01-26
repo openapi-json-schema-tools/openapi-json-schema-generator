@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import order
-Schema = order.Order
+ = order.Order

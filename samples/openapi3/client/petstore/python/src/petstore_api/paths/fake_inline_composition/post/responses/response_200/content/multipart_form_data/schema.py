@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class Schema(
+class (
     schemas.DictSchema
 ):
 
@@ -34,7 +34,7 @@ class Schema(
         class Properties:
             
             
-            class SomeProp(
+            class (
                 schemas.AnyTypeSchema,
             ):
             
@@ -45,7 +45,7 @@ class Schema(
                     class AllOf:
                         
                         
-                        class AllOf0(
+                        class (
                             schemas.StrSchema
                         ):
                         
@@ -56,7 +56,7 @@ class Schema(
                                 }
                                 min_length = 1
                         classes = [
-                            AllOf0,
+                            ,
                         ]
             
             
@@ -65,7 +65,7 @@ class Schema(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'SomeProp':
+                ) -> '':
                     return super().__new__(
                         cls,
                         *args_,
@@ -73,11 +73,11 @@ class Schema(
                         **kwargs,
                     )
             __annotations__ = {
-                "someProp": SomeProp,
+                "": ,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> Schema_.Properties.SomeProp: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -85,7 +85,7 @@ class Schema(
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal["someProp"],
+            typing_extensions.Literal[""],
             str
         ]
     ):
@@ -93,7 +93,7 @@ class Schema(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["someProp"]) -> typing.Union[Schema_.Properties.SomeProp, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -101,7 +101,7 @@ class Schema(
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal["someProp"],
+            typing_extensions.Literal[""],
             str
         ]
     ):
@@ -110,14 +110,12 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
-        someProp: typing.Union[Schema_.Properties.SomeProp, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> 'Schema':
+    ) -> '':
         return super().__new__(
             cls,
             *args_,
-            someProp=someProp,
             configuration_=configuration_,
             **kwargs,
         )

@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class StringEnum(
+class (
     schemas.StrBase,
     schemas.NoneBase,
     schemas.Schema,
@@ -41,50 +41,13 @@ class StringEnum(
             schemas.NoneClass,
             str,
         }
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-            "single quoted": "SINGLE_QUOTED",
-            "multiple\nlines": "MULTIPLE_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE_WITH_NEWLINE",
-            schemas.NoneClass.NONE: "NONE",
-        }
-    
-    @schemas.classproperty
-    def PLACED(cls):
-        return cls("placed")
-    
-    @schemas.classproperty
-    def APPROVED(cls):
-        return cls("approved")
-    
-    @schemas.classproperty
-    def DELIVERED(cls):
-        return cls("delivered")
-    
-    @schemas.classproperty
-    def SINGLE_QUOTED(cls):
-        return cls("single quoted")
-    
-    @schemas.classproperty
-    def MULTIPLE_LINES(cls):
-        return cls("multiple\nlines")
-    
-    @schemas.classproperty
-    def DOUBLE_QUOTE_WITH_NEWLINE(cls):
-        return cls("double quote \n with newline")
-    
-    @schemas.classproperty
-    def NONE(cls):
-        return cls(None)
 
 
     def __new__(
         cls,
         *args_: typing.Union[None, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-    ) -> 'StringEnum':
+    ) -> '':
         return super().__new__(
             cls,
             *args_,

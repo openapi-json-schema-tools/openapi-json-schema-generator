@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.uuid_string
-# UUIDString
+# 
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

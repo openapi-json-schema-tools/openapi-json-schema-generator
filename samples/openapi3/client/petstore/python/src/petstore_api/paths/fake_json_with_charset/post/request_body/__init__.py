@@ -10,19 +10,19 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content.application_json_charsetutf8 import schema as application_json_charsetutf8_schema
+from .content. import  as _
 
-class RequestBody(api_client.RequestBody):
+class (api_client.RequestBody):
 
 
-    class __ApplicationJsonCharsetutf8MediaType(api_client.MediaType):
-        schema: typing.Type[application_json_charsetutf8_schema.Schema] = application_json_charsetutf8_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json; charset=utf-8': typing.Type[__ApplicationJsonCharsetutf8MediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/json; charset=utf-8': __ApplicationJsonCharsetutf8MediaType,
+        '': __MediaType,
     }

@@ -1,8 +1,7 @@
 <a name="top"></a>
-# **fake_health_get**
-<a name="fake_health_get"></a>
+# ****
+<a name=""></a>
 
-Health check endpoint
 
 ### Example
 
@@ -23,11 +22,10 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Health check endpoint
-        api_response = api_instance.fake_health_get()
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
+        print("Exception when calling FakeApi->: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -37,20 +35,6 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | The instance started successfully
-
-#### <a id="response_200response_cls" >_200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
-
 
 ### Authorization
 

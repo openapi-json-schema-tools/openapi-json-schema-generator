@@ -1,8 +1,7 @@
 <a name="top"></a>
-# **logout_user**
-<a name="logout_user"></a>
+# ****
+<a name=""></a>
 
-Logs out current logged in user session
 
 ### Example
 
@@ -23,11 +22,10 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # Logs out current logged in user session
-        api_response = api_instance.logout_user()
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling UserApi->logout_user: %s\n" % e)
+        print("Exception when calling UserApi->: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -37,7 +35,6 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
 
 ### Authorization
 

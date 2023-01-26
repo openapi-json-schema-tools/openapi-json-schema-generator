@@ -19,38 +19,38 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content.application_json import schema as application_json_schema
-from .content.multipart_form_data import schema as multipart_form_data_schema
+from .content. import  as _
+from .content. import  as _
 
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_schema.Schema,
-        multipart_form_data_schema.Schema,
+        _.,
+        _.,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-class _200(api_client.OpenApiResponse[_ApiResponse]):
+class (api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
 
 
-    class __MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
-            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
+            '': typing.Type[__MediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
-        'multipart/form-data': __MultipartFormDataMediaType,
+        '': __MediaType,
+        '': __MediaType,
     }

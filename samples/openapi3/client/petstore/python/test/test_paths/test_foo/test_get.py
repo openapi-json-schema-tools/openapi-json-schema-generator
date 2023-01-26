@@ -12,27 +12,25 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.foo import get  # noqa: E501
+from petstore_api.paths. import   # noqa: E501
 from petstore_api import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class TestFoo(ApiTestMixin, unittest.TestCase):
+class Test(ApiTestMixin, unittest.TestCase):
     """
-    Foo unit test stubs
+     unit test stubs
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = get.ApiForget(api_client=used_api_client)  # noqa: E501
+        self.api = .ApiFor(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
 
-    response_status = 0
-    response_body_schema = get.response_default.Default.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

@@ -21,27 +21,4 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-
-
-class Schema(
-    schemas.Int32Schema
-):
-
-
-    class Schema_:
-        types = {
-            decimal.Decimal,
-        }
-        format = 'int32'
-        enum_value_to_name = {
-            1: "POSITIVE_1",
-            -2: "NEGATIVE_2",
-        }
-    
-    @schemas.classproperty
-    def POSITIVE_1(cls):
-        return cls(1)
-    
-    @schemas.classproperty
-    def NEGATIVE_2(cls):
-        return cls(-2)
+ = schemas.Schema

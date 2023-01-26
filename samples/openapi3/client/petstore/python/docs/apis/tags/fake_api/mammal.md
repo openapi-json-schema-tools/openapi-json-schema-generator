@@ -1,9 +1,7 @@
 <a name="top"></a>
-# **mammal**
-<a name="mammal"></a>
+# ****
+<a name=""></a>
 
-
-Test serialization of mammals
 
 ### Example
 
@@ -22,57 +20,21 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    body = mammal.Mammal(
-        has_baleen=True,
-        has_teeth=True,
-        class_name="whale",
-    )
+    # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.mammal(
-            body=body,
-        )
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->mammal: %s\n" % e)
+        print("Exception when calling FakeApi->: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema)] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="request_body" >body</a>
-# <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Mammal**](../../../components/schema/mammal.Mammal.md) |  | 
-
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | Output mammal
-
-#### <a id="response_200response_cls" >_200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Mammal**](../../../components/schema/mammal.Mammal.md) |  | 
-
 
 ### Authorization
 

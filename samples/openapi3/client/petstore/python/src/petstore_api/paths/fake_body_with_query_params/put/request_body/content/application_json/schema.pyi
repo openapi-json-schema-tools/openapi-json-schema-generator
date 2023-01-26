@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import user
-Schema = user.User
+ = user.User

@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class Schema(
+class (
     schemas.DictSchema
 ):
 
@@ -31,45 +31,41 @@ class Schema(
     class Schema_:
         types = {frozendict.frozendict}
         required = {
-            "byte",
-            "double",
-            "number",
-            "pattern_without_delimiter",
+            "",
+            "",
+            "",
+            "",
         }
         
         class Properties:
             
             
-            class Integer(
-                schemas.IntSchema
+            class (
             ):
             
             
                 class Schema_:
                     types = {
-                        decimal.Decimal,
                     }
                     format = 'int'
                     inclusive_maximum = 100
                     inclusive_minimum = 10
             
             
-            class Int32(
-                schemas.Int32Schema
+            class (
             ):
             
             
                 class Schema_:
                     types = {
-                        decimal.Decimal,
                     }
                     format = 'int32'
                     inclusive_maximum = 200
                     inclusive_minimum = 20
-            Int64 = schemas.Int64Schema
+             = schemas.Schema
             
             
-            class Number(
+            class (
                 schemas.NumberSchema
             ):
             
@@ -82,7 +78,7 @@ class Schema(
                     inclusive_minimum = 32.1
             
             
-            class _Float(
+            class (
                 schemas.Float32Schema
             ):
             
@@ -95,7 +91,7 @@ class Schema(
                     inclusive_maximum = 987.6
             
             
-            class Double(
+            class (
                 schemas.Float64Schema
             ):
             
@@ -109,7 +105,7 @@ class Schema(
                     inclusive_minimum = 67.8
             
             
-            class String(
+            class (
                 schemas.StrSchema
             ):
             
@@ -126,7 +122,7 @@ class Schema(
                     }
             
             
-            class PatternWithoutDelimiter(
+            class (
                 schemas.StrSchema
             ):
             
@@ -138,13 +134,13 @@ class Schema(
                     regex={
                         'pattern': r'^[A-Z].*',  # noqa: E501
                     }
-            Byte = schemas.StrSchema
-            Binary = schemas.BinarySchema
-            Date = schemas.DateSchema
-            DateTime = schemas.DateTimeSchema
+             = schemas.StrSchema
+             = schemas.BinarySchema
+             = schemas.DateSchema
+             = schemas.DateTimeSchema
             
             
-            class Password(
+            class (
                 schemas.StrSchema
             ):
             
@@ -156,70 +152,66 @@ class Schema(
                     format = 'password'
                     max_length = 64
                     min_length = 10
-            Callback = schemas.StrSchema
+             = schemas.StrSchema
             __annotations__ = {
-                "integer": Integer,
-                "int32": Int32,
-                "int64": Int64,
-                "number": Number,
-                "float": _Float,
-                "double": Double,
-                "string": String,
-                "pattern_without_delimiter": PatternWithoutDelimiter,
-                "byte": Byte,
-                "binary": Binary,
-                "date": Date,
-                "dateTime": DateTime,
-                "password": Password,
-                "callback": Callback,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
+                "": ,
             }
     
-    byte: Schema_.Properties.Byte
-    double: Schema_.Properties.Double
-    number: Schema_.Properties.Number
-    pattern_without_delimiter: Schema_.Properties.PatternWithoutDelimiter
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> Schema_.Properties.Byte: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> Schema_.Properties.Double: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> Schema_.Properties.Number: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> Schema_.Properties.PatternWithoutDelimiter: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> Schema_.Properties.Integer: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> Schema_.Properties.Int32: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> Schema_.Properties.Int64: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> Schema_.Properties._Float: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> Schema_.Properties.String: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> Schema_.Properties.Binary: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> Schema_.Properties.Date: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> Schema_.Properties.DateTime: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> Schema_.Properties.Password: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> Schema_.Properties.Callback: ...
+    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -227,20 +219,20 @@ class Schema(
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal["byte"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["pattern_without_delimiter"],
-            typing_extensions.Literal["integer"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["float"],
-            typing_extensions.Literal["string"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["callback"],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
             str
         ]
     ):
@@ -248,46 +240,46 @@ class Schema(
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["byte"]) -> Schema_.Properties.Byte: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["double"]) -> Schema_.Properties.Double: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["number"]) -> Schema_.Properties.Number: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> Schema_.Properties.PatternWithoutDelimiter: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["integer"]) -> typing.Union[Schema_.Properties.Integer, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["int32"]) -> typing.Union[Schema_.Properties.Int32, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["int64"]) -> typing.Union[Schema_.Properties.Int64, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["float"]) -> typing.Union[Schema_.Properties._Float, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["string"]) -> typing.Union[Schema_.Properties.String, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["binary"]) -> typing.Union[Schema_.Properties.Binary, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["date"]) -> typing.Union[Schema_.Properties.Date, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[Schema_.Properties.DateTime, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["password"]) -> typing.Union[Schema_.Properties.Password, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["callback"]) -> typing.Union[Schema_.Properties.Callback, schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -295,20 +287,20 @@ class Schema(
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal["byte"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["pattern_without_delimiter"],
-            typing_extensions.Literal["integer"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["float"],
-            typing_extensions.Literal["string"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["callback"],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
+            typing_extensions.Literal[""],
             str
         ]
     ):
@@ -317,38 +309,12 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[Schema_.Properties.Byte, str, ],
-        double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float, ],
-        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float, ],
-        pattern_without_delimiter: typing.Union[Schema_.Properties.PatternWithoutDelimiter, str, ],
-        integer: typing.Union[Schema_.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[Schema_.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[Schema_.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        string: typing.Union[Schema_.Properties.String, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[Schema_.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        date: typing.Union[Schema_.Properties.Date, str, datetime.date, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        password: typing.Union[Schema_.Properties.Password, str, schemas.Unset] = schemas.unset,
-        callback: typing.Union[Schema_.Properties.Callback, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> 'Schema':
+    ) -> '':
         return super().__new__(
             cls,
             *args_,
-            byte=byte,
-            double=double,
-            number=number,
-            pattern_without_delimiter=pattern_without_delimiter,
-            integer=integer,
-            int32=int32,
-            int64=int64,
-            string=string,
-            binary=binary,
-            date=date,
-            dateTime=dateTime,
-            password=password,
-            callback=callback,
             configuration_=configuration_,
             **kwargs,
         )

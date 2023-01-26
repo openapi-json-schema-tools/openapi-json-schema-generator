@@ -1,14 +1,10 @@
 <a name="top"></a>
-# **get_pet_by_id**
-<a name="get_pet_by_id"></a>
+# ****
+<a name=""></a>
 
-Find pet by ID
-
-Returns a single pet
 
 ### Example
 
-* Api Key Authentication (api_key):
 ```python
 import petstore_api
 from petstore_api.apis.tags import pet_api
@@ -19,102 +15,29 @@ configuration = petstore_api.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: api_key
-configuration.api_key['api_key'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api_key'] = 'Bearer'
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'petId': 1,
-    }
+    # example, this endpoint has no required or optional parameters
     try:
-        # Find pet by ID
-        api_response = api_instance.get_pet_by_id(
-            path_params=path_params,
-        )
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling PetApi->get_pet_by_id: %s\n" % e)
+        print("Exception when calling PetApi->: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
-accept_content_types | typing.Tuple[str] | default is ('application/xml', 'application/json', ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-petId | [_0.schema](#parameter_0schema) | | 
-
-# <a id="parameter_0schema" >_0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | successful operation
-400 | [_400.response_cls](#response_400response_cls) | Invalid ID supplied
-404 | [_404.response_cls](#response_404response_cls) | Pet not found
-
-#### <a id="response_200response_cls" >_200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../../components/schema/pet.Pet.md) |  | 
-
-
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RefPet**](../../../components/schema/ref_pet.RefPet.md) |  | 
-
-
-#### <a id="response_400response_cls" >_400.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-#### <a id="response_404response_cls" >_404.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
 
 ### Authorization
 
-[api_key](../../../../README.md#api_key)
+No authorization required
 
 [[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

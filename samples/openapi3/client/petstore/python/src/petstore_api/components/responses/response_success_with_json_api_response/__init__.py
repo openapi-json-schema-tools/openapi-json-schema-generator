@@ -19,28 +19,28 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content.application_json import schema as application_json_schema
-from .headers import header_ref_schema_header
-from .headers import header_int32
-from .headers import header_ref_content_schema_header
-from .headers import header_string_header
-from .headers import header_number_header
+from .content. import  as _
+from .headers import 
+from .headers import 
+from .headers import 
+from .headers import 
+from .headers import 
 
 
 class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, ],
-            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, ],
-            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str, ],
+            'ref-schema-header': typing.Union[.., ],
+            'int32': typing.Union[..content[""]., ],
+            'ref-content-schema-header': typing.Union[..content[""]., ],
+            'stringHeader': typing.Union[.., str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str, ],
+            'numberHeader': typing.Union[.., str, ],
         },
         total=False
     )
@@ -51,35 +51,35 @@ class Header:
 
 
     parameters = [
-        header_ref_schema_header.RefSchemaHeader,
-        header_int32.Int32,
-        header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.StringHeader,
-        header_number_header.NumberHeader,
+        .,
+        .,
+        .,
+        .,
+        .,
     ]
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_schema.Schema,
+        _.,
     ]
     headers: Header.Params
 
 
-class SuccessWithJsonApiResponse(api_client.OpenApiResponse[_ApiResponse]):
+class (api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
+        '': __MediaType,
     }
     headers=Header.parameters

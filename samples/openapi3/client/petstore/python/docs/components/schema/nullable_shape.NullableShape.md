@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.nullable_shape
-# NullableShape
+# 
 
 The value may be a shape or the 'null' value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema >= 3.0)
 
@@ -15,9 +15,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
-[oneOf_2](#oneOf_2) | None,  | NoneClass,  |  |
+[](#) | None,  | NoneClass,  |  |
 
-# oneOf_2
+# 
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

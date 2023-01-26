@@ -1,6 +1,6 @@
 <a name="top"></a>
-# **foo_get**
-<a name="foo_get"></a>
+# ****
+<a name=""></a>
 
 
 ### Example
@@ -22,10 +22,10 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.foo_get()
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling DefaultApi->foo_get: %s\n" % e)
+        print("Exception when calling DefaultApi->: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -35,27 +35,6 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#response_defaultresponse_cls) | response
-
-#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**string** | [**Foo**](../../../components/schema/foo.Foo.md) | [**Foo**](../../../components/schema/foo.Foo.md) |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### Authorization
 

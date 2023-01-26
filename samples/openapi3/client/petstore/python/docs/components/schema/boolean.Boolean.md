@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.boolean
-# Boolean
+# 
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

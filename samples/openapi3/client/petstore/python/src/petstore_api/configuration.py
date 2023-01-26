@@ -491,53 +491,6 @@ conf = petstore_api.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'api_key' in self.api_key:
-            auth['api_key'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'api_key',
-                'value': self.get_api_key_with_prefix(
-                    'api_key',
-                ),
-            }
-        if 'api_key_query' in self.api_key:
-            auth['api_key_query'] = {
-                'type': 'api_key',
-                'in': 'query',
-                'key': 'api_key_query',
-                'value': self.get_api_key_with_prefix(
-                    'api_key_query',
-                ),
-            }
-        if self.access_token is not None:
-            auth['bearer_test'] = {
-                'type': 'bearer',
-                'in': 'header',
-                'format': 'JWT',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
-        if self.username is not None and self.password is not None:
-            auth['http_basic_test'] = {
-                'type': 'basic',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': self.get_basic_auth_token()
-            }
-        if self.signing_info is not None:
-            auth['http_signature_test'] = {
-                'type': 'http-signature',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': None  # Signature headers are calculated for every HTTP request
-            }
-        if self.access_token is not None:
-            auth['petstore_auth'] = {
-                'type': 'oauth2',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
         return auth
 
     def to_debug_report(self):
@@ -559,41 +512,12 @@ conf = petstore_api.Configuration(
         """
         return [
             {
-                'url': "http://{server}.swagger.io:{port}/v2",
-                'description': "petstore server",
-                'variables': {
-                    'server': {
-                        'description': "No description provided",
-                        'default_value': "petstore",
-                        'enum_values': [
-                            "petstore",
-                            "qa-petstore",
-                            "dev-petstore"
-                        ]
-                        },
-                    'port': {
-                        'description': "No description provided",
-                        'default_value': "80",
-                        'enum_values': [
-                            "80",
-                            "8080"
-                        ]
-                        }
-                    }
+                'url': "",
+                'description': "No description provided",
             },
             {
-                'url': "https://localhost:8080/{version}",
-                'description': "The local server",
-                'variables': {
-                    'version': {
-                        'description': "No description provided",
-                        'default_value': "v2",
-                        'enum_values': [
-                            "v1",
-                            "v2"
-                        ]
-                        }
-                    }
+                'url': "",
+                'description': "No description provided",
             }
         ]
 

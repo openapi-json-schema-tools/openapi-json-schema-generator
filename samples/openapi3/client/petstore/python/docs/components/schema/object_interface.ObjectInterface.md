@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.object_interface
-# ObjectInterface
+# 
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

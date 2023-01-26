@@ -10,19 +10,19 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content.application_x_www_form_urlencoded import schema as application_x_www_form_urlencoded_schema
+from .content. import  as _
 
-class RequestBody(api_client.RequestBody):
+class (api_client.RequestBody):
 
 
-    class __ApplicationXWwwFormUrlencodedMediaType(api_client.MediaType):
-        schema: typing.Type[application_x_www_form_urlencoded_schema.Schema] = application_x_www_form_urlencoded_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/x-www-form-urlencoded': typing.Type[__ApplicationXWwwFormUrlencodedMediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/x-www-form-urlencoded': __ApplicationXWwwFormUrlencodedMediaType,
+        '': __MediaType,
     }

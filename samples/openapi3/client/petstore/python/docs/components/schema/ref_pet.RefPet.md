@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.ref_pet
-# RefPet
+# 
 ## Schema Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------

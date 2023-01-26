@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import composed_one_of_different_types
-Schema = composed_one_of_different_types.ComposedOneOfDifferentTypes
+ = composed_one_of_different_types.ComposedOneOfDifferentTypes

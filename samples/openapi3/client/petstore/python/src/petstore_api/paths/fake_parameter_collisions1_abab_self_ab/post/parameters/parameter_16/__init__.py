@@ -11,11 +11,11 @@ import typing_extensions
 
 from petstore_api import api_client
 
-from . import schema
+from . import 
 
 
-class _16(api_client.CookieParameter):
-    name = "Ab"
+class (api_client.Parameter):
+    name = ""
     style = api_client.ParameterStyle.FORM
-    schema = schema.Schema
+    schema = .
     explode = True

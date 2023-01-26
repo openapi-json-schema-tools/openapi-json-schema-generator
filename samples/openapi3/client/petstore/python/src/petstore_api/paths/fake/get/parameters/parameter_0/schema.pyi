@@ -23,37 +23,25 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class Schema(
+class (
     schemas.ListSchema
 ):
 
 
     class Schema_:
         types = {tuple}
-        
-        
-        class Items(
-            schemas.StrSchema
-        ):
-            
-            @schemas.classproperty
-            def GREATER_THAN(cls):
-                return cls(">")
-            
-            @schemas.classproperty
-            def DOLLAR(cls):
-                return cls("$")
+         = schemas.StrSchema
 
     def __new__(
         cls,
-        arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
+        arg_: typing.Union[typing.Tuple[typing.Union[Schema_., str, ]], typing.List[typing.Union[Schema_., str, ]]],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-    ) -> 'Schema':
+    ) -> '':
         return super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
 
-    def __getitem__(self, i: int) -> Schema_.Items:
+    def __getitem__(self, i: int) -> Schema_.:
         return super().__getitem__(i)

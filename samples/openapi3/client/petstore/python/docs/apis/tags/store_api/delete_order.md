@@ -1,10 +1,7 @@
 <a name="top"></a>
-# **delete_order**
-<a name="delete_order"></a>
+# ****
+<a name=""></a>
 
-Delete purchase order by ID
-
-For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
 
 ### Example
 
@@ -23,63 +20,21 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = store_api.StoreApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'order_id': "order_id_example",
-    }
+    # example, this endpoint has no required or optional parameters
     try:
-        # Delete purchase order by ID
-        api_response = api_instance.delete_order(
-            path_params=path_params,
-        )
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling StoreApi->delete_order: %s\n" % e)
+        print("Exception when calling StoreApi->: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-order_id | [_0.schema](#parameter_0schema) | | 
-
-# <a id="parameter_0schema" >_0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [_400.response_cls](#response_400response_cls) | Invalid ID supplied
-404 | [_404.response_cls](#response_404response_cls) | Order not found
-
-#### <a id="response_400response_cls" >_400.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-#### <a id="response_404response_cls" >_404.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
 
 ### Authorization
 

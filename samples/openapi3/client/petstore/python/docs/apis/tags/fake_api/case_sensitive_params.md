@@ -1,9 +1,7 @@
 <a name="top"></a>
-# **case_sensitive_params**
-<a name="case_sensitive_params"></a>
+# ****
+<a name=""></a>
 
-
-Ensures that original naming is used in endpoint params, that way we on't have collisions
 
 ### Example
 
@@ -22,66 +20,21 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    query_params = {
-        'someVar': "someVar_example",
-        'SomeVar': "SomeVar_example",
-        'some_var': "some_var_example",
-    }
+    # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.case_sensitive_params(
-            query_params=query_params,
-        )
+        api_response = api_instance.()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->case_sensitive_params: %s\n" % e)
+        print("Exception when calling FakeApi->: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-someVar | [_0.schema](#parameter_0schema) | | 
-SomeVar | [_1.schema](#parameter_1schema) | | 
-some_var | [_2.schema](#parameter_2schema) | | 
-
-
-# <a id="parameter_0schema" >_0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_1schema" >_1.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_2schema" >_2.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ### Authorization
 

@@ -8,4 +8,4 @@
 
 
 from petstore_api.components.headers import header_int32_json_content_type_header
-Int32 = header_int32_json_content_type_header.Int32JsonContentTypeHeader
+ = header_int32_json_content_type_header.Int32JsonContentTypeHeader

@@ -11,11 +11,11 @@ import typing_extensions
 
 from petstore_api import api_client
 
-from . import schema
+from . import 
 
 
-class _0(api_client.QueryParameter):
-    name = "mapBean"
+class (api_client.Parameter):
+    name = ""
     style=api_client.ParameterStyle.DEEP_OBJECT
-    schema = schema.Schema
+    schema = .
     explode = True

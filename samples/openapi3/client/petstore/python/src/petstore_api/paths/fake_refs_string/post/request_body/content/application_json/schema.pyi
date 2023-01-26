@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import string
-Schema = string.String
+ = string.String

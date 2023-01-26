@@ -19,30 +19,30 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content.application_octet_stream import schema as application_octet_stream_schema
+from .content. import  as _
 
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_octet_stream_schema.Schema,
+        _.,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-class _200(api_client.OpenApiResponse[_ApiResponse]):
+class (api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __ApplicationOctetStreamMediaType(api_client.MediaType):
-        schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/octet-stream': typing.Type[__ApplicationOctetStreamMediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/octet-stream': __ApplicationOctetStreamMediaType,
+        '': __MediaType,
     }

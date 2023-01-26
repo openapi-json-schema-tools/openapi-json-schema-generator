@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import json_patch_request
-Schema = json_patch_request.JSONPatchRequest
+ = json_patch_request.JSONPatchRequest

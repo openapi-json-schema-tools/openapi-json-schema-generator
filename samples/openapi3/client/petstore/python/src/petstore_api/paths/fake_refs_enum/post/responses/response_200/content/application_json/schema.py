@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import string_enum
-Schema = string_enum.StringEnum
+ = string_enum.StringEnum

@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.date_time_with_validations
-# DateTimeWithValidations
+# 
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

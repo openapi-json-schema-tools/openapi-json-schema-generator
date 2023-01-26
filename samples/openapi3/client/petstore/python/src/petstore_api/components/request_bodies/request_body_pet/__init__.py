@@ -10,27 +10,27 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content.application_json import schema as application_json_schema
-from .content.application_xml import schema as application_xml_schema
+from .content. import  as _
+from .content. import  as _
 
-class Pet(api_client.RequestBody):
-
-
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+class (api_client.RequestBody):
 
 
-    class __ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
+
+
+    class __MediaType(api_client.MediaType):
+        schema: typing.Type[_.] = _.
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
-            'application/xml': typing.Type[__ApplicationXmlMediaType],
+            '': typing.Type[__MediaType],
+            '': typing.Type[__MediaType],
         }
     )
     content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
-        'application/xml': __ApplicationXmlMediaType,
+        '': __MediaType,
+        '': __MediaType,
     }
     required = True
