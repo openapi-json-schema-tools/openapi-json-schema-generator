@@ -5290,6 +5290,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
+    private String removeTrailingSlash(String value) {
+        return StringUtils.removeEnd(value, "/");
+    }
+
     @Override
     public List<CodegenServer> fromServers(List<Server> servers) {
         if (servers == null) {
@@ -5298,7 +5302,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenServer> codegenServers = new LinkedList<>();
         for (Server server : servers) {
             CodegenServer cs = new CodegenServer(
-                server.getUrl(),
+                removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 escapeText(server.getDescription()),
                 fromServerVariables(server.getVariables())
             );
