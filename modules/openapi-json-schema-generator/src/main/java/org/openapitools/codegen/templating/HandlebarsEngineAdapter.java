@@ -71,10 +71,11 @@ public class HandlebarsEngineAdapter extends AbstractTemplatingEngineAdapter {
         Context context = Context
                 .newBuilder(bundle)
                 .resolver(
-                        MapValueResolver.INSTANCE,
+                        MapValueResolver.INSTANCE, // access map values
                         JavaBeanValueResolver.INSTANCE,
-                        FieldValueResolver.INSTANCE,
-                        MethodValueResolver.INSTANCE)
+                        MethodValueResolver.INSTANCE,  // access to public methods
+                        FieldValueResolver.INSTANCE  // access to instance fields (private or public).
+                )
                 .build();
 
         Handlebars handlebars = new Handlebars(loader);
