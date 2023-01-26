@@ -34,7 +34,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     /**
      * The name of this property in the OpenAPI schema.
      */
-    private CodegenKey name;
+    public CodegenKey name;
     public String defaultValue;
     /**
      * The value of the 'title' attribute in the OpenAPI schema.

@@ -262,7 +262,7 @@ public class DefaultCodegenTest {
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
-        Assert.assertNotNull(codegenParameter.getContent().get(ck).getSchema().getRefInfo());
+        Assert.assertNotNull(codegenParameter.content().get(ck).getSchema().refInfo());
 
         Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
         CodegenSchema model = codegen.fromSchema(
@@ -325,15 +325,15 @@ public class DefaultCodegenTest {
         CodegenSchema empty_map_cp = null;
 
         for (CodegenSchema cp : cm.getProperties().values()) {
-            if ("map_with_undeclared_properties_string".equals(cp.name.getName())) {
+            if ("map_with_undeclared_properties_string".equals(cp.name().name)) {
                 map_with_undeclared_properties_string_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.getName())) {
+            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name().getName())) {
                 map_with_undeclared_properties_anytype_1_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name.getName())) {
+            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name().getName())) {
                 map_with_undeclared_properties_anytype_2_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name.getName())) {
+            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name().getName())) {
                 map_with_undeclared_properties_anytype_3_cp = cp;
-            } else if ("empty_map".equals(cp.name.getName())) {
+            } else if ("empty_map".equals(cp.name().getName())) {
                 empty_map_cp = cp;
             }
         }
