@@ -144,21 +144,23 @@ configuration = petstore_api.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = another_fake_api.AnotherFakeApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    body = client.Client(
+        client="client_example",
+    )
     try:
-        api_response = api_instance.()
+        # To test special tags
+        api_response = api_instance.call_123_test_special_tags(
+            body=body,
+        )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling AnotherFakeApi->: %s\n" % e)
+        print("Exception when calling AnotherFakeApi->call_123_test_special_tags: %s\n" % e)
 ```
 
 ## Endpoints
@@ -167,253 +169,268 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
-****  |  | 
+**patch** /another-fake/dummy | [AnotherFakeApi](docs/apis/tags/AnotherFakeApi.md).[call_123_test_special_tags](docs/apis/tags/another_fake_api/call_123_test_special_tags.md)  | To test special tags
+**get** /fake/additional-properties-with-array-of-enums | [FakeApi](docs/apis/tags/FakeApi.md).[additional_properties_with_array_of_enums](docs/apis/tags/fake_api/additional_properties_with_array_of_enums.md)  | Additional Properties with Array of Enums
+**put** /fake/body-with-file-schema | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_file_schema](docs/apis/tags/fake_api/body_with_file_schema.md)  | 
+**put** /fake/body-with-query-params | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_query_params](docs/apis/tags/fake_api/body_with_query_params.md)  | 
+**put** /fake/case-sensitive-params | [FakeApi](docs/apis/tags/FakeApi.md).[case_sensitive_params](docs/apis/tags/fake_api/case_sensitive_params.md)  | 
+**delete** /fake/deleteCoffee/{id} | [FakeApi](docs/apis/tags/FakeApi.md).[delete_coffee](docs/apis/tags/fake_api/delete_coffee.md)  | Delete coffee
+**get** /fake/health | [FakeApi](docs/apis/tags/FakeApi.md).[fake_health_get](docs/apis/tags/fake_api/fake_health_get.md)  | Health check endpoint
+**post** /fake/inline-additionalProperties | [FakeApi](docs/apis/tags/FakeApi.md).[inline_additional_properties](docs/apis/tags/fake_api/inline_additional_properties.md)  | test inline additionalProperties
+**post** /fake/inlineComposition/ | [FakeApi](docs/apis/tags/FakeApi.md).[inline_composition](docs/apis/tags/fake_api/inline_composition.md)  | testing composed schemas at inline locations
+**get** /fake/jsonFormData | [FakeApi](docs/apis/tags/FakeApi.md).[json_form_data](docs/apis/tags/fake_api/json_form_data.md)  | test json serialization of form data
+**patch** /fake/jsonPatch | [FakeApi](docs/apis/tags/FakeApi.md).[json_patch](docs/apis/tags/fake_api/json_patch.md)  | json patch
+**post** /fake/jsonWithCharset | [FakeApi](docs/apis/tags/FakeApi.md).[json_with_charset](docs/apis/tags/fake_api/json_with_charset.md)  | json with charset tx and rx
+**get** /fake/objInQuery | [FakeApi](docs/apis/tags/FakeApi.md).[object_in_query](docs/apis/tags/fake_api/object_in_query.md)  | user list
+**post** /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ | [FakeApi](docs/apis/tags/FakeApi.md).[parameter_collisions](docs/apis/tags/fake_api/parameter_collisions.md)  | parameter collision case
+**get** /fake/queryParamWithJsonContentType | [FakeApi](docs/apis/tags/FakeApi.md).[query_param_with_json_content_type](docs/apis/tags/fake_api/query_param_with_json_content_type.md)  | query param with json content-type
+**get** /fake/refObjInQuery | [FakeApi](docs/apis/tags/FakeApi.md).[ref_object_in_query](docs/apis/tags/fake_api/ref_object_in_query.md)  | user list
+**post** /fake/refs/array-of-enums | [FakeApi](docs/apis/tags/FakeApi.md).[array_of_enums](docs/apis/tags/fake_api/array_of_enums.md)  | Array of Enums
+**post** /fake/refs/arraymodel | [FakeApi](docs/apis/tags/FakeApi.md).[array_model](docs/apis/tags/fake_api/array_model.md)  | 
+**post** /fake/refs/boolean | [FakeApi](docs/apis/tags/FakeApi.md).[boolean](docs/apis/tags/fake_api/boolean.md)  | 
+**post** /fake/refs/composed_one_of_number_with_validations | [FakeApi](docs/apis/tags/FakeApi.md).[composed_one_of_different_types](docs/apis/tags/fake_api/composed_one_of_different_types.md)  | 
+**post** /fake/refs/enum | [FakeApi](docs/apis/tags/FakeApi.md).[string_enum](docs/apis/tags/fake_api/string_enum.md)  | 
+**post** /fake/refs/mammal | [FakeApi](docs/apis/tags/FakeApi.md).[mammal](docs/apis/tags/fake_api/mammal.md)  | 
+**post** /fake/refs/number | [FakeApi](docs/apis/tags/FakeApi.md).[number_with_validations](docs/apis/tags/fake_api/number_with_validations.md)  | 
+**post** /fake/refs/object_model_with_ref_props | [FakeApi](docs/apis/tags/FakeApi.md).[object_model_with_ref_props](docs/apis/tags/fake_api/object_model_with_ref_props.md)  | 
+**post** /fake/refs/string | [FakeApi](docs/apis/tags/FakeApi.md).[string](docs/apis/tags/fake_api/string.md)  | 
+**get** /fake/responseWithoutSchema | [FakeApi](docs/apis/tags/FakeApi.md).[response_without_schema](docs/apis/tags/fake_api/response_without_schema.md)  | receives a response without schema
+**put** /fake/test-query-paramters | [FakeApi](docs/apis/tags/FakeApi.md).[query_parameter_collection_format](docs/apis/tags/fake_api/query_parameter_collection_format.md)  | 
+**post** /fake/uploadDownloadFile | [FakeApi](docs/apis/tags/FakeApi.md).[upload_download_file](docs/apis/tags/fake_api/upload_download_file.md)  | uploads a file and downloads a file using application/octet-stream
+**post** /fake/uploadFiles | [FakeApi](docs/apis/tags/FakeApi.md).[upload_files](docs/apis/tags/fake_api/upload_files.md)  | uploads files using multipart/form-data
+**post** /fake/uploadFile | [FakeApi](docs/apis/tags/FakeApi.md).[upload_file](docs/apis/tags/fake_api/upload_file.md)  | uploads a file using multipart/form-data
+**post** /fake/{petId}/uploadImageWithRequiredFile | [PetApi](docs/apis/tags/PetApi.md).[upload_file_with_required_file](docs/apis/tags/pet_api/upload_file_with_required_file.md)  | uploads an image (required)
+**patch** /fake_classname_test | [FakeClassnameTags123Api](docs/apis/tags/FakeClassnameTags123Api.md).[classname](docs/apis/tags/fake_classname_tags123_api/classname.md)  | To test class name in snake case
+**delete** /fake | [FakeApi](docs/apis/tags/FakeApi.md).[group_parameters](docs/apis/tags/fake_api/group_parameters.md)  | Fake endpoint to test group parameters (optional)
+**get** /fake | [FakeApi](docs/apis/tags/FakeApi.md).[enum_parameters](docs/apis/tags/fake_api/enum_parameters.md)  | To test enum parameters
+**patch** /fake | [FakeApi](docs/apis/tags/FakeApi.md).[client_model](docs/apis/tags/fake_api/client_model.md)  | To test \&quot;client\&quot; model
+**post** /fake | [FakeApi](docs/apis/tags/FakeApi.md).[endpoint_parameters](docs/apis/tags/fake_api/endpoint_parameters.md)  | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+**get** /foo | [DefaultApi](docs/apis/tags/DefaultApi.md).[foo_get](docs/apis/tags/default_api/foo_get.md)  | 
+**get** /pet/findByStatus | [PetApi](docs/apis/tags/PetApi.md).[find_pets_by_status](docs/apis/tags/pet_api/find_pets_by_status.md)  | Finds Pets by status
+**get** /pet/findByTags | [PetApi](docs/apis/tags/PetApi.md).[find_pets_by_tags](docs/apis/tags/pet_api/find_pets_by_tags.md)  | Finds Pets by tags
+**post** /pet/{petId}/uploadImage | [PetApi](docs/apis/tags/PetApi.md).[upload_image](docs/apis/tags/pet_api/upload_image.md)  | uploads an image
+**delete** /pet/{petId} | [PetApi](docs/apis/tags/PetApi.md).[delete_pet](docs/apis/tags/pet_api/delete_pet.md)  | Deletes a pet
+**get** /pet/{petId} | [PetApi](docs/apis/tags/PetApi.md).[get_pet_by_id](docs/apis/tags/pet_api/get_pet_by_id.md)  | Find pet by ID
+**post** /pet/{petId} | [PetApi](docs/apis/tags/PetApi.md).[update_pet_with_form](docs/apis/tags/pet_api/update_pet_with_form.md)  | Updates a pet in the store with form data
+**post** /pet | [PetApi](docs/apis/tags/PetApi.md).[add_pet](docs/apis/tags/pet_api/add_pet.md)  | Add a new pet to the store
+**put** /pet | [PetApi](docs/apis/tags/PetApi.md).[update_pet](docs/apis/tags/pet_api/update_pet.md)  | Update an existing pet
+**get** /store/inventory | [StoreApi](docs/apis/tags/StoreApi.md).[get_inventory](docs/apis/tags/store_api/get_inventory.md)  | Returns pet inventories by status
+**delete** /store/order/{order_id} | [StoreApi](docs/apis/tags/StoreApi.md).[delete_order](docs/apis/tags/store_api/delete_order.md)  | Delete purchase order by ID
+**get** /store/order/{order_id} | [StoreApi](docs/apis/tags/StoreApi.md).[get_order_by_id](docs/apis/tags/store_api/get_order_by_id.md)  | Find purchase order by ID
+**post** /store/order | [StoreApi](docs/apis/tags/StoreApi.md).[place_order](docs/apis/tags/store_api/place_order.md)  | Place an order for a pet
+**post** /user/createWithArray | [UserApi](docs/apis/tags/UserApi.md).[create_users_with_array_input](docs/apis/tags/user_api/create_users_with_array_input.md)  | Creates list of users with given input array
+**post** /user/createWithList | [UserApi](docs/apis/tags/UserApi.md).[create_users_with_list_input](docs/apis/tags/user_api/create_users_with_list_input.md)  | Creates list of users with given input array
+**get** /user/login | [UserApi](docs/apis/tags/UserApi.md).[login_user](docs/apis/tags/user_api/login_user.md)  | Logs user into the system
+**get** /user/logout | [UserApi](docs/apis/tags/UserApi.md).[logout_user](docs/apis/tags/user_api/logout_user.md)  | Logs out current logged in user session
+**delete** /user/{username} | [UserApi](docs/apis/tags/UserApi.md).[delete_user](docs/apis/tags/user_api/delete_user.md)  | Delete user
+**get** /user/{username} | [UserApi](docs/apis/tags/UserApi.md).[get_user_by_name](docs/apis/tags/user_api/get_user_by_name.md)  | Get user by user name
+**put** /user/{username} | [UserApi](docs/apis/tags/UserApi.md).[update_user](docs/apis/tags/user_api/update_user.md)  | Updated user
+**post** /user | [UserApi](docs/apis/tags/UserApi.md).[create_user](docs/apis/tags/user_api/create_user.md)  | Create user
 
 ## Component Schemas
 
- - [](docs/components/schema/_200_response..md)
- - [](docs/components/schema/abstract_step_message..md)
- - [](docs/components/schema/additional_properties_class..md)
- - [](docs/components/schema/additional_properties_validator..md)
- - [](docs/components/schema/additional_properties_with_array_of_enums..md)
- - [](docs/components/schema/address..md)
- - [](docs/components/schema/animal..md)
- - [](docs/components/schema/animal_farm..md)
- - [](docs/components/schema/any_type_and_format..md)
- - [](docs/components/schema/any_type_not_string..md)
- - [](docs/components/schema/api_response..md)
- - [](docs/components/schema/array_holding_any_type..md)
- - [](docs/components/schema/array_of_array_of_number_only..md)
- - [](docs/components/schema/array_of_enums..md)
- - [](docs/components/schema/array_of_number_only..md)
- - [](docs/components/schema/array_test..md)
- - [](docs/components/schema/array_with_validations_in_items..md)
- - [](docs/components/schema/bar..md)
- - [](docs/components/schema/basque_pig..md)
- - [](docs/components/schema/boolean..md)
- - [](docs/components/schema/boolean_enum..md)
- - [](docs/components/schema/capitalization..md)
- - [](docs/components/schema/cat..md)
- - [](docs/components/schema/category..md)
- - [](docs/components/schema/child_cat..md)
- - [](docs/components/schema/class_model..md)
- - [](docs/components/schema/client..md)
- - [](docs/components/schema/complex_quadrilateral..md)
- - [](docs/components/schema/composed_any_of_different_types_no_validations..md)
- - [](docs/components/schema/composed_array..md)
- - [](docs/components/schema/composed_bool..md)
- - [](docs/components/schema/composed_none..md)
- - [](docs/components/schema/composed_number..md)
- - [](docs/components/schema/composed_object..md)
- - [](docs/components/schema/composed_one_of_different_types..md)
- - [](docs/components/schema/composed_string..md)
- - [](docs/components/schema/currency..md)
- - [](docs/components/schema/danish_pig..md)
- - [](docs/components/schema/date_time_test..md)
- - [](docs/components/schema/date_time_with_validations..md)
- - [](docs/components/schema/date_with_validations..md)
- - [](docs/components/schema/decimal_payload..md)
- - [](docs/components/schema/dog..md)
- - [](docs/components/schema/drawing..md)
- - [](docs/components/schema/enum_arrays..md)
- - [](docs/components/schema/enum_class..md)
- - [](docs/components/schema/enum_test..md)
- - [](docs/components/schema/equilateral_triangle..md)
- - [](docs/components/schema/file..md)
- - [](docs/components/schema/file_schema_test_class..md)
- - [](docs/components/schema/foo..md)
- - [](docs/components/schema/format_test..md)
- - [](docs/components/schema/from_schema..md)
- - [](docs/components/schema/grandparent_animal..md)
- - [](docs/components/schema/health_check_result..md)
- - [](docs/components/schema/integer_enum..md)
- - [](docs/components/schema/integer_enum_big..md)
- - [](docs/components/schema/integer_enum_one_value..md)
- - [](docs/components/schema/integer_enum_with_default_value..md)
- - [](docs/components/schema/integer_max10..md)
- - [](docs/components/schema/integer_min15..md)
- - [](docs/components/schema/isosceles_triangle..md)
- - [](docs/components/schema/json_patch_request..md)
- - [](docs/components/schema/json_patch_request_add_replace_test..md)
- - [](docs/components/schema/json_patch_request_move_copy..md)
- - [](docs/components/schema/json_patch_request_remove..md)
- - [](docs/components/schema/map_test..md)
- - [](docs/components/schema/mixed_properties_and_additional_properties_class..md)
- - [](docs/components/schema/money..md)
- - [](docs/components/schema/name..md)
- - [](docs/components/schema/no_additional_properties..md)
- - [](docs/components/schema/nullable_class..md)
- - [](docs/components/schema/nullable_shape..md)
- - [](docs/components/schema/nullable_string..md)
- - [](docs/components/schema/number..md)
- - [](docs/components/schema/number_only..md)
- - [](docs/components/schema/number_with_validations..md)
- - [](docs/components/schema/object_interface..md)
- - [](docs/components/schema/object_model_with_arg_and_args_properties..md)
- - [](docs/components/schema/object_model_with_ref_props..md)
- - [](docs/components/schema/object_with_all_of_with_req_test_prop_from_unset_add_prop..md)
- - [](docs/components/schema/object_with_decimal_properties..md)
- - [](docs/components/schema/object_with_difficultly_named_props..md)
- - [](docs/components/schema/object_with_inline_composition_property..md)
- - [](docs/components/schema/object_with_invalid_named_refed_properties..md)
- - [](docs/components/schema/object_with_optional_test_prop..md)
- - [](docs/components/schema/object_with_validations..md)
- - [](docs/components/schema/order..md)
- - [](docs/components/schema/parent_pet..md)
- - [](docs/components/schema/pet..md)
- - [](docs/components/schema/pig..md)
- - [](docs/components/schema/player..md)
- - [](docs/components/schema/quadrilateral..md)
- - [](docs/components/schema/quadrilateral_interface..md)
- - [](docs/components/schema/read_only_first..md)
- - [](docs/components/schema/ref_pet..md)
- - [](docs/components/schema/req_props_from_explicit_add_props..md)
- - [](docs/components/schema/req_props_from_true_add_props..md)
- - [](docs/components/schema/req_props_from_unset_add_props..md)
- - [](docs/components/schema/_return..md)
- - [](docs/components/schema/scalene_triangle..md)
- - [](docs/components/schema/self_referencing_array_model..md)
- - [](docs/components/schema/self_referencing_object_model..md)
- - [](docs/components/schema/shape..md)
- - [](docs/components/schema/shape_or_null..md)
- - [](docs/components/schema/simple_quadrilateral..md)
- - [](docs/components/schema/some_object..md)
- - [](docs/components/schema/string..md)
- - [](docs/components/schema/string_boolean_map..md)
- - [](docs/components/schema/string_enum..md)
- - [](docs/components/schema/string_enum_with_default_value..md)
- - [](docs/components/schema/string_with_validation..md)
- - [](docs/components/schema/tag..md)
- - [](docs/components/schema/triangle..md)
- - [](docs/components/schema/triangle_interface..md)
- - [](docs/components/schema/uuid_string..md)
- - [](docs/components/schema/user..md)
- - [](docs/components/schema/special_model_name..md)
- - [](docs/components/schema/apple..md)
- - [](docs/components/schema/apple_req..md)
- - [](docs/components/schema/banana..md)
- - [](docs/components/schema/banana_req..md)
- - [](docs/components/schema/fruit..md)
- - [](docs/components/schema/fruit_req..md)
- - [](docs/components/schema/gm_fruit..md)
- - [](docs/components/schema/has_only_read_only..md)
- - [](docs/components/schema/mammal..md)
- - [](docs/components/schema/whale..md)
- - [](docs/components/schema/zebra..md)
+ - [_200Response](docs/components/schema/_200_response._200Response.md)
+ - [AbstractStepMessage](docs/components/schema/abstract_step_message.AbstractStepMessage.md)
+ - [AdditionalPropertiesClass](docs/components/schema/additional_properties_class.AdditionalPropertiesClass.md)
+ - [AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator.AdditionalPropertiesValidator.md)
+ - [AdditionalPropertiesWithArrayOfEnums](docs/components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md)
+ - [Address](docs/components/schema/address.Address.md)
+ - [Animal](docs/components/schema/animal.Animal.md)
+ - [AnimalFarm](docs/components/schema/animal_farm.AnimalFarm.md)
+ - [AnyTypeAndFormat](docs/components/schema/any_type_and_format.AnyTypeAndFormat.md)
+ - [AnyTypeNotString](docs/components/schema/any_type_not_string.AnyTypeNotString.md)
+ - [ApiResponse](docs/components/schema/api_response.ApiResponse.md)
+ - [ArrayHoldingAnyType](docs/components/schema/array_holding_any_type.ArrayHoldingAnyType.md)
+ - [ArrayOfArrayOfNumberOnly](docs/components/schema/array_of_array_of_number_only.ArrayOfArrayOfNumberOnly.md)
+ - [ArrayOfEnums](docs/components/schema/array_of_enums.ArrayOfEnums.md)
+ - [ArrayOfNumberOnly](docs/components/schema/array_of_number_only.ArrayOfNumberOnly.md)
+ - [ArrayTest](docs/components/schema/array_test.ArrayTest.md)
+ - [ArrayWithValidationsInItems](docs/components/schema/array_with_validations_in_items.ArrayWithValidationsInItems.md)
+ - [Bar](docs/components/schema/bar.Bar.md)
+ - [BasquePig](docs/components/schema/basque_pig.BasquePig.md)
+ - [Boolean](docs/components/schema/boolean.Boolean.md)
+ - [BooleanEnum](docs/components/schema/boolean_enum.BooleanEnum.md)
+ - [Capitalization](docs/components/schema/capitalization.Capitalization.md)
+ - [Cat](docs/components/schema/cat.Cat.md)
+ - [Category](docs/components/schema/category.Category.md)
+ - [ChildCat](docs/components/schema/child_cat.ChildCat.md)
+ - [ClassModel](docs/components/schema/class_model.ClassModel.md)
+ - [Client](docs/components/schema/client.Client.md)
+ - [ComplexQuadrilateral](docs/components/schema/complex_quadrilateral.ComplexQuadrilateral.md)
+ - [ComposedAnyOfDifferentTypesNoValidations](docs/components/schema/composed_any_of_different_types_no_validations.ComposedAnyOfDifferentTypesNoValidations.md)
+ - [ComposedArray](docs/components/schema/composed_array.ComposedArray.md)
+ - [ComposedBool](docs/components/schema/composed_bool.ComposedBool.md)
+ - [ComposedNone](docs/components/schema/composed_none.ComposedNone.md)
+ - [ComposedNumber](docs/components/schema/composed_number.ComposedNumber.md)
+ - [ComposedObject](docs/components/schema/composed_object.ComposedObject.md)
+ - [ComposedOneOfDifferentTypes](docs/components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md)
+ - [ComposedString](docs/components/schema/composed_string.ComposedString.md)
+ - [Currency](docs/components/schema/currency.Currency.md)
+ - [DanishPig](docs/components/schema/danish_pig.DanishPig.md)
+ - [DateTimeTest](docs/components/schema/date_time_test.DateTimeTest.md)
+ - [DateTimeWithValidations](docs/components/schema/date_time_with_validations.DateTimeWithValidations.md)
+ - [DateWithValidations](docs/components/schema/date_with_validations.DateWithValidations.md)
+ - [DecimalPayload](docs/components/schema/decimal_payload.DecimalPayload.md)
+ - [Dog](docs/components/schema/dog.Dog.md)
+ - [Drawing](docs/components/schema/drawing.Drawing.md)
+ - [EnumArrays](docs/components/schema/enum_arrays.EnumArrays.md)
+ - [EnumClass](docs/components/schema/enum_class.EnumClass.md)
+ - [EnumTest](docs/components/schema/enum_test.EnumTest.md)
+ - [EquilateralTriangle](docs/components/schema/equilateral_triangle.EquilateralTriangle.md)
+ - [File](docs/components/schema/file.File.md)
+ - [FileSchemaTestClass](docs/components/schema/file_schema_test_class.FileSchemaTestClass.md)
+ - [Foo](docs/components/schema/foo.Foo.md)
+ - [FormatTest](docs/components/schema/format_test.FormatTest.md)
+ - [FromSchema](docs/components/schema/from_schema.FromSchema.md)
+ - [GrandparentAnimal](docs/components/schema/grandparent_animal.GrandparentAnimal.md)
+ - [HealthCheckResult](docs/components/schema/health_check_result.HealthCheckResult.md)
+ - [IntegerEnum](docs/components/schema/integer_enum.IntegerEnum.md)
+ - [IntegerEnumBig](docs/components/schema/integer_enum_big.IntegerEnumBig.md)
+ - [IntegerEnumOneValue](docs/components/schema/integer_enum_one_value.IntegerEnumOneValue.md)
+ - [IntegerEnumWithDefaultValue](docs/components/schema/integer_enum_with_default_value.IntegerEnumWithDefaultValue.md)
+ - [IntegerMax10](docs/components/schema/integer_max10.IntegerMax10.md)
+ - [IntegerMin15](docs/components/schema/integer_min15.IntegerMin15.md)
+ - [IsoscelesTriangle](docs/components/schema/isosceles_triangle.IsoscelesTriangle.md)
+ - [JSONPatchRequest](docs/components/schema/json_patch_request.JSONPatchRequest.md)
+ - [JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md)
+ - [JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.JSONPatchRequestMoveCopy.md)
+ - [JSONPatchRequestRemove](docs/components/schema/json_patch_request_remove.JSONPatchRequestRemove.md)
+ - [MapTest](docs/components/schema/map_test.MapTest.md)
+ - [MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class.MixedPropertiesAndAdditionalPropertiesClass.md)
+ - [Money](docs/components/schema/money.Money.md)
+ - [Name](docs/components/schema/name.Name.md)
+ - [NoAdditionalProperties](docs/components/schema/no_additional_properties.NoAdditionalProperties.md)
+ - [NullableClass](docs/components/schema/nullable_class.NullableClass.md)
+ - [NullableShape](docs/components/schema/nullable_shape.NullableShape.md)
+ - [NullableString](docs/components/schema/nullable_string.NullableString.md)
+ - [Number](docs/components/schema/number.Number.md)
+ - [NumberOnly](docs/components/schema/number_only.NumberOnly.md)
+ - [NumberWithValidations](docs/components/schema/number_with_validations.NumberWithValidations.md)
+ - [ObjectInterface](docs/components/schema/object_interface.ObjectInterface.md)
+ - [ObjectModelWithArgAndArgsProperties](docs/components/schema/object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties.md)
+ - [ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md)
+ - [ObjectWithAllOfWithReqTestPropFromUnsetAddProp](docs/components/schema/object_with_all_of_with_req_test_prop_from_unset_add_prop.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.md)
+ - [ObjectWithDecimalProperties](docs/components/schema/object_with_decimal_properties.ObjectWithDecimalProperties.md)
+ - [ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.ObjectWithDifficultlyNamedProps.md)
+ - [ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.ObjectWithInlineCompositionProperty.md)
+ - [ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties.ObjectWithInvalidNamedRefedProperties.md)
+ - [ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.ObjectWithOptionalTestProp.md)
+ - [ObjectWithValidations](docs/components/schema/object_with_validations.ObjectWithValidations.md)
+ - [Order](docs/components/schema/order.Order.md)
+ - [ParentPet](docs/components/schema/parent_pet.ParentPet.md)
+ - [Pet](docs/components/schema/pet.Pet.md)
+ - [Pig](docs/components/schema/pig.Pig.md)
+ - [Player](docs/components/schema/player.Player.md)
+ - [Quadrilateral](docs/components/schema/quadrilateral.Quadrilateral.md)
+ - [QuadrilateralInterface](docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md)
+ - [ReadOnlyFirst](docs/components/schema/read_only_first.ReadOnlyFirst.md)
+ - [RefPet](docs/components/schema/ref_pet.RefPet.md)
+ - [ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md)
+ - [ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md)
+ - [ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md)
+ - [_Return](docs/components/schema/_return._Return.md)
+ - [ScaleneTriangle](docs/components/schema/scalene_triangle.ScaleneTriangle.md)
+ - [SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md)
+ - [SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md)
+ - [Shape](docs/components/schema/shape.Shape.md)
+ - [ShapeOrNull](docs/components/schema/shape_or_null.ShapeOrNull.md)
+ - [SimpleQuadrilateral](docs/components/schema/simple_quadrilateral.SimpleQuadrilateral.md)
+ - [SomeObject](docs/components/schema/some_object.SomeObject.md)
+ - [String](docs/components/schema/string.String.md)
+ - [StringBooleanMap](docs/components/schema/string_boolean_map.StringBooleanMap.md)
+ - [StringEnum](docs/components/schema/string_enum.StringEnum.md)
+ - [StringEnumWithDefaultValue](docs/components/schema/string_enum_with_default_value.StringEnumWithDefaultValue.md)
+ - [StringWithValidation](docs/components/schema/string_with_validation.StringWithValidation.md)
+ - [Tag](docs/components/schema/tag.Tag.md)
+ - [Triangle](docs/components/schema/triangle.Triangle.md)
+ - [TriangleInterface](docs/components/schema/triangle_interface.TriangleInterface.md)
+ - [UUIDString](docs/components/schema/uuid_string.UUIDString.md)
+ - [User](docs/components/schema/user.User.md)
+ - [SpecialModelName](docs/components/schema/special_model_name.SpecialModelName.md)
+ - [Apple](docs/components/schema/apple.Apple.md)
+ - [AppleReq](docs/components/schema/apple_req.AppleReq.md)
+ - [Banana](docs/components/schema/banana.Banana.md)
+ - [BananaReq](docs/components/schema/banana_req.BananaReq.md)
+ - [Fruit](docs/components/schema/fruit.Fruit.md)
+ - [FruitReq](docs/components/schema/fruit_req.FruitReq.md)
+ - [GmFruit](docs/components/schema/gm_fruit.GmFruit.md)
+ - [HasOnlyReadOnly](docs/components/schema/has_only_read_only.HasOnlyReadOnly.md)
+ - [Mammal](docs/components/schema/mammal.Mammal.md)
+ - [Whale](docs/components/schema/whale.Whale.md)
+ - [Zebra](docs/components/schema/zebra.Zebra.md)
 
 ## Component RequestBodies
 
-- [](docs/components/request_bodies/request_body_client.md)
-- [](docs/components/request_bodies/request_body_pet.md)
-- [](docs/components/request_bodies/request_body_ref_user_array.md)
-- [](docs/components/request_bodies/request_body_user_array.md)
+- [Client](docs/components/request_bodies/request_body_client.md)
+- [Pet](docs/components/request_bodies/request_body_pet.md)
+- [RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md)
+- [UserArray](docs/components/request_bodies/request_body_user_array.md)
 
 ## Component Responses
 
-- [](docs/components/responses/response_ref_success_description_only.md)
-- [](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md)
-- [](docs/components/responses/response_success_description_only.md)
-- [](docs/components/responses/response_success_inline_content_and_header.md)
-- [](docs/components/responses/response_success_with_json_api_response.md)
-- [](docs/components/responses/response_successful_xml_and_json_array_of_pet.md)
+- [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md)
+- [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md)
+- [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
+- [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
+- [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
+- [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_successful_xml_and_json_array_of_pet.md)
 
 ## Component Headers
 
-- [](docs/components/headers/header_int32_json_content_type_header.md)
-- [](docs/components/headers/header_number_header.md)
-- [](docs/components/headers/header_ref_content_schema_header.md)
-- [](docs/components/headers/header_ref_schema_header.md)
-- [](docs/components/headers/header_ref_string_header.md)
-- [](docs/components/headers/header_string_header.md)
+- [Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md)
+- [NumberHeader](docs/components/headers/header_number_header.md)
+- [RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md)
+- [RefSchemaHeader](docs/components/headers/header_ref_schema_header.md)
+- [RefStringHeader](docs/components/headers/header_ref_string_header.md)
+- [StringHeader](docs/components/headers/header_string_header.md)
 
 ## Component Parameters
 
-- [](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
-- [](docs/components/parameters/parameter_path_user_name.md)
-- [](docs/components/parameters/parameter_ref_path_user_name.md)
-- [](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
+- [ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
+- [PathUserName](docs/components/parameters/parameter_path_user_name.md)
+- [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md)
+- [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
 
 ## Documentation For Authorization
 
 
-## 
+## api_key
+
+- **Type**: API key
+- **API key parameter name**: api_key
+- **Location**: HTTP header
 
 
+## api_key_query
 
-## 
-
-
-
-## 
-
+- **Type**: API key
+- **API key parameter name**: api_key_query
+- **Location**: URL query string
 
 
-## 
+## bearer_test
+
+- **Type**: Bearer authentication (JWT)
 
 
+## http_basic_test
 
-## 
+- **Type**: HTTP basic authentication
 
+
+## http_signature_test
+
+- **Type**: HTTP signature authentication
 
  Authentication schemes defined for the API:
-## 
+## petstore_auth
 
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: http://petstore.swagger.io/api/oauth/dialog
+- **Scopes**: 
+ - **write:pets**: modify pets in your account
+ - **read:pets**: read your pets
 
 
 ## Author

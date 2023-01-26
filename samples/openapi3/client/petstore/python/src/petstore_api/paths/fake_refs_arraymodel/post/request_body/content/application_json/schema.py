@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import animal_farm
- = animal_farm.AnimalFarm
+Schema = animal_farm.AnimalFarm

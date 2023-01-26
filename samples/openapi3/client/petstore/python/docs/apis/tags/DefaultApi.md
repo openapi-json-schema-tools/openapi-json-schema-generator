@@ -5,6 +5,6 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[****](default_api/.md) | ****  | 
+[**foo_get**](default_api/foo_get.md) | **get** /foo | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

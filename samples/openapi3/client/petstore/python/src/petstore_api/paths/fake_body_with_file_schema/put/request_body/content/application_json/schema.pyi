@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import file_schema_test_class
- = file_schema_test_class.FileSchemaTestClass
+Schema = file_schema_test_class.FileSchemaTestClass

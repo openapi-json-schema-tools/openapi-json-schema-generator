@@ -8,4 +8,4 @@
 
 
 from petstore_api.components.headers import header_string_header
- = header_string_header.StringHeader
+RefStringHeader = header_string_header.StringHeader

@@ -23,12 +23,14 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
+    schemas.Int64Schema
 ):
 
 
     class Schema_:
         types = {
+            decimal.Decimal,
         }
         format = 'int64'
         inclusive_maximum = 5

@@ -23,27 +23,27 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
 
     class Schema_:
-         = schemas.StrSchema
+        AdditionalProperties = schemas.StrSchema
     
-    def __getitem__(self, name: str) -> Schema_.:
+    def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
-    def get_item_(self, name: str) -> Schema_.:
+    def get_item_(self, name: str) -> Schema_.AdditionalProperties:
         return super().get_item_(name)
 
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-        **kwargs: typing.Union[Schema_., str, ],
-    ) -> '':
+        **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,

@@ -73,8 +73,8 @@ public class HandlebarsEngineAdapter extends AbstractTemplatingEngineAdapter {
                 .resolver(
                         MapValueResolver.INSTANCE, // access map values
                         JavaBeanValueResolver.INSTANCE,
-                        MethodValueResolver.INSTANCE  // access to public methods
-                        // FieldValueResolver.INSTANCE  // access to instance fields (private or public).
+                        MethodValueResolver.INSTANCE,  // access to public methods
+                        FieldValueResolver.INSTANCE  // access to instance fields (private or public).
                 )
                 .build();
 

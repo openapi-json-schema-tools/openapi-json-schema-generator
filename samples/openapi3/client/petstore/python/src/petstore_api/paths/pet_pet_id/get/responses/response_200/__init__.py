@@ -19,38 +19,38 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content. import  as _
-from .content. import  as _
+from .content.application_xml import schema as application_xml_schema
+from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        _.,
-        _.,
+        application_xml_schema.Schema,
+        application_json_schema.Schema,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-class (api_client.OpenApiResponse[_ApiResponse]):
+class _200(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationXmlMediaType(api_client.MediaType):
+        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
-            '': typing.Type[__MediaType],
+            'application/xml': typing.Type[__ApplicationXmlMediaType],
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
-        '': __MediaType,
+        'application/xml': __ApplicationXmlMediaType,
+        'application/json': __ApplicationJsonMediaType,
     }

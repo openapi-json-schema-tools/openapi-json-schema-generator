@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.parent_pet
-# 
+# ParentPet
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

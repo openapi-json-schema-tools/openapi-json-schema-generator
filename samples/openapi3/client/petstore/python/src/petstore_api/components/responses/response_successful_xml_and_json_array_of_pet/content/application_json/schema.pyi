@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.ListSchema
 ):
 
@@ -32,14 +32,14 @@ class (
         types = {tuple}
         
         @staticmethod
-        def () -> typing.Type['ref_pet.RefPet']:
+        def items() -> typing.Type['ref_pet.RefPet']:
             return ref_pet.RefPet
 
     def __new__(
         cls,
         arg_: typing.Union[typing.Tuple['ref_pet.RefPet'], typing.List['ref_pet.RefPet']],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             arg_,

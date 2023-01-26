@@ -19,8 +19,8 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content. import  as _
-from .headers import 
+from .content.application_json import schema as application_json_schema
+from .headers import header_some_header
 
 
 class Header:
@@ -32,7 +32,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[.., str, ],
+            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str, ],
         },
         total=False
     )
@@ -43,31 +43,31 @@ class Header:
 
 
     parameters = [
-        .,
+        header_some_header.SomeHeader,
     ]
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        _.,
+        application_json_schema.Schema,
     ]
     headers: Header.Params
 
 
-class (api_client.OpenApiResponse[_ApiResponse]):
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
+        'application/json': __ApplicationJsonMediaType,
     }
     headers=Header.parameters

@@ -19,33 +19,33 @@ import urllib3
 
 from petstore_api import api_client
 from petstore_api import schemas
-from .content. import  as _
-from .content. import  as _
-from .headers import 
-from .headers import 
-from .headers import 
-from .headers import 
-from .headers import 
-from .headers import 
-from .headers import 
+from .content.application_xml import schema as application_xml_schema
+from .content.application_json import schema as application_json_schema
+from .headers import header_ref_schema_header
+from .headers import header_x_rate_limit
+from .headers import header_int32
+from .headers import header_x_expires_after
+from .headers import header_ref_content_schema_header
+from .headers import header_string_header
+from .headers import header_number_header
 
 
 class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[.., ],
-            'X-Rate-Limit': typing.Union[..content[""]., ],
-            'int32': typing.Union[..content[""]., ],
-            'ref-content-schema-header': typing.Union[..content[""]., ],
-            'stringHeader': typing.Union[.., str, ],
+            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, ],
+            'X-Rate-Limit': typing.Union[header_x_rate_limit.XRateLimit.content["application/json"].schema, decimal.Decimal, int, ],
+            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int, ],
+            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, ],
+            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[.., str, datetime.datetime, ],
-            'numberHeader': typing.Union[.., str, ],
+            'X-Expires-After': typing.Union[header_x_expires_after.XExpiresAfter.schema, str, datetime.datetime, ],
+            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str, ],
         },
         total=False
     )
@@ -56,44 +56,44 @@ class Header:
 
 
     parameters = [
-        .,
-        .,
-        .,
-        .,
-        .,
-        .,
-        .,
+        header_ref_schema_header.RefSchemaHeader,
+        header_x_rate_limit.XRateLimit,
+        header_int32.Int32,
+        header_x_expires_after.XExpiresAfter,
+        header_ref_content_schema_header.RefContentSchemaHeader,
+        header_string_header.StringHeader,
+        header_number_header.NumberHeader,
     ]
 
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        _.,
-        _.,
+        application_xml_schema.Schema,
+        application_json_schema.Schema,
     ]
     headers: Header.Params
 
 
-class (api_client.OpenApiResponse[_ApiResponse]):
+class _200(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationXmlMediaType(api_client.MediaType):
+        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
-            '': typing.Type[__MediaType],
+            'application/xml': typing.Type[__ApplicationXmlMediaType],
+            'application/json': typing.Type[__ApplicationJsonMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
-        '': __MediaType,
+        'application/xml': __ApplicationXmlMediaType,
+        'application/json': __ApplicationJsonMediaType,
     }
     headers=Header.parameters

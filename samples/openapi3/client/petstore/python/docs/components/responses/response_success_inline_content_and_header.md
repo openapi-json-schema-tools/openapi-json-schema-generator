@@ -1,14 +1,14 @@
 <a name="top"></a>
 ## petstore_api.components.responses.response_success_inline_content_and_header
-# <a id="" ></a>
-## <a id="response_cls" >.response_cls</a>
+# <a id="response_success_inline_content_and_header" >SuccessInlineContentAndHeader</a>
+## <a id="response_success_inline_content_and_headerresponse_cls" >SuccessInlineContentAndHeader.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[.content..schema](#contentschema), ] |  |
-headers | [.Headers](#Headers) |  |
+body | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
+headers | [response_success_inline_content_and_header.Headers](#response_success_inline_content_and_headerHeaders) |  |
 
-# <a id="content" >.content.</a>
+# <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -18,14 +18,14 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** |  |  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+**any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 ## Headers
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [.headers..schema](#headersschema) | | optional
+someHeader | [SuccessInlineContentAndHeader.headers.header_some_header.schema](#response_success_inline_content_and_headerheadersheader_some_headerschema) | | optional
 
-# <a id="headers" >.headers.</a>
+# <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

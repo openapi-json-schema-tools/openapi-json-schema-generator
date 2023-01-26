@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import object_model_with_ref_props
- = object_model_with_ref_props.ObjectModelWithRefProps
+Schema = object_model_with_ref_props.ObjectModelWithRefProps

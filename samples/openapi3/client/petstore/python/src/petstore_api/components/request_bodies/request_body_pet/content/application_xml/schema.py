@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import ref_pet
- = ref_pet.RefPet
+Schema = ref_pet.RefPet

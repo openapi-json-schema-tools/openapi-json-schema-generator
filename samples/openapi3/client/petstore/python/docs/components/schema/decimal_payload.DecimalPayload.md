@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.decimal_payload
-# 
+# DecimalPayload
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

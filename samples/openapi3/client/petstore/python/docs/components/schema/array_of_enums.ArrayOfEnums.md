@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.array_of_enums
-# 
+# ArrayOfEnums
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

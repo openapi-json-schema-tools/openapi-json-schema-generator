@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
@@ -33,39 +33,67 @@ class (
         class Properties:
             
             
-            class (
+            class EnumFormStringArray(
                 schemas.ListSchema
             ):
             
             
                 class Schema_:
                     types = {tuple}
-                     = schemas.StrSchema
+                    
+                    
+                    class Items(
+                        schemas.StrSchema
+                    ):
+                        
+                        @schemas.classproperty
+                        def GREATER_THAN(cls):
+                            return cls(">")
+                        
+                        @schemas.classproperty
+                        def DOLLAR(cls):
+                            return cls("$")
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_., str, ]], typing.List[typing.Union[Schema_., str, ]]],
+                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-                ) -> '':
+                ) -> 'EnumFormStringArray':
                     return super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
             
-                def __getitem__(self, i: int) -> Schema_.:
+                def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
-             = schemas.StrSchema
+            
+            
+            class EnumFormString(
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def _ABC(cls):
+                    return cls("_abc")
+                
+                @schemas.classproperty
+                def EFG(cls):
+                    return cls("-efg")
+                
+                @schemas.classproperty
+                def XYZ(cls):
+                    return cls("(xyz)")
             __annotations__ = {
-                "": ,
-                "": ,
+                "enum_form_string_array": EnumFormStringArray,
+                "enum_form_string": EnumFormString,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> Schema_.Properties.EnumFormStringArray: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> Schema_.Properties.EnumFormString: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -73,8 +101,8 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["enum_form_string_array"],
+            typing_extensions.Literal["enum_form_string"],
             str
         ]
     ):
@@ -82,10 +110,10 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_form_string_array"]) -> typing.Union[Schema_.Properties.EnumFormStringArray, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["enum_form_string"]) -> typing.Union[Schema_.Properties.EnumFormString, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -93,8 +121,8 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["enum_form_string_array"],
+            typing_extensions.Literal["enum_form_string"],
             str
         ]
     ):
@@ -103,12 +131,16 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
+        enum_form_string_array: typing.Union[Schema_.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
+        enum_form_string: typing.Union[Schema_.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,
+            enum_form_string_array=enum_form_string_array,
+            enum_form_string=enum_form_string,
             configuration_=configuration_,
             **kwargs,
         )

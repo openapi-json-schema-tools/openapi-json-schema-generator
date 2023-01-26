@@ -1,6 +1,6 @@
 ## petstore_api.components.headers.header_string_header
-# 
-# <a id="" >.</a>
+# StringHeader
+# <a id="header_string_headerschema" >StringHeader.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

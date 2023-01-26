@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import boolean
- = boolean.Boolean
+Schema = boolean.Boolean

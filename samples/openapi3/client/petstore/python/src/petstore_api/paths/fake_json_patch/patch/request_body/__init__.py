@@ -10,19 +10,19 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content. import  as _
+from .content.application_json_patchjson import schema as application_json_patchjson_schema
 
-class (api_client.RequestBody):
+class RequestBody(api_client.RequestBody):
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationJsonPatchjsonMediaType(api_client.MediaType):
+        schema: typing.Type[application_json_patchjson_schema.Schema] = application_json_patchjson_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
+            'application/json-patch+json': typing.Type[__ApplicationJsonPatchjsonMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
+        'application/json-patch+json': __ApplicationJsonPatchjsonMediaType,
     }

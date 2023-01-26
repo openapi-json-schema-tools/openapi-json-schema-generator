@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
@@ -32,18 +32,18 @@ class (
         types = {frozendict.frozendict}
         
         class Properties:
-             = schemas.StrSchema
-             = schemas.BinarySchema
+            AdditionalMetadata = schemas.StrSchema
+            File = schemas.BinarySchema
             __annotations__ = {
-                "": ,
-                "": ,
+                "additionalMetadata": AdditionalMetadata,
+                "file": File,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> Schema_.Properties.AdditionalMetadata: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["file"]) -> Schema_.Properties.File: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -51,8 +51,8 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["additionalMetadata"],
+            typing_extensions.Literal["file"],
             str
         ]
     ):
@@ -60,10 +60,10 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["additionalMetadata"]) -> typing.Union[Schema_.Properties.AdditionalMetadata, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["file"]) -> typing.Union[Schema_.Properties.File, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -71,8 +71,8 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["additionalMetadata"],
+            typing_extensions.Literal["file"],
             str
         ]
     ):
@@ -81,12 +81,16 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
+        additionalMetadata: typing.Union[Schema_.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
+        file: typing.Union[Schema_.Properties.File, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,
+            additionalMetadata=additionalMetadata,
+            file=file,
             configuration_=configuration_,
             **kwargs,
         )

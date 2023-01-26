@@ -1,7 +1,8 @@
 <a name="top"></a>
-# ****
-<a name=""></a>
+# **create_users_with_list_input**
+<a name="create_users_with_list_input"></a>
 
+Creates list of users with given input array
 
 ### Example
 
@@ -20,21 +21,56 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    body = [
+        user.User(
+            id=1,
+            username="username_example",
+            first_name="first_name_example",
+            last_name="last_name_example",
+            email="email_example",
+            password="password_example",
+            phone="phone_example",
+            user_status=1,
+            object_with_no_declared_props=dict(),
+            object_with_no_declared_props_nullable=dict(),
+            any_type_prop=None,
+            any_type_except_null_prop=None,
+            any_type_prop_nullable=None,
+        )
+    ]
     try:
-        api_response = api_instance.()
+        # Creates list of users with given input array
+        api_response = api_instance.create_users_with_list_input(
+            body=body,
+        )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling UserApi->: %s\n" % e)
+        print("Exception when calling UserApi->create_users_with_list_input: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[**body**](../../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[[RefUserArray.content.application_json.schema](../../../components/request_bodies/request_body_ref_user_array.md#request_body_ref_user_arraycontentapplication_jsonschema)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
+
+#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 ### Authorization
 

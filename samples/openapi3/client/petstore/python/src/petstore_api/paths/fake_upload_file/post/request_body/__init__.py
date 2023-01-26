@@ -10,19 +10,19 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content. import  as _
+from .content.multipart_form_data import schema as multipart_form_data_schema
 
-class (api_client.RequestBody):
+class RequestBody(api_client.RequestBody):
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __MultipartFormDataMediaType(api_client.MediaType):
+        schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
+            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
+        'multipart/form-data': __MultipartFormDataMediaType,
     }

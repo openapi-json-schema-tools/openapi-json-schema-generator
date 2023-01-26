@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
@@ -31,13 +31,13 @@ class (
     class Schema_:
         
         class Properties:
-             = schemas.StrSchema
+            Keyword = schemas.StrSchema
             __annotations__ = {
-                "": ,
+                "keyword": Keyword,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["keyword"]) -> Schema_.Properties.Keyword: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -45,7 +45,7 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["keyword"],
             str
         ]
     ):
@@ -53,7 +53,7 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["keyword"]) -> typing.Union[Schema_.Properties.Keyword, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -61,7 +61,7 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["keyword"],
             str
         ]
     ):
@@ -70,12 +70,14 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
+        keyword: typing.Union[Schema_.Properties.Keyword, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,
+            keyword=keyword,
             configuration_=configuration_,
             **kwargs,
         )

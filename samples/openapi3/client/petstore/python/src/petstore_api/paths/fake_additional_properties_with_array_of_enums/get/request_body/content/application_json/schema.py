@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import additional_properties_with_array_of_enums
- = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums
+Schema = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums

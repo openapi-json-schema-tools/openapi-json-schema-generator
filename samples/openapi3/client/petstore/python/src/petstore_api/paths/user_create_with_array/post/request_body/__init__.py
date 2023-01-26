@@ -8,4 +8,4 @@
 
 
 from petstore_api.components.request_bodies import request_body_user_array
- = request_body_user_array.UserArray
+RequestBody = request_body_user_array.UserArray

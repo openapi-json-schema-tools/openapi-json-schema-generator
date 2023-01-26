@@ -21,4 +21,16 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
- = schemas.Schema
+
+
+class Schema(
+    schemas.Int32Schema
+):
+    
+    @schemas.classproperty
+    def POSITIVE_1(cls):
+        return cls(1)
+    
+    @schemas.classproperty
+    def NEGATIVE_2(cls):
+        return cls(-2)

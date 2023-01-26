@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.additional_properties_with_array_of_enums
-# 
+# AdditionalPropertiesWithArrayOfEnums
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

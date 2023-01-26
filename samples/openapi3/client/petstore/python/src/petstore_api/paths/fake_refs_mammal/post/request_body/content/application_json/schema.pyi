@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import mammal
- = mammal.Mammal
+Schema = mammal.Mammal

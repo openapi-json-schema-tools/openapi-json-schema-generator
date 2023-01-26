@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
@@ -34,14 +34,14 @@ class (
         class Properties:
         
             @staticmethod
-            def () -> typing.Type['foo.Foo']:
+            def string() -> typing.Type['foo.Foo']:
                 return foo.Foo
             __annotations__ = {
-                "": ,
+                "string": string,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> 'foo.Foo': ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> 'foo.Foo': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -49,7 +49,7 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["string"],
             str
         ]
     ):
@@ -57,7 +57,7 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union['foo.Foo', schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["string"]) -> typing.Union['foo.Foo', schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -65,7 +65,7 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["string"],
             str
         ]
     ):
@@ -74,12 +74,14 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
+        string: typing.Union['foo.Foo', schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,
+            string=string,
             configuration_=configuration_,
             **kwargs,
         )

@@ -21,4 +21,16 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
- = schemas.StrSchema
+
+
+class Schema(
+    schemas.StrSchema
+):
+    
+    @schemas.classproperty
+    def TRUE(cls):
+        return cls("true")
+    
+    @schemas.classproperty
+    def FALSE(cls):
+        return cls("false")

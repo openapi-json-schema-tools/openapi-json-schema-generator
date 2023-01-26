@@ -23,31 +23,33 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
     schemas.DictSchema
 ):
 
 
     class Schema_:
         required = {
-            "",
-            "",
+            "param",
+            "param2",
         }
         
         class Properties:
-             = schemas.StrSchema
-             = schemas.StrSchema
+            Param = schemas.StrSchema
+            Param2 = schemas.StrSchema
             __annotations__ = {
-                "": ,
-                "": ,
+                "param": Param,
+                "param2": Param2,
             }
     
+    param: Schema_.Properties.Param
+    param2: Schema_.Properties.Param2
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> Schema_.Properties.Param2: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -55,8 +57,8 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["param"],
+            typing_extensions.Literal["param2"],
             str
         ]
     ):
@@ -64,10 +66,10 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def get_item_(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def get_item_(self, name: typing_extensions.Literal["param2"]) -> Schema_.Properties.Param2: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -75,8 +77,8 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["param"],
+            typing_extensions.Literal["param2"],
             str
         ]
     ):
@@ -85,12 +87,16 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
+        param: typing.Union[Schema_.Properties.Param, str, ],
+        param2: typing.Union[Schema_.Properties.Param2, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Schema':
         return super().__new__(
             cls,
             *args_,
+            param=param,
+            param2=param2,
             configuration_=configuration_,
             **kwargs,
         )

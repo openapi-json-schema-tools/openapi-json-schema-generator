@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import client
- = client.Client
+Schema = client.Client

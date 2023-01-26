@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import foo
- = foo.Foo
+Schema = foo.Foo

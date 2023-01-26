@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Apple(
     schemas.DictBase,
     schemas.NoneBase,
     schemas.Schema,
@@ -42,34 +42,35 @@ class (
             frozendict.frozendict,
         }
         required = {
-            "",
+            "cultivar",
         }
         
         class Properties:
             
             
-            class (
+            class Cultivar(
                 schemas.StrSchema
             ):
                 pass
             
             
-            class (
+            class Origin(
                 schemas.StrSchema
             ):
                 pass
             __annotations__ = {
-                "": ,
-                "": ,
+                "cultivar": Cultivar,
+                "origin": Origin,
             }
 
     
+    cultivar: Schema_.Properties.Cultivar
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> Schema_.Properties.Origin: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
@@ -77,8 +78,8 @@ class (
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["cultivar"],
+            typing_extensions.Literal["origin"],
             str
         ]
     ):
@@ -86,10 +87,10 @@ class (
         return super().__getitem__(name)
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> Schema_.Properties.: ...
+    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
     
     @typing.overload
-    def get_item_(self, name: typing_extensions.Literal[""]) -> typing.Union[Schema_.Properties., schemas.Unset]: ...
+    def get_item_(self, name: typing_extensions.Literal["origin"]) -> typing.Union[Schema_.Properties.Origin, schemas.Unset]: ...
     
     @typing.overload
     def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -97,8 +98,8 @@ class (
     def get_item_(
         self,
         name: typing.Union[
-            typing_extensions.Literal[""],
-            typing_extensions.Literal[""],
+            typing_extensions.Literal["cultivar"],
+            typing_extensions.Literal["origin"],
             str
         ]
     ):
@@ -107,12 +108,14 @@ class (
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, None, ],
+        origin: typing.Union[Schema_.Properties.Origin, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> '':
+    ) -> 'Apple':
         return super().__new__(
             cls,
             *args_,
+            origin=origin,
             configuration_=configuration_,
             **kwargs,
         )

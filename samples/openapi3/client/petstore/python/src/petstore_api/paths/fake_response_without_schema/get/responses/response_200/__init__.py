@@ -31,24 +31,24 @@ class _ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class (api_client.OpenApiResponse[_ApiResponse]):
+class _200(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 
-    class __MediaType(api_client.MediaType):
+    class __ApplicationJsonMediaType(api_client.MediaType):
         pass
 
 
-    class __MediaType(api_client.MediaType):
+    class __ApplicationXmlMediaType(api_client.MediaType):
         pass
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
-            '': typing.Type[__MediaType],
+            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/xml': typing.Type[__ApplicationXmlMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
-        '': __MediaType,
+        'application/json': __ApplicationJsonMediaType,
+        'application/xml': __ApplicationXmlMediaType,
     }

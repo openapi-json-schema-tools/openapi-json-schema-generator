@@ -1,7 +1,8 @@
 <a name="top"></a>
-# ****
-<a name=""></a>
+# **response_without_schema**
+<a name="response_without_schema"></a>
 
+receives a response without schema
 
 ### Example
 
@@ -22,10 +23,11 @@ with petstore_api.ApiClient(configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.()
+        # receives a response without schema
+        api_response = api_instance.response_without_schema()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->: %s\n" % e)
+        print("Exception when calling FakeApi->response_without_schema: %s\n" % e)
 ```
 ### Parameters
 This endpoint does not need any parameter.
@@ -35,6 +37,14 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [_200.response_cls](#response_200response_cls) | contents without schema definition
+
+#### <a id="response_200response_cls" >_200.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[Unset, Unset, ] |  |
+headers | Unset | headers were not defined |
 
 ### Authorization
 

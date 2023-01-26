@@ -1,6 +1,6 @@
 <a name="top"></a>
 ## petstore_api.components.schema.bar
-# 
+# Bar
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

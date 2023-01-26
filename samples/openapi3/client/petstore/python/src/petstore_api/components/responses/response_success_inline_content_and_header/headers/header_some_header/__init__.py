@@ -10,9 +10,9 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from . import 
+from . import schema
 
 
-class (api_client.HeaderParameterWithoutName):
+class SomeHeader(api_client.HeaderParameterWithoutName):
     style = api_client.ParameterStyle.SIMPLE
-    schema = .
+    schema = schema.Schema

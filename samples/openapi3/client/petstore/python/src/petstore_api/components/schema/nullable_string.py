@@ -23,7 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class NullableString(
     schemas.StrBase,
     schemas.NoneBase,
     schemas.Schema,
@@ -47,7 +47,7 @@ class (
         cls,
         *args_: typing.Union[None, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-    ) -> '':
+    ) -> 'NullableString':
         return super().__new__(
             cls,
             *args_,

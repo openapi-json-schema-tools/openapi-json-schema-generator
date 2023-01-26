@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import array_of_enums
- = array_of_enums.ArrayOfEnums
+Schema = array_of_enums.ArrayOfEnums

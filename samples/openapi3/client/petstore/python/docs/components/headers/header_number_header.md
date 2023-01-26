@@ -1,6 +1,6 @@
 ## petstore_api.components.headers.header_number_header
-# 
-# <a id="" >.</a>
+# NumberHeader
+# <a id="header_number_headerschema" >NumberHeader.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

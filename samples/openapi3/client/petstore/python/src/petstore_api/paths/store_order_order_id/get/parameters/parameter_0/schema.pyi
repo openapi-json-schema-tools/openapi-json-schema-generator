@@ -23,6 +23,7 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 
-class (
+class Schema(
+    schemas.Int64Schema
 ):
     pass

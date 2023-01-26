@@ -10,20 +10,20 @@ import typing
 import typing_extensions
 
 from petstore_api import api_client
-from .content. import  as _
+from .content.application_octet_stream import schema as application_octet_stream_schema
 
-class (api_client.RequestBody):
+class RequestBody(api_client.RequestBody):
 
 
-    class __MediaType(api_client.MediaType):
-        schema: typing.Type[_.] = _.
+    class __ApplicationOctetStreamMediaType(api_client.MediaType):
+        schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
     __Content = typing_extensions.TypedDict(
         '__Content',
         {
-            '': typing.Type[__MediaType],
+            'application/octet-stream': typing.Type[__ApplicationOctetStreamMediaType],
         }
     )
     content: __Content = {
-        '': __MediaType,
+        'application/octet-stream': __ApplicationOctetStreamMediaType,
     }
     required = True

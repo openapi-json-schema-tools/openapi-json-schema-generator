@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import api_response
- = api_response.ApiResponse
+Schema = api_response.ApiResponse

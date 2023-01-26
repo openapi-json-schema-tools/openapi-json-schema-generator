@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import number_with_validations
- = number_with_validations.NumberWithValidations
+Schema = number_with_validations.NumberWithValidations

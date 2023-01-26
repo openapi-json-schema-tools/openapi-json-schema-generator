@@ -11,4 +11,4 @@
 
 
 from petstore_api.components.schema import health_check_result
- = health_check_result.HealthCheckResult
+Schema = health_check_result.HealthCheckResult

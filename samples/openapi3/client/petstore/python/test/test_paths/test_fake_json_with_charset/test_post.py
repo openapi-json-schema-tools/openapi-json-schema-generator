@@ -12,25 +12,28 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths. import   # noqa: E501
+from petstore_api.paths.fake_json_with_charset import post  # noqa: E501
 from petstore_api import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class Test(ApiTestMixin, unittest.TestCase):
+class TestFakeJsonWithCharset(ApiTestMixin, unittest.TestCase):
     """
-     unit test stubs
+    FakeJsonWithCharset unit test stubs
+        json with charset tx and rx  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = .ApiFor(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
 
+    response_status = 200
+    response_body_schema = post.response_200._200.content["application/json; charset=utf-8"].schema
 
 if __name__ == '__main__':
     unittest.main()

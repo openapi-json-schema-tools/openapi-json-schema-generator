@@ -1,7 +1,8 @@
 <a name="top"></a>
-# ****
-<a name=""></a>
+# **query_param_with_json_content_type**
+<a name="query_param_with_json_content_type"></a>
 
+query param with json content-type
 
 ### Example
 
@@ -20,21 +21,64 @@ with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    query_params = {
+        'someParam': ,
+    }
     try:
-        api_response = api_instance.()
+        # query param with json content-type
+        api_response = api_instance.query_param_with_json_content_type(
+            query_params=query_params,
+        )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->: %s\n" % e)
+        print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+someParam | [_0.content.application_json.schema](#parameter_0contentapplication_jsonschema) | | 
+
+
+# <a id="parameter_0contentapplication_jsonschema" >_0.content.application_json.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [_200.response_cls](#response_200response_cls) | success
+
+#### <a id="response_200response_cls" >_200.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+headers | Unset | headers were not defined |
+
+# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
 
 ### Authorization
 

@@ -11,11 +11,11 @@ import typing_extensions
 
 from petstore_api import api_client
 
-from . import 
+from . import schema
 
 
-class (api_client.Parameter):
-    name = ""
+class _2(api_client.QueryParameter):
+    name = "http"
     style = api_client.ParameterStyle.SPACE_DELIMITED
-    schema = .
+    schema = schema.Schema
     required = True
