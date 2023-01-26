@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.getName}}}"].schema
+response_body_schema = {{httpMethod}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.name}}}"].schema
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}
@@ -9,7 +9,7 @@ response_body_schema = {{httpMethod}}.response_{{../@key}}.{{responseClassName}}
 
 def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
     # {{description}}
-    accept_content_type = '{{{../@key.getName}}}'
+    accept_content_type = '{{{../@key.name}}}'
 
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
         payload = (

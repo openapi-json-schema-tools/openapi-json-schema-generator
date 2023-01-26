@@ -163,7 +163,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
     private CodegenSchema contains;
     public CodegenDiscriminator discriminator;
 
-    public String getComponentModule() {
+    public String componentModule() {
         return componentModule;
     }
 
@@ -878,7 +878,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
                 isBooleanSchemaFalse == that.getIsBooleanSchemaFalse() &&
                 getSchemaIsFromAdditionalProperties() == that.getSchemaIsFromAdditionalProperties() &&
                 Objects.equals(testCases, that.testCases) &&
-                Objects.equals(componentModule, that.getComponentModule()) &&
+                Objects.equals(componentModule, that.componentModule()) &&
                 Objects.equals(imports, that.getImports()) &&
                 Objects.equals(discriminator, that.getDiscriminator()) &&
                 Objects.equals(externalDocumentation, that.getExternalDocumentation()) &&

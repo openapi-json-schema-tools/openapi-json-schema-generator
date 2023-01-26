@@ -4,7 +4,7 @@ public interface OpenApiLocation<T> {
     // stores location info about a jsonPath location
 
     // set only if the instance is at the json path of a component
-    String getComponentModule();
+    String componentModule();
 
     void setComponentModule(String componentModule);
 

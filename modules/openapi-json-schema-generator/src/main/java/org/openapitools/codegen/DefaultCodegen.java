@@ -1731,8 +1731,8 @@ public class DefaultCodegen implements CodegenConfig {
     protected CodegenSchema getParameterSchema(CodegenParameter param) {
         CodegenSchema p = param.getSchema();
         if (p == null) {
-            String firstContentType = (String) param.getContent().keySet().toArray()[0];
-            p = param.getContent().get(firstContentType).getSchema();
+            String firstContentType = (String) param.content().keySet().toArray()[0];
+            p = param.content().get(firstContentType).getSchema();
         }
         return p;
     }
@@ -2126,7 +2126,7 @@ public class DefaultCodegen implements CodegenConfig {
             for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                     LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.setDiscriminator(createDiscriminator(m.name.getName(), innerSchema, this.openAPI, sourceJsonPath));
+                    m.setDiscriminator(createDiscriminator(m.name.name, innerSchema, this.openAPI, sourceJsonPath));
                     modelDiscriminators++;
                 }
 

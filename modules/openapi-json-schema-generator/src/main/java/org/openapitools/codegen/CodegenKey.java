@@ -3,22 +3,17 @@ package org.openapitools.codegen;
 import java.util.Objects;
 
 public class CodegenKey {
+    public final String name;
+    public final boolean nameIsValid;
+    public final String snakeCaseName;
+    public final String camelCaseName;
+
     public CodegenKey(String name, boolean nameIsValid, String snakeCaseName, String camelCaseName) {
         this.name = name;
         this.nameIsValid = nameIsValid;
         this.snakeCaseName = snakeCaseName;
         this.camelCaseName = camelCaseName;
     }
-
-    private String name;
-    private boolean nameIsValid;
-    private String snakeCaseName;
-    private String camelCaseName;
-
-    public String getName() { return name; }
-    public boolean getNameIsValid() { return nameIsValid; }
-    public String getSnakeCaseName() { return snakeCaseName; }
-    public String getCamelCaseName() { return camelCaseName; }
 
     @Override
     public boolean equals(Object o) {

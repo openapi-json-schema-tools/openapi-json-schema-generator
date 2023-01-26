@@ -39,9 +39,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
     {{#if refInfo}}
-[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
+[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
-[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.getCamelCaseName}}.content.{{../@key.getSnakeCaseName}}.{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#request_bodycontent{{../@key.getSnakeCaseName}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.camelCaseName}}.content.{{../@key.snakeCaseName}}.{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#request_bodycontent{{../@key.snakeCaseName}}{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
     {{/with}}
     {{#if queryParams}}
@@ -60,13 +60,13 @@ Name | Type | Description  | Notes
         {{#if refInfo}}
             {{#each getDeepestRef.content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key.getName}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.name}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{else}}
             {{#each content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key.getName}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.name}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{/if}}
@@ -99,10 +99,10 @@ Key | Input Type | Description  | Notes
 {{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.camelCaseName}}.schema](#{{name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -127,10 +127,10 @@ Key | Input Type | Description  | Notes
 {{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.camelCaseName}}.schema](#{{name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -154,10 +154,10 @@ Key | Input Type | Description  | Notes
 {{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.camelCaseName}}.schema](#{{name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -181,10 +181,10 @@ Key | Input Type | Description  | Notes
 {{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{name.getCamelCaseName}}.schema](#{{name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{baseName}} | [{{name.camelCaseName}}.schema](#{{name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.getCamelCaseName}}.content.{{{@key.getName}}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.camelCaseName}}.content.{{{@key.name}}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -210,7 +210,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if refInfo}}
 default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{message}}{{/with}}
 {{else}}
-default | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}response_cls) | {{message}}
+default | [{{name.camelCaseName}}.response_cls](#{{name.snakeCaseName}}response_cls) | {{message}}
 {{/if}}
 {{/with}}
 {{/if}}
@@ -218,7 +218,7 @@ default | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}res
 {{#if refInfo}}
 {{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{message}}{{/with}}
 {{else}}
-{{@key}} | [{{name.getCamelCaseName}}.response_cls](#{{name.getSnakeCaseName}}response_cls) | {{message}}
+{{@key}} | [{{name.camelCaseName}}.response_cls](#{{name.snakeCaseName}}response_cls) | {{message}}
 {{/if}}
 {{/each}}
 {{#each responses}}

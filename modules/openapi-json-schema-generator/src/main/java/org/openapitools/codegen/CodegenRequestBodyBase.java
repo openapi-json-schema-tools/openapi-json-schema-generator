@@ -13,8 +13,8 @@ import java.util.Set;
  * Parameters may be located in a path, query, header or cookie.
  */
 abstract class CodegenRequestBodyBase {
-    protected String description, unescapedDescription;
-
+    protected String description;
+    protected String unescapedDescription;
     protected String example; // example value (x-example)
     protected String jsonSchema;
     protected Map<String, Object> vendorExtensions = new HashMap<String, Object>();
@@ -29,20 +29,21 @@ abstract class CodegenRequestBodyBase {
     protected String componentModule;
     protected CodegenKey name;
 
-    public String getComponentModule() {
-        return componentModule;
-    }
+    // getters, no get prefixes to keep template access simple
+    public String description() { return description; }
+    public String unescapedDescription() { return unescapedDescription; }
+    public String example() { return example; }
+    public String jsonSchema() { return jsonSchema; }
+    public Map<String, Object> vendorExtensions() { return vendorExtensions; }
+    public boolean required() { return required; }
+    public LinkedHashMap<CodegenKey, CodegenMediaType> content() { return content; }
+    public Set<String> imports() { return imports; }
+    public String componentModule() { return componentModule; }
+    public CodegenKey name() { return name; }
 
     public void setComponentModule(String componentModule) {
         this.componentModule = componentModule;
     }
-
-    // always set
-    // used for spec name (name.getName)
-    // module name (name.getSnakeCaseName)
-    // class name (name.getCamelCaseName)
-    // used when instances are defined inline and do not $ref another location
-    public CodegenKey getName() { return name; }
 
     public void setName(CodegenKey name) { this.name = name; }
 
@@ -55,7 +56,7 @@ abstract class CodegenRequestBodyBase {
                 Objects.equals(name, that.name) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
-                Objects.equals(content, that.getContent()) &&
+                Objects.equals(content, that.content) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
@@ -74,10 +75,6 @@ abstract class CodegenRequestBodyBase {
         sb.append(", content=").append(content);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
-    }
-
-    public LinkedHashMap<CodegenKey, CodegenMediaType> getContent() {
-        return content;
     }
 
     public void setContent(LinkedHashMap<CodegenKey, CodegenMediaType> content) {

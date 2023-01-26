@@ -3,11 +3,11 @@
         {{#if required}}
             {{#if schema}}
                 {{#with schema}}
-            '{{../@key}}': typing.Union[{{../../name.getSnakeCaseName}}.{{../../name.getCamelCaseName}}.{{name.getSnakeCaseName}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../../name.snakeCaseName}}.{{../../name.camelCaseName}}.{{name.snakeCaseName}}, {{> _helper_schema_python_types }}],
                 {{/with}}
             {{else}}
-                {{#each getContent}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../name.getSnakeCaseName}}.{{../../../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].{{name.getSnakeCaseName}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+                {{#each content}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../name.snakeCaseName}}.{{../../../name.camelCaseName}}.content["{{{../@key.name}}}"].{{name.snakeCaseName}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -16,11 +16,11 @@
     {{#if required}}
         {{#if schema}}
             {{#with schema}}
-            '{{../@key}}': typing.Union[{{../name.getSnakeCaseName}}.{{../name.getCamelCaseName}}.{{name.getSnakeCaseName}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../name.snakeCaseName}}.{{../name.camelCaseName}}.{{name.snakeCaseName}}, {{> _helper_schema_python_types }}],
             {{/with}}
         {{else}}
-            {{#each getContent}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.getSnakeCaseName}}.{{../name.getCamelCaseName}}.content["{{{../@key.getName}}}"].{{name.getSnakeCaseName}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            {{#each content}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.snakeCaseName}}.{{../name.camelCaseName}}.content["{{{../@key.name}}}"].{{name.snakeCaseName}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
             {{/each}}
         {{/if}}
     {{/if}}

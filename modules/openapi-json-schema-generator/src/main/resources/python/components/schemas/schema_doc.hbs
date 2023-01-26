@@ -2,7 +2,7 @@
 {{#if componentModule}}
 <a name="top"></a>
 ## {{packageName}}.components.schema.{{componentModule}}
-# {{name.getCamelCaseName}}
+# {{name.camelCaseName}}
 {{/if}}
 {{#if refInfo}}
 ## Schema Type Info
@@ -25,10 +25,10 @@ Input Type | Accessed Type | Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
         {{#each getRequiredProperties}}
-**{{@key.getName}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+**{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.getName}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.getName}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
+**{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#with additionalProperties}}
         {{#unless getIsBooleanSchemaFalse}}
@@ -47,7 +47,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{@key.getName}}
+# {{@key.name}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -57,7 +57,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{@key.getName}}
+# {{@key.name}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -81,11 +81,11 @@ Key | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#with items}}
-{{#unless refInfo.refClass}}{{#or isArray isMap allOf anyOf oneOf not}}[{{/or}}{{name.getName}}{{#or isArray isMap allOf anyOf oneOf not}}](#{{name.getName}}){{/or}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#unless refInfo.refClass}}{{#or isArray isMap allOf anyOf oneOf not}}[{{/or}}{{name.name}}{{#or isArray isMap allOf anyOf oneOf not}}](#{{name.name}}){{/or}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{name.getName}}
+# {{name.name}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -99,12 +99,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each allOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
+# {{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -114,12 +114,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each anyOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
+# {{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -129,12 +129,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each oneOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
+# {{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -144,10 +144,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}](#{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
 
-# {{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}
+# {{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/with}}

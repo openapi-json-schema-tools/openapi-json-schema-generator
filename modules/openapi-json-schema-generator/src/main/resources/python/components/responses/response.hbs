@@ -5,7 +5,7 @@
 {{#with response}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{name.camelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
 import datetime
@@ -20,15 +20,15 @@ import urllib3
 
 from {{packageName}} import api_client
 from {{packageName}} import schemas
-    {{#if getContent}}
+    {{#if content}}
     {{#each content}}
         {{#with this.schema}}
-from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
+from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
         {{/with}}
     {{/each}}
     {{/if}}
     {{#each headers}}
-from .headers import {{name.getSnakeCaseName}}
+from .headers import {{name.snakeCaseName}}
     {{/each}}
     {{#if headers}}
 {{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
@@ -43,7 +43,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -61,7 +61,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -80,15 +80,15 @@ class _ApiResponse(api_client.ApiResponse):
     {{/unless}}
 
 
-class {{name.getCamelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
+class {{name.camelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
     {{#each content}}
 
 
-    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
             {{else}}
         pass
             {{/with}}
@@ -99,13 +99,13 @@ class {{name.getCamelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
         '__Content',
         {
         {{#each content}}
-            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
+            '{{{@key.name}}}': typing.Type[__{{@key.camelCaseName}}MediaType],
         {{/each}}
         }
     )
     content: __Content = {
         {{#each content}}
-        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+        '{{{@key.name}}}': __{{@key.camelCaseName}}MediaType,
         {{/each}}
     }
     {{/if}}

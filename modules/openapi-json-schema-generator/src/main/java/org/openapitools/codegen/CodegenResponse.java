@@ -56,7 +56,7 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
                 Objects.equals(componentModule, that.componentModule);
     }
 
-    public String getComponentModule() {
+    public String componentModule() {
         return componentModule;
     }
 

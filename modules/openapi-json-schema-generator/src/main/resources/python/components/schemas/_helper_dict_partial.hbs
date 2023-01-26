@@ -1,7 +1,7 @@
 {{#if getRequiredProperties}}
 required = {
 {{#each getRequiredProperties}}
-    "{{{@key.getName}}}",
+    "{{{@key.name}}}",
 {{/each}}
 }
 {{/if}}
@@ -37,9 +37,9 @@ class Properties:
     __annotations__ = {
 {{#each properties}}
 {{#if refInfo.refClass}}
-        "{{{@key.getName}}}": {{name.getSnakeCaseName}},
+        "{{{@key.name}}}": {{name.snakeCaseName}},
 {{else}}
-        "{{{@key.getName}}}": {{name.getCamelCaseName}},
+        "{{{@key.name}}}": {{name.camelCaseName}},
 {{/if}}
 {{/each}}
     }

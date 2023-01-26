@@ -663,7 +663,7 @@ public class DefaultGenerator implements Generator {
 
         // content-type + schema generation
         for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
-            String contentType = contentInfo.getKey().getName();
+            String contentType = contentInfo.getKey().name;
             CodegenMediaType codegenMediaType = contentInfo.getValue();
             CodegenSchema schema = codegenMediaType.getSchema();
             if (schema != null) {
@@ -833,11 +833,11 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schemas
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.content();
         if (content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
-        if (requestBody.getComponentModule() == null) {
+        if (requestBody.componentModule() == null) {
             return;
         }
         // doc generation
@@ -919,7 +919,7 @@ public class DefaultGenerator implements Generator {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.content();
         if (schema == null && content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
@@ -1001,7 +1001,7 @@ public class DefaultGenerator implements Generator {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = header.getContent();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content();
         if (schema == null && content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
