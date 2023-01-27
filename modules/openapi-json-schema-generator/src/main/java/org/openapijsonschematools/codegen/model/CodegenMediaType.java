@@ -1,31 +1,23 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
+
+import org.openapijsonschematools.codegen.CodegenEncoding;
+import org.openapijsonschematools.codegen.CodegenSchema;
+import org.openapijsonschematools.codegen.SchemaTestCase;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class CodegenMediaType {
-    private CodegenSchema schema;
-    private LinkedHashMap<String, CodegenEncoding> encoding;
-    private HashMap<String, SchemaTestCase> testCases = new HashMap<>();
+    public final CodegenSchema schema;
+    public final LinkedHashMap<String, CodegenEncoding> encoding;
+    public final HashMap<String, SchemaTestCase> testCases;
 
     public CodegenMediaType(CodegenSchema schema, LinkedHashMap<String, CodegenEncoding> encoding, HashMap<String, SchemaTestCase> testCases) {
         this.schema = schema;
         this.encoding = encoding;
-        if (testCases != null) {
-            this.testCases = testCases;
-        }
+        this.testCases = testCases;
     }
-
-    public CodegenSchema getSchema() {
-        return schema;
-    }
-
-    public LinkedHashMap<String, CodegenEncoding> getEncoding() {
-        return encoding;
-    }
-
-    public HashMap<String, SchemaTestCase> getTestCases() { return testCases; }
 
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenMediaType{");
@@ -39,8 +31,8 @@ public class CodegenMediaType {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenMediaType that = (CodegenMediaType) o;
-        return Objects.equals(schema,that.getSchema()) &&
-                Objects.equals(encoding, that.getEncoding());
+        return Objects.equals(schema,that.schema) &&
+                Objects.equals(encoding, that.encoding);
     }
 
     @Override

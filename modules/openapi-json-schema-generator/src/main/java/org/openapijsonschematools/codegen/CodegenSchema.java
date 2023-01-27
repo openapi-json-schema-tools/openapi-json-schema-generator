@@ -18,6 +18,7 @@
 package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import org.openapijsonschematools.codegen.model.CodegenKey;
 
 import java.util.*;
 

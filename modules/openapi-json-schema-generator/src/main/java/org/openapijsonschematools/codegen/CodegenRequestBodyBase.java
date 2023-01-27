@@ -1,5 +1,8 @@
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenMediaType;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;

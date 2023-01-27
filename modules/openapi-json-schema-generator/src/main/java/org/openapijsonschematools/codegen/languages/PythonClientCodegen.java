@@ -28,7 +28,7 @@ import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.CodegenDiscriminator;
-import org.openapijsonschematools.codegen.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.CodegenOperation;
 import org.openapijsonschematools.codegen.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
@@ -1537,9 +1537,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenSchema discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
 
-        if (schema == null) {
-            String A = "a";
-        }
         Map<String, Schema> requiredAndOptionalProps = schema.getProperties();
         if (requiredAndOptionalProps == null || requiredAndOptionalProps.isEmpty()) {
             return fullPrefix + closeChars;

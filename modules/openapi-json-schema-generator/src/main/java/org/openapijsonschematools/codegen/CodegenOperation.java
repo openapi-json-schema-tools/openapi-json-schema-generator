@@ -19,6 +19,10 @@ package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenServer;
+import org.openapijsonschematools.codegen.model.CodegenTag;
 
 import java.util.*;
 

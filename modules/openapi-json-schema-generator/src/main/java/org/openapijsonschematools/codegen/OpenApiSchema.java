@@ -5,6 +5,7 @@ import java.util.List;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.media.Schema;
+import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 
 public interface OpenApiSchema {

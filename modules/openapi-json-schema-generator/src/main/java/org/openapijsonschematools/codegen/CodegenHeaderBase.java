@@ -17,6 +17,8 @@
 
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 
 import java.util.Map;

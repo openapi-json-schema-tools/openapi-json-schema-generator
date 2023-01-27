@@ -38,6 +38,11 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenServer;
+import org.openapijsonschematools.codegen.model.CodegenServerVariable;
+import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -1740,7 +1745,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenSchema p = param.getSchema();
         if (p == null) {
             String firstContentType = (String) param.content().keySet().toArray()[0];
-            p = param.content().get(firstContentType).getSchema();
+            p = param.content().get(firstContentType).schema;
         }
         return p;
     }
@@ -3113,18 +3118,12 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, CodegenTag> codegenTags = new HashMap<>();
         if (operationtTagNames != null) {
             for (String tagName: operation.getTags()) {
-                CodegenTag codegenTag = new CodegenTag();
-                codegenTag.setName(tagName);
-                codegenTag.setModuleName(toApiFilename(tagName));
-                codegenTag.setClassName(toApiName(tagName));
+                CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
                 codegenTags.put(tagName, codegenTag);
             }
         } else {
             String tagName = "default";
-            CodegenTag codegenTag = new CodegenTag();
-            codegenTag.setName(tagName);
-            codegenTag.setModuleName(toApiFilename(tagName));
-            codegenTag.setClassName(toApiName(tagName));
+            CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
             codegenTags.put(tagName, codegenTag);
         }
         op.tags = codegenTags;
@@ -3193,7 +3192,7 @@ public class DefaultCodegen implements CodegenConfig {
                     op.wildcardCodeResponses.put(firstNumber, r);
                     if (firstNumber > 3 && r.content() != null) {
                         for (CodegenMediaType cm: r.content().values()) {
-                            if (cm.getSchema() != null) {
+                            if (cm.schema != null) {
                                 op.hasErrorResponseObject = true;
                                 break;
                             }
@@ -3208,7 +3207,7 @@ public class DefaultCodegen implements CodegenConfig {
                 op.statusCodeResponses.put(statusCode, r);
                 if (statusCode > 299 && r.content() != null) {
                     for (CodegenMediaType cm: r.content().values()) {
-                        if (cm.getSchema() != null) {
+                        if (cm.schema != null) {
                             op.hasErrorResponseObject = true;
                             break;
                         }

@@ -17,6 +17,9 @@
 
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenMediaType;
+
 import java.util.*;
 
 public class CodegenResponse implements OpenApiLocation<CodegenResponse> {

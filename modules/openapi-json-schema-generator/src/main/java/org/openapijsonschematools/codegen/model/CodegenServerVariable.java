@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import java.util.List;
 import java.util.Objects;
