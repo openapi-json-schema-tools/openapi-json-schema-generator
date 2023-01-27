@@ -1,7 +1,6 @@
 package com.my.company.codegen;
 
 import org.openapitools.codegen.*;
-import org.openapitools.codegen.model.*;
 import io.swagger.models.properties.*;
 
 import java.util.*;

@@ -48,7 +48,7 @@ tasks.register<ShadowJar>("standalone") {
 
     mergeServiceFiles()
 
-    manifest.attributes(mapOf("Main-Class" to "org.openapitools.codegen.OpenAPIGenerator"))
+    manifest.attributes(mapOf("Main-Class" to "OpenAPIGenerator"))
 }
 
 tasks.withType<KotlinCompile> {

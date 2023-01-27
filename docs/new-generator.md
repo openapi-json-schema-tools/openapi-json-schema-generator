@@ -16,7 +16,7 @@ The minimum set of files required to create a new generator are:
   - determines OpenAPI feature set
   - extends the generation workflow
 * SPI registration
-  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/org.openapitools.codegen.CodegenConfig`
+  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/CodegenConfig`
   - Tells the generator that this class exists
   - Allows for classpath extension (addition) of generators
 * A minimal template

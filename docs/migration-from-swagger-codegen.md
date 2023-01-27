@@ -183,7 +183,7 @@ If this is a problem for you, you need to explicitly set the the parameter value
 
 If you have extended some generators in your project, and you are looking for a specific class, replace the `io.swagger.codegen` package (old name) with `org.openapitools.codegen` package (new name).
 
-Example: `org.openapitools.codegen.DefaultGenerator`
+Example: `DefaultGenerator`
 
 ## Body parameter name
 

@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.openapitools.codegen.OpenAPIGenerator</mainClass>
+                            <mainClass>org.openapijsonschematools.codegen.OpenAPIGenerator</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

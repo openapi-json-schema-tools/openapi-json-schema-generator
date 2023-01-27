@@ -49,10 +49,10 @@ To build as a shadowJar, run:
 To list generators via OpenAPI Generator CLI, you must refer to the CLI jar explicitly. We add a custom copy task which includes the CLI jar in the build output directory:
 
 ```bash
-java -cp build/libs/openapi-generator-cli-4.1.3.jar:build/libs/{{kebabName}}-openapi-generator-1.0-SNAPSHOT-all.jar org.openapitools.codegen.OpenAPIGenerator list
+java -cp build/libs/openapi-generator-cli-4.1.3.jar:build/libs/{{kebabName}}-openapi-generator-1.0-SNAPSHOT-all.jar OpenAPIGenerator list
 ```
 
-Notice that this command _must_ pass classpath via `-cp` and include OpenAPI Generator CLI as well as the artifact built from this project. Also notice that the manifest class must be passed explicitly as `org.openapitools.codegen.OpenAPIGenerator`.
+Notice that this command _must_ pass classpath via `-cp` and include OpenAPI Generator CLI as well as the artifact built from this project. Also notice that the manifest class must be passed explicitly as `OpenAPIGenerator`.
 
 ## See Also
 

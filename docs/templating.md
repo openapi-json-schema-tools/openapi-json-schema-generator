@@ -39,11 +39,11 @@ OpenAPI Generator not only supports local files for templating, but also templat
     │               └── style.css.mustache
 ``` 
 
-You can define your classpath to contain your JAR and the openapi-generator-cli _fat jar_, then invoke main class `org.openapitools.codegen.OpenAPIGenerator`. For instance,
+You can define your classpath to contain your JAR and the openapi-generator-cli _fat jar_, then invoke main class `OpenAPIGenerator`. For instance,
 
 ```bash
 java -cp /path/totemplate-classpath-example-1.0-SNAPSHOT.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
-    org.openapitools.codegen.OpenAPIGenerator generate \
+    OpenAPIGenerator generate \
     -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml \
     -g html -o template-example -t templates/htmlDocs
 ```
@@ -402,7 +402,7 @@ class PebbleTemplateAdapter : AbstractTemplatingEngineAdapter() {
 }
 ```
 
-Lastly, create a file `resources/META-INF/services/org.openapitools.codegen.api.TemplatingEngineAdapter`, containing the full class path to the above class:
+Lastly, create a file `resources/META-INF/services/TemplatingEngineAdapter`, containing the full class path to the above class:
 
 ```
 org.openapitools.examples.templating.PebbleTemplateAdapter
@@ -462,7 +462,7 @@ Finally, we can compile some code by explicitly defining our classpath and jar e
 
 ```bash
 java $JAVA_OPTS -cp /your/path/build/libs/pebble-template-adapter-1.0-SNAPSHOT-all.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
-    org.openapitools.codegen.OpenAPIGenerator \
+    OpenAPIGenerator \
     generate \
     -g go \
     -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore-minimal.json \

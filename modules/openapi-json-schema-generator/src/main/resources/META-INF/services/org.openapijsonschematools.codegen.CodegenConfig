@@ -1,0 +1,5 @@
+org.openapijsonschematools.codegen.languages.KotlinClientCodegen
+org.openapijsonschematools.codegen.languages.JavaClientCodegen
+org.openapijsonschematools.codegen.languages.JavaJerseyServerCodegen
+org.openapijsonschematools.codegen.languages.JMeterClientCodegen
+org.openapijsonschematools.codegen.languages.PythonClientCodegen
