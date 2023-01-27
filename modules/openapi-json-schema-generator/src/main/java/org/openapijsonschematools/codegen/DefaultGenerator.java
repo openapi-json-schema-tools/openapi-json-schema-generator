@@ -270,7 +270,7 @@ public class DefaultGenerator implements Generator {
         config.additionalProperties().put("generatorVersion", ImplementationVersion.read());
         config.additionalProperties().put("generatedDate", ZonedDateTime.now().toString());
         config.additionalProperties().put("generatedYear", String.valueOf(ZonedDateTime.now().getYear()));
-        config.additionalProperties().put("generatorClass", config.getClass().getName());
+        config.additionalProperties().put("generatorClass", config.getClass().getSimpleName());
         config.additionalProperties().put("inputSpec", config.getInputSpec());
 
         if (openAPI.getExtensions() != null) {
