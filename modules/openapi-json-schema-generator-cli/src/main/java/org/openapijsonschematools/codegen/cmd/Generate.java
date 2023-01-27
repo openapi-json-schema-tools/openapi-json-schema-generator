@@ -36,7 +36,6 @@ import org.openapijsonschematools.codegen.Generator;
 import org.openapijsonschematools.codegen.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
-import org.openapitools.codegen.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

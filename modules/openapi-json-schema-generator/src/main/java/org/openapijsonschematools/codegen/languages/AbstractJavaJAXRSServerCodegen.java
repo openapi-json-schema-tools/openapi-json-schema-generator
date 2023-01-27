@@ -29,7 +29,6 @@ import org.openapijsonschematools.codegen.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.languages.features.BeanValidationFeatures;
-import org.openapitools.codegen.*;
 import org.openapijsonschematools.codegen.model.OperationMap;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.URLPathUtils;

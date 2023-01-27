@@ -36,7 +36,6 @@ import org.openapijsonschematools.codegen.CodegenConfigLoader;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.SpecValidationException;
 import org.openapijsonschematools.codegen.TemplatingEngineLoader;
-import org.openapitools.codegen.*;
 import org.openapijsonschematools.codegen.api.TemplateDefinition;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.auth.AuthParser;

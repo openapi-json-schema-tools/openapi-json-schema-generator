@@ -28,7 +28,6 @@ import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.GeneratorLanguage;
-import org.openapitools.codegen.*;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

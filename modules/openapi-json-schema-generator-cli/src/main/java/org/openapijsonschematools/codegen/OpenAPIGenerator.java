@@ -33,7 +33,6 @@ import org.openapijsonschematools.codegen.cmd.Meta;
 import org.openapijsonschematools.codegen.cmd.OpenApiGeneratorCommand;
 import org.openapijsonschematools.codegen.cmd.Validate;
 import org.openapijsonschematools.codegen.cmd.Version;
-import org.openapitools.codegen.cmd.*;
 
 import java.util.Locale;
 

@@ -23,7 +23,6 @@ import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.SupportingFile;
-import org.openapitools.codegen.*;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 
 import java.util.*;

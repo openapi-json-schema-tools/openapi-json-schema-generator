@@ -13,7 +13,6 @@ import org.openapijsonschematools.codegen.validation.Validated;
 import org.openapijsonschematools.codegen.validation.ValidationResult;
 import org.openapijsonschematools.codegen.validation.ValidationRule;
 import org.openapijsonschematools.codegen.validation.Validator;
-import org.openapitools.codegen.validation.*;
 
 import java.util.*;
 
