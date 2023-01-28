@@ -41,6 +41,7 @@ import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.model.ApiInfoMap;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
@@ -839,11 +840,11 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schemas
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.content();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.content;
         if (content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
-        if (requestBody.componentModule() == null) {
+        if (requestBody.componentModule == null) {
             return;
         }
         // doc generation

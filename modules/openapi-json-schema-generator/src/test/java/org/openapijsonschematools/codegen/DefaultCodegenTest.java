@@ -41,6 +41,7 @@ import io.swagger.v3.parser.core.models.ParseOptions;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;

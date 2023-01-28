@@ -92,11 +92,23 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{#with requestBody}}
     {{#if refInfo}}
         {{#if getDeepestRef.required}}
-    body = {{{getDeepestRef.example}}}
+            {{#each getDeepestRef.content}}
+                {{#if @first}}
+                    {{#with this.schema}}
+    body = {{{example}}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
         {{/if}}
     {{else}}
         {{#if required}}
+            {{#each content}}
+                {{#if @first}}
+                    {{#with this.schema}}
     body = {{{example}}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
         {{/if}}
     {{/if}}
 {{/with}}
@@ -190,9 +202,21 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{#with requestBody}}
     {{#if refInfo}}
-    body = {{{getDeepestRef.example}}}
-    {{else}}
+        {{#each getDeepestRef.content}}
+            {{#if @first}}
+                {{#with this.schema}}
     body = {{{example}}}
+                {{/with}}
+            {{/if}}
+        {{/each}}
+    {{else}}
+        {{#each content}}
+            {{#if @first}}
+                {{#with this.schema}}
+    body = {{{example}}}
+                {{/with}}
+            {{/if}}
+        {{/each}}
     {{/if}}
 {{/with}}
     try:

@@ -21,6 +21,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
@@ -45,8 +46,8 @@ public class CodegenOperation {
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
-    public List<CodegenRequestBodyBase> requiredParams = new ArrayList<CodegenRequestBodyBase>();
-    public List<CodegenRequestBodyBase> optionalParams = new ArrayList<CodegenRequestBodyBase>();
+    public List<Object> requiredParams = new ArrayList<>();
+    public List<Object> optionalParams = new ArrayList<>();
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
     public TreeMap<String, CodegenResponse> responses = null;
@@ -182,10 +183,10 @@ public class CodegenOperation {
             return null;
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
-        if (requestBody.refInfo() != null) {
-            content = requestBody.getDeepestRef().content();
+        if (requestBody.refInfo != null) {
+            content = requestBody.getDeepestRef().content;
         } else {
-            content = requestBody.content();
+            content = requestBody.content;
         }
         for (CodegenKey contentKey: content.keySet()) {
             contentTypeToOperation.put(contentKey.name, this);
