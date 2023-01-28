@@ -43,6 +43,7 @@ import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
+import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
@@ -3193,8 +3194,8 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     Integer firstNumber = Integer.parseInt(key.substring(0, 1));
                     op.wildcardCodeResponses.put(firstNumber, r);
-                    if (firstNumber > 3 && r.content() != null) {
-                        for (CodegenMediaType cm: r.content().values()) {
+                    if (firstNumber > 3 && r.content != null) {
+                        for (CodegenMediaType cm: r.content.values()) {
                             if (cm.schema != null) {
                                 op.hasErrorResponseObject = true;
                                 break;
@@ -3208,8 +3209,8 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 Integer statusCode = Integer.parseInt(key);
                 op.statusCodeResponses.put(statusCode, r);
-                if (statusCode > 299 && r.content() != null) {
-                    for (CodegenMediaType cm: r.content().values()) {
+                if (statusCode > 299 && r.content != null) {
+                    for (CodegenMediaType cm: r.content.values()) {
                         if (cm.schema != null) {
                             op.hasErrorResponseObject = true;
                             break;
@@ -3384,36 +3385,52 @@ public class DefaultCodegen implements CodegenConfig {
             throw new RuntimeException("response in fromResponse cannot be null!");
         }
 
-        CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse());
-        String responseRef = response.get$ref();
-        setResponseLocationInfo(responseRef, sourceJsonPath, sourceJsonPath, r);
-        if (responseRef != null) {
-            r.imports.add(getImport(r.refInfo()));
-            return r;
-        }
-
-        r.message = escapeText(response.getDescription());
-        // TODO need to revise and test examples in responses
-        // ApiResponse does not support examples at the moment
-        r.jsonSchema = Json.pretty(response);
+        String message = escapeText(response.getDescription());
+        String jsonSchema = Json.pretty(response);
+        Map<String, Object> vendorExtensions = null;
         if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
-            r.vendorExtensions.putAll(response.getExtensions());
+            vendorExtensions = response.getExtensions();
         }
 
-        Map<String, Header> headers = response.getHeaders();
-        if (headers != null && !headers.isEmpty()) {
-            Map<String, CodegenHeader> responseHeaders = new HashMap<>();
-            for (Entry<String, Header> entry : headers.entrySet()) {
+        Map<String, Header> responseHeaders = response.getHeaders();
+        Map<String, CodegenHeader> headers = null;
+        if (responseHeaders != null && !responseHeaders.isEmpty()) {
+            headers = new HashMap<>();
+            for (Entry<String, Header> entry : responseHeaders.entrySet()) {
                 String headerName = entry.getKey();
                 Header header = entry.getValue();
                 String headerSourceJsonPath = sourceJsonPath + "/headers/" + headerName;
                 CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
-                responseHeaders.put(headerName, responseHeader);
+                headers.put(headerName, responseHeader);
             }
-            r.setHeaders(responseHeaders);
         }
-        r.setContent(getContent(response.getContent(), sourceJsonPath + "/content"));
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
+        String expectedComponentType = "responses";
+        String ref = response.get$ref();
+        CodegenRefInfo refInfo = null;
+        TreeSet<String> imports = null;
+        if (ref != null) {
+            String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
+            String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
+            CodegenResponse rb = fromResponse(ModelUtils.getReferencedApiResponse(openAPI, response), ref);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            imports = new TreeSet<>();
+            imports.add(getImport(refInfo));
+        }
+        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        String[] pathPieces = sourceJsonPath.split("/");
+        // #/components/responses/A
+        String componentModule = null;
+        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            componentModule = toComponentModule(pathPieces[3], expectedComponentType);
+        }
 
+        Map<String, CodegenHeader> finalHeaders = headers;
+        Map<String, Object> finalVendorExtensions = vendorExtensions;
+        CodegenRefInfo finalRefInfo = refInfo;
+        String finalComponentModule = componentModule;
+        TreeSet<String> finalImports = imports;
+        CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse(name, finalHeaders, message, jsonSchema, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule));
         return r;
     }
 
@@ -5076,23 +5093,6 @@ public class DefaultCodegen implements CodegenConfig {
         instance.setName(name);
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/requestBodies/A
-        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
-        }
-    }
-
-    private void setResponseLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenResponse> instance) {
-        String expectedComponentType = "responses";
-        if (ref != null) {
-            String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
-            String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
-            CodegenResponse rb = codegenResponseCache.computeIfAbsent(ref, s -> new CodegenResponse());
-            instance.setRefInfo(new CodegenRefInfo<>(rb, refClass, refModule));
-        }
-        CodegenKey name = getName(expectedComponentType, currentJsonPath);
-        instance.setName(name);
-        String[] pathPieces = currentJsonPath.split("/");
-        // #/components/responses/A
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
         }

@@ -41,6 +41,7 @@ import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.model.ApiInfoMap;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
@@ -750,17 +751,17 @@ public class DefaultGenerator implements Generator {
             }
         }
         // headers
-        if (response.getHeaders() != null && !response.getHeaders().isEmpty()) {
+        if (response.headers != null && !response.headers.isEmpty()) {
             String headersJsonPath = jsonPath + "/headers";
             generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null);
-            for (Map.Entry<String, CodegenHeader> headerInfo: response.getHeaders().entrySet()) {
+            for (Map.Entry<String, CodegenHeader> headerInfo: response.headers.entrySet()) {
                 String headerName = headerInfo.getKey();
                 CodegenHeader header = headerInfo.getValue();
                 String headerJsonPath = headersJsonPath + "/" + headerName;
                 generateHeader(files, header, headerJsonPath);
             }
         }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
