@@ -33,7 +33,7 @@ import java.util.*;
 public class CodegenOperation {
     public boolean hasConsumes, hasProduces, hasParams,
             subresourceOperation, isMultipart,
-            isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
+            isDeprecated, isCallbackRequest, uniqueItems,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public String operationId,
             summary, unescapedNotes, notes, baseName;
@@ -297,7 +297,6 @@ public class CodegenOperation {
         sb.append(", hasParams=").append(hasParams);
         sb.append(", subresourceOperation=").append(subresourceOperation);
         sb.append(", isMultipart=").append(isMultipart);
-        sb.append(", hasDefaultResponse=").append(hasDefaultResponse);
         sb.append(", isRestfulIndex=").append(isRestfulIndex());
         sb.append(", isRestfulShow=").append(isRestfulShow());
         sb.append(", isRestfulCreate=").append(isRestfulCreate());
@@ -358,7 +357,6 @@ public class CodegenOperation {
                 hasParams == that.hasParams &&
                 subresourceOperation == that.subresourceOperation &&
                 isMultipart == that.isMultipart &&
-                hasDefaultResponse == that.hasDefaultResponse &&
                 isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
                 uniqueItems == that.uniqueItems &&
@@ -407,7 +405,7 @@ public class CodegenOperation {
         return Objects.hash(hasConsumes, hasProduces, hasParams,
                 subresourceOperation,
                 isMultipart,
-                hasDefaultResponse, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
+                isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
