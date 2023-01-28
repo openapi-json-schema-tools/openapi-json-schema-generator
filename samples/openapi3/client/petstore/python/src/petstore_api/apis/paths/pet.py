@@ -1,9 +1,9 @@
-from petstore_api.paths.pet.put import ApiForput
-from petstore_api.paths.pet.post import ApiForpost
+from petstore_api.paths.pet.put import ApiForPut
+from petstore_api.paths.pet.post import ApiForPost
 
 
 class Pet(
-    ApiForput,
-    ApiForpost,
+    ApiForPut,
+    ApiForPost,
 ):
     pass

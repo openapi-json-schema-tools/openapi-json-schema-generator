@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_refs_boolean.post import ApiForpost
+from petstore_api.paths.fake_refs_boolean.post import ApiForPost
 
 
 class FakeRefsBoolean(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

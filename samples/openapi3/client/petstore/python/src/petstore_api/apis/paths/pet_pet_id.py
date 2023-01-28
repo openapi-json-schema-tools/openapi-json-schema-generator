@@ -1,11 +1,11 @@
-from petstore_api.paths.pet_pet_id.get import ApiForget
-from petstore_api.paths.pet_pet_id.post import ApiForpost
-from petstore_api.paths.pet_pet_id.delete import ApiFordelete
+from petstore_api.paths.pet_pet_id.get import ApiForGet
+from petstore_api.paths.pet_pet_id.post import ApiForPost
+from petstore_api.paths.pet_pet_id.delete import ApiForDelete
 
 
 class PetPetId(
-    ApiForget,
-    ApiForpost,
-    ApiFordelete,
+    ApiForGet,
+    ApiForPost,
+    ApiForDelete,
 ):
     pass

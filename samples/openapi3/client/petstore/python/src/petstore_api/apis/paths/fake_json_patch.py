@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_json_patch.patch import ApiForpatch
+from petstore_api.paths.fake_json_patch.patch import ApiForPatch
 
 
 class FakeJsonPatch(
-    ApiForpatch,
+    ApiForPatch,
 ):
     pass

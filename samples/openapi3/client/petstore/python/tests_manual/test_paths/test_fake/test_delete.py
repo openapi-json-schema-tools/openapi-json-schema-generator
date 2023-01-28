@@ -24,7 +24,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )
-    api = delete.ApiFordelete(api_client=used_api_client)
+    api = delete.ApiForDelete(api_client=used_api_client)
 
     @patch.object(urllib3.PoolManager, 'request')
     def test_delete_uses_http_bearer_auth(self, mock_request):

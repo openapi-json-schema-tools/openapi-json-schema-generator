@@ -26,7 +26,7 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
 
     def test_post(self):
         used_api_client = api_client.ApiClient()
-        api = post.ApiForpost(api_client=used_api_client)
+        api = post.ApiForPost(api_client=used_api_client)
 
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             path_params = {'petId': 2345}

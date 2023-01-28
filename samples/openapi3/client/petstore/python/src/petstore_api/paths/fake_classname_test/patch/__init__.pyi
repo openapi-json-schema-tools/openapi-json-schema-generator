@@ -227,7 +227,7 @@ class Classname(BaseApi):
         )
 
 
-class ApiForpatch(BaseApi):
+class ApiForPatch(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

@@ -267,7 +267,7 @@ class BodyWithQueryParams(BaseApi):
         )
 
 
-class ApiForput(BaseApi):
+class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

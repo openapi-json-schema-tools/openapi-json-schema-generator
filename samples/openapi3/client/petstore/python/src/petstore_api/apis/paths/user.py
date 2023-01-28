@@ -1,7 +1,7 @@
-from petstore_api.paths.user.post import ApiForpost
+from petstore_api.paths.user.post import ApiForPost
 
 
 class User(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

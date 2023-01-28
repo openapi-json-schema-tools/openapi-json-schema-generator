@@ -18,16 +18,16 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestArrayOfEnums(ApiTestMixin, unittest.TestCase):
+class TestPost(ApiTestMixin, unittest.TestCase):
     """
-    ArrayOfEnums unit test stubs
+    Post unit test stubs
         Array of Enums  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass

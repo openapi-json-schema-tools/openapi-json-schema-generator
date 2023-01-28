@@ -18,16 +18,16 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestClassname(ApiTestMixin, unittest.TestCase):
+class TestPatch(ApiTestMixin, unittest.TestCase):
     """
-    Classname unit test stubs
+    Patch unit test stubs
         To test class name in snake case  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = patch.ApiForpatch(api_client=used_api_client)  # noqa: E501
+        self.api = patch.ApiForPatch(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass

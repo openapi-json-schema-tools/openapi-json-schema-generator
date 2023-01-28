@@ -224,7 +224,7 @@ class AdditionalPropertiesWithArrayOfEnums(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

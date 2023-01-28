@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_ref_obj_in_query.get import ApiForget
+from petstore_api.paths.fake_ref_obj_in_query.get import ApiForGet
 
 
 class FakeRefObjInQuery(
-    ApiForget,
+    ApiForGet,
 ):
     pass

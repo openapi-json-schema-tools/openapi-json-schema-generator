@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_obj_in_query.get import ApiForget
+from petstore_api.paths.fake_obj_in_query.get import ApiForGet
 
 
 class FakeObjInQuery(
-    ApiForget,
+    ApiForGet,
 ):
     pass

@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_case_sensitive_params.put import ApiForput
+from petstore_api.paths.fake_case_sensitive_params.put import ApiForPut
 
 
 class FakeCaseSensitiveParams(
-    ApiForput,
+    ApiForPut,
 ):
     pass

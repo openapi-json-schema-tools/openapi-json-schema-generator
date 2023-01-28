@@ -25,7 +25,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )
-    api = post.ApiForpost(api_client=used_api_client)
+    api = post.ApiForPost(api_client=used_api_client)
 
     @patch.object(urllib3.PoolManager, 'request')
     def test_post_uses_http_basic_auth(self, mock_request):

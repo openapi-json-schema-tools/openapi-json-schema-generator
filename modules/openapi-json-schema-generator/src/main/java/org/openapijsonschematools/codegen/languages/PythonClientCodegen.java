@@ -308,7 +308,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        apiTemplateFiles.put("apis/api.hbs", ".py");
+        apiTemplateFiles.put("apis/api_tag.hbs", ".py");
         apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");

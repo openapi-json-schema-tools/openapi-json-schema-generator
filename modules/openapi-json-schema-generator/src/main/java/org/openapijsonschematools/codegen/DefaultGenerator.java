@@ -655,7 +655,7 @@ public class DefaultGenerator implements Generator {
                 operationMap.put("apiClassName", apiClassName);
                 operationMap.put("pathItem", pi);
                 outputFilename = packageFilename(Arrays.asList("apis", "paths", pathModule + ".py"));
-                apisFiles.add(Arrays.asList(operationMap, "apis/apis_path_module.hbs", outputFilename));
+                apisFiles.add(Arrays.asList(operationMap, "apis/api_path.hbs", outputFilename));
             }
         }
 

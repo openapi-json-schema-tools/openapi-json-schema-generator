@@ -15,9 +15,9 @@ from .. import ApiTestMixin
 
 
 {{#with operation}}
-class Test{{operationIdCamelCase}}(ApiTestMixin, unittest.TestCase):
+class Test{{httpMethod.camelCaseName}}(ApiTestMixin, unittest.TestCase):
     """
-    {{operationIdCamelCase}} unit test stubs
+    {{httpMethod.camelCaseName}} unit test stubs
 {{#if summary}}
         {{{summary}}}  # noqa: E501
 {{/if}}
@@ -26,7 +26,7 @@ class Test{{operationIdCamelCase}}(ApiTestMixin, unittest.TestCase):
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = {{httpMethod.name}}.ApiFor{{httpMethod.name}}(api_client=used_api_client)  # noqa: E501
+        self.api = {{httpMethod.name}}.ApiFor{{httpMethod.camelCaseName}}(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass

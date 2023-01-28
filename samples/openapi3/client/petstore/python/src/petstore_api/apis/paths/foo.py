@@ -1,7 +1,7 @@
-from petstore_api.paths.foo.get import ApiForget
+from petstore_api.paths.foo.get import ApiForGet
 
 
 class Foo(
-    ApiForget,
+    ApiForGet,
 ):
     pass

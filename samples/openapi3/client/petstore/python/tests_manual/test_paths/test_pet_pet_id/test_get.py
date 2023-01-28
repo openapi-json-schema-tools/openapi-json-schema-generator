@@ -27,7 +27,7 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     def test_get(self):
         config_with_auth = configuration.Configuration(api_key={'api_key': 'someKey'})
         used_api_client = api_client.ApiClient(configuration=config_with_auth)
-        api = get.ApiForget(api_client=used_api_client)
+        api = get.ApiForGet(api_client=used_api_client)
 
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             response_json = {

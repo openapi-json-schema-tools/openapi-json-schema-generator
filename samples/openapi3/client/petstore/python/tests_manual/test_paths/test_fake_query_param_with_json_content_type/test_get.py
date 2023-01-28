@@ -27,7 +27,7 @@ class TestFakeQueryParamWithJsonContentType(ApiTestMixin, unittest.TestCase):
     @patch.object(urllib3.PoolManager, 'request')
     def test_get(self, mock_request):
         used_api_client = api_client.ApiClient()
-        api = get.ApiForget(api_client=used_api_client)
+        api = get.ApiForGet(api_client=used_api_client)
 
         response_json = {}
         body = self.json_bytes(response_json)
