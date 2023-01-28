@@ -500,24 +500,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
-        Schema schema = parameter.getSchema();
-
-        if (parameter.getExample() != null) {
-            codegenParameter.setExample(parameter.getExample().toString());
-        } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
-            Example example = parameter.getExamples().values().iterator().next();
-            if (example.getValue() != null) {
-                codegenParameter.setExample(example.getValue().toString());
-            }
-        } else if (schema != null && schema.getExample() != null) {
-            codegenParameter.setExample(schema.getExample().toString());
-        }
-
-        setParameterExampleValue(codegenParameter);
-    }
-
-    @Override
     public String sanitizeTag(String tag) {
         return sanitizeName(tag);
     }

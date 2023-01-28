@@ -846,7 +846,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
                 // import okhttp3.MultipartBody if any parameter is a file
                 for (CodegenParameter param : operation.allParams) {
-                    if (Boolean.TRUE.equals(param.getSchema() != null && Boolean.TRUE.equals(param.getSchema().isFile))) {
+                    if (Boolean.TRUE.equals(param.schema != null && Boolean.TRUE.equals(param.schema.isFile))) {
                         operations.put("x-kotlin-multipart-import", true);
                     }
                 }
