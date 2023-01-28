@@ -18,6 +18,7 @@
 package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 
@@ -187,7 +188,7 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
 
     public void setDiscriminator(CodegenDiscriminator discriminator) {
         this.discriminator = discriminator;
-        if (discriminator != null && !discriminator.getMappedModels().isEmpty()) {
+        if (discriminator != null && !discriminator.mappedModels.isEmpty()) {
             this.setHasDiscriminatorWithNonEmptyMapping(true);
         }
     }

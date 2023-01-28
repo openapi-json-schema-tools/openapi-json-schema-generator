@@ -39,6 +39,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
@@ -62,7 +63,7 @@ import org.openapijsonschematools.codegen.templating.mustache.TitlecaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.UppercaseLambda;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.openapijsonschematools.codegen.utils.OnceLogger;
-import org.openapijsonschematools.codegen.CodegenDiscriminator.MappedModel;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator.MappedModel;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
@@ -2444,7 +2445,7 @@ public class DefaultCodegen implements CodegenConfig {
                             }
                             String parentName = ModelUtils.getSimpleRef(ref);
                             if (parentName != null && parentName.equals(currentSchemaName)) {
-                                if (queue.contains(childName) || descendentSchemas.stream().anyMatch(i -> childName.equals(i.getMappingName()))) {
+                                if (queue.contains(childName) || descendentSchemas.stream().anyMatch(i -> childName.equals(i.mappingName))) {
                                     throw new RuntimeException("Stack overflow hit when looking for " + thisSchemaName + " an infinite loop starting and ending at " + childName + " was seen");
                                 }
                                 queue.add(childName);
@@ -2481,25 +2482,23 @@ public class DefaultCodegen implements CodegenConfig {
         if (sourceDiscriminator == null) {
             return null;
         }
-        CodegenDiscriminator discriminator = new CodegenDiscriminator();
         String discPropName = sourceDiscriminator.getPropertyName();
-        discriminator.setPropertyName(toVarName(discPropName));
-        discriminator.setPropertyBaseName(sourceDiscriminator.getPropertyName());
-
-        // FIXME: for now, we assume that the discriminator property is String
-        discriminator.setPropertyType(typeMapping.get("string"));
+        String propertyName = toVarName(discPropName);
+        String propertyBaseName = sourceDiscriminator.getPropertyName();
 
         // check to see if the discriminator property is an enum string
+        boolean isEnum = false;
         if (schema.getProperties() != null &&
                 schema.getProperties().get(discPropName) instanceof StringSchema) {
             StringSchema s = (StringSchema) schema.getProperties().get(discPropName);
             if (s.getEnum() != null && !s.getEnum().isEmpty()) { // it's an enum string
-                discriminator.setIsEnum(true);
+                isEnum = true;
             }
         }
 
-        discriminator.setMapping(sourceDiscriminator.getMapping());
-        List<MappedModel> uniqueDescendants = new ArrayList<>();
+        Map<String, String> mapping = sourceDiscriminator.getMapping();
+
+        TreeSet<MappedModel> mappedModels = new TreeSet<>();
         if (sourceDiscriminator.getMapping() != null && !sourceDiscriminator.getMapping().isEmpty()) {
             for (Entry<String, String> e : sourceDiscriminator.getMapping().entrySet()) {
                 String name;
@@ -2517,27 +2516,27 @@ public class DefaultCodegen implements CodegenConfig {
                     modelName = getRefClassWithModule(ref, sourceJsonPath, "schemas");
                 }
                 if (modelName != null) {
-                    uniqueDescendants.add(new MappedModel(e.getKey(), modelName));
+                    mappedModels.add(new MappedModel(e.getKey(), modelName));
                 }
             }
         }
 
-        boolean legacyUseCase = (this.getLegacyDiscriminatorBehavior() && uniqueDescendants.isEmpty());
+        boolean legacyUseCase = (this.getLegacyDiscriminatorBehavior() && mappedModels.isEmpty());
         if (!this.getLegacyDiscriminatorBehavior() || legacyUseCase) {
             // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
             List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
             for (MappedModel otherDescendant : otherDescendants) {
                 // add only if the mapping names are not the same
                 boolean matched = false;
-                for (MappedModel uniqueDescendant : uniqueDescendants) {
-                    if (uniqueDescendant.getMappingName().equals(otherDescendant.getMappingName())) {
+                for (MappedModel uniqueDescendant : mappedModels) {
+                    if (uniqueDescendant.mappingName.equals(otherDescendant.mappingName)) {
                         matched = true;
                         break;
                     }
                 }
 
                 if (matched == false) {
-                    uniqueDescendants.add(otherDescendant);
+                    mappedModels.add(otherDescendant);
                 }
             }
         }
@@ -2545,15 +2544,13 @@ public class DefaultCodegen implements CodegenConfig {
         if (ModelUtils.isComposedSchema(schema) && !this.getLegacyDiscriminatorBehavior()) {
             List<MappedModel> otherDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
             for (MappedModel otherDescendant : otherDescendants) {
-                if (!uniqueDescendants.contains(otherDescendant)) {
-                    uniqueDescendants.add(otherDescendant);
+                if (!mappedModels.contains(otherDescendant)) {
+                    mappedModels.add(otherDescendant);
                 }
             }
         }
-        if (!this.getLegacyDiscriminatorBehavior()) {
-            Collections.sort(uniqueDescendants);
-        }
-        discriminator.getMappedModels().addAll(uniqueDescendants);
+        mappedModels = new TreeSet<>(mappedModels);
+        CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum, mappedModels);
 
         return discriminator;
     }
@@ -2712,11 +2709,11 @@ public class DefaultCodegen implements CodegenConfig {
      */
     private Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
-        if (schema.getDiscriminator() != null && schema.getDiscriminator().getMappedModels() != null) {
+        if (schema.getDiscriminator() != null && schema.getDiscriminator().mappedModels != null) {
             CodegenDiscriminator disc = schema.getDiscriminator();
-            for (CodegenDiscriminator.MappedModel mm : disc.getMappedModels()) {
-                if (!"".equals(mm.getModelName())) {
-                    String complexType = mm.getModelName();
+            for (CodegenDiscriminator.MappedModel mm : disc.mappedModels) {
+                if (!"".equals(mm.modelName)) {
+                    String complexType = mm.modelName;
                     if (shouldAddImport(complexType)) {
                         imports.add(getImport(complexType, null));
                     }

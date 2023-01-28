@@ -1,9 +1,8 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import java.util.TreeSet;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * This class encapsulates the OpenAPI discriminator construct, as specified at
@@ -17,11 +16,10 @@ import java.util.Set;
 public class CodegenDiscriminator {
     // The name of the property in the payload that will hold the discriminator value.
     // This is the propertyName as specified in the OpenAPI discriminator object.
-    private String propertyName;
-    private String propertyBaseName;
-    private String propertyType;
-    private Map<String, String> mapping;
-    private boolean isEnum;
+    public final String propertyName;
+    public final String propertyBaseName;
+    public final Map<String, String> mapping;
+    public final boolean isEnum;
 
     // mappedModels is populated differently if legacyDiscriminatorBehavior is
     // True or False. When:
@@ -38,55 +36,16 @@ public class CodegenDiscriminator {
     //
     // see the method createDiscriminator in DefaultCodegen.java
 
-    private Set<MappedModel> mappedModels = new TreeSet<>();
+    public final TreeSet<MappedModel> mappedModels;
 
-    public String getPropertyName() {
-        return propertyName;
-    }
-
-    public void setPropertyName(String propertyName) {
+    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, TreeSet<MappedModel> mappedModels) {
         this.propertyName = propertyName;
-    }
-
-    public String getPropertyBaseName() {
-        return propertyBaseName;
-    }
-
-    public void setPropertyBaseName(String propertyBaseName) {
         this.propertyBaseName = propertyBaseName;
-    }
-
-    public String getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
-    }
-
-    public Map<String, String> getMapping() {
-        return mapping;
-    }
-
-    public void setMapping(Map<String, String> mapping) {
         this.mapping = mapping;
-    }
-
-    public Set<MappedModel> getMappedModels() {
-        return mappedModels;
-    }
-
-    public void setMappedModels(Set<MappedModel> mappedModels) {
+        this.isEnum = isEnum;
         this.mappedModels = mappedModels;
     }
 
-    public boolean getIsEnum() {
-        return isEnum;
-    }
-
-    public void setIsEnum(boolean isEnum) {
-        this.isEnum = isEnum;
-    }
 
     /**
      * An object to hold discriminator mappings between payload values and schema names or
@@ -100,10 +59,10 @@ public class CodegenDiscriminator {
      */
     public static class MappedModel implements Comparable<MappedModel>{
         // The value of the discriminator property in the payload.
-        private String mappingName;
+        public final String mappingName;
         // The OAS schema name. It is obtained from the OAS document, and the string value
         // is converted to a sanitized, internal representation within codegen.
-        private String modelName;
+        public final String modelName;
 
         public MappedModel(String mappingName, String modelName) {
             this.mappingName = mappingName;
@@ -112,30 +71,14 @@ public class CodegenDiscriminator {
 
         @Override
         public int compareTo(MappedModel other) {
-            if (getMappingName() == null && other.getMappingName() == null) {
+            if (mappingName == null && other.mappingName == null) {
                 return 0;
-            } else if (getMappingName() == null) {
+            } else if (mappingName == null) {
                 return 1;
-            } else if (other.getMappingName() == null) {
+            } else if (other.mappingName == null) {
                 return -1;
             }
-            return getMappingName().compareTo(other.getMappingName());
-        }
-
-        public String getMappingName() {
-            return mappingName;
-        }
-
-        public void setMappingName(String mappingName) {
-            this.mappingName = mappingName;
-        }
-
-        public String getModelName() {
-            return modelName;
-        }
-
-        public void setModelName(String modelName) {
-            this.modelName = modelName;
+            return mappingName.compareTo(other.mappingName);
         }
 
         @Override
@@ -166,7 +109,6 @@ public class CodegenDiscriminator {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(propertyName, propertyBaseName, mapping, mappedModels);
     }
 

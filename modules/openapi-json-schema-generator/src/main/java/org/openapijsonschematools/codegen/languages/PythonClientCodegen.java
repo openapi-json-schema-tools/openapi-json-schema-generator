@@ -27,7 +27,7 @@ import io.swagger.v3.oas.models.servers.Server;
 import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.CodegenDiscriminator;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.CodegenOperation;
 import org.openapijsonschematools.codegen.CodegenSchema;
@@ -54,7 +54,7 @@ import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.CodegenDiscriminator.MappedModel;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator.MappedModel;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 import org.openapijsonschematools.codegen.meta.Stability;
@@ -1183,8 +1183,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     private MappedModel getDiscriminatorMappedModel(CodegenDiscriminator disc) {
-        for (MappedModel mm : disc.getMappedModels()) {
-            String complexType = mm.getModelName();
+        for (MappedModel mm : disc.mappedModels) {
+            String complexType = mm.modelName;
             String schemaName = getSchemaName(complexType);
             Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
             if (ModelUtils.isObjectSchema(modelSchema)) {
@@ -1314,11 +1314,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (mm == null) {
                     return fullPrefix + "None" + closeChars;
                 }
-                String discPropNameValue = mm.getMappingName();
-                String schemaName = getSchemaName(mm.getModelName());
+                String discPropNameValue = mm.mappingName;
+                String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                CodegenKey ck = getKey(disc.getPropertyName());
+                CodegenKey ck = getKey(disc.propertyBaseName);
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
@@ -1485,11 +1485,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 if (mm == null) {
                     return fullPrefix + closeChars;
                 }
-                String discPropNameValue = mm.getMappingName();
-                String schemaName = getSchemaName(mm.getModelName());
+                String discPropNameValue = mm.mappingName;
+                String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                CodegenKey ck = getKey(disc.getPropertyName());
+                CodegenKey ck = getKey(disc.propertyBaseName);
                 cp.setName(ck);
                 cp.setExample(discPropNameValue);
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);

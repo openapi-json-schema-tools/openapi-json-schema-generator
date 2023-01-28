@@ -38,6 +38,7 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.parser.core.models.ParseOptions;
+import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
@@ -68,6 +69,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -269,7 +271,7 @@ public class DefaultCodegenTest {
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
-        Assert.assertNotNull(codegenParameter.content().get(ck).getSchema().refInfo());
+        Assert.assertNotNull(codegenParameter.content.get(ck).schema.refInfo());
 
         Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
         CodegenSchema model = codegen.fromSchema(
@@ -718,13 +720,15 @@ public class DefaultCodegenTest {
                 "#/components/schemas/Animal"
         );
         CodegenDiscriminator discriminator = animalModel.getDiscriminator();
-        CodegenDiscriminator test = new CodegenDiscriminator();
-        test.setPropertyName("className");
-        test.setPropertyBaseName("className");
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("BigCat", "BigCat"));
-        Assert.assertEquals(discriminator, test);
+        String propertyName = "className";
+        String propertyBaseName = "className";
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        mappedModels.add(new CodegenDiscriminator.MappedModel("BigCat", "BigCat"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
+
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, mappedModels);
+        Assert.assertEquals(discriminator, expectedDiscriminator);
         assertEquals(animalModel.getHasDiscriminatorWithNonEmptyMapping(), true);
     }
 
@@ -772,7 +776,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator();
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         emptyMapDisc.setPropertyName(propertyName);
         emptyMapDisc.setPropertyBaseName(propertyBaseName);
 
@@ -790,7 +794,7 @@ public class DefaultCodegenTest {
         }
 
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
-        CodegenDiscriminator petDisc = new CodegenDiscriminator();
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         petDisc.setPropertyName(propertyName);
         petDisc.setPropertyBaseName(propertyBaseName);
         java.util.LinkedHashSet hs = new LinkedHashSet<>();
@@ -812,7 +816,7 @@ public class DefaultCodegenTest {
 
         // the Reptile discriminator contains both reptiles
         List<String> reptileModelNames = Arrays.asList("Lizard", "Snake");
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator();
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         reptileDisc.setPropertyName(propertyName);
         reptileDisc.setPropertyBaseName(propertyBaseName);
         hs.clear();
@@ -832,7 +836,7 @@ public class DefaultCodegenTest {
 
         // the MyPets discriminator contains Cat and Lizard
         List<String> myPetNames = Arrays.asList("Cat", "Lizard");
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator();
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         myPetDisc.setPropertyName(propertyName);
         myPetDisc.setPropertyBaseName(propertyBaseName);
         hs.clear();
@@ -917,7 +921,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator();
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         emptyMapDisc.setPropertyName(propertyName);
         emptyMapDisc.setPropertyBaseName(propertyBaseName);
 
@@ -934,7 +938,7 @@ public class DefaultCodegenTest {
         }
 
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
-        CodegenDiscriminator petDisc = new CodegenDiscriminator();
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         petDisc.setPropertyName(propertyName);
         petDisc.setPropertyBaseName(propertyBaseName);
         java.util.LinkedHashSet hs = new LinkedHashSet<>();
@@ -954,7 +958,7 @@ public class DefaultCodegenTest {
 
         // the Reptile discriminator contains both reptiles
         List<String> reptileModelNames = Arrays.asList("Lizard", "Snake");
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator();
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         reptileDisc.setPropertyName(propertyName);
         reptileDisc.setPropertyBaseName(propertyBaseName);
         hs.clear();
@@ -972,7 +976,7 @@ public class DefaultCodegenTest {
         Assert.assertNull(reptile.discriminator);
 
         // the MyPets discriminator contains Cat and Lizard
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator();
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum);
         myPetDisc.setPropertyName(propertyName);
         myPetDisc.setPropertyBaseName(propertyBaseName);
         hs.clear();
@@ -1363,39 +1367,37 @@ public class DefaultCodegenTest {
     }
 
     private void verifyLizardDiscriminator(CodegenDiscriminator discriminator) {
-        CodegenDiscriminator test = new CodegenDiscriminator();
         String prop = "petType";
-        test.setPropertyName(prop);
-        test.setPropertyBaseName(prop);
-        test.setMapping(null);
-        test.setMappedModels(new HashSet<>());
+        String propertyName = prop;
+        String propertyBaseName = prop;
+        Map<String, String> mapping = null;
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        CodegenDiscriminator test = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
         assertEquals(discriminator, test);
     }
 
     private void verifyReptileDiscriminator(CodegenDiscriminator discriminator) {
-        CodegenDiscriminator test = new CodegenDiscriminator();
         String prop = "petType";
-        test.setPropertyName(prop);
-        test.setPropertyBaseName(prop);
-        test.setMapping(null);
-        test.setMappedModels(new HashSet<CodegenDiscriminator.MappedModel>() {{
-            add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
-            add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        }});
-        assertEquals(discriminator, test);
+        String propertyName = prop;
+        String propertyBaseName = prop;
+        Map<String, String> mapping = null;
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        assertEquals(discriminator, expectedDiscriminator);
     }
 
     private void verifyMyPetsDiscriminator(CodegenDiscriminator discriminator) {
-        CodegenDiscriminator test = new CodegenDiscriminator();
         String prop = "petType";
-        test.setPropertyName(prop);
-        test.setPropertyBaseName(prop);
-        test.setMapping(null);
-        test.setMappedModels(new HashSet<CodegenDiscriminator.MappedModel>() {{
-            add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
-            add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        }});
-        assertEquals(discriminator, test);
+        String propertyName = prop;
+        String propertyBaseName = prop;
+        Map<String, String> mapping = null;
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        assertEquals(discriminator, expectedDiscriminator);
     }
 
     @Test
@@ -1425,17 +1427,16 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(cm);
 
         // check that the discriminator's MappedModels also contains the x-discriminator-values
-        discriminator = new CodegenDiscriminator();
         String prop = "object_type";
-        discriminator.setPropertyName(config.toVarName(prop));
-        discriminator.setPropertyBaseName(prop);
-        discriminator.setMapping(null);
-        discriminator.setMappedModels(new HashSet<CodegenDiscriminator.MappedModel>() {{
-            add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
-            add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-            add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
-            add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
-        }});
+        String propertyName = config.toVarName(prop);
+        String propertyBaseName = prop;
+        Map<String, String> mapping = null;
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        mappedModels.add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
+        discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
         assertEquals(cm.discriminator, discriminator);
     }
 
@@ -1905,21 +1906,23 @@ public class DefaultCodegenTest {
                 "#/components/schemas/MyParameterTextField",
                 "#/components/schemas/MyParameterTextField"
         );
-        Assert.assertEquals(typeAliasModel.getRefInfo().getRef().isString, true);
+        Assert.assertEquals(typeAliasModel.refInfo().ref.isString, true);
     }
 
     private void verifyPersonDiscriminator(CodegenDiscriminator discriminator) {
-        CodegenDiscriminator test = new CodegenDiscriminator();
-        test.setPropertyName("DollarUnderscoretype");
-        test.setPropertyBaseName("$_type");
-        test.setMapping(new HashMap<>());
-        test.getMapping().put("a", "#/components/schemas/Adult");
-        test.getMapping().put("c", "Child");
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("a", "Adult"));
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("c", "Child"));
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
-        test.getMappedModels().add(new CodegenDiscriminator.MappedModel("Child", "Child"));
-        Assert.assertEquals(discriminator, test);
+        String propertyName = "DollarUnderscoretype";
+        String propertyBaseName = "$_type";
+        HashMap<String, String> mapping = new HashMap<>();
+        mapping.put("a", "#/components/schemas/Adult");
+        mapping.put("c", "Child");
+
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
+        mappedModels.add(new CodegenDiscriminator.MappedModel("a", "Adult"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
+        mappedModels.add(new CodegenDiscriminator.MappedModel("Child", "Child"));
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        Assert.assertEquals(discriminator, expectedDiscriminator);
     }
 
     private CodegenSchema codegenPropertyWithArrayOfIntegerValues() {
