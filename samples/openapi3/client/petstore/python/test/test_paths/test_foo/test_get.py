@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFoo(ApiTestMixin, unittest.TestCase):
+class TestFooGet(ApiTestMixin, unittest.TestCase):
     """
-    Foo unit test stubs
+    FooGet unit test stubs
     """
     configuration_ = configuration.Configuration()
 

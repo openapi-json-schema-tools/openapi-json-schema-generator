@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestStoreInventory(ApiTestMixin, unittest.TestCase):
+class TestGetInventory(ApiTestMixin, unittest.TestCase):
     """
-    StoreInventory unit test stubs
+    GetInventory unit test stubs
         Returns pet inventories by status  # noqa: E501
     """
     configuration_ = configuration.Configuration()

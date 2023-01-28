@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeParameterCollisions1ABAbSelfAB(ApiTestMixin, unittest.TestCase):
+class TestParameterCollisions(ApiTestMixin, unittest.TestCase):
     """
-    FakeParameterCollisions1ABAbSelfAB unit test stubs
+    ParameterCollisions unit test stubs
         parameter collision case  # noqa: E501
     """
     configuration_ = configuration.Configuration()

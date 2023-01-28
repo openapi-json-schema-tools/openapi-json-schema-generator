@@ -804,10 +804,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
             List<CodegenOperation> ops = operations.getOperation();
             for (CodegenOperation operation : ops) {
 
-                if (JVM_RETROFIT2.equals(getLibrary()) && StringUtils.isNotEmpty(operation.path) && operation.path.startsWith("/")) {
-                    operation.path = operation.path.substring(1);
-                }
-
                 if (JVM_OKHTTP.equals(getLibrary()) || JVM_OKHTTP3.equals(getLibrary()) || JVM_OKHTTP4.equals(getLibrary())) {
                     // Ideally we would do content negotiation to choose the best mediatype, but that would be a next step.
                     // For now we take the first mediatype we can parse and send that.
@@ -849,10 +845,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                     if (Boolean.TRUE.equals(param.schema != null && Boolean.TRUE.equals(param.schema.isFile))) {
                         operations.put("x-kotlin-multipart-import", true);
                     }
-                }
-
-                if (usesRetrofit2Library() && StringUtils.isNotEmpty(operation.path) && operation.path.startsWith("/")) {
-                    operation.path = operation.path.substring(1);
                 }
 
                 // sorting operation parameters to make sure path params are parsed before query params

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeBodyWithQueryParams(ApiTestMixin, unittest.TestCase):
+class TestBodyWithQueryParams(ApiTestMixin, unittest.TestCase):
     """
-    FakeBodyWithQueryParams unit test stubs
+    BodyWithQueryParams unit test stubs
     """
     configuration_ = configuration.Configuration()
 

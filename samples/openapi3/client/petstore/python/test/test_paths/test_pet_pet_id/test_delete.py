@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestPetPetId(ApiTestMixin, unittest.TestCase):
+class TestDeletePet(ApiTestMixin, unittest.TestCase):
     """
-    PetPetId unit test stubs
+    DeletePet unit test stubs
         Deletes a pet  # noqa: E501
     """
     configuration_ = configuration.Configuration()

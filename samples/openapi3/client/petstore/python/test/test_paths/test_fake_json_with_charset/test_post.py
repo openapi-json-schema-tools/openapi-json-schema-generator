@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeJsonWithCharset(ApiTestMixin, unittest.TestCase):
+class TestJsonWithCharset(ApiTestMixin, unittest.TestCase):
     """
-    FakeJsonWithCharset unit test stubs
+    JsonWithCharset unit test stubs
         json with charset tx and rx  # noqa: E501
     """
     configuration_ = configuration.Configuration()

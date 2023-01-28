@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeBodyWithFileSchema(ApiTestMixin, unittest.TestCase):
+class TestBodyWithFileSchema(ApiTestMixin, unittest.TestCase):
     """
-    FakeBodyWithFileSchema unit test stubs
+    BodyWithFileSchema unit test stubs
     """
     configuration_ = configuration.Configuration()
 

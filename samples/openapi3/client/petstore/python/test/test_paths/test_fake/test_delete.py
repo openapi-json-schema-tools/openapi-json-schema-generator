@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFake(ApiTestMixin, unittest.TestCase):
+class TestGroupParameters(ApiTestMixin, unittest.TestCase):
     """
-    Fake unit test stubs
+    GroupParameters unit test stubs
         Fake endpoint to test group parameters (optional)  # noqa: E501
     """
     configuration_ = configuration.Configuration()

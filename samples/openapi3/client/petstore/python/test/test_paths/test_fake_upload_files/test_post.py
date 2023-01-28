@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeUploadFiles(ApiTestMixin, unittest.TestCase):
+class TestUploadFiles(ApiTestMixin, unittest.TestCase):
     """
-    FakeUploadFiles unit test stubs
+    UploadFiles unit test stubs
         uploads files using multipart/form-data  # noqa: E501
     """
     configuration_ = configuration.Configuration()

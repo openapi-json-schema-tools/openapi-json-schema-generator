@@ -1320,8 +1320,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     @Override
     public CodegenOperation fromOperation(String path, String httpMethod, Operation operation, List<Server> servers) {
+        path = sanitizePath(path);
         CodegenOperation op = super.fromOperation(path, httpMethod, operation, servers);
-        op.path = sanitizePath(op.path);
         return op;
     }
 

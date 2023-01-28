@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestStoreOrder(ApiTestMixin, unittest.TestCase):
+class TestPlaceOrder(ApiTestMixin, unittest.TestCase):
     """
-    StoreOrder unit test stubs
+    PlaceOrder unit test stubs
         Place an order for a pet  # noqa: E501
     """
     configuration_ = configuration.Configuration()

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeHealth(ApiTestMixin, unittest.TestCase):
+class TestFakeHealthGet(ApiTestMixin, unittest.TestCase):
     """
-    FakeHealth unit test stubs
+    FakeHealthGet unit test stubs
         Health check endpoint  # noqa: E501
     """
     configuration_ = configuration.Configuration()

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeAdditionalPropertiesWithArrayOfEnums(ApiTestMixin, unittest.TestCase):
+class TestAdditionalPropertiesWithArrayOfEnums(ApiTestMixin, unittest.TestCase):
     """
-    FakeAdditionalPropertiesWithArrayOfEnums unit test stubs
+    AdditionalPropertiesWithArrayOfEnums unit test stubs
         Additional Properties with Array of Enums  # noqa: E501
     """
     configuration_ = configuration.Configuration()

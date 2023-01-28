@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestPetFindByStatus(ApiTestMixin, unittest.TestCase):
+class TestFindPetsByStatus(ApiTestMixin, unittest.TestCase):
     """
-    PetFindByStatus unit test stubs
+    FindPetsByStatus unit test stubs
         Finds Pets by status  # noqa: E501
     """
     configuration_ = configuration.Configuration()

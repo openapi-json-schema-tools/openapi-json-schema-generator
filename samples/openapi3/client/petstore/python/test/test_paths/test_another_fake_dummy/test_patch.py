@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestAnotherFakeDummy(ApiTestMixin, unittest.TestCase):
+class TestCall123TestSpecialTags(ApiTestMixin, unittest.TestCase):
     """
-    AnotherFakeDummy unit test stubs
+    Call123TestSpecialTags unit test stubs
         To test special tags  # noqa: E501
     """
     configuration_ = configuration.Configuration()

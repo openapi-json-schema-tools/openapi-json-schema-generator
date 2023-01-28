@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserLogout(ApiTestMixin, unittest.TestCase):
+class TestLogoutUser(ApiTestMixin, unittest.TestCase):
     """
-    UserLogout unit test stubs
+    LogoutUser unit test stubs
         Logs out current logged in user session  # noqa: E501
     """
     configuration_ = configuration.Configuration()

@@ -3083,13 +3083,20 @@ public class DefaultCodegen implements CodegenConfig {
         }
         operationId = removeNonNameElementToCamelCase(operationId);
 
+        String usedPath;
         if (isStrictSpecBehavior() && !path.startsWith("/")) {
             // modifies an operation.path to strictly conform to OpenAPI Spec
-            op.path = "/" + path;
+            usedPath = "/" + path;
         } else {
-            op.path = path;
+            usedPath = path;
         }
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path) + "/" + httpMethod;
+        op.path = new CodegenKey(
+                usedPath,
+                false,  // false because paths have lots of invalid characters
+                toPathFilename(path),
+                toModelName(path)
+        );
+        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path.name) + "/" + httpMethod;
 
         op.operationId = toOperationId(operationId);
         op.summary = escapeText(operation.getSummary());
@@ -3294,15 +3301,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (op.allParams.size() > 0) {
             op.hasParams = true;
         }
-
-        // set Restful Flag
-        op.isRestfulShow = op.isRestfulShow();
-        op.isRestfulIndex = op.isRestfulIndex();
-        op.isRestfulCreate = op.isRestfulCreate();
-        op.isRestfulUpdate = op.isRestfulUpdate();
-        op.isRestfulDestroy = op.isRestfulDestroy();
-        op.isRestful = op.isRestful();
-
         return op;
     }
 

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestStoreOrderOrderId(ApiTestMixin, unittest.TestCase):
+class TestDeleteOrder(ApiTestMixin, unittest.TestCase):
     """
-    StoreOrderOrderId unit test stubs
+    DeleteOrder unit test stubs
         Delete purchase order by ID  # noqa: E501
     """
     configuration_ = configuration.Configuration()

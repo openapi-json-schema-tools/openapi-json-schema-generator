@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeRefsArrayOfEnums(ApiTestMixin, unittest.TestCase):
+class TestArrayOfEnums(ApiTestMixin, unittest.TestCase):
     """
-    FakeRefsArrayOfEnums unit test stubs
+    ArrayOfEnums unit test stubs
         Array of Enums  # noqa: E501
     """
     configuration_ = configuration.Configuration()

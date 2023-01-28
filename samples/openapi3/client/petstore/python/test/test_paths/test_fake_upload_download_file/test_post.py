@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeUploadDownloadFile(ApiTestMixin, unittest.TestCase):
+class TestUploadDownloadFile(ApiTestMixin, unittest.TestCase):
     """
-    FakeUploadDownloadFile unit test stubs
+    UploadDownloadFile unit test stubs
         uploads a file and downloads a file using application/octet-stream  # noqa: E501
     """
     configuration_ = configuration.Configuration()

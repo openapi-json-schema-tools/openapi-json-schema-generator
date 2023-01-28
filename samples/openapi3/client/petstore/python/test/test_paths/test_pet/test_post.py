@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestPet(ApiTestMixin, unittest.TestCase):
+class TestAddPet(ApiTestMixin, unittest.TestCase):
     """
-    Pet unit test stubs
+    AddPet unit test stubs
         Add a new pet to the store  # noqa: E501
     """
     configuration_ = configuration.Configuration()

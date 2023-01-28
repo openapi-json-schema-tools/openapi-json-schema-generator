@@ -8,16 +8,16 @@ from unittest.mock import patch
 import urllib3
 
 import {{packageName}}
-from {{packageName}}.paths.{{operation.nickname}} import {{operation.httpMethod}}  # noqa: E501
+from {{packageName}}.paths.{{operation.path.snakeCaseName}} import {{operation.httpMethod}}  # noqa: E501
 from {{packageName}} import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
 {{#with operation}}
-class Test{{operationIdSnakeCase}}(ApiTestMixin, unittest.TestCase):
+class Test{{operationIdCamelCase}}(ApiTestMixin, unittest.TestCase):
     """
-    {{operationIdSnakeCase}} unit test stubs
+    {{operationIdCamelCase}} unit test stubs
 {{#if summary}}
         {{{summary}}}  # noqa: E501
 {{/if}}

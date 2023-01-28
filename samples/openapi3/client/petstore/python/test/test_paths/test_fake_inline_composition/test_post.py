@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeInlineComposition(ApiTestMixin, unittest.TestCase):
+class TestInlineComposition(ApiTestMixin, unittest.TestCase):
     """
-    FakeInlineComposition unit test stubs
+    InlineComposition unit test stubs
         testing composed schemas at inline locations  # noqa: E501
     """
     configuration_ = configuration.Configuration()

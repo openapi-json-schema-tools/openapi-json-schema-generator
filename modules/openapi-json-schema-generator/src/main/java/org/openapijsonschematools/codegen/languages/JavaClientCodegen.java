@@ -251,7 +251,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations) {
         super.addOperationToGroup(tag, resourcePath, operation, co, operations);
         if (MICROPROFILE.equals(getLibrary())) {
-            co.subresourceOperation = !co.path.isEmpty();
+            co.subresourceOperation = !co.path.name.isEmpty();
         }
     }
 
@@ -722,10 +722,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                         }
                     }
 
-                    if (StringUtils.isNotEmpty(operation.path) && operation.path.startsWith("/")) {
-                        operation.path = operation.path.substring(1);
-                    }
-
                     // sorting operation parameters to make sure path params are parsed before query params
                     if (operation.allParams != null) {
                         sort(operation.allParams, new Comparator<CodegenParameter>() {
@@ -741,38 +737,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                             }
                         });
                     }
-                }
-            }
-        }
-
-        // camelize path variables for Feign client
-        if (FEIGN.equals(getLibrary())) {
-            OperationMap operations = objs.getOperations();
-            List<CodegenOperation> operationList = operations.getOperation();
-            Pattern methodPattern = Pattern.compile("^(.*):([^:]*)$");
-            for (CodegenOperation op : operationList) {
-                String path = op.path;
-                String method = "";
-
-                // if a custom method is found at the end of the path, cut it off for later
-                Matcher m = methodPattern.matcher(path);
-                if (m.find()) {
-                    path = m.group(1);
-                    method = m.group(2);
-                }
-
-                String[] items = path.split("/", -1);
-
-                for (int i = 0; i < items.length; ++i) {
-                    if (items[i].matches("^\\{(.*)\\}$")) { // wrap in {}
-                        // camelize path variable
-                        items[i] = "{" + camelize(items[i].substring(1, items[i].length() - 1), true) + "}";
-                    }
-                }
-                op.path = StringUtils.join(items, "/");
-                // Replace the custom method on the path if one was found earlier
-                if (!method.isEmpty()) {
-                    op.path += ":" + method;
                 }
             }
         }

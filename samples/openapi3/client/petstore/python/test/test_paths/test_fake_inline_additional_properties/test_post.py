@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeInlineAdditionalProperties(ApiTestMixin, unittest.TestCase):
+class TestInlineAdditionalProperties(ApiTestMixin, unittest.TestCase):
     """
-    FakeInlineAdditionalProperties unit test stubs
+    InlineAdditionalProperties unit test stubs
         test inline additionalProperties  # noqa: E501
     """
     configuration_ = configuration.Configuration()

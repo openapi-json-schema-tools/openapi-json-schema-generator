@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeRefsMammal(ApiTestMixin, unittest.TestCase):
+class TestMammal(ApiTestMixin, unittest.TestCase):
     """
-    FakeRefsMammal unit test stubs
+    Mammal unit test stubs
     """
     configuration_ = configuration.Configuration()
 

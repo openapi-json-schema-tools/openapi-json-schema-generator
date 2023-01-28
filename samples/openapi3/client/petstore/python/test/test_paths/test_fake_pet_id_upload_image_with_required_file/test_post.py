@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakePetIdUploadImageWithRequiredFile(ApiTestMixin, unittest.TestCase):
+class TestUploadFileWithRequiredFile(ApiTestMixin, unittest.TestCase):
     """
-    FakePetIdUploadImageWithRequiredFile unit test stubs
+    UploadFileWithRequiredFile unit test stubs
         uploads an image (required)  # noqa: E501
     """
     configuration_ = configuration.Configuration()

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserUsername(ApiTestMixin, unittest.TestCase):
+class TestDeleteUser(ApiTestMixin, unittest.TestCase):
     """
-    UserUsername unit test stubs
+    DeleteUser unit test stubs
         Delete user  # noqa: E501
     """
     configuration_ = configuration.Configuration()

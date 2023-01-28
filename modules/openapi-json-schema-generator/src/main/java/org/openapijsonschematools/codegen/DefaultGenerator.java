@@ -517,9 +517,9 @@ public class DefaultGenerator implements Generator {
                         tagToTagModule.put(tagName, tagModuleName);
                     }
                 }
-                String path = co.path;
+                String path = co.path.name;
                 String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod;
-                String pathModuleName = co.nickname;
+                String pathModuleName = co.path.snakeCaseName;
                 if (!pathToPathModule.containsKey(path)) {
                     pathToPathModule.put(path, pathModuleName);
                 }
@@ -1398,7 +1398,7 @@ public class DefaultGenerator implements Generator {
         for (OperationsMap om: allOperations) {
             OperationMap apiOperations = om.getOperations();
             for (CodegenOperation operation: apiOperations.getOperation()) {
-                String pathAndHttpMethod = operation.path + "|" + operation.httpMethod;
+                String pathAndHttpMethod = operation.path.name + "|" + operation.httpMethod;
                 if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
                     pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
                 }

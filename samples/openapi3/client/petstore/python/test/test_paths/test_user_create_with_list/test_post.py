@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserCreateWithList(ApiTestMixin, unittest.TestCase):
+class TestCreateUsersWithListInput(ApiTestMixin, unittest.TestCase):
     """
-    UserCreateWithList unit test stubs
+    CreateUsersWithListInput unit test stubs
         Creates list of users with given input array  # noqa: E501
     """
     configuration_ = configuration.Configuration()

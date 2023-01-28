@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserLogin(ApiTestMixin, unittest.TestCase):
+class TestLoginUser(ApiTestMixin, unittest.TestCase):
     """
-    UserLogin unit test stubs
+    LoginUser unit test stubs
         Logs user into the system  # noqa: E501
     """
     configuration_ = configuration.Configuration()

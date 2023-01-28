@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeRefsBoolean(ApiTestMixin, unittest.TestCase):
+class TestBoolean(ApiTestMixin, unittest.TestCase):
     """
-    FakeRefsBoolean unit test stubs
+    Boolean unit test stubs
     """
     configuration_ = configuration.Configuration()
 

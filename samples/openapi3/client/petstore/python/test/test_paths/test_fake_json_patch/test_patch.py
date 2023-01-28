@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeJsonPatch(ApiTestMixin, unittest.TestCase):
+class TestJsonPatch(ApiTestMixin, unittest.TestCase):
     """
-    FakeJsonPatch unit test stubs
+    JsonPatch unit test stubs
         json patch  # noqa: E501
     """
     configuration_ = configuration.Configuration()

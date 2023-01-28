@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeObjInQuery(ApiTestMixin, unittest.TestCase):
+class TestObjectInQuery(ApiTestMixin, unittest.TestCase):
     """
-    FakeObjInQuery unit test stubs
+    ObjectInQuery unit test stubs
         user list  # noqa: E501
     """
     configuration_ = configuration.Configuration()

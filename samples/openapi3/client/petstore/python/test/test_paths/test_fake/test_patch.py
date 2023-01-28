@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFake(ApiTestMixin, unittest.TestCase):
+class TestClientModel(ApiTestMixin, unittest.TestCase):
     """
-    Fake unit test stubs
+    ClientModel unit test stubs
         To test \"client\" model  # noqa: E501
     """
     configuration_ = configuration.Configuration()

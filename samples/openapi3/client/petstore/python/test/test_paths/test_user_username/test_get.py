@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserUsername(ApiTestMixin, unittest.TestCase):
+class TestGetUserByName(ApiTestMixin, unittest.TestCase):
     """
-    UserUsername unit test stubs
+    GetUserByName unit test stubs
         Get user by user name  # noqa: E501
     """
     configuration_ = configuration.Configuration()

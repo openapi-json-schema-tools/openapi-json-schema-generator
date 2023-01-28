@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeClassnameTest(ApiTestMixin, unittest.TestCase):
+class TestClassname(ApiTestMixin, unittest.TestCase):
     """
-    FakeClassnameTest unit test stubs
+    Classname unit test stubs
         To test class name in snake case  # noqa: E501
     """
     configuration_ = configuration.Configuration()

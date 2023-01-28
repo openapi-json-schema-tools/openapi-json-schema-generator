@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFake(ApiTestMixin, unittest.TestCase):
+class TestEnumParameters(ApiTestMixin, unittest.TestCase):
     """
-    Fake unit test stubs
+    EnumParameters unit test stubs
         To test enum parameters  # noqa: E501
     """
     configuration_ = configuration.Configuration()

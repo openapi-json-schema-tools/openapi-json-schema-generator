@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeTestQueryParamters(ApiTestMixin, unittest.TestCase):
+class TestQueryParameterCollectionFormat(ApiTestMixin, unittest.TestCase):
     """
-    FakeTestQueryParamters unit test stubs
+    QueryParameterCollectionFormat unit test stubs
     """
     configuration_ = configuration.Configuration()
 

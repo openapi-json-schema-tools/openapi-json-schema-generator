@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeJsonFormData(ApiTestMixin, unittest.TestCase):
+class TestJsonFormData(ApiTestMixin, unittest.TestCase):
     """
-    FakeJsonFormData unit test stubs
+    JsonFormData unit test stubs
         test json serialization of form data  # noqa: E501
     """
     configuration_ = configuration.Configuration()

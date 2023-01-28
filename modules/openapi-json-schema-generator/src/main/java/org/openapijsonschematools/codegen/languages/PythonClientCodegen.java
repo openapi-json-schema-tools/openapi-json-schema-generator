@@ -1898,7 +1898,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Custom version of this method so we can move the body parameter into bodyParam
+     * Custom version of this method so httpMethod can have a different case
      *
      * @param path       the path of the operation
      * @param httpMethod HTTP method
@@ -1913,10 +1913,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                                           List<Server> servers) {
         CodegenOperation co = super.fromOperation(path, httpMethod, operation, servers);
         co.httpMethod = httpMethod.toLowerCase(Locale.ROOT);
-        // smuggle pathModuleName in nickname
-        co.nickname = toPathFilename(path);
-        // smuggle path Api class name ins operationIdSnakeCase
-        co.operationIdSnakeCase = toModelName(path);
 
         return co;
     }

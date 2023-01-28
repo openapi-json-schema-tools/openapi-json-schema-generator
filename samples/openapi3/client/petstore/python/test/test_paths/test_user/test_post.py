@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUser(ApiTestMixin, unittest.TestCase):
+class TestCreateUser(ApiTestMixin, unittest.TestCase):
     """
-    User unit test stubs
+    CreateUser unit test stubs
         Create user  # noqa: E501
     """
     configuration_ = configuration.Configuration()

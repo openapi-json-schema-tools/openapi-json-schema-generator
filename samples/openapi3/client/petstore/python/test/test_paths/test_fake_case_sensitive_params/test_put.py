@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeCaseSensitiveParams(ApiTestMixin, unittest.TestCase):
+class TestCaseSensitiveParams(ApiTestMixin, unittest.TestCase):
     """
-    FakeCaseSensitiveParams unit test stubs
+    CaseSensitiveParams unit test stubs
     """
     configuration_ = configuration.Configuration()
 

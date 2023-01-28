@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFake(ApiTestMixin, unittest.TestCase):
+class TestEndpointParameters(ApiTestMixin, unittest.TestCase):
     """
-    Fake unit test stubs
+    EndpointParameters unit test stubs
         Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트   # noqa: E501
     """
     configuration_ = configuration.Configuration()

@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestPetFindByTags(ApiTestMixin, unittest.TestCase):
+class TestFindPetsByTags(ApiTestMixin, unittest.TestCase):
     """
-    PetFindByTags unit test stubs
+    FindPetsByTags unit test stubs
         Finds Pets by tags  # noqa: E501
     """
     configuration_ = configuration.Configuration()

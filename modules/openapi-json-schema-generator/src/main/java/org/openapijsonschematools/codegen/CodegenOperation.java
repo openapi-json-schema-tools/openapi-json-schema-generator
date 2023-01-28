@@ -33,11 +33,11 @@ import java.util.*;
 public class CodegenOperation {
     public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams,
             subresourceOperation, isMultipart,
-            isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
-            isRestful, isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
+            isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public String path, operationId, httpMethod,
+    public String operationId, httpMethod,
             summary, unescapedNotes, notes, baseName;
+    public CodegenKey path;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
     public CodegenRequestBody requestBody;
@@ -64,6 +64,7 @@ public class CodegenOperation {
     public ExternalDocumentation externalDocs;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public String nickname; // legacy support
+    // TODO replace operationId with a CodegenKey
     public String operationIdOriginal; // for plug-in
     public String operationIdLowerCase; // for markdown documentation
     public String operationIdCamelCase; // for class names
@@ -273,7 +274,7 @@ public class CodegenOperation {
      * @return the substring
      */
     private String pathWithoutBaseName() {
-        return baseName != null ? path.replace("/" + baseName.toLowerCase(Locale.ROOT), "") : path;
+        return baseName != null ? path.name.replace("/" + baseName.toLowerCase(Locale.ROOT), "") : path.name;
     }
 
     /**
@@ -297,12 +298,12 @@ public class CodegenOperation {
         sb.append(", subresourceOperation=").append(subresourceOperation);
         sb.append(", isMultipart=").append(isMultipart);
         sb.append(", hasDefaultResponse=").append(hasDefaultResponse);
-        sb.append(", isRestfulIndex=").append(isRestfulIndex);
-        sb.append(", isRestfulShow=").append(isRestfulShow);
-        sb.append(", isRestfulCreate=").append(isRestfulCreate);
-        sb.append(", isRestfulUpdate=").append(isRestfulUpdate);
-        sb.append(", isRestfulDestroy=").append(isRestfulDestroy);
-        sb.append(", isRestful=").append(isRestful);
+        sb.append(", isRestfulIndex=").append(isRestfulIndex());
+        sb.append(", isRestfulShow=").append(isRestfulShow());
+        sb.append(", isRestfulCreate=").append(isRestfulCreate());
+        sb.append(", isRestfulUpdate=").append(isRestfulUpdate());
+        sb.append(", isRestfulDestroy=").append(isRestfulDestroy());
+        sb.append(", isRestful=").append(isRestful());
         sb.append(", isDeprecated=").append(isDeprecated);
         sb.append(", isCallbackRequest=").append(isCallbackRequest);
         sb.append(", uniqueItems='").append(uniqueItems);
@@ -359,12 +360,6 @@ public class CodegenOperation {
                 subresourceOperation == that.subresourceOperation &&
                 isMultipart == that.isMultipart &&
                 hasDefaultResponse == that.hasDefaultResponse &&
-                isRestfulIndex == that.isRestfulIndex &&
-                isRestfulShow == that.isRestfulShow &&
-                isRestfulCreate == that.isRestfulCreate &&
-                isRestfulUpdate == that.isRestfulUpdate &&
-                isRestfulDestroy == that.isRestfulDestroy &&
-                isRestful == that.isRestful &&
                 isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
                 uniqueItems == that.uniqueItems &&
@@ -413,8 +408,7 @@ public class CodegenOperation {
         return Objects.hash(hasAuthMethods, hasConsumes, hasProduces, hasParams,
                 subresourceOperation,
                 isMultipart,
-                hasDefaultResponse, isRestfulIndex, isRestfulShow, isRestfulCreate, isRestfulUpdate, isRestfulDestroy,
-                isRestful, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
+                hasDefaultResponse, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,

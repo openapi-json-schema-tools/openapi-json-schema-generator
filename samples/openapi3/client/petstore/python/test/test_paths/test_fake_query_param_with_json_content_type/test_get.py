@@ -18,9 +18,9 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestFakeQueryParamWithJsonContentType(ApiTestMixin, unittest.TestCase):
+class TestQueryParamWithJsonContentType(ApiTestMixin, unittest.TestCase):
     """
-    FakeQueryParamWithJsonContentType unit test stubs
+    QueryParamWithJsonContentType unit test stubs
         query param with json content-type  # noqa: E501
     """
     configuration_ = configuration.Configuration()
