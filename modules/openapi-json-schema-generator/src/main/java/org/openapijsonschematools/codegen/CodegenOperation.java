@@ -31,8 +31,7 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean isMultipart,
-            isDeprecated, isCallbackRequest, uniqueItems,
+    public boolean isDeprecated, isCallbackRequest, uniqueItems,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public String operationId,
             summary, unescapedNotes, notes, baseName;
@@ -291,7 +290,6 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", isMultipart=").append(isMultipart);
         sb.append(", isRestfulIndex=").append(isRestfulIndex());
         sb.append(", isRestfulShow=").append(isRestfulShow());
         sb.append(", isRestfulCreate=").append(isRestfulCreate());
@@ -347,8 +345,7 @@ public class CodegenOperation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
-        return isMultipart == that.isMultipart &&
-                isDeprecated == that.isDeprecated &&
+        return isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
                 uniqueItems == that.uniqueItems &&
                 Objects.equals(path, that.path) &&
@@ -393,8 +390,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(isMultipart,
-                isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
+        return Objects.hash(isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,

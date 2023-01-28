@@ -707,9 +707,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                 List<CodegenOperation> ops = operations.getOperation();
                 for (CodegenOperation operation : ops) {
                     if (operation.consumes != null && !operation.consumes.isEmpty()) {
-                        if (isMultipartType(operation.consumes)) {
-                            operation.isMultipart = Boolean.TRUE;
-                        } else {
+                        if (!isMultipartType(operation.consumes)) {
                             operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
                         }
                     }

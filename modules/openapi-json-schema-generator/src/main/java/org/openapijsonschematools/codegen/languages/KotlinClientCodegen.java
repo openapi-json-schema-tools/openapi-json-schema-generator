@@ -831,13 +831,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         .collect(Collectors.toList());
                 }
 
-                // set multipart against all relevant operations
-                if (operation.consumes != null && !operation.consumes.isEmpty()) {
-                    if (isMultipartType(operation.consumes)) {
-                        operation.isMultipart = Boolean.TRUE;
-                    }
-                }
-
                 // import okhttp3.MultipartBody if any parameter is a file
                 for (CodegenParameter param : operation.allParams) {
                     if (Boolean.TRUE.equals(param.schema != null && Boolean.TRUE.equals(param.schema.isFile))) {
