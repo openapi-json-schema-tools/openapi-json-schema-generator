@@ -1807,14 +1807,12 @@ public class DefaultGenerator implements Generator {
                 if (authMethods != null && !authMethods.isEmpty()) {
                     List<CodegenSecurity> fullAuthMethods = config.fromSecurity(authMethods);
                     codegenOperation.authMethods = filterAuthMethods(fullAuthMethods, securities);
-                    codegenOperation.hasAuthMethods = true;
                 } else {
                     authMethods = getAuthMethods(globalSecurities, securitySchemes);
 
                     if (authMethods != null && !authMethods.isEmpty()) {
                         List<CodegenSecurity> fullAuthMethods = config.fromSecurity(authMethods);
                         codegenOperation.authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
-                        codegenOperation.hasAuthMethods = true;
                     }
                 }
 

@@ -262,7 +262,7 @@ class BaseApi(api_client.Api):
             fields=_fields,
             body=_body,
     {{/if}}
-    {{#if hasAuthMethods}}
+    {{#if authMethods}}
             auth_settings=_auth,
     {{/if}}
     {{#if servers}}

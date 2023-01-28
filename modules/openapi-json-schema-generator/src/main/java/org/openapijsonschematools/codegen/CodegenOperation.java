@@ -31,7 +31,7 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean hasAuthMethods, hasConsumes, hasProduces, hasParams,
+    public boolean hasConsumes, hasProduces, hasParams,
             subresourceOperation, isMultipart,
             isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
@@ -292,7 +292,6 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", hasAuthMethods=").append(hasAuthMethods);
         sb.append(", hasConsumes=").append(hasConsumes);
         sb.append(", hasProduces=").append(hasProduces);
         sb.append(", hasParams=").append(hasParams);
@@ -354,8 +353,7 @@ public class CodegenOperation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
-        return hasAuthMethods == that.hasAuthMethods &&
-                hasConsumes == that.hasConsumes &&
+        return hasConsumes == that.hasConsumes &&
                 hasProduces == that.hasProduces &&
                 hasParams == that.hasParams &&
                 subresourceOperation == that.subresourceOperation &&
@@ -406,7 +404,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(hasAuthMethods, hasConsumes, hasProduces, hasParams,
+        return Objects.hash(hasConsumes, hasProduces, hasParams,
                 subresourceOperation,
                 isMultipart,
                 hasDefaultResponse, isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
