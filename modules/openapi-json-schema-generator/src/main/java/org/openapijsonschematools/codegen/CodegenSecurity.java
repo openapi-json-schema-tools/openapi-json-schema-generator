@@ -18,71 +18,95 @@
 package org.openapijsonschematools.codegen;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class CodegenSecurity {
-    public String name;
-    public String type;
-    public String scheme;
-    public Boolean isBasic, isOAuth, isApiKey;
+    public final String name;
+    public final String type;
+    public final String scheme;
+    public final Boolean isBasic, isOAuth, isApiKey;
     // is Basic is true for all http authentication type.
     // Those are to differentiate basic and bearer authentication
     // isHttpSignature is to support HTTP signature authorization scheme.
     // https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
-    public Boolean isBasicBasic, isBasicBearer, isHttpSignature;
-    public String bearerFormat;
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
+    public final Boolean isBasicBasic, isBasicBearer, isHttpSignature;
+    public final String bearerFormat;
+    public final Map<String, Object> vendorExtensions;
     // ApiKey specific
-    public String keyParamName;
-    public Boolean isKeyInQuery, isKeyInHeader, isKeyInCookie;
+    public final String keyParamName;
+    public final Boolean isKeyInQuery, isKeyInHeader, isKeyInCookie;
     // Oauth specific
-    public String flow, authorizationUrl, tokenUrl, refreshUrl;
-    public List<Map<String, Object>> scopes;
-    public Boolean isCode, isPassword, isApplication, isImplicit;
+    public final String flow, authorizationUrl, tokenUrl, refreshUrl;
+    public final List<Map<String, Object>> scopes;
+    public final Boolean isCode, isPassword, isApplication, isImplicit;
+
+    public CodegenSecurity(String name, String type, String scheme, Boolean isBasic, Boolean isOAuth, Boolean isApiKey, Boolean isBasicBasic, Boolean isBasicBearer, Boolean isHttpSignature, String bearerFormat, Map<String, Object> vendorExtensions, String keyParamName, Boolean isKeyInQuery, Boolean isKeyInHeader, Boolean isKeyInCookie, String flow, String authorizationUrl, String tokenUrl, String refreshUrl, List<Map<String, Object>> scopes, Boolean isCode, Boolean isPassword, Boolean isApplication, Boolean isImplicit) {
+        this.name = name;
+        this.type = type;
+        this.scheme = scheme;
+        this.isBasic = isBasic;
+        this.isOAuth = isOAuth;
+        this.isApiKey = isApiKey;
+        this.isBasicBasic = isBasicBasic;
+        this.isBasicBearer = isBasicBearer;
+        this.isHttpSignature = isHttpSignature;
+        this.bearerFormat = bearerFormat;
+        this.vendorExtensions = vendorExtensions;
+        this.keyParamName = keyParamName;
+        this.isKeyInQuery = isKeyInQuery;
+        this.isKeyInHeader = isKeyInHeader;
+        this.isKeyInCookie = isKeyInCookie;
+        this.flow = flow;
+        this.authorizationUrl = authorizationUrl;
+        this.tokenUrl = tokenUrl;
+        this.refreshUrl = refreshUrl;
+        this.scopes = scopes;
+        this.isCode = isCode;
+        this.isPassword = isPassword;
+        this.isApplication = isApplication;
+        this.isImplicit = isImplicit;
+    }
 
     // Return a copy of the security object, filtering out any scopes from the passed-in list.
     public CodegenSecurity filterByScopeNames(List<String> filterScopes) {
-        CodegenSecurity filteredSecurity = new CodegenSecurity();
-        // Copy all fields except the scopes.
-        filteredSecurity.name = name;
-        filteredSecurity.type = type;
-        filteredSecurity.isBasic = isBasic;
-        filteredSecurity.isBasicBasic = isBasicBasic;
-        filteredSecurity.isHttpSignature = isHttpSignature;
-        filteredSecurity.isBasicBearer = isBasicBearer;
-        filteredSecurity.isApiKey = isApiKey;
-        filteredSecurity.isOAuth = isOAuth;
-        filteredSecurity.keyParamName = keyParamName;
-        filteredSecurity.isCode = isCode;
-        filteredSecurity.isImplicit = isImplicit;
-        filteredSecurity.isApplication = isApplication;
-        filteredSecurity.isPassword = isPassword;
-        filteredSecurity.isKeyInCookie = isKeyInCookie;
-        filteredSecurity.isKeyInHeader = isKeyInHeader;
-        filteredSecurity.isKeyInQuery = isKeyInQuery;
-        filteredSecurity.flow = flow;
-        filteredSecurity.tokenUrl = tokenUrl;
-        filteredSecurity.authorizationUrl = authorizationUrl;
-        filteredSecurity.refreshUrl = refreshUrl;
-        // It is not possible to deep copy the extensions, as we have no idea what types they are.
-        // So the filtered method *will* refer to the original extensions, if any.
-        filteredSecurity.vendorExtensions = new HashMap<String, Object>(vendorExtensions);
-        List<Map<String, Object>> returnedScopes = new ArrayList<Map<String, Object>>();
-        Map<String, Object> lastScope = null;
+        List<Map<String, Object>> returnedScopes = new ArrayList<>();
         for (String filterScopeName : filterScopes) {
             for (Map<String, Object> scope : scopes) {
                 String name = (String) scope.get("scope");
                 if (filterScopeName.equals(name)) {
                     returnedScopes.add(scope);
-                    lastScope = scope;
                     break;
                 }
             }
         }
-        filteredSecurity.scopes = returnedScopes;
+        CodegenSecurity filteredSecurity = new CodegenSecurity(
+                name,
+                type,
+                scheme,
+                isBasic,
+                isOAuth,
+                isApiKey,
+                isBasicBasic,
+                isBasicBearer,
+                isHttpSignature,
+                bearerFormat,
+                vendorExtensions,
+                keyParamName,
+                isKeyInQuery,
+                isKeyInHeader,
+                isKeyInCookie,
+                flow,
+                authorizationUrl,
+                tokenUrl,
+                refreshUrl,
+                returnedScopes,
+                isCode,
+                isPassword,
+                isApplication,
+                isImplicit
+        );
 
         return filteredSecurity;
     }

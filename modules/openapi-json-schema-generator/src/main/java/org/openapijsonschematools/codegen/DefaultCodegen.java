@@ -25,6 +25,7 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.security.Scopes;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -3633,83 +3634,144 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         List<CodegenSecurity> codegenSecurities = new ArrayList<>(securitySchemeMap.size());
-        for (String key : securitySchemeMap.keySet()) {
-            final SecurityScheme securityScheme = securitySchemeMap.get(key);
-            if (SecurityScheme.Type.APIKEY.equals(securityScheme.getType())) {
-                final CodegenSecurity cs = defaultCodegenSecurity(key, securityScheme);
-                cs.isBasic = cs.isOAuth = false;
-                cs.isApiKey = true;
-                cs.keyParamName = securityScheme.getName();
-                cs.isKeyInHeader = securityScheme.getIn() == SecurityScheme.In.HEADER;
-                cs.isKeyInQuery = securityScheme.getIn() == SecurityScheme.In.QUERY;
-                cs.isKeyInCookie = securityScheme.getIn() == SecurityScheme.In.COOKIE;  //it assumes a validation step prior to generation. (cookie-auth supported from OpenAPI 3.0.0)
-                codegenSecurities.add(cs);
-            } else if (SecurityScheme.Type.HTTP.equals(securityScheme.getType())) {
-                final CodegenSecurity cs = defaultCodegenSecurity(key, securityScheme);
-                cs.isKeyInHeader = cs.isKeyInQuery = cs.isKeyInCookie = cs.isApiKey = cs.isOAuth = false;
-                cs.isBasic = true;
+        for (Entry<String, SecurityScheme> entry: securitySchemeMap.entrySet()) {
+            String name = entry.getKey();
+            final SecurityScheme securityScheme = entry.getValue();
+            String type = securityScheme.getType().toString();
+            String scheme = securityScheme.getScheme();
+            Boolean isBasic = null;
+            Boolean isOAuth = null;
+            Boolean isApiKey = null;
+            Boolean isBasicBasic = null;
+            Boolean isBasicBearer = null;
+            Boolean isHttpSignature = null;
+            String bearerFormat = null;
+            Map<String, Object> vendorExtensions = null;
+            if (securityScheme.getExtensions() != null) {
+                vendorExtensions = securityScheme.getExtensions();
+            }
+            String keyParamName = null;
+            Boolean isKeyInQuery = null;
+            Boolean isKeyInHeader = null;
+            Boolean isKeyInCookie = null;
+            String flow = null;
+            String authorizationUrl = null;
+            String tokenUrl = null;
+            String refreshUrl = null;
+            List<Map<String, Object>> scopes = null;
+            Boolean isCode = null;
+            Boolean isPassword = null;
+            Boolean isApplication = null;
+            Boolean isImplicit = null;
+
+            SecurityScheme.Type typeEnum = securityScheme.getType();
+            if (SecurityScheme.Type.APIKEY.equals(typeEnum)) {
+                isBasic = isOAuth = false;
+                isApiKey = true;
+                keyParamName = securityScheme.getName();
+                isKeyInHeader = securityScheme.getIn() == SecurityScheme.In.HEADER;
+                isKeyInQuery = securityScheme.getIn() == SecurityScheme.In.QUERY;
+                isKeyInCookie = securityScheme.getIn() == SecurityScheme.In.COOKIE;  //it assumes a validation step prior to generation. (cookie-auth supported from OpenAPI 3.0.0)
+            } else if (SecurityScheme.Type.HTTP.equals(typeEnum)) {
+                isKeyInHeader = isKeyInQuery = isKeyInCookie = isApiKey = isOAuth = false;
+                isBasic = true;
                 if ("basic".equalsIgnoreCase(securityScheme.getScheme())) {
-                    cs.isBasicBasic = true;
+                    isBasicBasic = true;
                 } else if ("bearer".equalsIgnoreCase(securityScheme.getScheme())) {
-                    cs.isBasicBearer = true;
-                    cs.bearerFormat = securityScheme.getBearerFormat();
+                    isBasicBearer = true;
+                    bearerFormat = securityScheme.getBearerFormat();
                 } else if ("signature".equalsIgnoreCase(securityScheme.getScheme())) {
                     // HTTP signature as defined in https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
                     // The registry of security schemes is maintained by IANA.
                     // https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml
                     // As of January 2020, the "signature" scheme has not been registered with IANA yet.
                     // This scheme may have to be changed when it is officially registered with IANA.
-                    cs.isHttpSignature = true;
+                    isHttpSignature = true;
                     OnceLogger.once(LOGGER).warn("Security scheme 'HTTP signature' is a draft IETF RFC and subject to change.");
                 } else {
                     OnceLogger.once(LOGGER).warn("Unknown scheme `{}` found in the HTTP security definition.", securityScheme.getScheme());
                 }
-                codegenSecurities.add(cs);
             } else if (SecurityScheme.Type.OAUTH2.equals(securityScheme.getType())) {
                 final OAuthFlows flows = securityScheme.getFlows();
                 boolean isFlowEmpty = true;
                 if (securityScheme.getFlows() == null) {
-                    throw new RuntimeException("missing oauth flow in " + key);
+                    throw new RuntimeException("missing oauth flow in " + name);
                 }
                 if (flows.getPassword() != null) {
-                    final CodegenSecurity cs = defaultOauthCodegenSecurity(key, securityScheme);
-                    setOauth2Info(cs, flows.getPassword());
-                    cs.isPassword = true;
-                    cs.flow = "password";
-                    codegenSecurities.add(cs);
+                    authorizationUrl = flows.getPassword().getAuthorizationUrl();
+                    tokenUrl = flows.getPassword().getTokenUrl();
+                    refreshUrl = flows.getPassword().getRefreshUrl();
+
+                    scopes = getScopes(flows.getPassword().getScopes());
+                    isPassword = true;
+                    flow = "password";
                     isFlowEmpty = false;
                 }
                 if (flows.getImplicit() != null) {
-                    final CodegenSecurity cs = defaultOauthCodegenSecurity(key, securityScheme);
-                    setOauth2Info(cs, flows.getImplicit());
-                    cs.isImplicit = true;
-                    cs.flow = "implicit";
-                    codegenSecurities.add(cs);
+                    authorizationUrl = flows.getImplicit().getAuthorizationUrl();
+                    tokenUrl = flows.getImplicit().getTokenUrl();
+                    refreshUrl = flows.getImplicit().getRefreshUrl();
+
+                    scopes = getScopes(flows.getImplicit().getScopes());
+                    isImplicit = true;
+                    flow = "implicit";
                     isFlowEmpty = false;
                 }
                 if (flows.getClientCredentials() != null) {
-                    final CodegenSecurity cs = defaultOauthCodegenSecurity(key, securityScheme);
-                    setOauth2Info(cs, flows.getClientCredentials());
-                    cs.isApplication = true;
-                    cs.flow = "application";
-                    codegenSecurities.add(cs);
+                    authorizationUrl = flows.getClientCredentials().getAuthorizationUrl();
+                    tokenUrl = flows.getClientCredentials().getTokenUrl();
+                    refreshUrl = flows.getClientCredentials().getRefreshUrl();
+
+                    scopes = getScopes(flows.getClientCredentials().getScopes());
+                    isApplication = true;
+                    flow = "application";
                     isFlowEmpty = false;
                 }
                 if (flows.getAuthorizationCode() != null) {
-                    final CodegenSecurity cs = defaultOauthCodegenSecurity(key, securityScheme);
-                    setOauth2Info(cs, flows.getAuthorizationCode());
-                    cs.isCode = true;
-                    cs.flow = "accessCode";
-                    codegenSecurities.add(cs);
+                    authorizationUrl = flows.getAuthorizationCode().getAuthorizationUrl();
+                    tokenUrl = flows.getAuthorizationCode().getTokenUrl();
+                    refreshUrl = flows.getAuthorizationCode().getRefreshUrl();
+
+                    scopes = getScopes(flows.getAuthorizationCode().getScopes());
+                    isCode = true;
+                    flow = "accessCode";
                     isFlowEmpty = false;
                 }
 
                 if (isFlowEmpty) {
                     OnceLogger.once(LOGGER).error("Invalid flow definition defined in the security scheme: {}", flows);
+                    continue;
                 }
             } else {
                 OnceLogger.once(LOGGER).error("Unknown type `{}` found in the security definition `{}`.", securityScheme.getType(), securityScheme.getName());
             }
+            final CodegenSecurity cs = new CodegenSecurity(
+                    name,
+                    type,
+                    scheme,
+                    isBasic,
+                    isOAuth,
+                    isApiKey,
+                    isBasicBasic,
+                    isBasicBearer,
+                    isHttpSignature,
+                    bearerFormat,
+                    vendorExtensions,
+                    keyParamName,
+                    isKeyInQuery,
+                    isKeyInHeader,
+                    isKeyInCookie,
+                    flow,
+                    authorizationUrl,
+                    tokenUrl,
+                    refreshUrl,
+                    scopes,
+                    isCode,
+                    isPassword,
+                    isApplication,
+                    isImplicit
+            );
+            codegenSecurities.add(cs);
         }
 
         // sort auth methods to maintain the same order
@@ -3722,28 +3784,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         return codegenSecurities;
     }
-
-    private CodegenSecurity defaultCodegenSecurity(String key, SecurityScheme securityScheme) {
-        final CodegenSecurity cs = new CodegenSecurity();
-        cs.name = key;
-        cs.type = securityScheme.getType().toString();
-        cs.isCode = cs.isPassword = cs.isApplication = cs.isImplicit = false;
-        cs.isHttpSignature = false;
-        cs.isBasicBasic = cs.isBasicBearer = false;
-        cs.scheme = securityScheme.getScheme();
-        if (securityScheme.getExtensions() != null) {
-            cs.vendorExtensions.putAll(securityScheme.getExtensions());
-        }
-        return cs;
-    }
-
-    private CodegenSecurity defaultOauthCodegenSecurity(String key, SecurityScheme securityScheme) {
-        final CodegenSecurity cs = defaultCodegenSecurity(key, securityScheme);
-        cs.isKeyInHeader = cs.isKeyInQuery = cs.isKeyInCookie = cs.isApiKey = cs.isBasic = false;
-        cs.isOAuth = true;
-        return cs;
-    }
-
+    
     protected void setReservedWordsLowerCase(List<String> words) {
         reservedWords = new HashSet<>();
         for (String word : words) {
@@ -4758,21 +4799,18 @@ public class DefaultCodegen implements CodegenConfig {
         additionalProperties.put(propertyKey, value);
     }
 
-    private void setOauth2Info(CodegenSecurity codegenSecurity, OAuthFlow flow) {
-        codegenSecurity.authorizationUrl = flow.getAuthorizationUrl();
-        codegenSecurity.tokenUrl = flow.getTokenUrl();
-        codegenSecurity.refreshUrl = flow.getRefreshUrl();
-
-        if (flow.getScopes() != null && !flow.getScopes().isEmpty()) {
-            List<Map<String, Object>> scopes = new ArrayList<>();
-            for (Map.Entry<String, String> scopeEntry : flow.getScopes().entrySet()) {
+    private List<Map<String, Object>> getScopes(Scopes scopes) {
+        if (scopes != null && !scopes.isEmpty()) {
+            List<Map<String, Object>> newScopes = new ArrayList<>();
+            for (Map.Entry<String, String> scopeEntry : scopes.entrySet()) {
                 Map<String, Object> scope = new HashMap<>();
                 scope.put("scope", scopeEntry.getKey());
                 scope.put("description", escapeText(scopeEntry.getValue()));
-                scopes.add(scope);
+                newScopes.add(scope);
             }
-            codegenSecurity.scopes = scopes;
+            return newScopes;
         }
+        return null;
     }
 
     private void addConsumesInfo(Operation operation, CodegenOperation codegenOperation) {
