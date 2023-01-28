@@ -21,6 +21,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;

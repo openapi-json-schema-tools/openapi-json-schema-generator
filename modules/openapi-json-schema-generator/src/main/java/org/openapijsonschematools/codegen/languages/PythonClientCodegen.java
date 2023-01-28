@@ -30,7 +30,6 @@ import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.CodegenOperation;
-import org.openapijsonschematools.codegen.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.CodegenType;
@@ -51,10 +50,8 @@ import org.openapijsonschematools.codegen.OpenApiSchema;
 import org.openapijsonschematools.codegen.api.TemplatePathLocator;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
-import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
-import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CodegenDiscriminator.MappedModel;
@@ -77,7 +74,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.openapijsonschematools.codegen.utils.OnceLogger.once;
 import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
 import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
 
@@ -1614,20 +1610,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * Set the codegenParameter example value
      * We have a custom version of this function so we can invoke toExampleValue
      *
-     * @param codegenParameter the item we are setting the example on
      * @param parameter the base parameter that came from the spec
      */
     @Override
-    public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
+    public String getParameterExampleValue(Parameter parameter) {
         Schema schema = parameter.getSchema();
         if (schema == null) {
             LOGGER.warn("CodegenParameter.example defaulting to null because parameter lacks a schema");
-            return;
+            return null;
         }
 
         Object example = null;
-        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
-            example = codegenParameter.getVendorExtensions().get("x-example");
+        if (parameter.getExtensions() != null && parameter.getExtensions().containsKey("x-example")) {
+            example = parameter.getExtensions().get("x-example");
         } else if (parameter.getExample() != null) {
             example = parameter.getExample();
         } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty() && parameter.getExamples().values().iterator().next().getValue() != null) {
@@ -1637,45 +1632,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         example = exampleFromStringOrArraySchema(schema, example, parameter.getName());
         String finalExample = toExampleValue(schema, example);
-        codegenParameter.setExample(finalExample);
-    }
-
-    /**
-     * Return the example value of the parameter.
-     *
-     * @param codegenParameter Codegen parameter
-     * @param requestBody      Request body
-     */
-    @Override
-    public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        if (codegenParameter.getVendorExtensions() != null && codegenParameter.getVendorExtensions().containsKey("x-example")) {
-            codegenParameter.setExample(Json.pretty(codegenParameter.getVendorExtensions().get("x-example")));
-        }
-
-        Content content = requestBody.getContent();
-
-        if (content.size() > 1) {
-            // @see ModelUtils.getSchemaFromContent()
-            once(LOGGER).warn("Multiple MediaTypes found, using only the first one");
-        }
-
-        MediaType mediaType = content.values().iterator().next();
-        Schema schema = mediaType.getSchema();
-        if (schema == null) {
-            LOGGER.warn("CodegenParameter.example defaulting to null because requestBody content lacks a schema");
-            return;
-        }
-
-        Object example = null;
-        if (mediaType.getExample() != null) {
-            example = mediaType.getExample();
-        } else if (mediaType.getExamples() != null && !mediaType.getExamples().isEmpty() && mediaType.getExamples().values().iterator().next().getValue() != null) {
-            example = mediaType.getExamples().values().iterator().next().getValue();
-        } else {
-            example = getObjectExample(schema);
-        }
-        example = exampleFromStringOrArraySchema(schema, example, codegenParameter.baseName);
-        codegenParameter.setExample(toExampleValue(schema, example));
+        return finalExample;
     }
 
     /**

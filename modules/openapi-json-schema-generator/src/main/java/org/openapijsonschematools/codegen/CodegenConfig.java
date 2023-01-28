@@ -29,6 +29,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
+import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
@@ -265,8 +266,6 @@ public interface CodegenConfig {
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
 
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
-
-    void postProcessParameter(CodegenParameter parameter);
 
     // handles almost all files to be written
     String getFilepath(String jsonPath);

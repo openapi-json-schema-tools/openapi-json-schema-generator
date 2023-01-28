@@ -19,10 +19,10 @@ package org.openapijsonschematools.codegen.java;
 
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
-import org.openapijsonschematools.codegen.CodegenParameter;
+import io.swagger.v3.oas.models.parameters.Parameter;
+import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.languages.AbstractJavaCodegen;
-import org.openapijsonschematools.codegen.CodegenSchema;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -34,25 +34,19 @@ public class AbstractJavaCodegenExampleValuesTest {
 
     @Test
     void inlineEnum() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setEnum(
                 Arrays.asList("first", "second")
         );
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/schemas/A",
-                "#/components/schemas/A"
-        );
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "\"first\"");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "\"first\"");
     }
 
     @Test
     void inlineEnumArray() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new ArraySchema();
         Schema items = new Schema();
         items.setType("string");
@@ -60,47 +54,33 @@ public class AbstractJavaCodegenExampleValuesTest {
                 Arrays.asList("first", "second")
         );
         sc.setItems(items);
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
-        );
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "Arrays.asList()");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "Arrays.asList()");
     }
 
     @Test
     void dateDefault() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("date");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
-        );
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "new Date()");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "new Date()");
     }
 
     @Test
     void dateGivenExample() {
-        final CodegenParameter p = new CodegenParameter();
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("date");
         sc.setExample("2017-03-30");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/SomeParam/schema",
-                "#/components/parameters/SomeParam/schema"
-        );
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "new Date()");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "new Date()");
     }
 
     @Test
@@ -108,15 +88,10 @@ public class AbstractJavaCodegenExampleValuesTest {
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("date-time");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/dateTimeDefault/schema",
-                "#/components/parameters/dateTimeDefault/schema"
-        );
-        final CodegenParameter p = new CodegenParameter();
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "LocalDate.now()");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "LocalDate.now()");
     }
 
     @Test
@@ -125,15 +100,10 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setType("string");
         sc.setFormat("date-time");
         sc.setExample("2007-12-03T10:15:30+01:00");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/dateTimeGivenExample/schema",
-                "#/components/parameters/dateTimeGivenExample/schema"
-        );
-        final CodegenParameter p = new CodegenParameter();
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
     }
 
     @Test
@@ -141,15 +111,10 @@ public class AbstractJavaCodegenExampleValuesTest {
         Schema sc = new Schema();
         sc.setType("string");
         sc.setFormat("uuid");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/uuidDefault/schema",
-                "#/components/parameters/uuidDefault/schema"
-        );
-        final CodegenParameter p = new CodegenParameter();
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "UUID.randomUUID()");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "UUID.randomUUID()");
     }
 
     @Test
@@ -158,15 +123,10 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setType("string");
         sc.setFormat("uuid");
         sc.setExample("13b48713-b931-45ea-bd60-b07491245960");
-        CodegenSchema cp = fakeJavaCodegen.fromSchema(
-                sc,
-                "#/components/parameters/uuidGivenExample/schema",
-                "#/components/parameters/uuidGivenExample/schema"
-        );
-        final CodegenParameter p = new CodegenParameter();
-        p.setSchema(cp);
-        fakeJavaCodegen.setParameterExampleValue(p);
-        Assert.assertEquals(p.getExample(), "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
+        Parameter parameter = new Parameter();
+        parameter.setSchema(sc);
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
     }
 
     private static class P_AbstractJavaCodegen extends AbstractJavaCodegen {

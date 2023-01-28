@@ -25,7 +25,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.GeneratorLanguage;
 import org.openapijsonschematools.codegen.utils.ModelUtils;

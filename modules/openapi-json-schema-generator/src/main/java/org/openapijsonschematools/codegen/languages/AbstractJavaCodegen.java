@@ -25,7 +25,6 @@ import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
-import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.io.FilenameUtils;
@@ -35,7 +34,7 @@ import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.CodegenOperation;
-import org.openapijsonschematools.codegen.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.VendorExtension;
@@ -1009,171 +1008,32 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     /**
      * Return the example value of the parameter. Overrides the
-     * setParameterExampleValue(CodegenParameter, Parameter) method in
+     * getParameterExampleValue(Parameter) method in
      * DefaultCodegen to always call setParameterExampleValue(CodegenParameter)
      * in this class, which adds single quotes around strings from the
      * x-example property.
      *
-     * @param codegenParameter Codegen parameter
      * @param parameter        Parameter
      */
     @Override
-    public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
+    public String getParameterExampleValue(Parameter parameter) {
         if (parameter.getExample() != null) {
-            codegenParameter.setExample(parameter.getExample().toString());
+            return parameter.getExample().toString();
         }
 
         if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
             Example example = parameter.getExamples().values().iterator().next();
             if (example.getValue() != null) {
-                codegenParameter.setExample(example.getValue().toString());
+                return example.getValue().toString();
             }
         }
 
         Schema schema = parameter.getSchema();
         if (schema != null && schema.getExample() != null) {
-            codegenParameter.setExample(schema.getExample().toString());
+            return schema.getExample().toString();
         }
 
-        setParameterExampleValue(codegenParameter);
-    }
-
-    /**
-     * Return the example value of the parameter. Overrides the parent method in DefaultCodegen
-     * to not set examples on complex models, as they don't compile properly.
-     *
-     * @param codegenParameter Codegen parameter
-     * @param requestBody      Request body
-     */
-    @Override
-    public void setParameterExampleValue(CodegenParameter codegenParameter, RequestBody requestBody) {
-        CodegenSchema cp = codegenParameter.getSchema();
-
-        Content content = requestBody.getContent();
-
-        if (content.size() > 1) {
-            // @see ModelUtils.getSchemaFromContent()
-            LOGGER.warn("Multiple MediaTypes found, using only the first one");
-        }
-
-        MediaType mediaType = content.values().iterator().next();
-        if (mediaType.getExample() != null) {
-            codegenParameter.setExample(mediaType.getExample().toString());
-            return;
-        }
-
-        if (mediaType.getExamples() != null && !mediaType.getExamples().isEmpty()) {
-            Example example = mediaType.getExamples().values().iterator().next();
-            if (example.getValue() != null) {
-                codegenParameter.setExample(example.getValue().toString());
-                return;
-            }
-        }
-
-        setParameterExampleValue(codegenParameter);
-    }
-
-    public void setParameterExampleValue(CodegenParameter param) {
-        String example;
-        CodegenSchema p = getParameterSchema(param);
-
-        boolean hasAllowableValues = p.allowableValues != null && !p.allowableValues.isEmpty();
-        if (hasAllowableValues) {
-            //support examples for inline enums
-            final List<Object> values = (List<Object>) p.allowableValues.get("values");
-            example = String.valueOf(values.get(0));
-        } else if (p.defaultValue == null) {
-            example = p.example;
-        } else {
-            example = p.defaultValue;
-        }
-        CodegenSchema schema = param.getSchema();
-        if (schema == null) {
-            String contentType = (String) param.content().keySet().toArray()[0];
-            schema = param.content().get(contentType).schema;
-        }
-
-        if (schema.isString) {
-            if (schema.isUuid) {
-                if (example == null) {
-                    example = "UUID.randomUUID()";
-                } else {
-                    example = "UUID.fromString(\"" + example + "\")";
-                }
-            } else {
-                if (example == null) {
-                    example = param.baseName + "_example";
-                }
-                example = "\"" + escapeText(example) + "\"";
-            }
-        } else if (schema.isInteger || schema.isShort) {
-            if (example == null) {
-                example = "56";
-            }
-        } else if (schema.isLong) {
-            if (example == null) {
-                example = "56";
-            }
-            example = StringUtils.appendIfMissingIgnoreCase(example, "L");
-        } else if (schema.isFloat) {
-            if (example == null) {
-                example = "3.4";
-            }
-            example = StringUtils.appendIfMissingIgnoreCase(example, "F");
-        } else if (schema.isDouble) {
-            if (example == null) {
-                example = "3.4";
-            }
-            example = StringUtils.appendIfMissingIgnoreCase(example, "D");
-        } else if (schema.isBoolean) {
-            if (example == null) {
-                example = "true";
-            }
-        } else if (schema.isFile) {
-            if (example == null) {
-                example = "/path/to/file";
-            }
-            example = "new File(\"" + escapeText(example) + "\")";
-        } else if (schema.isDate) {
-            example = "new Date()";
-        } else if (schema.isDateTime) {
-            if (example == null) {
-                example = "LocalDate.now()";
-            } else {
-                example = "LocalDate.parse(\"" + example + "\")";
-            }
-        } else if (schema.isDecimal) {
-            if (example == null) {
-                example = "new BigDecimal(78)";
-            } else {
-                example = "new BigDecimal(\"" + example + "\")";
-            }
-        } else if (hasAllowableValues) {
-            //parameter is enum defined as a schema component
-            example = ".fromValue(\"" + example + "\")";
-        }
-
-        if (example == null) {
-            example = "null";
-        } else if (Boolean.TRUE.equals(p.isArray)) {
-
-            if (p.items.defaultValue != null) {
-
-                String innerExample;
-                if (schema.items.isString) {
-                    innerExample = "\"" + p.items.defaultValue + "\"";
-                } else {
-                    innerExample = p.items.defaultValue;
-                }
-                example = "Arrays.asList(" + innerExample + ")";
-            } else {
-                example = "Arrays.asList()";
-            }
-        } else if (Boolean.TRUE.equals(p.isMap)) {
-            example = "new HashMap()";
-        }
-
-        param.setExample(example);
+        return null;
     }
 
     @Override
@@ -1293,7 +1153,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         for (CodegenOperation op : operationList) {
             Collection<String> operationImports = new ConcurrentSkipListSet<>();
             for (CodegenParameter p : op.allParams) {
-                CodegenSchema cp = getParameterSchema(p);
+                CodegenSchema cp = p.getSetSchema();
             }
             op.vendorExtensions.put("x-java-import", operationImports);
 
