@@ -16,7 +16,7 @@ internal class MyclientcodegenGeneratorTest {
         // https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-cli/src/main/java/org/openapijsonschematools/codegen/cmd/Generate.java
         val configurator: CodegenConfigurator = CodegenConfigurator()
             .setGeneratorName("myClientCodegen")
-            .setInputSpec("https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
+            .setInputSpec("https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
             .setOutputDir("out/myClientCodegen")
 
         val clientOptInput: ClientOptInput = configurator.toClientOptInput()

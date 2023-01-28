@@ -34,7 +34,7 @@ Image to run OpenAPI Generator in the command line (see [OpenAPI Generator CLI D
 
 Old: `swaggerapi/swagger-codegen-cli`
 
-New: `openapijsonschematools/openapi-generator-cli`
+New: `openapi-json-schema-tools/openapi-json-schema-generator-cli`
 
 **OpenAPI Generator as web service**
 
@@ -42,7 +42,7 @@ Image to run OpenAPI Generator as a web service (see [OpenAPI Generator Online D
 
 Old: `swaggerapi/swagger-generator`
 
-New: `openapijsonschematools/openapi-generator-online`
+New: `openapi-json-schema-tools/openapi-json-schema-generator-online`
 
 
 ## New maven coordinates

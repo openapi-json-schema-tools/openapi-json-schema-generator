@@ -26,7 +26,7 @@ public class MyclientcodegenGeneratorTest {
     final CodegenConfigurator configurator = new CodegenConfigurator()
               .setGeneratorName("myClientCodegen") // use this codegen library
               .setInputSpec("../../../modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // sample OpenAPI file
-              // .setInputSpec("https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
+              // .setInputSpec("https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
               .setOutputDir("out/myClientCodegen"); // output directory
 
     final ClientOptInput clientOptInput = configurator.toClientOptInput();

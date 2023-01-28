@@ -24,7 +24,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |apiPackage|package for generated api classes| |org.openapijsonschematools.client.api|
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
 |artifactId|artifactId in generated pom.xml. This also becomes part of the generated library's filename| |openapi-java-client|
-|artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapijsonschematools/openapi-generator|
+|artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |artifactVersion|artifact version in generated pom.xml. This also becomes part of the generated library's filename| |1.0.0|
 |asyncNative|If true, async handlers will be used, instead of the sync version| |false|
 |bigDecimalAsString|Treat BigDecimal values as Strings to avoid precision loss.| |false|
@@ -65,9 +65,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |parentVersion|parent version in generated pom N.B. parentGroupId, parentArtifactId and parentVersion must all be specified for any of them to take effect| |null|
 |performBeanValidation|Perform BeanValidation| |false|
 |prependFormOrBodyParameters|Add form or body parameters to the beginning of the parameter list.| |false|
-|scmConnection|SCM connection in generated pom.xml| |scm:git:git@github.com:openapijsonschematools/openapi-generator.git|
-|scmDeveloperConnection|SCM developer connection in generated pom.xml| |scm:git:git@github.com:openapijsonschematools/openapi-generator.git|
-|scmUrl|SCM URL in generated pom.xml| |https://github.com/openapijsonschematools/openapi-generator|
+|scmConnection|SCM connection in generated pom.xml| |scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git|
+|scmDeveloperConnection|SCM developer connection in generated pom.xml| |scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git|
+|scmUrl|SCM URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |serializableModel|boolean - toggle "implements Serializable" for generated models| |false|
 |serializationLibrary|Serialization library, default depends on value of the option library|<dl><dt>**jsonb**</dt><dd>Use JSON-B as serialization library</dd><dt>**jackson**</dt><dd>Use Jackson as serialization library</dd><dt>**gson**</dt><dd>Use Gson as serialization library</dd></dl>|null|
 |snapshotVersion|Uses a SNAPSHOT version.|<dl><dt>**true**</dt><dd>Use a SnapShot Version</dd><dt>**false**</dt><dd>Use a Release Version</dd></dl>|null|

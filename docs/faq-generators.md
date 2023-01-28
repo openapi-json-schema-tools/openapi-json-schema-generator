@@ -75,7 +75,7 @@ The warning has no impact on the build process so you should be able to build th
 
 Here are the steps:
 ```
-git clone https://github.com/openapijsonschematools/openapi-generator.git
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
 cd openapi-generator/samples/client/petstore/objc/default/OpenAPIClientTests
 mvn integration-test
 ```
@@ -88,13 +88,13 @@ Besides `default` (folder) ObjC API client, there's also `core-data` for another
 
 Here are the steps:
 ```
-git clone https://github.com/openapijsonschematools/openapi-generator.git
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
 cd openapi-generator/samples/client/petstore/swift/default/OpenAPIClientTests
 mvn integration-test
 ```
 Besides `default` (folder), there's another folder `promisekit` for Swift API client with [PromiseKit support](https://github.com/mxcl/PromiseKit)
 ```
-git clone https://github.com/openapijsonschematools/openapi-generator.git
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
 cd openapi-generator/samples/client/petstore/swift/promisekit/OpenAPIClientTests
 mvn integration-test
 ```

@@ -112,7 +112,7 @@ Note the `my-codegen` is an option for `-g` now, and you can use the usual argum
 ```sh
 java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
   OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
@@ -120,7 +120,7 @@ For Windows users:
 ```
 java -cp "out/codegens/customCodegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
   OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
@@ -283,7 +283,7 @@ Each of these files creates reasonable defaults so you can get running quickly. 
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
-  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -g java \
   -o samples/client/petstore/java \
   -c path/to/config.json
@@ -300,7 +300,7 @@ apiPackage: "petstore"
 ```
 
 Supported config options can be different per language. Running `config-help -g {lang}` will show available options.
-**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapijsonschematools/openapi-generator/issues/new) and we'll look into it)
+**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues/new) and we'll look into it)
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar config-help -g java

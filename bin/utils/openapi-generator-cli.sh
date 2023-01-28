@@ -36,7 +36,7 @@ function latest.tag {
   echo $ver
 }
 
-ghrepo=openapijsonschematools/openapi-generator
+ghrepo=openapi-json-schema-tools/openapi-json-schema-generator
 groupid=org.openapijsonschematools
 artifactid=openapi-generator-cli
 ver=${OPENAPI_GENERATOR_VERSION:-$(latest.tag $ghrepo)}

@@ -520,7 +520,7 @@ At a minimum, `generate` requires:
 
 ### Examples
 
-The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml).
+The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml).
 
 #### Additional Properties
 

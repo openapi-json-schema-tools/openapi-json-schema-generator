@@ -133,7 +133,7 @@ const callouts = [
         content: (
             <>
                 <p>
-                    The <a href="https://github.com/openapijsonschematools/openapi-generator-cli" className="href">npm package
+                    The <a href="https://github.com/openapi-json-schema-tools/openapi-json-schema-generator-cli" className="href">npm package
                     wrapper</a> is cross-platform wrapper around the .jar artifact.
                 </p>
                 <p>
@@ -144,19 +144,19 @@ const callouts = [
 
                 <p><CodeBlock className="bash">{stripMargin`
                    |# install the latest version of "openapi-generator-cli"
-                   |npm install @openapijsonschematools/openapi-generator-cli -g
+                   |npm install @openapi-json-schema-tools/openapi-json-schema-generator-cli -g
                    |
                    |# use a specific version of "openapi-generator-cli"
                    |openapi-generator-cli version-manager set 6.0.0
                    |
                    |# Or install it as dev-dependency in your node.js projects
-                   |npm install @openapijsonschematools/openapi-generator-cli -D
+                   |npm install @openapi-json-schema-tools/openapi-json-schema-generator-cli -D
                 `}</CodeBlock></p>
 
                 {/*  <!-- /RELEASE_VERSION --> */}
 
                 <p>Then, <strong>generate</strong> a ruby client from a valid <a
-                    href="https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
+                    href="https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
                     className="href">petstore.yaml</a> doc:</p>
 
                 <p><CodeBlock className="bash">{`
@@ -177,7 +177,7 @@ const callouts = [
 
                 <p>
                     Then, <strong>generate</strong> a ruby client from a valid <a
-                    href="https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
+                    href="https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
                     className="href">petstore.yaml</a> doc:
                 </p>
 
@@ -195,14 +195,14 @@ const callouts = [
                     installing via homebrew, or for developers who are unable to install Java or upgrade the installed
                     version.</p>
                 <p>To generate code from a valid <a
-                    href="https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml">petstore.yaml</a> doc
+                    href="https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml">petstore.yaml</a> doc
                     with this image, you'll need to mount a local location as a volume.
                 </p>
                 <p>
                     <CodeBlock className="bash">
                         {stripMargin`
                 |docker run --rm \\
-                |    -v $PWD:/local openapijsonschematools/openapi-generator-cli generate \\
+                |    -v $PWD:/local openapi-json-schema-tools/openapi-json-schema-generator-cli generate \\
                 |    -i /local/petstore.yaml \\
                 |    -g go \\
                 |    -o /local/out/go

@@ -8,6 +8,6 @@ additionalProperties:
   podAuthors: ""
   podSummary: PetstoreClient
   projectName: PetstoreClient
-  podHomepage: https://github.com/openapijsonschematools/openapi-generator
+  podHomepage: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
   useBacktickEscapes: true
   generateModelAdditionalProperties: false

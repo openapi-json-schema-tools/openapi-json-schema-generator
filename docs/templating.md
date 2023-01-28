@@ -7,11 +7,11 @@ It's easy to work with templates for codegen!
 
 For maybe 90% of use cases, you will only need to modify the mustache template files to create your own custom generated code. If you need to include additional files in your generated output, manipulate the OpenAPI document inputs, or implement your own vendor extensions or other logic, you'll want to read [customization](./customization.md) after you read this document. Be sure to start here first, because templating is the easier concept and you'll need it for more advanced use cases.
 
-The generator workflow has [transforming logic](https://github.com/openapijsonschematools/openapi-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages) as well as templates for each generation of code.
+The generator workflow has [transforming logic](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages) as well as templates for each generation of code.
 
 Each generator will create a data structure from the OpenAPI document; OpenAPI 2.0 and OpenAPI 3.x documents are normalized into the same API model within the generator. This model is then applied to the templates.  While generators do not need to perform transformations, it's often necessary in order to add more advanced support for your language or framework. You may need to refer to the generator implementation to understand some of the logic while creating or customizing templates (see [ScalaFinchServerCodegen.java](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/ScalaFinchServerCodegen.java) for an advanced example).
 
-The transform logic needs to implement [CodegenConfig.java](https://github.com/openapijsonschematools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapijsonschematools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
+The transform logic needs to implement [CodegenConfig.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
 
 ## Modifying Templates
 
@@ -247,7 +247,7 @@ Now we're ready to generate the client with our simple changes. When we pass the
 openapi-generator generate -g java --library resteasy \
     -t ~/.openapi-generator/templates/Java \
     -o ~/.openapi-generator/example \
-    -i https://raw.githubusercontent.com/openapijsonschematools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
 ```
 
 Make sure your custom template compiles:
