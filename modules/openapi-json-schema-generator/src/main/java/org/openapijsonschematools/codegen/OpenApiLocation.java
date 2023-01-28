@@ -1,6 +1,7 @@
 package org.openapijsonschematools.codegen;
 
 import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 
 public interface OpenApiLocation<T> {
     // stores location info about a jsonPath location

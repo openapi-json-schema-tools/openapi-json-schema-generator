@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -6,9 +6,9 @@ import java.util.Objects;
 
 @JsonIgnoreProperties({"ref"})
 public class CodegenRefInfo<T> {
-    private T ref;
-    private String refClass;
-    private String refModule;
+    final public T ref;
+    final public String refClass;
+    final public String refModule;
 
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append("refModule=").append(refModule);
@@ -44,9 +44,4 @@ public class CodegenRefInfo<T> {
         this.refClass = refClass;
         this.refModule = refModule ;
     }
-
-    public T getRef() { return ref; }
-
-    public String getRefClass() { return refClass; }
-    public String getRefModule() { return refModule; }
 }

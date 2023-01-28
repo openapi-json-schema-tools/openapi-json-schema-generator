@@ -17,6 +17,8 @@
 
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
+
 import java.util.*;
 
 /**
@@ -37,9 +39,9 @@ public class CodegenParameter extends CodegenHeaderBase implements OpenApiLocati
         if (refInfo == null) {
             return null;
         }
-        CodegenParameter refObject = refInfo.getRef();
+        CodegenParameter refObject = refInfo.ref;
         while (refObject.refInfo != null) {
-            refObject = refObject.refInfo.getRef();
+            refObject = refObject.refInfo.ref;
         }
         return refObject;
     }

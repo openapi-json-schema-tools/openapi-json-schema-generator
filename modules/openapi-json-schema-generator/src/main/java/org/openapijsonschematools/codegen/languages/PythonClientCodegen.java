@@ -2049,7 +2049,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.refInfo().getRefModule();
+            return "from " + packageName() + ".components.schema import " + schema.refInfo().refModule;
         }
         String[] classPieces = className.split("\\.");
         return "from " + packageName() + ".components.schema import " + classPieces[0];

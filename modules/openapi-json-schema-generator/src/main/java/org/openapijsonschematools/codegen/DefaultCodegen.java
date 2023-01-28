@@ -42,6 +42,7 @@ import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
@@ -2747,21 +2748,21 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected String getImport(CodegenRefInfo refInfo) {
         String prefix = "from " + packageName + ".components.";
-        if (refInfo.getRef() instanceof CodegenRequestBody) {
-            return prefix + "request_bodies import " + refInfo.getRefModule();
-        } else if (refInfo.getRef() instanceof CodegenHeader) {
-            return prefix + "headers import " + refInfo.getRefModule();
-        } else if (refInfo.getRef() instanceof CodegenResponse) {
-            return prefix + "responses import " + refInfo.getRefModule();
-        } else if (refInfo.getRef() instanceof CodegenParameter) {
-            return prefix + "parameters import " + refInfo.getRefModule();
+        if (refInfo.ref instanceof CodegenRequestBody) {
+            return prefix + "request_bodies import " + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenHeader) {
+            return prefix + "headers import " + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenResponse) {
+            return prefix + "responses import " + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenParameter) {
+            return prefix + "parameters import " + refInfo.refModule;
         }
         return null;
     }
 
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return schema.refInfo().getRefClass();
+            return schema.refInfo().refClass;
         }
         return className;
     }
@@ -2823,7 +2824,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         // referenced or inline schemas
-        if (schema.refInfo() != null && schema.refInfo().getRefModule() != null) {
+        if (schema.refInfo() != null && schema.refInfo().refModule != null) {
             // self reference classes do not contain refModule
             imports.add(getImport(null, schema));
         }
@@ -4616,7 +4617,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         Optional<Schema> referencedSchema = ModelUtils.getSchemas(openAPI).entrySet().stream()
-                .filter(entry -> Objects.equals(var.refInfo().getRefClass(), toModelName(entry.getKey())))
+                .filter(entry -> Objects.equals(var.refInfo().refClass, toModelName(entry.getKey())))
                 .map(Map.Entry::getValue)
                 .findFirst();
         List<Map<String, Object>> enumVars = buildEnumVars(values, var);

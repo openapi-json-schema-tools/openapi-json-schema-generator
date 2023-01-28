@@ -1,5 +1,7 @@
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
+
 import java.util.Objects;
 
 /**
@@ -43,9 +45,9 @@ public class CodegenRequestBody extends CodegenRequestBodyBase implements OpenAp
         if (refInfo == null) {
             return null;
         }
-        CodegenRequestBody refObject = refInfo.getRef();
+        CodegenRequestBody refObject = refInfo.ref;
         while (refObject.refInfo != null) {
-            refObject = refObject.refInfo.getRef();
+            refObject = refObject.refInfo.ref;
         }
         return refObject;
     }

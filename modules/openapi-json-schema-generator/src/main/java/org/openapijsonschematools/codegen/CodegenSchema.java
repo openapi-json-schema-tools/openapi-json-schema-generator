@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 
 import java.util.*;
 
@@ -588,9 +589,9 @@ public class CodegenSchema implements OpenApiSchema, OpenApiLocation<CodegenSche
         if (refInfo == null) {
             return null;
         }
-        CodegenSchema refObject = refInfo.getRef();
+        CodegenSchema refObject = refInfo.ref;
         while (refObject.refInfo != null) {
-            refObject = refObject.refInfo.getRef();
+            refObject = refObject.refInfo.ref;
         }
         return refObject;
     }

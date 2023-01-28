@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen;
 
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 
 import java.util.*;
 
@@ -106,9 +107,9 @@ public class CodegenResponse implements OpenApiLocation<CodegenResponse> {
         if (refInfo == null) {
             return null;
         }
-        CodegenResponse refObject = refInfo.getRef();
+        CodegenResponse refObject = refInfo.ref;
         while (refObject.refInfo != null) {
-            refObject = refObject.refInfo.getRef();
+            refObject = refObject.refInfo.ref;
         }
         return refObject;
     }
