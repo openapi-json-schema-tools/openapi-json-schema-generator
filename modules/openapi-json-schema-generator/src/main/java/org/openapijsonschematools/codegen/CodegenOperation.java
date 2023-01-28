@@ -31,7 +31,7 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean subresourceOperation, isMultipart,
+    public boolean isMultipart,
             isDeprecated, isCallbackRequest, uniqueItems,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public String operationId,
@@ -291,7 +291,6 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", subresourceOperation=").append(subresourceOperation);
         sb.append(", isMultipart=").append(isMultipart);
         sb.append(", isRestfulIndex=").append(isRestfulIndex());
         sb.append(", isRestfulShow=").append(isRestfulShow());
@@ -348,8 +347,7 @@ public class CodegenOperation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
-        return subresourceOperation == that.subresourceOperation &&
-                isMultipart == that.isMultipart &&
+        return isMultipart == that.isMultipart &&
                 isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
                 uniqueItems == that.uniqueItems &&
@@ -395,8 +393,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(subresourceOperation,
-                isMultipart,
+        return Objects.hash(isMultipart,
                 isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,

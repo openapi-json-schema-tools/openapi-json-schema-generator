@@ -248,14 +248,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations) {
-        super.addOperationToGroup(tag, resourcePath, operation, co, operations);
-        if (MICROPROFILE.equals(getLibrary())) {
-            co.subresourceOperation = !co.path.name.isEmpty();
-        }
-    }
-
-    @Override
     public void processOpts() {
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";

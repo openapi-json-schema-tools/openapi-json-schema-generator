@@ -119,9 +119,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
     @Override
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations) {
         final String basePath = StringUtils.substringBefore(StringUtils.removeStart(resourcePath, "/"), "/");
-        if (!StringUtils.isEmpty(basePath)) {
-            co.subresourceOperation = !co.path.name.isEmpty();
-        }
         if (useTags) {
             super.addOperationToGroup(tag, resourcePath, operation, co, operations);
         } else {
@@ -226,9 +223,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
                 } else {
                     commonPath = getCommonPath(commonPath, operation.path.name);
                 }
-            }
-            for (CodegenOperation co : ops) {
-                co.subresourceOperation = co.path.name.length() > 1;
             }
             objs.put("commonPath", "/".equals(commonPath) ? StringUtils.EMPTY : commonPath);
         }
