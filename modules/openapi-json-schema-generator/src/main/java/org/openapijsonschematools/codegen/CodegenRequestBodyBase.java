@@ -68,7 +68,7 @@ abstract class CodegenRequestBodyBase {
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append(", description='").append(name).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');

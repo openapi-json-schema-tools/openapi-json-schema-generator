@@ -39,6 +39,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.model.ApiInfoMap;
+import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
@@ -1003,12 +1004,12 @@ public class DefaultGenerator implements Generator {
             }
         }
         // schema
-        CodegenSchema schema = header.getSchema();
+        CodegenSchema schema = header.schema;
         if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
         }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content();
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content;
         if (schema == null && content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }

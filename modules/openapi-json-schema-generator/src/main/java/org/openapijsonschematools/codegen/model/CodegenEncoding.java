@@ -1,7 +1,5 @@
 package org.openapijsonschematools.codegen.model;
 
-import org.openapijsonschematools.codegen.CodegenHeader;
-
 import java.util.Map;
 import java.util.Objects;
 

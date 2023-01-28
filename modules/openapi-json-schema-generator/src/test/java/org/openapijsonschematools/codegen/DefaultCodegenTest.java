@@ -39,6 +39,7 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.parser.core.models.ParseOptions;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
+import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;

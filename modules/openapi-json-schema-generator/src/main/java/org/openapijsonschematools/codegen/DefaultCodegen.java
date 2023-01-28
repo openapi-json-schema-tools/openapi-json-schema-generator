@@ -40,6 +40,7 @@ import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
+import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
@@ -1651,6 +1652,33 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public String toExampleValue(Schema schema, Object objExample) {
+        return null;
+    }
+
+
+    /**
+     * Return the example value of the parameter.
+     *
+     * @param header        Header
+     */
+    public String getHeaderExampleValue(Header header) {
+        if (header.getExample() != null) {
+            return header.getExample().toString();
+        }
+
+        if (header.getExamples() != null && !header.getExamples().isEmpty()) {
+            Example example = header.getExamples().values().iterator().next();
+            if (example.getValue() != null) {
+                return example.getValue().toString();
+            }
+        }
+
+        Schema schema = header.getSchema();
+        if (schema != null && schema.getExample() != null) {
+            return schema.getExample().toString();
+        }
+        // TODO add content-type
+        // TODO add calculated example from codegenheader.schema
         return null;
     }
 
@@ -3468,20 +3496,77 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
-
-        CodegenHeader codegenHeader = codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader());
-        String headerRef = header.get$ref();
-        setHeaderLocationInfo(headerRef, sourceJsonPath, sourceJsonPath, codegenHeader);
-        if (headerRef != null) {
-            codegenHeader.imports.add(getImport(codegenHeader.refInfo()));
-            return codegenHeader;
+        String ref = header.get$ref();
+        String expectedComponentType = "headers";
+        CodegenRefInfo refInfo = null;
+        TreeSet<String> imports = null;
+        if (ref != null) {
+            String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
+            String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
+            CodegenHeader rb = fromHeader(ModelUtils.getReferencedHeader(openAPI, header), ref);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            imports =  new TreeSet<>();
+            imports.add(getImport(refInfo));
+        }
+        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        String[] pathPieces = sourceJsonPath.split("/");
+        // #/components/headers/A
+        String componentModule = null;
+        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            componentModule = toComponentModule(pathPieces[3], expectedComponentType);
         }
 
-        setHeaderInfo(header, codegenHeader, sourceJsonPath);
+        String description = escapeText(header.getDescription());
+        String unescapedDescription = header.getDescription();
+        String jsonSchema = Json.pretty(header);
+        Map<String, Object> vendorExtensions = null;
+        if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
+            vendorExtensions = header.getExtensions();
+        }
+        boolean required = false;
+        if (header.getRequired() != null) {
+            required = header.getRequired();
+        }
+        LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
+        if (header.getContent() != null) {
+            content = getContent(header.getContent(), sourceJsonPath + "/content");
+        }
+        boolean isDeprecated = false;
+        if (header.getDeprecated() != null) {
+            isDeprecated = header.getDeprecated();
+        }
 
+        // the parameter model name is obtained from the schema $ref
+        // e.g. #/components/schemas/list_pageQuery_parameter => toModelName(list_pageQuery_parameter)
+        CodegenSchema schema = null;
+        if (header.getSchema() != null) {
+            String usedSourceJsonPath = sourceJsonPath + "/schema";
+            schema = fromSchema(
+                    header.getSchema(),
+                    usedSourceJsonPath,
+                    usedSourceJsonPath
+            );
+        }
+
+        // the default value is false
+        // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#user-content-parameterexplode
+        boolean isExplode = header.getExplode() == null ? false : header.getExplode();
+
+        String style = null;
         if (header.getStyle() != null) {
-            codegenHeader.style = header.getStyle().toString();
+            style = header.getStyle().toString();
         }
+        TreeSet<String> finalImports = imports;
+        String finalComponentModule = componentModule;
+        String finalStyle = style;
+        CodegenRefInfo finalRefInfo = refInfo;
+        Map<String, Object> finalVendorExtensions = vendorExtensions;
+        boolean finalRequired = required;
+        LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
+        boolean finalIsDeprecated = isDeprecated;
+        CodegenSchema finalSchema = schema;
+        String example = getHeaderExampleValue(header);
+        CodegenHeader codegenHeader = codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo));
         return codegenHeader;
     }
 
@@ -5048,23 +5133,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         CodegenKey name = getKey(usedName, expectedComponentType);
         return name;
-    }
-
-    private void setHeaderLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenHeader> instance) {
-        String expectedComponentType = "headers";
-        if (ref != null) {
-            String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
-            String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
-            CodegenHeader rb = codegenHeaderCache.computeIfAbsent(ref, s -> new CodegenHeader());
-            instance.setRefInfo(new CodegenRefInfo<>(rb, refClass, refModule));
-        }
-        CodegenKey name = getName(expectedComponentType, currentJsonPath);
-        instance.setName(name);
-        String[] pathPieces = currentJsonPath.split("/");
-        // #/components/headers/A
-        if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            instance.setComponentModule(toComponentModule(pathPieces[3], expectedComponentType));
-        }
     }
 
     private void setParameterLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, OpenApiLocation<CodegenParameter> instance) {
