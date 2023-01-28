@@ -825,16 +825,14 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         .filter(isSerializable)
                         .limit(1)
                         .collect(Collectors.toList());
-                    operation.hasConsumes = operation.consumes != null && !operation.consumes.isEmpty();
 
                     operation.produces = operation.produces == null ? null : operation.produces.stream()
                         .filter(isSerializable)
                         .collect(Collectors.toList());
-                    operation.hasProduces = operation.produces != null && !operation.produces.isEmpty();
                 }
 
                 // set multipart against all relevant operations
-                if (operation.hasConsumes == Boolean.TRUE) {
+                if (operation.consumes != null && !operation.consumes.isEmpty()) {
                     if (isMultipartType(operation.consumes)) {
                         operation.isMultipart = Boolean.TRUE;
                     }

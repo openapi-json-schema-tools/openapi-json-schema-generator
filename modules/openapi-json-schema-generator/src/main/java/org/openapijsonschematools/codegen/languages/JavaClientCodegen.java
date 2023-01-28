@@ -714,7 +714,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             if (operations != null) {
                 List<CodegenOperation> ops = operations.getOperation();
                 for (CodegenOperation operation : ops) {
-                    if (operation.hasConsumes == Boolean.TRUE) {
+                    if (operation.consumes != null && !operation.consumes.isEmpty()) {
                         if (isMultipartType(operation.consumes)) {
                             operation.isMultipart = Boolean.TRUE;
                         } else {

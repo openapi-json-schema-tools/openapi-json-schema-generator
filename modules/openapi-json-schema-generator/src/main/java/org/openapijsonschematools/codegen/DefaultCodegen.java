@@ -3102,8 +3102,6 @@ public class DefaultCodegen implements CodegenConfig {
         op.summary = escapeText(operation.getSummary());
         op.unescapedNotes = operation.getDescription();
         op.notes = escapeText(operation.getDescription());
-        op.hasConsumes = false;
-        op.hasProduces = false;
         if (operation.getDeprecated() != null) {
             op.isDeprecated = operation.getDeprecated();
         }
@@ -3303,9 +3301,6 @@ public class DefaultCodegen implements CodegenConfig {
         // legacy support
         op.nickname = op.operationId;
 
-        if (op.allParams.size() > 0) {
-            op.hasParams = true;
-        }
         return op;
     }
 
@@ -4847,7 +4842,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (!mediaTypeList.isEmpty()) {
             codegenOperation.consumes = mediaTypeList;
-            codegenOperation.hasConsumes = true;
         }
     }
 
@@ -4912,7 +4906,6 @@ public class DefaultCodegen implements CodegenConfig {
                 Map<String, String> mediaType = new HashMap<>();
                 mediaType.put("mediaType", encodedKey);
                 codegenOperation.produces.add(mediaType);
-                codegenOperation.hasProduces = Boolean.TRUE;
             }
         }
     }

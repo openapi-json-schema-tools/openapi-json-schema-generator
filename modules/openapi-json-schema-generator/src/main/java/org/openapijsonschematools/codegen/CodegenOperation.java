@@ -31,8 +31,7 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean hasConsumes, hasProduces, hasParams,
-            subresourceOperation, isMultipart,
+    public boolean subresourceOperation, isMultipart,
             isDeprecated, isCallbackRequest, uniqueItems,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public String operationId,
@@ -292,9 +291,6 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", hasConsumes=").append(hasConsumes);
-        sb.append(", hasProduces=").append(hasProduces);
-        sb.append(", hasParams=").append(hasParams);
         sb.append(", subresourceOperation=").append(subresourceOperation);
         sb.append(", isMultipart=").append(isMultipart);
         sb.append(", isRestfulIndex=").append(isRestfulIndex());
@@ -352,10 +348,7 @@ public class CodegenOperation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
-        return hasConsumes == that.hasConsumes &&
-                hasProduces == that.hasProduces &&
-                hasParams == that.hasParams &&
-                subresourceOperation == that.subresourceOperation &&
+        return subresourceOperation == that.subresourceOperation &&
                 isMultipart == that.isMultipart &&
                 isDeprecated == that.isDeprecated &&
                 isCallbackRequest == that.isCallbackRequest &&
@@ -402,8 +395,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(hasConsumes, hasProduces, hasParams,
-                subresourceOperation,
+        return Objects.hash(subresourceOperation,
                 isMultipart,
                 isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
