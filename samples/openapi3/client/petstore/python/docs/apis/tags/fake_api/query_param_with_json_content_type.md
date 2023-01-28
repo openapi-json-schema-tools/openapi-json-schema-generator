@@ -8,7 +8,7 @@ query param with json content-type
 
 ```python
 import petstore_api
-from petstore_api.apis.tags import 
+from petstore_api.apis.tags import fake_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -19,7 +19,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = .(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
     query_params = {
@@ -32,7 +32,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling ->query_param_with_json_content_type: %s\n" % e)
+        print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
 ```
 ### Parameters
 

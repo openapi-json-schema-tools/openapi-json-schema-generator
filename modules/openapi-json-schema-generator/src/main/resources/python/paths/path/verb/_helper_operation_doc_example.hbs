@@ -1,11 +1,11 @@
 ```python
 import {{{packageName}}}
 {{#if tag}}
-from {{packageName}}.{{apiPackage}}.tags import {{tag.getModuleName}}
+from {{packageName}}.{{apiPackage}}.tags import {{tag.moduleName}}
 {{else}}
 {{#each tags}}
 {{#if @first}}
-from {{packageName}}.{{apiPackage}}.tags import {{getModuleName}}
+from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
 {{/if}}
 {{/each}}
 {{/if}}
@@ -18,11 +18,11 @@ from pprint import pprint
 with {{{packageName}}}.ApiClient(configuration) as api_client:
     # Create an instance of the API class
 {{#if tag}}
-    api_instance = {{tag.getModuleName}}.{{tag.getClassName}}(api_client)
+    api_instance = {{tag.moduleName}}.{{tag.className}}(api_client)
 {{else}}
 {{#each tags}}
 {{#if @first}}
-    api_instance = {{getModuleName}}.{{getClassName}}(api_client)
+    api_instance = {{moduleName}}.{{className}}(api_client)
 {{/if}}
 {{/each}}
 {{/if}}
@@ -132,11 +132,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
-        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId}}: %s\n" % e)
 {{else}}
 {{#each tags}}
 {{#if @first}}
-        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId}}: %s\n" % e)
 {{/if}}
 {{/each}}
 {{/if}}
@@ -219,11 +219,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
-        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId}}: %s\n" % e)
 {{else}}
 {{#each tags}}
 {{#if @first}}
-        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId}}: %s\n" % e)
 {{/if}}
 {{/each}}
 {{/if}}
@@ -240,11 +240,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
 {{#if tag}}
-        print("Exception when calling {{tag.getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId}}: %s\n" % e)
 {{else}}
 {{#each tags}}
 {{#if @first}}
-        print("Exception when calling {{getClassName}}->{{operationId}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId}}: %s\n" % e)
 {{/if}}
 {{/each}}
 {{/if}}
