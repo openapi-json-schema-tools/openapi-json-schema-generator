@@ -3270,7 +3270,12 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        op.httpMethod = httpMethod.toUpperCase(Locale.ROOT);
+        op.httpMethod = new CodegenKey(
+                httpMethod,
+                true,
+                org.openapijsonschematools.codegen.utils.StringUtils.underscore(httpMethod),
+                org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod)
+        );
 
         // move "required" parameters in front of "optional" parameters
         if (sortParamsByRequiredFlag) {

@@ -1,5 +1,5 @@
 @typing.overload
 {{#with this}}
-def {{httpMethod}}(
+def {{httpMethod.name}}(
 {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType=contentType}}
 {{/with}}

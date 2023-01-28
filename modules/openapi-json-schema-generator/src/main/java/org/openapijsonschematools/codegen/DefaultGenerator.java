@@ -518,7 +518,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
                 String path = co.path.name;
-                String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod;
+                String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod.name;
                 String pathModuleName = co.path.snakeCaseName;
                 if (!pathToPathModule.containsKey(path)) {
                     pathToPathModule.put(path, pathModuleName);
@@ -563,7 +563,7 @@ public class DefaultGenerator implements Generator {
                         Map<String, Object> endpointTestMap = new HashMap<>();
                         endpointTestMap.put("operation", co);
                         endpointTestMap.put("packageName", packageName);
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod + ".py"));
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod.name + ".py"));
                         testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
                         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
                         testFiles.add(Arrays.asList(new HashMap<>(), "__init__.hbs", outputFilename));
@@ -1398,7 +1398,7 @@ public class DefaultGenerator implements Generator {
         for (OperationsMap om: allOperations) {
             OperationMap apiOperations = om.getOperations();
             for (CodegenOperation operation: apiOperations.getOperation()) {
-                String pathAndHttpMethod = operation.path.name + "|" + operation.httpMethod;
+                String pathAndHttpMethod = operation.path.name + "|" + operation.httpMethod.name;
                 if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
                     pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
                 }

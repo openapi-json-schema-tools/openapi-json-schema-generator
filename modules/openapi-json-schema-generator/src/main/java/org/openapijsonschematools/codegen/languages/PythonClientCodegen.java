@@ -1898,26 +1898,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     /**
-     * Custom version of this method so httpMethod can have a different case
-     *
-     * @param path       the path of the operation
-     * @param httpMethod HTTP method
-     * @param operation  OAS operation object
-     * @param servers    list of servers
-     * @return the resultant CodegenOperation instance
-     */
-    @Override
-    public CodegenOperation fromOperation(String path,
-                                          String httpMethod,
-                                          Operation operation,
-                                          List<Server> servers) {
-        CodegenOperation co = super.fromOperation(path, httpMethod, operation, servers);
-        co.httpMethod = httpMethod.toLowerCase(Locale.ROOT);
-
-        return co;
-    }
-
-    /**
      * Custom version of this method to prevent mutation of
      * codegenOperation.operationIdLowerCase/operationIdSnakeCase
      * Property Usages:

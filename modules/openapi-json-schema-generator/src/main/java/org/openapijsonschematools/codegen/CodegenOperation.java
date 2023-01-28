@@ -35,8 +35,9 @@ public class CodegenOperation {
             subresourceOperation, isMultipart,
             isDeprecated, isCallbackRequest, uniqueItems, hasDefaultResponse = false,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public String operationId, httpMethod,
+    public String operationId,
             summary, unescapedNotes, notes, baseName;
+    CodegenKey httpMethod;
     public CodegenKey path;
     public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
@@ -211,7 +212,7 @@ public class CodegenOperation {
      * @return true if act as Restful index method, false otherwise
      */
     public boolean isRestfulIndex() {
-        return "GET".equalsIgnoreCase(httpMethod) && "".equals(pathWithoutBaseName());
+        return "GET".equalsIgnoreCase(httpMethod.name) && "".equals(pathWithoutBaseName());
     }
 
     /**
@@ -220,7 +221,7 @@ public class CodegenOperation {
      * @return true if act as Restful show method, false otherwise
      */
     public boolean isRestfulShow() {
-        return "GET".equalsIgnoreCase(httpMethod) && isMemberPath();
+        return "GET".equalsIgnoreCase(httpMethod.name) && isMemberPath();
     }
 
     /**
@@ -229,7 +230,7 @@ public class CodegenOperation {
      * @return true if act as Restful create method, false otherwise
      */
     public boolean isRestfulCreate() {
-        return "POST".equalsIgnoreCase(httpMethod) && "".equals(pathWithoutBaseName());
+        return "POST".equalsIgnoreCase(httpMethod.name) && "".equals(pathWithoutBaseName());
     }
 
     /**
@@ -238,7 +239,7 @@ public class CodegenOperation {
      * @return true if act as Restful update method, false otherwise
      */
     public boolean isRestfulUpdate() {
-        return Arrays.asList("PUT", "PATCH").contains(httpMethod.toUpperCase(Locale.ROOT)) && isMemberPath();
+        return Arrays.asList("PUT", "PATCH").contains(httpMethod.name.toUpperCase(Locale.ROOT)) && isMemberPath();
     }
 
     /**
@@ -247,7 +248,7 @@ public class CodegenOperation {
      * @return true request method is PUT, PATCH or POST; false otherwise
      */
     public boolean isBodyAllowed() {
-        return Arrays.asList("PUT", "PATCH", "POST").contains(httpMethod.toUpperCase(Locale.ROOT));
+        return Arrays.asList("PUT", "PATCH", "POST").contains(httpMethod.name.toUpperCase(Locale.ROOT));
     }
 
     /**
@@ -256,7 +257,7 @@ public class CodegenOperation {
      * @return true if act as Restful destroy method, false otherwise
      */
     public boolean isRestfulDestroy() {
-        return "DELETE".equalsIgnoreCase(httpMethod) && isMemberPath();
+        return "DELETE".equalsIgnoreCase(httpMethod.name) && isMemberPath();
     }
 
     /**

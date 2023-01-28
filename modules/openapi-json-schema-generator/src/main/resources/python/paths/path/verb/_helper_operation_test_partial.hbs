@@ -1,4 +1,4 @@
-api_response = self.api.{{httpMethod}}(
+api_response = self.api.{{httpMethod.name}}(
 {{#if requestBody}}
     body=body,
     content_type=content_type
@@ -10,7 +10,7 @@ api_response = self.api.{{httpMethod}}(
 self.assert_pool_manager_request_called_with(
     mock_request,
     self.configuration_.host + '{{{path}}}',
-    method='{{httpMethod}}'.upper(),
+    method='{{httpMethod.name}}'.upper(),
 {{#if requestBody}}
     body=self.json_bytes(payload),
     content_type=content_type,

@@ -1531,17 +1531,17 @@ public class DefaultCodegenTest {
             Assert.assertEquals(req.responses.size(), 2);
 
             CodegenKey ck = codegen.getKey("application/json");
-            switch (req.httpMethod.toLowerCase(Locale.getDefault())) {
+            switch (req.httpMethod.name) {
                 case "post":
                     Assert.assertEquals(req.operationId, "onDataDataPost");
-                    Assert.assertEquals(req.requestBody.getContent().get(ck).getSchema().getRefInfo().getRefClass(), "NewNotificationData");
+                    Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo().refClass, "NewNotificationData");
                     break;
                 case "delete":
                     Assert.assertEquals(req.operationId, "onDataDataDelete");
-                    Assert.assertEquals(req.requestBody.getContent().get(ck).getSchema().getRefInfo().getRefClass(), "DeleteNotificationData");
+                    Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo().refClass, "DeleteNotificationData");
                     break;
                 default:
-                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod));
+                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod.name));
             }
         });
     }
