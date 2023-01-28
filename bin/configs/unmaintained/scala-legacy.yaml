@@ -4,6 +4,6 @@ outputDir: samples/client/petstore/scala-httpclient-deprecated
 inputSpec: modules/openapi-generator/src/test/resources/3_0/petstore.yaml
 templateDir: modules/openapi-generator/src/main/resources/scala-httpclient
 additionalProperties:
-  apiPackage: org.openapitools.example.api
-  invokerPackage: org.openapitools.example.invoker
+  apiPackage: org.openapijsonschematools.example.api
+  invokerPackage: org.openapijsonschematools.example.invoker
   artifactId: scala-legacy-petstore

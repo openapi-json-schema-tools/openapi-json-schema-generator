@@ -1,6 +1,6 @@
 package com.my.company.codegen;
 
-import org.openapitools.codegen.*;
+import org.openapijsonschematools.codegen.*;
 import io.swagger.models.properties.*;
 
 import java.util.*;
@@ -16,7 +16,7 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
    * Configures the type of generator.
    *
    * @return  the CodegenType for this generator
-   * @see     org.openapitools.codegen.CodegenType
+   * @see     org.openapijsonschematools.codegen.CodegenType
    */
   public CodegenType getTag() {
     return CodegenType.DOCUMENTATION;
@@ -100,12 +100,12 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
     /**
      * Api Package.  Optional, if needed, this can be used in templates
      */
-    apiPackage = "org.openapitools.api";
+    apiPackage = "org.openapijsonschematools.api";
 
     /**
      * Model Package.  Optional, if needed, this can be used in templates
      */
-    modelPackage = "org.openapitools.model";
+    modelPackage = "org.openapijsonschematools.model";
 
     /**
      * Reserved words.  Override this with reserved words specific to your language

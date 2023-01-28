@@ -7,6 +7,6 @@ additionalProperties:
   apiPackage: api.another.level
   modelPackage: model.some.levels.deep
   withSeparateModelsAndApi: true
-  npmName: '@openapitools/typescript-axios-petstore'
+  npmName: '@openapijsonschematools/typescript-axios-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   snapshot: false

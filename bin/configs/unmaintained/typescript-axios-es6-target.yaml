@@ -5,6 +5,6 @@ templateDir: modules/openapi-generator/src/main/resources/typescript-axios
 additionalProperties:
   npmVersion: 1.0.0
   supportsES6: true
-  npmName: '@openapitools/typescript-axios-petstore'
+  npmName: '@openapijsonschematools/typescript-axios-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   snapshot: false

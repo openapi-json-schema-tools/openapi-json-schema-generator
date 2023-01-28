@@ -5,7 +5,7 @@
 # like such:
 
 # use the package from the `apiPackage` variable
-package: org.openapitools.api
+package: org.openapijsonschematools.api
 
 # operations block
 classname: UserApi

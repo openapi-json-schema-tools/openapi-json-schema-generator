@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.openapitools</groupId>
+        <groupId>org.openapijsonschematools</groupId>
         <artifactId>openapi-json-schema-generator-project</artifactId>
         <version>${revision}</version>
         <relativePath>../..</relativePath>
@@ -12,7 +12,7 @@
     <properties>
         <spring-boot.version>2.5.5</spring-boot.version>
         <springfox-version>3.0.0</springfox-version>
-        <sonar.exclusions>**/org/openapitools/codegen/online/**/*</sonar.exclusions>
+        <sonar.exclusions>**/org/openapijsonschematools/codegen/online/**/*</sonar.exclusions>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -119,7 +119,7 @@
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.openapitools</groupId>
+            <groupId>org.openapijsonschematools</groupId>
             <artifactId>openapi-json-schema-generator</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

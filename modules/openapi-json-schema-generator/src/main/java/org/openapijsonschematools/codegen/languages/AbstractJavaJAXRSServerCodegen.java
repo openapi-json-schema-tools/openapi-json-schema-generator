@@ -62,11 +62,11 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
         super();
 
         sourceFolder = "src/gen/java";
-        invokerPackage = "org.openapitools.api";
+        invokerPackage = "org.openapijsonschematools.api";
         artifactId = "openapi-jaxrs-server";
         dateLibrary = "legacy"; //TODO: add joda support to all jax-rs
-        apiPackage = "org.openapitools.api";
-        modelPackage = "org.openapitools.model";
+        apiPackage = "org.openapijsonschematools.api";
+        modelPackage = "org.openapijsonschematools.model";
 
         // clioOptions default redefinition need to be updated
         updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());

@@ -27,7 +27,7 @@ import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
-import org.openapitools.codegen.*;
+import org.openapijsonschematools.codegen.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

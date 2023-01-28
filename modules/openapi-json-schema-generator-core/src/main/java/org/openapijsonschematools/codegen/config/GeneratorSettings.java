@@ -315,7 +315,7 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets git user id. e.g. <strong>openapitools</strong>.
+     * Gets git user id. e.g. <strong>openapijsonschematools</strong>.
      * <p>
      * Generally used by git_push.sh in generated sources which support it.
      * This value may also be used by templates in maven style references, READMEs, or other documentation.

@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 public class SerializerUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(SerializerUtils.class);
-    private static final String YAML_MINIMIZE_QUOTES_PROPERTY = "org.openapitools.codegen.utils.yaml.minimize.quotes";
+    private static final String YAML_MINIMIZE_QUOTES_PROPERTY = "org.openapijsonschematools.codegen.utils.yaml.minimize.quotes";
     private static final boolean minimizeYamlQuotes = Boolean.parseBoolean(GlobalSettings.getProperty(YAML_MINIMIZE_QUOTES_PROPERTY, "true"));
 
     public static String toYamlString(OpenAPI openAPI) {

@@ -279,7 +279,7 @@ public class Generate extends OpenApiGeneratorCommand {
     public void execute() {
         if (logToStderr != null) {
             LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-            Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapitools")
+            Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapijsonschematools")
                     .map(lc::getLogger)
                     .peek(logger -> logger.detachAppender("STDOUT"))
                     .reduce((logger, next) -> logger.getName().equals(Logger.ROOT_LOGGER_NAME) ? logger : next)

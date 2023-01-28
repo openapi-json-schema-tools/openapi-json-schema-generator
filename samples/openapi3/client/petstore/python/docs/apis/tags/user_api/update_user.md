@@ -10,7 +10,7 @@ This can only be done by the logged in user.
 
 ```python
 import petstore_api
-from petstore_api.apis.tags import user_api
+from petstore_api.apis.tags import 
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -21,7 +21,7 @@ configuration = petstore_api.Configuration(
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
+    api_instance = .(api_client)
 
     # example passing only required values which don't have defaults set
     path_params = {
@@ -50,7 +50,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling UserApi->update_user: %s\n" % e)
+        print("Exception when calling ->update_user: %s\n" % e)
 ```
 ### Parameters
 

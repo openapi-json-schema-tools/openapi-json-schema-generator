@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.openapitools</groupId>
+        <groupId>org.openapijsonschematools</groupId>
         <artifactId>openapi-json-schema-generator-project</artifactId>
         <version>${revision}</version>
         <relativePath>../..</relativePath>
@@ -109,7 +109,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.openapitools</groupId>
+            <groupId>org.openapijsonschematools</groupId>
             <artifactId>openapi-json-schema-generator</artifactId>
             <version>${project.version}</version>
             <exclusions>

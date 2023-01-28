@@ -34,11 +34,11 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.core.util.DefaultIndenter
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
 {{/jackson}}
-import org.openapitools.client.auth.ApiKeyAuth
-import org.openapitools.client.auth.Authentication
-import org.openapitools.client.auth.HttpBasicAuth
-import org.openapitools.client.auth.HttpBearerAuth
-import org.openapitools.client.auth.OAuth
+import org.openapijsonschematools.client.auth.ApiKeyAuth
+import org.openapijsonschematools.client.auth.Authentication
+import org.openapijsonschematools.client.auth.HttpBasicAuth
+import org.openapijsonschematools.client.auth.HttpBearerAuth
+import org.openapijsonschematools.client.auth.OAuth
 import {{packageName}}.auth.*
 
 {{#nonPublicApi}}internal {{/nonPublicApi}}open class ApiClient(

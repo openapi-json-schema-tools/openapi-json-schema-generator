@@ -143,7 +143,7 @@ public class GenerateBatch extends OpenApiGeneratorCommand {
 
         // it doesn't make sense to interleave INFO level logs, so limit these to only ERROR.
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-        Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapitools")
+        Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapijsonschematools")
                 .map(lc::getLogger)
                 .forEach(logger -> logger.setLevel(Level.ERROR));
 

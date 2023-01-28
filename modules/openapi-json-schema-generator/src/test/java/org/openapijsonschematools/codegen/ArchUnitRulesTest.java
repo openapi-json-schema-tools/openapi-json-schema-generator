@@ -12,7 +12,7 @@ import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_
 
 public class ArchUnitRulesTest {
     private static final JavaClasses CLASSES = new ClassFileImporter()
-                                              .importPackages("org.openapitools.codegen.languages");
+                                              .importPackages("org.openapijsonschematools.codegen.languages");
 
     @Test
     public void testLoggersAreNotPublicFinalAndNotStatic() {

@@ -17,7 +17,7 @@ Examples:
   $0 -n kotlin -s
 
     Creates:
-    modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/KotlinServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/KotlinServerCodegen.java
     modules/openapi-generator/src/main/resources/kotlin-server/README.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/model.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/api.mustache
@@ -26,15 +26,15 @@ Examples:
   Create a generic C# server generator:
   $0 -n csharp -s -t
     Creates:
-    modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/CsharpServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/CsharpServerCodegen.java
     modules/openapi-generator/src/main/resources/csharp-server/README.mustache
     modules/openapi-generator/src/main/resources/csharp-server/model.mustache
     modules/openapi-generator/src/main/resources/csharp-server/api.mustache
     bin/configs/csharp-server-petstore-new.yaml
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenModelTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenOptionsTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/options/CsharpServerCodegenOptionsProvider.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenModelTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenOptionsTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/options/CsharpServerCodegenOptionsProvider.java
 EOF
     exit 0;
 }
@@ -134,14 +134,14 @@ declare gen_name_camel_pkg=$(kebabCasePkg "${gen_name}")
 declare codegen_type_enum=$(upperCase "${gen_type}")
 
 # Step 1: Add Language Generator
-[ -f "${root}/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/${lang_classname}.java" ] && \
+[ -f "${root}/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/${lang_classname}.java" ] && \
     echo "${lang_classname} already exists" && exit 1;
 
-echo "Creating modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/${lang_classname}.java"
-cat > "${root}/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/${lang_classname}.java" <<EOF
-package org.openapitools.codegen.languages;
+echo "Creating modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/${lang_classname}.java"
+cat > "${root}/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/${lang_classname}.java" <<EOF
+package org.openapijsonschematools.codegen.languages;
 
-import org.openapitools.codegen.*;
+import org.openapijsonschematools.codegen.*;
 import io.swagger.models.properties.ArrayProperty;
 import io.swagger.models.properties.MapProperty;
 import io.swagger.models.properties.Property;
@@ -188,7 +188,7 @@ public class ${lang_classname} extends DefaultCodegen implements CodegenConfig {
 EOF
 
 # Step 2: Register the new class with service loader
-echo -e "\norg.openapitools.codegen.languages.${lang_classname}" >> "${root}/modules/openapi-generator/src/main/resources/META-INF/services/org.openapitools.codegen.CodegenConfig"
+echo -e "\norg.openapijsonschematools.codegen.languages.${lang_classname}" >> "${root}/modules/openapi-generator/src/main/resources/META-INF/services/org.openapijsonschematools.codegen.CodegenConfig"
 
 # Step 3: Create resource files
 mkdir -p "${root}/modules/openapi-generator/src/main/resources/${gen_name_camel}"
@@ -212,14 +212,14 @@ EOF
 
 # Step 5: (optional) Create OpenAPI Generator test files
 if [ "1" -eq "${tests}" ]; then
-    mkdir -p "${root}/modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}"
+    mkdir -p "${root}/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}"
     # Codegen
-    echo "Creating modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"
-    cat > "${root}/modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"<<EOF
-package org.openapitools.codegen.${gen_name_camel_pkg};
+    echo "Creating modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"
+    cat > "${root}/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"<<EOF
+package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
 
-import org.openapitools.codegen.*;
-import org.openapitools.codegen.languages.${lang_classname};
+import org.openapijsonschematools.codegen.*;
+import org.openapijsonschematools.codegen.languages.${lang_classname};
 import io.swagger.models.*;
 import io.swagger.parser.SwaggerParser;
 import org.testng.Assert;
@@ -238,12 +238,12 @@ public class ${lang_classname}Test {
 EOF
 
     # Model
-    echo "Creating modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"
-    cat > "${root}/modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"<<EOF
-package org.openapitools.codegen.${gen_name_camel_pkg};
+    echo "Creating modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"
+    cat > "${root}/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"<<EOF
+package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
 
-import org.openapitools.codegen.*;
-import org.openapitools.codegen.languages.${lang_classname};
+import org.openapijsonschematools.codegen.*;
+import org.openapijsonschematools.codegen.languages.${lang_classname};
 import io.swagger.models.*;
 import io.swagger.models.properties.*;
 
@@ -272,14 +272,14 @@ public class ${lang_classname}ModelTest {
 EOF
 
     # Options
-    echo "Creating modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"
-    cat > "${root}/modules/openapi-generator/src/test/java/org/openapitools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"<<EOF
-package org.openapitools.codegen.${gen_name_camel_pkg};
+    echo "Creating modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"
+    cat > "${root}/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"<<EOF
+package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
 
-import org.openapitools.codegen.AbstractOptionsTest;
-import org.openapitools.codegen.CodegenConfig;
-import org.openapitools.codegen.languages.${lang_classname};
-import org.openapitools.codegen.options.${lang_classname}OptionsProvider;
+import org.openapijsonschematools.codegen.AbstractOptionsTest;
+import org.openapijsonschematools.codegen.CodegenConfig;
+import org.openapijsonschematools.codegen.languages.${lang_classname};
+import org.openapijsonschematools.codegen.options.${lang_classname}OptionsProvider;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -307,12 +307,12 @@ public class ${lang_classname}OptionsTest extends AbstractOptionsTest {
 EOF
 
     # Options Provider
-    echo "Creating modules/openapi-generator/src/test/java/org/openapitools/codegen/options/${lang_classname}OptionsProvider.java"
-    cat > "${root}/modules/openapi-generator/src/test/java/org/openapitools/codegen/options/${lang_classname}OptionsProvider.java"<<EOF
-package org.openapitools.codegen.options;
+    echo "Creating modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/options/${lang_classname}OptionsProvider.java"
+    cat > "${root}/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/options/${lang_classname}OptionsProvider.java"<<EOF
+package org.openapijsonschematools.codegen.options;
 
-import org.openapitools.codegen.CodegenConstants;
-import org.openapitools.codegen.languages.${lang_classname};
+import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.languages.${lang_classname};
 
 import com.google.common.collect.ImmutableMap;
 

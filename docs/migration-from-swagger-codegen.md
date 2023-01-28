@@ -26,7 +26,7 @@ This guide explains the major differences in order to help you with the migratio
 
 ## New docker images
 
-The docker images are available on DockerHub: https://hub.docker.com/u/openapitools/
+The docker images are available on DockerHub: https://hub.docker.com/u/openapijsonschematools/
 
 **CLI for OpenAPI Generator**
 
@@ -34,7 +34,7 @@ Image to run OpenAPI Generator in the command line (see [OpenAPI Generator CLI D
 
 Old: `swaggerapi/swagger-codegen-cli`
 
-New: `openapitools/openapi-generator-cli`
+New: `openapijsonschematools/openapi-generator-cli`
 
 **OpenAPI Generator as web service**
 
@@ -42,7 +42,7 @@ Image to run OpenAPI Generator as a web service (see [OpenAPI Generator Online D
 
 Old: `swaggerapi/swagger-generator`
 
-New: `openapitools/openapi-generator-online`
+New: `openapijsonschematools/openapi-generator-online`
 
 
 ## New maven coordinates
@@ -64,7 +64,7 @@ New:
 
 ```xml
 <dependency>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <artifactId>openapi-generator</artifactId>
 </dependency>
 ```
@@ -82,7 +82,7 @@ New:
 
 ```xml
 <dependency>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <artifactId>openapi-generator-cli</artifactId>
 </dependency>
 ```
@@ -100,7 +100,7 @@ New:
 
 ```xml
 <dependency>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <artifactId>openapi-generator-maven-plugin</artifactId>
 </dependency>
 ```
@@ -173,15 +173,15 @@ The metadata folder (to store the `VERSION` file for example) is now called `.op
 
 If you use a generator without specifying each parameter, you might see some differences in the generated code.
 As example the default package name used in the generated code has changed. 
-You need to have a look at the specific value, depending of your target language, but often `Swagger` îs replaced by `OpenAPITools` and `io.swagger` is replaced by `org.openapitools`.
-Concretely if you did not specify anything when you are generating java code, a file `org/openapitools/api/PetApi.java`  might be generated instead of `io/swagger/api/PetApi.java`.
+You need to have a look at the specific value, depending of your target language, but often `Swagger` îs replaced by `OpenAPITools` and `io.swagger` is replaced by `org.openapijsonschematools`.
+Concretely if you did not specify anything when you are generating java code, a file `org/openapijsonschematools/api/PetApi.java`  might be generated instead of `io/swagger/api/PetApi.java`.
 
 If this is a problem for you, you need to explicitly set the the parameter value in order to match with the `swagger-codgen` default value (`apiPackage` == `io.swagger` in the previous example with the java generator).
 
 
 ## New fully qualified name for the classes 
 
-If you have extended some generators in your project, and you are looking for a specific class, replace the `io.swagger.codegen` package (old name) with `org.openapitools.codegen` package (new name).
+If you have extended some generators in your project, and you are looking for a specific class, replace the `io.swagger.codegen` package (old name) with `org.openapijsonschematools.codegen` package (new name).
 
 Example: `DefaultGenerator`
 

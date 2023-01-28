@@ -151,10 +151,10 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
         outputFolder = "generated-code" + File.separator + "java";
         embeddedTemplateDir = templateDir = "Java";
-        invokerPackage = "org.openapitools.client";
+        invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
-        apiPackage = "org.openapitools.client.api";
-        modelPackage = "org.openapitools.client.model";
+        apiPackage = "org.openapijsonschematools.client.api";
+        modelPackage = "org.openapijsonschematools.client.model";
         rootJavaEEPackage = MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE;
 
         // cliOptions default redefinition need to be updated

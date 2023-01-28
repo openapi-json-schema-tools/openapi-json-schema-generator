@@ -73,7 +73,7 @@ public class OpenAPIDocumentationConfig {
     public Docket customImplementation(){
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("org.openapitools.codegen.online.api"))
+                    .apis(RequestHandlerSelectors.basePackage("org.openapijsonschematools.codegen.online.api"))
                     .build()
                 .forCodeGeneration(true)
                 .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)

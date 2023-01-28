@@ -41,7 +41,7 @@ public class DefaultGeneratorTest {
                     "src/main/AndroidManifest.xml",
                     "pom.xml",
                     "src/test/**",
-                    "src/main/java/org/openapitools/client/api/UserApi.java"
+                    "src/main/java/org/openapijsonschematools/client/api/UserApi.java"
             );
             File ignorePath = new File(output, ".openapi-generator-ignore");
             Files.write(ignorePath.toPath(),
@@ -71,15 +71,15 @@ public class DefaultGeneratorTest {
 
             // Check expected generated files
             // api sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapitools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
 
             // model sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapitools/client/model/Category.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/Category.java").exists());
 
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/model/ModelApiResponse.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapitools/client/model/ModelApiResponse.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java").exists());
 
             // supporting files sanity check
             TestUtils.ensureContainsFile(files, output, "build.gradle");
@@ -101,11 +101,11 @@ public class DefaultGeneratorTest {
             TestUtils.ensureDoesNotContainsFile(files, output, "pom.xml");
             Assert.assertFalse(new File(output, "pom.xml").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapitools/client/model/CategoryTest.java");
-            Assert.assertFalse(new File(output, "src/test/java/org/openapitools/client/model/CategoryTest.java").exists());
+            TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java");
+            Assert.assertFalse(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapitools/client/api/UserApi.java");
-            Assert.assertFalse(new File(output, "src/main/java/org/openapitools/client/api/UserApi.java").exists());
+            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java");
+            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java").exists());
         } finally {
             output.delete();
         }
@@ -124,8 +124,8 @@ public class DefaultGeneratorTest {
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
-            String apiTestRelativePath = "src/test/java/org/openapitools/client/api/PetApiTest.java";
-            String modelTestRelativePath = "src/test/java/org/openapitools/client/model/CategoryTest.java";
+            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/PetApiTest.java";
+            String modelTestRelativePath = "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java";
 
             File apiTestFile = new File(output, apiTestRelativePath);
             new File(apiTestFile.getParent()).mkdirs();
@@ -155,8 +155,8 @@ public class DefaultGeneratorTest {
             Assert.assertEquals(files.size(), 65);
 
             // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapitools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, apiTestRelativePath);
             Assert.assertTrue(apiTestFile.exists());
@@ -164,8 +164,8 @@ public class DefaultGeneratorTest {
             Assert.assertEquals(apiTestContents, "empty", "Expected test file to retain original contents.");
 
             // Check Model is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/test/java/org/openapitools/client/model/CategoryTest.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
+            Assert.assertTrue(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, modelTestRelativePath);
             Assert.assertTrue(modelTestFile.exists());
@@ -201,7 +201,7 @@ public class DefaultGeneratorTest {
             List<File> files = generator.opts(clientOptInput).generate();
 
             Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/api/PingApi.java");
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PingApi.java");
         } finally {
             output.delete();
         }
@@ -232,7 +232,7 @@ public class DefaultGeneratorTest {
             List<File> files = generator.opts(clientOptInput).generate();
 
             Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapitools/client/model/SomeObj.java");
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/SomeObj.java");
         } finally {
             output.delete();
         }
@@ -478,14 +478,14 @@ public class DefaultGeneratorTest {
             Assert.assertEquals(files.size(), 27);
 
             // Generator should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapitools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
 
             // Generated file should exist on the filesystem after generation
-            File generatedFile = new File(output, "src/main/kotlin/org/openapitools/client/infrastructure/Errors.kt");
+            File generatedFile = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
             Assert.assertTrue(generatedFile.exists());
 
             // Generated file should contain some expected text
-            TestUtils.assertFileContains(generatedFile.toPath(), "package org.openapitools.client.infrastructure",
+            TestUtils.assertFileContains(generatedFile.toPath(), "package org.openapijsonschematools.client.infrastructure",
                     "open class ClientException",
                     "open class ServerException");
         } finally {
@@ -527,7 +527,7 @@ public class DefaultGeneratorTest {
             Assert.assertTrue(readme.exists());
 
             // README.md should contain some expected text
-            TestUtils.assertFileContains(readme.toPath(), "# org.openapitools.client - Kotlin client library for OpenAPI Petstore",
+            TestUtils.assertFileContains(readme.toPath(), "# org.openapijsonschematools.client - Kotlin client library for OpenAPI Petstore",
                     "## Requires",
                     "## Build",
                     "## Features/Implementation Notes");
@@ -548,7 +548,7 @@ public class DefaultGeneratorTest {
             StringBuilder sb = new StringBuilder();
             sb.append("// {{someKey}}").append("\n");
             sb.append("@file:Suppress(\"unused\")").append("\n");
-            sb.append("package org.openapitools.client.infrastructure").append("\n");
+            sb.append("package org.openapijsonschematools.client.infrastructure").append("\n");
             sb.append("import java.lang.RuntimeException").append("\n");
             sb.append("open class CustomException(").append("\n");
             sb.append("  message: kotlin.String? = null, val statusCode: Int = -1, val response: Response? = null) : RuntimeException(message) {").append("\n");
@@ -585,15 +585,15 @@ public class DefaultGeneratorTest {
             Assert.assertEquals(files.size(), 27);
 
             // Generator should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapitools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
 
             // Generated file should exist on the filesystem after generation
-            File readme = new File(output, "src/main/kotlin/org/openapitools/client/infrastructure/Errors.kt");
+            File readme = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
             Assert.assertTrue(readme.exists());
 
             // Generated file should contain our custom templated text
             TestUtils.assertFileContains(readme.toPath(), "// testCustomLibraryTemplates",
-                    "package org.openapitools.client.infrastructure",
+                    "package org.openapijsonschematools.client.infrastructure",
                     "open class CustomException(",
                     "private const val serialVersionUID: Long = 789L");
         } finally {

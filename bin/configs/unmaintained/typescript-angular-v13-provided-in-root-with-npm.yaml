@@ -5,7 +5,7 @@ templateDir: modules/openapi-generator/src/main/resources/typescript-angular
 additionalProperties:
   ngVersion: 13.0.1
   npmVersion: 1.0.0
-  npmName: '@openapitools/typescript-angular-petstore'
+  npmName: '@openapijsonschematools/typescript-angular-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   snapshot: false
   supportsES6: true

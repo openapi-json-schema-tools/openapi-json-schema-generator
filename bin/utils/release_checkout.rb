@@ -24,7 +24,7 @@ end
 def check_npmjs
   print "Checking npmjs... "
 
-  url = "https://www.npmjs.com/package/@openapitools/openapi-generator-cli?activeTab=versions"
+  url = "https://www.npmjs.com/package/@openapijsonschematools/openapi-generator-cli?activeTab=versions"
   open(url) do |f|
     content = f.read
     if !content.nil? && content.include?($version)
@@ -40,7 +40,7 @@ def check_homebrew
   print "Checking homebrew formula ... "
 
   url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/master/Formula/openapi-generator.rb"
-  new_maven_url = "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"
+  new_maven_url = "https://search.maven.org/remotecontent?filepath=org/openapijsonschematools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"
   open(url) do |f|
     content = f.read
     if !content.nil? && content.include?(new_maven_url)
@@ -55,7 +55,7 @@ end
 def check_openapi_generator_online_docker
   print "Checking openapi-generator-online docker ... "
 
-  url = "https://hub.docker.com/v2/repositories/openapitools/openapi-generator-online/tags/?page_size=25&page=1"
+  url = "https://hub.docker.com/v2/repositories/openapijsonschematools/openapi-generator-online/tags/?page_size=25&page=1"
 
   docker_tag = "v#{$version}"
   open(url) do |f|
@@ -72,7 +72,7 @@ end
 def check_openapi_generator_cli_docker
   print "Checking openapi-generator-cli docker ... "
 
-  url = "https://hub.docker.com/v2/repositories/openapitools/openapi-generator-cli/tags/?page_size=25&page=1"
+  url = "https://hub.docker.com/v2/repositories/openapijsonschematools/openapi-generator-cli/tags/?page_size=25&page=1"
   docker_tag = "v#{$version}"
   open(url) do |f|
     content = f.read
@@ -90,9 +90,9 @@ def check_readme
 
   url = "https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/README.md"
   matches = ["[#{$version}](https://github.com/OpenAPITools/openapi-generator/releases/tag/v#{$version})",
-           "JAR location: `https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar`",
-           "wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar -O openapi-generator-cli.jar",
-           "Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"]
+           "JAR location: `https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar`",
+           "wget https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar -O openapi-generator-cli.jar",
+           "Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"]
   open(url) do |f|
     content = f.read
     has_outdated = false
@@ -119,7 +119,7 @@ end
 
 def check_openapi_generator_jar
   print "Checking openapi-generator JAR ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator/#{$version}/openapi-generator-#{$version}.jar"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator/#{$version}/openapi-generator-#{$version}.jar"
 
   if check_url(url)
     puts "[OK]"
@@ -133,7 +133,7 @@ end
 
 def check_openapi_generator_cli_jar
   print "Checking openapi-generator-cli JAR ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-cli/#{$version}/openapi-generator-cli-#{$version}.jar"
 
   if check_url(url)
     puts "[OK]"
@@ -145,7 +145,7 @@ end
 
 def check_openapi_generator_maven_plugin_jar
   print "Checking openapi-generator-maven-plugin JAR ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-maven-plugin/#{$version}/openapi-generator-maven-plugin-#{$version}.jar"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-maven-plugin/#{$version}/openapi-generator-maven-plugin-#{$version}.jar"
 
   if check_url(url)
     puts "[OK]"
@@ -157,7 +157,7 @@ end
 
 def check_openapi_generator_gradle_plugin_jar
   print "Checking openapi-generator-gradle-plugin JAR ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-gradle-plugin/#{$version}/openapi-generator-gradle-plugin-#{$version}.jar"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-gradle-plugin/#{$version}/openapi-generator-gradle-plugin-#{$version}.jar"
 
   if check_url(url)
     puts "[OK]"
@@ -169,7 +169,7 @@ end
 
 def check_openapi_generator_online_jar
   print "Checking openapi-generator-online JAR ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-online/#{$version}/openapi-generator-online-#{$version}.jar"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-online/#{$version}/openapi-generator-online-#{$version}.jar"
 
   if check_url(url)
     puts "[OK]"
@@ -181,7 +181,7 @@ end
 
 def check_openapi_generator_project_pom
   print "Checking openapi-generator-project pom.xml ... "
-  url = "https://repo1.maven.org/maven2/org/openapitools/openapi-generator-project/#{$version}/openapi-generator-project-#{$version}.pom"
+  url = "https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-generator-project/#{$version}/openapi-generator-project-#{$version}.pom"
 
   if check_url(url)
     puts "[OK]"

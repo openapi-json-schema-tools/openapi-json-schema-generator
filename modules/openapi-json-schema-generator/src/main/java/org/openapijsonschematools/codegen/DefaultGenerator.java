@@ -505,8 +505,8 @@ public class DefaultGenerator implements Generator {
                 if (co.tags != null) {
                     for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
                         String tagName = entry.getKey();
-                        String tagModuleName = entry.getValue().getModuleName();
-                        String apiClassname = entry.getValue().getClassName();
+                        String tagModuleName = entry.getValue().moduleName;
+                        String apiClassname = entry.getValue().className;
                         tagModuleNameToApiClassname.put(tagModuleName, apiClassname);
                         tagToApiClassname.put(tagName, apiClassname);
                         tagToTagModule.put(tagName, tagModuleName);
@@ -575,7 +575,7 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
-                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.getModuleName(), co.operationId + ".md"));
+                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                     }
                 }
@@ -669,7 +669,7 @@ public class DefaultGenerator implements Generator {
         for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
             String contentType = contentInfo.getKey().name;
             CodegenMediaType codegenMediaType = contentInfo.getValue();
-            CodegenSchema schema = codegenMediaType.getSchema();
+            CodegenSchema schema = codegenMediaType.schema;
             if (schema != null) {
                 schemaExists = true;
                 String contentTypeJsonPath = contentJsonPath + "/" + ModelUtils.encodeSlashes(contentType);

@@ -27,6 +27,6 @@ public class ImplementationVersion {
 
         // When running non-JARed class within an IDE the implementation version is not available, so we provide a means
         // to set it externally via a system property so that generated artefacts contain the correct version.
-        return System.getProperty("openapitools.implementation.version", "unset");
+        return System.getProperty("openapijsonschematools.implementation.version", "unset");
     }
 }

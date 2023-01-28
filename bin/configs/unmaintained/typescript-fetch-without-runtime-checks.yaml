@@ -4,7 +4,7 @@ inputSpec: modules/openapi-generator/src/test/resources/2_0/petstore.yaml
 templateDir: modules/openapi-generator/src/main/resources/typescript-fetch
 additionalProperties:
   npmVersion: 1.0.0
-  npmName: '@openapitools/typescript-fetch-petstore'
+  npmName: '@openapijsonschematools/typescript-fetch-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   withoutRuntimeChecks: true
   snapshot: false

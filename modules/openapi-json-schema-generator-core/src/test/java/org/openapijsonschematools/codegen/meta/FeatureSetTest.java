@@ -7,7 +7,7 @@ import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
-import org.openapitools.codegen.meta.features.*;
+import org.openapijsonschematools.codegen.meta.features.*;
 import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
 import org.testng.annotations.Test;
 

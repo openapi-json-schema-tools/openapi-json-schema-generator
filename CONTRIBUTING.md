@@ -2,16 +2,16 @@
 
 ## Before submitting an issue
 
- - If you're not using the latest master to generate API clients or server stubs, please give it another try by pulling the latest master as the issue may have already been addressed. Ref: [Getting Started](https://github.com/openapitools/openapi-generator#getting-started)
- - Search the [open issue](https://github.com/openapitools/openapi-generator/issues) and [closed issue](https://github.com/openapitools/openapi-generator/issues?q=is%3Aissue+is%3Aclosed) to ensure no one else has reported something similar before.
- - File an [issue ticket](https://github.com/openapitools/openapi-generator/issues/new) by providing all the required information. Failure to provide enough detail may result in slow response from the community.
+ - If you're not using the latest master to generate API clients or server stubs, please give it another try by pulling the latest master as the issue may have already been addressed. Ref: [Getting Started](https://github.com/openapijsonschematools/openapi-generator#getting-started)
+ - Search the [open issue](https://github.com/openapijsonschematools/openapi-generator/issues) and [closed issue](https://github.com/openapijsonschematools/openapi-generator/issues?q=is%3Aissue+is%3Aclosed) to ensure no one else has reported something similar before.
+ - File an [issue ticket](https://github.com/openapijsonschematools/openapi-generator/issues/new) by providing all the required information. Failure to provide enough detail may result in slow response from the community.
  - Test with the latest master by building the JAR locally to see if the issue has already been addressed.
  - You can also make a suggestion or ask a question by opening an "issue".
 
 ## Before submitting a PR
 
- - Search the [open issue](https://github.com/openapitools/openapi-generator/issues) to ensure no one else has reported something similar and no one is actively working on similar proposed change.
- - If no one has suggested something similar, open an ["issue"](https://github.com/openapitools/openapi-generator/issues) with your suggestion to gather feedback from the community.
+ - Search the [open issue](https://github.com/openapijsonschematools/openapi-generator/issues) to ensure no one else has reported something similar and no one is actively working on similar proposed change.
+ - If no one has suggested something similar, open an ["issue"](https://github.com/openapijsonschematools/openapi-generator/issues) with your suggestion to gather feedback from the community.
  - If you're adding a new option to a generator, please consider using the `-t` option with customized templates instead or start a discussion first by opening an issue as we want to avoid adding too many options to the generator.
  - It's recommended to **create a new git branch** for the change so that the merge commit message looks nicer in the commit history.
 
@@ -21,7 +21,7 @@
 
 If you're new to git, you may find the following FAQs useful:
 
-https://github.com/openapitools/openapi-generator/wiki/FAQ#git
+https://github.com/openapijsonschematools/openapi-generator/wiki/FAQ#git
 
 ### Branches
 
@@ -29,15 +29,15 @@ Please file the pull request against the correct branch, e.g. `master` for non-b
 
 ### Code generators
 
-All the code generators can be found in [modules/openapi-generator/src/main/java/org/openapitools/codegen/languages](https://github.com/openapitools/openapi-generator/tree/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages)
+All the code generators can be found in [modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages](https://github.com/openapijsonschematools/openapi-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages)
 
 If you want to add a new generator, follow the [new-generator](https://openapi-generator.tech/docs/new-generator) guide. 
 
 ### Templates
 
-All the templates ([mustache](https://mustache.github.io/)) can be found in [modules/openapi-generator/src/main/resources](https://github.com/openapitools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources).
+All the templates ([mustache](https://mustache.github.io/)) can be found in [modules/openapi-generator/src/main/resources](https://github.com/openapijsonschematools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources).
 
-For a list of variables available in the template, please refer to this [page](https://github.com/openapitools/openapi-generator/wiki/Mustache-Template-Variables)
+For a list of variables available in the template, please refer to this [page](https://github.com/openapijsonschematools/openapi-generator/wiki/Mustache-Template-Variables)
 
 
 ### Style guide
@@ -80,15 +80,15 @@ You may find the current code base not 100% conform to the coding style and we w
 For [Vendor Extensions](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#vendorExtensions), please follow the naming convention below:
 - For general vendor extension, use lower case and hyphen. e.g. `x-is-unique`, `x-content-type`
 - For language-specified vendor extension, put it in the form of `x-{lang}-{extension-name}`. e.g. `x-objc-operation-id`, `x-java-feign-retry-limit`
-- For a list of existing vendor extensions in use, please refer to https://github.com/openapitools/openapi-generator/wiki/Vendor-Extensions. If you've added new vendor extensions as part of your PR, please update the wiki page.
+- For a list of existing vendor extensions in use, please refer to https://github.com/openapijsonschematools/openapi-generator/wiki/Vendor-Extensions. If you've added new vendor extensions as part of your PR, please update the wiki page.
 
 ### Testing
 
-To add test cases (optional) covering the change in the code generator, please refer to [modules/openapi-generator/src/test/java/org/openapitools/codegen](https://github.com/openapitools/openapi-generator/tree/master/modules/openapi-generator/src/test/java/org/openapitools/codegen)
+To add test cases (optional) covering the change in the code generator, please refer to [modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen](https://github.com/openapijsonschematools/openapi-generator/tree/master/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen)
 
 To test the templates, please perform the following:
 
-- Update the Petstore sample by running the shell scripts under the `bin` folder. For example, run `./bin/generate-samples.sh ./bin/configs/python*` to update the Python-related samples under [`samples`](https://github.com/openapitools/openapi-generator/tree/master/samples). For Windows, please install [GIT bash](https://gitforwindows.org/). (If you find that there are new files generated or unexpected changes as a result of the update, that's not unusual as the test cases are added to the OpenAPI spec from time to time. If you've questions or concerns, please open a ticket to start a discussion)
+- Update the Petstore sample by running the shell scripts under the `bin` folder. For example, run `./bin/generate-samples.sh ./bin/configs/python*` to update the Python-related samples under [`samples`](https://github.com/openapijsonschematools/openapi-generator/tree/master/samples). For Windows, please install [GIT bash](https://gitforwindows.org/). (If you find that there are new files generated or unexpected changes as a result of the update, that's not unusual as the test cases are added to the OpenAPI spec from time to time. If you've questions or concerns, please open a ticket to start a discussion)
 - During development, it can be helpful to quickly regenerate the samples without recompiling all of openapi-generator, e.g. when you have only updated the mustache templates. This can be done by passing the `-t` parameter: `-t modules/openapi-generator/src/main/resources/python`.
 - Run the tests in the sample folder using maven `mvn integration-test -f /path/to/pom.xml`, e.g. `mvn integration-test -f samples/client/petstore/python/pom.xml`. (some languages may not contain unit testing for Petstore and we're looking for contribution from the community to implement those tests). __Please notice:__ you must run a local instance of the Petstore server in order to perform the tests, as running them against petstore.swagger.io is not supported anymore. Please refer to item 3 of [Integration Tests - How to add integration tests for new Petstore samples](https://github.com/OpenAPITools/openapi-generator/wiki/Integration-Tests#how-to-add-integration-tests-for-new-petstore-samples) to learn how to quickly configure and run it.
 - Finally, git commit the updated samples files: `git commit -a` (`git add -A` if added files with new test cases)

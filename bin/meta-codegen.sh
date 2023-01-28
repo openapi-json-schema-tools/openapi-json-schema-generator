@@ -24,4 +24,4 @@ java $JAVA_OPTS -jar $executable $ags
 
 ags2="generate -g myClientCodegen -i modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.json -o samples/meta-codegen/usage $@"
 
-java $JAVA_OPTS -cp ${root}/samples/meta-codegen/lib/target/myClientCodegen-openapi-generator-1.0.0.jar:$executable org.openapitools.codegen.OpenAPIGenerator $ags2
+java $JAVA_OPTS -cp ${root}/samples/meta-codegen/lib/target/myClientCodegen-openapi-generator-1.0.0.jar:$executable org.openapijsonschematools.codegen.OpenAPIGenerator $ags2

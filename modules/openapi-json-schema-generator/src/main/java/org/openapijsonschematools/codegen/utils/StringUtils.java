@@ -22,11 +22,11 @@ public class StringUtils {
     /**
      * Set the cache size (entry count) of the sanitizedNameCache, camelizedWordsCache and underscoreWordsCache.
      */
-    public static final String NAME_CACHE_SIZE_PROPERTY = "org.openapitools.codegen.utils.namecache.cachesize";
+    public static final String NAME_CACHE_SIZE_PROPERTY = "org.openapijsonschematools.codegen.utils.namecache.cachesize";
     /**
      * Set the cache expiry (in seconds) of the sanitizedNameCache, camelizedWordsCache and underscoreWordsCache.
      */
-    public static final String NAME_CACHE_EXPIRY_PROPERTY = "org.openapitools.codegen.utils.namecache.expireafter.seconds";
+    public static final String NAME_CACHE_EXPIRY_PROPERTY = "org.openapijsonschematools.codegen.utils.namecache.expireafter.seconds";
 
     // A cache of camelized words. The camelize() method is invoked many times with the same
     // arguments, this cache is used to optimized performance.

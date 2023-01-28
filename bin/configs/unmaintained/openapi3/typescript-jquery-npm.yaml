@@ -4,6 +4,6 @@ inputSpec: modules/openapi-generator/src/test/resources/3_0/petstore.yaml
 templateDir: modules/openapi-generator/src/main/resources/typescript-jquery
 additionalProperties:
   npmVersion: 0.0.1
-  npmName: '@openapitools/jquery-typescript-petstore'
+  npmName: '@openapijsonschematools/jquery-typescript-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   snapshot: false

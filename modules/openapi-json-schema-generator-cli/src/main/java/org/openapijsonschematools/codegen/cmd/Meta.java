@@ -68,8 +68,8 @@ public class Meta extends OpenApiGeneratorCommand {
     private String name = "default";
 
     @Option(name = {"-p", "--package"}, title = "package",
-            description = "the package to put the main class into (defaults to org.openapitools.codegen)")
-    private String targetPackage = "org.openapitools.codegen";
+            description = "the package to put the main class into (defaults to org.openapijsonschematools.codegen)")
+    private String targetPackage = "org.openapijsonschematools.codegen";
 
     @Option(name = {"-t", "--type"}, title = "type",
             description = "the type of generator that is created",

@@ -171,7 +171,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         );
 
         artifactId = "kotlin-client";
-        packageName = "org.openapitools.client";
+        packageName = "org.openapijsonschematools.client";
 
         // cliOptions default redefinition need to be updated
         updateOption(CodegenConstants.ARTIFACT_ID, this.artifactId);

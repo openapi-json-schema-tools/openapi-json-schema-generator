@@ -273,7 +273,7 @@ public class CodegenConstants {
     public static final String GIT_HOST_DESC = "Git host, e.g. gitlab.com.";
 
     public static final String GIT_USER_ID = "gitUserId";
-    public static final String GIT_USER_ID_DESC = "Git user ID, e.g. openapitools.";
+    public static final String GIT_USER_ID_DESC = "Git user ID, e.g. openapijsonschematools.";
 
     public static final String GIT_REPO_ID = "gitRepoId";
     public static final String GIT_REPO_ID_DESC = "Git repo ID, e.g. openapi-generator.";

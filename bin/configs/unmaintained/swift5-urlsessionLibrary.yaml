@@ -8,7 +8,7 @@ additionalProperties:
   podAuthors: ""
   podSummary: PetstoreClient
   projectName: PetstoreClient
-  podHomepage: https://github.com/openapitools/openapi-generator
+  podHomepage: https://github.com/openapijsonschematools/openapi-generator
   useSPMFileStructure: true
   useClasses: true
   swiftUseApiNamespace: true

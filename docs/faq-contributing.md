@@ -29,7 +29,7 @@ Then add the following to your local [hosts](https://en.wikipedia.org/wiki/Hosts
 
 ## Who should I report a security vulnerability to?
 
-Please contact team@openapitools.org with the details and we'll follow up with you.
+Please contact team@openapijsonschematools.org with the details and we'll follow up with you.
 
 
 ## How can I rebase my PR on the latest master?
@@ -43,7 +43,7 @@ Please refer to http://rypress.com/tutorials/git/rebasing, or follow the steps b
 5. Resolve merge conflicts, if any, and run "git commit -a"
 6. Rebase done (you may need to add --force when doing `git push`)
 
-(To setup `upstream` pointing to the official repo, please run `git remote add upstream  https://github.com/openapitools/openapi-generator.git`)
+(To setup `upstream` pointing to the official repo, please run `git remote add upstream  https://github.com/openapijsonschematools/openapi-generator.git`)
 
 ## How can I update commits that are not linked to my GitHub account?
 
@@ -55,7 +55,7 @@ Yes, http://www.alexkras.com/19-git-tips-for-everyday-use/
 
 ## How can I submit a PR to fix bugs or make enhancements?
 
-Visit https://github.com/openapitools/openapi-generator and then click on the "Fork" button in the upper right corner. Then in your local machine, run the following (assuming your github ID is "your_user_id")
+Visit https://github.com/openapijsonschematools/openapi-generator and then click on the "Fork" button in the upper right corner. Then in your local machine, run the following (assuming your github ID is "your_user_id")
 
 1) git clone https://github.com/your_user_id/openapi-generator.git
 2) cd openapi-generator
@@ -63,4 +63,4 @@ Visit https://github.com/openapitools/openapi-generator and then click on the "F
 4) make changes
 5) git commit -a (you may need to use `git add filename` to add new files)
 6) git push origin fix_issue9999
-7) Visit https://github.com/openapitools/openapi-generator in your browser and click on the button to file a new PR based on fix_issue9999
+7) Visit https://github.com/openapijsonschematools/openapi-generator in your browser and click on the button to file a new PR based on fix_issue9999

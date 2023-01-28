@@ -24,18 +24,18 @@ public class OnceLogger extends LoggerWrapper {
     /**
      * Allow advanced users to modify cache size of the OnceLogger (more for performance tuning in hosted environments)
      */
-    static final String CACHE_SIZE_PROPERTY = "org.openapitools.codegen.utils.oncelogger.cachesize";
+    static final String CACHE_SIZE_PROPERTY = "org.openapijsonschematools.codegen.utils.oncelogger.cachesize";
 
     /**
      * Allow advanced users to disable the OnceLogger (more for performance tuning in hosted environments).
      * This is really only useful or necessary if this implementation causes issues.
      */
-    static final String ENABLE_ONCE_LOGGER_PROPERTY = "org.openapitools.codegen.utils.oncelogger.enabled";
+    static final String ENABLE_ONCE_LOGGER_PROPERTY = "org.openapijsonschematools.codegen.utils.oncelogger.enabled";
 
     /**
      * Allow advanced users to modify cache expiration of the OnceLogger (more for performance tuning in hosted environments)
      */
-    static final String EXPIRY_PROPERTY = "org.openapitools.codegen.utils.oncelogger.expiry";
+    static final String EXPIRY_PROPERTY = "org.openapijsonschematools.codegen.utils.oncelogger.expiry";
 
     /**
      * Internal message cache for logger decorated with the onceler.

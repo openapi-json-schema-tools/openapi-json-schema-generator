@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>openapi-json-schema-generator-project</artifactId>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <version>${revision}</version>
     <relativePath>../..</relativePath>
   </parent>
@@ -12,7 +12,7 @@
 
   <artifactId>openapi-json-schema-generator-core</artifactId>
   <name>openapi-json-schema-generator-core</name>
-  <url>https://github.com/openapitools/openapi-json-schema-generator</url>
+  <url>https://github.com/openapijsonschematools/openapi-json-schema-generator</url>
 
   <build>
     <plugins>

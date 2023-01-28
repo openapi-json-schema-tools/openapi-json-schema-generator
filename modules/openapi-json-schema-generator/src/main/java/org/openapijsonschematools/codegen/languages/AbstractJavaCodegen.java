@@ -92,19 +92,19 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     protected String dateLibrary = "java8";
     protected boolean supportAsync = false;
     protected boolean withXml = false;
-    protected String invokerPackage = "org.openapitools";
-    protected String groupId = "org.openapitools";
+    protected String invokerPackage = "org.openapijsonschematools";
+    protected String groupId = "org.openapijsonschematools";
     protected String artifactId = "openapi-java";
     protected String artifactVersion = null;
-    protected String artifactUrl = "https://github.com/openapitools/openapi-generator";
+    protected String artifactUrl = "https://github.com/openapijsonschematools/openapi-generator";
     protected String artifactDescription = "OpenAPI Java";
     protected String developerName = "OpenAPI-Generator Contributors";
-    protected String developerEmail = "team@openapitools.org";
+    protected String developerEmail = "team@openapijsonschematools.org";
     protected String developerOrganization = "OpenAPITools.org";
-    protected String developerOrganizationUrl = "http://openapitools.org";
-    protected String scmConnection = "scm:git:git@github.com:openapitools/openapi-generator.git";
-    protected String scmDeveloperConnection = "scm:git:git@github.com:openapitools/openapi-generator.git";
-    protected String scmUrl = "https://github.com/openapitools/openapi-generator";
+    protected String developerOrganizationUrl = "http://openapijsonschematools.org";
+    protected String scmConnection = "scm:git:git@github.com:openapijsonschematools/openapi-generator.git";
+    protected String scmDeveloperConnection = "scm:git:git@github.com:openapijsonschematools/openapi-generator.git";
+    protected String scmUrl = "https://github.com/openapijsonschematools/openapi-generator";
     protected String licenseName = "Unlicense";
     protected String licenseUrl = "http://unlicense.org";
     protected String projectFolder = "src/main";
@@ -610,7 +610,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         importMapping.put("JsonIgnore", "com.fasterxml.jackson.annotation.JsonIgnore");
         importMapping.put("JsonIgnoreProperties", "com.fasterxml.jackson.annotation.JsonIgnoreProperties");
         importMapping.put("JsonInclude", "com.fasterxml.jackson.annotation.JsonInclude");
-        importMapping.put("JsonNullable", "org.openapitools.jackson.nullable.JsonNullable");
+        importMapping.put("JsonNullable", "org.openapijsonschematools.jackson.nullable.JsonNullable");
         importMapping.put("SerializedName", "com.google.gson.annotations.SerializedName");
         importMapping.put("TypeAdapter", "com.google.gson.TypeAdapter");
         importMapping.put("JsonAdapter", "com.google.gson.annotations.JsonAdapter");
@@ -1090,7 +1090,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         CodegenSchema schema = param.getSchema();
         if (schema == null) {
             String contentType = (String) param.content().keySet().toArray()[0];
-            schema = param.content().get(contentType).getSchema();
+            schema = param.content().get(contentType).schema;
         }
 
         if (schema.isString) {
