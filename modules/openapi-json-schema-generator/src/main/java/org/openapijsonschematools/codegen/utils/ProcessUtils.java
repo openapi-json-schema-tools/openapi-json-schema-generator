@@ -3,7 +3,7 @@ package org.openapijsonschematools.codegen.utils;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.openapijsonschematools.codegen.CodegenSchema;
-import org.openapijsonschematools.codegen.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurity;
 
 import java.util.ArrayList;
 import java.util.List;

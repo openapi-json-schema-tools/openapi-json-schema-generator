@@ -32,7 +32,7 @@ import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.CodegenOperation;
 import org.openapijsonschematools.codegen.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
-import org.openapijsonschematools.codegen.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.TemplateManager;

@@ -41,6 +41,7 @@ import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.model.ApiInfoMap;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.OperationMap;

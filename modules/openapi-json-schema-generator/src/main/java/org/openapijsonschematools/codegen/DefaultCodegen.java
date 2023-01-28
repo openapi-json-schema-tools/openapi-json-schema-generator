@@ -42,6 +42,7 @@ import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
@@ -84,7 +85,6 @@ import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.*;
 import io.swagger.v3.oas.models.responses.ApiResponse;
-import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.OAuthFlows;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
@@ -3694,6 +3694,7 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (SecurityScheme.Type.OAUTH2.equals(securityScheme.getType())) {
                 final OAuthFlows flows = securityScheme.getFlows();
                 boolean isFlowEmpty = true;
+                isOAuth = true;
                 if (securityScheme.getFlows() == null) {
                     throw new RuntimeException("missing oauth flow in " + name);
                 }
@@ -3784,7 +3785,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         return codegenSecurities;
     }
-    
+
     protected void setReservedWordsLowerCase(List<String> words) {
         reservedWords = new HashSet<>();
         for (String word : words) {
