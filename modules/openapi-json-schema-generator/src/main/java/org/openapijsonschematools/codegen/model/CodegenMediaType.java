@@ -1,6 +1,5 @@
 package org.openapijsonschematools.codegen.model;
 
-import org.openapijsonschematools.codegen.CodegenEncoding;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.SchemaTestCase;
 

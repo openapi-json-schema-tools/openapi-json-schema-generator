@@ -38,6 +38,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenServer;

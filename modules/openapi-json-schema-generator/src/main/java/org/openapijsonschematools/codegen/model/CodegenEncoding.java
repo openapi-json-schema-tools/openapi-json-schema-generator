@@ -1,14 +1,16 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
+
+import org.openapijsonschematools.codegen.CodegenHeader;
 
 import java.util.Map;
 import java.util.Objects;
 
 public class CodegenEncoding {
-    private String contentType;
-    private Map<String, CodegenHeader> headers;
-    private String style;
-    private boolean explode;
-    private boolean allowReserved;
+    public final String contentType;
+    public final Map<String, CodegenHeader> headers;
+    public final String style;
+    public final boolean explode;
+    public final boolean allowReserved;
 
     public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, boolean explode, boolean allowReserved) {
         this.contentType = contentType;
@@ -16,26 +18,6 @@ public class CodegenEncoding {
         this.style = style;
         this.explode = explode;
         this.allowReserved = allowReserved;
-    }
-
-    public String getContentType() {
-        return contentType;
-    }
-
-    public Map<String, CodegenHeader> getHeaders() {
-        return headers;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public boolean getExplode() {
-        return explode;
-    }
-
-    public boolean getAllowReserved() {
-        return allowReserved;
     }
 
     public String toString() {
@@ -53,11 +35,11 @@ public class CodegenEncoding {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenEncoding that = (CodegenEncoding) o;
-        return contentType == that.getContentType() &&
-                Objects.equals(headers, that.getHeaders()) &&
-                style == that.getStyle() &&
-                explode == that.getExplode() &&
-                allowReserved == that.getAllowReserved();
+        return contentType == that.contentType &&
+                Objects.equals(headers, that.headers) &&
+                style == that.style &&
+                explode == that.explode &&
+                allowReserved == that.allowReserved;
     }
 
     @Override
