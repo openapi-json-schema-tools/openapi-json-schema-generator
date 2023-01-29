@@ -72,8 +72,8 @@ _status_code_to_response: __StatusCodeToResponse = {
     '400': response_400._400,
 }
 _all_accept_content_types = (
-    "application/json",
     "application/xml",
+    "application/json",
 )
 
 

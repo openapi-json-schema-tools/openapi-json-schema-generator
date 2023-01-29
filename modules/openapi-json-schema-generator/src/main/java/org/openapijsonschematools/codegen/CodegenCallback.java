@@ -17,6 +17,8 @@
 
 package org.openapijsonschematools.codegen;
 
+import org.openapijsonschematools.codegen.model.CodegenOperation;
+
 import java.util.*;
 
 public class CodegenCallback {

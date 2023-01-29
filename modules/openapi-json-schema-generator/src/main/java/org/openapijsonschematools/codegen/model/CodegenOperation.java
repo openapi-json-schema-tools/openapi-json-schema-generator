@@ -15,18 +15,11 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapijsonschematools.codegen.model.CodegenKey;
-import org.openapijsonschematools.codegen.model.CodegenMediaType;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
-import org.openapijsonschematools.codegen.model.CodegenRequestBody;
-import org.openapijsonschematools.codegen.model.CodegenResponse;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
-import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.CodegenTag;
+import org.openapijsonschematools.codegen.CodegenCallback;
 
 import java.util.*;
 
@@ -36,7 +29,7 @@ public class CodegenOperation {
     public final String summary, unescapedNotes, notes;
     public final CodegenKey httpMethod;
     public final CodegenKey path;
-    public final TreeSet<String> produces;
+    public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
     public final List<CodegenParameter> allParams;
@@ -44,7 +37,6 @@ public class CodegenOperation {
     public final List<CodegenParameter> queryParams;
     public final List<CodegenParameter> headerParams;
     public final List<CodegenParameter> cookieParams;
-    public final List<CodegenParameter> implicitHeadersParams;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
     public final List<CodegenSecurity> authMethods;
@@ -59,7 +51,7 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(boolean isDeprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, String baseName, CodegenKey httpMethod, CodegenKey path, TreeSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, List<CodegenParameter> implicitHeadersParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(boolean isDeprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
         this.isDeprecated = isDeprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
@@ -75,7 +67,6 @@ public class CodegenOperation {
         this.queryParams = queryParams;
         this.headerParams = headerParams;
         this.cookieParams = cookieParams;
-        this.implicitHeadersParams = implicitHeadersParams;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
         this.authMethods = authMethods;

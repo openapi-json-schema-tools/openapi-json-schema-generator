@@ -43,6 +43,7 @@ import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
@@ -168,9 +169,9 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
         CodegenOperation coCreate = codegen.fromOperation("somepath", "post", createOperation, null);
-        Assert.assertTrue(coCreate.hasConsumes);
-        Assert.assertEquals(coCreate.consumes.size(), 2);
-        Assert.assertFalse(coCreate.hasProduces);
+        Assert.assertTrue(!coCreate.requestBody.content.isEmpty());
+        Assert.assertEquals(coCreate.requestBody.content.size(), 2);
+        Assert.assertNull(coCreate.produces);
 
         Operation updateOperationWithRef = new Operation()
                 .requestBody(new RequestBody().$ref("#/components/requestBodies/MyRequestBody"))
@@ -183,12 +184,13 @@ public class DefaultCodegenTest {
         Assert.assertTrue(updateProducesInfo.contains("application/xml"), "contains 'application/xml'");
 
         CodegenOperation coUpdate = codegen.fromOperation("somepath", "post", updateOperationWithRef, null);
-        Assert.assertTrue(coUpdate.hasConsumes);
-        Assert.assertEquals(coUpdate.consumes.size(), 1);
-        Assert.assertEquals(coUpdate.consumes.get(0).get("mediaType"), "application/json");
-        Assert.assertTrue(coUpdate.hasProduces);
+        Assert.assertTrue(!coUpdate.requestBody.content.isEmpty());
+        Assert.assertEquals(coUpdate.requestBody.content.size(), 1);
+        CodegenKey ck = codegen.getKey("application/json");
+        Assert.assertTrue(coUpdate.requestBody.content.containsKey(ck));
+        Assert.assertTrue(!coUpdate.produces.isEmpty());
         Assert.assertEquals(coUpdate.produces.size(), 1);
-        Assert.assertEquals(coUpdate.produces.get(0).get("mediaType"), "application/xml");
+        Assert.assertTrue(coUpdate.produces.contains("application/xml"));
     }
 
     @Test
@@ -199,22 +201,22 @@ public class DefaultCodegenTest {
 
         Operation textOperation = openAPI.getPaths().get("/ping/text").getGet();
         CodegenOperation coText = codegen.fromOperation("/ping/text", "get", textOperation, null);
-        Assert.assertTrue(coText.hasProduces);
+        Assert.assertTrue(!coText.produces.isEmpty());
         Assert.assertEquals(coText.produces.size(), 1);
-        Assert.assertEquals(coText.produces.get(0).get("mediaType"), "text/plain");
+        Assert.assertTrue(coText.produces.contains("text/plain"));
 
         Operation jsonOperation = openAPI.getPaths().get("/ping/json").getGet();
         CodegenOperation coJson = codegen.fromOperation("/ping/json", "get", jsonOperation, null);
-        Assert.assertTrue(coJson.hasProduces);
+        Assert.assertTrue(!coJson.produces.isEmpty());
         Assert.assertEquals(coJson.produces.size(), 1);
-        Assert.assertEquals(coJson.produces.get(0).get("mediaType"), "application/json");
+        Assert.assertTrue(coJson.produces.contains("application/json"));
 
         Operation issue443Operation = openAPI.getPaths().get("/other/issue443").getGet();
         CodegenOperation coIssue443 = codegen.fromOperation("/other/issue443", "get", issue443Operation, null);
-        Assert.assertTrue(coIssue443.hasProduces);
+        Assert.assertTrue(!coIssue443.produces.isEmpty());
         Assert.assertEquals(coIssue443.produces.size(), 2);
-        Assert.assertEquals(coIssue443.produces.get(0).get("mediaType"), "application/json");
-        Assert.assertEquals(coIssue443.produces.get(1).get("mediaType"), "application/text");
+        Assert.assertTrue(coIssue443.produces.contains("application/json"));
+        Assert.assertTrue(coIssue443.produces.contains("application/text"));
     }
 
     @Test
@@ -336,13 +338,13 @@ public class DefaultCodegenTest {
         for (CodegenSchema cp : cm.getProperties().values()) {
             if ("map_with_undeclared_properties_string".equals(cp.name().name)) {
                 map_with_undeclared_properties_string_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name().getName())) {
+            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.name)) {
                 map_with_undeclared_properties_anytype_1_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name().getName())) {
+            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name.name)) {
                 map_with_undeclared_properties_anytype_2_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name().getName())) {
+            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name.name)) {
                 map_with_undeclared_properties_anytype_3_cp = cp;
-            } else if ("empty_map".equals(cp.name().getName())) {
+            } else if ("empty_map".equals(cp.name.name)) {
                 empty_map_cp = cp;
             }
         }
@@ -441,7 +443,7 @@ public class DefaultCodegenTest {
         CodegenOperation co = codegen.fromOperation("/test", "get", operation, null);
 
         Assert.assertEquals(co.produces.size(), 1);
-        Assert.assertEquals(co.produces.get(0).get("mediaType"), "application/json");
+        Assert.assertTrue(co.produces.contains("application/json"));
     }
 
     @Test
@@ -471,8 +473,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/fruit"
         );
 
-        Assert.assertEquals(fruit.getOneOf().get(0).getRefInfo().getRefClass(), "Apple");
-        Assert.assertEquals(fruit.getOneOf().get(1).getRefInfo().getRefClass(), "Banana");
+        Assert.assertEquals(fruit.getOneOf().get(0).refInfo().refClass, "Apple");
+        Assert.assertEquals(fruit.getOneOf().get(1).refInfo().refClass, "Banana");
         assertEquals(fruit.getOptionalProperties().size(), 1);
     }
 
@@ -691,20 +693,6 @@ public class DefaultCodegenTest {
         path = openAPI.getPaths().get("/example3/plural");
         op = codegen.fromOperation("/example3/plural", "get", path.getGet(), path.getServers());
         assertEquals(op.queryParams.get(0).example, "An example3 value");
-    }
-
-    @Test
-    public void testExample4() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        final DefaultCodegen codegen = new DefaultCodegen();
-
-        PathItem path = openAPI.getPaths().get("/example4/singular");
-        CodegenOperation op = codegen.fromOperation("/example4/singular", "post", path.getPost(), path.getServers());
-        assertEquals(op.requestBody.getExample(), "example4 value");
-
-        path = openAPI.getPaths().get("/example4/plural");
-        op = codegen.fromOperation("/example4/plural", "post", path.getPost(), path.getServers());
-        assertEquals(op.requestBody.getExample(), "An example4 value");
     }
 
     @Test
@@ -2300,17 +2288,17 @@ public class DefaultCodegenTest {
         path = "/ref_array_with_validations_in_items/{items}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertEquals(co.pathParams.get(0).getSchema().getRefInfo().getRef().getItems().getMaximum(), "7"); // disabled because refed
+        assertEquals(co.pathParams.get(0).schema.refInfo().ref.getItems().getMaximum(), "7"); // disabled because refed
         CodegenKey applicationJson = codegen.getKey("application/json");
-        assertEquals(co.requestBody.getContent().get(applicationJson).getSchema().getRefInfo().getRef().getItems().getMaximum(), "7");  // disabled because refed
-        assertEquals(co.responses.get("200").getContent().get(applicationJson).getSchema().getRefInfo().getRef().getItems().getMaximum(), "7");  // disabled because refed
+        assertEquals(co.requestBody.content.get(applicationJson).schema.refInfo().ref.getItems().getMaximum(), "7");  // disabled because refed
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo().ref.getItems().getMaximum(), "7");  // disabled because refed
 
         path = "/array_with_validations_in_items/{items}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(path, "POST", operation, null);
-        assertEquals(co.pathParams.get(0).getSchema().getItems().getMaximum(), "7");
-        assertEquals(co.requestBody.getContent().get(applicationJson).getSchema().getItems().getMaximum(), "7");
-        assertEquals(co.responses.get("200").getContent().get(applicationJson).getSchema().getItems().getMaximum(), "7");
+        assertEquals(co.pathParams.get(0).schema.getItems().getMaximum(), "7");
+        assertEquals(co.requestBody.content.get(applicationJson).schema.getItems().getMaximum(), "7");
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.getItems().getMaximum(), "7");
     }
 
     @Test

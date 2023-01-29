@@ -30,8 +30,8 @@ from .responses import response_400
 from . import request_body
 
 _all_accept_content_types = (
-    "application/json",
     "application/xml",
+    "application/json",
 )
 
 

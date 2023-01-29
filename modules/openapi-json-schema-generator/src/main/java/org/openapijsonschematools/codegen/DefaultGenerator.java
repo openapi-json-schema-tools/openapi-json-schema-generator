@@ -42,6 +42,7 @@ import org.openapijsonschematools.codegen.model.ApiInfoMap;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
@@ -1790,31 +1791,10 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
-        final List<SecurityRequirement> globalSecurities = openAPI.getSecurity();
         for (Tag tag : tags) {
             try {
                 CodegenOperation codegenOperation = config.fromOperation(resourcePath, httpMethod, operation, path.getServers());
                 config.addOperationToGroup(config.sanitizeTag(tag.getName()), resourcePath, operation, codegenOperation, operations);
-
-                List<SecurityRequirement> securities = operation.getSecurity();
-                if (securities != null && securities.isEmpty()) {
-                    continue;
-                }
-
-                Map<String, SecurityScheme> authMethods = getAuthMethods(securities, securitySchemes);
-
-                if (authMethods != null && !authMethods.isEmpty()) {
-                    List<CodegenSecurity> fullAuthMethods = config.fromSecurity(authMethods);
-                    codegenOperation.authMethods = filterAuthMethods(fullAuthMethods, securities);
-                } else {
-                    authMethods = getAuthMethods(globalSecurities, securitySchemes);
-
-                    if (authMethods != null && !authMethods.isEmpty()) {
-                        List<CodegenSecurity> fullAuthMethods = config.fromSecurity(authMethods);
-                        codegenOperation.authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
-                    }
-                }
 
             } catch (Exception ex) {
                 String msg = "Could not process operation:\n" //
@@ -1896,119 +1876,6 @@ public class DefaultGenerator implements Generator {
             im.put("classname", value);
             result.add(im);
         });
-        return result;
-    }
-
-    private Map<String, SecurityScheme> getAuthMethods(List<SecurityRequirement> securities, Map<String, SecurityScheme> securitySchemes) {
-        if (securities == null || (securitySchemes == null || securitySchemes.isEmpty())) {
-            return null;
-        }
-        final Map<String, SecurityScheme> authMethods = new HashMap<>();
-        for (SecurityRequirement requirement : securities) {
-            for (Map.Entry<String, List<String>> entry : requirement.entrySet()) {
-                final String key = entry.getKey();
-                SecurityScheme securityScheme = securitySchemes.get(key);
-                if (securityScheme != null) {
-
-                    if (securityScheme.getType().equals(SecurityScheme.Type.OAUTH2)) {
-                        OAuthFlows oauthUpdatedFlows = new OAuthFlows();
-                        oauthUpdatedFlows.extensions(securityScheme.getFlows().getExtensions());
-
-                        SecurityScheme oauthUpdatedScheme = new SecurityScheme()
-                                .type(securityScheme.getType())
-                                .description(securityScheme.getDescription())
-                                .name(securityScheme.getName())
-                                .$ref(securityScheme.get$ref())
-                                .in(securityScheme.getIn())
-                                .scheme(securityScheme.getScheme())
-                                .bearerFormat(securityScheme.getBearerFormat())
-                                .openIdConnectUrl(securityScheme.getOpenIdConnectUrl())
-                                .extensions(securityScheme.getExtensions())
-                                .flows(oauthUpdatedFlows);
-
-                        // Ensure inserted AuthMethod only contains scopes of actual operation, and not all of them defined in the Security Component
-                        // have to iterate through and create new SecurityScheme objects with the scopes 'fixed/updated'
-                        final OAuthFlows securitySchemeFlows = securityScheme.getFlows();
-
-
-                        if (securitySchemeFlows.getAuthorizationCode() != null) {
-                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getAuthorizationCode(), entry.getValue());
-
-                            oauthUpdatedFlows.setAuthorizationCode(updatedFlow);
-                        }
-                        if (securitySchemeFlows.getImplicit() != null) {
-                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getImplicit(), entry.getValue());
-
-                            oauthUpdatedFlows.setImplicit(updatedFlow);
-                        }
-                        if (securitySchemeFlows.getPassword() != null) {
-                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getPassword(), entry.getValue());
-
-                            oauthUpdatedFlows.setPassword(updatedFlow);
-                        }
-                        if (securitySchemeFlows.getClientCredentials() != null) {
-                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getClientCredentials(), entry.getValue());
-
-                            oauthUpdatedFlows.setClientCredentials(updatedFlow);
-                        }
-
-                        authMethods.put(key, oauthUpdatedScheme);
-                    } else {
-                        authMethods.put(key, securityScheme);
-                    }
-                }
-            }
-        }
-        return authMethods;
-    }
-
-    private static OAuthFlow cloneOAuthFlow(OAuthFlow originFlow, List<String> operationScopes) {
-        Scopes newScopes = new Scopes();
-        for (String operationScope : operationScopes) {
-            if (originFlow.getScopes().containsKey(operationScope)) {
-                newScopes.put(operationScope, originFlow.getScopes().get(operationScope));
-            }
-        }
-
-        return new OAuthFlow()
-                .authorizationUrl(originFlow.getAuthorizationUrl())
-                .tokenUrl(originFlow.getTokenUrl())
-                .refreshUrl(originFlow.getRefreshUrl())
-                .extensions(originFlow.getExtensions())
-                .scopes(newScopes);
-    }
-
-    private List<CodegenSecurity> filterAuthMethods(List<CodegenSecurity> authMethods, List<SecurityRequirement> securities) {
-        if (securities == null || securities.isEmpty() || authMethods == null) {
-            return authMethods;
-        }
-
-        List<CodegenSecurity> result = new ArrayList<>();
-
-        for (CodegenSecurity security : authMethods) {
-            boolean filtered = false;
-            if (security != null && security.scopes != null) {
-                for (SecurityRequirement requirement : securities) {
-                    List<String> opScopes = requirement.get(security.name);
-                    if (opScopes != null) {
-                        // We have operation-level scopes for this method, so filter the auth method to
-                        // describe the operation auth method with only the scopes that it requires.
-                        // We have to create a new auth method instance because the original object must
-                        // not be modified.
-                        CodegenSecurity opSecurity = security.filterByScopeNames(opScopes);
-                        result.add(opSecurity);
-                        filtered = true;
-                        break;
-                    }
-                }
-            }
-
-            // If we didn't get a filtered version, then we can keep the original auth method.
-            if (!filtered) {
-                result.add(security);
-            }
-        }
-
         return result;
     }
 

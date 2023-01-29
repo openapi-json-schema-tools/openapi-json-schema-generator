@@ -24,8 +24,7 @@ import io.swagger.v3.oas.models.PathItem;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.languages.features.BeanValidationFeatures;
@@ -118,16 +117,8 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
 
     @Override
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations) {
-        final String basePath = StringUtils.substringBefore(StringUtils.removeStart(resourcePath, "/"), "/");
         if (useTags) {
             super.addOperationToGroup(tag, resourcePath, operation, co, operations);
-        } else {
-            co.baseName = basePath;
-            if (StringUtils.isEmpty(co.baseName) || StringUtils.containsAny(co.baseName, "{", "}")) {
-                co.baseName = "default";
-            }
-            final List<CodegenOperation> opList = operations.computeIfAbsent(co.baseName, k -> new ArrayList<>());
-            opList.add(co);
         }
     }
 
@@ -175,12 +166,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
     public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
         OperationsMap updatedObjs = jaxrsPostProcessOperations(objs);
         OperationMap operations = updatedObjs.getOperations();
-        if (operations != null) {
-            List<CodegenOperation> ops = operations.getOperation();
-            for (CodegenOperation co : ops) {
-                handleImplicitHeaders(co);
-            }
-        }
         return updatedObjs;
     }
 

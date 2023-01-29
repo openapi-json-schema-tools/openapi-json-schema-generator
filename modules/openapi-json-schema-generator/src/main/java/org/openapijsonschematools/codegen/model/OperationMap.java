@@ -4,8 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import org.openapijsonschematools.codegen.CodegenOperation;
-
 public class OperationMap extends HashMap<String, Object> {
 
     public void setOperation(CodegenOperation ops) {

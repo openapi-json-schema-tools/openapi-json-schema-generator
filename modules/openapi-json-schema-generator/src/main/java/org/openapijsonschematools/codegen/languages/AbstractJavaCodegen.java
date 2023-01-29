@@ -33,7 +33,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.CodegenOperation;
+import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
@@ -1156,8 +1156,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 CodegenSchema cp = p.getSetSchema();
             }
             op.vendorExtensions.put("x-java-import", operationImports);
-
-            handleImplicitHeaders(op);
         }
         return objs;
     }
@@ -1738,33 +1736,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         return properties.stream()
             .filter(p -> p.name().equals(name))
             .findFirst();
-    }
-
-    /**
-     * This method removes all implicit header parameters from the list of parameters
-     *
-     * @param operation - operation to be processed
-     */
-    protected void handleImplicitHeaders(CodegenOperation operation) {
-        if (operation.allParams.isEmpty()) {
-            return;
-        }
-        final ArrayList<CodegenParameter> copy = new ArrayList<>(operation.allParams);
-        operation.allParams.clear();
-
-        for (CodegenParameter p : copy) {
-            if (p.isHeaderParam && (implicitHeaders || shouldBeImplicitHeader(p))) {
-                operation.implicitHeadersParams.add(p);
-                operation.headerParams.removeIf(header -> header.baseName.equals(p.baseName));
-                LOGGER.info("Update operation [{}]. Remove header [{}] because it's marked to be implicit", operation.operationId, p.baseName);
-            } else {
-                operation.allParams.add(p);
-            }
-        }
-    }
-
-    private boolean shouldBeImplicitHeader(CodegenParameter parameter) {
-        return StringUtils.isNotBlank(implicitHeadersRegex) && parameter.baseName.matches(implicitHeadersRegex);
     }
 
     @Override

@@ -26,7 +26,9 @@ import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.Scopes;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -44,6 +46,7 @@ import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
@@ -3007,6 +3010,119 @@ public class DefaultCodegen implements CodegenConfig {
         return currentProperty;
     }
 
+    private Map<String, SecurityScheme> getAuthMethods(List<SecurityRequirement> securities, Map<String, SecurityScheme> securitySchemes) {
+        if (securities == null || (securitySchemes == null || securitySchemes.isEmpty())) {
+            return null;
+        }
+        final Map<String, SecurityScheme> authMethods = new HashMap<>();
+        for (SecurityRequirement requirement : securities) {
+            for (Map.Entry<String, List<String>> entry : requirement.entrySet()) {
+                final String key = entry.getKey();
+                SecurityScheme securityScheme = securitySchemes.get(key);
+                if (securityScheme != null) {
+
+                    if (securityScheme.getType().equals(SecurityScheme.Type.OAUTH2)) {
+                        OAuthFlows oauthUpdatedFlows = new OAuthFlows();
+                        oauthUpdatedFlows.extensions(securityScheme.getFlows().getExtensions());
+
+                        SecurityScheme oauthUpdatedScheme = new SecurityScheme()
+                                .type(securityScheme.getType())
+                                .description(securityScheme.getDescription())
+                                .name(securityScheme.getName())
+                                .$ref(securityScheme.get$ref())
+                                .in(securityScheme.getIn())
+                                .scheme(securityScheme.getScheme())
+                                .bearerFormat(securityScheme.getBearerFormat())
+                                .openIdConnectUrl(securityScheme.getOpenIdConnectUrl())
+                                .extensions(securityScheme.getExtensions())
+                                .flows(oauthUpdatedFlows);
+
+                        // Ensure inserted AuthMethod only contains scopes of actual operation, and not all of them defined in the Security Component
+                        // have to iterate through and create new SecurityScheme objects with the scopes 'fixed/updated'
+                        final OAuthFlows securitySchemeFlows = securityScheme.getFlows();
+
+
+                        if (securitySchemeFlows.getAuthorizationCode() != null) {
+                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getAuthorizationCode(), entry.getValue());
+
+                            oauthUpdatedFlows.setAuthorizationCode(updatedFlow);
+                        }
+                        if (securitySchemeFlows.getImplicit() != null) {
+                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getImplicit(), entry.getValue());
+
+                            oauthUpdatedFlows.setImplicit(updatedFlow);
+                        }
+                        if (securitySchemeFlows.getPassword() != null) {
+                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getPassword(), entry.getValue());
+
+                            oauthUpdatedFlows.setPassword(updatedFlow);
+                        }
+                        if (securitySchemeFlows.getClientCredentials() != null) {
+                            OAuthFlow updatedFlow = cloneOAuthFlow(securitySchemeFlows.getClientCredentials(), entry.getValue());
+
+                            oauthUpdatedFlows.setClientCredentials(updatedFlow);
+                        }
+
+                        authMethods.put(key, oauthUpdatedScheme);
+                    } else {
+                        authMethods.put(key, securityScheme);
+                    }
+                }
+            }
+        }
+        return authMethods;
+    }
+
+    private static OAuthFlow cloneOAuthFlow(OAuthFlow originFlow, List<String> operationScopes) {
+        Scopes newScopes = new Scopes();
+        for (String operationScope : operationScopes) {
+            if (originFlow.getScopes().containsKey(operationScope)) {
+                newScopes.put(operationScope, originFlow.getScopes().get(operationScope));
+            }
+        }
+
+        return new OAuthFlow()
+                .authorizationUrl(originFlow.getAuthorizationUrl())
+                .tokenUrl(originFlow.getTokenUrl())
+                .refreshUrl(originFlow.getRefreshUrl())
+                .extensions(originFlow.getExtensions())
+                .scopes(newScopes);
+    }
+
+    private List<CodegenSecurity> filterAuthMethods(List<CodegenSecurity> authMethods, List<SecurityRequirement> securities) {
+        if (securities == null || securities.isEmpty() || authMethods == null) {
+            return authMethods;
+        }
+
+        List<CodegenSecurity> result = new ArrayList<>();
+
+        for (CodegenSecurity security : authMethods) {
+            boolean filtered = false;
+            if (security != null && security.scopes != null) {
+                for (SecurityRequirement requirement : securities) {
+                    List<String> opScopes = requirement.get(security.name);
+                    if (opScopes != null) {
+                        // We have operation-level scopes for this method, so filter the auth method to
+                        // describe the operation auth method with only the scopes that it requires.
+                        // We have to create a new auth method instance because the original object must
+                        // not be modified.
+                        CodegenSecurity opSecurity = security.filterByScopeNames(opScopes);
+                        result.add(opSecurity);
+                        filtered = true;
+                        break;
+                    }
+                }
+            }
+
+            // If we didn't get a filtered version, then we can keep the original auth method.
+            if (!filtered) {
+                result.add(security);
+            }
+        }
+
+        return result;
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -3102,7 +3218,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         TreeMap<String, CodegenResponse> responses = null;
-        TreeSet<String> produces = null;
+        LinkedHashSet<String> produces = null;
         CodegenResponse defaultResponse = null;
         TreeMap<String, CodegenResponse> nonDefaultResponses = null;
         TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
@@ -3113,10 +3229,10 @@ public class DefaultCodegen implements CodegenConfig {
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
                 String key = operationGetResponsesEntry.getKey();
                 ApiResponse response = operationGetResponsesEntry.getValue();
-                TreeSet<String> responseProduces = getProducesInfo(response);
+                LinkedHashSet<String> responseProduces = getProducesInfo(response);
                 if (responseProduces!= null) {
                     if (produces == null) {
-                        produces = new TreeSet<>();
+                        produces = new LinkedHashSet<>();
                     }
                     produces.addAll(responseProduces);
                 }
@@ -3178,11 +3294,14 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
+        List<CodegenCallback> callbacks = null;
         if (operation.getCallbacks() != null && !operation.getCallbacks().isEmpty()) {
+            List<CodegenCallback> foundCallbacks = new ArrayList<>();
             operation.getCallbacks().forEach((name, callback) -> {
                 CodegenCallback c = fromCallback(name, callback, servers);
-                op.callbacks.add(c);
+                foundCallbacks.add(c);
             });
+            callbacks = foundCallbacks;
         }
 
         List<Parameter> parameters = operation.getParameters();
@@ -3278,6 +3397,24 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             });
         }
+        List<CodegenSecurity> authMethods = null;
+        List<SecurityRequirement> securities = operation.getSecurity();
+        if (securities != null && !securities.isEmpty()) {
+            final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
+            final List<SecurityRequirement> globalSecurities = openAPI.getSecurity();
+            Map<String, SecurityScheme> theseAuthMethods = getAuthMethods(securities, securitySchemes);
+            if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
+                List<CodegenSecurity> fullAuthMethods = fromSecurity(theseAuthMethods);
+                authMethods = filterAuthMethods(fullAuthMethods, securities);
+            } else {
+                theseAuthMethods = getAuthMethods(globalSecurities, securitySchemes);
+
+                if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
+                    List<CodegenSecurity> fullAuthMethods = fromSecurity(theseAuthMethods);
+                    authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
+                }
+            }
+        }
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenOperation op = new CodegenOperation(
@@ -3296,7 +3433,6 @@ public class DefaultCodegen implements CodegenConfig {
                 queryParams,
                 headerParams,
                 cookieParams,
-                implicitHeadersParams,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
                 authMethods,
@@ -3914,7 +4050,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         opList.add(co);
-        co.baseName = tag;
     }
 
     protected void addImports(CodegenSchema m, CodegenSchema type) {
@@ -4886,7 +5021,7 @@ public class DefaultCodegen implements CodegenConfig {
         return ModelUtils.getReferencedSchema(openAPI, schema) != null;
     }
 
-    private TreeSet<String> getProducesInfo(ApiResponse inputResponse) {
+    private LinkedHashSet<String> getProducesInfo(ApiResponse inputResponse) {
         ApiResponse response = ModelUtils.getReferencedApiResponse(this.openAPI, inputResponse);
         if (response == null || response.getContent() == null || response.getContent().isEmpty()) {
             return null;
@@ -4896,7 +5031,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (contentKeys == null || contentKeys.isEmpty()) {
             return null;
         }
-        TreeSet<String> produces = new TreeSet<>();
+        LinkedHashSet<String> produces = new LinkedHashSet<>();
         for (String key : contentKeys) {
             // escape quotation to avoid code injection, "*/*" is a special case, do nothing
             String encodedKey = "*/*".equals(key) ? key : escapeQuotationMark(key);
