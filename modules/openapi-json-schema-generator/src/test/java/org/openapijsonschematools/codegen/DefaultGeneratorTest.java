@@ -444,13 +444,13 @@ public class DefaultGeneratorTest {
                 body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
         CodegenKey ck = config.getKey("*/*");
-        Assert.assertEquals(codegenParameter.getContent().get(ck).getSchema().getRefInfo().getRef().pattern, escapedPattern);
+        Assert.assertEquals(codegenParameter.content.get(ck).schema.refInfo().ref.pattern, escapedPattern);
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
         CodegenResponse codegenResponse = config.fromResponse(response, "#/paths/~1fake~1StringRegex/post/responses/200");
 
-        Assert.assertEquals(codegenResponse.getContent().get(ck).getSchema().getRefInfo().getRef().getPattern(), escapedPattern);
+        Assert.assertEquals(codegenResponse.content.get(ck).schema.refInfo().ref.pattern, escapedPattern);
     }
 
     @Test

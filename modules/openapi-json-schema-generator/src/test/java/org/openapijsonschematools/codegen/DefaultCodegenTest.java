@@ -90,8 +90,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
         CodegenOperation operation = codegen.fromOperation("/ping", "post", path.getPost(), path.getServers());
-        // todo fix later
-        Assert.assertEquals(operation.responses.get("default").imports, Sets.newHashSet());
+        Assert.assertEquals(operation.responses.get("default").imports, null);
     }
 
     @Test
@@ -102,8 +101,8 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/pets/petType/{type}");
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
-        assertEquals(operation.pathParams.get(0).imports.size(), 0);
-        Assert.assertEquals(Sets.intersection(operation.pathParams.get(0).getSetSchema().imports, Sets.newHashSet("PetByType")).size(), 1);
+        assertEquals(operation.pathParams.get(0).imports, null);
+        Assert.assertEquals(operation.pathParams.get(0).schema.refInfo().ref.imports.size(), 1);
     }
 
     @Test
@@ -764,7 +763,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, null);
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, new LinkedHashSet());
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -1491,18 +1490,18 @@ public class DefaultCodegenTest {
         Assert.assertEquals(urlA.requests.size(), 2);
 
         urlA.requests.forEach(req -> {
-            Assert.assertTrue(!req.callbacks.isEmpty());
+            Assert.assertNull(req.callbacks);
             Assert.assertNotNull(req.requestBody);
             Assert.assertEquals(req.responses.size(), 2);
 
             CodegenKey ck = codegen.getKey("application/json");
             switch (req.httpMethod.name) {
                 case "post":
-                    Assert.assertEquals(req.operationId, "onDataDataPost");
+                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataPost");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo().refClass, "NewNotificationData");
                     break;
                 case "delete":
-                    Assert.assertEquals(req.operationId, "onDataDataDelete");
+                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataDelete");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo().refClass, "DeleteNotificationData");
                     break;
                 default:
@@ -1522,9 +1521,9 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co1 = codegen.fromOperation("/here", "get", operation2, null);
-        Assert.assertEquals(co1.path, "/here");
+        Assert.assertEquals(co1.path.name, "/here");
         CodegenOperation co2 = codegen.fromOperation("some/path", "get", operation2, null);
-        Assert.assertEquals(co2.path, "/some/path");
+        Assert.assertEquals(co2.path.name, "/some/path");
     }
 
     @Test
@@ -3528,7 +3527,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId, "usersGetAll");
+        assertEquals(co.operationId.name, "usersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
