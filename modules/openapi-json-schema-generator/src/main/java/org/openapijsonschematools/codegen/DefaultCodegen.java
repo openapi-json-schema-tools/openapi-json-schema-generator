@@ -3306,8 +3306,14 @@ public class DefaultCodegen implements CodegenConfig {
      */
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
         if (response == null) {
-            LOGGER.error("response in fromResponse cannot be null!");
-            throw new RuntimeException("response in fromResponse cannot be null!");
+            String msg = "response in fromResponse cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
+
+        CodegenResponse r = codegenResponseCache.getOrDefault(sourceJsonPath, null);
+        if (r != null) {
+            return r;
         }
 
         String message = escapeText(response.getDescription());
@@ -3355,7 +3361,8 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         String finalComponentModule = componentModule;
         TreeSet<String> finalImports = imports;
-        CodegenResponse r = codegenResponseCache.computeIfAbsent(sourceJsonPath, s -> new CodegenResponse(name, finalHeaders, message, jsonSchema, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule));
+        r = new CodegenResponse(name, finalHeaders, message, jsonSchema, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
+        codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
 
@@ -3419,6 +3426,16 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
+        if (header == null) {
+            String msg = "header in fromHeader cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
+        CodegenHeader codegenHeader = codegenHeaderCache.getOrDefault(sourceJsonPath, null);
+        if (codegenHeader != null) {
+            return codegenHeader;
+        }
+
         String ref = header.get$ref();
         String expectedComponentType = "headers";
         CodegenRefInfo refInfo = null;
@@ -3489,7 +3506,8 @@ public class DefaultCodegen implements CodegenConfig {
         boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        CodegenHeader codegenHeader = codegenHeaderCache.computeIfAbsent(sourceJsonPath, s -> new CodegenHeader(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo));
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo);
+        codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
 
@@ -3501,9 +3519,18 @@ public class DefaultCodegen implements CodegenConfig {
      * @return Codegen Parameter object
      */
     public CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath) {
+        if (parameter == null) {
+            String msg = "parameter in fromParameter cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
         if (GlobalSettings.getProperty("debugParser") != null) {
             LOGGER.info("working on Parameter {}", parameter.getName());
             LOGGER.info("jsonPath: {}", sourceJsonPath);
+        }
+        CodegenParameter codegenParameter = codegenParameterCache.getOrDefault(sourceJsonPath, null);
+        if (codegenParameter != null) {
+            return codegenParameter;
         }
 
         String ref = parameter.get$ref();
@@ -3611,7 +3638,8 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
-        CodegenParameter codegenParameter = codegenParameterCache.computeIfAbsent(sourceJsonPath, s -> new CodegenParameter(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalIsQueryParam, finalIsPathParam, finalIsHeaderParam, finalIsCookieParam, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo));
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalIsQueryParam, finalIsPathParam, finalIsHeaderParam, finalIsCookieParam, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
     }
@@ -5077,8 +5105,13 @@ public class DefaultCodegen implements CodegenConfig {
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
         // process body parameter
         if (requestBody == null) {
-            LOGGER.error("body in fromRequestBody cannot be null!");
-            throw new RuntimeException("body in fromRequestBody cannot be null!");
+            String msg = "body in fromRequestBody cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
+        CodegenRequestBody codegenRequestBody = codegenRequestBodyCache.getOrDefault(sourceJsonPath, null);
+        if (codegenRequestBody != null) {
+            return codegenRequestBody;
         }
 
         String ref = requestBody.get$ref();
@@ -5124,7 +5157,8 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         boolean finalRequired = required;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        CodegenRequestBody codegenRequestBody = codegenRequestBodyCache.computeIfAbsent(sourceJsonPath, s -> new CodegenRequestBody(description, unescapedDescription, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, finalRefInfo));
+        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
+        codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
 
