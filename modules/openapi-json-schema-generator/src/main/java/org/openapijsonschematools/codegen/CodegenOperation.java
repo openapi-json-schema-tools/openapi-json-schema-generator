@@ -31,90 +31,64 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean isDeprecated,
+    public final boolean isDeprecated,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public String summary, unescapedNotes, notes, baseName;
-    CodegenKey httpMethod;
-    public CodegenKey path;
-    public TreeSet<String> produces;
-    public List<CodegenServer> servers = new ArrayList<CodegenServer>();
-    public CodegenRequestBody requestBody;
-    public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> pathParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> queryParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
-    public boolean hasRequiredParamOrBody = false;
-    public boolean hasOptionalParamOrBody = false;
-    public List<CodegenSecurity> authMethods;
-    public Map<String, CodegenTag> tags;
-    public TreeMap<String, CodegenResponse> responses = null;
-    public TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
-    public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
-    public TreeMap<String, CodegenResponse> nonDefaultResponses = null;
-    public CodegenResponse defaultResponse = null;
-    public List<CodegenCallback> callbacks = new ArrayList<>();
-    public ExternalDocumentation externalDocs;
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
-    public CodegenKey operationId;
+    public final String summary, unescapedNotes, notes;
+    public final CodegenKey httpMethod;
+    public final CodegenKey path;
+    public final TreeSet<String> produces;
+    public final List<CodegenServer> servers;
+    public final CodegenRequestBody requestBody;
+    public final List<CodegenParameter> allParams;
+    public final List<CodegenParameter> pathParams;
+    public final List<CodegenParameter> queryParams;
+    public final List<CodegenParameter> headerParams;
+    public final List<CodegenParameter> cookieParams;
+    public final List<CodegenParameter> implicitHeadersParams;
+    public final boolean hasRequiredParamOrBody;
+    public final boolean hasOptionalParamOrBody;
+    public final List<CodegenSecurity> authMethods;
+    public final Map<String, CodegenTag> tags;
+    public final TreeMap<String, CodegenResponse> responses;
+    public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
+    public final TreeMap<Integer, CodegenResponse> wildcardCodeResponses;
+    public final TreeMap<String, CodegenResponse> nonDefaultResponses;
+    public final CodegenResponse defaultResponse;
+    public final List<CodegenCallback> callbacks;
+    public final ExternalDocumentation externalDocs;
+    public final Map<String, Object> vendorExtensions;
+    public final CodegenKey operationId;
 
-    /**
-     * Check if there's at least one parameter
-     *
-     * @return true if parameter exists, false otherwise
-     */
-    private static boolean nonEmpty(List<?> params) {
-        return params != null && !params.isEmpty();
-    }
-
-    private static boolean nonEmpty(Map<?, ?> params) {
-        return params != null && !params.isEmpty();
-    }
-
-    /**
-     * Check if there's at least one query parameter
-     *
-     * @return true if query parameter exists, false otherwise
-     */
-    public boolean getHasQueryParams() {
-        return nonEmpty(queryParams);
-    }
-
-    /**
-     * Check if there's at least one query parameter or passing API keys in query
-     *
-     * @return true if query parameter exists or passing API keys in query, false otherwise
-     */
-    public boolean getHasQueryParamsOrAuth() {
-        return getHasQueryParams() || (authMethods != null && authMethods.stream().anyMatch(authMethod -> authMethod.isKeyInQuery));
-    }
-
-    /**
-     * Check if there's at least one header parameter
-     *
-     * @return true if header parameter exists, false otherwise
-     */
-    public boolean getHasHeaderParams() {
-        return nonEmpty(headerParams);
-    }
-
-    /**
-     * Check if there's at least one path parameter
-     *
-     * @return true if path parameter exists, false otherwise
-     */
-    public boolean getHasPathParams() {
-        return nonEmpty(pathParams);
-    }
-
-    /**
-     * Check if there's at least one form parameter
-     *
-     * @return true if any cookie parameter exists, false otherwise
-     */
-    public boolean getHasCookieParams() {
-        return nonEmpty(cookieParams);
+    public CodegenOperation(boolean isDeprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, String baseName, CodegenKey httpMethod, CodegenKey path, TreeSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, List<CodegenParameter> implicitHeadersParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+        this.isDeprecated = isDeprecated;
+        this.hasErrorResponseObject = hasErrorResponseObject;
+        this.summary = summary;
+        this.unescapedNotes = unescapedNotes;
+        this.notes = notes;
+        this.httpMethod = httpMethod;
+        this.path = path;
+        this.produces = produces;
+        this.servers = servers;
+        this.requestBody = requestBody;
+        this.allParams = allParams;
+        this.pathParams = pathParams;
+        this.queryParams = queryParams;
+        this.headerParams = headerParams;
+        this.cookieParams = cookieParams;
+        this.implicitHeadersParams = implicitHeadersParams;
+        this.hasRequiredParamOrBody = hasRequiredParamOrBody;
+        this.hasOptionalParamOrBody = hasOptionalParamOrBody;
+        this.authMethods = authMethods;
+        this.tags = tags;
+        this.responses = responses;
+        this.statusCodeResponses = statusCodeResponses;
+        this.wildcardCodeResponses = wildcardCodeResponses;
+        this.nonDefaultResponses = nonDefaultResponses;
+        this.defaultResponse = defaultResponse;
+        this.callbacks = callbacks;
+        this.externalDocs = externalDocs;
+        this.vendorExtensions = vendorExtensions;
+        this.operationId = operationId;
     }
 
     public boolean getAllResponsesAreErrors() {
@@ -158,107 +132,9 @@ public class CodegenOperation {
         return contentTypeToOperation;
     }
 
-    /**
-     * Check if there's at least one vendor extension
-     *
-     * @return true if vendor extensions exists, false otherwise
-     */
-    public boolean getHasVendorExtensions() {
-        return nonEmpty(vendorExtensions);
-    }
-
-    /**
-     * Check if act as Restful index method
-     *
-     * @return true if act as Restful index method, false otherwise
-     */
-    public boolean isRestfulIndex() {
-        return "GET".equalsIgnoreCase(httpMethod.name) && "".equals(pathWithoutBaseName());
-    }
-
-    /**
-     * Check if act as Restful show method
-     *
-     * @return true if act as Restful show method, false otherwise
-     */
-    public boolean isRestfulShow() {
-        return "GET".equalsIgnoreCase(httpMethod.name) && isMemberPath();
-    }
-
-    /**
-     * Check if act as Restful create method
-     *
-     * @return true if act as Restful create method, false otherwise
-     */
-    public boolean isRestfulCreate() {
-        return "POST".equalsIgnoreCase(httpMethod.name) && "".equals(pathWithoutBaseName());
-    }
-
-    /**
-     * Check if act as Restful update method
-     *
-     * @return true if act as Restful update method, false otherwise
-     */
-    public boolean isRestfulUpdate() {
-        return Arrays.asList("PUT", "PATCH").contains(httpMethod.name.toUpperCase(Locale.ROOT)) && isMemberPath();
-    }
-
-    /**
-     * Check if body param is allowed for the request method
-     *
-     * @return true request method is PUT, PATCH or POST; false otherwise
-     */
-    public boolean isBodyAllowed() {
-        return Arrays.asList("PUT", "PATCH", "POST").contains(httpMethod.name.toUpperCase(Locale.ROOT));
-    }
-
-    /**
-     * Check if act as Restful destroy method
-     *
-     * @return true if act as Restful destroy method, false otherwise
-     */
-    public boolean isRestfulDestroy() {
-        return "DELETE".equalsIgnoreCase(httpMethod.name) && isMemberPath();
-    }
-
-    /**
-     * Check if Restful-style
-     *
-     * @return true if Restful-style, false otherwise
-     */
-    public boolean isRestful() {
-        return isRestfulIndex() || isRestfulShow() || isRestfulCreate() || isRestfulUpdate() || isRestfulDestroy();
-    }
-
-    /**
-     * Get the substring except baseName from path
-     *
-     * @return the substring
-     */
-    private String pathWithoutBaseName() {
-        return baseName != null ? path.name.replace("/" + baseName.toLowerCase(Locale.ROOT), "") : path.name;
-    }
-
-    /**
-     * Check if the path match format /xxx/:id
-     *
-     * @return true if path act as member
-     */
-    private boolean isMemberPath() {
-        if (pathParams.size() != 1) return false;
-        String id = pathParams.get(0).baseName;
-        return ("/{" + id + "}").equals(pathWithoutBaseName());
-    }
-
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", isRestfulIndex=").append(isRestfulIndex());
-        sb.append(", isRestfulShow=").append(isRestfulShow());
-        sb.append(", isRestfulCreate=").append(isRestfulCreate());
-        sb.append(", isRestfulUpdate=").append(isRestfulUpdate());
-        sb.append(", isRestfulDestroy=").append(isRestfulDestroy());
-        sb.append(", isRestful=").append(isRestful());
         sb.append(", isDeprecated=").append(isDeprecated);
         sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
@@ -266,7 +142,6 @@ public class CodegenOperation {
         sb.append(", summary='").append(summary).append('\'');
         sb.append(", unescapedNotes='").append(unescapedNotes).append('\'');
         sb.append(", notes='").append(notes).append('\'');
-        sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
@@ -303,7 +178,6 @@ public class CodegenOperation {
                 Objects.equals(summary, that.summary) &&
                 Objects.equals(unescapedNotes, that.unescapedNotes) &&
                 Objects.equals(notes, that.notes) &&
-                Objects.equals(baseName, that.baseName) &&
                 Objects.equals(defaultResponse, that.defaultResponse) &&
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(servers, that.servers) &&
@@ -330,7 +204,7 @@ public class CodegenOperation {
     public int hashCode() {
 
         return Objects.hash(isDeprecated, path, operationId, httpMethod,
-                summary, unescapedNotes, notes, baseName, defaultResponse,
+                summary, unescapedNotes, notes, defaultResponse,
                 produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
                 authMethods, tags, responses, callbacks, externalDocs,

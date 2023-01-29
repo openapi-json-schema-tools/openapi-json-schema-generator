@@ -25,13 +25,13 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.security.Scopes;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
-import org.openapijsonschematools.codegen.examples.ExampleGenerator;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
@@ -3022,43 +3022,42 @@ public class DefaultCodegen implements CodegenConfig {
                                           Operation operation,
                                           List<Server> servers) {
         LOGGER.debug("fromOperation => operation: {}", operation);
-        if (operation == null)
+        if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
+        }
 
-        Map<String, Schema> schemas = ModelUtils.getSchemas(this.openAPI);
-        CodegenOperation op = new CodegenOperation();
+        Map<String, Object> vendorExtensions = null;
         if (operation.getExtensions() != null && !operation.getExtensions().isEmpty()) {
-            op.vendorExtensions.putAll(operation.getExtensions());
-
-            Object isCallbackRequest = op.vendorExtensions.remove("x-callback-request");
+            vendorExtensions = new HashMap<>();
+            vendorExtensions.putAll(operation.getExtensions());
         }
 
         // servers setting
+        List<CodegenServer> codegenServers = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            op.servers = fromServers(operation.getServers());
+            codegenServers = fromServers(operation.getServers());
         } else if (servers != null && !servers.isEmpty()) {
             // use path-level servers
-            op.servers = fromServers(servers);
+            codegenServers = fromServers(servers);
         }
 
         // tags
-        List<String> operationtTagNames = operation.getTags();
-        Map<String, CodegenTag> codegenTags = new HashMap<>();
-        if (operationtTagNames != null) {
-            for (String tagName: operation.getTags()) {
+        List<String> operationTagNames = operation.getTags();
+        Map<String, CodegenTag> tags = new HashMap<>();
+        if (operationTagNames != null) {
+            for (String tagName: operationTagNames) {
                 CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
-                codegenTags.put(tagName, codegenTag);
+                tags.put(tagName, codegenTag);
             }
         } else {
             String tagName = "default";
             CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
-            codegenTags.put(tagName, codegenTag);
+            tags.put(tagName, codegenTag);
         }
-        op.tags = codegenTags;
 
         String operationId = getOrGenerateOperationId(operation, path, httpMethod);
-        op.operationId = new CodegenKey(
+        CodegenKey operationIdKey = new CodegenKey(
             operationId,
             isValid(operationId),
             toPathFilename(operationId),
@@ -3086,31 +3085,40 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             usedPath = path;
         }
-        op.path = new CodegenKey(
+        CodegenKey pathKey = new CodegenKey(
                 usedPath,
                 false,  // false because paths have lots of invalid characters
                 toPathFilename(path),
                 toModelName(path)
         );
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path.name) + "/" + httpMethod;
+        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.name) + "/" + httpMethod;
 
-        op.summary = escapeText(operation.getSummary());
-        op.unescapedNotes = operation.getDescription();
-        op.notes = escapeText(operation.getDescription());
+        String summary = escapeText(operation.getSummary());
+        String unescapedNotes = operation.getDescription();
+        String notes = escapeText(operation.getDescription());
+        boolean isDeprecated = false;
         if (operation.getDeprecated() != null) {
-            op.isDeprecated = operation.getDeprecated();
+            isDeprecated = operation.getDeprecated();
         }
 
+        TreeMap<String, CodegenResponse> responses = null;
+        TreeSet<String> produces = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
-            op.responses = new TreeMap<>();
+            responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
                 String key = operationGetResponsesEntry.getKey();
                 ApiResponse response = operationGetResponsesEntry.getValue();
-                addProducesInfo(response, op);
+                TreeSet<String> responseProduces = getProducesInfo(response);
+                if (responseProduces!= null) {
+                    if (produces == null) {
+                        produces = new TreeSet<>();
+                    }
+                    produces.addAll(responseProduces);
+                }
                 String usedSourceJsonPath = sourceJsonPath + "/responses/" + key;
                 CodegenResponse r = fromResponse(response, usedSourceJsonPath);
 
-                op.responses.put(key, r);
+                responses.put(key, r);
                 if ("default".equals(key)) {
                     op.defaultResponse = r;
                     continue;
@@ -3151,8 +3159,8 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             // sort them
-            if (op.responses != null) {
-                op.responses = new TreeMap<>(op.responses);
+            if (responses != null) {
+                responses = new TreeMap<>(responses);
             }
             if (op.nonDefaultResponses != null) {
                 op.nonDefaultResponses = new TreeMap<>(op.nonDefaultResponses);
@@ -3182,12 +3190,9 @@ public class DefaultCodegen implements CodegenConfig {
         boolean hasOptionalParamOrBody = false;
 
         RequestBody opRequestBody = operation.getRequestBody();
-        CodegenRequestBody requestBody;
+        CodegenRequestBody requestBody = null;
         if (opRequestBody != null) {
-
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
-            op.requestBody = requestBody;
-
             if (requestBody.refInfo != null) {
                 if (requestBody.getDeepestRef().required) {
                     hasRequiredParamOrBody = true;
@@ -3269,16 +3274,37 @@ public class DefaultCodegen implements CodegenConfig {
             });
         }
 
-        op.httpMethod = httpMethodKey;
-        op.allParams = allParams;
-        op.pathParams = pathParams;
-        op.queryParams = queryParams;
-        op.headerParams = headerParams;
-        op.cookieParams = cookieParams;
-        op.hasRequiredParamOrBody = hasRequiredParamOrBody;
-        op.hasOptionalParamOrBody = hasOptionalParamOrBody;
-        op.externalDocs = operation.getExternalDocs();
-
+        ExternalDocumentation externalDocs = operation.getExternalDocs();
+        CodegenOperation op = new CodegenOperation(
+                isDeprecated,
+                hasErrorResponseObject,
+                summary,
+                unescapedNotes,
+                notes,
+                httpMethodKey,
+                pathKey,
+                produces,
+                codegenServers,
+                requestBody,
+                allParams,
+                pathParams,
+                queryParams,
+                headerParams,
+                cookieParams,
+                implicitHeadersParams,
+                hasRequiredParamOrBody,
+                hasOptionalParamOrBody,
+                authMethods,
+                tags,
+                responses,
+                statusCodeResponses,
+                wildcardCodeResponses,
+                nonDefaultResponses,
+                defaultResponse,
+                callbacks,
+                externalDocs,
+                vendorExtensions,
+                operationIdKey);
         return op;
     }
 
@@ -4855,30 +4881,23 @@ public class DefaultCodegen implements CodegenConfig {
         return ModelUtils.getReferencedSchema(openAPI, schema) != null;
     }
 
-    private void addProducesInfo(ApiResponse inputResponse, CodegenOperation codegenOperation) {
+    private TreeSet<String> getProducesInfo(ApiResponse inputResponse) {
         ApiResponse response = ModelUtils.getReferencedApiResponse(this.openAPI, inputResponse);
         if (response == null || response.getContent() == null || response.getContent().isEmpty()) {
-            return;
+            return null;
         }
 
-        Set<String> produces = response.getContent().keySet();
-        if (codegenOperation.produces == null) {
-            codegenOperation.produces = new TreeSet<>();
+        Set<String> contentKeys = response.getContent().keySet();
+        if (contentKeys == null || contentKeys.isEmpty()) {
+            return null;
         }
-
-        TreeSet<String> existingMediaTypes = new TreeSet<>();
-        for (String mediaType : codegenOperation.produces) {
-            existingMediaTypes.add(mediaType);
-        }
-
-        for (String key : produces) {
+        TreeSet<String> produces = new TreeSet<>();
+        for (String key : contentKeys) {
             // escape quotation to avoid code injection, "*/*" is a special case, do nothing
             String encodedKey = "*/*".equals(key) ? key : escapeQuotationMark(key);
-            //Only unique media types should be added to "produces"
-            if (!existingMediaTypes.contains(encodedKey)) {
-                codegenOperation.produces.add(encodedKey);
-            }
+            produces.add(encodedKey);
         }
+        return produces;
     }
 
     /**
