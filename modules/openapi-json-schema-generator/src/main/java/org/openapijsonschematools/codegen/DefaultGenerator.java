@@ -1198,7 +1198,7 @@ public class DefaultGenerator implements Generator {
         for (String tag : paths.keySet()) {
             try {
                 List<CodegenOperation> ops = paths.get(tag);
-                ops.sort((one, another) -> ObjectUtils.compare(one.operationId, another.operationId));
+                ops.sort((one, another) -> ObjectUtils.compare(one.operationId.name, another.operationId.name));
                 OperationsMap operation = processOperations(config, tag, ops, schemas);
                 URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
                 operation.put("basePath", basePath);
@@ -1838,20 +1838,6 @@ public class DefaultGenerator implements Generator {
         OperationMap objs = new OperationMap();
         objs.setClassname(config.toApiName(tag));
         objs.setPathPrefix(config.toApiVarName(tag));
-
-        // check for nickname uniqueness
-        if (config.getAddSuffixToDuplicateOperationNicknames()) {
-            Set<String> opIds = new HashSet<>();
-            int counter = 0;
-            for (CodegenOperation op : ops) {
-                String opId = op.nickname;
-                if (opIds.contains(opId)) {
-                    counter++;
-                    op.nickname += "_" + counter;
-                }
-                opIds.add(opId);
-            }
-        }
         objs.setOperation(ops);
 
         operations.setOperation(objs);

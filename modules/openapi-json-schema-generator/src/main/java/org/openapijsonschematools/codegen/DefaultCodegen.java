@@ -311,12 +311,6 @@ public class DefaultCodegen implements CodegenConfig {
     // from deeper schema defined locations
     protected boolean addSchemaImportsFromV3SpecLocations = false;
 
-    protected boolean addSuffixToDuplicateOperationNicknames = true;
-
-    public boolean getAddSuffixToDuplicateOperationNicknames() {
-        return addSuffixToDuplicateOperationNicknames;
-    }
-
     @Override
     public List<CliOption> cliOptions() {
         return cliOptions;
@@ -3064,10 +3058,14 @@ public class DefaultCodegen implements CodegenConfig {
         }
         op.tags = codegenTags;
 
-        // store the original operationId for plug-in
-        op.operationIdOriginal = operation.getOperationId();
-
         String operationId = getOrGenerateOperationId(operation, path, httpMethod);
+        op.operationId = new CodegenKey(
+            operationId,
+            isValid(operationId),
+            toPathFilename(operationId),
+            toModelName(operationId)
+        );
+
         // remove prefix in operationId
         if (removeOperationIdPrefix) {
             // The prefix is everything before the removeOperationIdPrefixCount occurrence of removeOperationIdPrefixDelimiter
@@ -3097,7 +3095,6 @@ public class DefaultCodegen implements CodegenConfig {
         );
         String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(op.path.name) + "/" + httpMethod;
 
-        op.operationId = toOperationId(operationId);
         op.summary = escapeText(operation.getSummary());
         op.unescapedNotes = operation.getDescription();
         op.notes = escapeText(operation.getDescription());
@@ -3297,8 +3294,6 @@ public class DefaultCodegen implements CodegenConfig {
         op.requiredParams = requiredParams;
         op.optionalParams = optionalParams;
         op.externalDocs = operation.getExternalDocs();
-        // legacy support
-        op.nickname = op.operationId;
 
         return op;
     }
@@ -3414,11 +3409,6 @@ public class DefaultCodegen implements CodegenConfig {
                         op.getExtensions().put("x-callback-request", true);
 
                         CodegenOperation co = fromOperation(expression, method, op, servers);
-                        if (genId) {
-                            co.operationIdOriginal = null;
-                            // legacy (see `fromOperation()`)
-                            co.nickname = co.operationId;
-                        }
                         u.requests.add(co);
                     });
 
@@ -3813,29 +3803,30 @@ public class DefaultCodegen implements CodegenConfig {
      */
     protected String getOrGenerateOperationId(Operation operation, String path, String httpMethod) {
         String operationId = operation.getOperationId();
-        if (StringUtils.isBlank(operationId)) {
-            String tmpPath = path;
-            tmpPath = tmpPath.replaceAll("\\{", "");
-            tmpPath = tmpPath.replaceAll("\\}", "");
-            String[] parts = (tmpPath + "/" + httpMethod).split("/");
-            StringBuilder builder = new StringBuilder();
-            if ("/".equals(tmpPath)) {
-                // must be root tmpPath
-                builder.append("root");
-            }
-            for (String part : parts) {
-                if (part.length() > 0) {
-                    if (builder.toString().length() == 0) {
-                        part = Character.toLowerCase(part.charAt(0)) + part.substring(1);
-                    } else {
-                        part = org.openapijsonschematools.codegen.utils.StringUtils.camelize(part);
-                    }
-                    builder.append(part);
-                }
-            }
-            operationId = sanitizeName(builder.toString());
-            LOGGER.warn("Empty operationId found for path: {} {}. Renamed to auto-generated operationId: {}", httpMethod, path, operationId);
+        if (!StringUtils.isBlank(operationId)) {
+            return operationId;
         }
+        String tmpPath = path;
+        tmpPath = tmpPath.replaceAll("\\{", "");
+        tmpPath = tmpPath.replaceAll("\\}", "");
+        String[] parts = (tmpPath + "/" + httpMethod).split("/");
+        StringBuilder builder = new StringBuilder();
+        if ("/".equals(tmpPath)) {
+            // must be root tmpPath
+            builder.append("root");
+        }
+        for (String part : parts) {
+            if (part.length() > 0) {
+                if (builder.toString().length() == 0) {
+                    part = Character.toLowerCase(part.charAt(0)) + part.substring(1);
+                } else {
+                    part = org.openapijsonschematools.codegen.utils.StringUtils.camelize(part);
+                }
+                builder.append(part);
+            }
+        }
+        operationId = sanitizeName(builder.toString());
+        LOGGER.warn("Empty operationId found for path: {} {}. Renamed to auto-generated operationId: {}", httpMethod, path, operationId);
         return operationId;
     }
 
@@ -3869,21 +3860,16 @@ public class DefaultCodegen implements CodegenConfig {
             operations.put(tag, opList);
         }
         // check for operationId uniqueness
-        String uniqueName = co.operationId;
+        String operationId = co.operationId.name;
         int counter = 0;
         for (CodegenOperation op : opList) {
-            if (uniqueName.equals(op.operationId)) {
-                uniqueName = co.operationId + "_" + counter;
+            if (operationId.equals(op.operationId.name)) {
                 counter++;
+                if (counter > 1) {
+                    LOGGER.error("Invalid spec contains multiple operations with the same operationId=`{}` in tag='{}'.Update your spec to use unique operationIds.", operationId, tag);
+                }
             }
         }
-        if (!co.operationId.equals(uniqueName)) {
-            LOGGER.warn("generated unique operationId `{}`", uniqueName);
-        }
-        co.operationId = uniqueName;
-        co.operationIdLowerCase = uniqueName.toLowerCase(Locale.ROOT);
-        co.operationIdCamelCase = org.openapijsonschematools.codegen.utils.StringUtils.camelize(uniqueName);
-        co.operationIdSnakeCase = org.openapijsonschematools.codegen.utils.StringUtils.underscore(uniqueName);
         opList.add(co);
         co.baseName = tag;
     }

@@ -163,7 +163,7 @@ class BaseApi(api_client.Api):
 
 
 class JsonWithCharset(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def json_with_charset(

@@ -156,7 +156,7 @@ class BaseApi(api_client.Api):
 
 
 class PlaceOrder(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def place_order(

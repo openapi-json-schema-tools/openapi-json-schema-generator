@@ -20,7 +20,7 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 {{#each pathAndHttpMethodToOperation}}
 {{#with this}}
-**{{httpMethod.name}}** {{path.name}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId}}]({{apiDocPath}}{{moduleName}}/{{operationId}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+**{{httpMethod.name}}** {{path.name}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCaseName}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCaseName}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/with}}
 {{/each}}
 

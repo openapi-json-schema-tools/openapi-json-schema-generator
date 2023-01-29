@@ -33,8 +33,7 @@ import java.util.*;
 public class CodegenOperation {
     public boolean isDeprecated,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public String operationId,
-            summary, unescapedNotes, notes, baseName;
+    public String summary, unescapedNotes, notes, baseName;
     CodegenKey httpMethod;
     public CodegenKey path;
     public List<Map<String, String>> consumes, produces;
@@ -53,21 +52,15 @@ public class CodegenOperation {
     public TreeMap<String, CodegenResponse> responses = null;
     public TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
     public TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
-
     public TreeMap<String, CodegenResponse> nonDefaultResponses = null;
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();
-    public Set<String> imports = new HashSet<String>();
+    public TreeSet<String> imports = new TreeSet<String>();
     public List<Map<String, String>> examples;
     public List<Map<String, String>> requestBodyExamples;
     public ExternalDocumentation externalDocs;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
-    public String nickname; // legacy support
-    // TODO replace operationId with a CodegenKey
-    public String operationIdOriginal; // for plug-in
-    public String operationIdLowerCase; // for markdown documentation
-    public String operationIdCamelCase; // for class names
-    public String operationIdSnakeCase;
+    public CodegenKey operationId;
 
     /**
      * Check if there's at least one parameter
@@ -328,11 +321,6 @@ public class CodegenOperation {
         sb.append(", requestBodyExamples=").append(requestBodyExamples);
         sb.append(", externalDocs=").append(externalDocs);
         sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", nickname='").append(nickname).append('\'');
-        sb.append(", operationIdOriginal='").append(operationIdOriginal).append('\'');
-        sb.append(", operationIdLowerCase='").append(operationIdLowerCase).append('\'');
-        sb.append(", operationIdCamelCase='").append(operationIdCamelCase).append('\'');
-        sb.append(", operationIdSnakeCase='").append(operationIdSnakeCase).append('\'');
         sb.append('}');
         return sb.toString();
     }
@@ -373,12 +361,7 @@ public class CodegenOperation {
                 Objects.equals(examples, that.examples) &&
                 Objects.equals(requestBodyExamples, that.requestBodyExamples) &&
                 Objects.equals(externalDocs, that.externalDocs) &&
-                Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                Objects.equals(nickname, that.nickname) &&
-                Objects.equals(operationIdOriginal, that.operationIdOriginal) &&
-                Objects.equals(operationIdLowerCase, that.operationIdLowerCase) &&
-                Objects.equals(operationIdCamelCase, that.operationIdCamelCase) &&
-                Objects.equals(operationIdSnakeCase, that.operationIdSnakeCase);
+                Objects.equals(vendorExtensions, that.vendorExtensions);
     }
 
     @Override
@@ -389,8 +372,7 @@ public class CodegenOperation {
                 consumes, produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
-                vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,
-                operationIdSnakeCase, statusCodeResponses, wildcardCodeResponses,
+                vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses);
     }
 }

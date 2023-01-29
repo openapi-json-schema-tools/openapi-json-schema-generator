@@ -134,19 +134,19 @@ class BaseApi(api_client.Api):
 
 {{else}}
     @typing.overload
-    def _{{operationId}}(
+    def _{{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
-    def _{{operationId}}(
+    def _{{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
-    def _{{operationId}}(
+    def _{{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
 
-    def _{{operationId}}(
+    def _{{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
         """
     {{#if summary}}
@@ -249,7 +249,7 @@ class BaseApi(api_client.Api):
     {{/with}}
     {{#if servers}}
 
-        host = self._get_host('{{operationId}}', _servers, host_index)
+        host = self._get_host('{{operationId.snakeCaseName}}', _servers, host_index)
     {{/if}}
 
         response = self.api_client.call_api(
@@ -308,8 +308,8 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class {{operationIdCamelCase}}(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+class {{operationId.camelCaseName}}(BaseApi):
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
@@ -320,21 +320,21 @@ class {{operationIdCamelCase}}(BaseApi):
 
 {{else}}
     @typing.overload
-    def {{operationId}}(
+    def {{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
-    def {{operationId}}(
+    def {{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
-    def {{operationId}}(
+    def {{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
 
-    def {{operationId}}(
+    def {{operationId.snakeCaseName}}(
     {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId}}(
+        return self._{{operationId.snakeCaseName}}(
             {{> paths/path/verb/_helper_operation_args_passed }}
         )
 
@@ -365,7 +365,7 @@ class ApiFor{{httpMethod.camelCaseName}}(BaseApi):
 
     def {{httpMethod.name}}(
     {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId}}(
+        return self._{{operationId.snakeCaseName}}(
             {{> paths/path/verb/_helper_operation_args_passed }}
         )
 

@@ -178,7 +178,7 @@ class BaseApi(api_client.Api):
 
 
 class GetUserByName(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def get_user_by_name(

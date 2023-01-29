@@ -126,7 +126,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // if another schema $refs a schema in a parameter, the json path
         // and generated module must have the same parameter index as the spec
         sortParamsByRequiredFlag = Boolean.FALSE;
-        addSuffixToDuplicateOperationNicknames = false;
 
         modifyFeatureSet(features -> features
                 .includeSchemaSupportFeatures(
@@ -1895,49 +1894,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         // self import
         return false;
-    }
-
-    /**
-     * Custom version of this method to prevent mutation of
-     * codegenOperation.operationIdLowerCase/operationIdSnakeCase
-     * Property Usages:
-     * - operationId: endpoint method name when using tagged apis
-     * - httpMethod: endpoint method name when using path apis
-     * - operationIdCamelCase: Api class name containing single endpoint for tagged apis
-     * - nickname: (smuggled) path module name for path apis
-     * - operationIdSnakeCase: (smuggled) path Api class name when using path apis
-     *
-     * @param tag          name of the tag
-     * @param resourcePath path of the resource
-     * @param operation    OAS Operation object
-     * @param co           Codegen Operation object
-     * @param operations   map of Codegen operations
-     */
-    @Override
-    @SuppressWarnings("static-method")
-    public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation
-            co, Map<String, List<CodegenOperation>> operations) {
-        List<CodegenOperation> opList = operations.get(tag);
-        if (opList == null) {
-            opList = new ArrayList<>();
-            operations.put(tag, opList);
-        }
-        // check for operationId uniqueness
-        String uniqueName = co.operationId;
-        int counter = 0;
-        for (CodegenOperation op : opList) {
-            if (uniqueName.equals(op.operationId)) {
-                uniqueName = co.operationId + "_" + counter;
-                counter++;
-            }
-        }
-        if (!co.operationId.equals(uniqueName)) {
-            LOGGER.warn("generated unique operationId `{}`", uniqueName);
-        }
-        co.operationId = uniqueName;
-        co.operationIdCamelCase = camelize(uniqueName);
-        opList.add(co);
-        co.baseName = tag;
     }
 
     @Override
