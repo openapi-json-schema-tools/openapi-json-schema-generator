@@ -44,8 +44,8 @@ public class CodegenOperation {
     public List<CodegenParameter> pathParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> queryParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
-    public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
+    public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
     public List<Object> requiredParams = new ArrayList<>();
     public List<Object> optionalParams = new ArrayList<>();
     public List<CodegenSecurity> authMethods;
