@@ -53,7 +53,7 @@ class RequestPathParameters:
     parameters = [
         parameter_0._0,
     ]_all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 

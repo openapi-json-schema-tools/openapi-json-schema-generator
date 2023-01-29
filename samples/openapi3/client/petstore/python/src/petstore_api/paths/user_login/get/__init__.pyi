@@ -56,8 +56,8 @@ class RequestQueryParameters:
         parameter_0._0,
         parameter_1._1,
     ]_all_accept_content_types = (
-    'application/xml',
-    'application/json',
+    "application/json",
+    "application/xml",
 )
 
 

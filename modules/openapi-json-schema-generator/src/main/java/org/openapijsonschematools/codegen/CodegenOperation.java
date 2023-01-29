@@ -36,7 +36,7 @@ public class CodegenOperation {
     public String summary, unescapedNotes, notes, baseName;
     CodegenKey httpMethod;
     public CodegenKey path;
-    public List<Map<String, String>> produces;
+    public TreeSet<String> produces;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
     public CodegenRequestBody requestBody;
     public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();

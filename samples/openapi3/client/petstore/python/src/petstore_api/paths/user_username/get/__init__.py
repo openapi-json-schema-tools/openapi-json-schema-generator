@@ -70,8 +70,8 @@ _status_code_to_response: __StatusCodeToResponse = {
     '404': response_404._404,
 }
 _all_accept_content_types = (
-    'application/xml',
-    'application/json',
+    "application/json",
+    "application/xml",
 )
 
 

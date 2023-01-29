@@ -72,7 +72,7 @@ content_type | str | optional, default is '{{@key.name}}' | Selects the schema a
         {{/if}}
     {{/with}}
     {{#if produces}}
-accept_content_types | typing.Tuple[str] | default is ({{#each produces}}'{{this.mediaType}}', {{/each}}) | Tells the server the content type(s) that are accepted by the client
+accept_content_types | typing.Tuple[str] | default is ({{#each produces}}"{{{.}}}", {{/each}}) | Tells the server the content type(s) that are accepted by the client
     {{/if}}
     {{#if servers}}
 host_index | typing.Optional[int] | default is None | Allows one to select a different host

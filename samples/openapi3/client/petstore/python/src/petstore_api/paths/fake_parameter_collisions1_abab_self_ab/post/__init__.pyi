@@ -170,7 +170,7 @@ class RequestCookieParameters:
         parameter_17._17,
         parameter_18._18,
     ]_all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 

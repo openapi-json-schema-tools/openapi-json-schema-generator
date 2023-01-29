@@ -4863,12 +4863,12 @@ public class DefaultCodegen implements CodegenConfig {
 
         Set<String> produces = response.getContent().keySet();
         if (codegenOperation.produces == null) {
-            codegenOperation.produces = new ArrayList<>();
+            codegenOperation.produces = new TreeSet<>();
         }
 
-        Set<String> existingMediaTypes = new HashSet<>();
-        for (Map<String, String> mediaType : codegenOperation.produces) {
-            existingMediaTypes.add(mediaType.get("mediaType"));
+        TreeSet<String> existingMediaTypes = new TreeSet<>();
+        for (String mediaType : codegenOperation.produces) {
+            existingMediaTypes.add(mediaType);
         }
 
         for (String key : produces) {
@@ -4876,9 +4876,7 @@ public class DefaultCodegen implements CodegenConfig {
             String encodedKey = "*/*".equals(key) ? key : escapeQuotationMark(key);
             //Only unique media types should be added to "produces"
             if (!existingMediaTypes.contains(encodedKey)) {
-                Map<String, String> mediaType = new HashMap<>();
-                mediaType.put("mediaType", encodedKey);
-                codegenOperation.produces.add(mediaType);
+                codegenOperation.produces.add(encodedKey);
             }
         }
     }

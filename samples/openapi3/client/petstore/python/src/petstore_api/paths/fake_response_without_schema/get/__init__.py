@@ -40,8 +40,8 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200._200,
 }
 _all_accept_content_types = (
-    'application/json',
-    'application/xml',
+    "application/json",
+    "application/xml",
 )
 
 

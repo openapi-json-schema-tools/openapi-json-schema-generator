@@ -29,7 +29,7 @@ from .responses import response_200
 from . import request_body
 
 _all_accept_content_types = (
-    'application/json; charset=utf-8',
+    "application/json; charset=utf-8",
 )
 
 

@@ -821,10 +821,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                             || "application/x-www-form-urlencoded".equals(mediaType)
                             || (mediaType.startsWith("application/") && mediaType.endsWith("json"));
                     };
-
-                    operation.produces = operation.produces == null ? null : operation.produces.stream()
-                        .filter(isSerializable)
-                        .collect(Collectors.toList());
                 }
 
                 // import okhttp3.MultipartBody if any parameter is a file
