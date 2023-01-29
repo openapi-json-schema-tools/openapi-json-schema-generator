@@ -3881,6 +3881,33 @@ public class DefaultCodegen implements CodegenConfig {
                     isPassword = true;
                     flow = "password";
                     isFlowEmpty = false;
+                    final CodegenSecurity cs = new CodegenSecurity(
+                            name,
+                            type,
+                            scheme,
+                            isBasic,
+                            isOAuth,
+                            isApiKey,
+                            isBasicBasic,
+                            isBasicBearer,
+                            isHttpSignature,
+                            bearerFormat,
+                            vendorExtensions,
+                            keyParamName,
+                            isKeyInQuery,
+                            isKeyInHeader,
+                            isKeyInCookie,
+                            flow,
+                            authorizationUrl,
+                            tokenUrl,
+                            refreshUrl,
+                            scopes,
+                            isCode,
+                            isPassword,
+                            isApplication,
+                            isImplicit
+                    );
+                    codegenSecurities.add(cs);
                 }
                 if (flows.getImplicit() != null) {
                     authorizationUrl = flows.getImplicit().getAuthorizationUrl();
@@ -3891,6 +3918,33 @@ public class DefaultCodegen implements CodegenConfig {
                     isImplicit = true;
                     flow = "implicit";
                     isFlowEmpty = false;
+                    final CodegenSecurity cs = new CodegenSecurity(
+                            name,
+                            type,
+                            scheme,
+                            isBasic,
+                            isOAuth,
+                            isApiKey,
+                            isBasicBasic,
+                            isBasicBearer,
+                            isHttpSignature,
+                            bearerFormat,
+                            vendorExtensions,
+                            keyParamName,
+                            isKeyInQuery,
+                            isKeyInHeader,
+                            isKeyInCookie,
+                            flow,
+                            authorizationUrl,
+                            tokenUrl,
+                            refreshUrl,
+                            scopes,
+                            isCode,
+                            isPassword,
+                            isApplication,
+                            isImplicit
+                    );
+                    codegenSecurities.add(cs);
                 }
                 if (flows.getClientCredentials() != null) {
                     authorizationUrl = flows.getClientCredentials().getAuthorizationUrl();
@@ -3901,6 +3955,33 @@ public class DefaultCodegen implements CodegenConfig {
                     isApplication = true;
                     flow = "application";
                     isFlowEmpty = false;
+                    final CodegenSecurity cs = new CodegenSecurity(
+                            name,
+                            type,
+                            scheme,
+                            isBasic,
+                            isOAuth,
+                            isApiKey,
+                            isBasicBasic,
+                            isBasicBearer,
+                            isHttpSignature,
+                            bearerFormat,
+                            vendorExtensions,
+                            keyParamName,
+                            isKeyInQuery,
+                            isKeyInHeader,
+                            isKeyInCookie,
+                            flow,
+                            authorizationUrl,
+                            tokenUrl,
+                            refreshUrl,
+                            scopes,
+                            isCode,
+                            isPassword,
+                            isApplication,
+                            isImplicit
+                    );
+                    codegenSecurities.add(cs);
                 }
                 if (flows.getAuthorizationCode() != null) {
                     authorizationUrl = flows.getAuthorizationCode().getAuthorizationUrl();
@@ -3911,12 +3992,39 @@ public class DefaultCodegen implements CodegenConfig {
                     isCode = true;
                     flow = "accessCode";
                     isFlowEmpty = false;
+                    final CodegenSecurity cs = new CodegenSecurity(
+                            name,
+                            type,
+                            scheme,
+                            isBasic,
+                            isOAuth,
+                            isApiKey,
+                            isBasicBasic,
+                            isBasicBearer,
+                            isHttpSignature,
+                            bearerFormat,
+                            vendorExtensions,
+                            keyParamName,
+                            isKeyInQuery,
+                            isKeyInHeader,
+                            isKeyInCookie,
+                            flow,
+                            authorizationUrl,
+                            tokenUrl,
+                            refreshUrl,
+                            scopes,
+                            isCode,
+                            isPassword,
+                            isApplication,
+                            isImplicit
+                    );
+                    codegenSecurities.add(cs);
                 }
 
                 if (isFlowEmpty) {
                     OnceLogger.once(LOGGER).error("Invalid flow definition defined in the security scheme: {}", flows);
-                    continue;
                 }
+                continue;
             } else {
                 OnceLogger.once(LOGGER).error("Unknown type `{}` found in the security definition `{}`.", securityScheme.getType(), securityScheme.getName());
             }
