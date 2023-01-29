@@ -3103,6 +3103,11 @@ public class DefaultCodegen implements CodegenConfig {
 
         TreeMap<String, CodegenResponse> responses = null;
         TreeSet<String> produces = null;
+        CodegenResponse defaultResponse = null;
+        TreeMap<String, CodegenResponse> nonDefaultResponses = null;
+        TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
+        TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
+        boolean hasErrorResponseObject = false;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
@@ -3120,38 +3125,38 @@ public class DefaultCodegen implements CodegenConfig {
 
                 responses.put(key, r);
                 if ("default".equals(key)) {
-                    op.defaultResponse = r;
+                    defaultResponse = r;
                     continue;
                 }
-                if (op.nonDefaultResponses == null) {
-                    op.nonDefaultResponses = new TreeMap<>();
+                if (nonDefaultResponses == null) {
+                    nonDefaultResponses = new TreeMap<>();
                 }
-                op.nonDefaultResponses.put(key, r);
+                nonDefaultResponses.put(key, r);
                 if (key.endsWith("XX") && key.length() == 3) {
-                    if (op.wildcardCodeResponses == null) {
-                        op.wildcardCodeResponses = new TreeMap<>();
+                    if (wildcardCodeResponses == null) {
+                        wildcardCodeResponses = new TreeMap<>();
                     }
                     Integer firstNumber = Integer.parseInt(key.substring(0, 1));
-                    op.wildcardCodeResponses.put(firstNumber, r);
+                    wildcardCodeResponses.put(firstNumber, r);
                     if (firstNumber > 3 && r.content != null) {
                         for (CodegenMediaType cm: r.content.values()) {
                             if (cm.schema != null) {
-                                op.hasErrorResponseObject = true;
+                                hasErrorResponseObject = true;
                                 break;
                             }
                         }
                     }
                     continue;
                 }
-                if (op.statusCodeResponses == null) {
-                    op.statusCodeResponses = new TreeMap<>();
+                if (statusCodeResponses == null) {
+                    statusCodeResponses = new TreeMap<>();
                 }
                 Integer statusCode = Integer.parseInt(key);
-                op.statusCodeResponses.put(statusCode, r);
+                statusCodeResponses.put(statusCode, r);
                 if (statusCode > 299 && r.content != null) {
                     for (CodegenMediaType cm: r.content.values()) {
                         if (cm.schema != null) {
-                            op.hasErrorResponseObject = true;
+                            hasErrorResponseObject = true;
                             break;
                         }
                     }
@@ -3162,14 +3167,14 @@ public class DefaultCodegen implements CodegenConfig {
             if (responses != null) {
                 responses = new TreeMap<>(responses);
             }
-            if (op.nonDefaultResponses != null) {
-                op.nonDefaultResponses = new TreeMap<>(op.nonDefaultResponses);
+            if (nonDefaultResponses != null) {
+                nonDefaultResponses = new TreeMap<>(nonDefaultResponses);
             }
-            if (op.statusCodeResponses != null) {
-                op.statusCodeResponses = new TreeMap<>(op.statusCodeResponses);
+            if (statusCodeResponses != null) {
+                statusCodeResponses = new TreeMap<>(statusCodeResponses);
             }
-            if (op.wildcardCodeResponses != null) {
-                op.wildcardCodeResponses = new TreeMap<>(op.wildcardCodeResponses);
+            if (wildcardCodeResponses != null) {
+                wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
         }
 
