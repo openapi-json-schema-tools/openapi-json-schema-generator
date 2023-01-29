@@ -190,25 +190,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
         if (operations != null) {
             List<CodegenOperation> ops = operations.getOperation();
             for (CodegenOperation operation : ops) {
-                boolean isMultipartPost = false;
-                List<Map<String, String>> consumes = operation.consumes;
-                if (consumes != null) {
-                    for (Map<String, String> consume : consumes) {
-                        String mt = consume.get("mediaType");
-                        if (mt != null) {
-                            if (mt.startsWith("multipart/form-data")) {
-                                isMultipartPost = true;
-                            }
-                        }
-                    }
-                }
-
-                for (CodegenParameter parameter : operation.allParams) {
-                    if (isMultipartPost) {
-                        parameter.vendorExtensions.put("x-multipart", "true");
-                    }
-                }
-
                 if (commonPath == null) {
                     commonPath = operation.path.name;
                 } else {

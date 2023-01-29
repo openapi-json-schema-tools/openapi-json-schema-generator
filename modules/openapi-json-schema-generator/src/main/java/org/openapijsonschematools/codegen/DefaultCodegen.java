@@ -3101,8 +3101,6 @@ public class DefaultCodegen implements CodegenConfig {
             op.isDeprecated = operation.getDeprecated();
         }
 
-        addConsumesInfo(operation, op);
-
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             op.responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
@@ -4818,30 +4816,6 @@ public class DefaultCodegen implements CodegenConfig {
             return newScopes;
         }
         return null;
-    }
-
-    private void addConsumesInfo(Operation operation, CodegenOperation codegenOperation) {
-        RequestBody requestBody = ModelUtils.getReferencedRequestBody(this.openAPI, operation.getRequestBody());
-        if (requestBody == null || requestBody.getContent() == null || requestBody.getContent().isEmpty()) {
-            return;
-        }
-
-        Set<String> consumes = requestBody.getContent().keySet();
-        List<Map<String, String>> mediaTypeList = new ArrayList<>();
-        for (String key : consumes) {
-            Map<String, String> mediaType = new HashMap<>();
-            if ("*/*".equals(key)) {
-                // skip as it implies `consumes` in OAS2 is not defined
-                continue;
-            } else {
-                mediaType.put("mediaType", escapeQuotationMark(key));
-            }
-            mediaTypeList.add(mediaType);
-        }
-
-        if (!mediaTypeList.isEmpty()) {
-            codegenOperation.consumes = mediaTypeList;
-        }
     }
 
     public static Set<String> getConsumesInfo(OpenAPI openAPI, Operation operation) {

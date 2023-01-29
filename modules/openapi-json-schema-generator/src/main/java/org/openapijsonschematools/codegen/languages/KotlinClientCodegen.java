@@ -821,10 +821,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                             || "application/x-www-form-urlencoded".equals(mediaType)
                             || (mediaType.startsWith("application/") && mediaType.endsWith("json"));
                     };
-                    operation.consumes = operation.consumes == null ? null : operation.consumes.stream()
-                        .filter(isSerializable)
-                        .limit(1)
-                        .collect(Collectors.toList());
 
                     operation.produces = operation.produces == null ? null : operation.produces.stream()
                         .filter(isSerializable)

@@ -36,7 +36,7 @@ public class CodegenOperation {
     public String summary, unescapedNotes, notes, baseName;
     CodegenKey httpMethod;
     public CodegenKey path;
-    public List<Map<String, String>> consumes, produces;
+    public List<Map<String, String>> produces;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
     public CodegenRequestBody requestBody;
     public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();
@@ -268,7 +268,6 @@ public class CodegenOperation {
         sb.append(", notes='").append(notes).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
-        sb.append(", consumes=").append(consumes);
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
@@ -306,7 +305,6 @@ public class CodegenOperation {
                 Objects.equals(notes, that.notes) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(defaultResponse, that.defaultResponse) &&
-                Objects.equals(consumes, that.consumes) &&
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
@@ -333,7 +331,7 @@ public class CodegenOperation {
 
         return Objects.hash(isDeprecated, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
-                consumes, produces, servers, requestBody, allParams,
+                produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
                 authMethods, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
