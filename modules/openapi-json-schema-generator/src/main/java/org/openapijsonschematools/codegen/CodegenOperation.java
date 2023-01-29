@@ -31,13 +31,13 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.util.*;
 
 public class CodegenOperation {
-    public boolean isDeprecated, isCallbackRequest, uniqueItems,
+    public boolean isDeprecated,
             hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public String operationId,
             summary, unescapedNotes, notes, baseName;
     CodegenKey httpMethod;
     public CodegenKey path;
-    public List<Map<String, String>> consumes, produces, prioritizedContentTypes;
+    public List<Map<String, String>> consumes, produces;
     public List<CodegenServer> servers = new ArrayList<CodegenServer>();
     public CodegenRequestBody requestBody;
     public List<CodegenParameter> allParams = new ArrayList<CodegenParameter>();
@@ -297,8 +297,6 @@ public class CodegenOperation {
         sb.append(", isRestfulDestroy=").append(isRestfulDestroy());
         sb.append(", isRestful=").append(isRestful());
         sb.append(", isDeprecated=").append(isDeprecated);
-        sb.append(", isCallbackRequest=").append(isCallbackRequest);
-        sb.append(", uniqueItems='").append(uniqueItems);
         sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
         sb.append(", httpMethod='").append(httpMethod).append('\'');
@@ -309,7 +307,6 @@ public class CodegenOperation {
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
         sb.append(", consumes=").append(consumes);
         sb.append(", produces=").append(produces);
-        sb.append(", prioritizedContentTypes=").append(prioritizedContentTypes);
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
         sb.append(", allParams=").append(allParams);
@@ -346,8 +343,6 @@ public class CodegenOperation {
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
         return isDeprecated == that.isDeprecated &&
-                isCallbackRequest == that.isCallbackRequest &&
-                uniqueItems == that.uniqueItems &&
                 Objects.equals(path, that.path) &&
                 Objects.equals(operationId, that.operationId) &&
                 Objects.equals(httpMethod, that.httpMethod) &&
@@ -358,7 +353,6 @@ public class CodegenOperation {
                 Objects.equals(defaultResponse, that.defaultResponse) &&
                 Objects.equals(consumes, that.consumes) &&
                 Objects.equals(produces, that.produces) &&
-                Objects.equals(prioritizedContentTypes, that.prioritizedContentTypes) &&
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
                 Objects.equals(allParams, that.allParams) &&
@@ -390,9 +384,9 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(isDeprecated, isCallbackRequest, uniqueItems, path, operationId, httpMethod,
+        return Objects.hash(isDeprecated, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
-                consumes, produces, prioritizedContentTypes, servers, requestBody, allParams,
+                consumes, produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, nickname, operationIdOriginal, operationIdLowerCase, operationIdCamelCase,

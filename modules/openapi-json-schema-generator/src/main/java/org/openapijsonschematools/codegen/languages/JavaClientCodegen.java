@@ -706,12 +706,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             if (operations != null) {
                 List<CodegenOperation> ops = operations.getOperation();
                 for (CodegenOperation operation : ops) {
-                    if (operation.consumes != null && !operation.consumes.isEmpty()) {
-                        if (!isMultipartType(operation.consumes)) {
-                            operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
-                        }
-                    }
-
                     // sorting operation parameters to make sure path params are parsed before query params
                     if (operation.allParams != null) {
                         sort(operation.allParams, new Comparator<CodegenParameter>() {

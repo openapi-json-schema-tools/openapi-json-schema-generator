@@ -3038,7 +3038,6 @@ public class DefaultCodegen implements CodegenConfig {
             op.vendorExtensions.putAll(operation.getExtensions());
 
             Object isCallbackRequest = op.vendorExtensions.remove("x-callback-request");
-            op.isCallbackRequest = Boolean.TRUE.equals(isCallbackRequest);
         }
 
         // servers setting
