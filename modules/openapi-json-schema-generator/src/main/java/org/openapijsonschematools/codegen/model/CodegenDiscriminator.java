@@ -1,6 +1,6 @@
 package org.openapijsonschematools.codegen.model;
 
-import java.util.TreeSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Objects;
 
@@ -36,9 +36,9 @@ public class CodegenDiscriminator {
     //
     // see the method createDiscriminator in DefaultCodegen.java
 
-    public final TreeSet<MappedModel> mappedModels;
+    public final LinkedHashSet<MappedModel> mappedModels;
 
-    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, TreeSet<MappedModel> mappedModels) {
+    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, LinkedHashSet<MappedModel> mappedModels) {
         this.propertyName = propertyName;
         this.propertyBaseName = propertyBaseName;
         this.mapping = mapping;

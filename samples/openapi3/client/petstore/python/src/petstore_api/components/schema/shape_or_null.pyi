@@ -42,8 +42,8 @@ class ShapeOrNull(
         def discriminator():
             return {
                 'shapeType': {
-                    'Quadrilateral': quadrilateral.Quadrilateral,
                     'Triangle': triangle.Triangle,
+                    'Quadrilateral': quadrilateral.Quadrilateral,
                 }
             }
         

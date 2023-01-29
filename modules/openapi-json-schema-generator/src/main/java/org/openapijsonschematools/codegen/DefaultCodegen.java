@@ -2495,7 +2495,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         Map<String, String> mapping = sourceDiscriminator.getMapping();
 
-        TreeSet<MappedModel> mappedModels = new TreeSet<>();
+        LinkedHashSet<MappedModel> mappedModels = new LinkedHashSet<>();
         if (sourceDiscriminator.getMapping() != null && !sourceDiscriminator.getMapping().isEmpty()) {
             for (Entry<String, String> e : sourceDiscriminator.getMapping().entrySet()) {
                 String name;
@@ -2546,7 +2546,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        mappedModels = new TreeSet<>(mappedModels);
         CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum, mappedModels);
 
         return discriminator;
