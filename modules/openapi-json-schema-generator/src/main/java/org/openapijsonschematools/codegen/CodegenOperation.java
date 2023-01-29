@@ -45,8 +45,8 @@ public class CodegenOperation {
     public List<CodegenParameter> headerParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> cookieParams = new ArrayList<CodegenParameter>();
     public List<CodegenParameter> implicitHeadersParams = new ArrayList<CodegenParameter>();
-    public List<Object> requiredParams = new ArrayList<>();
-    public List<Object> optionalParams = new ArrayList<>();
+    public boolean hasRequiredParamOrBody = false;
+    public boolean hasOptionalParamOrBody = false;
     public List<CodegenSecurity> authMethods;
     public Map<String, CodegenTag> tags;
     public TreeMap<String, CodegenResponse> responses = null;
@@ -118,24 +118,6 @@ public class CodegenOperation {
      */
     public boolean getHasCookieParams() {
         return nonEmpty(cookieParams);
-    }
-
-    /**
-     * Check if there's at least one optional parameter
-     *
-     * @return true if any optional parameter exists, false otherwise
-     */
-    public boolean getHasOptionalParams() {
-        return nonEmpty(optionalParams);
-    }
-
-    /**
-     * Check if there's at least one required parameter
-     *
-     * @return true if any optional parameter exists, false otherwise
-     */
-    public boolean getHasRequiredParams() {
-        return nonEmpty(requiredParams);
     }
 
     /**
@@ -307,8 +289,8 @@ public class CodegenOperation {
         sb.append(", queryParams=").append(queryParams);
         sb.append(", headerParams=").append(headerParams);
         sb.append(", cookieParams=").append(cookieParams);
-        sb.append(", requiredParams=").append(requiredParams);
-        sb.append(", optionalParams=").append(optionalParams);
+        sb.append(", hasRequiredParamOrBody=").append(hasRequiredParamOrBody);
+        sb.append(", hasOptionalParamOrBody=").append(hasOptionalParamOrBody);
         sb.append(", authMethods=").append(authMethods);
         sb.append(", tags=").append(tags);
         sb.append(", responses=").append(responses);
@@ -348,8 +330,8 @@ public class CodegenOperation {
                 Objects.equals(queryParams, that.queryParams) &&
                 Objects.equals(headerParams, that.headerParams) &&
                 Objects.equals(cookieParams, that.cookieParams) &&
-                Objects.equals(requiredParams, that.requiredParams) &&
-                Objects.equals(optionalParams, that.optionalParams) &&
+                Objects.equals(hasRequiredParamOrBody, that.hasRequiredParamOrBody) &&
+                Objects.equals(hasOptionalParamOrBody, that.hasOptionalParamOrBody) &&
                 Objects.equals(authMethods, that.authMethods) &&
                 Objects.equals(tags, that.tags) &&
                 Objects.equals(responses, that.responses) &&
@@ -370,7 +352,7 @@ public class CodegenOperation {
         return Objects.hash(isDeprecated, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, servers, requestBody, allParams,
-                pathParams, queryParams, headerParams, cookieParams, requiredParams, optionalParams,
+                pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
                 authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses);

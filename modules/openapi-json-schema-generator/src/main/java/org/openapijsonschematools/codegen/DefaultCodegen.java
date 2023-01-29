@@ -3181,8 +3181,8 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenParameter> queryParams = new ArrayList<>();
         List<CodegenParameter> headerParams = new ArrayList<>();
         List<CodegenParameter> cookieParams = new ArrayList<>();
-        List<Object> requiredParams = new ArrayList<>();
-        List<Object> optionalParams = new ArrayList<>();
+        boolean hasRequiredParamOrBody = false;
+        boolean hasOptionalParamOrBody = false;
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody;
@@ -3193,15 +3193,15 @@ public class DefaultCodegen implements CodegenConfig {
 
             if (requestBody.refInfo != null) {
                 if (requestBody.getDeepestRef().required) {
-                    requiredParams.add(requestBody);
+                    hasRequiredParamOrBody = true;
                 } else {
-                    optionalParams.add(requestBody);
+                    hasOptionalParamOrBody = true;
                 }
             } else {
                 if (requestBody.required) {
-                    requiredParams.add(requestBody);
+                    hasRequiredParamOrBody = true;
                 } else {
-                    optionalParams.add(requestBody);
+                    hasOptionalParamOrBody = true;
                 }
             }
 
@@ -3244,15 +3244,15 @@ public class DefaultCodegen implements CodegenConfig {
         for (CodegenParameter cp : allParams) {
             if (cp.refInfo != null) {
                 if (cp.getDeepestRef().required) { //required parameters
-                    requiredParams.add(cp);
+                    hasRequiredParamOrBody = true;
                 } else { // optional parameters
-                    optionalParams.add(cp);
+                    hasOptionalParamOrBody = true;
                 }
             } else {
                 if (cp.required) { //required parameters
-                    requiredParams.add(cp);
+                    hasRequiredParamOrBody = true;
                 } else { // optional parameters
-                    optionalParams.add(cp);
+                    hasOptionalParamOrBody = true;
                 }
             }
         }
@@ -3291,8 +3291,8 @@ public class DefaultCodegen implements CodegenConfig {
         op.queryParams = queryParams;
         op.headerParams = headerParams;
         op.cookieParams = cookieParams;
-        op.requiredParams = requiredParams;
-        op.optionalParams = optionalParams;
+        op.hasRequiredParamOrBody = hasRequiredParamOrBody;
+        op.hasOptionalParamOrBody = hasOptionalParamOrBody;
         op.externalDocs = operation.getExternalDocs();
 
         return op;

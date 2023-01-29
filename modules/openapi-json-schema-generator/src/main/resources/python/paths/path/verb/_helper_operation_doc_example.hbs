@@ -26,7 +26,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
 {{/if}}
 {{/each}}
 {{/if}}
-{{#if requiredParams}}
+{{#if hasRequiredParamOrBody}}
 
     # example passing only required values which don't have defaults set
     {{#if pathParams}}
@@ -153,7 +153,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{/each}}
     {{/if}}
 {{/if}}
-{{#if optionalParams}}
+{{#if hasOptionalParamOrBody}}
 
     # example passing only optional values
     {{#if pathParams}}
@@ -252,8 +252,8 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{/each}}
     {{/if}}
 {{/if}}
-{{#unless requiredParams}}
-{{#unless optionalParams}}
+{{#unless hasRequiredParamOrBody}}
+{{#unless hasOptionalParamOrBody}}
 
     # example, this endpoint has no required or optional parameters
     try:
