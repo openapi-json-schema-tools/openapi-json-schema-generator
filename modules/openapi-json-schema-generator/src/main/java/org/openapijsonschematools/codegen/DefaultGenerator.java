@@ -580,7 +580,7 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
-                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId + ".md"));
+                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCaseName + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                     }
                 }
