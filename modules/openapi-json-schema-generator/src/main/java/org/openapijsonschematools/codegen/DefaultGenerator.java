@@ -1844,10 +1844,6 @@ public class DefaultGenerator implements Generator {
         operations.put("package", config.apiPackage());
 
         Set<String> allImports = new ConcurrentSkipListSet<>();
-        for (CodegenOperation op : ops) {
-            allImports.addAll(op.imports);
-        }
-
         Map<String, String> mappings = getAllImportsMappings(allImports);
         Set<Map<String, String>> imports = toImportsObjects(mappings);
 

@@ -55,9 +55,6 @@ public class CodegenOperation {
     public TreeMap<String, CodegenResponse> nonDefaultResponses = null;
     public CodegenResponse defaultResponse = null;
     public List<CodegenCallback> callbacks = new ArrayList<>();
-    public TreeSet<String> imports = new TreeSet<String>();
-    public List<Map<String, String>> examples;
-    public List<Map<String, String>> requestBodyExamples;
     public ExternalDocumentation externalDocs;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
     public CodegenKey operationId;
@@ -118,15 +115,6 @@ public class CodegenOperation {
      */
     public boolean getHasCookieParams() {
         return nonEmpty(cookieParams);
-    }
-
-    /**
-     * Check if there's at least one example parameter
-     *
-     * @return true if examples parameter exists, false otherwise
-     */
-    public boolean getHasExamples() {
-        return nonEmpty(examples);
     }
 
     public boolean getAllResponsesAreErrors() {
@@ -298,9 +286,6 @@ public class CodegenOperation {
         sb.append(", wildcardCodeResponses=").append(wildcardCodeResponses);
         sb.append(", nonDefaultResponses=").append(nonDefaultResponses);
         sb.append(", callbacks=").append(callbacks);
-        sb.append(", imports=").append(imports);
-        sb.append(", examples=").append(examples);
-        sb.append(", requestBodyExamples=").append(requestBodyExamples);
         sb.append(", externalDocs=").append(externalDocs);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append('}');
@@ -339,9 +324,6 @@ public class CodegenOperation {
                 Objects.equals(wildcardCodeResponses, that.wildcardCodeResponses) &&
                 Objects.equals(nonDefaultResponses, that.nonDefaultResponses) &&
                 Objects.equals(callbacks, that.callbacks) &&
-                Objects.equals(imports, that.imports) &&
-                Objects.equals(examples, that.examples) &&
-                Objects.equals(requestBodyExamples, that.requestBodyExamples) &&
                 Objects.equals(externalDocs, that.externalDocs) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions);
     }
@@ -353,7 +335,7 @@ public class CodegenOperation {
                 summary, unescapedNotes, notes, baseName, defaultResponse,
                 consumes, produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
-                authMethods, tags, responses, callbacks, imports, examples, requestBodyExamples, externalDocs,
+                authMethods, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses);
     }

@@ -3027,7 +3027,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         Map<String, Schema> schemas = ModelUtils.getSchemas(this.openAPI);
         CodegenOperation op = new CodegenOperation();
-        Set<String> imports = new HashSet<>();
         if (operation.getExtensions() != null && !operation.getExtensions().isEmpty()) {
             op.vendorExtensions.putAll(operation.getExtensions());
 
@@ -3204,13 +3203,6 @@ public class DefaultCodegen implements CodegenConfig {
                     hasOptionalParamOrBody = true;
                 }
             }
-
-            // add example
-            if (schemas != null && !isSkipOperationExample() && opRequestBody.getContent() != null) {
-                String firstContentType = (String) opRequestBody.getContent().keySet().toArray()[0];
-                op.requestBodyExamples = new ExampleGenerator(schemas, this.openAPI).generate(
-                    null, new ArrayList<>(getConsumesInfo(this.openAPI, operation)), opRequestBody.getContent().get(firstContentType).getSchema());
-            }
         }
 
         if (parameters != null) {
@@ -3257,14 +3249,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        // add imports to operation import tag
-        for (String i : imports) {
-            if (needToImport(i)) {
-                op.imports.add(i);
-            }
-        }
-
-        op.httpMethod = new CodegenKey(
+        CodegenKey httpMethodKey = new CodegenKey(
                 httpMethod,
                 true,
                 org.openapijsonschematools.codegen.utils.StringUtils.underscore(httpMethod),
@@ -3286,6 +3271,7 @@ public class DefaultCodegen implements CodegenConfig {
             });
         }
 
+        op.httpMethod = httpMethodKey;
         op.allParams = allParams;
         op.pathParams = pathParams;
         op.queryParams = queryParams;
