@@ -3172,12 +3172,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         String operationId = getOrGenerateOperationId(operation, path, httpMethod);
-        CodegenKey operationIdKey = new CodegenKey(
-            operationId,
-            isValid(operationId),
-            toPathFilename(operationId),
-            toModelName(operationId)
-        );
 
         // remove prefix in operationId
         if (removeOperationIdPrefix) {
@@ -3191,7 +3185,12 @@ public class DefaultCodegen implements CodegenConfig {
                 operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
             }
         }
-        operationId = removeNonNameElementToCamelCase(operationId);
+        CodegenKey operationIdKey = new CodegenKey(
+                operationId,
+                isValid(operationId),
+                toPathFilename(operationId),
+                toModelName(operationId)
+        );
 
         String usedPath;
         if (isStrictSpecBehavior() && !path.startsWith("/")) {
