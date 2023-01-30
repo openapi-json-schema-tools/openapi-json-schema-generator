@@ -41,7 +41,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         );
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/inlineEnum");
         Assert.assertEquals(p.example, "\"first\"");
     }
 
@@ -56,7 +56,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setItems(items);
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/inlineEnumArray");
         Assert.assertEquals(p.example, "Arrays.asList()");
     }
 
@@ -67,7 +67,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setFormat("date");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateDefault");
         Assert.assertEquals(p.example, "new Date()");
     }
 
@@ -79,7 +79,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setExample("2017-03-30");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateGivenExample");
         Assert.assertEquals(p.example, "new Date()");
     }
 
@@ -90,7 +90,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setFormat("date-time");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateTimeDefault");
         Assert.assertEquals(p.example, "LocalDate.now()");
     }
 
@@ -102,7 +102,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setExample("2007-12-03T10:15:30+01:00");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateTimeGivenExample");
         Assert.assertEquals(p.example, "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
     }
 
@@ -113,7 +113,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setFormat("uuid");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/uuidDefault");
         Assert.assertEquals(p.example, "UUID.randomUUID()");
     }
 
@@ -125,7 +125,7 @@ public class AbstractJavaCodegenExampleValuesTest {
         sc.setExample("13b48713-b931-45ea-bd60-b07491245960");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/A");
+        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/uuidGivenExample");
         Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
     }
 

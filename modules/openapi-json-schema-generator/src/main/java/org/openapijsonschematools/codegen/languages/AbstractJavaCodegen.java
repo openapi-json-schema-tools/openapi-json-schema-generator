@@ -1017,23 +1017,126 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
      */
     @Override
     public String getParameterExampleValue(Parameter parameter) {
+        String example = null;
         if (parameter.getExample() != null) {
-            return parameter.getExample().toString();
-        }
-
-        if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
-            Example example = parameter.getExamples().values().iterator().next();
-            if (example.getValue() != null) {
-                return example.getValue().toString();
+            example = parameter.getExample().toString();
+        } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
+            Example examplesExample = parameter.getExamples().values().iterator().next();
+            if (examplesExample.getValue() != null) {
+                example = examplesExample.getValue().toString();
             }
         }
 
         Schema schema = parameter.getSchema();
-        if (schema != null && schema.getExample() != null) {
-            return schema.getExample().toString();
+
+        if (schema == null) {
+            String contentType = (String) parameter.getContent().keySet().toArray()[0];
+            schema = parameter.getContent().get(contentType).getSchema();
         }
 
-        return null;
+        if (schema.getExample() != null) {
+            example = schema.getExample().toString();
+        } else if (schema.getExamples() != null && !schema.getExamples().isEmpty()) {
+            example = schema.getExamples().get(0).toString();
+        }
+
+        boolean hasAllowableValues = schema.getEnum() != null && !schema.getEnum().isEmpty();
+        if (hasAllowableValues) {
+            //support examples for inline enums
+            final List<Object> values = (List<Object>) schema.getEnum();
+            example = String.valueOf(values.get(0));
+        } else if (schema.getDefault() != null) {
+            example = schema.getDefault().toString();
+        } else if (schema.getExample() != null) {
+            example = schema.getExample().toString();
+        } else if (schema.getExamples() != null && !schema.getExamples().isEmpty()) {
+            example = schema.getExamples().get(0).toString();
+        }
+
+        Set<String> types = schema.getTypes();
+        if (types == null) {
+            types = new HashSet<>();
+            if (schema.getType() != null) {
+                types.add(schema.getType());
+            }
+        }
+        if (types.contains("string")) {
+            String format = schema.getFormat();
+            if (format != null) {
+                if (format.equals("uuid")) {
+                    if (example == null) {
+                        example = "UUID.randomUUID()";
+                    } else {
+                        example = "UUID.fromString(\"" + example + "\")";
+                    }
+                } else if (format.equals("binary")) {
+                    if (example == null) {
+                        example = "/path/to/file";
+                    }
+                    example = "new File(\"" + escapeText(example) + "\")";
+                } else if (format.equals("date")) {
+                    example = "new Date()";
+                } else if (format.equals("date-time")) {
+                    if (example == null) {
+                        example = "LocalDate.now()";
+                    } else {
+                        example = "LocalDate.parse(\"" + example + "\")";
+                    }
+                } else if (format.equals("number")) {
+                    if (example == null) {
+                        example = "new BigDecimal(78)";
+                    } else {
+                        example = "new BigDecimal(\"" + example + "\")";
+                    }
+                }
+            } else {
+                if (example == null) {
+                    example = parameter.getName() + "_example";
+                }
+                example = "\"" + escapeText(example) + "\"";
+            }
+        } else if (types.contains("integer")) {
+            if (example == null) {
+                example = "56";
+            }
+            if (schema.getFormat().equals("int64")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "L");
+            }
+        } else if (types.contains("number")) {
+            if (example == null) {
+                example = "3.4";
+            }
+            if (schema.getFormat().equals("float")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "F");
+            } else if (schema.getFormat().equals("double")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "D");
+            }
+        } else if (types.contains("boolean")) {
+            if (example == null) {
+                example = "true";
+            }
+        } else if (types.contains("array")) {
+            if (example == null) {
+                example = "Arrays.asList()";
+            }
+        } else if (types.contains("object")) {
+            if (example == null) {
+                example = "new HashMap()";
+            }
+        } else if (types.contains("null")) {
+            if (example == null) {
+                example = "null";
+            }
+        } else if (hasAllowableValues) {
+            //parameter is enum defined as a schema component
+            example = ".fromValue(\"" + example + "\")";
+        }
+
+        if (example == null) {
+            example = "null";
+        }
+
+        return example;
     }
 
     @Override
