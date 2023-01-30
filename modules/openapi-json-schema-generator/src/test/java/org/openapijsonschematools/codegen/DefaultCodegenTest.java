@@ -94,15 +94,21 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testEnumImports() {
+    public void testRefedEnumParameter() {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.addSchemaImportsFromV3SpecLocations = true;
         final OpenAPI openApi = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_12445.yaml");
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/pets/petType/{type}");
+        codegen.fromSchema(
+                openApi.getComponents().getSchemas().get("PetByType"),
+                "#/components/schemas/PetByType",
+                "#/components/schemas/PetByType"
+        );
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
         assertEquals(operation.pathParams.get(0).imports, null);
-        Assert.assertEquals(operation.pathParams.get(0).schema.refInfo().ref.imports.size(), 1);
+        assertEquals(operation.pathParams.get(0).schema.imports.size(), 1);
+        Assert.assertTrue(operation.pathParams.get(0).schema.refInfo().ref.isEnum);
     }
 
     @Test
