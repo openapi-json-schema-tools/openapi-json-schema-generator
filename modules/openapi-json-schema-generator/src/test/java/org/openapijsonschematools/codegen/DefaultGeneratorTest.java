@@ -359,9 +359,9 @@ public class DefaultGeneratorTest {
         Assert.assertEquals(result.size(), 1);
         List<CodegenOperation> defaultList = result.get("Default");
         Assert.assertEquals(defaultList.size(), 2);
-        Assert.assertEquals(defaultList.get(0).path, "path1/");
+        Assert.assertEquals(defaultList.get(0).path.name, "path1/");
         Assert.assertEquals(defaultList.get(0).allParams.size(), 0);
-        Assert.assertEquals(defaultList.get(1).path, "path2/");
+        Assert.assertEquals(defaultList.get(1).path.name, "path2/");
         Assert.assertEquals(defaultList.get(1).allParams.size(), 1);
     }
 
@@ -384,13 +384,13 @@ public class DefaultGeneratorTest {
         Assert.assertEquals(result.size(), 1);
         List<CodegenOperation> defaultList = result.get("Default");
         Assert.assertEquals(defaultList.size(), 4);
-        Assert.assertEquals(defaultList.get(0).path, "/path1");
+        Assert.assertEquals(defaultList.get(0).path.name, "/path1");
         Assert.assertEquals(defaultList.get(0).allParams.size(), 0);
-        Assert.assertEquals(defaultList.get(1).path, "/path2");
+        Assert.assertEquals(defaultList.get(1).path.name, "/path2");
         Assert.assertEquals(defaultList.get(1).allParams.size(), 1);
-        Assert.assertEquals(defaultList.get(2).path, "/path3");
+        Assert.assertEquals(defaultList.get(2).path.name, "/path3");
         Assert.assertEquals(defaultList.get(2).allParams.size(), 2);
-        Assert.assertEquals(defaultList.get(3).path, "/path4");
+        Assert.assertEquals(defaultList.get(3).path.name, "/path4");
         Assert.assertEquals(defaultList.get(3).allParams.size(), 1);
     }
 
