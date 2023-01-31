@@ -21,13 +21,12 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.*;
 import org.openapijsonschematools.codegen.ClientOptInput;
-import org.openapijsonschematools.codegen.CodegenSchema;
+import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultGenerator;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
-import org.openapijsonschematools.codegen.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

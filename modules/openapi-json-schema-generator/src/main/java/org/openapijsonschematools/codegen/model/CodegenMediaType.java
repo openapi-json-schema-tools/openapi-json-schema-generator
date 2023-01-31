@@ -1,6 +1,5 @@
 package org.openapijsonschematools.codegen.model;
 
-import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.SchemaTestCase;
 
 import java.util.HashMap;

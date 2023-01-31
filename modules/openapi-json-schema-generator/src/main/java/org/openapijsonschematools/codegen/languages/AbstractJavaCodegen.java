@@ -35,7 +35,7 @@ import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
-import org.openapijsonschematools.codegen.CodegenSchema;
+import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.VendorExtension;
 import org.openapijsonschematools.codegen.languages.features.DocumentationProviderFeatures;

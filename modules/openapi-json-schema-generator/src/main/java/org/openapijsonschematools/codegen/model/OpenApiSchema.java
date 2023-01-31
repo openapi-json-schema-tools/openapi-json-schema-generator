@@ -1,18 +1,12 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
-import io.swagger.v3.oas.models.media.Schema;
-import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
-import org.openapijsonschematools.codegen.model.CodegenKey;
-import org.openapijsonschematools.codegen.model.CodegenRefInfo;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
 
 public class OpenApiSchema {
     // 3.0.3

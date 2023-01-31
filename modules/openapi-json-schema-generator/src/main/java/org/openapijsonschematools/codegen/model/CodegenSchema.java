@@ -15,11 +15,10 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.media.Schema;
-import org.openapijsonschematools.codegen.model.CodegenKey;
-import org.openapijsonschematools.codegen.model.CodegenRefInfo;
+import org.openapijsonschematools.codegen.SchemaTestCase;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 
 import java.util.*;
@@ -77,7 +76,7 @@ public class CodegenSchema extends OpenApiSchema {
      * TODO: in the future move the format handling in here too
      * @param p the schema which contains the type info
      */
-    void setTypeProperties(Schema p) {
+    public void setTypeProperties(Schema p) {
         if (ModelUtils.isTypeObjectSchema(p)) {
             isMap = true;
         } else if (ModelUtils.isArraySchema(p)) {
