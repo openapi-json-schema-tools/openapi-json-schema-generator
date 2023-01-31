@@ -1638,6 +1638,7 @@ public class DefaultCodegen implements CodegenConfig {
      * Return the example value of the parameter.
      *
      * @param header        Header
+     * @return string example
      */
     public String getHeaderExampleValue(Header header) {
         if (header.getExample() != null) {
@@ -1664,6 +1665,7 @@ public class DefaultCodegen implements CodegenConfig {
      * Return the example value of the parameter.
      *
      * @param parameter        Parameter
+     * @return string example
      */
     public String getParameterExampleValue(Parameter parameter) {
         if (parameter.getExample() != null) {
@@ -2353,6 +2355,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param discPropName       The String that is the discriminator propertyName in the schema
      * @param c                  The ComposedSchema that contains the discriminator and oneOf/anyOf schemas
      * @param openAPI            The OpenAPI spec that we are using
+     * @param sourceJsonPath     The json path location being examined
      * @return the list of oneOf and anyOf MappedModel that need to be added to the discriminator map
      */
     protected List<MappedModel> getOneOfAnyOfDescendants(String composedSchemaName, String discPropName, ComposedSchema c, OpenAPI openAPI, String sourceJsonPath) {
@@ -2558,59 +2561,6 @@ public class DefaultCodegen implements CodegenConfig {
      * @param schema       The input OAS schema.
      */
     protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {}
-
-    /**
-     * Add schema's properties to "properties" and "required" list
-     *
-     * @param properties     all properties
-     * @param required       required property only
-     * @param schema         schema in which the properties will be added to the lists
-     * @param visitedSchemas circuit-breaker - the schemas with which the method was called before for recursive structures
-     */
-    protected void addProperties(Map<String, Schema> properties, List<String> required, Schema schema, Set<Schema> visitedSchemas) {
-        if (!visitedSchemas.add(schema)) {
-            return;
-        }
-        if (schema instanceof ComposedSchema) {
-            ComposedSchema composedSchema = (ComposedSchema) schema;
-
-            if (composedSchema.getAllOf() != null) {
-                for (Schema component : composedSchema.getAllOf()) {
-                    addProperties(properties, required, component, visitedSchemas);
-                }
-            }
-
-            if (schema.getRequired() != null) {
-                required.addAll(schema.getRequired());
-            }
-
-            if (composedSchema.getOneOf() != null) {
-                for (Schema component : composedSchema.getOneOf()) {
-                    addProperties(properties, required, component, visitedSchemas);
-                }
-            }
-
-            if (composedSchema.getAnyOf() != null) {
-                for (Schema component : composedSchema.getAnyOf()) {
-                    addProperties(properties, required, component, visitedSchemas);
-                }
-            }
-
-            return;
-        }
-
-        if (StringUtils.isNotBlank(schema.get$ref())) {
-            Schema interfaceSchema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-            addProperties(properties, required, interfaceSchema, visitedSchemas);
-            return;
-        }
-        if (schema.getProperties() != null) {
-            properties.putAll(schema.getProperties());
-        }
-        if (schema.getRequired() != null) {
-            required.addAll(schema.getRequired());
-        }
-    }
 
     protected void updatePropertyForObject(CodegenSchema property, Schema p, String sourceJsonPath, String currentJsonPath) {
         addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath, currentJsonPath);
@@ -4186,16 +4136,14 @@ public class DefaultCodegen implements CodegenConfig {
      * @param m          Must be an instance of OpenApiSchema, may be model or property...
      * @param properties a map of properties (schema)
      * @param mandatory  a set of required properties' name
+     * @param sourceJsonPath the source json path
+     * @param currentJsonPath the current json path
      */
     protected void addProperties(CodegenSchema m, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath, String currentJsonPath) {
         if (properties == null) {
             return;
         }
 
-        CodegenSchema cm = null;
-        if (m instanceof CodegenSchema) {
-            cm = (CodegenSchema) m;
-        }
         LinkedHashMap<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMap<>();
         LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
 
@@ -4216,12 +4164,12 @@ public class DefaultCodegen implements CodegenConfig {
                     optionalProperties.put(ck, cp);
                 }
 
-                if (cm == null) {
+                if (m == null) {
                     continue;
                 }
 
                 if (!addSchemaImportsFromV3SpecLocations) {
-                    addImportsForPropertyType(cm, cp);
+                    addImportsForPropertyType(m, cp);
                 }
             }
         }

@@ -1826,7 +1826,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     /**
-     * Search for property by {@link CodegenSchema#name()}
+     * Search for property by {@link CodegenSchema#name}
      * @param name - name to search for
      * @param properties - list of properties
      * @return either found property or {@link Optional#empty()} if nothing has been found
