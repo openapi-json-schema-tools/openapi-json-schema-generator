@@ -572,7 +572,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     they are not.
      */
     @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath){
+    protected void addVarsRequiredVarsAdditionalProps(Schema schema, CodegenSchema property, String sourceJsonPath, String currentJsonPath){
         setAddProps(schema, property, sourceJsonPath, currentJsonPath);
         if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
             // if anyType schema has properties then add them
@@ -783,19 +783,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         // fix needed for values with /n /t etc in them
         CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
-        if (cp.isInteger && cp.getFormat() == null) {
+        if (cp.isInteger && cp.format == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
             // so integer validation info must be set using formatting
-            cp.setFormat("int");
+            cp.format = "int";
         }
         if (cp.isAnyType && cp.isNullable) {
             cp.isNullable = false;
         }
-        if (cp.isNullable && cp.refInfo() == null) {
-            cp.setIsNull(true);
+        if (cp.isNullable && cp.refInfo == null) {
+            cp.isNull = true;
             cp.isNullable = false;
-            cp.setHasMultipleTypes(true);
+            cp.hasMultipleTypes = true;
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
@@ -1315,8 +1315,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.propertyBaseName);
-                cp.setName(ck);
-                cp.setExample(discPropNameValue);
+                cp.name = ck;
+                cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
             return fullPrefix + "None" + closeChars;
@@ -1486,8 +1486,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.propertyBaseName);
-                cp.setName(ck);
-                cp.setExample(discPropNameValue);
+                cp.name = ck;
+                cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
             Object addPropsObj = schema.getAdditionalProperties();
@@ -1547,7 +1547,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             propName = toVarName(propName);
             String propModelName = null;
             Object propExample = null;
-            if (discProp != null && propName.equals(discProp.name())) {
+            if (discProp != null && propName.equals(discProp.name.name)) {
                 propModelName = null;
                 propExample = discProp.example;
             } else {
@@ -1681,7 +1681,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
-        property.setIsNumber(true);
+        property.isNumber = true;
         // float and double differentiation is determined with format info
     }
 
@@ -1935,7 +1935,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     protected String getImport(String className, CodegenSchema schema) {
         if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.refInfo().refModule;
+            return "from " + packageName() + ".components.schema import " + schema.refInfo.refModule;
         }
         String[] classPieces = className.split("\\.");
         return "from " + packageName() + ".components.schema import " + classPieces[0];
