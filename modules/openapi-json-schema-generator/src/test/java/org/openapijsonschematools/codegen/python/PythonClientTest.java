@@ -187,7 +187,7 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
-        Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
+        Assert.assertEquals(cm.pattern, expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
         Assert.assertFalse(cm.vendorExtensions.containsKey("x-modifiers"));
     }
@@ -207,7 +207,7 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "a.";
-        Assert.assertEquals(cm.getPattern(), expectedRegexPattern);
+        Assert.assertEquals(cm.pattern, expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
         Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
     }
@@ -232,7 +232,7 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.getAllowableValues().get("enumVars");
+        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.allowableValues.get("enumVars");
         Assert.assertEquals(enumVars.size(), 2);
         Assert.assertEquals(enumVars.get(0).get("name"), "DIGIT_THREE_67B9C");
         Assert.assertEquals(enumVars.get(1).get("name"), "FFA5A4");
