@@ -305,7 +305,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     /**
      * Sets the naming convention for Kotlin enum properties
      *
-     * @param enumPropertyNamingType The string representation of the naming convention, as defined by {@link CodegenConstants.ENUM_PROPERTY_NAMING_TYPE}
+     * @param enumPropertyNamingType The string representation of the naming convention, as defined by {@link CodegenConstants#ENUM_PROPERTY_NAMING_TYPE}
      */
     public void setEnumPropertyNaming(final String enumPropertyNamingType) {
         try {
