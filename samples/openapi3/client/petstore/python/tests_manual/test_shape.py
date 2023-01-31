@@ -92,7 +92,7 @@ class TestShape(unittest.TestCase):
         # invalid shape_type (first discriminator). 'Circle' does not exist in the model.
         err_msg = (
             r"Invalid discriminator value was passed in to Shape.shapeType Only the values "
-            r"\['Quadrilateral', 'Triangle'\] are allowed at \('args\[0\]', 'shapeType'\)"
+            r"\['Triangle', 'Quadrilateral'\] are allowed at \('args\[0\]', 'shapeType'\)"
         )
         with self.assertRaisesRegex(
                 petstore_api.ApiValueError,
@@ -103,7 +103,7 @@ class TestShape(unittest.TestCase):
         # invalid quadrilateral_type (second discriminator)
         err_msg = (
             r"Invalid discriminator value was passed in to Quadrilateral.quadrilateralType Only the values "
-            r"\['ComplexQuadrilateral', 'SimpleQuadrilateral'\] are allowed at \('args\[0\]', 'quadrilateralType'\)"
+            r"\['SimpleQuadrilateral', 'ComplexQuadrilateral'\] are allowed at \('args\[0\]', 'quadrilateralType'\)"
         )
         with self.assertRaisesRegex(
                 petstore_api.ApiValueError,
