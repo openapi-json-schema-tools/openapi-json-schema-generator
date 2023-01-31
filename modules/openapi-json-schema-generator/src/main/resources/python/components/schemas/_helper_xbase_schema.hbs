@@ -1,11 +1,11 @@
 {{#if isArray}}
-schemas.List{{#if getHasMultipleTypes}}Base,{{else}}Schema{{/if}}
+schemas.List{{#if hasMultipleTypes}}Base,{{else}}Schema{{/if}}
 {{/if}}
 {{#if isMap}}
-schemas.Dict{{#if getHasMultipleTypes}}Base,{{else}}Schema{{/if}}
+schemas.Dict{{#if hasMultipleTypes}}Base,{{else}}Schema{{/if}}
 {{/if}}
 {{#if isString}}
-{{#if getHasMultipleTypes}}
+{{#if hasMultipleTypes}}
 {{#eq format "date"}}
 schemas.DateBase,
 {{/eq}}
@@ -49,7 +49,7 @@ schemas.StrSchema
 {{/if}}
 {{/if}}
 {{#if isNumber}}
-{{#if getHasMultipleTypes}}
+{{#if hasMultipleTypes}}
 schemas.NumberBase,
 {{else}}
 {{#eq format "float"}}
@@ -66,7 +66,7 @@ schemas.NumberSchema
 {{/if}}
 {{/if}}
 {{#if isInteger}}
-{{#if getHasMultipleTypes}}
+{{#if hasMultipleTypes}}
 schemas.IntBase,
 {{else}}
 {{#eq format "int32"}}
@@ -83,12 +83,12 @@ schemas.IntSchema
 {{/if}}
 {{/if}}
 {{#if isBoolean}}
-schemas.Bool{{#if getHasMultipleTypes}}Base,{{else}}Schema{{/if}}
+schemas.Bool{{#if hasMultipleTypes}}Base,{{else}}Schema{{/if}}
 {{/if}}
 {{#if isNull}}
-schemas.None{{#if getHasMultipleTypes}}Base,{{else}}Schema{{/if}}
+schemas.None{{#if hasMultipleTypes}}Base,{{else}}Schema{{/if}}
 {{/if}}
-{{#if getHasMultipleTypes}}
+{{#if hasMultipleTypes}}
 schemas.Schema,
 schemas.{{#if isNull}}None{{/if}}{{#if isMap}}FrozenDict{{/if}}{{#if isArray}}Tuple{{/if}}{{#if isString }}Str{{/if}}{{#or isInteger isNumber}}Decimal{{/or}}{{#if isBoolean}}Bool{{/if}}Mixin
 {{/if}}

@@ -1,7 +1,7 @@
 def {{methodName}}(
     self,
     name: typing.Union[
-{{#each getRequiredProperties}}
+{{#each requiredProperties}}
     {{#if this}}
         typing_extensions.Literal["{{{@key.name}}}"],
     {{/if}}
@@ -10,14 +10,14 @@ def {{methodName}}(
         typing_extensions.Literal["{{{@key.name}}}"],
 {{/each}}
 {{#with additionalProperties}}
-    {{#unless getIsBooleanSchemaFalse}}
+    {{#unless isBooleanSchemaFalse}}
         str
     {{/unless}}
 {{else}}
         str
 {{/with}}
     ]
-){{#not properties}}{{#not getRequiredProperties}}{{#with additionalProperties}}{{#unless getIsBooleanSchemaFalse}} -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.name}}{{/if}}{{/unless}}{{/with}}{{/not}}{{/not}}:
+){{#not properties}}{{#not requiredProperties}}{{#with additionalProperties}}{{#unless isBooleanSchemaFalse}} -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.name}}{{/if}}{{/unless}}{{/with}}{{/not}}{{/not}}:
 {{#eq methodName "__getitem__"}}
     # dict_instance[name] accessor
 {{/eq}}

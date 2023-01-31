@@ -1,11 +1,11 @@
-{{#if getRequiredProperties}}
+{{#if requiredProperties}}
 required = {
-{{#each getRequiredProperties}}
+{{#each requiredProperties}}
     "{{{@key.name}}}",
 {{/each}}
 }
 {{/if}}
-{{#if getHasDiscriminatorWithNonEmptyMapping}}
+{{#if hasDiscriminatorWithNonEmptyMapping}}
 {{#with discriminator}}
 {{#each mappedModels}}
 {{#if @first}}

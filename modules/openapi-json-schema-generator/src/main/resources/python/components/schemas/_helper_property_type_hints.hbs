@@ -1,6 +1,6 @@
-{{#if getRequiredProperties}}
+{{#if requiredProperties}}
 
-    {{#each getRequiredProperties}}
+    {{#each requiredProperties}}
         {{#if @key.nameIsValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}

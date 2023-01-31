@@ -24,15 +24,15 @@ Input Type | Accessed Type | Description | Notes
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-        {{#each getRequiredProperties}}
+        {{#each requiredProperties}}
 **{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#each optionalProperties}}
 **{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#with additionalProperties}}
-        {{#unless getIsBooleanSchemaFalse}}
-        {{#if getIsBooleanSchemaTrue}}
+        {{#unless isBooleanSchemaFalse}}
+        {{#if isBooleanSchemaTrue}}
 **any_string_name** | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
         {{else}}
 **any_string_name** | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
@@ -63,8 +63,8 @@ Key | Input Type | Accessed Type | Description | Notes
     {{/unless}}
     {{/each}}
     {{#with additionalProperties}}
-    {{#unless getIsBooleanSchemaFalse}}
-    {{#unless getIsBooleanSchemaTrue}}
+    {{#unless isBooleanSchemaFalse}}
+    {{#unless isBooleanSchemaTrue}}
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 

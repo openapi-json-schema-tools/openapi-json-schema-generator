@@ -1,5 +1,5 @@
-{{#if getRequiredProperties}}
-{{#each getRequiredProperties}}
+{{#if requiredProperties}}
+{{#each requiredProperties}}
 {{#with this}}
 
 @typing.overload
@@ -30,9 +30,9 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Sch
 {{/if}}
 {{/each}}
 {{/if}}
-{{#or properties getRequiredProperties}}
+{{#or properties requiredProperties}}
     {{#with additionalProperties}}
-        {{#unless getIsBooleanSchemaFalse}}
+        {{#unless isBooleanSchemaFalse}}
 
 @typing.overload
 def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}: ...
@@ -46,7 +46,7 @@ def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
 {{> components/schemas/_helper_getitem methodName="__getitem__" }}
 {{else}}
     {{#with additionalProperties}}
-        {{#unless getIsBooleanSchemaFalse}}
+        {{#unless isBooleanSchemaFalse}}
 
 def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}:
     # dict_instance[name] accessor
@@ -54,8 +54,8 @@ def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/sche
         {{/unless}}
     {{/with}}
 {{/or}}
-{{#if getRequiredProperties}}
-{{#each getRequiredProperties}}
+{{#if requiredProperties}}
+{{#each requiredProperties}}
 {{#with this}}
 
 @typing.overload
@@ -86,9 +86,9 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> typin
 {{/if}}
 {{/each}}
 {{/if}}
-{{#or properties getRequiredProperties}}
+{{#or properties requiredProperties}}
     {{#with additionalProperties}}
-        {{#unless getIsBooleanSchemaFalse}}
+        {{#unless isBooleanSchemaFalse}}
 
 @typing.overload
 def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}, schemas.Unset]: ...
@@ -102,7 +102,7 @@ def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schem
 {{> components/schemas/_helper_getitem methodName="get_item_" }}
 {{else}}
     {{#with additionalProperties}}
-        {{#unless getIsBooleanSchemaFalse}}
+        {{#unless isBooleanSchemaFalse}}
 
 def get_item_(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}:
     return super().get_item_(name)

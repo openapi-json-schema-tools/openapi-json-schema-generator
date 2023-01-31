@@ -1,30 +1,30 @@
 {{#or allOf anyOf oneOf not}}
-    {{#if getIsBooleanSchemaFalse}}
+    {{#if isBooleanSchemaFalse}}
 {{> components/schemas/_helper_var_equals_cls }}
     {{else}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
     {{/if}}
 {{else}}
-    {{#if getHasMultipleTypes}}
+    {{#if hasMultipleTypes}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
     {{else}}
         {{#or isMap isArray isAnyType}}
             {{#if isMap}}
-                {{#or properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping additionalProperties }}
+                {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
 {{> components/schemas/_helper_schema_dict }}
                 {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
             {{#if isArray}}
-                {{#or hasItems hasValidation}}
+                {{#or items hasValidation}}
 {{> components/schemas/_helper_schema_list }}
                 {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
             {{#if isAnyType}}
-                {{#or isEnum properties hasValidation getRequiredProperties getHasDiscriminatorWithNonEmptyMapping items getFormat}}
+                {{#or isEnum properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping items format}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
                 {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
