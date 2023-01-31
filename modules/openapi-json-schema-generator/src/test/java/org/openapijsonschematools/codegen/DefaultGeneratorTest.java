@@ -287,60 +287,6 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void supportCustomTemplateEngine() throws IOException {
-        Path target = Files.createTempDirectory("test");
-        File templateDir = new File(target.toFile(), "template");
-        Files.createDirectory(templateDir.toPath());
-        File output = new File(target.toFile(), "out");
-        Files.createDirectory(output.toPath());
-
-        try {
-            final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("jmeter")
-                    .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
-                    .setSkipOverwrite(false)
-                    .setTemplateDir(templateDir.toPath().toAbsolutePath().toString())
-                    .setTemplatingEngineName("handlebars")
-                    .setOutputDir(output.toPath().toAbsolutePath().toString());
-
-            // Create custom template directory
-            Files.copy(
-                    Objects.requireNonNull(this.getClass().getClassLoader().getResourceAsStream("templating/templates/jmeter/api.hbs")),
-                    new File(templateDir, "api.hbs").toPath());
-            Files.copy(
-                    Objects.requireNonNull(this.getClass().getClassLoader().getResourceAsStream("templating/templates/jmeter/testdata-localhost.hbs")),
-                    new File(templateDir, "testdata-localhost.hbs").toPath());
-
-            final ClientOptInput clientOptInput = configurator.toClientOptInput();
-            DefaultGenerator generator = new DefaultGenerator(false);
-
-            List<File> files = generator.opts(clientOptInput).generate();
-
-            Assert.assertEquals(files.size(), 5);
-
-            // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "PingApi.jmx");
-            Assert.assertTrue(new File(output, "PingApi.jmx").exists());
-
-            TestUtils.ensureContainsFile(files, output, "PingApi.csv");
-            Assert.assertTrue(new File(output, "PingApi.csv").exists());
-
-            TestUtils.ensureContainsFile(files, output, ".openapi-generator-ignore");
-            Assert.assertTrue(new File(output, ".openapi-generator-ignore").exists());
-
-            TestUtils.ensureContainsFile(files, output, ".openapi-generator/VERSION");
-            Assert.assertTrue(new File(output, ".openapi-generator/VERSION").exists());
-
-            TestUtils.ensureContainsFile(files, output, ".openapi-generator/FILES");
-            Assert.assertTrue(new File(output, ".openapi-generator/FILES").exists());
-
-            TestUtils.assertFileContains(java.nio.file.Paths.get(output + "/PingApi.jmx"), "PingApi Test Plan via Handlebars");
-        } finally {
-            output.delete();
-        }
-    }
-
-    @Test
     public void testNonStrictProcessPaths() throws Exception {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         openAPI.setPaths(new Paths());
