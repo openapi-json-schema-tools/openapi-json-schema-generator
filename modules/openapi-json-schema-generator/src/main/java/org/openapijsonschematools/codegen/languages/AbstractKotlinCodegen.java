@@ -373,12 +373,12 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
         objs = super.postProcessModelsEnum(objs);
         for (CodegenSchema cm : objs.values()) {
-            if (cm.getDiscriminator() != null) {
+            if (cm.discriminator != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;
             }
 
-            for (CodegenSchema var : cm.getProperties().values()) {
+            for (CodegenSchema var : cm.properties.values()) {
                 if (var.isEnum || isSerializableModel()) {
                     cm.vendorExtensions.put("x-has-data-class-body", true);
                     break;

@@ -818,7 +818,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             model.imports.remove("ToStringSerializer");
         }
 
-        if (property.isArray && property.getUniqueItems() && !JACKSON.equals(serializationLibrary)) {
+        if (property.isArray && property.uniqueItems && !JACKSON.equals(serializationLibrary)) {
             // clean-up
             model.imports.remove("JsonDeserialize");
             property.vendorExtensions.remove("x-setter-extra-annotation");

@@ -34,6 +34,7 @@ import io.swagger.v3.parser.ObjectMapperFactory;
 import io.swagger.v3.parser.util.RemoteUrl;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.CodegenSchema;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.OpenApiSchema;
 import org.slf4j.Logger;
@@ -1460,7 +1461,7 @@ public class ModelUtils {
         return (schema.get$ref() == null && schema.getType() == null);
     }
 
-    public static void syncValidationProperties(Schema schema, OpenApiSchema target) {
+    public static void syncValidationProperties(Schema schema, CodegenSchema target) {
         // TODO move this method to OpenApiSchema
         if (schema != null && target != null) {
             if (isNullType(schema) || schema.get$ref() != null || isBooleanSchema(schema)) {
@@ -1500,45 +1501,45 @@ public class ModelUtils {
             }
 
             if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || pattern != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
-                target.setHasValidation(true);
+                target.hasValidation = true;
             }
         }
     }
 
     private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, OpenApiSchema target) {
-        if (minItems != null) target.setMinItems(minItems);
-        if (maxItems != null) target.setMaxItems(maxItems);
-        if (uniqueItems != null) target.setUniqueItems(uniqueItems);
+        if (minItems != null) target.minItems = minItems;
+        if (maxItems != null) target.maxItems = maxItems;
+        if (uniqueItems != null) target.uniqueItems = uniqueItems;
     }
 
     private static void setObjectValidations(Integer minProperties, Integer maxProperties, OpenApiSchema target) {
-        if (minProperties != null) target.setMinProperties(minProperties);
-        if (maxProperties != null) target.setMaxProperties(maxProperties);
+        if (minProperties != null) target.minProperties = minProperties;
+        if (maxProperties != null) target.maxProperties = maxProperties;
     }
 
     private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, OpenApiSchema target) {
-        if (minLength != null) target.setMinLength(minLength);
-        if (maxLength != null) target.setMaxLength(maxLength);
-        if (pattern != null) target.setPattern(pattern);
+        if (minLength != null) target.minLength = minLength;
+        if (maxLength != null) target.maxLength = maxLength;
+        if (pattern != null) target.pattern = pattern;
     }
 
     private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, OpenApiSchema target) {
-        if (multipleOf != null) target.setMultipleOf(multipleOf);
+        if (multipleOf != null) target.multipleOf = multipleOf;
         if (minimum != null) {
             if (isIntegerSchema(schema)) {
-                target.setMinimum(String.valueOf(minimum.longValue()));
+                target.minimum = String.valueOf(minimum.longValue());
             } else {
-                target.setMinimum(String.valueOf(minimum));
+                target.minimum = String.valueOf(minimum);
             }
-            if (exclusiveMinimum != null) target.setExclusiveMinimum(exclusiveMinimum);
+            if (exclusiveMinimum != null) target.exclusiveMinimum = exclusiveMinimum;
         }
         if (maximum != null) {
             if (isIntegerSchema(schema)) {
-                target.setMaximum(String.valueOf(maximum.longValue()));
+                target.maximum = String.valueOf(maximum.longValue());
             } else {
-                target.setMaximum(String.valueOf(maximum));
+                target.maximum = String.valueOf(maximum);
             }
-            if (exclusiveMaximum != null) target.setExclusiveMaximum(exclusiveMaximum);
+            if (exclusiveMaximum != null) target.exclusiveMaximum = exclusiveMaximum;
         }
     }
 

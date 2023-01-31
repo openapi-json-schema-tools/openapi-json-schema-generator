@@ -775,15 +775,15 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
             // escape the variable base name for use as a string literal
             List<CodegenSchema> vars = Stream.of(
-                            cm.getOptionalProperties().values().stream().collect(Collectors.toList()),
-                            cm.getRequiredProperties().values().stream().collect(Collectors.toList())
+                            cm.optionalProperties.values().stream().collect(Collectors.toList()),
+                            cm.requiredProperties.values().stream().collect(Collectors.toList())
                     )
                     .flatMap(List::stream)
                     .collect(Collectors.toList());
 
             for (CodegenSchema var : vars) {
-                if (var.name() != null) {
-                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name().name.replace("$", "\\$"));
+                if (var.name != null) {
+                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name.name.replace("$", "\\$"));
                 }
             }
         }

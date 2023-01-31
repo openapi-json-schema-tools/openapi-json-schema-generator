@@ -1206,9 +1206,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (!fullJavaUtil) {
-            if (property.isArray && !property.getUniqueItems()) {
+            if (property.isArray && !property.uniqueItems) {
                 model.imports.add("ArrayList");
-            } else if (property.isArray && property.getUniqueItems()) {
+            } else if (property.isArray && property.uniqueItems) {
                 model.imports.add("LinkedHashSet");
                 boolean canNotBeWrappedToNullable = !openApiNullable || !property.isNullable;
                 if (canNotBeWrappedToNullable) {
@@ -1229,12 +1229,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         if (openApiNullable) {
             if (Boolean.TRUE.equals(property.isNullable)) {
                 model.imports.add("JsonNullable");
-                model.getVendorExtensions().put("x-jackson-optional-nullable-helpers", true);
+                model.vendorExtensions.put("x-jackson-optional-nullable-helpers", true);
             }
         }
 
         if (property.isReadOnly) {
-            model.getVendorExtensions().put("x-has-readonly-properties", true);
+            model.vendorExtensions.put("x-has-readonly-properties", true);
         }
     }
 
@@ -1837,7 +1837,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         return properties.stream()
-            .filter(p -> p.name().equals(name))
+            .filter(p -> p.name.name.equals(name))
             .findFirst();
     }
 

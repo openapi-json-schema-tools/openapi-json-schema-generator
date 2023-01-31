@@ -20,7 +20,7 @@ public class ProcessUtils {
     public static void addIndexToProperties(TreeMap<String, CodegenSchema> models, int initialIndex) {
         for (CodegenSchema cm : models.values()) {
             int i = initialIndex;
-            for (CodegenSchema var : cm.getProperties().values()) {
+            for (CodegenSchema var : cm.properties.values()) {
                 var.vendorExtensions.put("x-index", i);
                 i++;
             }
