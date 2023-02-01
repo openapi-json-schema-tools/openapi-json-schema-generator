@@ -3243,42 +3243,36 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
 
-        HashSet<String> modelNamesWithoutRequired = new HashSet(Arrays.asList(
+        HashSet<String> propertyNamesWithoutRequired = new HashSet(Arrays.asList(
                 "EmptyObject",
                 "ObjectWithOptionalB",
                 "AnyTypeNoPropertiesNoRequired",
                 "AnyTypeHasPropertiesNoRequired",
-                "AnyTypeNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ObjectNoPropertiesNoRequired",
-                "ObjectHasPropertiesNoRequired", // Note: this is extracted into another component and is a ref
-                "ObjectNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
+                "ObjectHasPropertiesNoRequired",
                 "ComposedNoAllofPropsNoPropertiesNoRequired",
                 "ComposedNoAllofPropsHasPropertiesNoRequired",
-                "ComposedNoAllofPropsNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
                 "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "ComposedHasAllofReqPropNoPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
+                "AnyTypeHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ObjectHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ComposedNoAllofPropsHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofOptPropHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofReqPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofReqPropHasPropertiesHasRequired"  // remove when delete/turn off inline model resolver
         ));
-        for (String modelNameWithoutRequired : modelNamesWithoutRequired) {
-            Schema schema = openAPI.getComponents().getSchemas().get(modelNameWithoutRequired);
-            CodegenSchema model = codegen.fromSchema(
-                    schema,
-                    "#/components/schemas/" + modelNameWithoutRequired,
-                    "#/components/schemas/" + modelNameWithoutRequired
-            );
-            LinkedHashMap<CodegenKey, CodegenSchema> reqProps = model.requiredProperties;
-            assertNull(reqProps);
+        for (CodegenKey key: cm.properties.keySet()) {
+            CodegenSchema prop = cm.properties.get(key);
+            if (propertyNamesWithoutRequired.contains(key.name)) {
+                assertNull(prop.requiredProperties);
+            } else {
+                assertNotNull(prop.requiredProperties);
+                assertTrue(!prop.requiredProperties.isEmpty());
+            }
         }
-        // TODO enable this when turn off inline model resolver and unaliasing in defaultcodegen
-//        for (CodegenSchema var : cm.properties.values().stream().collect(Collectors.toList())) {
-//            if (!modelNamesWithoutRequired.contains(var.name.name)) {
-//                // All variables must be in the above sets
-//                fail();
-//            }
-//        }
     }
 
     @Test
