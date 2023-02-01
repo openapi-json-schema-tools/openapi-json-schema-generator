@@ -755,7 +755,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/clubForCreation",
                 "#/components/schemas/clubForCreation"
         );
-        assertEquals(childModel.requiredProperties, null);
+        assertEquals(childModel.requiredProperties.size(), 1);
     }
 
     @Test
@@ -1442,7 +1442,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/person",
                 "#/components/schemas/person"
         );
-        assertEquals(personModel.requiredProperties, null);
+        assertEquals(personModel.requiredProperties.size(), 1);
 
         Schema personForCreation = openAPI.getComponents().getSchemas().get("personForCreation");
         CodegenSchema personForCreationModel = codegen.fromSchema(
@@ -1450,7 +1450,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/personForCreation",
                 "#/components/schemas/personForCreation"
         );
-        assertEquals(personForCreationModel.requiredProperties, null);
+        assertEquals(personForCreationModel.requiredProperties.size(), 3);
 
         Schema personForUpdate = openAPI.getComponents().getSchemas().get("personForUpdate");
         CodegenSchema personForUpdateModel = codegen.fromSchema(
@@ -3184,19 +3184,14 @@ public class DefaultCodegenTest {
                 "ObjectWithOptionalB",
                 "AnyTypeNoPropertiesNoRequired",
                 "AnyTypeHasPropertiesNoRequired",
-                "AnyTypeNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ObjectNoPropertiesNoRequired",
                 "ObjectHasPropertiesNoRequired",
-                "ObjectNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedNoAllofPropsNoPropertiesNoRequired",
                 "ComposedNoAllofPropsHasPropertiesNoRequired",
-                "ComposedNoAllofPropsNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
-                "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "ComposedHasAllofReqPropNoPropertiesHasRequired"  //TODO: hasRequired should be true, fix this
+                "ComposedHasAllofReqPropHasPropertiesNoRequired"
         );
         for (String modelName : modelNamesWithoutRequired) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -3212,9 +3207,13 @@ public class DefaultCodegenTest {
         List<String> modelNamesWithRequired = Arrays.asList(
                 "AnyTypeHasPropertiesHasRequired",
                 "ObjectHasPropertiesHasRequired",
+                "AnyTypeNoPropertiesHasRequired",
                 "ComposedNoAllofPropsHasPropertiesHasRequired",
                 "ComposedHasAllofOptPropHasPropertiesHasRequired",
-                "ComposedHasAllofReqPropHasPropertiesHasRequired"
+                "ComposedHasAllofReqPropHasPropertiesHasRequired",
+                "ComposedNoAllofPropsNoPropertiesHasRequired",
+                "ComposedHasAllofOptPropNoPropertiesHasRequired",
+                "ComposedHasAllofReqPropNoPropertiesHasRequired"
         );
         for (String modelName : modelNamesWithRequired) {
             sc = openAPI.getComponents().getSchemas().get(modelName);
