@@ -1,4 +1,6 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.model;
+
+import org.openapijsonschematools.codegen.model.ObjectWithTypeBooleans;
 
 public class SchemaTestCase {
     public String description;
