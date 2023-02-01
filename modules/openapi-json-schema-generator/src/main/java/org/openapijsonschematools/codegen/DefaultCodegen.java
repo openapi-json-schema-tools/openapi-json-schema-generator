@@ -4141,18 +4141,18 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMap<>();
 
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
-            final String key = entry.getKey();
+            final String propertyName = entry.getKey();
             final Schema prop = entry.getValue();
             if (prop == null) {
-                LOGGER.warn("Please report the issue. There shouldn't be null property for {}", key);
+                LOGGER.warn("Please report the issue. There shouldn't be null property for {}", propertyName);
             } else {
                 final CodegenSchema cp;
 
-                String propertyJsonPath = currentJsonPath + "/properties/" + key;
+                String propertyJsonPath = currentJsonPath + "/properties/" + ModelUtils.encodeSlashes(propertyName);
                 cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
 
-                CodegenKey ck = getKey(key);
-                propertiesMap.put(ck, cp);
+                CodegenKey key = getKey(propertyName);
+                propertiesMap.put(key, cp);
             }
         }
         return propertiesMap;
@@ -4186,33 +4186,6 @@ public class DefaultCodegen implements CodegenConfig {
             optionalProperties.put(key, prop);
         }
         return optionalProperties;
-    }
-
-    /**
-     * For a given property, adds all needed imports to the model
-     * This includes a flat property type (e.g. property type: ReferencedModel)
-     * as well as container type (property type: array of ReferencedModel's)
-     *
-     * @param model    The codegen representation of the OAS schema.
-     * @param property The codegen representation of the OAS schema's property.
-     */
-    protected void addImportsForPropertyType(CodegenSchema model, CodegenSchema property) {
-        if (model.imports == null) {
-            model.imports = new TreeSet<>();
-        }
-        if (property.isArray) {
-            if (Boolean.TRUE.equals(property.uniqueItems)) { // set
-                addImport(model.imports, typeMapping.get("set"));
-            } else { // array
-                addImport(model.imports, typeMapping.get("array"));
-            }
-        }
-
-        if (property.isMap) { // map
-            addImport(model.imports, typeMapping.get("map"));
-        }
-
-        addImports(model, property);
     }
 
     /**
@@ -5442,7 +5415,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashSet<String> required = schema.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<String>(schema.getRequired());
         property.optionalProperties = getOptionalProperties(property.properties, required);
-        property.requiredProperties = getRequiredProperties(required, property.optionalProperties, schema.getAdditionalProperties(), property.additionalProperties);
+        property.requiredProperties = getRequiredProperties(required, property.properties, schema.getAdditionalProperties(), property.additionalProperties);
     }
 
     protected void addOption(String key, String description, String defaultValue) {
