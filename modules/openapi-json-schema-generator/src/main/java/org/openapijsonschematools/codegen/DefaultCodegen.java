@@ -2548,27 +2548,6 @@ public class DefaultCodegen implements CodegenConfig {
         return discriminator;
     }
 
-    /**
-     * Handle the model for the 'additionalProperties' keyword in the OAS schema.
-     *
-     * @param codegenModel The codegen representation of the schema.
-     * @param schema       The input OAS schema.
-     */
-    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {}
-
-    protected void updatePropertyForObject(CodegenSchema property, Schema p, String sourceJsonPath, String currentJsonPath) {
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath, currentJsonPath);
-    }
-
-    protected void updatePropertyForAnyType(CodegenSchema property, Schema p, String sourceJsonPath, String currentJsonPath) {
-        // The 'null' value is allowed when the OAS schema is 'any type'.
-        // See https://github.com/OAI/OpenAPI-Specification/issues/1389
-        if (Boolean.FALSE.equals(p.getNullable())) {
-            LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
-        }
-        addVarsRequiredVarsAdditionalProps(p, property, sourceJsonPath, currentJsonPath);
-    }
-
     protected void updatePropertyForString(CodegenSchema property, Schema p) {
         if (ModelUtils.isByteArraySchema(p)) {
             property.isString = false;
@@ -2775,6 +2754,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (ref != null) {
             if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+                // import from $ref
                 property.imports = new TreeSet<>();
                 addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
             }
@@ -2913,21 +2893,30 @@ public class DefaultCodegen implements CodegenConfig {
                 property.xmlNamespace = p.getXml().getNamespace();
                 property.xmlName = p.getXml().getName();
             }
-
-            // handle inner property
-            ArraySchema arraySchema = (ArraySchema) p;
-            Schema innerSchema = arraySchema.getItems();
-            CodegenSchema innerProperty = fromSchema(
-                    innerSchema, sourceJsonPath, currentJsonPath + "/items");
-            property.items = innerProperty;
-        } else if (ModelUtils.isTypeObjectSchema(p)) {
-            updatePropertyForObject(property, p, sourceJsonPath, currentJsonPath);
         } else if (ModelUtils.isAnyType(p)) {
-            updatePropertyForAnyType(property, p, sourceJsonPath, currentJsonPath);
+            // The 'null' value is allowed when the OAS schema is 'any type'.
+            // See https://github.com/OAI/OpenAPI-Specification/issues/1389
+            if (Boolean.FALSE.equals(p.getNullable())) {
+                LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
+            }
         }
+        // handle inner property
+        if (p.getItems() != null) {
+            CodegenSchema items = fromSchema(
+                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
+            property.items = items;
+        }
+        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
+        property.properties = getProperties(property, p.getProperties(), sourceJsonPath, currentJsonPath);
+        LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
+                : new LinkedHashSet<String>(p.getRequired());
+        property.optionalProperties = getOptionalProperties(property.properties, required);
+        property.requiredProperties = getRequiredProperties(required, property.properties, p.getAdditionalProperties(), property.additionalProperties);
+
         String example = toExampleValue(p);
         property.example = example;
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            // imports from properties/items/additionalPoperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }

@@ -1810,21 +1810,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         this.additionalEnumTypeAnnotations = additionalEnumTypeAnnotations;
     }
 
-    @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
-        if (!supportsAdditionalPropertiesWithComposedSchema) {
-            // The additional (undeclared) properties are modeled in Java as a HashMap.
-            //
-            // 1. supportsAdditionalPropertiesWithComposedSchema is set to false:
-            //    The generated model class extends from the HashMap. That does not work
-            //    with composed schemas that also use a discriminator because the model class
-            //    is supposed to extend from the generated parent model class.
-            // 2. supportsAdditionalPropertiesWithComposedSchema is set to true:
-            //    The HashMap is a field.
-            super.addAdditionPropertiesToCodeGenModel(codegenModel, schema);
-        }
-    }
-
     /**
      * Search for property by {@link CodegenSchema#name}
      * @param name - name to search for

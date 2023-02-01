@@ -1061,10 +1061,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return super.toInstantiationType(property);
     }
 
-    @Override
-    protected void addAdditionPropertiesToCodeGenModel(CodegenSchema codegenModel, Schema schema) {
-    }
-
     /**
      * Gets an example if it exists
      *
