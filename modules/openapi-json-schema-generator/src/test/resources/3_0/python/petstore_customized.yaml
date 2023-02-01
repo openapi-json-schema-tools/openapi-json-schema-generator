@@ -2665,7 +2665,7 @@ components:
         - lengthCm
       additionalProperties: false
     # go-experimental is unable to make Triangle and Quadrilateral models
-    # correctly https://github.com/OpenAPITools/openapi-generator/issues/6149
+    # correctly https://github.com/OpenAPITools/openapi-json-schema-generator/issues/6149
     Drawing:
       type: object
       properties:

@@ -1,7 +1,7 @@
 generatorName: spring
 outputDir: samples/server/petstore/spring-boot-defaultInterface-unhandledException
-inputSpec: modules/openapi-generator/src/test/resources/2_0/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: modules/openapi-generator/src/main/resources/JavaSpring
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore-with-fake-endpoints-models-for-testing.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/JavaSpring
 additionalProperties:
   artifactId: spring-boot-defaultInterface-unhandledException
   hideGenerationTimestamp: true

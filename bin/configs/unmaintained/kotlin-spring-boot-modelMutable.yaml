@@ -1,8 +1,8 @@
 generatorName: kotlin-spring
 outputDir: samples/server/petstore/kotlin-springboot-modelMutable
 library: spring-boot
-inputSpec: modules/openapi-generator/src/test/resources/2_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/kotlin-spring
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/kotlin-spring
 additionalProperties:
   documentationProvider: springdoc
   annotationLibrary: swagger2

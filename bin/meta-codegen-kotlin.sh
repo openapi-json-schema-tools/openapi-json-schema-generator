@@ -35,6 +35,6 @@ fi
   cd "${root}"/samples/meta-codegen-kotlin/lib && \
   ./gradlew --no-daemon shadowJar)
 
-ags2="generate -g myClientCodegen -i modules/openapi-generator/src/test/resources/2_0/petstore.json -o samples/meta-codegen-kotlin/usage $@"
+ags2="generate -g myClientCodegen -i modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.json -o samples/meta-codegen-kotlin/usage $@"
 
 java $JAVA_OPTS -cp ${root}/samples/meta-codegen-kotlin/lib/build/libs/my-client-codegen-openapi-generator-1.0-SNAPSHOT-all.jar:$executable org.openapijsonschematools.codegen.OpenAPIGenerator $ags2

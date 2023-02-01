@@ -1,6 +1,6 @@
 generatorName: groovy
 outputDir: samples/client/petstore/groovy
-inputSpec: modules/openapi-generator/src/test/resources/3_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/Groovy
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/Groovy
 additionalProperties:
   hideGenerationTimestamp: "true"
