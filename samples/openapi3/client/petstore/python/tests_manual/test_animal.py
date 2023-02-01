@@ -35,7 +35,7 @@ class TestAnimal(unittest.TestCase):
 
         regex_err = (
             r"Invalid discriminator value was passed in to Animal.className "
-            r"Only the values \['Dog', 'Cat'\] are allowed at \('args\[0\]', 'className'\)"
+            r"Only the values \['Cat', 'Dog'\] are allowed at \('args\[0\]', 'className'\)"
         )
         with self.assertRaisesRegex(petstore_api.ApiValueError, regex_err):
             Animal(className='Fox', color='red')

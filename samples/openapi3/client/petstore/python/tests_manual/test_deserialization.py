@@ -80,7 +80,7 @@ class DeserializationTests(unittest.TestCase):
 
         err_msg = (
             r"Invalid discriminator value was passed in to Quadrilateral.quadrilateralType Only the values "
-            r"\['SimpleQuadrilateral', 'ComplexQuadrilateral'\] are allowed at \('args\[0\]', 'quadrilateralType'\)"
+            r"\['ComplexQuadrilateral', 'SimpleQuadrilateral'\] are allowed at \('args\[0\]', 'quadrilateralType'\)"
         )
         with self.assertRaisesRegex(petstore_api.ApiValueError, err_msg):
             ResponseFor200.deserialize(response, self.configuration)
