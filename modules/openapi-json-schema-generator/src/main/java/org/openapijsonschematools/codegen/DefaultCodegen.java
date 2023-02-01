@@ -56,7 +56,6 @@ import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
-import org.openapijsonschematools.codegen.model.OpenApiSchema;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -2151,23 +2150,16 @@ public class DefaultCodegen implements CodegenConfig {
         return packageName + "." + priorJsonPathSegment + "." + componentName;
     }
 
-    protected void setAddProps(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath) {
+    protected CodegenSchema getAdditionalProperties(Schema schema, String sourceJsonPath, String currentJsonPath) {
         if (schema.getAdditionalProperties() == null) {
-            return;
+            return null;
         }
-        CodegenSchema addPropProp = null;
         String additonalPropertiesJsonPath = currentJsonPath + "/additionalProperties";
         if (schema.getAdditionalProperties() instanceof Boolean) {
             Schema usedSchema = getSchemaFromBooleanOrSchema(schema.getAdditionalProperties());
-            addPropProp = fromSchema(usedSchema, sourceJsonPath, additonalPropertiesJsonPath);
+            return fromSchema(usedSchema, sourceJsonPath, additonalPropertiesJsonPath);
         } else {
-            addPropProp = fromSchema((Schema) schema.getAdditionalProperties(), sourceJsonPath, additonalPropertiesJsonPath);
-        }
-        if (ModelUtils.isComposedSchema(schema) && !supportsAdditionalPropertiesWithComposedSchema) {
-            return;
-        }
-        if (addPropProp != null) {
-            property.additionalProperties = addPropProp;
+            return fromSchema((Schema) schema.getAdditionalProperties(), sourceJsonPath, additonalPropertiesJsonPath);
         }
     }
 
@@ -2782,7 +2774,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }
         if (ref != null) {
-            if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
                 property.imports = new TreeSet<>();
                 addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
             }
@@ -2935,7 +2927,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String example = toExampleValue(p);
         property.example = example;
-        if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && currentJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+        if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             property.imports = new TreeSet<>();
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
@@ -4137,17 +4129,16 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param m          Must be an instance of OpenApiSchema, may be model or property...
      * @param properties a map of properties (schema)
-     * @param mandatory  a set of required properties' name
      * @param sourceJsonPath the source json path
      * @param currentJsonPath the current json path
+     * @return the properties
      */
-    protected void addProperties(CodegenSchema m, Map<String, Schema> properties, Set<String> mandatory, String sourceJsonPath, String currentJsonPath) {
-        if (properties == null) {
-            return;
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getProperties(CodegenSchema m, Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
+        if (properties == null || properties.isEmpty()) {
+            return null;
         }
 
         LinkedHashMap<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMap<>();
-        LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
 
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String key = entry.getKey();
@@ -4157,31 +4148,44 @@ public class DefaultCodegen implements CodegenConfig {
             } else {
                 final CodegenSchema cp;
 
-                String propertySourceJsonPath = currentJsonPath + "/properties/" + key;
-                cp = fromSchema(prop, sourceJsonPath, propertySourceJsonPath);
+                String propertyJsonPath = currentJsonPath + "/properties/" + key;
+                cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
 
                 CodegenKey ck = getKey(key);
                 propertiesMap.put(ck, cp);
-                if (!mandatory.contains(key)) {
-                    optionalProperties.put(ck, cp);
-                }
-
-                if (m == null) {
-                    continue;
-                }
-
-                if (!addSchemaImportsFromV3SpecLocations) {
-                    addImportsForPropertyType(m, cp);
-                }
             }
         }
-        if (!propertiesMap.isEmpty()) {
-            m.properties = propertiesMap;
+        return propertiesMap;
+    }
+
+    /**
+     * Add variables (properties) to codegen model (list of properties, various flags, etc)
+     *
+     * @param properties a map of properties (schema)
+     * @param mandatory  a set of required properties' name
+     * @return the optional properties
+     */
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties, Set<String> mandatory) {
+        if (properties == null) {
+            return null;
         }
-        if (!optionalProperties.isEmpty()) {
-            m.optionalProperties = optionalProperties;
+        if (mandatory.size() == properties.size()) {
+            return null;
         }
-        return;
+        if (mandatory.isEmpty()) {
+            return properties;
+        }
+
+        LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
+        for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
+            final CodegenKey key = entry.getKey();
+            if (mandatory.contains(key.name)) {
+                continue;
+            }
+            final CodegenSchema prop = entry.getValue();
+            optionalProperties.put(key, prop);
+        }
+        return optionalProperties;
     }
 
     /**
@@ -5383,7 +5387,10 @@ public class DefaultCodegen implements CodegenConfig {
         return ck;
     }
 
-    protected void addRequiredProperties(Schema schema, OpenApiSchema property, String sourceJsonPath, String currentJsonPath) {
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, Object schemaAdditionalProperties, CodegenSchema additionalProperties) {
+        if (required.isEmpty()) {
+            return null;
+        }
         /*
         this should be called after vars and additionalProperties are set
         Features added by storing codegenProperty values:
@@ -5391,59 +5398,51 @@ public class DefaultCodegen implements CodegenConfig {
         - baseName stores original name (can be invalid in a programming language)
         - nameInSnakeCase can store valid name for a programming language
          */
-        Map<String, Schema> properties = schema.getProperties();
         LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMap<>();
-        List<String> requiredPropertyNames = schema.getRequired();
-        if (requiredPropertyNames == null) {
-            return;
-        }
-        for (String requiredPropertyName: requiredPropertyNames) {
+        for (String requiredPropertyName: required) {
             // required property is defined in properties, value is that CodegenSchema
-            CodegenKey ck = getKey(requiredPropertyName);
-            if (properties != null && properties.containsKey(requiredPropertyName)) {
+            CodegenKey key = getKey(requiredPropertyName);
+            if (properties != null && properties.containsKey(key)) {
                 // get cp from property
-                CodegenSchema cp = property.properties.get(ck);
-                if (cp != null) {
-                    requiredProperties.put(ck, cp);
+                CodegenSchema prop = properties.get(key);
+                if (prop != null) {
+                    requiredProperties.put(key, prop);
                 } else {
                     throw new RuntimeException("Property " + requiredPropertyName + " is missing from getVars");
                 }
-            } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.FALSE.equals(schema.getAdditionalProperties())) {
-                // TODO add processing for requiredPropertyName
+            } else if (schemaAdditionalProperties instanceof Boolean && Boolean.FALSE.equals(schemaAdditionalProperties)) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                requiredProperties.put(ck, null);
+                requiredProperties.put(key, null);
             } else {
                 // required property is not defined in properties, and additionalProperties is true or unset value is CodegenSchema made from empty schema
                 // required property is not defined in properties, and additionalProperties is schema, value is CodegenSchema made from schema
                 if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {
-                    CodegenSchema cp;
-                    String addPropsJsonPath = currentJsonPath + "/additionalProperties";
-                    if (schema.getAdditionalProperties() == null) {
+                    CodegenSchema prop;
+                    if (schemaAdditionalProperties == null) {
                         // additionalProperties is null
                         // there is NO schema definition for this so the json paths are null
-                        cp = requiredAddPropUnsetSchema;
-                    } else if (schema.getAdditionalProperties() instanceof Boolean && Boolean.TRUE.equals(schema.getAdditionalProperties())) {
+                        prop = requiredAddPropUnsetSchema;
+                    } else if (schemaAdditionalProperties instanceof Boolean && Boolean.TRUE.equals(schemaAdditionalProperties)) {
                         // additionalProperties is True
-                        cp = property.additionalProperties;
+                        prop = additionalProperties;
                     } else {
                         // additionalProperties is schema
-                        cp = property.additionalProperties;
+                        prop = additionalProperties;
                     }
-                    requiredProperties.put(ck, cp);
+                    requiredProperties.put(key, prop);
                 }
             }
         }
-        if (!requiredProperties.isEmpty()) {
-            property.requiredProperties = requiredProperties;
-        }
+        return requiredProperties;
     }
 
     protected void addVarsRequiredVarsAdditionalProps(Schema schema, CodegenSchema property, String sourceJsonPath, String currentJsonPath) {
-        setAddProps(schema, property, sourceJsonPath, currentJsonPath);
-        Set<String> mandatory = schema.getRequired() == null ? Collections.emptySet()
-                : new TreeSet<>(schema.getRequired());
-        addProperties(property, schema.getProperties(), mandatory, sourceJsonPath, currentJsonPath);
-        addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
+        property.additionalProperties = getAdditionalProperties(schema, sourceJsonPath, currentJsonPath);
+        property.properties = getProperties(property, schema.getProperties(), sourceJsonPath, currentJsonPath);
+        LinkedHashSet<String> required = schema.getRequired() == null ? new LinkedHashSet<>()
+                : new LinkedHashSet<String>(schema.getRequired());
+        property.optionalProperties = getOptionalProperties(property.properties, required);
+        property.requiredProperties = getRequiredProperties(required, property.optionalProperties, schema.getAdditionalProperties(), property.additionalProperties);
     }
 
     protected void addOption(String key, String description, String defaultValue) {

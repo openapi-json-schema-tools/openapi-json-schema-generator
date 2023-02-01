@@ -564,43 +564,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toModelName(name) + apiNameSuffix;
     }
 
-    /*
-    We have a custom version of this method so for composed schemas and object schemas we add properties only if they
-    are defined in that schema (x.properties). We do this because validation should be done independently in each schema
-    If properties are hosted into composed schemas, they can collide or incorrectly list themself as required when
-    they are not.
-     */
-    @Override
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, CodegenSchema property, String sourceJsonPath, String currentJsonPath){
-        setAddProps(schema, property, sourceJsonPath, currentJsonPath);
-        if (ModelUtils.isAnyType(schema) && supportsAdditionalPropertiesWithComposedSchema) {
-            // if anyType schema has properties then add them
-            if (schema.getProperties() != null && !schema.getProperties().isEmpty()) {
-                if (schema instanceof ComposedSchema) {
-                    ComposedSchema cs = (ComposedSchema) schema;
-                    if (cs.getOneOf() != null && !cs.getOneOf().isEmpty()) {
-                        LOGGER.warn("'oneOf' is intended to include only the additional optional OAS extension discriminator object. " +
-                                "For more details, see https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9.2.1.3 and the OAS section on 'Composition and Inheritance'.");
-                    }
-                }
-                HashSet<String> requiredVars = new HashSet<>();
-                if (schema.getRequired() != null) {
-                    requiredVars.addAll(schema.getRequired());
-                }
-                addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
-            }
-            addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
-            return;
-        } else if (ModelUtils.isTypeObjectSchema(schema)) {
-            HashSet<String> requiredVars = new HashSet<>();
-            if (schema.getRequired() != null) {
-                requiredVars.addAll(schema.getRequired());
-            }
-            addProperties(property, schema.getProperties(), requiredVars, sourceJsonPath, currentJsonPath);
-        }
-        addRequiredProperties(schema, property, sourceJsonPath, currentJsonPath);
-    }
-
     /**
      * Configures a friendly name for the generator.  This will be used by the
      * generator to select the library with the -g flag.
