@@ -43,8 +43,8 @@ class GrandparentAnimal(
         def discriminator():
             return {
                 'pet_type': {
-                    'ParentPet': parent_pet.ParentPet,
                     'ChildCat': child_cat.ChildCat,
+                    'ParentPet': parent_pet.ParentPet,
                 }
             }
         

@@ -40,9 +40,9 @@ class Mammal(
         def discriminator():
             return {
                 'className': {
+                    'Pig': pig.Pig,
                     'whale': whale.Whale,
                     'zebra': zebra.Zebra,
-                    'Pig': pig.Pig,
                 }
             }
         

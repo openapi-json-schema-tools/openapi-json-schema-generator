@@ -71,6 +71,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -715,7 +716,7 @@ public class DefaultCodegenTest {
         CodegenDiscriminator discriminator = animalModel.discriminator;
         String propertyName = "className";
         String propertyBaseName = "className";
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("BigCat", "BigCat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
@@ -769,7 +770,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, new LinkedHashSet());
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, new TreeSet<>());
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -785,7 +786,7 @@ public class DefaultCodegenTest {
         }
 
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
-        java.util.LinkedHashSet hs = new LinkedHashSet<>();
+        TreeSet hs = new TreeSet<>();
         for (String leafModelName : leafModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
@@ -917,7 +918,7 @@ public class DefaultCodegenTest {
         }
 
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
-        java.util.LinkedHashSet hs = new LinkedHashSet<>();
+        TreeSet hs = new TreeSet<>();
         for (String leafModelName : leafModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
@@ -1342,7 +1343,7 @@ public class DefaultCodegenTest {
         String propertyName = prop;
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         CodegenDiscriminator test = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
         assertEquals(discriminator, test);
     }
@@ -1352,7 +1353,7 @@ public class DefaultCodegenTest {
         String propertyName = prop;
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
@@ -1364,7 +1365,7 @@ public class DefaultCodegenTest {
         String propertyName = prop;
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
@@ -1402,7 +1403,7 @@ public class DefaultCodegenTest {
         String propertyName = config.toVarName(prop);
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
@@ -1886,7 +1887,7 @@ public class DefaultCodegenTest {
         mapping.put("a", "#/components/schemas/Adult");
         mapping.put("c", "Child");
 
-        LinkedHashSet<CodegenDiscriminator.MappedModel> mappedModels = new LinkedHashSet<>();
+        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("a", "Adult"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));

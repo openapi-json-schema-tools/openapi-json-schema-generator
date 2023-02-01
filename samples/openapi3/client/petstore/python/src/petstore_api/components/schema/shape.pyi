@@ -40,8 +40,8 @@ class Shape(
         def discriminator():
             return {
                 'shapeType': {
-                    'Triangle': triangle.Triangle,
                     'Quadrilateral': quadrilateral.Quadrilateral,
+                    'Triangle': triangle.Triangle,
                 }
             }
         

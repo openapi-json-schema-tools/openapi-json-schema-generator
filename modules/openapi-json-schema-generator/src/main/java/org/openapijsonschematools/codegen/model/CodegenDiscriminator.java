@@ -3,6 +3,7 @@ package org.openapijsonschematools.codegen.model;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Objects;
+import java.util.TreeSet;
 
 /**
  * This class encapsulates the OpenAPI discriminator construct, as specified at
@@ -36,9 +37,9 @@ public class CodegenDiscriminator {
     //
     // see the method createDiscriminator in DefaultCodegen.java
 
-    public final LinkedHashSet<MappedModel> mappedModels;
+    public final TreeSet<MappedModel> mappedModels;
 
-    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, LinkedHashSet<MappedModel> mappedModels) {
+    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, TreeSet<MappedModel> mappedModels) {
         this.propertyName = propertyName;
         this.propertyBaseName = propertyBaseName;
         this.mapping = mapping;

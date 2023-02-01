@@ -43,8 +43,8 @@ class Animal(
         def discriminator():
             return {
                 'className': {
-                    'Dog': dog.Dog,
                     'Cat': cat.Cat,
+                    'Dog': dog.Dog,
                 }
             }
         

@@ -40,8 +40,8 @@ class Quadrilateral(
         def discriminator():
             return {
                 'quadrilateralType': {
-                    'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
                     'ComplexQuadrilateral': complex_quadrilateral.ComplexQuadrilateral,
+                    'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
                 }
             }
         
