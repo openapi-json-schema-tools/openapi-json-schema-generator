@@ -3334,14 +3334,11 @@ public class DefaultCodegenTest {
                 "ObjectWithOptionalB",
                 "AnyTypeNoPropertiesNoRequired",
                 "AnyTypeHasPropertiesNoRequired",
-                "AnyTypeNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "AnyTypeHasPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ObjectNoPropertiesNoRequired",
                 "ObjectHasPropertiesNoRequired", // Note: this is extracted into another component and is a ref
-                "ObjectNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedNoAllofPropsNoPropertiesNoRequired",
                 "ComposedNoAllofPropsHasPropertiesNoRequired",
-                "ComposedNoAllofPropsNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
                 "ComposedHasAllofOptPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
@@ -3358,6 +3355,9 @@ public class DefaultCodegenTest {
             LinkedHashMap<CodegenKey, CodegenSchema> reqProps = cr.content.get(ck).schema.requiredProperties;
             if (modelNamesWithoutRequired.contains(cr.message)) {
                 assertNull(reqProps);
+            } else {
+                assertNotNull(reqProps);
+                assertTrue(!reqProps.isEmpty());
             }
         }
     }
