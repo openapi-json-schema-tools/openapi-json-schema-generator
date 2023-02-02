@@ -41,13 +41,14 @@ public class CodegenParameter {
     public final String style;
     public final boolean isDeprecated;
     public final CodegenSchema schema;
+    public final String in;
     public final boolean isQueryParam, isPathParam, isHeaderParam,
             isCookieParam, isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public final String baseName;
     public final CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, boolean isQueryParam, boolean isPathParam, boolean isHeaderParam, boolean isCookieParam, boolean isAllowEmptyValue, boolean isDeepObject, String baseName, CodegenRefInfo<CodegenParameter> refInfo) {
+    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, String in, boolean isQueryParam, boolean isPathParam, boolean isHeaderParam, boolean isCookieParam, boolean isAllowEmptyValue, boolean isDeepObject, String baseName, CodegenRefInfo<CodegenParameter> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
@@ -62,6 +63,7 @@ public class CodegenParameter {
         this.style = style;
         this.isDeprecated = isDeprecated;
         this.schema = schema;
+        this.in = in;
         this.isQueryParam = isQueryParam;
         this.isPathParam = isPathParam;
         this.isHeaderParam = isHeaderParam;
@@ -112,7 +114,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(name, in, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -134,6 +136,7 @@ public class CodegenParameter {
                 isDeprecated == that.isDeprecated &&
                 Objects.equals(schema, that.schema) &&
                 Objects.equals(style, that.style) &&
+                Objects.equals(in, that.in) &&
                 isQueryParam == that.isQueryParam &&
                 isPathParam == that.isPathParam &&
                 isHeaderParam == that.isHeaderParam &&
@@ -158,6 +161,7 @@ public class CodegenParameter {
         sb.append(", style='").append(style).append('\'');
         sb.append(", isDeprecated=").append(isDeprecated);
         sb.append(", schema=").append(schema);
+        sb.append(", in=").append(in);
         sb.append(", isQueryParam=").append(isQueryParam);
         sb.append(", isPathParam=").append(isPathParam);
         sb.append(", isHeaderParam=").append(isHeaderParam);

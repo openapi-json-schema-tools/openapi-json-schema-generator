@@ -3277,13 +3277,13 @@ public class DefaultCodegen implements CodegenConfig {
                 if (p.refInfo != null) {
                     paramOrRef = p.getDeepestRef();
                 }
-                if (paramOrRef.isQueryParam) {
+                if (paramOrRef.in.equals("query")) {
                     queryParams.add(p);
-                } else if (paramOrRef.isPathParam) {
+                } else if (paramOrRef.in.equals("path")) {
                     pathParams.add(p);
-                } else if (paramOrRef.isHeaderParam) {
+                } else if (paramOrRef.in.equals("header")) {
                     headerParams.add(p);
-                } else if (paramOrRef.isCookieParam) {
+                } else if (paramOrRef.in.equals("cookie")) {
                     cookieParams.add(p);
                 } else {
                     LOGGER.warn("Unknown parameter type for {}", p.baseName);
@@ -3680,6 +3680,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String baseName = parameter.getName();
 
+        String in = parameter.getIn();
         boolean isQueryParam = false;
         boolean isAllowEmptyValue = false;
         boolean isPathParam = false;
@@ -3722,7 +3723,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalIsQueryParam, finalIsPathParam, finalIsHeaderParam, finalIsCookieParam, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, in, finalIsQueryParam, finalIsPathParam, finalIsHeaderParam, finalIsCookieParam, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
