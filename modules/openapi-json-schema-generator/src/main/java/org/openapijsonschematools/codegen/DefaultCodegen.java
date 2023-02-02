@@ -2688,6 +2688,22 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
+    protected LinkedHashSet<String> getTypes(Schema schema) {
+        if (schema.getType() == null && schema.getTypes() == null) {
+            return null;
+        }
+        LinkedHashSet<String> types = new LinkedHashSet<>();
+        if (schema.getType() != null) {
+            types.add(schema.getType());
+        } else if (schema.getTypes() != null) {
+            types.addAll(schema.getTypes());
+        }
+        if (types.isEmpty()) {
+            return null;
+        }
+        return types;
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -2738,6 +2754,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.isBooleanSchemaFalse = true;
         }
         property.enumNameToValue = getEnumNameToValue(p);
+        property.types = getTypes(p);
 
         ModelUtils.syncValidationProperties(p, property);
         property.format = p.getFormat();

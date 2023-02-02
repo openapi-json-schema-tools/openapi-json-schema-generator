@@ -50,7 +50,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isUri;
     public boolean isEmail;
     public boolean isNull;
-    public boolean isAnyType;
     public boolean isArray;
     public boolean isMap;
     public boolean isNullable;
@@ -72,6 +71,10 @@ public class CodegenSchema extends OpenApiSchema {
             return true;
         }
         return false;
+    }
+
+    public boolean isAnyType() {
+        return types == null;
     }
 
     /**
@@ -130,8 +133,6 @@ public class CodegenSchema extends OpenApiSchema {
             isBoolean = true;
         } else if (ModelUtils.isNullType(p)) {
             isNull = true;
-        } else if (ModelUtils.isAnyType(p)) {
-            isAnyType = true;
         }
     }
 
@@ -150,6 +151,17 @@ public class CodegenSchema extends OpenApiSchema {
     public CodegenSchema getDeepestRef() {
         if (refInfo == null) {
             return null;
+        }
+        CodegenSchema refObject = refInfo.ref;
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.ref;
+        }
+        return refObject;
+    }
+
+    public CodegenSchema getSelfOrDeepestRef() {
+        if (refInfo == null) {
+            return this;
         }
         CodegenSchema refObject = refInfo.ref;
         while (refObject.refInfo != null) {
@@ -181,6 +193,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", exclusiveMinimum=").append(exclusiveMinimum);
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
         sb.append(", deprecated=").append(deprecated);
+        sb.append(", types=").append(types);
         sb.append(", isString=").append(isString);
         sb.append(", isNumeric=").append(isNumeric);
         sb.append(", isInteger=").append(isInteger);
@@ -202,7 +215,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", isEmail=").append(isEmail);
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
-        sb.append(", isAnyType=").append(isAnyType);
+        sb.append(", isAnyType=").append(isAnyType());
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
         sb.append(", isNullable=").append(isNullable);
@@ -284,7 +297,6 @@ public class CodegenSchema extends OpenApiSchema {
                 isEmail == that.isEmail &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
-                isAnyType == that.isAnyType &&
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
                 isNullable == that.isNullable &&
@@ -297,6 +309,7 @@ public class CodegenSchema extends OpenApiSchema {
                 isBooleanSchemaTrue == that.isBooleanSchemaTrue &&
                 isBooleanSchemaFalse == that.isBooleanSchemaFalse &&
                 schemaIsFromAdditionalProperties == that.schemaIsFromAdditionalProperties &&
+                Objects.equals(types, that.types) &&
                 Objects.equals(testCases, that.testCases) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
@@ -343,11 +356,11 @@ public class CodegenSchema extends OpenApiSchema {
                 name, defaultValue,
                 title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
-                exclusiveMinimum, exclusiveMaximum, deprecated,
+                exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
-                isArray, isMap, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
+                isArray, isMap, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference,
                 enumNameToValue, items, additionalProperties,
                 vendorExtensions, discriminatorValue,

@@ -1,4 +1,4 @@
-{{#unless isAnyType}}
+{{#if types}}
 types = {
 {{#if isNull}}
     schemas.NoneClass,
@@ -24,4 +24,4 @@ types = {
     schemas.BoolClass,
 {{/if}}
 }
-{{/unless}}
+{{/if}}
