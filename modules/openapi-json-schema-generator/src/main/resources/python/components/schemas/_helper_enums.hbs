@@ -1,20 +1,20 @@
-{{#with enumNameToValue}}
-{{#each enumVars}}
+{{#if enumNameToValue}}
+{{#each enumNameToValue}}
 
 @schemas.classproperty
-def {{name}}(cls):
-    {{#eq value "schemas.NoneClass.NONE"}}
+def {{@key}}(cls):
+    {{#eq this "schemas.NoneClass.NONE"}}
     return cls(None)
     {{else}}
-    {{#eq value "schemas.BoolClass.TRUE"}}
+    {{#eq this "schemas.BoolClass.TRUE"}}
     return cls(True)
     {{else}}
-    {{#eq value "schemas.BoolClass.FALSE"}}
+    {{#eq this "schemas.BoolClass.FALSE"}}
     return cls(False)
     {{else}}
-    return cls({{{value}}})
+    return cls({{{this}}})
     {{/eq}}
     {{/eq}}
     {{/eq}}
 {{/each}}
-{{/with}}
+{{/if}}

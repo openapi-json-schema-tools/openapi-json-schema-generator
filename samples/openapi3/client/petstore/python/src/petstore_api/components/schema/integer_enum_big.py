@@ -40,18 +40,17 @@ class IntegerEnumBig(
         format = 'int'
         enum_value_to_name = {
             10: "POSITIVE_10",
-            11: "POSITIVE_11",
             12: "POSITIVE_12",
-        }
-    
+            11: "POSITIVE_11",
+        }    
     @schemas.classproperty
     def POSITIVE_10(cls):
         return cls(10)
     
     @schemas.classproperty
-    def POSITIVE_11(cls):
-        return cls(11)
-    
-    @schemas.classproperty
     def POSITIVE_12(cls):
         return cls(12)
+    
+    @schemas.classproperty
+    def POSITIVE_11(cls):
+        return cls(11)

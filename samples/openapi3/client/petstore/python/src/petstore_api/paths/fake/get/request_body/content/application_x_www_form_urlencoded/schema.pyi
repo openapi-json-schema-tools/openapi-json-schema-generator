@@ -74,16 +74,16 @@ class Schema(
             ):
                 
                 @schemas.classproperty
-                def _ABC(cls):
-                    return cls("_abc")
-                
-                @schemas.classproperty
                 def EFG(cls):
                     return cls("-efg")
                 
                 @schemas.classproperty
                 def XYZ(cls):
                     return cls("(xyz)")
+                
+                @schemas.classproperty
+                def _ABC(cls):
+                    return cls("_abc")
             __annotations__ = {
                 "enum_form_string_array": EnumFormStringArray,
                 "enum_form_string": EnumFormString,

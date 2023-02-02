@@ -520,45 +520,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * post process enum defined in model's properties
-     *
-     * @param objs Map of models
-     * @return maps of models with better enum support
-     */
-    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
-        for (CodegenSchema cm : objs.values()) {
-
-            // for enum model
-            if (cm.enumNameToValue != null) {
-                Map<String, Object> allowableValues = cm.enumNameToValue;
-                List<Object> values = (List<Object>) allowableValues.get("values");
-                List<Map<String, Object>> enumVars = buildEnumVars(values, cm);
-                // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-                updateEnumVarsWithExtensions(enumVars, cm.vendorExtensions, cm);
-                cm.enumNameToValue.put("enumVars", enumVars);
-            }
-
-            // update codegen property enum with proper naming convention
-            // and handling of numbers, special characters
-            if (cm.requiredProperties != null) {
-                for (CodegenSchema var : cm.requiredProperties.values()) {
-                    if (var == null) {
-                        continue;
-                    }
-                    updateCodegenPropertyEnum(var);
-                }
-            }
-
-            if (cm.optionalProperties != null) {
-                for (CodegenSchema var : cm.optionalProperties.values()) {
-                    updateCodegenPropertyEnum(var);
-                }
-            }
-        }
-        return objs;
-    }
-
-    /**
      * Returns the common prefix of variables for enum naming if
      * two or more variables are present
      *
@@ -600,8 +561,15 @@ public class DefaultCodegen implements CodegenConfig {
      * @param prop property
      * @return the sanitized value for enum
      */
-    public String toEnumValue(String value, CodegenSchema prop) {
-        if (prop.isNumber || prop.isBoolean) {
+    public String toEnumValue(String value, Schema prop) {
+        Set<String> types = prop.getTypes();
+        if (types == null) {
+            types = new HashSet<>();
+            if (prop.getType() != null) {
+                types.add(prop.getType());
+            }
+        }
+        if (types.contains("number") || types.contains("boolean")) {
             return value;
         } else {
             return "\"" + escapeText(value) + "\"";
@@ -615,7 +583,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param prop the property that holds the data type booleans
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -2769,6 +2737,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (p.equals(falseSchema)) {
             property.isBooleanSchemaFalse = true;
         }
+        property.enumNameToValue = getEnumNameToValue(p);
 
         ModelUtils.syncValidationProperties(p, property);
         property.format = p.getFormat();
@@ -2837,16 +2806,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (p.getExtensions() != null && !p.getExtensions().isEmpty()) {
             property.vendorExtensions.putAll(p.getExtensions());
-        }
-
-        //Inline enum case:
-        if (p.getEnum() != null && !p.getEnum().isEmpty()) {
-            List<Object> _enum = p.getEnum();
-            Map<String, Object> allowableValues = new HashMap<>();
-            allowableValues.put("values", _enum);
-            if (allowableValues.size() > 0) {
-                property.enumNameToValue = allowableValues;
-            }
         }
 
         property.setTypeProperties(p);
@@ -4775,57 +4734,9 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    /**
-     * Update codegen property's enum by adding "enumVars" (with name and value)
-     *
-     * @param var list of CodegenSchema
-     */
-    public void updateCodegenPropertyEnum(CodegenSchema var) {
-        Map<String, Object> allowableValues = var.enumNameToValue;
-
-        if (allowableValues == null) {
-            return;
-        }
-
-        List<Object> values = (List<Object>) allowableValues.get("values");
-        if (values == null) {
-            return;
-        }
-
-        Optional<Schema> referencedSchema = ModelUtils.getSchemas(openAPI).entrySet().stream()
-                .filter(entry -> Objects.equals(var.refInfo.refClass, toModelName(entry.getKey())))
-                .map(Map.Entry::getValue)
-                .findFirst();
-        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
-
-        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-        Map<String, Object> extensions = var.vendorExtensions;
-        if (referencedSchema.isPresent()) {
-            extensions = referencedSchema.get().getExtensions();
-        }
-        updateEnumVarsWithExtensions(enumVars, extensions, var);
-        allowableValues.put("enumVars", enumVars);
-
-        // handle default value for enum, e.g. available => StatusEnum.AVAILABLE
-        if (var.defaultValue != null) {
-            final String enumDefaultValue = getEnumDefaultValue(var.defaultValue, var);
-
-            String enumName = null;
-            for (Map<String, Object> enumVar : enumVars) {
-                if (enumDefaultValue.equals(enumVar.get("value"))) {
-                    enumName = (String) enumVar.get("name");
-                    break;
-                }
-            }
-            if (enumName != null) {
-                var.defaultValue = toEnumDefaultValue(enumName, var);
-            }
-        }
-    }
-
-    protected String getEnumDefaultValue(String defaultValue, CodegenSchema prop) {
+    protected String getEnumDefaultValue(String defaultValue, Schema prop) {
         final String enumDefaultValue;
-        if (prop.isString) {
+        if (prop.getType().equals("string")) {
             enumDefaultValue = toEnumValue(defaultValue, prop);
         } else {
             enumDefaultValue = defaultValue;
@@ -4833,8 +4744,13 @@ public class DefaultCodegen implements CodegenConfig {
         return enumDefaultValue;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenSchema prop) {
-        List<Map<String, Object>> enumVars = new ArrayList<>();
+    protected Map<String, Object> getEnumNameToValue(Schema schema) {
+        if (schema.getEnum() == null) {
+            return null;
+        }
+
+        List<Object> values = schema.getEnum();
+        Map<String, Object> enumNameToValue = new HashMap<>();
         int truncateIdx = 0;
 
         if (isRemoveEnumValuePrefix()) {
@@ -4843,7 +4759,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         for (Object value : values) {
-            Map<String, Object> enumVar = new HashMap<>();
             String enumName;
             if (truncateIdx == 0) {
                 enumName = String.valueOf(value);
@@ -4854,12 +4769,16 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, prop));
-            enumVar.put("value", toEnumValue(String.valueOf(value), prop));
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
+            String usedName = toEnumVarName(enumName, schema);
+            String usedValue = toEnumValue(String.valueOf(value), schema);
+            enumNameToValue.put(usedName, usedValue);
         }
+        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
+        // Map<String, Object> extensions = schema.getExtensions();
+        // updateEnumVarsWithExtensions(enumVars, extensions, var);
 
+
+        // TODO remove this
         if (enumUnknownDefaultCase) {
             // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
             // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.
@@ -4867,7 +4786,8 @@ public class DefaultCodegen implements CodegenConfig {
             String enumName = enumUnknownDefaultCaseName;
 
             String enumValue;
-            if (prop.isString) {
+            boolean typeIsString = schema.getType() != null && schema.getType().equals("string");
+            if (typeIsString) {
                 enumValue = enumUnknownDefaultCaseName;
             } else {
                 // This is a dummy value that attempts to avoid collisions with previously specified cases.
@@ -4879,13 +4799,12 @@ public class DefaultCodegen implements CodegenConfig {
                 enumValue = String.valueOf(11184809);
             }
 
-            enumVar.put("name", toEnumVarName(enumName, prop));
-            enumVar.put("value", toEnumValue(enumValue, prop));
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
+            String usedName = toEnumVarName(enumName, schema);
+            String usedValue = toEnumValue(enumValue, schema);
+            enumNameToValue.put(usedName, usedValue);
         }
 
-        return enumVars;
+        return enumNameToValue;
     }
 
     protected void updateEnumVarsWithExtensions(List<Map<String, Object>> enumVars, Map<String, Object> vendorExtensions, CodegenSchema prop) {

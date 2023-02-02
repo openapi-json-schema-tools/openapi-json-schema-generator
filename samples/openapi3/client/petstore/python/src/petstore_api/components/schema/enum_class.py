@@ -38,16 +38,15 @@ class EnumClass(
             str,
         }
         enum_value_to_name = {
-            "_abc": "_ABC",
+            "COUNT_1M": "COUNT_1M",
             "-efg": "EFG",
             "(xyz)": "XYZ",
-            "COUNT_1M": "COUNT_1M",
+            "_abc": "_ABC",
             "COUNT_50M": "COUNT_50M",
-        }
-    
+        }    
     @schemas.classproperty
-    def _ABC(cls):
-        return cls("_abc")
+    def COUNT_1M(cls):
+        return cls("COUNT_1M")
     
     @schemas.classproperty
     def EFG(cls):
@@ -58,8 +57,8 @@ class EnumClass(
         return cls("(xyz)")
     
     @schemas.classproperty
-    def COUNT_1M(cls):
-        return cls("COUNT_1M")
+    def _ABC(cls):
+        return cls("_abc")
     
     @schemas.classproperty
     def COUNT_50M(cls):

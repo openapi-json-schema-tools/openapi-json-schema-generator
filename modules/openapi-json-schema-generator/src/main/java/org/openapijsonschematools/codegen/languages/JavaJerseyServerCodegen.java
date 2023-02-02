@@ -129,20 +129,4 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         openApiNullable = false;
     }
 
-
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
-
-        //Add imports for Jackson
-        for (CodegenSchema cm : objs.values()) {
-            // for enum model
-            if (cm.enumNameToValue != null) {
-                cm.imports.add(importMapping.get("JsonValue"));
-            }
-        }
-
-        return objs;
-    }
-
 }

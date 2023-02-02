@@ -55,8 +55,7 @@ class Zebra(
                         "plains": "PLAINS",
                         "mountain": "MOUNTAIN",
                         "grevys": "GREVYS",
-                    }
-                
+                    }                
                 @schemas.classproperty
                 def PLAINS(cls):
                     return cls("plains")
@@ -81,8 +80,7 @@ class Zebra(
                     }
                     enum_value_to_name = {
                         "zebra": "ZEBRA",
-                    }
-                
+                    }                
                 @schemas.classproperty
                 def ZEBRA(cls):
                     return cls("zebra")

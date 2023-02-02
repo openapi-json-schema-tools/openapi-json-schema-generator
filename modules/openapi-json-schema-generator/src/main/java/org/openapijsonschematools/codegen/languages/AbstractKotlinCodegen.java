@@ -371,7 +371,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
 
     @Override
     public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
         for (CodegenSchema cm : objs.values()) {
             if (cm.discriminator != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
@@ -385,7 +384,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
                 }
             }
         }
-        return postProcessModelsEnum(objs);
+        return objs;
     }
 
     @Override
@@ -564,7 +563,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         String modified;
         if (value.length() == 0) {
             modified = "EMPTY";
@@ -815,16 +814,16 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, CodegenSchema prop) {
-        if (prop.isInteger) {
+    public String toEnumValue(String value, Schema prop) {
+        if (prop.getType().equals("integer")) {
             return value;
-        } else if (prop.isDouble) {
+        } else if (prop.getFormat().equals("double")) {
             if (value.contains(".")) {
                 return value;
             } else {
                 return value + ".0"; // Float and double must have .0
             }
-        } else if (prop.isFloat) {
+        } else if (prop.getType().equals("number")) {
             return value + "f";
         } else {
             return "\"" + escapeText(value) + "\"";

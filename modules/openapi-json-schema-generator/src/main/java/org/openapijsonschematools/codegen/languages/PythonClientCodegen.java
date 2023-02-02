@@ -762,40 +762,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
         }
-        if (cp.enumNameToValue != null) {
-            updateCodegenPropertyEnum(cp);
-        }
         return cp;
     }
 
     public String getItemsName(Schema containingSchema, String containingSchemaName) {
         return "items";
-    }
-
-    /**
-     * Update codegen property's enum by adding "enumVars" (with name and value)
-     *
-     * @param var list of CodegenSchema
-     */
-    @Override
-    public void updateCodegenPropertyEnum(CodegenSchema var) {
-        // we have a custom version of this method to omit overwriting the defaultValue
-        Map<String, Object> allowableValues = var.enumNameToValue;
-
-        if (allowableValues == null) {
-            return;
-        }
-
-        List<Object> values = (List<Object>) allowableValues.get("values");
-        if (values == null) {
-            return;
-        }
-
-        // put "enumVars" map into `allowableValues", including `name` and `value`
-        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
-
-        allowableValues.put("enumVars", enumVars);
-        // overwriting defaultValue omitted from here
     }
 
     /**
@@ -806,7 +777,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -886,17 +857,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenSchema prop) {
-        List<Map<String, Object>> enumVars = new ArrayList<>();
+    @Override
+    protected Map<String, Object> getEnumNameToValue(Schema prop) {
+        if (prop.getEnum() == null) {
+            return null;
+        }
+
+        Map<String, Object> enumNameToValue = new HashMap<>();
         int truncateIdx = 0;
 
+        List<Object> values = prop.getEnum();
         if (isRemoveEnumValuePrefix()) {
             String commonPrefix = findCommonPrefixOfVars(values);
             truncateIdx = commonPrefix.length();
         }
 
         for (Object value : values) {
-            Map<String, Object> enumVar = new HashMap<>();
             String enumName;
             if (truncateIdx == 0) {
                 enumName = String.valueOf(value);
@@ -907,59 +883,29 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, prop));
+            String usedName = toEnumVarName(enumName, prop);
+            Object usedValue = value;
             if (value instanceof Integer) {
-                enumVar.put("value", value);
             } else if (value instanceof Double) {
-                enumVar.put("value", value);
             } else if (value instanceof Long) {
-                enumVar.put("value", value);
             } else if (value instanceof Float) {
-                enumVar.put("value", value);
             } else if (value instanceof BigDecimal) {
-                enumVar.put("value", value);
             } else if (value == null) {
-                enumVar.put("value", "schemas.NoneClass.NONE");
+                usedValue = "schemas.NoneClass.NONE";
             } else if (value instanceof Boolean) {
                 if (value.equals(Boolean.TRUE)) {
-                    enumVar.put("value", "schemas.BoolClass.TRUE");
+                    usedValue = "schemas.BoolClass.TRUE";
                 } else {
-                    enumVar.put("value", "schemas.BoolClass.FALSE");
+                    usedValue = "schemas.BoolClass.FALSE";
                 }
             } else {
                 String fixedValue = (String) processTestExampleData(value);
-                enumVar.put("value", ensureQuotes(fixedValue));
+                usedValue = ensureQuotes(fixedValue);
             }
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
+            enumNameToValue.put(usedName, usedValue);
         }
 
-        if (enumUnknownDefaultCase) {
-            // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
-            // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.
-            Map<String, Object> enumVar = new HashMap<>();
-            String enumName = enumUnknownDefaultCaseName;
-
-            String enumValue;
-            if (prop.isString) {
-                enumValue = enumUnknownDefaultCaseName;
-            } else {
-                // This is a dummy value that attempts to avoid collisions with previously specified cases.
-                // Int.max / 192
-                // The number 192 that is used to calculate this random value, is the Swift Evolution proposal for frozen/non-frozen enums.
-                // [SE-0192](https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md)
-                // Since this functionality was born in the Swift 5 generator and latter on broth to all generators
-                // https://github.com/OpenAPITools/openapi-generator/pull/11013
-                enumValue = String.valueOf(11184809);
-            }
-
-            enumVar.put("name", toEnumVarName(enumName, prop));
-            enumVar.put("value", toEnumValue(enumValue, prop));
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
-        }
-
-        return enumVars;
+        return enumNameToValue;
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -1646,12 +1592,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
         property.isInteger = true;
         // int32 and int64 differentiation is determined with format info
-    }
-
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        // process enum in models
-        return postProcessModelsEnum(objs);
     }
 
     /**

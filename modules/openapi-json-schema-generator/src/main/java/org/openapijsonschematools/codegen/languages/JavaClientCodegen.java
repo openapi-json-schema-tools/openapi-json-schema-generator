@@ -824,21 +824,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         }
     }
 
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
-        //Needed import for Gson based libraries
-        if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
-            for (CodegenSchema cm : objs.values()) {
-                // for enum model
-                if (cm.enumNameToValue != null) {
-                    cm.imports.add(importMapping.get("SerializedName"));
-                }
-            }
-        }
-        return objs;
-    }
-
     public void setUseOneOfDiscriminatorLookup(boolean useOneOfDiscriminatorLookup) {
         this.useOneOfDiscriminatorLookup = useOneOfDiscriminatorLookup;
     }

@@ -58,8 +58,7 @@ class JSONPatchRequestMoveCopy(
                     enum_value_to_name = {
                         "move": "MOVE",
                         "copy": "COPY",
-                    }
-                
+                    }                
                 @schemas.classproperty
                 def MOVE(cls):
                     return cls("move")

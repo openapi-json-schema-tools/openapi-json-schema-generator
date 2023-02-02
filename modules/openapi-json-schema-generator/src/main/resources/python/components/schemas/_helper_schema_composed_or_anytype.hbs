@@ -43,13 +43,7 @@ class {{name.camelCaseName}}(
         format = '{{format}}'
 {{/if}}
 {{#if enumNameToValue}}
-{{#with enumNameToValue}}
-        enum_value_to_name = {
-{{#each enumVars}}
-            {{{value}}}: "{{name}}",
-{{/each}}
-        }
-{{/with}}
+        {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{#if items}}
         {{> components/schemas/_helper_list_partial }}

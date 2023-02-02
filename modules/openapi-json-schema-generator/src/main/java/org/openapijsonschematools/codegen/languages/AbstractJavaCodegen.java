@@ -1368,7 +1368,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         if (value.length() == 0) {
             return "EMPTY";
         }
@@ -1383,7 +1383,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         // number
-        if (prop.isInteger || prop.isLong|| prop.isFloat || prop.isDouble || prop.isDecimal) {
+        if (prop.getType().equals("integer") || prop.getType().equals("float")) {
             String varName = "NUMBER_" + value;
             varName = varName.replaceAll("-", "MINUS_");
             varName = varName.replaceAll("\\+", "PLUS_");
@@ -1401,16 +1401,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumValue(String value, CodegenSchema prop) {
-        if (prop.isInteger || prop.isDouble) {
+    public String toEnumValue(String value, Schema prop) {
+        if (prop.getFormat().equals("int32") || prop.getFormat().equals("double")) {
             return value;
-        } else if (prop.isLong) {
+        } else if (prop.getFormat().equals("int64")) {
             // add l to number, e.g. 2048 => 2048l
             return value + "l";
-        } else if (prop.isFloat) {
+        } else if (prop.getFormat().equals("float")) {
             // add f to number, e.g. 3.14 => 3.14f
             return value + "f";
-        } else if (prop.isDecimal) {
+        } else if (prop.getType().equals("number") && prop.getFormat().equals("number")) {
             // use BigDecimal String constructor
             return "new BigDecimal(\"" + value + "\")";
         } else {

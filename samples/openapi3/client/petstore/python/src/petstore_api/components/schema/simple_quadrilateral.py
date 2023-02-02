@@ -65,8 +65,7 @@ class SimpleQuadrilateral(
                                 }
                                 enum_value_to_name = {
                                     "SimpleQuadrilateral": "SIMPLE_QUADRILATERAL",
-                                }
-                            
+                                }                            
                             @schemas.classproperty
                             def SIMPLE_QUADRILATERAL(cls):
                                 return cls("SimpleQuadrilateral")

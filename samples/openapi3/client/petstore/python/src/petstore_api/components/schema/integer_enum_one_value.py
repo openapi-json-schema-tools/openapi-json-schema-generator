@@ -40,8 +40,7 @@ class IntegerEnumOneValue(
         format = 'int'
         enum_value_to_name = {
             0: "POSITIVE_0",
-        }
-    
+        }    
     @schemas.classproperty
     def POSITIVE_0(cls):
         return cls(0)

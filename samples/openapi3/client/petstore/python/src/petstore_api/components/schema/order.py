@@ -53,10 +53,13 @@ class Order(
                         str,
                     }
                     enum_value_to_name = {
+                        "delivered": "DELIVERED",
                         "placed": "PLACED",
                         "approved": "APPROVED",
-                        "delivered": "DELIVERED",
-                    }
+                    }                
+                @schemas.classproperty
+                def DELIVERED(cls):
+                    return cls("delivered")
                 
                 @schemas.classproperty
                 def PLACED(cls):
@@ -65,10 +68,6 @@ class Order(
                 @schemas.classproperty
                 def APPROVED(cls):
                     return cls("approved")
-                
-                @schemas.classproperty
-                def DELIVERED(cls):
-                    return cls("delivered")
             Complete = schemas.BoolSchema
             __annotations__ = {
                 "id": Id,

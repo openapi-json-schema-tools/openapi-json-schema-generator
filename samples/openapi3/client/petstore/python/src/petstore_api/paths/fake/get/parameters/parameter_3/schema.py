@@ -33,15 +33,10 @@ class Schema(
             str,
         }
         enum_value_to_name = {
-            "_abc": "_ABC",
             "-efg": "EFG",
             "(xyz)": "XYZ",
-        }
-    
-    @schemas.classproperty
-    def _ABC(cls):
-        return cls("_abc")
-    
+            "_abc": "_ABC",
+        }    
     @schemas.classproperty
     def EFG(cls):
         return cls("-efg")
@@ -49,3 +44,7 @@ class Schema(
     @schemas.classproperty
     def XYZ(cls):
         return cls("(xyz)")
+    
+    @schemas.classproperty
+    def _ABC(cls):
+        return cls("_abc")

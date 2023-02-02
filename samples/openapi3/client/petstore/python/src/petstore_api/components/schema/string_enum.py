@@ -42,22 +42,17 @@ class StringEnum(
             str,
         }
         enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
+            "double quote \n with newline": "DOUBLE_QUOTE_WITH_NEWLINE",
             "delivered": "DELIVERED",
             "single quoted": "SINGLE_QUOTED",
             "multiple\nlines": "MULTIPLE_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE_WITH_NEWLINE",
+            "placed": "PLACED",
+            "approved": "APPROVED",
             schemas.NoneClass.NONE: "NONE",
-        }
-    
+        }    
     @schemas.classproperty
-    def PLACED(cls):
-        return cls("placed")
-    
-    @schemas.classproperty
-    def APPROVED(cls):
-        return cls("approved")
+    def DOUBLE_QUOTE_WITH_NEWLINE(cls):
+        return cls("double quote \n with newline")
     
     @schemas.classproperty
     def DELIVERED(cls):
@@ -72,8 +67,12 @@ class StringEnum(
         return cls("multiple\nlines")
     
     @schemas.classproperty
-    def DOUBLE_QUOTE_WITH_NEWLINE(cls):
-        return cls("double quote \n with newline")
+    def PLACED(cls):
+        return cls("placed")
+    
+    @schemas.classproperty
+    def APPROVED(cls):
+        return cls("approved")
     
     @schemas.classproperty
     def NONE(cls):

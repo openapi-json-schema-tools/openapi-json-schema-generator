@@ -39,19 +39,18 @@ class IntegerEnum(
         }
         format = 'int'
         enum_value_to_name = {
-            0: "POSITIVE_0",
-            1: "POSITIVE_1",
             2: "POSITIVE_2",
-        }
-    
+            1: "POSITIVE_1",
+            0: "POSITIVE_0",
+        }    
     @schemas.classproperty
-    def POSITIVE_0(cls):
-        return cls(0)
+    def POSITIVE_2(cls):
+        return cls(2)
     
     @schemas.classproperty
     def POSITIVE_1(cls):
         return cls(1)
     
     @schemas.classproperty
-    def POSITIVE_2(cls):
-        return cls(2)
+    def POSITIVE_0(cls):
+        return cls(0)

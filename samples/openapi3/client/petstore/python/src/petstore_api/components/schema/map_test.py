@@ -119,8 +119,7 @@ class MapTest(
                             enum_value_to_name = {
                                 "UPPER": "UPPER",
                                 "lower": "LOWER",
-                            }
-                        
+                            }                        
                         @schemas.classproperty
                         def UPPER(cls):
                             return cls("UPPER")

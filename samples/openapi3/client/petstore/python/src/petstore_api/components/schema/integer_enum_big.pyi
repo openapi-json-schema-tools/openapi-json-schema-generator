@@ -37,9 +37,9 @@ class IntegerEnumBig(
         return cls(10)
     
     @schemas.classproperty
-    def POSITIVE_11(cls):
-        return cls(11)
-    
-    @schemas.classproperty
     def POSITIVE_12(cls):
         return cls(12)
+    
+    @schemas.classproperty
+    def POSITIVE_11(cls):
+        return cls(11)

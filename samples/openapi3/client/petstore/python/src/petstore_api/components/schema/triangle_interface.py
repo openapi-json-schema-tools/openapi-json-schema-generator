@@ -54,8 +54,7 @@ class TriangleInterface(
                     }
                     enum_value_to_name = {
                         "Triangle": "TRIANGLE",
-                    }
-                
+                    }                
                 @schemas.classproperty
                 def TRIANGLE(cls):
                     return cls("Triangle")

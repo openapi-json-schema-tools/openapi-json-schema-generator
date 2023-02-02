@@ -28,13 +28,7 @@ class {{name.camelCaseName}}(
 {{/if}}
         {{> components/schemas/_helper_validations }}
 {{#if enumNameToValue}}
-{{#with enumNameToValue}}
-        enum_value_to_name = {
-{{#each enumVars}}
-            {{{value}}}: "{{name}}",
-{{/each}}
-        }
-{{/with}}
+        {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{/or}}
 {{/unless}}

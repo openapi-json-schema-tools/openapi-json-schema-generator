@@ -54,12 +54,12 @@ class JSONPatchRequestAddReplaceTest(
                     return cls("add")
                 
                 @schemas.classproperty
-                def REPLACE(cls):
-                    return cls("replace")
-                
-                @schemas.classproperty
                 def TEST(cls):
                     return cls("test")
+                
+                @schemas.classproperty
+                def REPLACE(cls):
+                    return cls("replace")
             __annotations__ = {
                 "path": Path,
                 "value": Value,

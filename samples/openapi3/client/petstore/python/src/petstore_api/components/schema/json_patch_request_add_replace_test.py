@@ -57,21 +57,20 @@ class JSONPatchRequestAddReplaceTest(
                     }
                     enum_value_to_name = {
                         "add": "ADD",
-                        "replace": "REPLACE",
                         "test": "TEST",
-                    }
-                
+                        "replace": "REPLACE",
+                    }                
                 @schemas.classproperty
                 def ADD(cls):
                     return cls("add")
                 
                 @schemas.classproperty
-                def REPLACE(cls):
-                    return cls("replace")
-                
-                @schemas.classproperty
                 def TEST(cls):
                     return cls("test")
+                
+                @schemas.classproperty
+                def REPLACE(cls):
+                    return cls("replace")
             __annotations__ = {
                 "path": Path,
                 "value": Value,

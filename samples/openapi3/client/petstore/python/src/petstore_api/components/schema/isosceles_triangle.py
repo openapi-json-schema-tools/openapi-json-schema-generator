@@ -65,8 +65,7 @@ class IsoscelesTriangle(
                                 }
                                 enum_value_to_name = {
                                     "IsoscelesTriangle": "ISOSCELES_TRIANGLE",
-                                }
-                            
+                                }                            
                             @schemas.classproperty
                             def ISOSCELES_TRIANGLE(cls):
                                 return cls("IsoscelesTriangle")
