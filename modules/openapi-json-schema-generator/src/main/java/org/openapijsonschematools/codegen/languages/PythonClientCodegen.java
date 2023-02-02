@@ -762,7 +762,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
         }
-        if (cp.isEnum) {
+        if (cp.allowableValues != null) {
             updateCodegenPropertyEnum(cp);
         }
         return cp;

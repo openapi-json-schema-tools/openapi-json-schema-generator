@@ -25,7 +25,6 @@ public class OpenApiSchema {
     public Integer maxProperties;
     public Integer minProperties;
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
-    public List<String> _enum; // todo remove this
     public Map<String, Object> allowableValues; // enum info; created identifier to enum value
     public LinkedHashSet<String> types; // used 3.1.0 types here instead of 3.0.3 types
     public List<CodegenSchema> allOf = null;

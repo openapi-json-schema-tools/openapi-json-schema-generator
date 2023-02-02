@@ -787,7 +787,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (!BooleanUtils.toBoolean(model.isEnum)) {
+        if (model.allowableValues == null) {
             //final String lib = getLibrary();
             //Needed imports for Jackson based libraries
             if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
@@ -832,7 +832,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
             for (CodegenSchema cm : objs.values()) {
                 // for enum model
-                if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
+                if (cm.allowableValues != null) {
                     cm.imports.add(importMapping.get("SerializedName"));
                 }
             }

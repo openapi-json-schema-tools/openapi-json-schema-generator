@@ -529,7 +529,7 @@ public class DefaultCodegen implements CodegenConfig {
         for (CodegenSchema cm : objs.values()) {
 
             // for enum model
-            if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
+            if (cm.allowableValues != null) {
                 Map<String, Object> allowableValues = cm.allowableValues;
                 List<Object> values = (List<Object>) allowableValues.get("values");
                 List<Map<String, Object>> enumVars = buildEnumVars(values, cm);
@@ -2842,12 +2842,6 @@ public class DefaultCodegen implements CodegenConfig {
         //Inline enum case:
         if (p.getEnum() != null && !p.getEnum().isEmpty()) {
             List<Object> _enum = p.getEnum();
-            property._enum = new ArrayList<>();
-            for (Object i : _enum) {
-                property._enum.add(String.valueOf(i));
-            }
-            property.isEnum = true;
-
             Map<String, Object> allowableValues = new HashMap<>();
             allowableValues.put("values", _enum);
             if (allowableValues.size() > 0) {

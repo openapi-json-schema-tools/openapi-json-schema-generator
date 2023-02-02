@@ -15,7 +15,7 @@ class {{name.camelCaseName}}(
     """
 {{/if}}
 {{#unless isStub}}
-{{#or hasValidation isEnum format}}
+{{#or hasValidation allowableValues format}}
 
 
     class Schema_:
@@ -27,7 +27,7 @@ class {{name.camelCaseName}}(
         format = '{{format}}'
 {{/if}}
         {{> components/schemas/_helper_validations }}
-{{#if isEnum}}
+{{#if allowableValues}}
 {{#with allowableValues}}
         enum_value_to_name = {
 {{#each enumVars}}
@@ -38,12 +38,12 @@ class {{name.camelCaseName}}(
 {{/if}}
 {{/or}}
 {{/unless}}
-{{#if isEnum}}
+{{#if allowableValues}}
     {{> components/schemas/_helper_enums }}
 {{/if}}
 {{#if isStub}}
 {{#if hasValidation}}
-{{#unless isEnum}}
+{{#unless allowableValues}}
     pass
 {{/unless}}
 {{/if}}

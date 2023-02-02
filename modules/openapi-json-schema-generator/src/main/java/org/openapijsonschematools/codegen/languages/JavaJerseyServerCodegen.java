@@ -84,7 +84,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         }
 
         //Add imports for Jackson
-        if (!BooleanUtils.toBoolean(model.isEnum)) {
+        if (model.allowableValues == null) {
             model.imports.add("JsonProperty");
         }
     }
@@ -138,7 +138,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         //Add imports for Jackson
         for (CodegenSchema cm : objs.values()) {
             // for enum model
-            if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
+            if (cm.allowableValues != null) {
                 cm.imports.add(importMapping.get("JsonValue"));
             }
         }

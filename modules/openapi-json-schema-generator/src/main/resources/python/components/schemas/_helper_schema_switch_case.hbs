@@ -24,14 +24,14 @@
                 {{/or}}
             {{/if}}
             {{#if isAnyType}}
-                {{#or isEnum properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping items format}}
+                {{#or allowableValues properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping items format}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
                 {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                 {{/or}}
             {{/if}}
         {{else}}
-            {{#or isEnum hasValidation}}
+            {{#or allowableValues hasValidation}}
 {{> components/schemas/_helper_schema_simple }}
             {{else}}
 {{> components/schemas/_helper_var_equals_cls }}

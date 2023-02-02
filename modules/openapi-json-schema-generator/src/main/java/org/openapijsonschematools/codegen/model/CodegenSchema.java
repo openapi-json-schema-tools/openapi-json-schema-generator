@@ -53,7 +53,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isAnyType;
     public boolean isArray;
     public boolean isMap;
-    public boolean isEnum;
     public boolean isNullable;
     public boolean isSelfReference;
     public boolean isCircularReference;
@@ -203,14 +202,12 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", isEmail=").append(isEmail);
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
-        sb.append(", isEnum=").append(isEnum);
         sb.append(", isAnyType=").append(isAnyType);
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
         sb.append(", isNullable=").append(isNullable);
         sb.append(", isSelfReference=").append(isSelfReference);
         sb.append(", isCircularReference=").append(isCircularReference);
-        sb.append(", _enum=").append(_enum);
         sb.append(", allowableValues=").append(allowableValues);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
@@ -287,7 +284,6 @@ public class CodegenSchema extends OpenApiSchema {
                 isEmail == that.isEmail &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
-                isEnum == that.isEnum &&
                 isAnyType == that.isAnyType &&
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
@@ -328,7 +324,6 @@ public class CodegenSchema extends OpenApiSchema {
                 Objects.equals(example, that.example) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
-                Objects.equals(_enum, that._enum) &&
                 Objects.equals(allowableValues, that.allowableValues) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
@@ -352,8 +347,8 @@ public class CodegenSchema extends OpenApiSchema {
                 isString, isNumeric,
                 isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
-                isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
-                isUnboundedInteger, isSelfReference, isCircularReference, _enum,
+                isArray, isMap, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
+                isUnboundedInteger, isSelfReference, isCircularReference,
                 allowableValues, items, additionalProperties,
                 vendorExtensions, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,

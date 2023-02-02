@@ -42,7 +42,7 @@ class {{name.camelCaseName}}(
 {{#if format}}
         format = '{{format}}'
 {{/if}}
-{{#if isEnum}}
+{{#if allowableValues}}
 {{#with allowableValues}}
         enum_value_to_name = {
 {{#each enumVars}}
@@ -65,7 +65,7 @@ class {{name.camelCaseName}}(
 {{#or allOf anyOf oneOf not}}
         {{> components/schemas/_helper_composed_schemas }}
 {{/or}}
-{{#if isEnum}}
+{{#if allowableValues}}
     {{> components/schemas/_helper_enums }}
 {{/if}}
 
