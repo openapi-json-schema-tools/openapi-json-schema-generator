@@ -36,7 +36,8 @@ class Schema(
             "-efg": "EFG",
             "(xyz)": "XYZ",
             "_abc": "_ABC",
-        }    
+        }
+    
     @schemas.classproperty
     def EFG(cls):
         return cls("-efg")

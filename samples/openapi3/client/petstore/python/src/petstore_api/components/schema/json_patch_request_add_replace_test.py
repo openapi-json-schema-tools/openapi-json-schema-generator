@@ -59,7 +59,8 @@ class JSONPatchRequestAddReplaceTest(
                         "add": "ADD",
                         "test": "TEST",
                         "replace": "REPLACE",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def ADD(cls):
                     return cls("add")

@@ -41,7 +41,8 @@ class StringEnumWithDefaultValue(
             "delivered": "DELIVERED",
             "placed": "PLACED",
             "approved": "APPROVED",
-        }    
+        }
+    
     @schemas.classproperty
     def DELIVERED(cls):
         return cls("delivered")

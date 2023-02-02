@@ -42,7 +42,8 @@ class IntegerEnumBig(
             10: "POSITIVE_10",
             12: "POSITIVE_12",
             11: "POSITIVE_11",
-        }    
+        }
+    
     @schemas.classproperty
     def POSITIVE_10(cls):
         return cls(10)

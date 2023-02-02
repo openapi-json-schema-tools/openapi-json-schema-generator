@@ -44,7 +44,8 @@ class Schema(
                 enum_value_to_name = {
                     ">": "GREATER_THAN",
                     "$": "DOLLAR",
-                }            
+                }
+            
             @schemas.classproperty
             def GREATER_THAN(cls):
                 return cls(">")

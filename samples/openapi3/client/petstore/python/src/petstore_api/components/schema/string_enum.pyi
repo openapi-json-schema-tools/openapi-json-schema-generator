@@ -49,7 +49,8 @@ class StringEnum(
             "placed": "PLACED",
             "approved": "APPROVED",
             schemas.NoneClass.NONE: "NONE",
-        }    
+        }
+    
     @schemas.classproperty
     def DOUBLE_QUOTE_WITH_NEWLINE(cls):
         return cls("double quote \n with newline")

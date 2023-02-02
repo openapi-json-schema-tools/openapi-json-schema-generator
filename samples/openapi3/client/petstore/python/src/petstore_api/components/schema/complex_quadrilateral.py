@@ -65,7 +65,8 @@ class ComplexQuadrilateral(
                                 }
                                 enum_value_to_name = {
                                     "ComplexQuadrilateral": "COMPLEX_QUADRILATERAL",
-                                }                            
+                                }
+                            
                             @schemas.classproperty
                             def COMPLEX_QUADRILATERAL(cls):
                                 return cls("ComplexQuadrilateral")

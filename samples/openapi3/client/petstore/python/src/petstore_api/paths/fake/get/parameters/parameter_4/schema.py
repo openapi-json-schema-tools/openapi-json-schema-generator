@@ -36,7 +36,8 @@ class Schema(
         enum_value_to_name = {
             1: "POSITIVE_1",
             -2: "NEGATIVE_2",
-        }    
+        }
+    
     @schemas.classproperty
     def POSITIVE_1(cls):
         return cls(1)

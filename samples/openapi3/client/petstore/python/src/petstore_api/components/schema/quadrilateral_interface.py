@@ -54,7 +54,8 @@ class QuadrilateralInterface(
                     }
                     enum_value_to_name = {
                         "Quadrilateral": "QUADRILATERAL",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def QUADRILATERAL(cls):
                     return cls("Quadrilateral")

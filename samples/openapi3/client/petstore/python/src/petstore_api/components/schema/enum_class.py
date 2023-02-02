@@ -43,7 +43,8 @@ class EnumClass(
             "(xyz)": "XYZ",
             "_abc": "_ABC",
             "COUNT_50M": "COUNT_50M",
-        }    
+        }
+    
     @schemas.classproperty
     def COUNT_1M(cls):
         return cls("COUNT_1M")

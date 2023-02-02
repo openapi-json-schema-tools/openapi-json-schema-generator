@@ -35,7 +35,8 @@ class Schema(
         enum_value_to_name = {
             "true": "TRUE",
             "false": "FALSE",
-        }    
+        }
+    
     @schemas.classproperty
     def TRUE(cls):
         return cls("true")

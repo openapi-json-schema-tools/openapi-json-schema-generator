@@ -39,7 +39,8 @@ class BooleanEnum(
         }
         enum_value_to_name = {
             schemas.BoolClass.TRUE: "TRUE",
-        }    
+        }
+    
     @schemas.classproperty
     def TRUE(cls):
         return cls(True)

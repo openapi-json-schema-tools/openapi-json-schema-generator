@@ -42,7 +42,8 @@ class IntegerEnumWithDefaultValue(
             2: "POSITIVE_2",
             1: "POSITIVE_1",
             0: "POSITIVE_0",
-        }    
+        }
+    
     @schemas.classproperty
     def POSITIVE_2(cls):
         return cls(2)

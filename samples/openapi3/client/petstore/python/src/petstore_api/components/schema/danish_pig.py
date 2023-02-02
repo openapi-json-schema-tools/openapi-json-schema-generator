@@ -53,7 +53,8 @@ class DanishPig(
                     }
                     enum_value_to_name = {
                         "DanishPig": "DANISH_PIG",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def DANISH_PIG(cls):
                     return cls("DanishPig")

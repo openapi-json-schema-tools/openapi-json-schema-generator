@@ -115,7 +115,8 @@ class Pet(
                         "available": "AVAILABLE",
                         "sold": "SOLD",
                         "pending": "PENDING",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def AVAILABLE(cls):
                     return cls("available")

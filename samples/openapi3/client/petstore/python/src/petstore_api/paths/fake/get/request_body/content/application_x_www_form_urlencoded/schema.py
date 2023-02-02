@@ -55,7 +55,8 @@ class Schema(
                             enum_value_to_name = {
                                 ">": "GREATER_THAN",
                                 "$": "DOLLAR",
-                            }                        
+                            }
+                        
                         @schemas.classproperty
                         def GREATER_THAN(cls):
                             return cls(">")
@@ -92,7 +93,8 @@ class Schema(
                         "-efg": "EFG",
                         "(xyz)": "XYZ",
                         "_abc": "_ABC",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def EFG(cls):
                     return cls("-efg")

@@ -55,7 +55,8 @@ class JSONPatchRequestRemove(
                     }
                     enum_value_to_name = {
                         "remove": "REMOVE",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def REMOVE(cls):
                     return cls("remove")

@@ -51,7 +51,8 @@ class EnumArrays(
                     enum_value_to_name = {
                         ">=": "GREATER_THAN_EQUALS",
                         "$": "DOLLAR",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def GREATER_THAN_EQUALS(cls):
                     return cls(">=")
@@ -82,7 +83,8 @@ class EnumArrays(
                             enum_value_to_name = {
                                 "fish": "FISH",
                                 "crab": "CRAB",
-                            }                        
+                            }
+                        
                         @schemas.classproperty
                         def FISH(cls):
                             return cls("fish")

@@ -45,7 +45,8 @@ class Schema(
                     "available": "AVAILABLE",
                     "sold": "SOLD",
                     "pending": "PENDING",
-                }            
+                }
+            
             @schemas.classproperty
             def AVAILABLE(cls):
                 return cls("available")

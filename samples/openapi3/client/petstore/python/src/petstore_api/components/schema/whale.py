@@ -55,7 +55,8 @@ class Whale(
                     }
                     enum_value_to_name = {
                         "whale": "WHALE",
-                    }                
+                    }
+                
                 @schemas.classproperty
                 def WHALE(cls):
                     return cls("whale")

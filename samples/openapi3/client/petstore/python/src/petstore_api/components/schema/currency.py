@@ -40,7 +40,8 @@ class Currency(
         enum_value_to_name = {
             "eur": "EUR",
             "usd": "USD",
-        }    
+        }
+    
     @schemas.classproperty
     def EUR(cls):
         return cls("eur")
