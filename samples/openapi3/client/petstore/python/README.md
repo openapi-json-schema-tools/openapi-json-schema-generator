@@ -63,7 +63,7 @@ Python &gt;&#x3D;3.7
 
 ### Why are Leading and Trailing Underscores in class and method names?
 Classes can have arbitrarily named properties set on them
-Endpoints can have arbitrary operationId.snakeCaseName method names set
+Endpoints can have arbitrary operationId method names set
 For those reasons, I use the prefix and suffix _ to greatly reduce the likelihood of collisions
 on protected + public classes/methods.
 

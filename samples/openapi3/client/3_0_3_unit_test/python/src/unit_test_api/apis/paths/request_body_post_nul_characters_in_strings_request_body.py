@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_nul_characters_in_strings_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_nul_characters_in_strings_request_body.post import ApiForPost
 
 
 class RequestBodyPostNulCharactersInStringsRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

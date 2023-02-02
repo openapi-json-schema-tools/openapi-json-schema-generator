@@ -18,15 +18,15 @@ from unit_test_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest.TestCase):
+class TestPost(ApiTestMixin, unittest.TestCase):
     """
-    RequestBodyPostUniqueitemsValidationRequestBody unit test stubs
+    Post unit test stubs
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
@@ -64,7 +64,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -103,7 +103,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -171,7 +171,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -210,7 +210,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -261,7 +261,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -298,7 +298,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -335,7 +335,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -421,7 +421,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -482,7 +482,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -519,7 +519,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -562,7 +562,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -595,7 +595,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -693,7 +693,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -775,7 +775,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -815,7 +815,7 @@ class TestRequestBodyPostUniqueitemsValidationRequestBody(ApiTestMixin, unittest
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postUniqueitemsValidationRequestBody',
+                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@90cf37e4',
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,

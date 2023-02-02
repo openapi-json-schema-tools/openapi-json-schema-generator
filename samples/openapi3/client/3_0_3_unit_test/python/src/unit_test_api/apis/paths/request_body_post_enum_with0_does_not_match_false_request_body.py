@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_enum_with0_does_not_match_false_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_enum_with0_does_not_match_false_request_body.post import ApiForPost
 
 
 class RequestBodyPostEnumWith0DoesNotMatchFalseRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

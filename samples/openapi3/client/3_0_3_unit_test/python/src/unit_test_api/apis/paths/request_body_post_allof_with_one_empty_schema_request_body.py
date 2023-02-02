@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_allof_with_one_empty_schema_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_allof_with_one_empty_schema_request_body.post import ApiForPost
 
 
 class RequestBodyPostAllofWithOneEmptySchemaRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

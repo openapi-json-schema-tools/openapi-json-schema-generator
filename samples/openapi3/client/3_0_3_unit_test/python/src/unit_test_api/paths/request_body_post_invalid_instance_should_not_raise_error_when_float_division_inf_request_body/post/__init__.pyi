@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
 
 
 class PostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_invalid_instance_should_not_raise_error_when_float_division_inf_request_body(
@@ -208,7 +208,7 @@ class PostInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfRequestBody(Base
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

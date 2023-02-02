@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_by_int_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_by_int_request_body.post import ApiForPost
 
 
 class RequestBodyPostByIntRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

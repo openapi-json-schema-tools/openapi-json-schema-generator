@@ -1,7 +1,7 @@
-from this_package.paths.operators.post import ApiForpost
+from this_package.paths.operators.post import ApiForPost
 
 
 class Operators(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

@@ -1,7 +1,7 @@
-from unit_test_api.paths.response_body_post_enum_with_escaped_characters_response_body_for_content_types.post import ApiForpost
+from unit_test_api.paths.response_body_post_enum_with_escaped_characters_response_body_for_content_types.post import ApiForPost
 
 
 class ResponseBodyPostEnumWithEscapedCharactersResponseBodyForContentTypes(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

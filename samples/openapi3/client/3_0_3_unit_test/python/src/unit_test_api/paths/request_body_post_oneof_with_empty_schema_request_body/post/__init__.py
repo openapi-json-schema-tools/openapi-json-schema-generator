@@ -153,7 +153,7 @@ class BaseApi(api_client.Api):
 
 
 class PostOneofWithEmptySchemaRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_oneof_with_empty_schema_request_body(
@@ -220,7 +220,7 @@ class PostOneofWithEmptySchemaRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
