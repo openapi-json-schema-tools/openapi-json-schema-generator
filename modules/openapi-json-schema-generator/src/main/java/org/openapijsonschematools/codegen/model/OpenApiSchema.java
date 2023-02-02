@@ -13,9 +13,9 @@ public class OpenApiSchema {
     public String title;
     public Number multipleOf;
     public String maximum;
-    public boolean exclusiveMaximum;
+    public Boolean exclusiveMaximum;
     public String minimum;
-    public boolean exclusiveMinimum;
+    public Boolean exclusiveMinimum;
     public Integer maxLength;
     public Integer minLength;
     public String pattern;

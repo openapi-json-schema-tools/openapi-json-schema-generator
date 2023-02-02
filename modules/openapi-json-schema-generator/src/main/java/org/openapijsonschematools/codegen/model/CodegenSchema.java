@@ -57,7 +57,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isNullable;
     public boolean isSelfReference;
     public boolean isCircularReference;
-    public boolean hasValidation; // true if pattern, maximum, etc are set (only used in the mustache template)
     public String discriminatorValue;
     // todo make this calculated from types
     public boolean hasMultipleTypes = false;
@@ -68,6 +67,13 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isBooleanSchemaFalse;
     public LinkedHashMap<String, List<String>> dependentRequired;
     public CodegenSchema contains;
+
+    public boolean hasValidation() {
+        if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || pattern != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Syncs all the schema's type properties into the OpenApiSchema instance
@@ -209,7 +215,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", hasValidation=").append(hasValidation);
+        sb.append(", hasValidation=").append(hasValidation());
         sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
@@ -288,7 +294,6 @@ public class CodegenSchema extends OpenApiSchema {
                 isNullable == that.isNullable &&
                 isSelfReference == that.isSelfReference &&
                 isCircularReference == that.isCircularReference &&
-                hasValidation == that.hasValidation &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
@@ -350,7 +355,7 @@ public class CodegenSchema extends OpenApiSchema {
                 isArray, isMap, isEnum, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference, _enum,
                 allowableValues, items, additionalProperties,
-                vendorExtensions, hasValidation, discriminatorValue,
+                vendorExtensions, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
                 hasMultipleTypes,

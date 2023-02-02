@@ -1499,10 +1499,6 @@ public class ModelUtils {
                 setStringValidations(minLength, maxLength, pattern, target);
                 setNumericValidations(schema, multipleOf, minimum, maximum, exclusiveMinimum, exclusiveMaximum, target);
             }
-
-            if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || pattern != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
-                target.hasValidation = true;
-            }
         }
     }
 
