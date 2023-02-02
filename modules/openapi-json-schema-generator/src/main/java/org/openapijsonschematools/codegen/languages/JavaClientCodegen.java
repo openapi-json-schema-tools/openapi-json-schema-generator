@@ -708,10 +708,10 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                         sort(operation.allParams, new Comparator<CodegenParameter>() {
                             @Override
                             public int compare(CodegenParameter one, CodegenParameter another) {
-                                if (one.isPathParam && another.isQueryParam) {
+                                if (one.in.equals("path") && another.in.equals("query")) {
                                     return -1;
                                 }
-                                if (one.isQueryParam && another.isPathParam) {
+                                if (one.in.equals("query") && another.in.equals("path")) {
                                     return 1;
                                 }
                                 return 0;
