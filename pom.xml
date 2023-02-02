@@ -14,11 +14,11 @@
     <!-- RELEASE_VERSION -->
     <version>${revision}</version>
     <!-- /RELEASE_VERSION -->
-    <url>https://github.com/openapijsonschematools/openapi-json-schema-generator</url>
+    <url>https://github.com/openapi-json-schema-tools/openapi-json-schema-generator</url>
     <scm>
         <connection>scm:git:git@github.com:openapijsonschematools/openapi-json-schema-generator.git</connection>
         <developerConnection>scm:git:git@github.com:openapijsonschematools/openapi-jsons-schema-generator.git</developerConnection>
-        <url>https://github.com/openapijsonschematools/openapi-jsons-schema-generator</url>
+        <url>https://github.com/openapi-json-schema-tools/openapi-jsons-schema-generator</url>
     </scm>
     <developers>
         <!-- original author of the project -->
@@ -35,7 +35,7 @@
     </developers>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/openapijsonschematools/openapi-json-schema-generator/issues</url>
+        <url>https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues</url>
     </issueManagement>
     <distributionManagement>
         <snapshotRepository>

@@ -3,7 +3,7 @@
 <!-- Please check the completed items below -->
 ### PR checklist
  
-- [ ] Read the [contribution guidelines](https://github.com/openapijsonschematools/openapi-json-schema-generator/blob/master/CONTRIBUTING.md).
+- [ ] Read the [contribution guidelines](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/CONTRIBUTING.md).
 - [ ] Pull Request title clearly describes the work in the pull request and Pull Request description provides details about how to validate the work. Missing information here may result in delayed response from the community.
 - [ ] Run the following to [build the project](https://github.com/OpenAPITools/openapi-json-schema-generator#14---build-projects) and update samples:
   ```

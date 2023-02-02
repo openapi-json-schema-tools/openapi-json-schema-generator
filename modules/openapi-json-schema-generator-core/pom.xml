@@ -12,7 +12,7 @@
 
   <artifactId>openapi-json-schema-generator-core</artifactId>
   <name>openapi-json-schema-generator-core</name>
-  <url>https://github.com/openapijsonschematools/openapi-json-schema-generator</url>
+  <url>https://github.com/openapi-json-schema-tools/openapi-json-schema-generator</url>
 
   <build>
     <plugins>
