@@ -143,7 +143,7 @@ class BaseApi(api_client.Api):
 
 
 class RefObjectInQuery(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def ref_object_in_query(
@@ -192,7 +192,7 @@ class RefObjectInQuery(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

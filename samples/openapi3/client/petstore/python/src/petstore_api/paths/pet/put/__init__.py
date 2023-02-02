@@ -190,7 +190,7 @@ class BaseApi(api_client.Api):
 
 
 class UpdatePet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def update_pet(
@@ -266,7 +266,7 @@ class UpdatePet(BaseApi):
         )
 
 
-class ApiForput(BaseApi):
+class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

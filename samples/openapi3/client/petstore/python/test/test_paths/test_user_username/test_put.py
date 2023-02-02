@@ -18,16 +18,16 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestUserUsername(ApiTestMixin, unittest.TestCase):
+class TestPut(ApiTestMixin, unittest.TestCase):
     """
-    UserUsername unit test stubs
+    Put unit test stubs
         Updated user  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = put.ApiForput(api_client=used_api_client)  # noqa: E501
+        self.api = put.ApiForPut(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass

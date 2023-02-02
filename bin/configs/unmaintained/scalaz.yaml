@@ -2,5 +2,5 @@ systemProperties:
   skipFormModel: "true"
 generatorName: scalaz
 outputDir: samples/client/petstore/scalaz
-inputSpec: modules/openapi-generator/src/test/resources/3_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/scalaz
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/scalaz

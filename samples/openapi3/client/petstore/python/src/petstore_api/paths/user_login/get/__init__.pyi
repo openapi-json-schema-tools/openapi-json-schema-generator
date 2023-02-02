@@ -56,8 +56,8 @@ class RequestQueryParameters:
         parameter_0._0,
         parameter_1._1,
     ]_all_accept_content_types = (
-    'application/xml',
-    'application/json',
+    "application/xml",
+    "application/json",
 )
 
 
@@ -163,7 +163,7 @@ class BaseApi(api_client.Api):
 
 
 class LoginUser(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def login_user(
@@ -217,7 +217,7 @@ class LoginUser(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

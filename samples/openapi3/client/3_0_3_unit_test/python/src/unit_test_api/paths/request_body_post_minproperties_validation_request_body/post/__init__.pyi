@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
 
 
 class PostMinpropertiesValidationRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_minproperties_validation_request_body(
@@ -208,7 +208,7 @@ class PostMinpropertiesValidationRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

@@ -21,7 +21,7 @@ with unit_test_api.ApiClient(configuration) as api_client:
     api_instance = content_type_json_api.ContentTypeJsonApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue(3.14)
+    body = enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue(1)
     try:
         api_response = api_instance.post_enum_with1_does_not_match_true_request_body(
             body=body,

@@ -30,8 +30,8 @@ from .responses import response_400
 from . import request_body
 
 _all_accept_content_types = (
-    'application/xml',
-    'application/json',
+    "application/xml",
+    "application/json",
 )
 
 
@@ -156,7 +156,7 @@ class BaseApi(api_client.Api):
 
 
 class PlaceOrder(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def place_order(
@@ -229,7 +229,7 @@ class PlaceOrder(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

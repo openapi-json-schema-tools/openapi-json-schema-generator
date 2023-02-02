@@ -153,7 +153,7 @@ class BaseApi(api_client.Api):
 
 
 class PostInvalidStringValueForDefaultRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_invalid_string_value_for_default_request_body(
@@ -220,7 +220,7 @@ class PostInvalidStringValueForDefaultRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

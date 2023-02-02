@@ -5,7 +5,7 @@
 {{#with requestBody}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{name.camelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
 import typing_extensions
@@ -14,19 +14,19 @@ from {{packageName}} import api_client
     {{#each content}}
     {{#with this}}
         {{#with schema}}
-from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
+from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
         {{/with}}
     {{/with}}
     {{/each}}
 
-class {{name.getCamelCaseName}}(api_client.RequestBody):
+class {{name.camelCaseName}}(api_client.RequestBody):
     {{#each content}}
 
 
-    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
             {{/with}}
         {{/with}}
     {{/each}}
@@ -34,13 +34,13 @@ class {{name.getCamelCaseName}}(api_client.RequestBody):
         '__Content',
         {
     {{#each content}}
-            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
+            '{{{@key.name}}}': typing.Type[__{{@key.camelCaseName}}MediaType],
     {{/each}}
         }
     )
     content: __Content = {
     {{#each content}}
-        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+        '{{{@key.name}}}': __{{@key.camelCaseName}}MediaType,
     {{/each}}
     }
     {{#if required}}

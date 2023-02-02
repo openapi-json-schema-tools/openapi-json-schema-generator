@@ -32,7 +32,7 @@ from .responses import response_default
 
 default_response = response_default.Default
 _all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -113,7 +113,7 @@ class BaseApi(api_client.Api):
 
 
 class FooGet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def foo_get(
@@ -162,7 +162,7 @@ class FooGet(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

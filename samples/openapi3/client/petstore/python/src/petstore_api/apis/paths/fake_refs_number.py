@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_refs_number.post import ApiForpost
+from petstore_api.paths.fake_refs_number.post import ApiForPost
 
 
 class FakeRefsNumber(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

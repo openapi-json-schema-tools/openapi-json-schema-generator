@@ -41,13 +41,13 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200._200,
 }
 _all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _call_123_test_special_tags(
+    def __123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -60,7 +60,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _call_123_test_special_tags(
+    def __123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
@@ -74,7 +74,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _call_123_test_special_tags(
+    def __123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -85,7 +85,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _call_123_test_special_tags(
+    def __123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
@@ -98,7 +98,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _call_123_test_special_tags(
+    def __123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = 'application/json',
@@ -164,11 +164,11 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class Call123TestSpecialTags(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+class _123TestSpecialTags(BaseApi):
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
-    def call_123_test_special_tags(
+    def _123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -181,7 +181,7 @@ class Call123TestSpecialTags(BaseApi):
     ]: ...
 
     @typing.overload
-    def call_123_test_special_tags(
+    def _123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
@@ -195,7 +195,7 @@ class Call123TestSpecialTags(BaseApi):
 
 
     @typing.overload
-    def call_123_test_special_tags(
+    def _123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -206,7 +206,7 @@ class Call123TestSpecialTags(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def call_123_test_special_tags(
+    def _123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = ...,
@@ -219,7 +219,7 @@ class Call123TestSpecialTags(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def call_123_test_special_tags(
+    def _123_test_special_tags(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
         content_type: str = 'application/json',
@@ -228,7 +228,7 @@ class Call123TestSpecialTags(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._call_123_test_special_tags(
+        return self.__123_test_special_tags(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -238,7 +238,7 @@ class Call123TestSpecialTags(BaseApi):
         )
 
 
-class ApiForpatch(BaseApi):
+class ApiForPatch(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
@@ -302,7 +302,7 @@ class ApiForpatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._call_123_test_special_tags(
+        return self.__123_test_special_tags(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,

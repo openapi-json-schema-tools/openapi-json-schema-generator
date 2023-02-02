@@ -18,16 +18,16 @@ from petstore_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestStoreOrderOrderId(ApiTestMixin, unittest.TestCase):
+class TestDelete(ApiTestMixin, unittest.TestCase):
     """
-    StoreOrderOrderId unit test stubs
+    Delete unit test stubs
         Delete purchase order by ID  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = delete.ApiFordelete(api_client=used_api_client)  # noqa: E501
+        self.api = delete.ApiForDelete(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass

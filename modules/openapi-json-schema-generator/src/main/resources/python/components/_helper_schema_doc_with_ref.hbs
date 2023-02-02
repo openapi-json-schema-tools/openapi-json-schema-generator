@@ -1,4 +1,4 @@
-# {{#if schemaNamePrefix1}}{{#if anchorContainsPeriod}}<a id="{{> components/_helper_fancy_schema_name spacer="" }}" >{{/if}}{{> components/_helper_fancy_schema_name spacer="." }}{{#if anchorContainsPeriod}}</a>{{/if}}{{else}}{{#if name.getNameIsValid}}{{name.getName}}{{else}}{{name.getSnakeCaseName}}{{/if}}{{/if}}
+# {{#if schemaNamePrefix1}}{{#if anchorContainsPeriod}}<a id="{{> components/_helper_fancy_schema_name spacer="" }}" >{{/if}}{{> components/_helper_fancy_schema_name spacer="." }}{{#if anchorContainsPeriod}}</a>{{/if}}{{else}}{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}{{/if}}
 {{#if refInfo.refClass}}
 Type | Description  | Notes
 ------------- | ------------- | -------------

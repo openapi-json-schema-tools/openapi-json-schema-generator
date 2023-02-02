@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_maximum_validation_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_maximum_validation_request_body.post import ApiForPost
 
 
 class RequestBodyPostMaximumValidationRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

@@ -99,28 +99,28 @@ If you are running a Windows Subsystem for Linux or a shell such as gitbash, and
 Now, execute the generator:
 
 ```sh
-java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar org.openapitools.codegen.OpenAPIGenerator
+java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar OpenAPIGenerator
 ```
 
 For Windows users, you will need to use `;` instead of `:` in the classpath, e.g.
 ```
-java -cp "out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" org.openapitools.codegen.OpenAPIGenerator
+java -cp "out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" OpenAPIGenerator
 ```
 
 Note the `my-codegen` is an option for `-g` now, and you can use the usual arguments for generating your code:
 
 ```sh
 java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
-  org.openapitools.codegen.OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  OpenAPIGenerator generate -g my-codegen \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
 For Windows users:
 ```
 java -cp "out/codegens/customCodegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
-  org.openapitools.codegen.OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  OpenAPIGenerator generate -g my-codegen \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
@@ -132,13 +132,13 @@ Install your library to your local maven repository by running:
 mvn clean install -f out/generators/my-codegen
 ```
 
-This will install `org.openapitools:my-codegen-openapi-generator:1.0.0` to your local maven repository.
+This will install `org.openapijsonschematools:my-codegen-openapi-generator:1.0.0` to your local maven repository.
 
 You can use this as additional dependency of the `openapi-generator-maven-plugin` plugin and use `my-codegen` as `generatorName` value:
 
 ```xml
 <plugin>
-  <groupId>org.openapitools</groupId>
+  <groupId>org.openapijsonschematools</groupId>
   <artifactId>openapi-generator-maven-plugin</artifactId>
   <version>${openapi-generator-version}</version>
   <executions>
@@ -155,7 +155,7 @@ You can use this as additional dependency of the `openapi-generator-maven-plugin
   </executions>
   <dependencies>
     <dependency>
-      <groupId>org.openapitools</groupId>
+      <groupId>org.openapijsonschematools</groupId>
       <artifactId>my-codegen-openapi-generator</artifactId>
       <version>1.0.0</version>
     </dependency>
@@ -271,7 +271,7 @@ Editor support for `.openapi-generator-ignore` files is available in IntelliJ vi
 There are different aspects of customizing the code generator beyond just creating or modifying templates.  Each language has a supporting configuration file to handle different type mappings, etc:
 
 ```sh
-$ ls -1 modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/
+$ ls -1 modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/
 AbstractJavaJAXRSServerCodegen.java
 AbstractTypeScriptClientCodegen.java
 ... (results omitted)
@@ -283,7 +283,7 @@ Each of these files creates reasonable defaults so you can get running quickly. 
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
-  -i https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
   -g java \
   -o samples/client/petstore/java \
   -c path/to/config.json
@@ -300,7 +300,7 @@ apiPackage: "petstore"
 ```
 
 Supported config options can be different per language. Running `config-help -g {lang}` will show available options.
-**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapitools/openapi-generator/issues/new) and we'll look into it)
+**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues/new) and we'll look into it)
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar config-help -g java
@@ -354,9 +354,7 @@ Another way to override default options is to extend the config class for the sp
 To change, for example, the prefix for the Objective-C generated files, simply subclass the `ObjcClientCodegen.java`:
 
 ```java
-package com.mycompany.openapitools.codegen;
-
-import org.openapitools.codegen.languages.*;
+package com.mycompany.openapijsonschematools.codegen;
 
 public class MyObjcCodegen extends ObjcClientCodegen {
     static {
@@ -368,7 +366,7 @@ public class MyObjcCodegen extends ObjcClientCodegen {
 and specify the `classname` when running the generator:
 
 ```
--g com.mycompany.openapitools.codegen.MyObjcCodegen
+-g com.mycompany.openapijsonschematools.codegen.MyObjcCodegen
 ```
 
 Your subclass will now be loaded and overrides the `PREFIX` value in the superclass.

@@ -54,8 +54,8 @@ class RequestPathParameters:
     parameters = [
         parameter_0._0,
     ]_all_accept_content_types = (
-    'application/xml',
-    'application/json',
+    "application/xml",
+    "application/json",
 )
 
 
@@ -162,7 +162,7 @@ class BaseApi(api_client.Api):
 
 
 class GetUserByName(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def get_user_by_name(
@@ -216,7 +216,7 @@ class GetUserByName(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

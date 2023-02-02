@@ -1,11 +1,11 @@
-from petstore_api.paths.user_username.get import ApiForget
-from petstore_api.paths.user_username.put import ApiForput
-from petstore_api.paths.user_username.delete import ApiFordelete
+from petstore_api.paths.user_username.get import ApiForGet
+from petstore_api.paths.user_username.put import ApiForPut
+from petstore_api.paths.user_username.delete import ApiForDelete
 
 
 class UserUsername(
-    ApiForget,
-    ApiForput,
-    ApiFordelete,
+    ApiForGet,
+    ApiForPut,
+    ApiForDelete,
 ):
     pass

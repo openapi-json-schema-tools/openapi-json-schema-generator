@@ -18,15 +18,15 @@ from unit_test_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, unittest.TestCase):
+class TestPost(ApiTestMixin, unittest.TestCase):
     """
-    RequestBodyPostBooleanTypeMatchesBooleansRequestBody unit test stubs
+    Post unit test stubs
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
@@ -140,7 +140,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postBooleanTypeMatchesBooleansRequestBody',
+                self.configuration_.host + "/requestBody/postBooleanTypeMatchesBooleansRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -184,7 +184,7 @@ class TestRequestBodyPostBooleanTypeMatchesBooleansRequestBody(ApiTestMixin, uni
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/requestBody/postBooleanTypeMatchesBooleansRequestBody',
+                self.configuration_.host + "/requestBody/postBooleanTypeMatchesBooleansRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,

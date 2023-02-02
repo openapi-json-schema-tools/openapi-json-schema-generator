@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_classname_test.patch import ApiForpatch
+from petstore_api.paths.fake_classname_test.patch import ApiForPatch
 
 
 class FakeClassnameTest(
-    ApiForpatch,
+    ApiForPatch,
 ):
     pass

@@ -67,7 +67,7 @@
             </else>
         </if>
     </logger>
-    <logger name="org.openapitools" level="${log.level:-info}">
+    <logger name="org.openapijsonschematools" level="${log.level:-info}">
         <!-- Colorize by passing -Dcolor -->
         <if condition='isDefined("color")'>
             <then>

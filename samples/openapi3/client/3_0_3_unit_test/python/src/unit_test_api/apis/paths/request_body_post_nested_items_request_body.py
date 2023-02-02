@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_nested_items_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_nested_items_request_body.post import ApiForPost
 
 
 class RequestBodyPostNestedItemsRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

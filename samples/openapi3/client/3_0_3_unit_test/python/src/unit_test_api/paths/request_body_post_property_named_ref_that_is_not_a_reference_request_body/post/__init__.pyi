@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
 
 
 class PostPropertyNamedRefThatIsNotAReferenceRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_property_named_ref_that_is_not_a_reference_request_body(
@@ -208,7 +208,7 @@ class PostPropertyNamedRefThatIsNotAReferenceRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

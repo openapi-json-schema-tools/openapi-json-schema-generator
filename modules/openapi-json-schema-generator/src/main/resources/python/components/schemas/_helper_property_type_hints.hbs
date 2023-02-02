@@ -1,19 +1,19 @@
-{{#if getRequiredProperties}}
+{{#if requiredProperties}}
 
-    {{#each getRequiredProperties}}
+    {{#each requiredProperties}}
         {{#if @key.nameIsValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-{{@key.getName}}: '{{> components/schemas/_helper_refclass_with_module }}'
+{{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}'
                 {{else}}
                     {{#if name}}
                         {{#if schemaIsFromAdditionalProperties}}
-{{@key.getName}}: Schema_.{{name.getCamelCaseName}}
+{{@key.name}}: Schema_.{{name.camelCaseName}}
                         {{else}}
-{{@key.getName}}: Schema_.Properties.{{name.getCamelCaseName}}
+{{@key.name}}: Schema_.Properties.{{name.camelCaseName}}
                         {{/if}}
                     {{else}}
-{{@key.getName}}: schemas.AnyTypeSchema
+{{@key.name}}: schemas.AnyTypeSchema
                     {{/if}}
                 {{/if}}
             {{/with}}

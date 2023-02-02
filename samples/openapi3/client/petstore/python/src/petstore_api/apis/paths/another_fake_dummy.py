@@ -1,7 +1,7 @@
-from petstore_api.paths.another_fake_dummy.patch import ApiForpatch
+from petstore_api.paths.another_fake_dummy.patch import ApiForPatch
 
 
 class AnotherFakeDummy(
-    ApiForpatch,
+    ApiForPatch,
 ):
     pass

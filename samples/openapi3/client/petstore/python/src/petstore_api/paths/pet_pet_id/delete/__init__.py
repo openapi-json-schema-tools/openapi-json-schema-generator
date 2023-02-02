@@ -195,7 +195,7 @@ class BaseApi(api_client.Api):
 
 
 class DeletePet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def delete_pet(
@@ -245,7 +245,7 @@ class DeletePet(BaseApi):
         )
 
 
-class ApiFordelete(BaseApi):
+class ApiForDelete(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

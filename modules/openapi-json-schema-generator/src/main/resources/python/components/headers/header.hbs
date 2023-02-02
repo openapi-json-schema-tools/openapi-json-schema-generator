@@ -5,7 +5,7 @@
 {{#with header}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.getCamelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{name.camelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
 import typing_extensions
@@ -13,14 +13,14 @@ import typing_extensions
 from {{packageName}} import api_client
     {{#if schema}}
         {{#with schema}}
-from . import {{name.getSnakeCaseName}}
+from . import {{name.snakeCaseName}}
         {{/with}}
     {{else}}
-        {{#if getContent}}
-            {{#each getContent}}
+        {{#if content}}
+            {{#each content}}
                 {{#with this}}
                     {{#with schema}}
-from .content.{{../@key.getSnakeCaseName}} import {{name.getSnakeCaseName}} as {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}
+from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
                     {{/with}}
                 {{/with}}
             {{/each}}

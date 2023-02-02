@@ -1,13 +1,13 @@
-from petstore_api.paths.fake.get import ApiForget
-from petstore_api.paths.fake.post import ApiForpost
-from petstore_api.paths.fake.delete import ApiFordelete
-from petstore_api.paths.fake.patch import ApiForpatch
+from petstore_api.paths.fake.get import ApiForGet
+from petstore_api.paths.fake.post import ApiForPost
+from petstore_api.paths.fake.delete import ApiForDelete
+from petstore_api.paths.fake.patch import ApiForPatch
 
 
 class Fake(
-    ApiForget,
-    ApiForpost,
-    ApiFordelete,
-    ApiForpatch,
+    ApiForGet,
+    ApiForPost,
+    ApiForDelete,
+    ApiForPatch,
 ):
     pass

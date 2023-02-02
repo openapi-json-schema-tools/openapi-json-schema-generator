@@ -3,36 +3,36 @@
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
 {{#if refInfo}}
-# {{name.getCamelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.getSnakeCaseName}}" ></a>
+# {{name.camelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.snakeCaseName}}" ></a>
 {{else}}
-# <a id="{{name.getSnakeCaseName}}" >{{name.getCamelCaseName}}</a>
+# <a id="{{name.snakeCaseName}}" >{{name.camelCaseName}}</a>
 {{/if}}
-## <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
+## <a id="{{name.snakeCaseName}}response_cls" >{{name.camelCaseName}}.response_cls</a>
 {{else}}
-#### <a id="{{name.getSnakeCaseName}}response_cls" >{{name.getCamelCaseName}}.response_cls</a>
+#### <a id="{{name.snakeCaseName}}response_cls" >{{name.camelCaseName}}.response_cls</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if refInfo}}
     {{#with getDeepestRef}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.getSnakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{../name.getSnakeCaseName}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{name.getSnakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{../name.snakeCaseName}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{name.snakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.getCamelCaseName}}.content.{{@key.getSnakeCaseName}}.schema](#{{../name.getSnakeCaseName}}content{{@key.getSnakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{name.getSnakeCaseName}}.Headers](#{{name.getSnakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{name.snakeCaseName}}.Headers](#{{name.snakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#each content}}
         {{#with this.schema}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.getSnakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName }}
         {{/with}}
     {{/each}}
     {{#if headers}}
         {{#if componentModule}}
 ## Headers
         {{else}}
-#### <a id="{{name.getSnakeCaseName}}Headers" >{{name.getSnakeCaseName}}.Headers</a>
+#### <a id="{{name.snakeCaseName}}Headers" >{{name.snakeCaseName}}.Headers</a>
         {{/if}}
 
 Key | Accessed Type | Description  | Notes
@@ -46,10 +46,10 @@ Key | Accessed Type | Description  | Notes
 {{../@key}} | [{{../../refInfo.refClass}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{else}}
-                            {{#each getContent}}
+                            {{#each content}}
                                 {{#with this}}
                                     {{#with schema}}
-{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.snakeCaseName}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}) | | {{#unless required}}optional{{/unless}}
                                     {{/with}}
                                 {{/with}}
                             {{/each}}
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [{{../../name.getCamelCaseName}}.headers.{{../name.getSnakeCaseName}}.schema](#{{../../name.getSnakeCaseName}}headers{{../name.getSnakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.camelCaseName}}.headers.{{../name.snakeCaseName}}.schema](#{{../../name.snakeCaseName}}headers{{../name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
-                        {{#each getContent}}
+                        {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [{{../../../name.getCamelCaseName}}.headers.{{../../name.getSnakeCaseName}}.content.{{../@key.getSnakeCaseName}}.{{name.getSnakeCaseName}}](#{{../../../name.getSnakeCaseName}}headers{{../../name.getSnakeCaseName}}content{{../@key.getSnakeCaseName}}{{name.getSnakeCaseName}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../name.camelCaseName}}.headers.{{../../name.snakeCaseName}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}](#{{../../../name.snakeCaseName}}headers{{../../name.snakeCaseName}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}

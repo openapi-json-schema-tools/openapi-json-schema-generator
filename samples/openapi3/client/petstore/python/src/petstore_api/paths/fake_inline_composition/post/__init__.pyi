@@ -56,8 +56,8 @@ class RequestQueryParameters:
         parameter_0._0,
         parameter_1._1,
     ]_all_accept_content_types = (
-    'application/json',
-    'multipart/form-data',
+    "application/json",
+    "multipart/form-data",
 )
 
 
@@ -210,7 +210,7 @@ class BaseApi(api_client.Api):
 
 
 class InlineComposition(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def inline_composition(
@@ -303,7 +303,7 @@ class InlineComposition(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

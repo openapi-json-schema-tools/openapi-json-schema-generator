@@ -59,7 +59,7 @@ If you want to switch back to the `3.1.x` behavior you can use:
 
 ==== Model (all languages)
 
-In `CodegenModel` and in `CodegenOperation` we use now our own class `org.openapitools.codegen.CodegenDiscriminator` instead of `io.swagger.v3.oas.models.media.Discriminator`.
+In `CodegenModel` and in `CodegenOperation` we use now our own class `CodegenDiscriminator` instead of `io.swagger.v3.oas.models.media.Discriminator`.
 
 For the templates, this is not an API change, because the same values are available.
 

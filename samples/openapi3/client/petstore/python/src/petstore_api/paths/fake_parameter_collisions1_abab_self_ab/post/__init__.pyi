@@ -170,7 +170,7 @@ class RequestCookieParameters:
         parameter_17._17,
         parameter_18._18,
     ]_all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -344,7 +344,7 @@ class BaseApi(api_client.Api):
 
 
 class ParameterCollisions(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def parameter_collisions(
@@ -441,7 +441,7 @@ class ParameterCollisions(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

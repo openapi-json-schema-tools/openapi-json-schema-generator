@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_refs_mammal.post import ApiForpost
+from petstore_api.paths.fake_refs_mammal.post import ApiForPost
 
 
 class FakeRefsMammal(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

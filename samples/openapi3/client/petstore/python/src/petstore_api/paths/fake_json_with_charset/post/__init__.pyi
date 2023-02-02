@@ -29,7 +29,7 @@ from .responses import response_200
 from . import request_body
 
 _all_accept_content_types = (
-    'application/json; charset=utf-8',
+    "application/json; charset=utf-8",
 )
 
 
@@ -151,7 +151,7 @@ class BaseApi(api_client.Api):
 
 
 class JsonWithCharset(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def json_with_charset(
@@ -224,7 +224,7 @@ class JsonWithCharset(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

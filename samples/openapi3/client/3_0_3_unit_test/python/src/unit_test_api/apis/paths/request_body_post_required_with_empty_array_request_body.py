@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_required_with_empty_array_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_required_with_empty_array_request_body.post import ApiForPost
 
 
 class RequestBodyPostRequiredWithEmptyArrayRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

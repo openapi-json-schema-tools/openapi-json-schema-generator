@@ -1,6 +1,6 @@
 
 
-class {{name.getCamelCaseName}}(
+class {{name.camelCaseName}}(
     schemas.ListSchema
 ):
 {{#if componentModule}}
@@ -14,7 +14,7 @@ class {{name.getCamelCaseName}}(
 {{/if}}
     """
 {{/if}}
-{{#or getItems hasValidation}}
+{{#or items hasValidation}}
 
 
     class Schema_:
@@ -27,5 +27,5 @@ class {{name.getCamelCaseName}}(
 
     {{> components/schemas/_helper_new }}
 
-    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.getCamelCaseName}}{{/if}}{{/with}}:
+    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}{{/with}}:
         return super().__getitem__(i)

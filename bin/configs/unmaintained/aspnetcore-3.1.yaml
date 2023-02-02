@@ -1,7 +1,7 @@
 generatorName: aspnetcore
 outputDir: samples/server/petstore/aspnetcore-3.1
-inputSpec: modules/openapi-generator/src/test/resources/3_0/aspnetcore/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/aspnetcore/3.0
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/aspnetcore/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/aspnetcore/3.0
 additionalProperties:
   packageGuid: '{3C799344-F285-4669-8FD5-7ED9B795D5C5}'
   # comment out below as 3.1 the default

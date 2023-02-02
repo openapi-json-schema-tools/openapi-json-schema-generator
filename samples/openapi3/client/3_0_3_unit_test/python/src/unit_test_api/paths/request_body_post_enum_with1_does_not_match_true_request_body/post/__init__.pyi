@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
 
 
 class PostEnumWith1DoesNotMatchTrueRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_enum_with1_does_not_match_true_request_body(
@@ -208,7 +208,7 @@ class PostEnumWith1DoesNotMatchTrueRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

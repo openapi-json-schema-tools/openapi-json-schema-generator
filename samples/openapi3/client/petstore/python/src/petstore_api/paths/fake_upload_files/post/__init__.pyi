@@ -29,7 +29,7 @@ from .responses import response_200
 from . import request_body
 
 _all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -151,7 +151,7 @@ class BaseApi(api_client.Api):
 
 
 class UploadFiles(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def upload_files(
@@ -224,7 +224,7 @@ class UploadFiles(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

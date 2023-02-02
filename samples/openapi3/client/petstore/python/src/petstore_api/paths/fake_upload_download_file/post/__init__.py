@@ -41,7 +41,7 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200._200,
 }
 _all_accept_content_types = (
-    'application/octet-stream',
+    "application/octet-stream",
 )
 
 
@@ -165,7 +165,7 @@ class BaseApi(api_client.Api):
 
 
 class UploadDownloadFile(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def upload_download_file(
@@ -238,7 +238,7 @@ class UploadDownloadFile(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

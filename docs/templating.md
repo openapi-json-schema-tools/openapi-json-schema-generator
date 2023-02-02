@@ -7,11 +7,11 @@ It's easy to work with templates for codegen!
 
 For maybe 90% of use cases, you will only need to modify the mustache template files to create your own custom generated code. If you need to include additional files in your generated output, manipulate the OpenAPI document inputs, or implement your own vendor extensions or other logic, you'll want to read [customization](./customization.md) after you read this document. Be sure to start here first, because templating is the easier concept and you'll need it for more advanced use cases.
 
-The generator workflow has [transforming logic](https://github.com/openapitools/openapi-generator/tree/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages) as well as templates for each generation of code.
+The generator workflow has [transforming logic](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages) as well as templates for each generation of code.
 
-Each generator will create a data structure from the OpenAPI document; OpenAPI 2.0 and OpenAPI 3.x documents are normalized into the same API model within the generator. This model is then applied to the templates.  While generators do not need to perform transformations, it's often necessary in order to add more advanced support for your language or framework. You may need to refer to the generator implementation to understand some of the logic while creating or customizing templates (see [ScalaFinchServerCodegen.java](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/ScalaFinchServerCodegen.java) for an advanced example).
+Each generator will create a data structure from the OpenAPI document; OpenAPI 2.0 and OpenAPI 3.x documents are normalized into the same API model within the generator. This model is then applied to the templates.  While generators do not need to perform transformations, it's often necessary in order to add more advanced support for your language or framework. You may need to refer to the generator implementation to understand some of the logic while creating or customizing templates (see [ScalaFinchServerCodegen.java](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/ScalaFinchServerCodegen.java) for an advanced example).
 
-The transform logic needs to implement [CodegenConfig.java](https://github.com/openapitools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapitools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapitools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
+The transform logic needs to implement [CodegenConfig.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
 
 ## Modifying Templates
 
@@ -39,11 +39,11 @@ OpenAPI Generator not only supports local files for templating, but also templat
     │               └── style.css.mustache
 ``` 
 
-You can define your classpath to contain your JAR and the openapi-generator-cli _fat jar_, then invoke main class `org.openapitools.codegen.OpenAPIGenerator`. For instance,
+You can define your classpath to contain your JAR and the openapi-generator-cli _fat jar_, then invoke main class `OpenAPIGenerator`. For instance,
 
 ```bash
 java -cp /path/totemplate-classpath-example-1.0-SNAPSHOT.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
-    org.openapitools.codegen.OpenAPIGenerator generate \
+    OpenAPIGenerator generate \
     -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml \
     -g html -o template-example -t templates/htmlDocs
 ```
@@ -247,7 +247,7 @@ Now we're ready to generate the client with our simple changes. When we pass the
 openapi-generator generate -g java --library resteasy \
     -t ~/.openapi-generator/templates/Java \
     -o ~/.openapi-generator/example \
-    -i https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
 ```
 
 Make sure your custom template compiles:
@@ -302,7 +302,7 @@ appender.rolling.policies.size.size=100MB
 appender.rolling.strategy.type = DefaultRolloverStrategy
 appender.rolling.strategy.max = 5
 
-logger.rolling.name = org.openapitools.client.api.PetApi
+logger.rolling.name = org.openapijsonschematools.client.api.PetApi
 logger.rolling.level = debug
 logger.rolling.additivity = false
 logger.rolling.appenderRef.rolling.ref = RollingFile
@@ -330,7 +330,7 @@ This example:
 * requires Gradle 5.0+
 * provides project setup instructions for IntelliJ
 
-To begin, create a [new Gradle project](https://www.jetbrains.com/help/idea/getting-started-with-gradle.html) with Kotlin support. To do this, go to `File` ➞ `New` ➞ `Project`, choose "Gradle" and "Kotlin". Specify groupId `org.openapitools.examples` and artifactId `pebble-template-adapter`.
+To begin, create a [new Gradle project](https://www.jetbrains.com/help/idea/getting-started-with-gradle.html) with Kotlin support. To do this, go to `File` ➞ `New` ➞ `Project`, choose "Gradle" and "Kotlin". Specify groupId `org.openapijsonschematools.examples` and artifactId `pebble-template-adapter`.
 
 Ensure the new project uses Gradle 5.0. Navigate to the newly created directory and execute:
 
@@ -350,7 +350,7 @@ Modifications to the new project's `build.gradle` should be made in the `plugins
 
  dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile "org.openapitools:openapi-generator-core:4.0.0-SNAPSHOT"
+    compile "org.openapijsonschematools:openapi-generator-core:4.0.0-SNAPSHOT"
     compile "io.pebbletemplates:pebble:3.0.8"
  }
 ```
@@ -363,9 +363,9 @@ The class in its simplest form looks like this (with inline comments):
 
 ```kotlin
 // Allows specifying engine by class name
-// e.g. -e org.openapitools.examples.templating.PebbleTemplateAdapter
+// e.g. -e org.openapijsonschematools.examples.templating.PebbleTemplateAdapter
 @file:JvmName("PebbleTemplateAdapter")
-package org.openapitools.examples.templating
+package org.openapijsonschematools.examples.templating
 
 // imports
 
@@ -402,10 +402,10 @@ class PebbleTemplateAdapter : AbstractTemplatingEngineAdapter() {
 }
 ```
 
-Lastly, create a file `resources/META-INF/services/org.openapitools.codegen.api.TemplatingEngineAdapter`, containing the full class path to the above class:
+Lastly, create a file `resources/META-INF/services/TemplatingEngineAdapter`, containing the full class path to the above class:
 
 ```
-org.openapitools.examples.templating.PebbleTemplateAdapter
+org.openapijsonschematools.examples.templating.PebbleTemplateAdapter
 ```
 
 This allows the adapter to load via ServiceLoader, and to be referenced via the identifier `pebble`. This is optional; if you don't provide the above file and contents, you'll only be able to load the engine via full class name (explained in a bit).
@@ -462,7 +462,7 @@ Finally, we can compile some code by explicitly defining our classpath and jar e
 
 ```bash
 java $JAVA_OPTS -cp /your/path/build/libs/pebble-template-adapter-1.0-SNAPSHOT-all.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
-    org.openapitools.codegen.OpenAPIGenerator \
+    OpenAPIGenerator \
     generate \
     -g go \
     -i https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore-minimal.json \
@@ -474,7 +474,7 @@ java $JAVA_OPTS -cp /your/path/build/libs/pebble-template-adapter-1.0-SNAPSHOT-a
 
 **NOTE** Running your custom generator requires adding it to the classpath. This differs on [Windows](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/classpath.html) slightly from [unix](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html).
 
-In the above example, we've targeted our custom template engine adapter via `-e pebble`. If you don't include the SPI file under `META-INF/services`, you'll need to specify the exact classpath: `org.openapitools.examples.templating.PebbleTemplateAdapter`. Notice that the target class here matches the Kotlin class name. This is because of the `@file:JvmName` annotation.
+In the above example, we've targeted our custom template engine adapter via `-e pebble`. If you don't include the SPI file under `META-INF/services`, you'll need to specify the exact classpath: `org.openapijsonschematools.examples.templating.PebbleTemplateAdapter`. Notice that the target class here matches the Kotlin class name. This is because of the `@file:JvmName` annotation.
 
 Congratulations on creating a custom templating engine adapter!
 

@@ -1,5 +1,5 @@
 @typing.overload
 {{#with this}}
-def {{operationId}}(
+def {{operationId.snakeCaseName}}(
 {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType=contentType}}
 {{/with}}

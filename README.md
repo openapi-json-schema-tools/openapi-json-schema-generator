@@ -158,7 +158,7 @@ Example usage:
 
 ```sh
 # Start container at port 8888 and save the container id
-> CID=$(docker run -d -p 8888:8080 openapitools/openapi-json-schema-generator-online)
+> CID=$(docker run -d -p 8888:8080 openapijsonschematools/openapi-json-schema-generator-online)
 
 # allow for startup
 > sleep 10
@@ -168,7 +168,7 @@ GEN_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}'  $CID)
 
 # Execute an HTTP request to generate a Ruby client
 > curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' \
--d '{"openAPIUrl": "https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml"}' \
+-d '{"openAPIUrl": "https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml"}' \
 'http://localhost:8888/api/gen/clients/python'
 
 {"code":"c2d483.3.4672-40e9-91df-b9ffd18d22b8","link":"http://localhost:8888/api/gen/download/c2d483.3.4672-40e9-91df-b9ffd18d22b8"}
@@ -249,7 +249,7 @@ java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-g
 (if you're on Windows, replace the last command with `java -jar modules\openapi-json-schema-generator-cli\target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml -g python -o c:\temp\python_api_client`)
 
 <!-- RELEASE_VERSION -->
-You can also download the JAR (latest release) directly from [maven.org](https://repo1.maven.org/maven2/org/openapitools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar)
+You can also download the JAR (latest release) directly from [maven.org](https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar)
 <!-- /RELEASE_VERSION -->
 
 To get a list of **general** options available, please run `java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar help generate`
@@ -259,7 +259,7 @@ To get a list of PHP specified options (which can be passed to the generator wit
 ## [3 - Usage](#table-of-contents)
 
 ### To generate a sample client library
-You can build a client against the [Petstore API](https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml) as follows:
+You can build a client against the [Petstore API](https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml) as follows:
 
 ```sh
 ./bin/generate-samples.sh ./bin/configs/python.yaml
@@ -271,7 +271,7 @@ This script will run the generator with this command:
 
 ```sh
 java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar generate \
-  -i https://raw.githubusercontent.com/openapitools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
   -g python \
   -t modules/openapi-json-schema-generator/src/main/resources/python \
   --additional-properties packageName=petstore_api \

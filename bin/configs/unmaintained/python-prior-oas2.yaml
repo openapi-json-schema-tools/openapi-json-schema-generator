@@ -4,7 +4,7 @@
 # Composed schemas are schemas that contain the allOf/oneOf/anyOf keywords. v2 specs only support the allOf keyword.
 generatorName: python-prior
 outputDir: samples/client/petstore/python-prior
-inputSpec: modules/openapi-generator/src/test/resources/2_0/python-prior/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: modules/openapi-generator/src/main/resources/python-prior
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/python-prior/petstore-with-fake-endpoints-models-for-testing.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/python-prior
 additionalProperties:
   packageName: petstore_api

@@ -153,7 +153,7 @@ class BaseApi(api_client.Api):
 
 
 class PostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body(
@@ -220,7 +220,7 @@ class PostTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingRequestBody(Ba
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

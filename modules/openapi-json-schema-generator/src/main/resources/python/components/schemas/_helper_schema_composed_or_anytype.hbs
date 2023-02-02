@@ -1,18 +1,18 @@
 
 
-class {{name.getCamelCaseName}}(
-{{#if getIsAnyType}}
-    {{#if getFormat}}
-        {{#eq getFormat "uuid"}}
+class {{name.camelCaseName}}(
+{{#if isAnyType}}
+    {{#if format}}
+        {{#eq format "uuid"}}
     schemas.UUIDBase,
         {{/eq}}
-        {{#eq getFormat "date"}}
+        {{#eq format "date"}}
     schemas.DateBase,
         {{/eq}}
-        {{#eq getFormat "date-time"}}
+        {{#eq format "date-time"}}
     schemas.DateTimeBase,
         {{/eq}}
-        {{#eq getFormat "number"}}
+        {{#eq format "number"}}
     schemas.DecimalBase,
         {{/eq}}
     {{/if}}
@@ -39,8 +39,8 @@ class {{name.getCamelCaseName}}(
         # any type
 {{/if}}
         {{> components/schemas/_helper_types }}
-{{#if getFormat}}
-        format = '{{getFormat}}'
+{{#if format}}
+        format = '{{format}}'
 {{/if}}
 {{#if isEnum}}
 {{#with allowableValues}}
@@ -51,10 +51,10 @@ class {{name.getCamelCaseName}}(
         }
 {{/with}}
 {{/if}}
-{{#if getItems}}
+{{#if items}}
         {{> components/schemas/_helper_list_partial }}
 {{/if}}
-{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
+{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
         {{> components/schemas/_helper_dict_partial }}
 {{/or}}
 {{#unless isStub}}

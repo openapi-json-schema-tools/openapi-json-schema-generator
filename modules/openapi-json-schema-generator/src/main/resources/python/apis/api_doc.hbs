@@ -1,5 +1,5 @@
 <a name="top"></a>
-# {{packageName}}.{{apiPackage}}.tags.{{tag.getModuleName}}.{{tag.getClassName}}{{#if description}}
+# {{packageName}}.{{apiPackage}}.tags.{{tag.moduleName}}.{{tag.className}}{{#if description}}
 {{description}}{{/if}}
 
 All URIs are relative to *{{basePath}}*
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 {{#with operations}}
 {{#each operation}}
-[**{{operationId}}**]({{tag.getModuleName}}/{{operationId}}.md) | **{{httpMethod}}** {{path}} | {{#if summary}}{{summary}}{{/if}}
+[**{{operationId.snakeCaseName}}**]({{tag.moduleName}}/{{operationId.snakeCaseName}}.md) | **{{httpMethod.name}}** {{path.name}} | {{#if summary}}{{summary}}{{/if}}
 {{/each}}
 {{/with}}
 

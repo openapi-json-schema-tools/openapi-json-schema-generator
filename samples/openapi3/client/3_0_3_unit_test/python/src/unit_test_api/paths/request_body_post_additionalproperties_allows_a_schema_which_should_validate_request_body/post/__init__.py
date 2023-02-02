@@ -153,7 +153,7 @@ class BaseApi(api_client.Api):
 
 
 class PostAdditionalpropertiesAllowsASchemaWhichShouldValidateRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_additionalproperties_allows_a_schema_which_should_validate_request_body(
@@ -220,7 +220,7 @@ class PostAdditionalpropertiesAllowsASchemaWhichShouldValidateRequestBody(BaseAp
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

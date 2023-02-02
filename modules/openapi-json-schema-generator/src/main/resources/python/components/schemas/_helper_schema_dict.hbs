@@ -1,6 +1,6 @@
 
 
-class {{name.getCamelCaseName}}(
+class {{name.camelCaseName}}(
     schemas.DictSchema
 ):
 {{#if componentModule}}
@@ -15,14 +15,14 @@ class {{name.getCamelCaseName}}(
     """
 {{/if}}
 {{#if isStub}}
-{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties}}
+{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
 
 
     class Schema_:
         {{> components/schemas/_helper_dict_partial }}
 {{/or}}
 {{else}}
-{{#or additionalProperties getRequiredProperties getHasDiscriminatorWithNonEmptyMapping properties hasValidation}}
+{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation}}
 
 
     class Schema_:

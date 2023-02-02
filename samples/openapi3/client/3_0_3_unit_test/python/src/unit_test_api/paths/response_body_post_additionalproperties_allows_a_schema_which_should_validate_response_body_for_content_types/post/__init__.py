@@ -40,7 +40,7 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200._200,
 }
 _all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -128,7 +128,7 @@ class BaseApi(api_client.Api):
 
 
 class PostAdditionalpropertiesAllowsASchemaWhichShouldValidateResponseBodyForContentTypes(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_additionalproperties_allows_a_schema_which_should_validate_response_body_for_content_types(
@@ -177,7 +177,7 @@ class PostAdditionalpropertiesAllowsASchemaWhichShouldValidateResponseBodyForCon
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

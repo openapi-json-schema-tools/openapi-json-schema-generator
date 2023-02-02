@@ -1,9 +1,9 @@
 package com.my.company.codegen;
 
 import org.junit.Test;
-import org.openapitools.codegen.ClientOptInput;
-import org.openapitools.codegen.DefaultGenerator;
-import org.openapitools.codegen.config.CodegenConfigurator;
+import org.openapijsonschematools.codegen.ClientOptInput;
+import org.openapijsonschematools.codegen.DefaultGenerator;
+import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 
 /***
  * This test allows you to easily launch your code generation software under a debugger.
@@ -22,11 +22,11 @@ public class MyclientcodegenGeneratorTest {
   @Test
   public void launchCodeGenerator() {
     // to understand how the 'openapi-generator-cli' module is using 'CodegenConfigurator', have a look at the 'Generate' class:
-    // https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-cli/src/main/java/org/openapitools/codegen/cmd/Generate.java
+    // https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-cli/src/main/java/org/openapijsonschematools/codegen/cmd/Generate.java
     final CodegenConfigurator configurator = new CodegenConfigurator()
               .setGeneratorName("myClientCodegen") // use this codegen library
               .setInputSpec("../../../modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // sample OpenAPI file
-              // .setInputSpec("https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
+              // .setInputSpec("https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/2_0/petstore.yaml") // or from the server
               .setOutputDir("out/myClientCodegen"); // output directory
 
     final ClientOptInput clientOptInput = configurator.toClientOptInput();

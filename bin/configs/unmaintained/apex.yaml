@@ -2,5 +2,5 @@ systemProperties:
   skipFormModel: "true"
 generatorName: apex
 outputDir: samples/client/petstore/apex
-inputSpec: modules/openapi-generator/src/test/resources/3_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/apex
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/apex

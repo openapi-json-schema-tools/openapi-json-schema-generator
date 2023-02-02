@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_refs_enum.post import ApiForpost
+from petstore_api.paths.fake_refs_enum.post import ApiForPost
 
 
 class FakeRefsEnum(
-    ApiForpost,
+    ApiForPost,
 ):
     pass

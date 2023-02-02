@@ -52,7 +52,7 @@ class RequestQueryParameters:
     parameters = [
         parameter_0._0,
     ]_all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -157,7 +157,7 @@ class BaseApi(api_client.Api):
 
 
 class QueryParamWithJsonContentType(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def query_param_with_json_content_type(
@@ -211,7 +211,7 @@ class QueryParamWithJsonContentType(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

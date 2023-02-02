@@ -18,15 +18,15 @@ from unit_test_api import configuration, schemas, api_client
 from .. import ApiTestMixin
 
 
-class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes(ApiTestMixin, unittest.TestCase):
+class TestPost(ApiTestMixin, unittest.TestCase):
     """
-    ResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes unit test stubs
+    Post unit test stubs
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForpost(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
@@ -52,7 +52,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -77,7 +77,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -101,7 +101,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -125,7 +125,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -149,7 +149,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -173,7 +173,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -197,7 +197,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -220,7 +220,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -252,7 +252,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -276,7 +276,7 @@ class TestResponseBodyPostNullTypeMatchesOnlyTheNullObjectResponseBodyForContent
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + '/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes',
+                self.configuration_.host + "/responseBody/postNullTypeMatchesOnlyTheNullObjectResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,

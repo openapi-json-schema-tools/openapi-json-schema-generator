@@ -1,8 +1,8 @@
 generatorName: kotlin
 outputDir: samples/client/petstore/kotlin-jvm-okhttp4-coroutines
 library: jvm-okhttp4
-inputSpec: modules/openapi-generator/src/test/resources/2_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/kotlin-client
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/kotlin-client
 additionalProperties:
   serializationLibrary: gson
   useCoroutines: "true"

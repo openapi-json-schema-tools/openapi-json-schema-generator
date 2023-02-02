@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_body_with_file_schema.put import ApiForput
+from petstore_api.paths.fake_body_with_file_schema.put import ApiForPut
 
 
 class FakeBodyWithFileSchema(
-    ApiForput,
+    ApiForPut,
 ):
     pass

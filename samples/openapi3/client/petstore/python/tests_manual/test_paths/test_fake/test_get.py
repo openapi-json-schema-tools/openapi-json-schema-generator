@@ -32,7 +32,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
     def test_passed_in_header_overrides_default(self, mock_request):
         mock_request.return_value = self.response(b'')
 
-        api = get.ApiForget(api_client=self.used_api_client)
+        api = get.ApiForGet(api_client=self.used_api_client)
         api_response = api.get(header_params={'enum_header_string': '-efg'})
         self.assert_pool_manager_request_called_with(
             mock_request,
@@ -53,7 +53,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
     def test_default_header_used_when_no_header_params_input(self, mock_request):
         mock_request.return_value = self.response(b'')
 
-        api = get.ApiForget(api_client=self.used_api_client)
+        api = get.ApiForGet(api_client=self.used_api_client)
         api_response = api.get()
         self.assert_pool_manager_request_called_with(
             mock_request,
@@ -78,7 +78,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         response_body_bytes = self.json_bytes(error_dict)
         mock_request.return_value = self.response(response_body_bytes, status=404, reason='404')
 
-        api = get.ApiForget()
+        api = get.ApiForGet()
         with self.assertRaises(petstore_api.ApiException) as cm:
             api_response = api.get()
 

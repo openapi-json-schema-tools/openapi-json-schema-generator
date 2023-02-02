@@ -90,7 +90,7 @@ class RequestHeaderParameters:
         parameter_0._0,
         parameter_1._1,
     ]_all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -242,7 +242,7 @@ class BaseApi(api_client.Api):
 
 
 class EnumParameters(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def enum_parameters(
@@ -327,7 +327,7 @@ class EnumParameters(BaseApi):
         )
 
 
-class ApiForget(BaseApi):
+class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

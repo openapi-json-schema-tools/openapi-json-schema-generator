@@ -1,7 +1,7 @@
-from petstore_api.paths.store_inventory.get import ApiForget
+from petstore_api.paths.store_inventory.get import ApiForGet
 
 
 class StoreInventory(
-    ApiForget,
+    ApiForGet,
 ):
     pass

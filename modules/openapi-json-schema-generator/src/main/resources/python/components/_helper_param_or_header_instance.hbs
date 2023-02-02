@@ -1,4 +1,4 @@
-class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}):
+class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
     name = "{{baseName}}"
 {{/unless}}
@@ -27,17 +27,17 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+    schema = {{name.snakeCaseName}}.{{name.camelCaseName}}
     {{/with}}
 {{/if}}
-{{#if getContent}}
+{{#if content}}
 {{#each content}}
 
 
-    class __{{@key.getCamelCaseName}}MediaType(api_client.MediaType):
+    class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        schema: typing.Type[{{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}] = {{../@key.getSnakeCaseName}}_{{name.getSnakeCaseName}}.{{name.getCamelCaseName}}
+        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
         {{/with}}
     {{/with}}
 {{/each}}
@@ -45,13 +45,13 @@ class {{name.getCamelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQu
         '__Content',
         {
 {{#each content}}
-            '{{{@key.getName}}}': typing.Type[__{{@key.getCamelCaseName}}MediaType],
+            '{{{@key.name}}}': typing.Type[__{{@key.camelCaseName}}MediaType],
 {{/each}}
         }
     )
     content: __Content = {
 {{#each content}}
-        '{{{@key.getName}}}': __{{@key.getCamelCaseName}}MediaType,
+        '{{{@key.name}}}': __{{@key.camelCaseName}}MediaType,
 {{/each}}
     }
 {{/if}}

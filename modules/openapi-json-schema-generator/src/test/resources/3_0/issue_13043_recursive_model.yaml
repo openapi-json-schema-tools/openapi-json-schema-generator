@@ -57,8 +57,8 @@ components:
       discriminator:
         propertyName: type
         mapping:
-          Point: '#/components/schemas/Point'
           GeometryCollection: '#/components/schemas/GeometryCollection'
+          Point: '#/components/schemas/Point'
       externalDocs:
         url: http://geojson.org/geojson-spec.html#geometry-objects
     Point:

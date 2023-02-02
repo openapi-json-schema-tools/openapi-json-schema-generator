@@ -31,7 +31,7 @@ in the docker container. It also maps `~/.m2/repository` to the appropriate cont
 To execute `mvn package`:
 
 ```bash
-git clone https://github.com/openapitools/openapi-generator
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-generator
 ./run-in-docker.sh mvn package
 ```
@@ -53,7 +53,7 @@ Once built, `run-in-docker.sh` will act as an executable for openapi-generator-c
 Prerequisite: install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 ```bash
-git clone https://github.com/openapitools/openapi-generator.git
+git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
 cd openapi-generator
 vagrant up
 vagrant ssh

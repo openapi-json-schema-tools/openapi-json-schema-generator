@@ -26,6 +26,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{name.getSnakeCaseName}}.{{name.getCamelCaseName}},
+        {{name.snakeCaseName}}.{{name.camelCaseName}},
     {{/each}}
     ]

@@ -206,7 +206,7 @@ OPTIONS
 
         -p <package>, --package <package>
             the package to put the main class into (defaults to
-            org.openapitools.codegen)
+            org.openapijsonschematools.codegen)
 
         -t <type>, --type <type>
             the type of generator that is created
@@ -384,7 +384,7 @@ OPTIONS
             Git repo ID, e.g. openapi-generator.
 
         --git-user-id <git user id>
-            Git user ID, e.g. openapitools.
+            Git user ID, e.g. openapijsonschematools.
 
         --global-property <global properties>
             sets specified global properties (previously called 'system
@@ -520,7 +520,7 @@ At a minimum, `generate` requires:
 
 ### Examples
 
-The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml).
+The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml).
 
 #### Additional Properties
 
@@ -560,7 +560,7 @@ openapi-generator-cli generate \
     --type-mappings=DateTime=java.time.LocalDateTime
 ```
 
-> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/modules/openapi-generator/src/main/java/org/openapitools/codegen/DefaultCodegen.java#L1431).
+> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).
 
 #### File Post-Processing
 

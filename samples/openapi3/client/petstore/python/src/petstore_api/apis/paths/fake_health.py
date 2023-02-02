@@ -1,7 +1,7 @@
-from petstore_api.paths.fake_health.get import ApiForget
+from petstore_api.paths.fake_health.get import ApiForGet
 
 
 class FakeHealth(
-    ApiForget,
+    ApiForGet,
 ):
     pass

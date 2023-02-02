@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
 
 
 class PostAllofWithTheFirstEmptySchemaRequestBody(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_allof_with_the_first_empty_schema_request_body(
@@ -208,7 +208,7 @@ class PostAllofWithTheFirstEmptySchemaRequestBody(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

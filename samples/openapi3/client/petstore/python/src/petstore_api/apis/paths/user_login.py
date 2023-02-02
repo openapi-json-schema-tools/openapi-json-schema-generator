@@ -1,7 +1,7 @@
-from petstore_api.paths.user_login.get import ApiForget
+from petstore_api.paths.user_login.get import ApiForGet
 
 
 class UserLogin(
-    ApiForget,
+    ApiForGet,
 ):
     pass

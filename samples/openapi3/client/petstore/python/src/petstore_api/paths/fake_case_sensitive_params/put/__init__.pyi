@@ -148,7 +148,7 @@ class BaseApi(api_client.Api):
 
 
 class CaseSensitiveParams(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def case_sensitive_params(
@@ -197,7 +197,7 @@ class CaseSensitiveParams(BaseApi):
         )
 
 
-class ApiForput(BaseApi):
+class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

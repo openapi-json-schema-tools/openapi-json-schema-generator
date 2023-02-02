@@ -28,7 +28,7 @@ from unit_test_api import schemas  # noqa: F401
 from .responses import response_200
 
 _all_accept_content_types = (
-    'application/json',
+    "application/json",
 )
 
 
@@ -116,7 +116,7 @@ class BaseApi(api_client.Api):
 
 
 class PostJsonPointerFormatResponseBodyForContentTypes(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
 
     @typing.overload
     def post_json_pointer_format_response_body_for_content_types(
@@ -165,7 +165,7 @@ class PostJsonPointerFormatResponseBodyForContentTypes(BaseApi):
         )
 
 
-class ApiForpost(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload

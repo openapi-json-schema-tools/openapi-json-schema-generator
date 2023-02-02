@@ -1,7 +1,7 @@
-from unit_test_api.paths.request_body_post_hostname_format_request_body.post import ApiForpost
+from unit_test_api.paths.request_body_post_hostname_format_request_body.post import ApiForPost
 
 
 class RequestBodyPostHostnameFormatRequestBody(
-    ApiForpost,
+    ApiForPost,
 ):
     pass
