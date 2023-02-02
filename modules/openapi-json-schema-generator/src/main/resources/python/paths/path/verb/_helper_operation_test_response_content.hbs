@@ -38,7 +38,7 @@ def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
             )
         self.assert_pool_manager_request_called_with(
             mock_request,
-            self.configuration_.host + '{{{path}}}',
+            self.configuration_.host + "{{{path.name}}}",
             method='{{httpMethod.name}}'.upper(),
             content_type=None,
             accept_content_type=accept_content_type,

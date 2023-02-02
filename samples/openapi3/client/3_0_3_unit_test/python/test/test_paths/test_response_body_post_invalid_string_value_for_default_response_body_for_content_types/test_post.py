@@ -54,7 +54,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@e00168fa',
+                self.configuration_.host + "/responseBody/postInvalidStringValueForDefaultResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -85,7 +85,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@e00168fa',
+                self.configuration_.host + "/responseBody/postInvalidStringValueForDefaultResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )

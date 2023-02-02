@@ -59,7 +59,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -86,7 +86,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -116,7 +116,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -146,7 +146,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -179,7 +179,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -214,7 +214,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@2a6bb21c',
+                self.configuration_.host + "/responseBody/postMaxpropertiesValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )

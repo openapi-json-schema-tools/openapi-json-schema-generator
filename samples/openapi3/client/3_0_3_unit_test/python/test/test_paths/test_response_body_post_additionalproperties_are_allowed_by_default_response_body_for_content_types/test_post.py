@@ -58,7 +58,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@9973b27d',
+                self.configuration_.host + "/responseBody/postAdditionalpropertiesAreAllowedByDefaultResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )

@@ -58,7 +58,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + 'org.openapijsonschematools.codegen.model.CodegenKey@6ab4e0e8',
+                self.configuration_.host + "/requestBody/postRefInAnyofRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
