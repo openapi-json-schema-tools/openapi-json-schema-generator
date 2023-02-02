@@ -133,17 +133,17 @@ class EnumTest(
                     }
                     format = 'double'
                     enum_value_to_name = {
-                        -1.2: "NEGATIVE_1_PT_2",
                         1.1: "POSITIVE_1_PT_1",
+                        -1.2: "NEGATIVE_1_PT_2",
                     }
-                
-                @schemas.classproperty
-                def NEGATIVE_1_PT_2(cls):
-                    return cls(-1.2)
                 
                 @schemas.classproperty
                 def POSITIVE_1_PT_1(cls):
                     return cls(1.1)
+                
+                @schemas.classproperty
+                def NEGATIVE_1_PT_2(cls):
+                    return cls(-1.2)
         
             @staticmethod
             def string_enum() -> typing.Type['string_enum.StringEnum']:

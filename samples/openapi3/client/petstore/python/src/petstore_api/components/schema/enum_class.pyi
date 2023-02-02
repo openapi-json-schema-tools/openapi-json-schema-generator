@@ -33,8 +33,8 @@ class EnumClass(
     """
     
     @schemas.classproperty
-    def COUNT_1M(cls):
-        return cls("COUNT_1M")
+    def _ABC(cls):
+        return cls("_abc")
     
     @schemas.classproperty
     def EFG(cls):
@@ -45,8 +45,8 @@ class EnumClass(
         return cls("(xyz)")
     
     @schemas.classproperty
-    def _ABC(cls):
-        return cls("_abc")
+    def COUNT_1M(cls):
+        return cls("COUNT_1M")
     
     @schemas.classproperty
     def COUNT_50M(cls):

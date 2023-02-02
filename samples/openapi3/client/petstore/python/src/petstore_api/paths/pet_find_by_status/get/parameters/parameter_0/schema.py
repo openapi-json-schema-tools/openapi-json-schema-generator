@@ -43,8 +43,8 @@ class Schema(
                 }
                 enum_value_to_name = {
                     "available": "AVAILABLE",
-                    "sold": "SOLD",
                     "pending": "PENDING",
+                    "sold": "SOLD",
                 }
             
             @schemas.classproperty
@@ -52,12 +52,12 @@ class Schema(
                 return cls("available")
             
             @schemas.classproperty
-            def SOLD(cls):
-                return cls("sold")
-            
-            @schemas.classproperty
             def PENDING(cls):
                 return cls("pending")
+            
+            @schemas.classproperty
+            def SOLD(cls):
+                return cls("sold")
 
     def __new__(
         cls,

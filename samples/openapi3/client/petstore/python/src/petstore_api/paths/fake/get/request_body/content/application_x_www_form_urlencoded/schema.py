@@ -90,10 +90,14 @@ class Schema(
                         str,
                     }
                     enum_value_to_name = {
+                        "_abc": "_ABC",
                         "-efg": "EFG",
                         "(xyz)": "XYZ",
-                        "_abc": "_ABC",
                     }
+                
+                @schemas.classproperty
+                def _ABC(cls):
+                    return cls("_abc")
                 
                 @schemas.classproperty
                 def EFG(cls):
@@ -102,10 +106,6 @@ class Schema(
                 @schemas.classproperty
                 def XYZ(cls):
                     return cls("(xyz)")
-                
-                @schemas.classproperty
-                def _ABC(cls):
-                    return cls("_abc")
             __annotations__ = {
                 "enum_form_string_array": EnumFormStringArray,
                 "enum_form_string": EnumFormString,

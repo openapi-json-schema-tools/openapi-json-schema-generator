@@ -110,12 +110,12 @@ class Pet(
                     return cls("available")
                 
                 @schemas.classproperty
-                def SOLD(cls):
-                    return cls("sold")
-                
-                @schemas.classproperty
                 def PENDING(cls):
                     return cls("pending")
+                
+                @schemas.classproperty
+                def SOLD(cls):
+                    return cls("sold")
             __annotations__ = {
                 "id": Id,
                 "category": category,

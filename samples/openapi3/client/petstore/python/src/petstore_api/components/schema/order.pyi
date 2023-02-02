@@ -47,16 +47,16 @@ class Order(
             ):
                 
                 @schemas.classproperty
-                def DELIVERED(cls):
-                    return cls("delivered")
-                
-                @schemas.classproperty
                 def PLACED(cls):
                     return cls("placed")
                 
                 @schemas.classproperty
                 def APPROVED(cls):
                     return cls("approved")
+                
+                @schemas.classproperty
+                def DELIVERED(cls):
+                    return cls("delivered")
             Complete = schemas.BoolSchema
             __annotations__ = {
                 "id": Id,

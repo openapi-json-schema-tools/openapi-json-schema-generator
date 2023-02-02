@@ -93,12 +93,12 @@ class EnumTest(
             ):
                 
                 @schemas.classproperty
-                def NEGATIVE_1_PT_2(cls):
-                    return cls(-1.2)
-                
-                @schemas.classproperty
                 def POSITIVE_1_PT_1(cls):
                     return cls(1.1)
+                
+                @schemas.classproperty
+                def NEGATIVE_1_PT_2(cls):
+                    return cls(-1.2)
         
             @staticmethod
             def string_enum() -> typing.Type['string_enum.StringEnum']:

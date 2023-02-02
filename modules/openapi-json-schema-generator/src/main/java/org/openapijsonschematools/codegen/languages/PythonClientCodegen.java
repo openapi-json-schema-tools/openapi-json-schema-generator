@@ -858,12 +858,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected Map<String, Object> getEnumNameToValue(Schema prop) {
+    protected LinkedHashMap<String, Object> getEnumNameToValue(Schema prop) {
         if (prop.getEnum() == null) {
             return null;
         }
 
-        Map<String, Object> enumNameToValue = new HashMap<>();
+        LinkedHashMap<String, Object> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
         List<Object> values = prop.getEnum();

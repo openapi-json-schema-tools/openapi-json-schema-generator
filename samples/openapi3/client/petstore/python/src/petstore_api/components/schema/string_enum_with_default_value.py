@@ -38,14 +38,10 @@ class StringEnumWithDefaultValue(
             str,
         }
         enum_value_to_name = {
-            "delivered": "DELIVERED",
             "placed": "PLACED",
             "approved": "APPROVED",
+            "delivered": "DELIVERED",
         }
-    
-    @schemas.classproperty
-    def DELIVERED(cls):
-        return cls("delivered")
     
     @schemas.classproperty
     def PLACED(cls):
@@ -54,3 +50,7 @@ class StringEnumWithDefaultValue(
     @schemas.classproperty
     def APPROVED(cls):
         return cls("approved")
+    
+    @schemas.classproperty
+    def DELIVERED(cls):
+        return cls("delivered")

@@ -33,13 +33,13 @@ class IntegerEnumWithDefaultValue(
     """
     
     @schemas.classproperty
-    def POSITIVE_2(cls):
-        return cls(2)
+    def POSITIVE_0(cls):
+        return cls(0)
     
     @schemas.classproperty
     def POSITIVE_1(cls):
         return cls(1)
     
     @schemas.classproperty
-    def POSITIVE_0(cls):
-        return cls(0)
+    def POSITIVE_2(cls):
+        return cls(2)

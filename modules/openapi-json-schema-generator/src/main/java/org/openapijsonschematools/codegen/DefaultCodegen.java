@@ -4744,13 +4744,13 @@ public class DefaultCodegen implements CodegenConfig {
         return enumDefaultValue;
     }
 
-    protected Map<String, Object> getEnumNameToValue(Schema schema) {
+    protected LinkedHashMap<String, Object> getEnumNameToValue(Schema schema) {
         if (schema.getEnum() == null) {
             return null;
         }
 
         List<Object> values = schema.getEnum();
-        Map<String, Object> enumNameToValue = new HashMap<>();
+        LinkedHashMap<String, Object> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
         if (isRemoveEnumValuePrefix()) {

@@ -13,7 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **enum_string_required** | str,  | str,  |  | must be one of ["UPPER", "lower", "", ]
 **enum_string** | str,  | str,  |  | [optional] must be one of ["UPPER", "lower", "", ]
 **enum_integer** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] must be one of [1, -1, ] value must be a 32 bit integer
-**enum_number** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional] must be one of [-1.2, 1.1, ] value must be a 64 bit float
+**enum_number** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional] must be one of [1.1, -1.2, ] value must be a 64 bit float
 **stringEnum** | [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) |  | [optional]
 **IntegerEnum** | [**IntegerEnum**](integer_enum.IntegerEnum.md) | [**IntegerEnum**](integer_enum.IntegerEnum.md) |  | [optional]
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.StringEnumWithDefaultValue.md) | [**StringEnumWithDefaultValue**](string_enum_with_default_value.StringEnumWithDefaultValue.md) |  | [optional]
