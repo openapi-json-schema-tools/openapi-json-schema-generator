@@ -762,7 +762,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
         }
-        if (cp.allowableValues != null) {
+        if (cp.enumNameToValue != null) {
             updateCodegenPropertyEnum(cp);
         }
         return cp;
@@ -780,7 +780,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public void updateCodegenPropertyEnum(CodegenSchema var) {
         // we have a custom version of this method to omit overwriting the defaultValue
-        Map<String, Object> allowableValues = var.allowableValues;
+        Map<String, Object> allowableValues = var.enumNameToValue;
 
         if (allowableValues == null) {
             return;

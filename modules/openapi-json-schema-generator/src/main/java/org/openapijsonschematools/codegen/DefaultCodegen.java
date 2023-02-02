@@ -529,13 +529,13 @@ public class DefaultCodegen implements CodegenConfig {
         for (CodegenSchema cm : objs.values()) {
 
             // for enum model
-            if (cm.allowableValues != null) {
-                Map<String, Object> allowableValues = cm.allowableValues;
+            if (cm.enumNameToValue != null) {
+                Map<String, Object> allowableValues = cm.enumNameToValue;
                 List<Object> values = (List<Object>) allowableValues.get("values");
                 List<Map<String, Object>> enumVars = buildEnumVars(values, cm);
                 // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
                 updateEnumVarsWithExtensions(enumVars, cm.vendorExtensions, cm);
-                cm.allowableValues.put("enumVars", enumVars);
+                cm.enumNameToValue.put("enumVars", enumVars);
             }
 
             // update codegen property enum with proper naming convention
@@ -2845,7 +2845,7 @@ public class DefaultCodegen implements CodegenConfig {
             Map<String, Object> allowableValues = new HashMap<>();
             allowableValues.put("values", _enum);
             if (allowableValues.size() > 0) {
-                property.allowableValues = allowableValues;
+                property.enumNameToValue = allowableValues;
             }
         }
 
@@ -4781,7 +4781,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param var list of CodegenSchema
      */
     public void updateCodegenPropertyEnum(CodegenSchema var) {
-        Map<String, Object> allowableValues = var.allowableValues;
+        Map<String, Object> allowableValues = var.enumNameToValue;
 
         if (allowableValues == null) {
             return;

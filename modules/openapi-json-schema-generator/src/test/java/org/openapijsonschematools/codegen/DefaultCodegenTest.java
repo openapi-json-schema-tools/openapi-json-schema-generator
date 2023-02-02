@@ -65,7 +65,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -519,7 +518,7 @@ public class DefaultCodegenTest {
 
         codegen.updateCodegenPropertyEnum(array.items);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) array.items.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) array.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Map<String, Object> testedEnumVar = enumVars.get(0);
         Assert.assertNotNull(testedEnumVar);
@@ -533,7 +532,7 @@ public class DefaultCodegenTest {
         {
             CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("dog", "cat"), Arrays.asList("DOGVAR", "CATVAR"));
             (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.allowableValues.get("enumVars");
+            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
             Assert.assertNotNull(enumVars);
             Assert.assertNotNull(enumVars.get(0));
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "DOGVAR");
@@ -545,7 +544,7 @@ public class DefaultCodegenTest {
         {
             CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("1", "2"), Arrays.asList("ONE", "TWO"));
             (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.allowableValues.get("enumVars");
+            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "ONE");
             Assert.assertEquals(enumVars.get(0).getOrDefault("value", ""), "\"1\"");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "TWO");
@@ -554,7 +553,7 @@ public class DefaultCodegenTest {
         {
             CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("a", "b", "c", "d"), Arrays.asList("FOO", "BAR"));
             (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.allowableValues.get("enumVars");
+            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "FOO");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "BAR");
             Assert.assertEquals(enumVars.get(2).getOrDefault("name", ""), "C");
@@ -563,7 +562,7 @@ public class DefaultCodegenTest {
         {
             CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("a", "b"), Arrays.asList("FOO", "BAR", "BAZ"));
             (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.allowableValues.get("enumVars");
+            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "FOO");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "BAR");
             Assert.assertEquals(enumVars.size(), 2);
@@ -577,7 +576,7 @@ public class DefaultCodegenTest {
 
         codegen.updateCodegenPropertyEnum(enumProperty.items);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
         Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "DOG");
@@ -596,7 +595,7 @@ public class DefaultCodegenTest {
 
         codegen.updateCodegenPropertyEnum(enumProperty.items);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
         Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "ANIMAL_DOG");
@@ -614,7 +613,7 @@ public class DefaultCodegenTest {
 
         codegen.postProcessModelsEnum(schemas);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
         Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "DOG");
@@ -633,7 +632,7 @@ public class DefaultCodegenTest {
 
         codegen.postProcessModelsEnum(objs);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
         Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "ANIMAL_DOG");
@@ -651,7 +650,7 @@ public class DefaultCodegenTest {
 
         codegen.postProcessModelsEnum(objs);
 
-        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.allowableValues.get("enumVars");
+        List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
         Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "DOGVAR");
@@ -1901,7 +1900,7 @@ public class DefaultCodegenTest {
         final CodegenSchema items = new CodegenSchema();
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", Collections.singletonList(1));
-        items.allowableValues = allowableValues;
+        items.enumNameToValue = allowableValues;
         items.isInteger = true;
         array.items = items;
         array.isArray = true;
@@ -1913,7 +1912,7 @@ public class DefaultCodegenTest {
         final CodegenSchema items = new CodegenSchema();
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
-        items.allowableValues = allowableValues;
+        items.enumNameToValue = allowableValues;
         items.isString = true;
         array.items = items;
         array.isArray = true;
@@ -1924,7 +1923,7 @@ public class DefaultCodegenTest {
         final CodegenSchema var = new CodegenSchema();
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
-        var.allowableValues = allowableValues;
+        var.enumNameToValue = allowableValues;
         var.isString = true;
         Map<String, Object> extensions = Collections.singletonMap("x-enum-varnames", aliases);
         var.vendorExtensions = extensions;
@@ -1936,7 +1935,7 @@ public class DefaultCodegenTest {
         cm.isEnum = true;
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", values);
-        cm.allowableValues = allowableValues;
+        cm.enumNameToValue = allowableValues;
         cm.isString = true;
         TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
         schemas.put("model", cm);
@@ -1948,7 +1947,7 @@ public class DefaultCodegenTest {
         cm.isEnum = true;
         final HashMap<String, Object> allowableValues = new HashMap<>();
         allowableValues.put("values", Arrays.asList("dog", "cat"));
-        cm.allowableValues = allowableValues;
+        cm.enumNameToValue = allowableValues;
         cm.isString = true;
         final List<String> aliases = Arrays.asList("DOGVAR", "CATVAR");
         final List<String> descriptions = Arrays.asList("This is a dog", "This is a cat");

@@ -28,7 +28,6 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
@@ -1220,7 +1219,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             }
         }
 
-        if (model.allowableValues == null) {
+        if (model.enumNameToValue == null) {
             // needed by all pojos, but not enums
             model.imports.add("ApiModelProperty");
             model.imports.add("ApiModel");

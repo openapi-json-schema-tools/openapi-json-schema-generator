@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.languages;
 
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
@@ -787,7 +786,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (model.allowableValues == null) {
+        if (model.enumNameToValue == null) {
             //final String lib = getLibrary();
             //Needed imports for Jackson based libraries
             if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
@@ -832,7 +831,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
             for (CodegenSchema cm : objs.values()) {
                 // for enum model
-                if (cm.allowableValues != null) {
+                if (cm.enumNameToValue != null) {
                     cm.imports.add(importMapping.get("SerializedName"));
                 }
             }

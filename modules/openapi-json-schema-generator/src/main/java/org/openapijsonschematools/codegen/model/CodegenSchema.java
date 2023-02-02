@@ -208,7 +208,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", isNullable=").append(isNullable);
         sb.append(", isSelfReference=").append(isSelfReference);
         sb.append(", isCircularReference=").append(isCircularReference);
-        sb.append(", allowableValues=").append(allowableValues);
+        sb.append(", allowableValues=").append(enumNameToValue);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
@@ -324,7 +324,7 @@ public class CodegenSchema extends OpenApiSchema {
                 Objects.equals(example, that.example) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
-                Objects.equals(allowableValues, that.allowableValues) &&
+                Objects.equals(enumNameToValue, that.enumNameToValue) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
@@ -349,7 +349,7 @@ public class CodegenSchema extends OpenApiSchema {
                 isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
                 isArray, isMap, isAnyType, isReadOnly, isWriteOnly, isNullable, isShort,
                 isUnboundedInteger, isSelfReference, isCircularReference,
-                allowableValues, items, additionalProperties,
+                enumNameToValue, items, additionalProperties,
                 vendorExtensions, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,

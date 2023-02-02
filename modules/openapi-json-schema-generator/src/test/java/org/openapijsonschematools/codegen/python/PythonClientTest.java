@@ -231,7 +231,7 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.allowableValues.get("enumVars");
+        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertEquals(enumVars.size(), 2);
         Assert.assertEquals(enumVars.get(0).get("name"), "DIGIT_THREE_67B9C");
         Assert.assertEquals(enumVars.get(1).get("name"), "FFA5A4");
