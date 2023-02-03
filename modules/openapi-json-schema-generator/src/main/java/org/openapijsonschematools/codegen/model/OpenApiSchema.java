@@ -43,12 +43,7 @@ public class OpenApiSchema {
     public CodegenDiscriminator discriminator;
     public boolean isReadOnly;
     public boolean isWriteOnly;
-    // todo group these xml attributes into a codegenxml class
-    public boolean isXmlAttribute = false;
-    public String xmlPrefix;
-    public String xmlName;
-    public String xmlNamespace;
-    public boolean isXmlWrapped = false;
+    public CodegenXml xml;
     public ExternalDocumentation externalDocumentation;
     public String example;
     public boolean deprecated;

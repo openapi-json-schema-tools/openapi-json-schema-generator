@@ -201,11 +201,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", minProperties=").append(minProperties);
         sb.append(", uniqueItems=").append(uniqueItems);
         sb.append(", multipleOf=").append(multipleOf);
-        sb.append(", isXmlAttribute=").append(isXmlAttribute);
-        sb.append(", xmlPrefix='").append(xmlPrefix).append('\'');
-        sb.append(", xmlName='").append(xmlName).append('\'');
-        sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
-        sb.append(", isXmlWrapped=").append(isXmlWrapped);
+        sb.append(", xml=").append(xml);
         sb.append(", isNull=").append(isNull);
         sb.append(", requiredProperties=").append(requiredProperties);
         sb.append(", optionalProperties=").append(optionalProperties);
@@ -253,12 +249,11 @@ public class CodegenSchema extends OpenApiSchema {
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
                 nullable == that.nullable &&
-                isXmlAttribute == that.isXmlAttribute &&
-                isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
                 isBooleanSchemaTrue == that.isBooleanSchemaTrue &&
                 isBooleanSchemaFalse == that.isBooleanSchemaFalse &&
                 schemaIsFromAdditionalProperties == that.schemaIsFromAdditionalProperties &&
+                Objects.equals(xml, that.xml) &&
                 Objects.equals(types, that.types) &&
                 Objects.equals(testCases, that.testCases) &&
                 Objects.equals(componentModule, that.componentModule) &&
@@ -293,9 +288,6 @@ public class CodegenSchema extends OpenApiSchema {
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
-                Objects.equals(xmlPrefix, that.xmlPrefix) &&
-                Objects.equals(xmlName, that.xmlName) &&
-                Objects.equals(xmlNamespace, that.xmlNamespace) &&
                 Objects.equals(multipleOf, that.multipleOf);
     }
 
@@ -306,11 +298,10 @@ public class CodegenSchema extends OpenApiSchema {
                 title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
-                isString, isInteger, isNumber, isBoolean,
+                isNull, isString, isInteger, isNumber, isBoolean,
                 isArray, isMap, isReadOnly, isWriteOnly, nullable, isUnboundedInteger,
                 enumNameToValue, items, additionalProperties,
-                vendorExtensions, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
-                xmlNamespace, isXmlWrapped, isNull,
+                vendorExtensions, maxItems, minItems, xml,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,

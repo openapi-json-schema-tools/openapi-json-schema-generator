@@ -56,6 +56,7 @@ import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
+import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.ObjectWithTypeBooleans;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
@@ -2794,14 +2795,17 @@ public class DefaultCodegen implements CodegenConfig {
         }
         property.nullable = p.getNullable();
 
+        CodegenXml xml = null;
         if (p.getXml() != null) {
-            if (p.getXml().getAttribute() != null) {
-                property.isXmlAttribute = p.getXml().getAttribute();
-            }
-            property.xmlPrefix = p.getXml().getPrefix();
-            property.xmlName = p.getXml().getName();
-            property.xmlNamespace = p.getXml().getNamespace();
+            xml = new CodegenXml(
+                    p.getXml().getName(),
+                    p.getXml().getNamespace(),
+                    p.getXml().getPrefix(),
+                    p.getXml().getAttribute(),
+                    p.getXml().getWrapped()
+            );
         }
+        property.xml = xml;
         if (p.getExtensions() != null && !p.getExtensions().isEmpty()) {
             property.vendorExtensions.putAll(p.getExtensions());
         }
@@ -2839,12 +2843,6 @@ public class DefaultCodegen implements CodegenConfig {
             updatePropertyForNumber(property, p);
         } else if (ModelUtils.isArraySchema(p)) {
             // default to string if inner item is undefined
-            if (p.getXml() != null) {
-                property.isXmlWrapped = p.getXml().getWrapped() == null ? false : p.getXml().getWrapped();
-                property.xmlPrefix = p.getXml().getPrefix();
-                property.xmlNamespace = p.getXml().getNamespace();
-                property.xmlName = p.getXml().getName();
-            }
         } else if (ModelUtils.isAnyType(p)) {
             // The 'null' value is allowed when the OAS schema is 'any type'.
             // See https://github.com/OAI/OpenAPI-Specification/issues/1389
