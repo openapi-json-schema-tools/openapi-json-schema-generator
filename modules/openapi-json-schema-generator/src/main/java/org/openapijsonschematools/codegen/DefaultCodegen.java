@@ -2521,47 +2521,27 @@ public class DefaultCodegen implements CodegenConfig {
     protected void updatePropertyForString(CodegenSchema property, Schema p) {
         if (ModelUtils.isByteArraySchema(p)) {
             property.isString = false;
-            property.isByteArray = true;
         } else if (ModelUtils.isBinarySchema(p)) {
-            property.isBinary = true;
-            property.isFile = true; // file = binary in OAS3
         } else if (ModelUtils.isUUIDSchema(p)) {
-            property.isUuid = true;
         } else if (ModelUtils.isURISchema(p)) {
-            property.isUri = true;
         } else if (ModelUtils.isEmailSchema(p)) {
-            property.isEmail = true;
         } else if (ModelUtils.isDateSchema(p)) { // date format
             property.isString = false; // for backward compatibility with 2.x
-            property.isDate = true;
         } else if (ModelUtils.isDateTimeSchema(p)) { // date-time format
             property.isString = false; // for backward compatibility with 2.x
-            property.isDateTime = true;
         } else if (ModelUtils.isDecimalSchema(p)) { // type: string, format: number
-            property.isDecimal = true;
             property.isString = false;
         }
         property.pattern = toRegularExpression(p.getPattern());
     }
 
     protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
-        property.isNumeric = Boolean.TRUE;
-        if (ModelUtils.isFloatSchema(p)) { // float
-            property.isFloat = Boolean.TRUE;
-        } else if (ModelUtils.isDoubleSchema(p)) { // double
-            property.isDouble = Boolean.TRUE;
-        }
     }
 
     protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
-        property.isNumeric = Boolean.TRUE;
         if (ModelUtils.isLongSchema(p)) { // int64/long format
-            property.isLong = Boolean.TRUE;
         } else {
             property.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-            if (ModelUtils.isShortSchema(p)) { // int32
-                property.isShort = Boolean.TRUE;
-            }
         }
     }
 
@@ -2852,7 +2832,6 @@ public class DefaultCodegen implements CodegenConfig {
             // no action
         } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
             // swagger v2 only, type file
-            property.isFile = true;
         } else if (ModelUtils.isStringSchema(p)) {
             updatePropertyForString(property, p);
         } else if (ModelUtils.isNumberSchema(p)) {

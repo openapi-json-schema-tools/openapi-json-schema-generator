@@ -1561,9 +1561,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         } else if (ModelUtils.isUUIDSchema(p)) {
             // isString stays true, format stores that this is a uuid
         } else if (ModelUtils.isURISchema(p)) {
-            property.isUri = true;
         } else if (ModelUtils.isEmailSchema(p)) {
-            property.isEmail = true;
         } else if (ModelUtils.isDateSchema(p)) { // date format
             // isString stays true, format stores that this is a date
         } else if (ModelUtils.isDateTimeSchema(p)) { // date-time format

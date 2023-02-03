@@ -31,24 +31,10 @@ public class CodegenSchema extends OpenApiSchema {
     public String unescapedDescription;
 
     public boolean isString;
-    public boolean isNumeric;
     public boolean isInteger;
-    public boolean isShort;
-    public boolean isLong;
     public boolean isUnboundedInteger;
     public boolean isNumber;
-    public boolean isFloat;
-    public boolean isDouble;
-    public boolean isDecimal;
-    public boolean isByteArray;
-    public boolean isBinary;
-    public boolean isFile;
     public boolean isBoolean;
-    public boolean isDate; // full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
-    public boolean isDateTime; // the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28Z
-    public boolean isUuid;
-    public boolean isUri;
-    public boolean isEmail;
     public boolean isNull;
     public boolean isArray;
     public boolean isMap;
@@ -195,24 +181,10 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", deprecated=").append(deprecated);
         sb.append(", types=").append(types);
         sb.append(", isString=").append(isString);
-        sb.append(", isNumeric=").append(isNumeric);
         sb.append(", isInteger=").append(isInteger);
-        sb.append(", isShort=").append(isShort);
-        sb.append(", isLong=").append(isLong);
         sb.append(", isUnboundedInteger=").append(isUnboundedInteger);
         sb.append(", isNumber=").append(isNumber);
-        sb.append(", isFloat=").append(isFloat);
-        sb.append(", isDouble=").append(isDouble);
-        sb.append(", isDecimal=").append(isDecimal);
-        sb.append(", isByteArray=").append(isByteArray);
-        sb.append(", isBinary=").append(isBinary);
-        sb.append(", isFile=").append(isFile);
         sb.append(", isBoolean=").append(isBoolean);
-        sb.append(", isDate=").append(isDate);
-        sb.append(", isDateTime=").append(isDateTime);
-        sb.append(", isUuid=").append(isUuid);
-        sb.append(", isUri=").append(isUri);
-        sb.append(", isEmail=").append(isEmail);
         sb.append(", isArray=").append(isArray);
         sb.append(", isMap=").append(isMap);
         sb.append(", isAnyType=").append(isAnyType());
@@ -277,24 +249,10 @@ public class CodegenSchema extends OpenApiSchema {
                 exclusiveMaximum == that.exclusiveMaximum &&
                 deprecated == that.deprecated &&
                 isString == that.isString &&
-                isNumeric == that.isNumeric &&
                 isInteger == that.isInteger &&
-                isShort == that.isShort &&
-                isLong == that.isLong &&
                 isUnboundedInteger == that.isUnboundedInteger &&
                 isNumber == that.isNumber &&
-                isFloat == that.isFloat &&
-                isDouble == that.isDouble &&
-                isDecimal == that.isDecimal &&
-                isByteArray == that.isByteArray &&
-                isBinary == that.isBinary &&
-                isFile == that.isFile &&
                 isBoolean == that.isBoolean &&
-                isDate == that.isDate &&
-                isDateTime == that.isDateTime &&
-                isUuid == that.isUuid &&
-                isUri == that.isUri &&
-                isEmail == that.isEmail &&
                 isArray == that.isArray &&
                 isMap == that.isMap &&
                 isReadOnly == that.isReadOnly &&
@@ -357,10 +315,8 @@ public class CodegenSchema extends OpenApiSchema {
                 title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
-                isString, isNumeric,
-                isInteger, isLong, isNumber, isFloat, isDouble, isDecimal, isByteArray, isBinary, isFile,
-                isBoolean, isDate, isDateTime, isUuid, isUri, isEmail,
-                isArray, isMap, isReadOnly, isWriteOnly, isNullable, isShort,
+                isString, isInteger, isNumber, isBoolean,
+                isArray, isMap, isReadOnly, isWriteOnly, isNullable,
                 isUnboundedInteger, isSelfReference, isCircularReference,
                 enumNameToValue, items, additionalProperties,
                 vendorExtensions, discriminatorValue,
