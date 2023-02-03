@@ -751,12 +751,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             // so integer validation info must be set using formatting
             cp.format = "int";
         }
-        if (cp.isAnyType() && cp.isNullable) {
-            cp.isNullable = false;
-        }
-        if (cp.isNullable && cp.refInfo == null) {
+        // TODO limit this to 3.0.0-3.0.3 specs
+        if (Boolean.TRUE.equals(cp.nullable) && cp.refInfo == null && cp.types != null) {
             cp.isNull = true;
-            cp.isNullable = false;
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);

@@ -52,5 +52,6 @@ public class OpenApiSchema {
     public ExternalDocumentation externalDocumentation;
     public String example;
     public boolean deprecated;
+    public Boolean nullable;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
 }

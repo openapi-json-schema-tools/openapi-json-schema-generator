@@ -1209,7 +1209,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 model.imports.add("ArrayList");
             } else if (property.isArray && property.uniqueItems) {
                 model.imports.add("LinkedHashSet");
-                boolean canNotBeWrappedToNullable = !openApiNullable || !property.isNullable;
+                boolean canNotBeWrappedToNullable = !openApiNullable || Boolean.FALSE.equals(property.nullable);
                 if (canNotBeWrappedToNullable) {
                     model.imports.add("JsonDeserialize");
                     property.vendorExtensions.put("x-setter-extra-annotation", "@JsonDeserialize(as = LinkedHashSet.class)");
@@ -1226,7 +1226,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (openApiNullable) {
-            if (Boolean.TRUE.equals(property.isNullable)) {
+            if (Boolean.TRUE.equals(property.nullable)) {
                 model.imports.add("JsonNullable");
                 model.vendorExtensions.put("x-jackson-optional-nullable-helpers", true);
             }

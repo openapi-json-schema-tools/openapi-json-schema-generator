@@ -38,7 +38,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isNull;
     public boolean isArray;
     public boolean isMap;
-    public boolean isNullable;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public CodegenRefInfo<CodegenSchema> refInfo;
     public boolean schemaIsFromAdditionalProperties;
@@ -190,7 +189,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", isAnyType=").append(isAnyType());
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
-        sb.append(", isNullable=").append(isNullable);
+        sb.append(", nullable=").append(nullable);
         sb.append(", allowableValues=").append(enumNameToValue);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
@@ -253,7 +252,7 @@ public class CodegenSchema extends OpenApiSchema {
                 isMap == that.isMap &&
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
-                isNullable == that.isNullable &&
+                nullable == that.nullable &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
@@ -308,7 +307,7 @@ public class CodegenSchema extends OpenApiSchema {
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 isString, isInteger, isNumber, isBoolean,
-                isArray, isMap, isReadOnly, isWriteOnly, isNullable, isUnboundedInteger,
+                isArray, isMap, isReadOnly, isWriteOnly, nullable, isUnboundedInteger,
                 enumNameToValue, items, additionalProperties,
                 vendorExtensions, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,

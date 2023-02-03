@@ -2792,9 +2792,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (p.getWriteOnly() != null) {
             property.isWriteOnly = p.getWriteOnly();
         }
-        if (p.getNullable() != null) {
-            property.isNullable = p.getNullable();
-        }
+        property.nullable = p.getNullable();
 
         if (p.getXml() != null) {
             if (p.getXml().getAttribute() != null) {
