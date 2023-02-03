@@ -1194,7 +1194,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (serializeBigDecimalAsString) {
-            if (property.isDecimal) {
+            if (property.types.contains("string") && property.format.equals("number")) {
                 // we serialize BigDecimal as `string` to avoid precision loss
                 property.vendorExtensions.put("x-extra-annotation", "@JsonSerialize(using = ToStringSerializer.class)");
 
