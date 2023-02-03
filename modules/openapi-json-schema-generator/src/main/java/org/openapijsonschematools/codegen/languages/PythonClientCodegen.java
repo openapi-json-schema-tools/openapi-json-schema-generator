@@ -757,7 +757,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (cp.isNullable && cp.refInfo == null) {
             cp.isNull = true;
             cp.isNullable = false;
-            cp.hasMultipleTypes = true;
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);

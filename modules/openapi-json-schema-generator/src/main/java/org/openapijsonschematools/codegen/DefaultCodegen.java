@@ -2678,8 +2678,11 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (schema.getTypes() != null) {
             types.addAll(schema.getTypes());
         }
-        if (types.isEmpty()) {
-            return null;
+        // TODO when does nullable False apply? Only AnyTypeSchema?
+        // TODO limit this to v3-3.0.03 schemas only
+        Boolean nullable = schema.getNullable();
+        if (Boolean.TRUE.equals(nullable) && schema.get$ref() == null) {
+            types.add("null");
         }
         return types;
     }

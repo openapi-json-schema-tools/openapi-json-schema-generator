@@ -42,8 +42,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isSelfReference;
     public boolean isCircularReference;
     public String discriminatorValue;
-    // todo make this calculated from types
-    public boolean hasMultipleTypes = false;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public CodegenRefInfo<CodegenSchema> refInfo;
     public boolean schemaIsFromAdditionalProperties;
@@ -57,6 +55,10 @@ public class CodegenSchema extends OpenApiSchema {
             return true;
         }
         return false;
+    }
+
+    public boolean hasMultipleTypes() {
+        return (types != null && types.size() > 1);
     }
 
     public boolean isAnyType() {
@@ -180,6 +182,7 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
         sb.append(", deprecated=").append(deprecated);
         sb.append(", types=").append(types);
+        sb.append(", hasMultipleTypes=").append(hasMultipleTypes());
         sb.append(", isString=").append(isString);
         sb.append(", isInteger=").append(isInteger);
         sb.append(", isUnboundedInteger=").append(isUnboundedInteger);
@@ -211,7 +214,6 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", xmlNamespace='").append(xmlNamespace).append('\'');
         sb.append(", isXmlWrapped=").append(isXmlWrapped);
         sb.append(", isNull=").append(isNull);
-        sb.append(", hasMultipleTypes=").append(hasMultipleTypes);
         sb.append(", requiredProperties=").append(requiredProperties);
         sb.append(", optionalProperties=").append(optionalProperties);
         sb.append(", properties=").append(properties);
@@ -263,7 +265,6 @@ public class CodegenSchema extends OpenApiSchema {
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
-                hasMultipleTypes == that.hasMultipleTypes &&
                 isBooleanSchemaTrue == that.isBooleanSchemaTrue &&
                 isBooleanSchemaFalse == that.isBooleanSchemaFalse &&
                 schemaIsFromAdditionalProperties == that.schemaIsFromAdditionalProperties &&
@@ -322,7 +323,6 @@ public class CodegenSchema extends OpenApiSchema {
                 vendorExtensions, discriminatorValue,
                 maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
-                hasMultipleTypes,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,
