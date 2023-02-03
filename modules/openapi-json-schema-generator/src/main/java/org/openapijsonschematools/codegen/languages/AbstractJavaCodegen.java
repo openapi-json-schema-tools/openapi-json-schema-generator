@@ -1232,7 +1232,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             }
         }
 
-        if (property.isReadOnly) {
+        if (property.readOnly) {
             model.vendorExtensions.put("x-has-readonly-properties", true);
         }
     }

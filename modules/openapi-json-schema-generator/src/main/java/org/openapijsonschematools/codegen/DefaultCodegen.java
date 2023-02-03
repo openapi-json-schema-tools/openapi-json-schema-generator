@@ -2784,15 +2784,9 @@ public class DefaultCodegen implements CodegenConfig {
         property.title = p.getTitle();
         property.defaultValue = toDefaultValue(p);
 
-        if (p.getDeprecated() != null) {
-            property.deprecated = p.getDeprecated();
-        }
-        if (p.getReadOnly() != null) {
-            property.isReadOnly = p.getReadOnly();
-        }
-        if (p.getWriteOnly() != null) {
-            property.isWriteOnly = p.getWriteOnly();
-        }
+        property.deprecated = p.getDeprecated();
+        property.readOnly = p.getReadOnly();
+        property.writeOnly = p.getWriteOnly();
         property.nullable = p.getNullable();
 
         CodegenXml xml = null;

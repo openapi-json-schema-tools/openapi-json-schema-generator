@@ -41,12 +41,12 @@ public class OpenApiSchema {
     // openapi specific
     // note: nullable not stored, instead null is added to types
     public CodegenDiscriminator discriminator;
-    public boolean isReadOnly;
-    public boolean isWriteOnly;
+    public Boolean readOnly;
+    public Boolean writeOnly;
     public CodegenXml xml;
     public ExternalDocumentation externalDocumentation;
     public String example;
-    public boolean deprecated;
+    public Boolean deprecated;
     public Boolean nullable;
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
 }
