@@ -39,9 +39,6 @@ public class CodegenSchema extends OpenApiSchema {
     public boolean isArray;
     public boolean isMap;
     public boolean isNullable;
-    public boolean isSelfReference;
-    public boolean isCircularReference;
-    public String discriminatorValue;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public CodegenRefInfo<CodegenSchema> refInfo;
     public boolean schemaIsFromAdditionalProperties;
@@ -194,14 +191,11 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", isReadOnly=").append(isReadOnly);
         sb.append(", isWriteOnly=").append(isWriteOnly);
         sb.append(", isNullable=").append(isNullable);
-        sb.append(", isSelfReference=").append(isSelfReference);
-        sb.append(", isCircularReference=").append(isCircularReference);
         sb.append(", allowableValues=").append(enumNameToValue);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", hasValidation=").append(hasValidation());
-        sb.append(", discriminatorValue='").append(discriminatorValue).append('\'');
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxProperties=").append(maxProperties);
@@ -260,8 +254,6 @@ public class CodegenSchema extends OpenApiSchema {
                 isReadOnly == that.isReadOnly &&
                 isWriteOnly == that.isWriteOnly &&
                 isNullable == that.isNullable &&
-                isSelfReference == that.isSelfReference &&
-                isCircularReference == that.isCircularReference &&
                 isXmlAttribute == that.isXmlAttribute &&
                 isXmlWrapped == that.isXmlWrapped &&
                 isNull == that.isNull &&
@@ -300,7 +292,6 @@ public class CodegenSchema extends OpenApiSchema {
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                Objects.equals(discriminatorValue, that.discriminatorValue) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
                 Objects.equals(xmlPrefix, that.xmlPrefix) &&
@@ -317,11 +308,9 @@ public class CodegenSchema extends OpenApiSchema {
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 isString, isInteger, isNumber, isBoolean,
-                isArray, isMap, isReadOnly, isWriteOnly, isNullable,
-                isUnboundedInteger, isSelfReference, isCircularReference,
+                isArray, isMap, isReadOnly, isWriteOnly, isNullable, isUnboundedInteger,
                 enumNameToValue, items, additionalProperties,
-                vendorExtensions, discriminatorValue,
-                maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
+                vendorExtensions, maxItems, minItems, isXmlAttribute, xmlPrefix, xmlName,
                 xmlNamespace, isXmlWrapped, isNull,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,
