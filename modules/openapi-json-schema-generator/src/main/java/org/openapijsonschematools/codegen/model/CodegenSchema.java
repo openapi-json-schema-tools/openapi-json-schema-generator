@@ -32,7 +32,6 @@ public class CodegenSchema extends OpenApiSchema {
 
     public boolean isString;
     public boolean isInteger;
-    public boolean isUnboundedInteger;
     public boolean isNumber;
     public boolean isBoolean;
     public boolean isNull;
@@ -98,21 +97,9 @@ public class CodegenSchema extends OpenApiSchema {
                 ;
             }
         } else if (ModelUtils.isNumberSchema(p)) {
-            if (ModelUtils.isFloatSchema(p)) { // float
-                ;
-            } else if (ModelUtils.isDoubleSchema(p)) { // double
-                ;
-            } else { // type is number and without format
-                isNumber = true;
-            }
+            isNumber = true;
         } else if (ModelUtils.isIntegerSchema(p)) { // integer type
-            if (ModelUtils.isLongSchema(p)) { // int64/long format
-                ;
-            } else if (ModelUtils.isShortSchema(p)) { // int32/short format
-                ;
-            } else { // unbounded integer
-                isUnboundedInteger = true;
-            }
+            isInteger = true;
         } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
             isBoolean = true;
         } else if (ModelUtils.isNullType(p)) {
@@ -181,7 +168,6 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes());
         sb.append(", isString=").append(isString);
         sb.append(", isInteger=").append(isInteger);
-        sb.append(", isUnboundedInteger=").append(isUnboundedInteger);
         sb.append(", isNumber=").append(isNumber);
         sb.append(", isBoolean=").append(isBoolean);
         sb.append(", isArray=").append(isArray);
@@ -241,7 +227,6 @@ public class CodegenSchema extends OpenApiSchema {
                 deprecated == that.deprecated &&
                 isString == that.isString &&
                 isInteger == that.isInteger &&
-                isUnboundedInteger == that.isUnboundedInteger &&
                 isNumber == that.isNumber &&
                 isBoolean == that.isBoolean &&
                 isArray == that.isArray &&
@@ -299,7 +284,7 @@ public class CodegenSchema extends OpenApiSchema {
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 isNull, isString, isInteger, isNumber, isBoolean,
-                isArray, isMap, readOnly, writeOnly, nullable, isUnboundedInteger,
+                isArray, isMap, readOnly, writeOnly, nullable,
                 enumNameToValue, items, additionalProperties,
                 vendorExtensions, maxItems, minItems, xml,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,

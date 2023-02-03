@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ObjectWithTypeBooleans {
-    public boolean isUnboundedInteger;
+    public boolean isInteger;
     public boolean isNumber;
     public boolean isString;
     public boolean isMap;
@@ -25,7 +25,7 @@ public class ObjectWithTypeBooleans {
     public ObjectWithTypeBooleans(Object value) {
         Object usedValue = null;
         if (value instanceof Integer){
-            this.isUnboundedInteger = true;
+            this.isInteger = true;
             this.value = value;
         } else if (value instanceof Double || value instanceof Float){
             this.isNumber = true;
