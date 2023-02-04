@@ -1,35 +1,37 @@
-{{#if isArray}}
+{{# each types}}
+    {{#eq this "array"}}
 schemas.ListBase,
-{{/if}}
-{{#if isMap}}
+    {{/eq}}
+    {{#eq this "object"}}
 schemas.DictBase,
-{{/if}}
-{{#if isString}}
-    {{#eq format "date"}}
+    {{/eq}}
+    {{#eq this "string"}}
+        {{#eq format "date"}}
 schemas.DateBase,
-    {{/eq}}
-    {{#eq format "date-time"}}
+        {{/eq}}
+        {{#eq format "date-time"}}
 schemas.DateTimeBase,
-    {{/eq}}
-    {{#eq format "uuid"}}
+        {{/eq}}
+        {{#eq format "uuid"}}
 schemas.UUIDBase,
-    {{/eq}}
-    {{#eq format "number"}}
+        {{/eq}}
+        {{#eq format "number"}}
 schemas.DecimalBase,
-    {{/eq}}
+        {{/eq}}
 schemas.StrBase,
-{{/if}}
-{{#if isNumber}}
+    {{/eq}}
+    {{#eq this "number"}}
 schemas.NumberBase,
-{{/if}}
-{{#if isInteger}}
+    {{/eq}}
+    {{#eq this "integer"}}
 schemas.IntBase,
-{{/if}}
-{{#if isBoolean}}
+    {{/eq}}
+    {{#eq this "boolean"}}
 schemas.BoolBase,
-{{/if}}
-{{#if isNull}}
+    {{/eq}}
+    {{#eq this "null"}}
 schemas.NoneBase,
-{{/if}}
+    {{/eq}}
+{{/each}}
 schemas.Schema,
-schemas.{{#if isNull}}None{{/if}}{{#if isMap}}FrozenDict{{/if}}{{#if isArray}}Tuple{{/if}}{{#if isString }}Str{{/if}}{{#or isInteger isNumber}}Decimal{{/or}}{{#if isBoolean}}Bool{{/if}}Mixin
+schemas.{{#each types}}{{#eq this "null"}}None{{/eq}}{{#eq this "object"}}FrozenDict{{/eq}}{{#eq this "array"}}Tuple{{/eq}}{{#eq this "string"}}Str{{/eq}}{{#eq this "number"}}Decimal{{/eq}}{{#eq this "integer"}}Decimal{{/eq}}{{#eq this "boolean"}}Bool{{/eq}}{{/each}}Mixin
