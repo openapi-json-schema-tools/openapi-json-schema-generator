@@ -20,29 +20,31 @@ def __new__(
 {{else}}
     *args_: typing.Union[{{> _helper_schema_python_types }}],
 {{/if}}
-{{#unless isNull}}
-    {{#if requiredProperties}}
-        {{#each requiredProperties}}
-            {{#if @key.nameIsValid}}
-                {{#with this}}
-                    {{#if refInfo.refClass}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.nameIsValid}}
+                    {{#with this}}
+                        {{#if refInfo.refClass}}
     {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
-                    {{else}}
-                        {{#if name}}
-                            {{#if schemaIsFromAdditionalProperties}}
-    {{@key.name}}: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
-                            {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
-                            {{/if}}
                         {{else}}
+                            {{#if name}}
+                                {{#if schemaIsFromAdditionalProperties}}
+    {{@key.name}}: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+                                {{else}}
+    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+                                {{/if}}
+                            {{else}}
     {{@key.name}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
+                            {{/if}}
                         {{/if}}
-                    {{/if}}
-                {{/with}}
-            {{/if}}
-        {{/each}}
-    {{/if}}
-{{/unless}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
+{{/if}}
 {{#each optionalProperties}}
     {{#if @key.nameIsValid}}
         {{#if refInfo.refClass}}
@@ -90,21 +92,23 @@ def __new__(
         *args_,
 {{/if}}
 {{/if}}
-{{#unless isNull}}
-{{#if requiredProperties}}
-{{#each requiredProperties}}
-{{#if @key.nameIsValid}}
-{{#with this}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.nameIsValid}}
+                    {{#with this}}
         {{@key.name}}={{@key.name}},
-{{/with}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
 {{/if}}
-{{/each}}
-{{/if}}
-{{/unless}}
 {{#each optionalProperties}}
-{{#if @key.nameIsValid}}
+    {{#if @key.nameIsValid}}
         {{@key.name}}={{@key.name}},
-{{/if}}
+    {{/if}}
 {{/each}}
         configuration_=configuration_,
 {{#with additionalProperties}}
