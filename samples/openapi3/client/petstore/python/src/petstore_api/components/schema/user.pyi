@@ -48,8 +48,8 @@ class User(
             
             
             class ObjectWithNoDeclaredPropsNullable(
-                schemas.DictBase,
                 schemas.NoneBase,
+                schemas.DictBase,
                 schemas.Schema,
                 schemas.NoneFrozenDictMixin
             ):

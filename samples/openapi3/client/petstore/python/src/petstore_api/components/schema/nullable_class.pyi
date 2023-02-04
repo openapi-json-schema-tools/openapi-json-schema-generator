@@ -39,8 +39,8 @@ class NullableClass(
             
             
             class IntegerProp(
-                schemas.IntBase,
                 schemas.NoneBase,
+                schemas.IntBase,
                 schemas.Schema,
                 schemas.NoneDecimalMixin
             ):
@@ -67,8 +67,8 @@ class NullableClass(
             
             
             class NumberProp(
-                schemas.NumberBase,
                 schemas.NoneBase,
+                schemas.NumberBase,
                 schemas.Schema,
                 schemas.NoneDecimalMixin
             ):
@@ -94,8 +94,8 @@ class NullableClass(
             
             
             class BooleanProp(
-                schemas.BoolBase,
                 schemas.NoneBase,
+                schemas.BoolBase,
                 schemas.Schema,
                 schemas.NoneBoolMixin
             ):
@@ -121,8 +121,8 @@ class NullableClass(
             
             
             class StringProp(
-                schemas.StrBase,
                 schemas.NoneBase,
+                schemas.StrBase,
                 schemas.Schema,
                 schemas.NoneStrMixin
             ):
@@ -148,9 +148,9 @@ class NullableClass(
             
             
             class DateProp(
+                schemas.NoneBase,
                 schemas.DateBase,
                 schemas.StrBase,
-                schemas.NoneBase,
                 schemas.Schema,
                 schemas.NoneStrMixin
             ):
@@ -177,9 +177,9 @@ class NullableClass(
             
             
             class DatetimeProp(
+                schemas.NoneBase,
                 schemas.DateTimeBase,
                 schemas.StrBase,
-                schemas.NoneBase,
                 schemas.Schema,
                 schemas.NoneStrMixin
             ):
@@ -206,8 +206,8 @@ class NullableClass(
             
             
             class ArrayNullableProp(
-                schemas.ListBase,
                 schemas.NoneBase,
+                schemas.ListBase,
                 schemas.Schema,
                 schemas.NoneTupleMixin
             ):
@@ -234,8 +234,8 @@ class NullableClass(
             
             
             class ArrayAndItemsNullableProp(
-                schemas.ListBase,
                 schemas.NoneBase,
+                schemas.ListBase,
                 schemas.Schema,
                 schemas.NoneTupleMixin
             ):
@@ -249,8 +249,8 @@ class NullableClass(
                     
                     
                     class Items(
-                        schemas.DictBase,
                         schemas.NoneBase,
+                        schemas.DictBase,
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
@@ -299,8 +299,8 @@ class NullableClass(
                     
                     
                     class Items(
-                        schemas.DictBase,
                         schemas.NoneBase,
+                        schemas.DictBase,
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
@@ -342,8 +342,8 @@ class NullableClass(
             
             
             class ObjectNullableProp(
-                schemas.DictBase,
                 schemas.NoneBase,
+                schemas.DictBase,
                 schemas.Schema,
                 schemas.NoneFrozenDictMixin
             ):
@@ -379,8 +379,8 @@ class NullableClass(
             
             
             class ObjectAndItemsNullableProp(
-                schemas.DictBase,
                 schemas.NoneBase,
+                schemas.DictBase,
                 schemas.Schema,
                 schemas.NoneFrozenDictMixin
             ):
@@ -394,8 +394,8 @@ class NullableClass(
                     
                     
                     class AdditionalProperties(
-                        schemas.DictBase,
                         schemas.NoneBase,
+                        schemas.DictBase,
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
@@ -452,8 +452,8 @@ class NullableClass(
                     
                     
                     class AdditionalProperties(
-                        schemas.DictBase,
                         schemas.NoneBase,
+                        schemas.DictBase,
                         schemas.Schema,
                         schemas.NoneFrozenDictMixin
                     ):
@@ -515,8 +515,8 @@ class NullableClass(
         
         
         class AdditionalProperties(
-            schemas.DictBase,
             schemas.NoneBase,
+            schemas.DictBase,
             schemas.Schema,
             schemas.NoneFrozenDictMixin
         ):

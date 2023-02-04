@@ -41,8 +41,8 @@ class HealthCheckResult(
             
             
             class NullableMessage(
-                schemas.StrBase,
                 schemas.NoneBase,
+                schemas.StrBase,
                 schemas.Schema,
                 schemas.NoneStrMixin
             ):

@@ -24,8 +24,8 @@ from petstore_api import schemas  # noqa: F401
 
 
 class Apple(
-    schemas.DictBase,
     schemas.NoneBase,
+    schemas.DictBase,
     schemas.Schema,
     schemas.NoneFrozenDictMixin
 ):
