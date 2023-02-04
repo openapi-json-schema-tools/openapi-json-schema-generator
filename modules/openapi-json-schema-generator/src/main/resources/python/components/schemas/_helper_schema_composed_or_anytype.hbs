@@ -39,9 +39,9 @@ class {{name.camelCaseName}}(
 
 
     class Schema_:
-{{#if isAnyType}}
+{{#eq types null}}
         # any type
-{{/if}}
+{{/eq}}
         {{> components/schemas/_helper_types }}
 {{#if format}}
         format = '{{format}}'
