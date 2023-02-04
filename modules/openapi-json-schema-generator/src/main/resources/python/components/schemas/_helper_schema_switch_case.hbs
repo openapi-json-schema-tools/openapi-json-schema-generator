@@ -15,28 +15,31 @@
 {{> components/schemas/_helper_var_equals_cls }}
             {{/or}}
         {{else}}
-            {{#or isMap isArray}}
-                {{#if isMap}}
+            {{#each types}}
+                {{#eq this "object"}}
                     {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
 {{> components/schemas/_helper_schema_dict }}
                     {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                     {{/or}}
-                {{/if}}
-                {{#if isArray}}
+                {{/eq}}
+                {{#eq this "array"}}
                     {{#or items hasValidation}}
 {{> components/schemas/_helper_schema_list }}
                     {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                     {{/or}}
-                {{/if}}
-            {{else}}
-                {{#or enumNameToValue hasValidation}}
+                {{/eq}}
+                {{#neq this "object"}}
+                    {{#neq this "array"}}
+                        {{#or enumNameToValue hasValidation}}
 {{> components/schemas/_helper_schema_simple }}
-                {{else}}
+                        {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
-                {{/or}}
-            {{/or}}
+                        {{/or}}
+                    {{/neq}}
+                {{/neq}}
+            {{/each}}
         {{/eq}}
     {{/if}}
 {{/or}}
