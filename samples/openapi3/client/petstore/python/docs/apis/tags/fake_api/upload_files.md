@@ -71,7 +71,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
+items | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
 ### Return Types, Responses
 

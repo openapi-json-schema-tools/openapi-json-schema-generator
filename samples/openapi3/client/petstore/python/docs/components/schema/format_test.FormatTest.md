@@ -24,7 +24,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **float64** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional] value must be a 64 bit float
 **arrayWithUniqueItems** | [list, tuple, ](#arrayWithUniqueItems) | [tuple, ](#arrayWithUniqueItems) |  | [optional]
 **string** | str,  | str,  |  | [optional]
-**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  | [optional]
+**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  | [optional]
 **dateTime** | str, datetime.datetime,  | str,  |  | [optional] value must conform to RFC-3339 date-time
 **uuid** | str, uuid.UUID,  | str,  |  | [optional] value must be a uuid
 **uuidNoExample** | str, uuid.UUID,  | str,  |  | [optional] value must be a uuid

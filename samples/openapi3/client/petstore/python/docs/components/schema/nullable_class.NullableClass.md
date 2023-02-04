@@ -16,20 +16,20 @@ Key | Input Type | Accessed Type | Description | Notes
 **string_prop** | None, str,  | NoneClass, str,  |  | [optional]
 **date_prop** | None, str, datetime.date,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **datetime_prop** | None, str, datetime.datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | [list, tuple, None, ](#array_nullable_prop) | [tuple, NoneClass, ](#array_nullable_prop) |  | [optional]
-**array_and_items_nullable_prop** | [list, tuple, None, ](#array_and_items_nullable_prop) | [tuple, NoneClass, ](#array_and_items_nullable_prop) |  | [optional]
+**array_nullable_prop** | [None, list, tuple, ](#array_nullable_prop) | [NoneClass, tuple, ](#array_nullable_prop) |  | [optional]
+**array_and_items_nullable_prop** | [None, list, tuple, ](#array_and_items_nullable_prop) | [NoneClass, tuple, ](#array_and_items_nullable_prop) |  | [optional]
 **array_items_nullable** | [list, tuple, ](#array_items_nullable) | [tuple, ](#array_items_nullable) |  | [optional]
-**object_nullable_prop** | [dict, frozendict.frozendict, None, ](#object_nullable_prop) | [frozendict.frozendict, NoneClass, ](#object_nullable_prop) |  | [optional]
-**object_and_items_nullable_prop** | [dict, frozendict.frozendict, None, ](#object_and_items_nullable_prop) | [frozendict.frozendict, NoneClass, ](#object_and_items_nullable_prop) |  | [optional]
+**object_nullable_prop** | [None, dict, frozendict.frozendict, ](#object_nullable_prop) | [NoneClass, frozendict.frozendict, ](#object_nullable_prop) |  | [optional]
+**object_and_items_nullable_prop** | [None, dict, frozendict.frozendict, ](#object_and_items_nullable_prop) | [NoneClass, frozendict.frozendict, ](#object_and_items_nullable_prop) |  | [optional]
 **object_items_nullable** | [dict, frozendict.frozendict, ](#object_items_nullable) | [frozendict.frozendict, ](#object_items_nullable) |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
 # array_nullable_prop
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple, None,  | tuple, NoneClass,  |  |
+None, list, tuple,  | NoneClass, tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
@@ -48,19 +48,19 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple, None,  | tuple, NoneClass,  |  |
+None, list, tuple,  | NoneClass, tuple,  |  |
 
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # items
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # array_items_nullable
 
@@ -72,21 +72,21 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # items
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # object_nullable_prop
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -105,19 +105,19 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
 # any_string_name
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # object_items_nullable
 
@@ -129,20 +129,20 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
 # any_string_name
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 # any_string_name
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  |  |
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
