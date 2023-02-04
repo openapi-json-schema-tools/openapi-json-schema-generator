@@ -1,0 +1,35 @@
+{{#if isArray}}
+schemas.ListBase,
+{{/if}}
+{{#if isMap}}
+schemas.DictBase,
+{{/if}}
+{{#if isString}}
+    {{#eq format "date"}}
+schemas.DateBase,
+    {{/eq}}
+    {{#eq format "date-time"}}
+schemas.DateTimeBase,
+    {{/eq}}
+    {{#eq format "uuid"}}
+schemas.UUIDBase,
+    {{/eq}}
+    {{#eq format "number"}}
+schemas.DecimalBase,
+    {{/eq}}
+schemas.StrBase,
+{{/if}}
+{{#if isNumber}}
+schemas.NumberBase,
+{{/if}}
+{{#if isInteger}}
+schemas.IntBase,
+{{/if}}
+{{#if isBoolean}}
+schemas.BoolBase,
+{{/if}}
+{{#if isNull}}
+schemas.NoneBase,
+{{/if}}
+schemas.Schema,
+schemas.{{#if isNull}}None{{/if}}{{#if isMap}}FrozenDict{{/if}}{{#if isArray}}Tuple{{/if}}{{#if isString }}Str{{/if}}{{#or isInteger isNumber}}Decimal{{/or}}{{#if isBoolean}}Bool{{/if}}Mixin

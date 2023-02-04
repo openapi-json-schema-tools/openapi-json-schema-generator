@@ -1,0 +1,66 @@
+{{#if isArray}}
+schemas.ListSchema
+{{/if}}
+{{#if isMap}}
+schemas.DictSchema
+{{/if}}
+{{#if isString}}
+    {{#eq format "date"}}
+schemas.DateSchema
+    {{/eq}}
+    {{#eq format "date-time"}}
+schemas.DateTimeSchema
+    {{/eq}}
+    {{#eq format "uuid"}}
+schemas.UUIDSchema
+    {{/eq}}
+    {{#eq format "number"}}
+schemas.DecimalSchema
+    {{/eq}}
+    {{#eq format "binary"}}
+schemas.BinarySchema
+    {{/eq}}
+    {{#neq format "date"}}
+    {{#neq format "date-time"}}
+    {{#neq format "uuid"}}
+    {{#neq format "number"}}
+    {{#neq format "binary"}}
+schemas.StrSchema
+    {{/neq}}
+    {{/neq}}
+    {{/neq}}
+    {{/neq}}
+    {{/neq}}
+{{/if}}
+{{#if isNumber}}
+    {{#eq format "float"}}
+schemas.Float32Schema
+    {{/eq}}
+    {{#eq format "double"}}
+schemas.Float64Schema
+    {{/eq}}
+    {{#neq format "float"}}
+    {{#neq format "double"}}
+schemas.NumberSchema
+    {{/neq}}
+    {{/neq}}
+{{/if}}
+{{#if isInteger}}
+    {{#eq format "int32"}}
+schemas.Int32Schema
+    {{/eq}}
+    {{#eq format "int64"}}
+schemas.Int64Schema
+    {{/eq}}
+    {{#neq format "int32"}}
+    {{#neq format "int64"}}
+schemas.IntSchema
+    {{/neq}}
+    {{/neq}}
+{{/if}}
+{{#if isBoolean}}
+schemas.BoolSchema
+{{/if}}
+{{#if isNull}}
+schemas.NoneSchema
+{{/if}}
