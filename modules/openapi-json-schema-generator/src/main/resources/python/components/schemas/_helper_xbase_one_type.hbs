@@ -1,66 +1,68 @@
-{{#if isArray}}
+{{#each types}}
+    {{#eq this "array"}}
 schemas.ListSchema
-{{/if}}
-{{#if isMap}}
+    {{/eq}}
+    {{#eq this "object"}}
 schemas.DictSchema
-{{/if}}
-{{#if isString}}
-    {{#eq format "date"}}
+    {{/eq}}
+    {{#eq this "string"}}
+        {{#eq ../format "date"}}
 schemas.DateSchema
-    {{/eq}}
-    {{#eq format "date-time"}}
+        {{/eq}}
+        {{#eq ../format "date-time"}}
 schemas.DateTimeSchema
-    {{/eq}}
-    {{#eq format "uuid"}}
+        {{/eq}}
+        {{#eq ../format "uuid"}}
 schemas.UUIDSchema
-    {{/eq}}
-    {{#eq format "number"}}
+        {{/eq}}
+        {{#eq ../format "number"}}
 schemas.DecimalSchema
-    {{/eq}}
-    {{#eq format "binary"}}
+        {{/eq}}
+        {{#eq ../format "binary"}}
 schemas.BinarySchema
-    {{/eq}}
-    {{#neq format "date"}}
-    {{#neq format "date-time"}}
-    {{#neq format "uuid"}}
-    {{#neq format "number"}}
-    {{#neq format "binary"}}
+        {{/eq}}
+        {{#neq ../format "date"}}
+        {{#neq ../format "date-time"}}
+        {{#neq ../format "uuid"}}
+        {{#neq ../format "number"}}
+        {{#neq ../format "binary"}}
 schemas.StrSchema
-    {{/neq}}
-    {{/neq}}
-    {{/neq}}
-    {{/neq}}
-    {{/neq}}
-{{/if}}
-{{#if isNumber}}
-    {{#eq format "float"}}
+        {{/neq}}
+        {{/neq}}
+        {{/neq}}
+        {{/neq}}
+        {{/neq}}
+    {{/eq}}
+    {{#eq this "number"}}
+        {{#eq ../format "float"}}
 schemas.Float32Schema
-    {{/eq}}
-    {{#eq format "double"}}
+        {{/eq}}
+        {{#eq ../format "double"}}
 schemas.Float64Schema
-    {{/eq}}
-    {{#neq format "float"}}
-    {{#neq format "double"}}
+        {{/eq}}
+        {{#neq ../format "float"}}
+        {{#neq ../format "double"}}
 schemas.NumberSchema
-    {{/neq}}
-    {{/neq}}
-{{/if}}
-{{#if isInteger}}
-    {{#eq format "int32"}}
+        {{/neq}}
+        {{/neq}}
+    {{/eq}}
+    {{#eq this "integer"}}
+        {{#eq ../format "int32"}}
 schemas.Int32Schema
-    {{/eq}}
-    {{#eq format "int64"}}
+        {{/eq}}
+        {{#eq ../format "int64"}}
 schemas.Int64Schema
-    {{/eq}}
-    {{#neq format "int32"}}
-    {{#neq format "int64"}}
+        {{/eq}}
+        {{#neq ../format "int32"}}
+        {{#neq ../format "int64"}}
 schemas.IntSchema
-    {{/neq}}
-    {{/neq}}
-{{/if}}
-{{#if isBoolean}}
+        {{/neq}}
+        {{/neq}}
+    {{/eq}}
+    {{#eq this "boolean"}}
 schemas.BoolSchema
-{{/if}}
-{{#if isNull}}
+    {{/eq}}
+    {{#eq this "null"}}
 schemas.NoneSchema
-{{/if}}
+    {{/eq}}
+{{/each}}
