@@ -143,7 +143,11 @@ public class CodegenSchema extends OpenApiSchema {
 
     public boolean isComplicated() {
         // used by templates
-        if (isArray || isMap || allOf != null || anyOf != null || oneOf != null || not != null) {
+
+        if (allOf != null || anyOf != null || oneOf != null || not != null) {
+            return true;
+        }
+        if (types != null && (types.contains("array") || types.contains("object"))) {
             return true;
         }
         return false;
