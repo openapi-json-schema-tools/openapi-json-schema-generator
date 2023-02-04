@@ -29,14 +29,6 @@ public class CodegenSchema extends OpenApiSchema {
     public TreeSet<String> imports;
     public CodegenKey name;
     public String unescapedDescription;
-
-    public boolean isString;
-    public boolean isInteger;
-    public boolean isNumber;
-    public boolean isBoolean;
-    public boolean isNull;
-    public boolean isArray;
-    public boolean isMap;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public CodegenRefInfo<CodegenSchema> refInfo;
     public boolean schemaIsFromAdditionalProperties;
@@ -54,57 +46,6 @@ public class CodegenSchema extends OpenApiSchema {
 
     public boolean hasMultipleTypes() {
         return (types != null && types.size() > 1);
-    }
-
-    public boolean isAnyType() {
-        return types == null;
-    }
-
-    /**
-     * Syncs all the schema's type properties into the OpenApiSchema instance
-     * for now this only supports types without format information
-     * TODO: in the future move the format handling in here too
-     * @param p the schema which contains the type info
-     */
-    public void setTypeProperties(Schema p) {
-        if (ModelUtils.isTypeObjectSchema(p)) {
-            isMap = true;
-        } else if (ModelUtils.isArraySchema(p)) {
-            isArray = true;
-        } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
-            // swagger v2 only, type file
-            ;
-        } else if (ModelUtils.isStringSchema(p)) {
-            isString = true;
-            if (ModelUtils.isByteArraySchema(p)) {
-                ;
-            } else if (ModelUtils.isBinarySchema(p)) {
-                // openapi v3 way of representing binary + file data
-                // for backward compatibility with 2.x file type
-                isString = false;
-            } else if (ModelUtils.isUUIDSchema(p)) {
-                // keep isString to true to make it backward compatible
-                ;
-            } else if (ModelUtils.isURISchema(p)) {
-                ;
-            } else if (ModelUtils.isEmailSchema(p)) {
-                ;
-            } else if (ModelUtils.isDateSchema(p)) {
-                ;
-            } else if (ModelUtils.isDateTimeSchema(p)) {
-                ;
-            } else if (ModelUtils.isDecimalSchema(p)) { // type: string, format: number
-                ;
-            }
-        } else if (ModelUtils.isNumberSchema(p)) {
-            isNumber = true;
-        } else if (ModelUtils.isIntegerSchema(p)) { // integer type
-            isInteger = true;
-        } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
-            isBoolean = true;
-        } else if (ModelUtils.isNullType(p)) {
-            isNull = true;
-        }
     }
 
     public boolean hasDiscriminatorWithNonEmptyMapping() {
@@ -170,13 +111,6 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", deprecated=").append(deprecated);
         sb.append(", types=").append(types);
         sb.append(", hasMultipleTypes=").append(hasMultipleTypes());
-        sb.append(", isString=").append(isString);
-        sb.append(", isInteger=").append(isInteger);
-        sb.append(", isNumber=").append(isNumber);
-        sb.append(", isBoolean=").append(isBoolean);
-        sb.append(", isArray=").append(isArray);
-        sb.append(", isMap=").append(isMap);
-        sb.append(", isAnyType=").append(isAnyType());
         sb.append(", readOnly=").append(readOnly);
         sb.append(", writeOnly=").append(writeOnly);
         sb.append(", nullable=").append(nullable);
@@ -192,7 +126,6 @@ public class CodegenSchema extends OpenApiSchema {
         sb.append(", uniqueItems=").append(uniqueItems);
         sb.append(", multipleOf=").append(multipleOf);
         sb.append(", xml=").append(xml);
-        sb.append(", isNull=").append(isNull);
         sb.append(", requiredProperties=").append(requiredProperties);
         sb.append(", optionalProperties=").append(optionalProperties);
         sb.append(", properties=").append(properties);
@@ -229,16 +162,9 @@ public class CodegenSchema extends OpenApiSchema {
         return exclusiveMinimum == that.exclusiveMinimum &&
                 exclusiveMaximum == that.exclusiveMaximum &&
                 deprecated == that.deprecated &&
-                isString == that.isString &&
-                isInteger == that.isInteger &&
-                isNumber == that.isNumber &&
-                isBoolean == that.isBoolean &&
-                isArray == that.isArray &&
-                isMap == that.isMap &&
                 readOnly == that.readOnly &&
                 writeOnly == that.writeOnly &&
                 nullable == that.nullable &&
-                isNull == that.isNull &&
                 isBooleanSchemaTrue == that.isBooleanSchemaTrue &&
                 isBooleanSchemaFalse == that.isBooleanSchemaFalse &&
                 schemaIsFromAdditionalProperties == that.schemaIsFromAdditionalProperties &&
@@ -287,8 +213,7 @@ public class CodegenSchema extends OpenApiSchema {
                 title, unescapedDescription,
                 maxLength, minLength, pattern, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
-                isNull, isString, isInteger, isNumber, isBoolean,
-                isArray, isMap, readOnly, writeOnly, nullable,
+                readOnly, writeOnly, nullable,
                 enumNameToValue, items, additionalProperties,
                 vendorExtensions, maxItems, minItems, xml,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,

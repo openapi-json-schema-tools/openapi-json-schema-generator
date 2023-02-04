@@ -544,17 +544,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Return the enum default value in the language specified format
-     *
-     * @param value    enum variable name
-     * @param prop property
-     * @return the default value for the enum
-     */
-    public String toEnumDefaultValue(String value, CodegenSchema prop) {
-        return value;
-    }
-
-    /**
      * Return the enum value in the language specified format
      * e.g. status becomes "status"
      *
@@ -2148,9 +2137,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (refSchema.getProperties() != null && refSchema.getProperties().get(discPropName) != null) {
             Schema discSchema = (Schema) refSchema.getProperties().get(discPropName);
             CodegenSchema cp = new CodegenSchema();
-            if (ModelUtils.isStringSchema(discSchema)) {
-                cp.isString = true;
-            }
             return cp;
         }
         if (ModelUtils.isComposedSchema(refSchema)) {
@@ -2350,12 +2336,12 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 CodegenSchema df = discriminatorFound(composedSchemaName, sc, discPropName, openAPI);
                 String modelName = ModelUtils.getSimpleRef(ref);
-                if (df == null || !df.isString) {
+                if (df == null || df.types != null && !df.types.contains("string")) {
                     String msgSuffix = "";
                     if (df == null) {
                         msgSuffix += discPropName + " is missing from the schema, define it as required and type string";
                     } else {
-                        if (!df.isString) {
+                        if (df.types != null && !df.types.contains("string")) {
                             msgSuffix += "invalid type for " + discPropName + ", set it to string";
                         }
                     }
@@ -2520,31 +2506,9 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected void updatePropertyForString(CodegenSchema property, Schema p) {
-        if (ModelUtils.isByteArraySchema(p)) {
-            property.isString = false;
-        } else if (ModelUtils.isBinarySchema(p)) {
-        } else if (ModelUtils.isUUIDSchema(p)) {
-        } else if (ModelUtils.isURISchema(p)) {
-        } else if (ModelUtils.isEmailSchema(p)) {
-        } else if (ModelUtils.isDateSchema(p)) { // date format
-            property.isString = false; // for backward compatibility with 2.x
-        } else if (ModelUtils.isDateTimeSchema(p)) { // date-time format
-            property.isString = false; // for backward compatibility with 2.x
-        } else if (ModelUtils.isDecimalSchema(p)) { // type: string, format: number
-            property.isString = false;
-        }
         property.pattern = toRegularExpression(p.getPattern());
     }
 
-    protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
-    }
-
-    protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
-        if (ModelUtils.isLongSchema(p)) { // int64/long format
-        } else {
-            property.isInteger = Boolean.TRUE; // older use case, int32 and unbounded int
-        }
-    }
 
     protected boolean isValid(String name) {
         return !isReservedWord(name);
@@ -2614,7 +2578,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         // items can exist for AnyType and type array
-        if (schema.items != null && schema.isArray) {
+        if (schema.items != null && schema.types != null && schema.types.contains("array")) {
             imports.addAll(getImports(schema.items, featureSet));
         }
         // additionalProperties can exist for AnyType and type object
@@ -2804,7 +2768,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.vendorExtensions.putAll(p.getExtensions());
         }
 
-        property.setTypeProperties(p);
         Schema notSchema = p.getNot();
         if (notSchema != null) {
             CodegenSchema notProperty = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
@@ -2826,17 +2789,12 @@ public class DefaultCodegen implements CodegenConfig {
             property.oneOf = oneOfProps;
         }
         if (ModelUtils.isIntegerSchema(p)) { // integer type
-            updatePropertyForInteger(property, p);
         } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
-            // no action
         } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
-            // swagger v2 only, type file
         } else if (ModelUtils.isStringSchema(p)) {
             updatePropertyForString(property, p);
         } else if (ModelUtils.isNumberSchema(p)) {
-            updatePropertyForNumber(property, p);
         } else if (ModelUtils.isArraySchema(p)) {
-            // default to string if inner item is undefined
         } else if (ModelUtils.isAnyType(p)) {
             // The 'null' value is allowed when the OAS schema is 'any type'.
             // See https://github.com/OAI/OpenAPI-Specification/issues/1389
@@ -2851,7 +2809,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.items = items;
         }
         property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
-        property.properties = getProperties(property, p.getProperties(), sourceJsonPath, currentJsonPath);
+        property.properties = getProperties(p.getProperties(), sourceJsonPath, currentJsonPath);
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<String>(p.getRequired());
         property.optionalProperties = getOptionalProperties(property.properties, required);
@@ -2875,15 +2833,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String[] refPieces = ref.split("/");
         return toModelName(refPieces[refPieces.length-1]);
-    }
-
-    protected CodegenSchema getMostInnerItems(CodegenSchema property) {
-        CodegenSchema currentProperty = property;
-        while (currentProperty != null && (Boolean.TRUE.equals(currentProperty.isMap)
-                || Boolean.TRUE.equals(currentProperty.isArray)) && currentProperty.items != null) {
-            currentProperty = currentProperty.items;
-        }
-        return currentProperty;
     }
 
     private Map<String, SecurityScheme> getAuthMethods(List<SecurityRequirement> securities, Map<String, SecurityScheme> securitySchemes) {
@@ -4055,7 +4004,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param currentJsonPath the current json path
      * @return the properties
      */
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getProperties(CodegenSchema m, Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
         if (properties == null || properties.isEmpty()) {
             return null;
         }
@@ -5289,15 +5238,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         return requiredProperties;
-    }
-
-    protected void addVarsRequiredVarsAdditionalProps(Schema schema, CodegenSchema property, String sourceJsonPath, String currentJsonPath) {
-        property.additionalProperties = getAdditionalProperties(schema, sourceJsonPath, currentJsonPath);
-        property.properties = getProperties(property, schema.getProperties(), sourceJsonPath, currentJsonPath);
-        LinkedHashSet<String> required = schema.getRequired() == null ? new LinkedHashSet<>()
-                : new LinkedHashSet<String>(schema.getRequired());
-        property.optionalProperties = getOptionalProperties(property.properties, required);
-        property.requiredProperties = getRequiredProperties(required, property.properties, schema.getAdditionalProperties(), property.additionalProperties);
     }
 
     protected void addOption(String key, String description, String defaultValue) {

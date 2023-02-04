@@ -745,15 +745,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         // fix needed for values with /n /t etc in them
         CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
-        if (cp.isInteger && cp.format == null) {
+        if (cp.types != null && cp.types.contains("integer") && cp.format == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
             // so integer validation info must be set using formatting
             cp.format = "int";
-        }
-        // TODO limit this to 3.0.0-3.0.3 specs
-        if (Boolean.TRUE.equals(cp.nullable) && cp.refInfo == null && cp.types != null) {
-            cp.isNull = true;
         }
         if (p.getPattern() != null) {
             postProcessPattern(p.getPattern(), cp.vendorExtensions);
@@ -1549,22 +1545,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     protected void updatePropertyForString(CodegenSchema property, Schema p) {
-        if (ModelUtils.isByteArraySchema(p)) {
-            // isString stays true, format stores that this is a byte
-        } else if (ModelUtils.isBinarySchema(p)) {
-            // format stores that this is binary
-            property.isString = true;
-        } else if (ModelUtils.isUUIDSchema(p)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isURISchema(p)) {
-        } else if (ModelUtils.isEmailSchema(p)) {
-        } else if (ModelUtils.isDateSchema(p)) { // date format
-            // isString stays true, format stores that this is a date
-        } else if (ModelUtils.isDateTimeSchema(p)) { // date-time format
-            // isString stays true, format stores that this is a date-time
-        } else if (ModelUtils.isDecimalSchema(p)) { // type: string, format: number
-            // isString stays true, format stores that this is a number
-        }
         property.pattern = toRegularExpression(p.getPattern());
     }
 
@@ -1576,16 +1556,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         List<Object> results = getPatternAndModifiers(pattern);
         String extractedPattern = (String) results.get(0);
         return extractedPattern;
-    }
-
-    protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
-        property.isNumber = true;
-        // float and double differentiation is determined with format info
-    }
-
-    protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
-        property.isInteger = true;
-        // int32 and int64 differentiation is determined with format info
     }
 
     /**
