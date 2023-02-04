@@ -4,14 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ObjectWithTypeBooleans {
-    public boolean isInteger;
-    public boolean isNumber;
-    public boolean isString;
-    public boolean isMap;
-    public boolean isArray;
-    public boolean isBoolean;
-    public boolean isNull;
+public class ObjectWithType {
+    public String type; // null (unset) "integer" "number" "string" "object" "array" "boolean" "null"
     public Object value;
 
     /**
@@ -22,40 +16,39 @@ public class ObjectWithTypeBooleans {
      * based upon what type it is. The booleans isX describe the value in value.
      * @param value the input payload that is stored
      */
-    public ObjectWithTypeBooleans(Object value) {
-        Object usedValue = null;
+    public ObjectWithType(Object value) {
         if (value instanceof Integer){
-            this.isInteger = true;
+            this.type = "integer";
             this.value = value;
         } else if (value instanceof Double || value instanceof Float){
-            this.isNumber = true;
+            this.type = "number";
             this.value = value;
         } else if (value instanceof String) {
-            this.isString =  true;
+            this.type = "string";
             this.value = value;
         } else if (value instanceof LinkedHashMap) {
             LinkedHashMap<String, Object> castValue = (LinkedHashMap<String, Object>) value;
-            LinkedHashMap<ObjectWithTypeBooleans, ObjectWithTypeBooleans> castMap = new LinkedHashMap<>();
+            LinkedHashMap<ObjectWithType, ObjectWithType> castMap = new LinkedHashMap<>();
             for (Map.Entry entry: castValue.entrySet()) {
-                ObjectWithTypeBooleans entryKey = new ObjectWithTypeBooleans(entry.getKey());
-                ObjectWithTypeBooleans entryValue = new ObjectWithTypeBooleans(entry.getValue());
+                ObjectWithType entryKey = new ObjectWithType(entry.getKey());
+                ObjectWithType entryValue = new ObjectWithType(entry.getValue());
                 castMap.put(entryKey, entryValue);
             }
+            this.type = "object";
             this.value = castMap;
-            this.isMap = true;
         } else if (value instanceof ArrayList) {
-            ArrayList<ObjectWithTypeBooleans> castList = new ArrayList<>();
+            ArrayList<ObjectWithType> castList = new ArrayList<>();
             for (Object item: (ArrayList<Object>) value) {
-                castList.add(new ObjectWithTypeBooleans(item));
+                castList.add(new ObjectWithType(item));
             }
+            this.type = "array";
             this.value = castList;
-            this.isArray = true;
         } else if (value instanceof Boolean) {
-            this.isBoolean = true;
+            this.type = "boolean";
             this.value = value;
         } else if (value == null) {
-            this.isNull = true;
-            this.value = value;
+            this.type = "null";
+            this.value = null;
         }
     }
 }

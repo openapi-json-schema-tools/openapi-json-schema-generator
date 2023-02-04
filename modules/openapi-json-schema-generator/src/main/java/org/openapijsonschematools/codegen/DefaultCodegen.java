@@ -57,7 +57,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
-import org.openapijsonschematools.codegen.model.ObjectWithTypeBooleans;
+import org.openapijsonschematools.codegen.model.ObjectWithType;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
@@ -2109,7 +2109,7 @@ public class DefaultCodegen implements CodegenConfig {
             Object data = processTestExampleData(testExample.get("data"));
             SchemaTestCase testCase = new SchemaTestCase(
                     (String) testExample.getOrDefault("description", ""),
-                    new ObjectWithTypeBooleans(data),
+                    new ObjectWithType(data),
                     (boolean) testExample.get("valid")
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
