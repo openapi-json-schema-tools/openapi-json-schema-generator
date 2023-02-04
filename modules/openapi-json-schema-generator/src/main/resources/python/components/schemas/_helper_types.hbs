@@ -1,27 +1,32 @@
 {{#if types}}
 types = {
-{{#if isNull}}
+{{#each types}}
+{{#eq this "null"}}
     schemas.NoneClass,
-{{/if}}
-{{#if isMap}}
+{{/eq}}
+{{#eq this "object"}}
     frozendict.frozendict,
-{{/if}}
-{{#if isArray}}
+{{/eq}}
+{{#eq this "array"}}
     tuple,
-{{/if}}
-{{#if isString }}
-{{#eq format "binary"}}
+{{/eq}}
+{{#eq this "string" }}
+    {{#eq ../format "binary"}}
     FileIO,
     bytes,
-{{else}}
+    {{else}}
     str,
+    {{/eq}}
 {{/eq}}
-{{/if}}
-{{#or isInteger isNumber}}
+{{#eq this "integer"}}
     decimal.Decimal,
-{{/or}}
-{{#if isBoolean}}
+{{/eq}}
+{{#eq this "number"}}
+    decimal.Decimal,
+{{/eq}}
+{{#eq this "boolean"}}
     schemas.BoolClass,
-{{/if}}
+{{/eq}}
+{{/each}}
 }
 {{/if}}

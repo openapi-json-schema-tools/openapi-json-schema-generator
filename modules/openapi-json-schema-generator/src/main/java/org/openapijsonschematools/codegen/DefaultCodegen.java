@@ -2674,16 +2674,16 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         LinkedHashSet<String> types = new LinkedHashSet<>();
-        if (schema.getType() != null) {
-            types.add(schema.getType());
-        } else if (schema.getTypes() != null) {
-            types.addAll(schema.getTypes());
-        }
         // TODO when does nullable False apply? Only AnyTypeSchema?
         // TODO limit this to v3-3.0.03 schemas only
         Boolean nullable = schema.getNullable();
         if (Boolean.TRUE.equals(nullable) && schema.get$ref() == null) {
             types.add("null");
+        }
+        if (schema.getType() != null) {
+            types.add(schema.getType());
+        } else if (schema.getTypes() != null) {
+            types.addAll(schema.getTypes());
         }
         return types;
     }
