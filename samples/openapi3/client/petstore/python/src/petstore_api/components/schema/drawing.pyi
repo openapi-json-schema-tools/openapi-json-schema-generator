@@ -64,7 +64,14 @@ class Drawing(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple['shape.Shape'], typing.List['shape.Shape']],
+                    arg_: typing.Union[
+                        typing.Tuple[
+                            'shape.Shape', ...
+                        ],
+                        typing.List[
+                            'shape.Shape'
+                        ],
+                    ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'Shapes':
                     return super().__new__(

@@ -50,7 +50,14 @@ class AdditionalPropertiesWithArrayOfEnums(
         
             def __new__(
                 cls,
-                arg_: typing.Union[typing.Tuple['enum_class.EnumClass'], typing.List['enum_class.EnumClass']],
+                arg_: typing.Union[
+                    typing.Tuple[
+                        'enum_class.EnumClass', ...
+                    ],
+                    typing.List[
+                        'enum_class.EnumClass'
+                    ],
+                ],
                 configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
             ) -> 'AdditionalProperties':
                 return super().__new__(

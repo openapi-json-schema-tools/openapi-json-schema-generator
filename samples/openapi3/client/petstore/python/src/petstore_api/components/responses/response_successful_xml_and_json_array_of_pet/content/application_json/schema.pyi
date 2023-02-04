@@ -37,7 +37,14 @@ class Schema(
 
     def __new__(
         cls,
-        arg_: typing.Union[typing.Tuple['ref_pet.RefPet'], typing.List['ref_pet.RefPet']],
+        arg_: typing.Union[
+            typing.Tuple[
+                'ref_pet.RefPet', ...
+            ],
+            typing.List[
+                'ref_pet.RefPet'
+            ],
+        ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'Schema':
         return super().__new__(

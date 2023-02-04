@@ -87,6 +87,7 @@ public class HandlebarsEngineAdapter extends AbstractTemplatingEngineAdapter {
         StringHelpers.register(handlebars);
         handlebars.registerHelpers(ConditionalHelpers.class);
         handlebars.registerHelpers(org.openapijsonschematools.codegen.templating.handlebars.StringHelpers.class);
+        handlebars.registerHelpers(org.openapijsonschematools.codegen.templating.handlebars.ContainsHelper.class);
         handlebars.setInfiniteLoops(infiniteLoops);
         handlebars.setPrettyPrint(prettyPrint);
         Template tmpl = handlebars.compile(templateFile);

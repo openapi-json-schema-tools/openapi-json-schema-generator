@@ -50,7 +50,14 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, str, ]], typing.List[typing.Union[Schema_.Items, str, ]]],
+                    arg_: typing.Union[
+                        typing.Tuple[
+                            typing.Union[Schema_.Items, str, ], ...
+                        ],
+                        typing.List[
+                            typing.Union[Schema_.Items, str, ]
+                        ],
+                    ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayOfString':
                     return super().__new__(
@@ -83,7 +90,14 @@ class ArrayTest(
                     
                         def __new__(
                             cls,
-                            arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, ]]],
+                            arg_: typing.Union[
+                                typing.Tuple[
+                                    typing.Union[Schema_.Items, decimal.Decimal, int, ], ...
+                                ],
+                                typing.List[
+                                    typing.Union[Schema_.Items, decimal.Decimal, int, ]
+                                ],
+                            ],
                             configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
@@ -97,7 +111,14 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+                    arg_: typing.Union[
+                        typing.Tuple[
+                            typing.Union[Schema_.Items, list, tuple, ], ...
+                        ],
+                        typing.List[
+                            typing.Union[Schema_.Items, list, tuple, ]
+                        ],
+                    ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayArrayOfInteger':
                     return super().__new__(
@@ -133,7 +154,14 @@ class ArrayTest(
                     
                         def __new__(
                             cls,
-                            arg_: typing.Union[typing.Tuple['read_only_first.ReadOnlyFirst'], typing.List['read_only_first.ReadOnlyFirst']],
+                            arg_: typing.Union[
+                                typing.Tuple[
+                                    'read_only_first.ReadOnlyFirst', ...
+                                ],
+                                typing.List[
+                                    'read_only_first.ReadOnlyFirst'
+                                ],
+                            ],
                             configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                         ) -> 'Items':
                             return super().__new__(
@@ -147,7 +175,14 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+                    arg_: typing.Union[
+                        typing.Tuple[
+                            typing.Union[Schema_.Items, list, tuple, ], ...
+                        ],
+                        typing.List[
+                            typing.Union[Schema_.Items, list, tuple, ]
+                        ],
+                    ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayArrayOfModel':
                     return super().__new__(
