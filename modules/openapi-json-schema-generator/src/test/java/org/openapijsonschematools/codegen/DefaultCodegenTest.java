@@ -33,6 +33,7 @@ import io.swagger.v3.oas.models.media.MediaType;
 import io.swagger.v3.oas.models.media.NumberSchema;
 import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.media.StringSchema;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
@@ -108,7 +109,7 @@ public class DefaultCodegenTest {
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
         assertEquals(operation.pathParams.get(0).imports, null);
         assertEquals(operation.pathParams.get(0).schema.imports.size(), 1);
-        Assert.assertTrue(operation.pathParams.get(0).schema.refInfo.ref.isEnum);
+        Assert.assertTrue(operation.pathParams.get(0).schema.refInfo.ref.enumNameToValue != null);
     }
 
     @Test
@@ -502,8 +503,6 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         CodegenSchema array = codegenPropertyWithArrayOfIntegerValues();
 
-        codegen.updateCodegenPropertyEnum(array.items);
-
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) array.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Map<String, Object> testedEnumVar = enumVars.get(0);
@@ -516,9 +515,9 @@ public class DefaultCodegenTest {
     @Test
     public void updateCodegenPropertyEnumWithExtension() {
         {
-            CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("dog", "cat"), Arrays.asList("DOGVAR", "CATVAR"));
-            (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
+            CodegenSchema enumProperty = codegenProperty(Arrays.asList("dog", "cat"), "updateCodegenPropertyEnumWithExtension1", Arrays.asList("DOGVAR", "CATVAR"));
+            new DefaultCodegen();
+            LinkedHashMap<String, Object> enumVars = enumProperty.enumNameToValue;
             Assert.assertNotNull(enumVars);
             Assert.assertNotNull(enumVars.get(0));
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "DOGVAR");
@@ -528,26 +527,24 @@ public class DefaultCodegenTest {
             Assert.assertEquals(enumVars.get(1).getOrDefault("value", ""), "\"cat\"");
         }
         {
-            CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("1", "2"), Arrays.asList("ONE", "TWO"));
-            (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
+            CodegenSchema enumProperty = codegenProperty(Arrays.asList("1", "2"), "updateCodegenPropertyEnumWithExtension2", Arrays.asList("ONE", "TWO"));
+            new DefaultCodegen();
+            Map<String, Object> enumVars = enumProperty.enumNameToValue;
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "ONE");
             Assert.assertEquals(enumVars.get(0).getOrDefault("value", ""), "\"1\"");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "TWO");
             Assert.assertEquals(enumVars.get(1).getOrDefault("value", ""), "\"2\"");
         }
         {
-            CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("a", "b", "c", "d"), Arrays.asList("FOO", "BAR"));
-            (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
-            List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
+            CodegenSchema enumProperty = codegenProperty(Arrays.asList("a", "b", "c", "d"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR"));
+            Map<String, Object> enumVars = enumProperty.enumNameToValue;
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "FOO");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "BAR");
             Assert.assertEquals(enumVars.get(2).getOrDefault("name", ""), "C");
             Assert.assertEquals(enumVars.get(3).getOrDefault("name", ""), "D");
         }
         {
-            CodegenSchema enumProperty = codegenPropertyWithXEnumVarName(Arrays.asList("a", "b"), Arrays.asList("FOO", "BAR", "BAZ"));
-            (new DefaultCodegen()).updateCodegenPropertyEnum(enumProperty);
+            CodegenSchema enumProperty = codegenProperty(Arrays.asList("a", "b"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR", "BAZ"));
             List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.enumNameToValue.get("enumVars");
             Assert.assertEquals(enumVars.get(0).getOrDefault("name", ""), "FOO");
             Assert.assertEquals(enumVars.get(1).getOrDefault("name", ""), "BAR");
@@ -559,8 +556,6 @@ public class DefaultCodegenTest {
     public void updateCodegenPropertyEnumWithPrefixRemoved() {
         final DefaultCodegen codegen = new DefaultCodegen();
         CodegenSchema enumProperty = codegenProperty(Arrays.asList("animal_dog", "animal_cat"));
-
-        codegen.updateCodegenPropertyEnum(enumProperty.items);
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -579,8 +574,6 @@ public class DefaultCodegenTest {
 
         CodegenSchema enumProperty = codegenProperty(Arrays.asList("animal_dog", "animal_cat"));
 
-        codegen.updateCodegenPropertyEnum(enumProperty.items);
-
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) enumProperty.items.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
@@ -596,8 +589,6 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         TreeMap<String, CodegenSchema> schemas = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
         CodegenSchema cm = schemas.get("model");
-
-        codegen.postProcessModelsEnum(schemas);
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -616,8 +607,6 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> objs = codegenModel(Arrays.asList("animal_dog", "animal_cat"));
         CodegenSchema cm = objs.get("model");
 
-        codegen.postProcessModelsEnum(objs);
-
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
         Assert.assertNotNull(enumVars.get(0));
@@ -633,8 +622,6 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         TreeMap<String, CodegenSchema> objs = codegenModelWithXEnumVarName();
         CodegenSchema cm = objs.get("model");
-
-        codegen.postProcessModelsEnum(objs);
 
         List<Map<String, Object>> enumVars = (List<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
         Assert.assertNotNull(enumVars);
@@ -1572,7 +1559,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/User",
                 "#/components/schemas/User/properties/address"
         );
-        Assert.assertTrue(property.refInfo.ref.isNullable);
+        Assert.assertTrue(property.refInfo.ref.nullable);
     }
 
     @Test
@@ -1668,13 +1655,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty"
         );
         Assert.assertEquals(cp.name.name, "someProperty");
-        Assert.assertFalse(cp.isString);
-        Assert.assertTrue(cp.isInteger);
-        Assert.assertFalse(cp.isLong);
-        Assert.assertFalse(cp.isNumber);
-        Assert.assertTrue(cp.isNumeric);
-        Assert.assertFalse(cp.isFloat);
-        Assert.assertFalse(cp.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("integer"));
 
         //Model:
         final CodegenSchema cm = codegen.fromSchema(
@@ -1683,13 +1665,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel"
         );
         Assert.assertEquals(cm.name.name, "someModel");
-        Assert.assertFalse(cm.isString);
-        Assert.assertTrue(cm.isInteger);
-        Assert.assertFalse(cm.isLong);
-        Assert.assertFalse(cm.isNumber);
-        Assert.assertTrue(cm.isNumeric);
-        Assert.assertFalse(cm.isFloat);
-        Assert.assertFalse(cm.isDouble);
+        Assert.assertTrue(cm.types.contains("integer"));
+        Assert.assertTrue(cm.types.size() == 1);
     }
 
     @Test
@@ -1706,13 +1683,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty"
         );
         Assert.assertEquals(cp.name.name, "someProperty");
-        Assert.assertFalse(cp.isString);
-        Assert.assertFalse(cp.isInteger);
-        Assert.assertTrue(cp.isLong);
-        Assert.assertFalse(cp.isNumber);
-        Assert.assertTrue(cp.isNumeric);
-        Assert.assertFalse(cp.isFloat);
-        Assert.assertFalse(cp.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("integer"));
+        Assert.assertTrue(cp.format.equals("int64"));
 
         //Model:
         final CodegenSchema cm = codegen.fromSchema(
@@ -1721,13 +1694,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel"
         );
         Assert.assertEquals(cm.name.name, "someModel");
-        Assert.assertFalse(cm.isString);
-        Assert.assertFalse(cm.isInteger);
-        Assert.assertTrue(cm.isLong);
-        Assert.assertFalse(cm.isNumber);
-        Assert.assertTrue(cm.isNumeric);
-        Assert.assertFalse(cm.isFloat);
-        Assert.assertFalse(cm.isDouble);
+        Assert.assertTrue(cm.types.size() == 1);
+        Assert.assertTrue(cm.types.contains("integer"));
+        Assert.assertTrue(cm.format.equals("int64"));
     }
 
     @Test
@@ -1744,13 +1713,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty"
         );
         Assert.assertEquals(cp.name.name, "someProperty");
-        Assert.assertFalse(cp.isString);
-        Assert.assertFalse(cp.isInteger);
-        Assert.assertFalse(cp.isLong);
-        Assert.assertTrue(cp.isNumber);
-        Assert.assertTrue(cp.isNumeric);
-        Assert.assertFalse(cp.isFloat);
-        Assert.assertFalse(cp.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("number"));
 
         //Model:
         final CodegenSchema cm = codegen.fromSchema(
@@ -1759,13 +1723,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel"
         );
         Assert.assertEquals(cm.name.name, "someModel");
-        Assert.assertFalse(cm.isString);
-        Assert.assertFalse(cm.isInteger);
-        Assert.assertFalse(cm.isLong);
-        Assert.assertTrue(cm.isNumber);
-        Assert.assertTrue(cm.isNumeric);
-        Assert.assertFalse(cm.isFloat);
-        Assert.assertFalse(cm.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("number"));
     }
 
     @Test
@@ -1782,13 +1741,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty"
         );
         Assert.assertEquals(cp.name.name, "someProperty");
-        Assert.assertFalse(cp.isString);
-        Assert.assertFalse(cp.isInteger);
-        Assert.assertFalse(cp.isLong);
-        Assert.assertFalse(cp.isNumber);
-        Assert.assertTrue(cp.isNumeric);
-        Assert.assertTrue(cp.isFloat);
-        Assert.assertFalse(cp.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("number"));
+        Assert.assertTrue(cp.types.equals("float"));
 
         //Model:
         final CodegenSchema cm = codegen.fromSchema(
@@ -1797,13 +1752,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel"
         );
         Assert.assertEquals(cm.name.name, "someModel");
-        Assert.assertFalse(cm.isString);
-        Assert.assertFalse(cm.isInteger);
-        Assert.assertFalse(cm.isLong);
-        Assert.assertFalse(cm.isNumber);
-        Assert.assertTrue(cm.isNumeric);
-        Assert.assertTrue(cm.isFloat);
-        Assert.assertFalse(cm.isDouble);
+        Assert.assertTrue(cm.types.size() == 1);
+        Assert.assertTrue(cm.types.contains("number"));
+        Assert.assertTrue(cm.types.equals("float"));
     }
 
     @Test
@@ -1820,13 +1771,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty"
         );
         Assert.assertEquals(cp.name.name, "someProperty");
-        Assert.assertFalse(cp.isString);
-        Assert.assertFalse(cp.isInteger);
-        Assert.assertFalse(cp.isLong);
-        Assert.assertFalse(cp.isNumber);
-        Assert.assertTrue(cp.isNumeric);
-        Assert.assertFalse(cp.isFloat);
-        Assert.assertTrue(cp.isDouble);
+        Assert.assertTrue(cp.types.size() == 1);
+        Assert.assertTrue(cp.types.contains("number"));
+        Assert.assertTrue(cp.types.equals("double"));
 
         //Model:
         final CodegenSchema cm = codegen.fromSchema(
@@ -1835,13 +1782,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel"
         );
         Assert.assertEquals(cm.name.name, "someModel");
-        Assert.assertFalse(cm.isString);
-        Assert.assertFalse(cm.isInteger);
-        Assert.assertFalse(cm.isLong);
-        Assert.assertFalse(cm.isNumber);
-        Assert.assertTrue(cm.isNumeric);
-        Assert.assertFalse(cm.isFloat);
-        Assert.assertTrue(cm.isDouble);
+        Assert.assertTrue(cm.types.size() == 1);
+        Assert.assertTrue(cm.types.contains("number"));
+        Assert.assertTrue(cm.types.equals("double"));
     }
 
     @Test
@@ -1862,7 +1805,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/MyParameterTextField",
                 "#/components/schemas/MyParameterTextField"
         );
-        Assert.assertEquals(typeAliasModel.refInfo.ref.isString, true);
+        assertTrue(typeAliasModel.refInfo.ref.types.size() == 1);
+        assertTrue(typeAliasModel.refInfo.ref.types.contains("string"));
     }
 
     private void verifyPersonDiscriminator(CodegenDiscriminator discriminator) {
@@ -1882,66 +1826,47 @@ public class DefaultCodegenTest {
     }
 
     private CodegenSchema codegenPropertyWithArrayOfIntegerValues() {
-        CodegenSchema array = new CodegenSchema();
-        final CodegenSchema items = new CodegenSchema();
-        final HashMap<String, Object> allowableValues = new HashMap<>();
-        allowableValues.put("values", Collections.singletonList(1));
-        items.enumNameToValue = allowableValues;
-        items.isInteger = true;
-        array.items = items;
-        array.isArray = true;
-        return array;
+        IntegerSchema itemsSchema = new IntegerSchema();
+        itemsSchema.setEnum(Arrays.asList(1));
+        ArraySchema arraySchema = new ArraySchema();
+        arraySchema.setItems(itemsSchema);
+
+        final DefaultCodegen codegen = new DefaultCodegen();
+        String jsonPath = "#/components/schemas/codegenPropertyWithArrayOfIntegerValues";
+        return codegen.fromSchema(arraySchema, jsonPath, jsonPath);
     }
 
-    private CodegenSchema codegenProperty(List<String> values) {
-        CodegenSchema array = new CodegenSchema();
-        final CodegenSchema items = new CodegenSchema();
-        final HashMap<String, Object> allowableValues = new HashMap<>();
-        allowableValues.put("values", values);
-        items.enumNameToValue = allowableValues;
-        items.isString = true;
-        array.items = items;
-        array.isArray = true;
-        return array;
+    private CodegenSchema codegenProperty(List<String> values, String identifier, List<String> xEnumVarnames) {
+        StringSchema itemsSchema = new StringSchema();
+        itemsSchema.setEnum(values);
+        if (xEnumVarnames != null) {
+            HashMap<String, Object> extensions = new HashMap<>();
+            extensions.put("x-enum-varnames", xEnumVarnames);
+            itemsSchema.setExtensions(extensions);
+        }
+        ArraySchema arraySchema = new ArraySchema();
+        arraySchema.setItems(itemsSchema);
+        final DefaultCodegen codegen = new DefaultCodegen();
+        String jsonPath = "#/components/schemas/ModelWithProp/properties/" + identifier;
+        return codegen.fromSchema(arraySchema, jsonPath, jsonPath);
     }
 
-    private CodegenSchema codegenPropertyWithXEnumVarName(List<String> values, List<String> aliases) {
-        final CodegenSchema var = new CodegenSchema();
-        final HashMap<String, Object> allowableValues = new HashMap<>();
-        allowableValues.put("values", values);
-        var.enumNameToValue = allowableValues;
-        var.isString = true;
-        Map<String, Object> extensions = Collections.singletonMap("x-enum-varnames", aliases);
-        var.vendorExtensions = extensions;
-        return var;
-    }
-
-    private TreeMap<String, CodegenSchema> codegenModel(List<String> values) {
-        final CodegenSchema cm = new CodegenSchema();
-        cm.isEnum = true;
-        final HashMap<String, Object> allowableValues = new HashMap<>();
-        allowableValues.put("values", values);
-        cm.enumNameToValue = allowableValues;
-        cm.isString = true;
-        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
-        schemas.put("model", cm);
-        return schemas;
-    }
-
-    private TreeMap<String, CodegenSchema> codegenModelWithXEnumVarName() {
-        final CodegenSchema cm = new CodegenSchema();
-        cm.isEnum = true;
-        final HashMap<String, Object> allowableValues = new HashMap<>();
-        allowableValues.put("values", Arrays.asList("dog", "cat"));
-        cm.enumNameToValue = allowableValues;
-        cm.isString = true;
-        final List<String> aliases = Arrays.asList("DOGVAR", "CATVAR");
-        final List<String> descriptions = Arrays.asList("This is a dog", "This is a cat");
-        Map<String, Object> extensions = new HashMap<>();
-        extensions.put("x-enum-varnames", aliases);
-        extensions.put("x-enum-descriptions", descriptions);
-        cm.vendorExtensions = extensions;
-        cm.properties = new LinkedHashMap<>();
+    private TreeMap<String, CodegenSchema> codegenModel(List<String> values, String identifier, List<String> xEnumVarnames, List<String> xEnumDescriptions) {
+        StringSchema itemsSchema = new StringSchema();
+        itemsSchema.setEnum(values);
+        if (xEnumVarnames != null || xEnumDescriptions != null) {
+            HashMap<String, Object> extensions = new HashMap<>();
+            if (xEnumVarnames != null) {
+                extensions.put("x-enum-varnames", xEnumVarnames);
+            }
+            if (xEnumVarnames != null) {
+                extensions.put("x-enum-descriptions", xEnumDescriptions);
+            }
+            itemsSchema.setExtensions(extensions);
+        }
+        final DefaultCodegen codegen = new DefaultCodegen();
+        String jsonPath = "#/components/schemas/" + identifier;
+        CodegenSchema cm = codegen.fromSchema(itemsSchema, jsonPath, jsonPath);
         TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
         schemas.put("model", cm);
         return schemas;
