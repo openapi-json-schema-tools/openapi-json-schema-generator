@@ -36,7 +36,6 @@ import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
-import org.openapijsonschematools.codegen.model.OpenApiSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.commons.io.FileUtils;
@@ -1502,24 +1501,24 @@ public class ModelUtils {
         }
     }
 
-    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, OpenApiSchema target) {
+    private static void setArrayValidations(Integer minItems, Integer maxItems, Boolean uniqueItems, CodegenSchema target) {
         if (minItems != null) target.minItems = minItems;
         if (maxItems != null) target.maxItems = maxItems;
         if (uniqueItems != null) target.uniqueItems = uniqueItems;
     }
 
-    private static void setObjectValidations(Integer minProperties, Integer maxProperties, OpenApiSchema target) {
+    private static void setObjectValidations(Integer minProperties, Integer maxProperties, CodegenSchema target) {
         if (minProperties != null) target.minProperties = minProperties;
         if (maxProperties != null) target.maxProperties = maxProperties;
     }
 
-    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, OpenApiSchema target) {
+    private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, CodegenSchema target) {
         if (minLength != null) target.minLength = minLength;
         if (maxLength != null) target.maxLength = maxLength;
         if (pattern != null) target.pattern = pattern;
     }
 
-    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, OpenApiSchema target) {
+    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, CodegenSchema target) {
         if (multipleOf != null) target.multipleOf = multipleOf;
         if (minimum != null) {
             if (isIntegerSchema(schema)) {
