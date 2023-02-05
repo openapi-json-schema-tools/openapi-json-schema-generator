@@ -1564,32 +1564,6 @@ public class DefaultCodegen implements CodegenConfig {
         return sb.toString();
     }
 
-    /**
-     * Return the instantiation type of the property, especially for map and array
-     *
-     * @param schema property schema
-     * @return string presentation of the instantiation type of the property
-     */
-    public String toInstantiationType(Schema schema) {
-        if (ModelUtils.isMapSchema(schema)) {
-            Schema additionalProperties = getAdditionalProperties(schema);
-            String inner = getSchemaType(additionalProperties);
-            return instantiationTypes.get("map") + "<String, " + inner + ">";
-        } else if (ModelUtils.isArraySchema(schema)) {
-            ArraySchema arraySchema = (ArraySchema) schema;
-            String inner = getSchemaType(getSchemaItems(arraySchema));
-            String parentType;
-            if (ModelUtils.isSet(schema)) {
-                parentType = "set";
-            } else {
-                parentType = "array";
-            }
-            return instantiationTypes.get(parentType) + "<" + inner + ">";
-        } else {
-            return null;
-        }
-    }
-
     public String toExampleValue(Schema schema, Object objExample) {
         return null;
     }
@@ -1713,40 +1687,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    /**
-     * returns the OpenAPI type for the property. Use getAlias to handle $ref of primitive type
-     *
-     * @param schema property schema
-     * @return string presentation of the type
-     **/
-    @SuppressWarnings("static-method")
-    public String getSchemaType(Schema schema) {
-        if (schema instanceof ComposedSchema) { // composed schema
-            ComposedSchema cs = (ComposedSchema) schema;
-            // Get the interfaces, i.e. the set of elements under 'allOf', 'anyOf' or 'oneOf'.
-            List<Schema> schemas = ModelUtils.getInterfaces(cs);
-
-            List<String> names = new ArrayList<>();
-            // Build a list of the schema types under each interface.
-            // For example, if a 'allOf' composed schema has $ref children,
-            // add the type of each child to the list of names.
-            for (Schema s : schemas) {
-                names.add(getSingleSchemaType(s));
-            }
-
-            if (cs.getAllOf() != null) {
-                return toAllOfName(names, cs);
-            } else if (cs.getAnyOf() != null) { // anyOf
-                return toAnyOfName(names, cs);
-            } else if (cs.getOneOf() != null) { // oneOf
-                return toOneOfName(names, cs);
-            }
-        }
-
-        return getSingleSchemaType(schema);
-
-    }
-
     protected Schema<?> getSchemaItems(ArraySchema schema) {
         Schema<?> items = schema.getItems();
         if (items == null) {
@@ -1813,37 +1753,6 @@ public class DefaultCodegen implements CodegenConfig {
             return (String) exts.get("x-one-of-name");
         }
         return "oneOf<" + String.join(",", names) + ">";
-    }
-
-    @Override
-    public Schema unaliasSchema(Schema schema) {
-        return ModelUtils.unaliasSchema(this.openAPI, schema, schemaMapping);
-    }
-
-    /**
-     * Return a string representation of the schema type, resolving aliasing and references if necessary.
-     *
-     * @param schema input
-     * @return the string representation of the schema type.
-     */
-    protected String getSingleSchemaType(Schema schema) {
-        Schema unaliasSchema = unaliasSchema(schema);
-
-        if (StringUtils.isNotBlank(unaliasSchema.get$ref())) { // reference to another definition/schema
-            // get the schema/model name from $ref
-            String schemaName = ModelUtils.getSimpleRef(unaliasSchema.get$ref());
-            if (StringUtils.isNotEmpty(schemaName)) {
-                if (schemaMapping.containsKey(schemaName)) {
-                    return schemaName;
-                }
-                return getAlias(schemaName);
-            } else {
-                LOGGER.warn("Error obtaining the datatype from ref: {}. Default to 'object'", unaliasSchema.get$ref());
-                return "object";
-            }
-        } else { // primitive type or model
-            return getAlias(getPrimitiveType(unaliasSchema));
-        }
     }
 
     /**

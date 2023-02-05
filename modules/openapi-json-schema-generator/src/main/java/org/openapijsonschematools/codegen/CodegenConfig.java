@@ -368,8 +368,6 @@ public interface CodegenConfig {
 
     void setRemoveEnumValuePrefix(boolean removeEnumValuePrefix);
 
-    Schema unaliasSchema(Schema schema);
-
     String defaultTemplatingEngine();
 
     GeneratorLanguage generatorLanguage();

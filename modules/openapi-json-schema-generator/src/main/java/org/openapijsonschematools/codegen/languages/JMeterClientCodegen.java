@@ -198,25 +198,6 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
         return outputFolder + File.separator + sourceFolder + File.separator + apiPackage().replace('.', File.separatorChar);
     }
 
-    /**
-     * Optional - OpenAPI type conversion.  This is used to map OpenAPI types in a `Schema` into
-     * either language specific types via `typeMapping` or into complex models if there is not a mapping.
-     *
-     * @return a string value of the type or complex model for this property
-     */
-    @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-        String type = null;
-        if (typeMapping.containsKey(openAPIType)) {
-            type = typeMapping.get(openAPIType);
-            if (languageSpecificPrimitives.contains(type))
-                return toModelName(type);
-        } else
-            type = openAPIType;
-        return toModelName(type);
-    }
-
     @Override
     public String escapeQuotationMark(String input) {
         // remove ' to avoid code injection

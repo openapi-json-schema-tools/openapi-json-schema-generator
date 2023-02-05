@@ -598,12 +598,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 "    - Exceptions: int/float is stored as Decimal, When receiving data from headers it will start as str and may need to be cast for example to int");
     }
 
-    @Override
-    public Schema unaliasSchema(Schema schema) {
-        // python allows schemas to be inlined at any location so unaliasing should do nothing
-        return schema;
-    }
-
     public String pythonDate(Object dateValue) {
         String strValue = null;
         if (dateValue instanceof OffsetDateTime) {
@@ -966,37 +960,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return value;
     }
 
-    /**
-     * Returns the python type for the property.
-     *
-     * @param schema property schema
-     * @return string presentation of the type
-     **/
-    @SuppressWarnings("static-method")
-    @Override
-    public String getSchemaType(Schema schema) {
-        String openAPIType = getSingleSchemaType(schema);
-        if (typeMapping.containsKey(openAPIType)) {
-            String type = typeMapping.get(openAPIType);
-            return type;
-        }
-        return toModelName(openAPIType);
-    }
-
     public String getRefClassWithRefModule(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
             return  toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
         }
         return null;
-    }
-
-    @Override
-    public String toInstantiationType(Schema property) {
-        if (ModelUtils.isArraySchema(property) || ModelUtils.isMapSchema(property) || property.getAdditionalProperties() != null) {
-            return getSchemaType(property);
-        }
-        return super.toInstantiationType(property);
     }
 
     /**

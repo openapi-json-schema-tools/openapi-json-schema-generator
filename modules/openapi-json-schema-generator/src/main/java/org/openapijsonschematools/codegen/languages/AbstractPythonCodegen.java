@@ -528,22 +528,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-        String type = null;
-        if (typeMapping.containsKey(openAPIType)) {
-            type = typeMapping.get(openAPIType);
-            if (languageSpecificPrimitives.contains(type)) {
-                return type;
-            }
-        } else {
-            type = toModelName(openAPIType);
-        }
-        return type;
-    }
-
-
-    @Override
     public String toModelName(String name) {
         String sanitizedName = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
         // remove dollar sign

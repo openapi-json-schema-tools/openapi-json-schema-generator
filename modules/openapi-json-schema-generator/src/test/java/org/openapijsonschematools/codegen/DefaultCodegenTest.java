@@ -452,20 +452,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testGetSchemaTypeWithComposedSchemaWithOneOf() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-oneof.yaml");
-        final DefaultCodegen codegen = new DefaultCodegen();
-
-        Operation operation = openAPI.getPaths().get("/state").getPost();
-        Schema schema = ModelUtils.getReferencedSchema(openAPI,
-                ModelUtils.getSchemaFromRequestBody(operation.getRequestBody()));
-        String type = codegen.getSchemaType(schema);
-
-        Assert.assertNotNull(type);
-        Assert.assertEquals(type, "oneOf<ObjA,ObjB>");
-    }
-
-    @Test
     public void testComposedSchemaOneOfWithProperties() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOf.yaml");
         final DefaultCodegen codegen = new DefaultCodegen();

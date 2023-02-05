@@ -1148,21 +1148,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-
-        // don't apply renaming on types from the typeMapping
-        if (typeMapping.containsKey(openAPIType)) {
-            return typeMapping.get(openAPIType);
-        }
-
-        if (null == openAPIType) {
-            LOGGER.error("No Type defined for Schema {}", p);
-        }
-        return toModelName(openAPIType);
-    }
-
-    @Override
     public String toOperationId(String operationId) {
         // throw exception if method name is empty
         if (StringUtils.isEmpty(operationId)) {

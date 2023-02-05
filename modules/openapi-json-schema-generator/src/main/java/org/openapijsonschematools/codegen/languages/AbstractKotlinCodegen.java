@@ -337,28 +337,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         }
     }
 
-    /**
-     * returns the OpenAPI type for the property
-     *
-     * @param p OpenAPI property object
-     * @return string presentation of the type
-     **/
-    @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-        String type;
-        // This maps, for example, long -> kotlin.Long based on hashes in this type's constructor
-        if (typeMapping.containsKey(openAPIType)) {
-            type = typeMapping.get(openAPIType);
-            if (languageSpecificPrimitives.contains(type)) {
-                return toModelName(type);
-            }
-        } else {
-            type = openAPIType;
-        }
-        return toModelName(type);
-    }
-
     @Override
     public String modelDocFileFolder() {
         return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);
