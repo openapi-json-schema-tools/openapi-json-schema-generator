@@ -2646,8 +2646,31 @@ public class DefaultCodegen implements CodegenConfig {
         }
         if (schema.getType() != null) {
             types.add(schema.getType());
-        } else if (schema.getTypes() != null) {
-            types.addAll(schema.getTypes());
+        }
+        if (schema.getTypes() != null) {
+            // NoneFrozenDictTupleStrDecimalBoolFileBytes
+            if (types.contains("null")) {
+                types.add("null");
+            }
+            if (types.contains("object")) {
+                types.add("object");
+            }
+            if (types.contains("array")) {
+                types.add("array");
+            }
+            if (types.contains("string")) {
+                types.add("string");
+            }
+            if (types.contains("number")) {
+                types.add("number");
+            }
+            if (types.contains("integer")) {
+                types.add("integer");
+            }
+            if (types.contains("boolean")) {
+                types.add("boolean");
+            }
+            // the above order used so mixins will stay the same
         }
         return types;
     }
@@ -3998,7 +4021,6 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Add variables (properties) to codegen model (list of properties, various flags, etc)
      *
-     * @param m          Must be an instance of OpenApiSchema, may be model or property...
      * @param properties a map of properties (schema)
      * @param sourceJsonPath the source json path
      * @param currentJsonPath the current json path
