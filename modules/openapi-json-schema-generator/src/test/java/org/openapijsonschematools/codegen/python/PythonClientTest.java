@@ -26,6 +26,7 @@ import org.openapijsonschematools.codegen.DefaultGenerator;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
+import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -231,10 +232,10 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.enumNameToValue.get("enumVars");
+        Map<String, EnumValue> enumVars = cm.enumNameToValue;
         Assert.assertEquals(enumVars.size(), 2);
-        Assert.assertEquals(enumVars.get(0).get("name"), "DIGIT_THREE_67B9C");
-        Assert.assertEquals(enumVars.get(1).get("name"), "FFA5A4");
+        Assert.assertEquals(enumVars.get("DIGIT_THREE_67B9C").value, "\"#367B9C\"");
+        Assert.assertEquals(enumVars.get("FFA5A4").value, "\"#FFA5A4\"");
     }
 
     @Test(description = "format imports of models using a package containing dots")

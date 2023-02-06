@@ -39,6 +39,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
@@ -844,12 +845,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected LinkedHashMap<String, Object> getEnumNameToValue(Schema prop) {
+    protected LinkedHashMap<String, EnumValue> getEnumNameToValue(Schema prop) {
         if (prop.getEnum() == null) {
             return null;
         }
 
-        LinkedHashMap<String, Object> enumNameToValue = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
         List<Object> values = prop.getEnum();
@@ -888,7 +889,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String fixedValue = (String) processTestExampleData(value);
                 usedValue = ensureQuotes(fixedValue);
             }
-            enumNameToValue.put(usedName, usedValue);
+            EnumValue enumValue = new EnumValue(usedValue, null);
+            enumNameToValue.put(usedName, enumValue);
         }
 
         return enumNameToValue;
