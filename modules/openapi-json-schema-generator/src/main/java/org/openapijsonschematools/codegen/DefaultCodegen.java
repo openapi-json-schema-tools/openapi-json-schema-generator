@@ -1956,6 +1956,41 @@ public class DefaultCodegen implements CodegenConfig {
         return data;
     }
 
+    private EnumValue toEnumValue(Object value, String description) {
+        Object usedValue = value;
+        String type = null;
+        if (value instanceof Integer){
+            type = "integer";
+        } else if (value instanceof Double || value instanceof Float){
+            type = "number";
+        } else if (value instanceof String) {
+            type = "string";
+        } else if (value instanceof LinkedHashMap) {
+            LinkedHashMap<String, EnumValue> castMap = new LinkedHashMap<>();
+            for (Map.Entry entry: ((LinkedHashMap<String, Object>) value).entrySet()) {
+                String entryKey = (String) entry.getKey();
+                Object entryValue = entry.getValue();
+                EnumValue castValue = toEnumValue(entryValue, null);
+                castMap.put(entryKey, castValue);
+            }
+            type = "object";
+            usedValue = castMap;
+        } else if (value instanceof ArrayList) {
+            ArrayList<EnumValue> castList = new ArrayList<>();
+            for (Object item: (ArrayList<Object>) value) {
+                EnumValue castItem = toEnumValue(item, null);
+                castList.add(castItem);
+            }
+            type = "array";
+            usedValue = castList;
+        } else if (value instanceof Boolean) {
+            type = "boolean";
+        } else if (value == null) {
+            type = "null";
+        }
+        return new EnumValue(usedValue, type, description);
+    }
+
     /**
      * Processes any test cases if they exist in the components.x-test-examples vendor extensions
      * If they exist then cast them to java class instances and return them back in a map
@@ -1984,7 +2019,7 @@ public class DefaultCodegen implements CodegenConfig {
             Object data = processTestExampleData(testExample.get("data"));
             SchemaTestCase testCase = new SchemaTestCase(
                     (String) testExample.getOrDefault("description", ""),
-                    new EnumValue(data, null),
+                    toEnumValue(data, null),
                     (boolean) testExample.get("valid")
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
@@ -4629,7 +4664,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = new EnumValue(value, description);
+            EnumValue enumValue = toEnumValue(value, description);
             enumNameToValue.put(usedName, enumValue);
             i += 1;
         }
@@ -4656,7 +4691,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = new EnumValue(value, null);
+            EnumValue enumValue = toEnumValue(value, null);
             enumNameToValue.put(usedName, enumValue);
         }
 
