@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ObjectWithType {
+public class EnumValue {
     public String type; // null (unset) "integer" "number" "string" "object" "array" "boolean" "null"
     public Object value;
+    public String description;
 
     /**
      * A wrapper class that is used to store payloads to be ingested by schemas
@@ -16,7 +17,8 @@ public class ObjectWithType {
      * based upon what type it is. The booleans isX describe the value in value.
      * @param value the input payload that is stored
      */
-    public ObjectWithType(Object value) {
+    public EnumValue(Object value, String description) {
+        this.description = description;
         if (value instanceof Integer){
             this.type = "integer";
             this.value = value;
@@ -27,19 +29,20 @@ public class ObjectWithType {
             this.type = "string";
             this.value = value;
         } else if (value instanceof LinkedHashMap) {
-            LinkedHashMap<String, Object> castValue = (LinkedHashMap<String, Object>) value;
-            LinkedHashMap<ObjectWithType, ObjectWithType> castMap = new LinkedHashMap<>();
-            for (Map.Entry entry: castValue.entrySet()) {
-                ObjectWithType entryKey = new ObjectWithType(entry.getKey());
-                ObjectWithType entryValue = new ObjectWithType(entry.getValue());
-                castMap.put(entryKey, entryValue);
+            LinkedHashMap<String, EnumValue> castMap = new LinkedHashMap<>();
+            for (Map.Entry entry: ((LinkedHashMap<String, Object>) value).entrySet()) {
+                String entryKey = (String) entry.getKey();
+                Object entryValue = entry.getValue();
+                EnumValue castValue = new EnumValue(entryValue, null);
+                castMap.put(entryKey, castValue);
             }
             this.type = "object";
             this.value = castMap;
         } else if (value instanceof ArrayList) {
-            ArrayList<ObjectWithType> castList = new ArrayList<>();
+            ArrayList<EnumValue> castList = new ArrayList<>();
             for (Object item: (ArrayList<Object>) value) {
-                castList.add(new ObjectWithType(item));
+                EnumValue castItem = new EnumValue(item, null);
+                castList.add(castItem);
             }
             this.type = "array";
             this.value = castList;

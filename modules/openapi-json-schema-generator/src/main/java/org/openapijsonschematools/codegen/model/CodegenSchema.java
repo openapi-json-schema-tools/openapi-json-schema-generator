@@ -39,7 +39,7 @@ public class CodegenSchema {
     public Integer minProperties;
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
     // TODO change this to enumValueToName for ease of java checking
-    public LinkedHashMap<String, Object> enumNameToValue; // enum info; created identifier to enum value
+    public LinkedHashMap<String, EnumValue> enumNameToValue; // enum info
     // TODO add unused type
     public LinkedHashSet<String> types; // TODO move this to 3.1.0
     public List<CodegenSchema> allOf = null;

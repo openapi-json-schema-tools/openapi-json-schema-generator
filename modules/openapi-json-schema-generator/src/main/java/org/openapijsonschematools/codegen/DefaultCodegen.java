@@ -57,7 +57,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
-import org.openapijsonschematools.codegen.model.ObjectWithType;
+import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
@@ -2007,7 +2007,7 @@ public class DefaultCodegen implements CodegenConfig {
             Object data = processTestExampleData(testExample.get("data"));
             SchemaTestCase testCase = new SchemaTestCase(
                     (String) testExample.getOrDefault("description", ""),
-                    new ObjectWithType(data),
+                    new EnumValue(data, null),
                     (boolean) testExample.get("valid")
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
@@ -4640,7 +4640,8 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             String usedValue = toEnumValue(String.valueOf(value), schema);
-            enumNameToValue.put(usedName, usedValue);
+            EnumValue enumValue = new EnumValue(usedValue, null);
+            enumNameToValue.put(usedName, enumValue);
         }
         // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
         // Map<String, Object> extensions = schema.getExtensions();
@@ -4654,10 +4655,10 @@ public class DefaultCodegen implements CodegenConfig {
             Map<String, Object> enumVar = new HashMap<>();
             String enumName = enumUnknownDefaultCaseName;
 
-            String enumValue;
+            String value;
             boolean typeIsString = schema.getType() != null && schema.getType().equals("string");
             if (typeIsString) {
-                enumValue = enumUnknownDefaultCaseName;
+                value = enumUnknownDefaultCaseName;
             } else {
                 // This is a dummy value that attempts to avoid collisions with previously specified cases.
                 // Int.max / 192
@@ -4665,12 +4666,13 @@ public class DefaultCodegen implements CodegenConfig {
                 // [SE-0192](https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md)
                 // Since this functionality was born in the Swift 5 generator and latter on broth to all generators
                 // https://github.com/OpenAPITools/openapi-generator/pull/11013
-                enumValue = String.valueOf(11184809);
+                value = String.valueOf(11184809);
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            String usedValue = toEnumValue(enumValue, schema);
-            enumNameToValue.put(usedName, usedValue);
+            String usedValue = toEnumValue(value, schema);
+            EnumValue enumValue = new EnumValue(usedValue, null);
+            enumNameToValue.put(usedName, enumValue);
         }
 
         return enumNameToValue;
