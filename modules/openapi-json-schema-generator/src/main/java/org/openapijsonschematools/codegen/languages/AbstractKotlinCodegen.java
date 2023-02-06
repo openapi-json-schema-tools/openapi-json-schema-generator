@@ -792,23 +792,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, Schema prop) {
-        if (prop.getType().equals("integer")) {
-            return value;
-        } else if (prop.getFormat().equals("double")) {
-            if (value.contains(".")) {
-                return value;
-            } else {
-                return value + ".0"; // Float and double must have .0
-            }
-        } else if (prop.getType().equals("number")) {
-            return value + "f";
-        } else {
-            return "\"" + escapeText(value) + "\"";
-        }
-    }
-
-    @Override
     public String toParamName(String name) {
         // to avoid conflicts with 'callback' parameter for async call
         if ("callback".equals(name)) {

@@ -544,29 +544,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     /**
-     * Return the enum value in the language specified format
-     * e.g. status becomes "status"
-     *
-     * @param value    enum variable name
-     * @param prop property
-     * @return the sanitized value for enum
-     */
-    public String toEnumValue(String value, Schema prop) {
-        Set<String> types = prop.getTypes();
-        if (types == null) {
-            types = new HashSet<>();
-            if (prop.getType() != null) {
-                types.add(prop.getType());
-            }
-        }
-        if (types.contains("number") || types.contains("boolean")) {
-            return value;
-        } else {
-            return "\"" + escapeText(value) + "\"";
-        }
-    }
-
-    /**
      * Return the sanitized variable name for enum
      *
      * @param value    enum variable name
@@ -4603,16 +4580,6 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected String getEnumDefaultValue(String defaultValue, Schema prop) {
-        final String enumDefaultValue;
-        if (prop.getType().equals("string")) {
-            enumDefaultValue = toEnumValue(defaultValue, prop);
-        } else {
-            enumDefaultValue = defaultValue;
-        }
-        return enumDefaultValue;
-    }
-
     protected LinkedHashMap<String, EnumValue> getEnumNameToValue(Schema schema) {
         if (schema.getEnum() == null) {
             return null;
@@ -4627,26 +4594,45 @@ public class DefaultCodegen implements CodegenConfig {
             truncateIdx = commonPrefix.length();
         }
 
+        List<String> xEnumVarnames = null;
+        List<String> xEnumDescriptions = null;
+        String xEnumVarnamesKey = "x-enum-varnames";
+        String xEnumDescriptionsKey = "x-enum-descriptions";
+        if (schema.getExtensions() != null) {
+            if (schema.getExtensions().containsKey(xEnumVarnamesKey)) {
+                xEnumVarnames = (List<String>) schema.getExtensions().get(xEnumVarnamesKey);
+            }
+            if (schema.getExtensions().containsKey(xEnumDescriptionsKey)) {
+                xEnumDescriptions = (List<String>) schema.getExtensions().get(xEnumDescriptionsKey);
+            }
+        }
+
+        Integer i = 0;
         for (Object value : values) {
+            String description = null;
+            if (xEnumDescriptions != null && xEnumDescriptions.size() > i) {
+                description = xEnumDescriptions.get(i);
+            }
+
             String enumName;
-            if (truncateIdx == 0) {
-                enumName = String.valueOf(value);
+            if (xEnumVarnames != null && xEnumVarnames.size() > i) {
+                enumName = xEnumVarnames.get(i);
             } else {
-                enumName = value.toString().substring(truncateIdx);
-                if (enumName.isEmpty()) {
-                    enumName = value.toString();
+                if (truncateIdx == 0) {
+                    enumName = String.valueOf(value);
+                } else {
+                    enumName = value.toString().substring(truncateIdx);
+                    if (enumName.isEmpty()) {
+                        enumName = value.toString();
+                    }
                 }
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            String usedValue = toEnumValue(String.valueOf(value), schema);
-            EnumValue enumValue = new EnumValue(usedValue, null);
+            EnumValue enumValue = new EnumValue(value, description);
             enumNameToValue.put(usedName, enumValue);
+            i += 1;
         }
-        // if "x-enum-varnames" or "x-enum-descriptions" defined, update varnames
-        // Map<String, Object> extensions = schema.getExtensions();
-        // updateEnumVarsWithExtensions(enumVars, extensions, var);
-
 
         // TODO remove this
         if (enumUnknownDefaultCase) {
@@ -4670,29 +4656,11 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            String usedValue = toEnumValue(value, schema);
-            EnumValue enumValue = new EnumValue(usedValue, null);
+            EnumValue enumValue = new EnumValue(value, null);
             enumNameToValue.put(usedName, enumValue);
         }
 
         return enumNameToValue;
-    }
-
-    protected void updateEnumVarsWithExtensions(List<Map<String, Object>> enumVars, Map<String, Object> vendorExtensions, CodegenSchema prop) {
-        if (vendorExtensions != null) {
-            updateEnumVarsWithExtensions(enumVars, vendorExtensions, "x-enum-varnames", "name");
-            updateEnumVarsWithExtensions(enumVars, vendorExtensions, "x-enum-descriptions", "enumDescription");
-        }
-    }
-
-    private void updateEnumVarsWithExtensions(List<Map<String, Object>> enumVars, Map<String, Object> vendorExtensions, String extensionKey, String key) {
-        if (vendorExtensions.containsKey(extensionKey)) {
-            List<String> values = (List<String>) vendorExtensions.get(extensionKey);
-            int size = Math.min(enumVars.size(), values.size());
-            for (int i = 0; i < size; i++) {
-                enumVars.get(i).put(key, values.get(i));
-            }
-        }
     }
 
     /**

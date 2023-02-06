@@ -1386,24 +1386,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toEnumValue(String value, Schema prop) {
-        if (prop.getFormat().equals("int32") || prop.getFormat().equals("double")) {
-            return value;
-        } else if (prop.getFormat().equals("int64")) {
-            // add l to number, e.g. 2048 => 2048l
-            return value + "l";
-        } else if (prop.getFormat().equals("float")) {
-            // add f to number, e.g. 3.14 => 3.14f
-            return value + "f";
-        } else if (prop.getType().equals("number") && prop.getFormat().equals("number")) {
-            // use BigDecimal String constructor
-            return "new BigDecimal(\"" + value + "\")";
-        } else {
-            return "\"" + escapeText(value) + "\"";
-        }
-    }
-
-    @Override
     public CodegenOperation fromOperation(String path, String httpMethod, Operation operation, List<Server> servers) {
         path = sanitizePath(path);
         CodegenOperation op = super.fromOperation(path, httpMethod, operation, servers);
