@@ -3485,16 +3485,11 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             LOGGER.warn("Unknown parameter type: {}", parameter.getName());
         }
-        boolean isDeepObject = false;
-        if (parameter.getStyle() != null) {
-            isDeepObject = Parameter.StyleEnum.DEEPOBJECT == parameter.getStyle();
-        }
 
         // set the parameter example value
         // should be overridden by lang codegen
         String example = getParameterExampleValue(parameter);
 
-        boolean finalIsDeepObject = isDeepObject;
         String finalStyle = style;
         TreeSet<String> finalImports = imports;
         String finalComponentModule = componentModule;
@@ -3503,7 +3498,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         Boolean allowReserved = parameter.getAllowReserved();
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, finalIsDeepObject, baseName, finalRefInfo, allowReserved);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, finalRefInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
