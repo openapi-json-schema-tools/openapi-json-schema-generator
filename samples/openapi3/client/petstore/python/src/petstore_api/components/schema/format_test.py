@@ -163,9 +163,7 @@ class FormatTest(
                     }
                     regex={
                         'pattern': r'[a-z]',  # noqa: E501
-                        'flags': {
-                            re.I,
-                        },
+                        'flags': re.I,
                     }
             Byte = schemas.StrSchema
             Binary = schemas.BinarySchema
@@ -214,9 +212,7 @@ class FormatTest(
                     }
                     regex={
                         'pattern': r'^image_\d{1,3}$',  # noqa: E501
-                        'flags': {
-                            re.I,
-                        },
+                        'flags': re.I,
                     }
             NoneProp = schemas.NoneSchema
             __annotations__ = {

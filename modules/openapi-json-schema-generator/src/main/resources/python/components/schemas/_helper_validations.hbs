@@ -30,22 +30,26 @@ regex={
     {{#with patternInfo}}
     'pattern': r'{{{pattern}}}',  # noqa: E501
         {{#if flags}}
-    'flags': {
-            {{#each flags}}
-                {{#eq this "i"}}
-        re.I,
-                {{/eq}}
-                {{#eq this "m"}}
-        re.M,
-                {{/eq}}
-                {{#eq this "s"}}
-        re.S,
-                {{/eq}}
-                {{#eq this "u"}}
-        re.U,
-                {{/eq}}
-            {{/each}}
-    },
+            {{#eq flags.size 1}}
+    'flags': {{#each flags}}re.{{#eq this "i"}}I{{/eq}}{{#eq this "m"}}M{{/eq}}{{#eq this "s"}}S{{/eq}}{{#eq this "u"}}U{{/eq}}{{/each}},
+            {{else}}
+    'flags': (
+                {{#each flags}}
+                    {{#eq this "i"}}
+        re.I{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "m"}}
+        re.M{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "s"}}
+        re.S{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "u"}}
+        re.U{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                {{/each}}
+        )
+            {{/eq}}
         {{/if}}
     {{/with}}
 }
