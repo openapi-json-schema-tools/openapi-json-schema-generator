@@ -3361,10 +3361,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
             vendorExtensions = header.getExtensions();
         }
-        boolean required = false;
-        if (header.getRequired() != null) {
-            required = header.getRequired();
-        }
+        Boolean required = header.getRequired();
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
         if (header.getContent() != null) {
             content = getContent(header.getContent(), sourceJsonPath + "/content");
@@ -3394,11 +3391,10 @@ public class DefaultCodegen implements CodegenConfig {
         String finalStyle = style;
         CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
-        boolean finalRequired = required;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
