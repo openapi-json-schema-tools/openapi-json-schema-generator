@@ -2363,17 +2363,6 @@ public class DefaultCodegen implements CodegenConfig {
         String discPropName = sourceDiscriminator.getPropertyName();
         String propertyName = toVarName(discPropName);
         String propertyBaseName = sourceDiscriminator.getPropertyName();
-
-        // check to see if the discriminator property is an enum string
-        boolean isEnum = false;
-        if (schema.getProperties() != null &&
-                schema.getProperties().get(discPropName) instanceof StringSchema) {
-            StringSchema s = (StringSchema) schema.getProperties().get(discPropName);
-            if (s.getEnum() != null && !s.getEnum().isEmpty()) { // it's an enum string
-                isEnum = true;
-            }
-        }
-
         Map<String, String> mapping = sourceDiscriminator.getMapping();
 
         TreeSet<MappedModel> mappedModels = new TreeSet<>();
@@ -2427,7 +2416,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, isEnum, mappedModels);
+        CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, mappedModels);
 
         return discriminator;
     }
@@ -3231,7 +3220,7 @@ public class DefaultCodegen implements CodegenConfig {
             return r;
         }
 
-        String message = escapeText(response.getDescription());
+        String description = escapeText(response.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
             vendorExtensions = response.getExtensions();
@@ -3275,7 +3264,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         String finalComponentModule = componentModule;
         TreeSet<String> finalImports = imports;
-        r = new CodegenResponse(name, finalHeaders, message, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
+        r = new CodegenResponse(name, finalHeaders, description, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }

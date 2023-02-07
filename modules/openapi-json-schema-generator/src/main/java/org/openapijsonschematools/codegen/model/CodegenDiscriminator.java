@@ -20,7 +20,6 @@ public class CodegenDiscriminator {
     public final String propertyName;
     public final String propertyBaseName;
     public final Map<String, String> mapping;
-    public final boolean isEnum;
 
     // mappedModels is populated differently if legacyDiscriminatorBehavior is
     // True or False. When:
@@ -39,11 +38,10 @@ public class CodegenDiscriminator {
 
     public final TreeSet<MappedModel> mappedModels;
 
-    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, boolean isEnum, TreeSet<MappedModel> mappedModels) {
+    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, TreeSet<MappedModel> mappedModels) {
         this.propertyName = propertyName;
         this.propertyBaseName = propertyBaseName;
         this.mapping = mapping;
-        this.isEnum = isEnum;
         this.mappedModels = mappedModels;
     }
 

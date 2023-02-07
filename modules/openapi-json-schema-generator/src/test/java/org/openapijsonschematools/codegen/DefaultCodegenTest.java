@@ -1490,8 +1490,8 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co = codegen.fromOperation("/here", "get", myOperation, null);
-        Assert.assertEquals(co.responses.get("422").message, "Error");
-        Assert.assertEquals(co.responses.get("default").message, "Default");
+        Assert.assertEquals(co.responses.get("422").description, "Error");
+        Assert.assertEquals(co.responses.get("default").description, "Default");
     }
 
     @Test
@@ -3232,7 +3232,7 @@ public class DefaultCodegenTest {
         CodegenKey ck = codegen.getKey("application/json");
         for (CodegenResponse cr : co.responses.values()) {
             LinkedHashMap<CodegenKey, CodegenSchema> reqProps = cr.content.get(ck).schema.requiredProperties;
-            if (modelNamesWithoutRequired.contains(cr.message)) {
+            if (modelNamesWithoutRequired.contains(cr.description)) {
                 assertNull(reqProps);
             } else {
                 assertNotNull(reqProps);
