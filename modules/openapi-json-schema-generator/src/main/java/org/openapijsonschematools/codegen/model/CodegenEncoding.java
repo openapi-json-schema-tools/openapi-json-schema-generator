@@ -8,9 +8,9 @@ public class CodegenEncoding {
     public final Map<String, CodegenHeader> headers;
     public final String style;
     public final Boolean explode;
-    public final boolean allowReserved;
+    public final Boolean allowReserved;
 
-    public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, Boolean explode, boolean allowReserved) {
+    public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, Boolean explode, Boolean allowReserved) {
         this.contentType = contentType;
         this.headers = headers;
         this.style = style;

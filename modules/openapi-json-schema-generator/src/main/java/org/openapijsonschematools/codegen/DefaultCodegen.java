@@ -4877,7 +4877,7 @@ public class DefaultCodegen implements CodegenConfig {
                             headers,
                             enc.getStyle().toString(),
                             enc.getExplode(),
-                            enc.getAllowReserved() == null ? false : enc.getAllowReserved().booleanValue()
+                            enc.getAllowReserved()
                     );
                     ceMap.put(encodingPropertyName, ce);
                 }
