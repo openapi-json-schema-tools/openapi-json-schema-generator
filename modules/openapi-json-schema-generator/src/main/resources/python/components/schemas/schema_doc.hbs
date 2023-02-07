@@ -25,10 +25,10 @@ Input Type | Accessed Type | Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.name}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.name}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
@@ -47,7 +47,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{@key.name}}
+# {{@key.original}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -57,7 +57,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{@key.name}}
+# {{@key.original}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -81,11 +81,11 @@ Key | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#with items}}
-{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{name.name}}{{#if isComplicated}}](#{{name.name}}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{name.original}}{{#if isComplicated}}](#{{name.original}}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-# {{name.name}}
+# {{name.original}}
 {{> components/schemas/schema_doc schema=this }}
     {{/if}}
     {{/unless}}
@@ -99,12 +99,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each allOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}
+# {{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -114,12 +114,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each anyOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}
+# {{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -129,12 +129,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{/each}}
     {{#each oneOf}}
     {{#unless refInfo.refClass}}
 
-# {{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}
+# {{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/each}}
@@ -144,10 +144,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}](#{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
 
-# {{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}
+# {{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}
 {{> components/schemas/schema_doc schema=this }}
     {{/unless}}
     {{/with}}

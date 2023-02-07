@@ -8,7 +8,7 @@ from unittest.mock import patch
 import urllib3
 
 import {{packageName}}
-from {{packageName}}.paths.{{operation.path.snakeCase}} import {{operation.httpMethod.name}}  # noqa: E501
+from {{packageName}}.paths.{{operation.path.snakeCase}} import {{operation.httpMethod.original}}  # noqa: E501
 from {{packageName}} import configuration, schemas, api_client
 
 from .. import ApiTestMixin
@@ -26,7 +26,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = {{httpMethod.name}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
+        self.api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
@@ -52,7 +52,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
 {{#with this }}
 
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
-        content_type = '{{{../@key.name}}}'
+        content_type = '{{{../@key.original}}}'
         # {{description}}
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
@@ -61,7 +61,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
 {{/with}}
             )
 {{#if valid}}
-            body = {{httpMethod.name}}.request_body.RequestBody.content["{{{../@key.name}}}"].schema.from_openapi_data_(
+            body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
                 payload,
                 configuration_=self.configuration_
             )
@@ -75,11 +75,11 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, schemas.Unset)
 {{else}}
             with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-                body = {{httpMethod.name}}.request_body.RequestBody.content["{{{../@key.name}}}"].schema.from_openapi_data_(
+                body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
                     payload,
                     configuration_=self.configuration_
                 )
-                self.api.{{httpMethod.name}}(body=body)
+                self.api.{{httpMethod.original}}(body=body)
 {{/if}}
 {{/with}}
 {{/each}}

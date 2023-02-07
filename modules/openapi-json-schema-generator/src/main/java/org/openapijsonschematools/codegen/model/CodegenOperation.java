@@ -118,7 +118,7 @@ public class CodegenOperation {
             content = requestBody.content;
         }
         for (CodegenKey contentKey: content.keySet()) {
-            contentTypeToOperation.put(contentKey.name, this);
+            contentTypeToOperation.put(contentKey.original, this);
         }
         return contentTypeToOperation;
     }

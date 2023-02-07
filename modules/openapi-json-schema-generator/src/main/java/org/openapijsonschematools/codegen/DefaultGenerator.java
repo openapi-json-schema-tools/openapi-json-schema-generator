@@ -519,8 +519,8 @@ public class DefaultGenerator implements Generator {
                         tagToTagModule.put(tagName, tagModuleName);
                     }
                 }
-                String path = co.path.name;
-                String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod.name;
+                String path = co.path.original;
+                String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod.original;
                 String pathModuleName = co.path.snakeCase;
                 if (!pathToPathModule.containsKey(path)) {
                     pathToPathModule.put(path, pathModuleName);
@@ -565,7 +565,7 @@ public class DefaultGenerator implements Generator {
                         Map<String, Object> endpointTestMap = new HashMap<>();
                         endpointTestMap.put("operation", co);
                         endpointTestMap.put("packageName", packageName);
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod.name + ".py"));
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod.original + ".py"));
                         testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
                         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
                         testFiles.add(Arrays.asList(new HashMap<>(), "__init__.hbs", outputFilename));
@@ -674,7 +674,7 @@ public class DefaultGenerator implements Generator {
 
         // content-type + schema generation
         for (Map.Entry<CodegenKey, CodegenMediaType> contentInfo: content.entrySet()) {
-            String contentType = contentInfo.getKey().name;
+            String contentType = contentInfo.getKey().original;
             CodegenMediaType codegenMediaType = contentInfo.getValue();
             CodegenSchema schema = codegenMediaType.schema;
             if (schema != null) {
@@ -1200,7 +1200,7 @@ public class DefaultGenerator implements Generator {
         for (String tag : paths.keySet()) {
             try {
                 List<CodegenOperation> ops = paths.get(tag);
-                ops.sort((one, another) -> ObjectUtils.compare(one.operationId.name, another.operationId.name));
+                ops.sort((one, another) -> ObjectUtils.compare(one.operationId.original, another.operationId.original));
                 OperationsMap operation = processOperations(config, tag, ops, schemas);
                 URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
                 operation.put("basePath", basePath);
@@ -1400,7 +1400,7 @@ public class DefaultGenerator implements Generator {
         for (OperationsMap om: allOperations) {
             OperationMap apiOperations = om.getOperations();
             for (CodegenOperation operation: apiOperations.getOperation()) {
-                String pathAndHttpMethod = operation.path.name + "|" + operation.httpMethod.name;
+                String pathAndHttpMethod = operation.path.original + "|" + operation.httpMethod.original;
                 if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
                     pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
                 }

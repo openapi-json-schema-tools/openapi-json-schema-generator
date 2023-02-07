@@ -4,16 +4,16 @@
         {{#if @key.isValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-{{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}'
+{{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}'
                 {{else}}
                     {{#if name}}
                         {{#if schemaIsFromAdditionalProperties}}
-{{@key.name}}: Schema_.{{name.camelCase}}
+{{@key.original}}: Schema_.{{name.camelCase}}
                         {{else}}
-{{@key.name}}: Schema_.Properties.{{name.camelCase}}
+{{@key.original}}: Schema_.Properties.{{name.camelCase}}
                         {{/if}}
                     {{else}}
-{{@key.name}}: schemas.AnyTypeSchema
+{{@key.original}}: schemas.AnyTypeSchema
                     {{/if}}
                 {{/if}}
             {{/with}}

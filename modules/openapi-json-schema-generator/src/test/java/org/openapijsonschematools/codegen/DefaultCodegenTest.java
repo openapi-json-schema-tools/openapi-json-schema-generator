@@ -343,15 +343,15 @@ public class DefaultCodegenTest {
         CodegenSchema empty_map_cp = null;
 
         for (CodegenSchema cp : cm.properties.values()) {
-            if ("map_with_undeclared_properties_string".equals(cp.name.name)) {
+            if ("map_with_undeclared_properties_string".equals(cp.name.original)) {
                 map_with_undeclared_properties_string_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.original)) {
                 map_with_undeclared_properties_anytype_1_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name.original)) {
                 map_with_undeclared_properties_anytype_2_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name.original)) {
                 map_with_undeclared_properties_anytype_3_cp = cp;
-            } else if ("empty_map".equals(cp.name.name)) {
+            } else if ("empty_map".equals(cp.name.original)) {
                 empty_map_cp = cp;
             }
         }
@@ -1405,7 +1405,7 @@ public class DefaultCodegenTest {
     }
 
     private List<String> getRequiredVars(CodegenSchema model) {
-        return model.requiredProperties.keySet().stream().map(ck -> ck.name).collect(Collectors.toList());
+        return model.requiredProperties.keySet().stream().map(ck -> ck.original).collect(Collectors.toList());
     }
 
     @Test
@@ -1444,7 +1444,7 @@ public class DefaultCodegenTest {
             Assert.assertEquals(req.responses.size(), 2);
 
             CodegenKey ck = codegen.getKey("application/json");
-            switch (req.httpMethod.name) {
+            switch (req.httpMethod.original) {
                 case "post":
                     Assert.assertEquals(req.operationId.camelCase, "OnDataDataPost");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "NewNotificationData");
@@ -1454,7 +1454,7 @@ public class DefaultCodegenTest {
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "DeleteNotificationData");
                     break;
                 default:
-                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod.name));
+                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod.original));
             }
         });
     }
@@ -1470,9 +1470,9 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co1 = codegen.fromOperation("/here", "get", operation2, null);
-        Assert.assertEquals(co1.path.name, "/here");
+        Assert.assertEquals(co1.path.original, "/here");
         CodegenOperation co2 = codegen.fromOperation("some/path", "get", operation2, null);
-        Assert.assertEquals(co2.path.name, "/some/path");
+        Assert.assertEquals(co2.path.original, "/some/path");
     }
 
     @Test
@@ -1624,7 +1624,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.name.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("integer"));
 
@@ -1634,7 +1634,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.name.original, "someModel");
         Assert.assertTrue(cm.types.contains("integer"));
         Assert.assertTrue(cm.types.size() == 1);
     }
@@ -1652,7 +1652,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.name.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("integer"));
         Assert.assertTrue(cp.format.equals("int64"));
@@ -1663,7 +1663,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.name.original, "someModel");
         Assert.assertTrue(cm.types.size() == 1);
         Assert.assertTrue(cm.types.contains("integer"));
         Assert.assertTrue(cm.format.equals("int64"));
@@ -1682,7 +1682,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.name.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
 
@@ -1692,7 +1692,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.name.original, "someModel");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
     }
@@ -1710,7 +1710,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.name.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
         Assert.assertTrue(cp.format.equals("float"));
@@ -1721,7 +1721,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.name.original, "someModel");
         assertEquals(cm.types.size(), 1);
         Assert.assertTrue(cm.types.contains("number"));
         assertEquals(cm.format, "float");
@@ -1740,7 +1740,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.name.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
         Assert.assertTrue(cp.format.equals("double"));
@@ -1751,7 +1751,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.name.original, "someModel");
         Assert.assertTrue(cm.types.size() == 1);
         Assert.assertTrue(cm.types.contains("number"));
         Assert.assertTrue(cm.format.equals("double"));
@@ -3145,7 +3145,7 @@ public class DefaultCodegenTest {
         ));
         for (CodegenKey key: cm.properties.keySet()) {
             CodegenSchema prop = cm.properties.get(key);
-            if (propertyNamesWithoutRequired.contains(key.name)) {
+            if (propertyNamesWithoutRequired.contains(key.original)) {
                 assertNull(prop.requiredProperties);
             } else {
                 assertNotNull(prop.requiredProperties);
@@ -3767,7 +3767,7 @@ public class DefaultCodegenTest {
         CodegenSchema cp = mt.schema;
         assertTrue(cp.types.contains("object"));
         assertEquals(cp.refInfo, null);
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.content;
@@ -3776,7 +3776,7 @@ public class DefaultCodegenTest {
         cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object")); // because it is a referenced schema
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
     }
 
     @Test
@@ -3798,13 +3798,13 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get(jsonKey);
         assertNull(mt.encoding);
         CodegenSchema cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertNotNull(cp);
 
         mt = content.get(textKey);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertNotNull(cp);
         // Note: the inline model resolver has a bug for this use case; it extracts an inline request body into a component
         // but the schema it references is not string type
@@ -3820,7 +3820,7 @@ public class DefaultCodegenTest {
         mt = content.get(applicationJson);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertEquals(cp.refInfo.refClass, "Coordinates");
 
         codegen.fromSchema(
@@ -3832,7 +3832,7 @@ public class DefaultCodegenTest {
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
 
         codegen.fromSchema(
@@ -3872,14 +3872,14 @@ public class DefaultCodegenTest {
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(ck)));
 
         CodegenParameter schemaParam = co.queryParams.get(2);
-        assertEquals(schemaParam.schema.name.name, "schema");
+        assertEquals(schemaParam.schema.name.original, "schema");
 
         CodegenResponse cr = co.responses.get("200");
         Map<String, CodegenHeader> responseHeaders = cr.headers;
         assertEquals(2, responseHeaders.size());
         CodegenHeader header1 = responseHeaders.get("X-Rate-Limit");
         assertTrue(header1.schema.types.contains("integer"));
-        assertEquals(header1.schema.name.name, "schema");
+        assertEquals(header1.schema.name.original, "schema");
 
         codegen.fromHeader(
                 openAPI.getComponents().getHeaders().get("X-Rate-Limit"),
@@ -3888,7 +3888,7 @@ public class DefaultCodegenTest {
 
         CodegenHeader header2 = responseHeaders.get("X-Rate-Limit-Ref");
         assertTrue(header2.refInfo.ref.schema.types.contains("integer"));
-        assertEquals(header2.refInfo.ref.schema.name.name, "schema");
+        assertEquals(header2.refInfo.ref.schema.name.original, "schema");
 
         content = cr.content;
         CodegenKey applicationJson = codegen.getKey("application/json");
@@ -3899,7 +3899,7 @@ public class DefaultCodegenTest {
         CodegenSchema cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object"));
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
 
         codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("stringWithMinLength"),
@@ -3910,7 +3910,7 @@ public class DefaultCodegenTest {
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
 
         codegen.fromSchema(
@@ -3927,12 +3927,12 @@ public class DefaultCodegenTest {
         cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object"));
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
 
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.name.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
     }
 
@@ -3982,12 +3982,12 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         CodegenKey ck = codegen.getKey("foo");
-        Assert.assertEquals(fooRequired.properties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooRequired.properties.get(ck).name.original, "foo");
 
         assertEquals(fooRequired.requiredProperties.size(), 1);
-        Assert.assertEquals(fooRequired.requiredProperties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooRequired.requiredProperties.get(ck).name.original, "foo");
 
-        Assert.assertEquals(fooOptional.properties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooOptional.properties.get(ck).name.original, "foo");
         assertEquals(fooOptional.requiredProperties, null);
     }
 

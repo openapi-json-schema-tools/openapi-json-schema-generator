@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
     {{#if refInfo}}
 [**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{name.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}{{name.snakeCase}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
-[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.camelCase}}.content.{{../@key.snakeCase}}.{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}](#request_bodycontent{{../@key.snakeCase}}{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCase}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.camelCase}}.content.{{../@key.snakeCase}}.{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}](#request_bodycontent{{../@key.snakeCase}}{{#if name.isValid}}{{name.original}}{{else}}{{name.snakeCase}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
     {{/with}}
     {{#if queryParams}}
@@ -60,13 +60,13 @@ Name | Type | Description  | Notes
         {{#if refInfo}}
             {{#each getDeepestRef.content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key.name}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.original}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{else}}
             {{#each content}}
             {{#if @first}}
-content_type | str | optional, default is '{{@key.name}}' | Selects the schema and serialization of the request body
+content_type | str | optional, default is '{{@key.original}}' | Selects the schema and serialization of the request body
             {{/if}}
             {{/each}}
         {{/if}}
@@ -184,7 +184,7 @@ Key | Input Type | Description  | Notes
 {{baseName}} | [{{name.camelCase}}.schema](#{{name.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../name.camelCase}}.content.{{{@key.name}}}.schema](#{{../name.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../baseName}} | [{{../name.camelCase}}.content.{{{@key.original}}}.schema](#{{../name.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}

@@ -1932,7 +1932,7 @@ public class DefaultCodegen implements CodegenConfig {
             for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
                     LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.discriminator = createDiscriminator(m.name.name, innerSchema, this.openAPI, sourceJsonPath);
+                    m.discriminator = createDiscriminator(m.name.original, innerSchema, this.openAPI, sourceJsonPath);
                     modelDiscriminators++;
                 }
 
@@ -2971,7 +2971,7 @@ public class DefaultCodegen implements CodegenConfig {
                 toPathFilename(path),
                 toModelName(path)
         );
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.name) + "/" + httpMethod;
+        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original) + "/" + httpMethod;
 
         String summary = escapeText(operation.getSummary());
         String unescapedNotes = operation.getDescription();
@@ -3900,10 +3900,10 @@ public class DefaultCodegen implements CodegenConfig {
             operations.put(tag, opList);
         }
         // check for operationId uniqueness
-        String operationId = co.operationId.name;
+        String operationId = co.operationId.original;
         int counter = 0;
         for (CodegenOperation op : opList) {
-            if (operationId.equals(op.operationId.name)) {
+            if (operationId.equals(op.operationId.original)) {
                 counter++;
                 if (counter > 1) {
                     LOGGER.error("Invalid spec contains multiple operations with the same operationId=`{}` in tag='{}'.Update your spec to use unique operationIds.", operationId, tag);
@@ -3989,7 +3989,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
         for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
             final CodegenKey key = entry.getKey();
-            if (mandatory.contains(key.name)) {
+            if (mandatory.contains(key.original)) {
                 continue;
             }
             final CodegenSchema prop = entry.getValue();

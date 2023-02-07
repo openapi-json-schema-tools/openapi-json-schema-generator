@@ -27,16 +27,16 @@ def __new__(
                 {{#if @key.isValid}}
                     {{#with this}}
                         {{#if refInfo.refClass}}
-    {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
+    {{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}',
                         {{else}}
                             {{#if name}}
                                 {{#if schemaIsFromAdditionalProperties}}
-    {{@key.name}}: typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{/if}}
                             {{else}}
-    {{@key.name}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
                             {{/if}}
                         {{/if}}
                     {{/with}}
@@ -48,9 +48,9 @@ def __new__(
 {{#each optionalProperties}}
     {{#if @key.isValid}}
         {{#if refInfo.refClass}}
-    {{@key.name}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
+    {{@key.original}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
         {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.original}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
         {{/if}}
     {{/if}}
 {{/each}}
@@ -98,7 +98,7 @@ def __new__(
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
                     {{#with this}}
-        {{@key.name}}={{@key.name}},
+        {{@key.original}}={{@key.original}},
                     {{/with}}
                 {{/if}}
             {{/each}}
@@ -107,7 +107,7 @@ def __new__(
 {{/if}}
 {{#each optionalProperties}}
     {{#if @key.isValid}}
-        {{@key.name}}={{@key.name}},
+        {{@key.original}}={{@key.original}},
     {{/if}}
 {{/each}}
         configuration_=configuration_,

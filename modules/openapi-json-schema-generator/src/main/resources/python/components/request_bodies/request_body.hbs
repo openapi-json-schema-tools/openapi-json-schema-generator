@@ -34,13 +34,13 @@ class {{name.camelCase}}(api_client.RequestBody):
         '__Content',
         {
     {{#each content}}
-            '{{{@key.name}}}': typing.Type[__{{@key.camelCase}}MediaType],
+            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
     {{/each}}
         }
     )
     content: __Content = {
     {{#each content}}
-        '{{{@key.name}}}': __{{@key.camelCase}}MediaType,
+        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
     {{/each}}
     }
     {{#if required}}

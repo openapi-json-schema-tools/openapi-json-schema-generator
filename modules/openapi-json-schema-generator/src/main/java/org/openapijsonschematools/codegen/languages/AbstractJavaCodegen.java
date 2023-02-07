@@ -1789,7 +1789,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         return properties.stream()
-            .filter(p -> p.name.name.equals(name))
+            .filter(p -> p.name.original.equals(name))
             .findFirst();
     }
 

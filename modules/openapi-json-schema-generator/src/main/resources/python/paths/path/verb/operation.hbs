@@ -254,7 +254,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='{{httpMethod.name}}',
+            method='{{httpMethod.original}}',
     {{#or headerParams requestBody produces}}
             headers=_headers,
     {{/or}}
@@ -351,19 +351,19 @@ class ApiFor{{httpMethod.camelCase}}(BaseApi):
 
 {{else}}
     @typing.overload
-    def {{httpMethod.name}}(
+    def {{httpMethod.original}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
-    def {{httpMethod.name}}(
+    def {{httpMethod.original}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
-    def {{httpMethod.name}}(
+    def {{httpMethod.original}}(
     {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
 
-    def {{httpMethod.name}}(
+    def {{httpMethod.original}}(
     {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
         return self._{{operationId.snakeCase}}(
             {{> paths/path/verb/_helper_operation_args_passed }}

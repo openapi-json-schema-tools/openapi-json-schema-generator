@@ -147,7 +147,7 @@ public class CodegenHeader {
         if (content != null) {
             for (Map.Entry<CodegenKey, CodegenMediaType> entry: content.entrySet()) {
                 if (entry.getValue().schema != null) {
-                    String contentType = entry.getKey().name;
+                    String contentType = entry.getKey().original;
                     return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
             }

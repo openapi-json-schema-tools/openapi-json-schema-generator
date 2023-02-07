@@ -64,7 +64,6 @@ import org.openapijsonschematools.codegen.api.TemplateProcessor;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -1401,7 +1400,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             propName = toVarName(propName);
             String propModelName = null;
             Object propExample = null;
-            if (discProp != null && propName.equals(discProp.name.name)) {
+            if (discProp != null && propName.equals(discProp.name.original)) {
                 propModelName = null;
                 propExample = discProp.example;
             } else {
