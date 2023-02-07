@@ -3447,10 +3447,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (parameter.getExtensions() != null && !parameter.getExtensions().isEmpty()) {
             vendorExtensions = parameter.getExtensions();
         }
-        boolean required = false;
-        if (parameter.getRequired() != null) {
-            required = parameter.getRequired();
-        }
+        Boolean required = parameter.getRequired();
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
         if (parameter.getContent() != null) {
             content = getContent(parameter.getContent(), sourceJsonPath + "/content");
@@ -3498,7 +3495,6 @@ public class DefaultCodegen implements CodegenConfig {
         // should be overridden by lang codegen
         String example = getParameterExampleValue(parameter);
 
-        boolean finalRequired = required;
         boolean finalIsAllowEmptyValue = isAllowEmptyValue;
         boolean finalIsDeepObject = isDeepObject;
         String finalStyle = style;
@@ -3508,7 +3504,7 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
