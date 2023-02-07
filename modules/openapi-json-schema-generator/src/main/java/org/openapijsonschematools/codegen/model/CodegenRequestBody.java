@@ -14,19 +14,14 @@ public class CodegenRequestBody {
     public final String description;
     public final String unescapedDescription;
     public final Map<String, Object> vendorExtensions;
-    /**
-     * Determines whether this parameter is mandatory. If the parameter is in "path",
-     * this property is required and its value MUST be true. Otherwise, the property
-     * MAY be included and its default value is false.
-     */
-    public final boolean required;
+    public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
     public final String componentModule;
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
 
-    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.vendorExtensions = vendorExtensions;

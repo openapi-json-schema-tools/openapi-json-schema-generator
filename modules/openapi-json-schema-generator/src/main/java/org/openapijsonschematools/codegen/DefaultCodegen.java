@@ -5020,10 +5020,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             vendorExtensions = requestBody.getExtensions();
         }
-        boolean required = false;
-        if (requestBody.getRequired() != null) {
-            required = requestBody.getRequired();
-        }
+        Boolean required = requestBody.getRequired();
         LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
         if (requestBody.getContent() != null) {
             content = getContent(requestBody.getContent(), sourceJsonPath + "/content");
@@ -5034,9 +5031,8 @@ public class DefaultCodegen implements CodegenConfig {
         String finalComponentModule = componentModule;
         CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
-        boolean finalRequired = required;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
+        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
