@@ -2647,6 +2647,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.isBooleanSchemaFalse = true;
         }
         property.enumNameToValue = getEnumNameToValue(p);
+        property.type = p.getType();
         property.types = getTypes(p);
 
         ModelUtils.syncValidationProperties(p, property);

@@ -38,10 +38,8 @@ public class CodegenSchema {
     public Integer maxProperties;
     public Integer minProperties;
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
-    // TODO change this to enumValueToName for ease of java checking
     public LinkedHashMap<String, EnumValue> enumNameToValue; // enum info
-    // TODO add unused type
-    public LinkedHashSet<String> types; // TODO move this to 3.1.0
+    public String type;
     public List<CodegenSchema> allOf = null;
     public List<CodegenSchema> anyOf = null;
     public List<CodegenSchema> oneOf = null;
@@ -68,6 +66,7 @@ public class CodegenSchema {
     public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
 
     // 3.1.0
+    public LinkedHashSet<String> types;
     public CodegenSchema contains;
     public LinkedHashMap<String, List<String>> dependentRequired;
     public boolean isBooleanSchemaTrue;  // supports boolean schemas
