@@ -873,24 +873,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             String usedName = toEnumVarName(enumName, prop);
             Object usedValue = value;
             if (value instanceof Integer) {
-            } else if (value instanceof Double) {
-            } else if (value instanceof Long) {
-            } else if (value instanceof Float) {
-            } else if (value instanceof BigDecimal) {
-            } else if (value == null) {
-                usedValue = "schemas.NoneClass.NONE";
-            } else if (value instanceof Boolean) {
-                if (value.equals(Boolean.TRUE)) {
-                    usedValue = "schemas.BoolClass.TRUE";
-                } else {
-                    usedValue = "schemas.BoolClass.FALSE";
-                }
-            } else {
-                String fixedValue = (String) processTestExampleData(value);
-                usedValue = ensureQuotes(fixedValue);
+            } else if (value instanceof String ) {
+                usedValue = (String) processTestExampleData(usedValue);
             }
-            EnumValue enumValue = new EnumValue(usedValue, null);
-            enumNameToValue.put(usedName, enumValue);
+            enumNameToValue.put(usedName, toEnumValue(usedValue, null));
         }
 
         return enumNameToValue;

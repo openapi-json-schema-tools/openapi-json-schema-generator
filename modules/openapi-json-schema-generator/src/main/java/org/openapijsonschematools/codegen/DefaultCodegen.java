@@ -79,6 +79,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -1956,12 +1957,12 @@ public class DefaultCodegen implements CodegenConfig {
         return data;
     }
 
-    private EnumValue toEnumValue(Object value, String description) {
+    protected EnumValue toEnumValue(Object value, String description) {
         Object usedValue = value;
         String type = null;
         if (value instanceof Integer){
             type = "integer";
-        } else if (value instanceof Double || value instanceof Float){
+        } else if (value instanceof Double || value instanceof Float || value instanceof BigDecimal){
             type = "number";
         } else if (value instanceof String) {
             type = "string";
