@@ -17,8 +17,7 @@ import java.util.TreeSet;
 public class CodegenDiscriminator {
     // The name of the property in the payload that will hold the discriminator value.
     // This is the propertyName as specified in the OpenAPI discriminator object.
-    public final String propertyName;
-    public final String propertyBaseName;
+    public final CodegenKey propertyName;
     public final Map<String, String> mapping;
 
     // mappedModels is populated differently if legacyDiscriminatorBehavior is
@@ -38,9 +37,8 @@ public class CodegenDiscriminator {
 
     public final TreeSet<MappedModel> mappedModels;
 
-    public CodegenDiscriminator(String propertyName, String propertyBaseName, Map<String, String> mapping, TreeSet<MappedModel> mappedModels) {
+    public CodegenDiscriminator(CodegenKey propertyName, Map<String, String> mapping, TreeSet<MappedModel> mappedModels) {
         this.propertyName = propertyName;
-        this.propertyBaseName = propertyBaseName;
         this.mapping = mapping;
         this.mappedModels = mappedModels;
     }
@@ -101,21 +99,19 @@ public class CodegenDiscriminator {
         if (o == null || getClass() != o.getClass()) return false;
         CodegenDiscriminator that = (CodegenDiscriminator) o;
         return Objects.equals(propertyName, that.propertyName) &&
-                Objects.equals(propertyBaseName, that.propertyBaseName) &&
                 Objects.equals(mapping, that.mapping) &&
                 Objects.equals(mappedModels, that.mappedModels);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(propertyName, propertyBaseName, mapping, mappedModels);
+        return Objects.hash(propertyName, mapping, mappedModels);
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenDiscriminator{");
         sb.append("propertyName='").append(propertyName).append('\'');
-        sb.append(", propertyBaseName='").append(propertyBaseName).append('\'');
         sb.append(", mapping=").append(mapping);
         sb.append(", mappedModels=").append(mappedModels);
         sb.append('}');

@@ -2361,8 +2361,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         String discPropName = sourceDiscriminator.getPropertyName();
-        String propertyName = toVarName(discPropName);
-        String propertyBaseName = sourceDiscriminator.getPropertyName();
+        CodegenKey propertyName = getKey(discPropName);
         Map<String, String> mapping = sourceDiscriminator.getMapping();
 
         TreeSet<MappedModel> mappedModels = new TreeSet<>();
@@ -2416,7 +2415,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, mappedModels);
+        CodegenDiscriminator discriminator = new CodegenDiscriminator(propertyName, mapping, mappedModels);
 
         return discriminator;
     }
