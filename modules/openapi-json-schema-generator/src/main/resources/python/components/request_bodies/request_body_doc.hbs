@@ -8,7 +8,7 @@
         {{#each content}}
             {{#with this.schema}}
 
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
@@ -19,9 +19,9 @@ Ref Class | Input Type | Accessed Type | Description
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase anchorContainsPeriod=true complexTypePrefix="../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase anchorContainsPeriod=true complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase anchorContainsPeriod=true complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

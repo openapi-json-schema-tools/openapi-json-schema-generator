@@ -7,7 +7,7 @@
         {{#with getDeepestRef}}
             {{#if schema}}
                 {{#with schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../name }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../jsonPathPiece }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../refInfo.refClass}}.schema](../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
@@ -15,7 +15,7 @@ Ref Class | Input Type | Accessed Type | Description
             {{/if}}
             {{#each content}}
                 {{#with this.schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
@@ -26,10 +26,10 @@ Ref Class | Input Type | Accessed Type | Description
         {{#if schema}}
             {{#with schema}}
                 {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../jsonPathPiece }}
                 {{else}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../jsonPathPiece.snakeCase }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../jsonPathPiece.snakeCase }}
                 {{/if}}
             {{/with}}
         {{else}}
@@ -38,10 +38,10 @@ Ref Class | Input Type | Accessed Type | Description
                     {{#with schema}}
                         {{#if ../componentModule}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase}}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase}}
                         {{else}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../jsonPathPiece.snakeCase schemaNamePrefix4="content" schemaNamePrefix5=../@key.snakeCase}}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../../jsonPathPiece.snakeCase schemaNamePrefix4="content" schemaNamePrefix5=../@key.snakeCase}}
                         {{/if}}
                     {{/with}}
                 {{/with}}

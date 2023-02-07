@@ -6,7 +6,7 @@
                 {{#if refInfo.refClass}}
 {{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}'
                 {{else}}
-                    {{#if name}}
+                    {{#if jsonPathPiece}}
                         {{#if schemaIsFromAdditionalProperties}}
 {{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}
                         {{else}}

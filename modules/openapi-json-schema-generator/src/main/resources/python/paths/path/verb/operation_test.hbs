@@ -39,7 +39,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../jsonPathPiece.camelCase }}
             {{/with}}
         {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=name.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=jsonPathPiece.camelCase }}
         {{/if}}
     {{/if}}
 {{/each}}
