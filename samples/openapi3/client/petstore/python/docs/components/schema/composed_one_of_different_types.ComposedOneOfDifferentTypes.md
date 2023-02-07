@@ -15,34 +15,34 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  |
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
-[oneOf_2](#oneOf_2) | None,  | NoneClass,  |  |
-[oneOf_3](#oneOf_3) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[oneOf_4](#oneOf_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[oneOf_5](#oneOf_5) | list, tuple,  | tuple,  |  |
-[oneOf_6](#oneOf_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[_2](#_2) | None,  | NoneClass,  |  |
+[_3](#_3) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_4](#_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_5](#_5) | list, tuple,  | tuple,  |  |
+[_6](#_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# oneOf_2
+# _2
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# oneOf_3
+# _3
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# oneOf_4
+# _4
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# oneOf_5
+# _5
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,7 +54,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-# oneOf_6
+# _6
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

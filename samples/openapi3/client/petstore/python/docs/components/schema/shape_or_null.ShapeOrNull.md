@@ -13,11 +13,11 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[oneOf_0](#oneOf_0) | None,  | NoneClass,  |  |
+[_0](#_0) | None,  | NoneClass,  |  |
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
-# oneOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

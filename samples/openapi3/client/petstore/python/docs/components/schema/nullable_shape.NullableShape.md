@@ -15,9 +15,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
-[oneOf_2](#oneOf_2) | None,  | NoneClass,  |  |
+[_2](#_2) | None,  | NoneClass,  |  |
 
-# oneOf_2
+# _2
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

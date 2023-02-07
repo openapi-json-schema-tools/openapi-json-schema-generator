@@ -63,9 +63,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -95,9 +95,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -124,9 +124,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -157,9 +157,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -191,9 +191,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -224,9 +224,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 #### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[allOf_0](#allOf_0) | str,  | str,  |  |
+[_0](#_0) | str,  | str,  |  |
 
-# allOf_0
+# _0
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

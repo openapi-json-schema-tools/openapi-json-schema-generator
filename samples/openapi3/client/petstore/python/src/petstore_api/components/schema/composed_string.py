@@ -39,9 +39,9 @@ class ComposedString(
         }
         
         class AllOf:
-            AllOf0 = schemas.AnyTypeSchema
+            _0 = schemas.AnyTypeSchema
             classes = [
-                AllOf0,
+                _0,
             ]
 
 

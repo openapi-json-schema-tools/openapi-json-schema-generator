@@ -39,11 +39,11 @@ class ChildCat(
         class AllOf:
         
             @staticmethod
-            def all_of0() -> typing.Type['parent_pet.ParentPet']:
+            def _0() -> typing.Type['parent_pet.ParentPet']:
                 return parent_pet.ParentPet
             
             
-            class AllOf1(
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -94,7 +94,7 @@ class ChildCat(
                     name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'AllOf1':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *args_,
@@ -103,8 +103,8 @@ class ChildCat(
                         **kwargs,
                     )
             classes = [
-                all_of0,
-                AllOf1,
+                _0,
+                _1,
             ]
 
 

@@ -41,7 +41,7 @@ class AdditionalPropertiesValidator(
         class AllOf:
             
             
-            class AllOf0(
+            class _0(
                 schemas.DictSchema
             ):
             
@@ -62,7 +62,7 @@ class AdditionalPropertiesValidator(
                     *args_: typing.Union[dict, frozendict.frozendict, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'AllOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -71,7 +71,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class AllOf1(
+            class _1(
                 schemas.DictSchema
             ):
             
@@ -115,7 +115,7 @@ class AdditionalPropertiesValidator(
                     *args_: typing.Union[dict, frozendict.frozendict, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'AllOf1':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *args_,
@@ -124,7 +124,7 @@ class AdditionalPropertiesValidator(
                     )
             
             
-            class AllOf2(
+            class _2(
                 schemas.DictSchema
             ):
             
@@ -168,7 +168,7 @@ class AdditionalPropertiesValidator(
                     *args_: typing.Union[dict, frozendict.frozendict, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                ) -> 'AllOf2':
+                ) -> '_2':
                     return super().__new__(
                         cls,
                         *args_,
@@ -176,9 +176,9 @@ class AdditionalPropertiesValidator(
                         **kwargs,
                     )
             classes = [
-                AllOf0,
-                AllOf1,
-                AllOf2,
+                _0,
+                _1,
+                _2,
             ]
 
 

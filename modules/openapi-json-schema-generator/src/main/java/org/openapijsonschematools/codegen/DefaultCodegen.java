@@ -2509,40 +2509,6 @@ public class DefaultCodegen implements CodegenConfig {
         return imports;
     }
 
-    private String getUsedName(String currentJsonPath) {
-        String[] refPieces = currentJsonPath.split("/");
-        if (refPieces.length >= 4) {
-            // component schemas + proprties/items/additionalProperties use case
-            String lastPathFragment = refPieces[refPieces.length-1];
-            String usedName = lastPathFragment;
-            if (refPieces.length >= 5) {
-                // properties/items/additionalProperties use case
-                // # components schemas someSchema additionalProperties/items
-                if (!lastPathFragment.equals("schema")) {
-                    try {
-                        Integer.parseInt(usedName);
-                        // for oneOf/anyOf/allOf
-                        String priorFragment = refPieces[refPieces.length-2];
-                        if ("allOf".equals(priorFragment) || "anyOf".equals(priorFragment) || "oneOf".equals(priorFragment)) {
-                            usedName = refPieces[refPieces.length-2] + "_" + usedName;
-                        }
-                    } catch (NumberFormatException nfe) {
-                        // any other case
-                        ;
-                    }
-                }
-            } else {
-                // component schema use case
-                // TODO set discriminator on any schema instances in the future not just these
-                if (!currentJsonPath.startsWith("#/components/schemas/") || refPieces.length != 4) {
-                    throw new RuntimeException("Invalid sourceJsonPath "+ currentJsonPath);
-                }
-            }
-            return usedName;
-        }
-        return null;
-    }
-
     protected LinkedHashSet<String> getTypes(Schema schema) {
         if (schema.getType() == null && schema.getTypes() == null) {
             return null;
@@ -2647,7 +2613,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 4) {
                 // component schemas + proprties/items/additionalProperties use case
                 String lastPathFragment = pathPieces[pathPieces.length-1];
-                String usedName = getUsedName(currentJsonPath);
+                String usedName = ModelUtils.decodeSlashes(lastPathFragment);
                 if (pathPieces.length >= 5) {
                     // proprties/items/additionalProperties use case
                     // # components schemas someSchema additionalProperties/items
@@ -3067,13 +3033,13 @@ public class DefaultCodegen implements CodegenConfig {
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
             if (requestBody.refInfo != null) {
-                if (requestBody.getDeepestRef().required) {
+                if (Boolean.TRUE.equals(requestBody.getDeepestRef().required)) {
                     hasRequiredParamOrBody = true;
                 } else {
                     hasOptionalParamOrBody = true;
                 }
             } else {
-                if (requestBody.required) {
+                if (Boolean.TRUE.equals(requestBody.required)) {
                     hasRequiredParamOrBody = true;
                 } else {
                     hasOptionalParamOrBody = true;
@@ -3247,7 +3213,7 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/responses/A
         String componentModule = null;
@@ -3260,7 +3226,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         String finalComponentModule = componentModule;
         TreeSet<String> finalImports = imports;
-        r = new CodegenResponse(name, finalHeaders, description, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
+        r = new CodegenResponse(jsonPathPiece, finalHeaders, description, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -3347,7 +3313,7 @@ public class DefaultCodegen implements CodegenConfig {
             imports =  new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/headers/A
         String componentModule = null;
@@ -3394,7 +3360,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3433,7 +3399,7 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/parameters/A
         String componentModule = null;
@@ -3498,7 +3464,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         Boolean allowReserved = parameter.getAllowReserved();
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, finalRefInfo, allowReserved);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, finalRefInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
@@ -4935,20 +4901,14 @@ public class DefaultCodegen implements CodegenConfig {
         return null;
     }
 
-    private CodegenKey getName(String expectedComponentType, String currentJsonPath) {
+    private CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath) {
         // last fragment info
         // requestBody -> requestBody
         // headers -> headerName
         // parameters/i -> i
         // components/parameters/someParam -> someParam
-        String usedName;
-        if (expectedComponentType.equals("schemas")) {
-            usedName = getUsedName(currentJsonPath);
-        } else {
-            usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-        }
-        CodegenKey name = getKey(usedName, expectedComponentType);
-        return name;
+        String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+        return getKey(usedName, expectedComponentType);
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, CodegenSchema instance) {
@@ -4963,8 +4923,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (currentJsonPath == null) {
             return;
         }
-        CodegenKey name = getName(expectedComponentType, currentJsonPath);
-        instance.jsonPathPiece = name;
+        instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath);
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/schemas/A
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
@@ -4996,7 +4955,7 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey name = getName(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/requestBodies/A
         String componentModule = null;
@@ -5022,7 +4981,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
+        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, finalRefInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
