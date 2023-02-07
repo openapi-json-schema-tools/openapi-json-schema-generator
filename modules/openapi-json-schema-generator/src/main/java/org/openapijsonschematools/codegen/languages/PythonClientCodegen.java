@@ -790,6 +790,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             return value;
         }
+        value = value.replace("\t", "_TAB_");
+        value = value.replace("\n", "_NEW_LINE_");
+        value = value.replace("\r", "_CARRIAGE_RETURN_");
         // Replace " " with _
         String usedValue = value.replaceAll("\\s+", "_");
         // strip first character if it is invalid
@@ -798,9 +801,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         usedValue = usedValue.replaceAll("^[^_a-zA-Z]", "");
         boolean firstCharStripped = usedValue.length() == lengthBeforeFirstCharStrip - 1;
         // Replace / with _ for path enums
-        usedValue = usedValue.replaceAll("/", "_");
+        usedValue = usedValue.replace("/", "_");
         // Replace . with _ for tag enums
-        usedValue = usedValue.replaceAll("\\.", "_");
+        usedValue = usedValue.replace(".", "_");
         // add underscore at camelCase locations
         String regex = "([a-z])([A-Z]+)";
         String replacement = "$1_$2";
@@ -871,8 +874,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
             String usedName = toEnumVarName(enumName, prop);
             Object usedValue = value;
-            if (value instanceof Integer) {
-            } else if (value instanceof String ) {
+            if (value instanceof String ) {
                 usedValue = (String) processTestExampleData(usedValue);
             }
             enumNameToValue.put(usedName, toEnumValue(usedValue, null));
