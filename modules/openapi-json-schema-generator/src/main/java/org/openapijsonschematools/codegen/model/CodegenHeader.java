@@ -41,11 +41,11 @@ public class CodegenHeader {
     public final CodegenKey jsonPathPiece;
     public final boolean isExplode;
     public final String style;
-    public final boolean isDeprecated;
+    public final Boolean deprecated;
     public final CodegenSchema schema;
     public final CodegenRefInfo<CodegenHeader> refInfo;
 
-    public CodegenHeader(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
+    public CodegenHeader(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, boolean isExplode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
@@ -57,14 +57,14 @@ public class CodegenHeader {
         this.jsonPathPiece = jsonPathPiece;
         this.isExplode = isExplode;
         this.style = style;
-        this.isDeprecated = isDeprecated;
+        this.deprecated = deprecated;
         this.schema = schema;
         this.refInfo = refInfo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(jsonPathPiece, isExplode, description, unescapedDescription, style, example, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, isExplode, description, unescapedDescription, style, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class CodegenHeader {
                 Objects.equals(example, that.example) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 isExplode == that.isExplode &&
-                isDeprecated == that.isDeprecated &&
+                deprecated == that.deprecated &&
                 Objects.equals(schema, that.schema) &&
                 Objects.equals(style, that.style) &&
                 Objects.equals(refInfo, that.refInfo);
@@ -100,7 +100,7 @@ public class CodegenHeader {
         sb.append(", componentModule=").append(componentModule);
         sb.append(", isExplode=").append(isExplode);
         sb.append(", style='").append(style).append('\'');
-        sb.append(", isDeprecated=").append(isDeprecated);
+        sb.append(", deprecated=").append(deprecated);
         sb.append(", schema=").append(schema);
         sb.append(", refInfo=").append(refInfo);
     }

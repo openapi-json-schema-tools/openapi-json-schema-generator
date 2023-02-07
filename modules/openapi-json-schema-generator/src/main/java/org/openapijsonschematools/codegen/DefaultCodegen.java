@@ -2964,10 +2964,7 @@ public class DefaultCodegen implements CodegenConfig {
         String summary = escapeText(operation.getSummary());
         String unescapedNotes = operation.getDescription();
         String notes = escapeText(operation.getDescription());
-        boolean isDeprecated = false;
-        if (operation.getDeprecated() != null) {
-            isDeprecated = operation.getDeprecated();
-        }
+        Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
         LinkedHashSet<String> produces = null;
@@ -3170,7 +3167,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenOperation op = new CodegenOperation(
-                isDeprecated,
+                deprecated,
                 hasErrorResponseObject,
                 summary,
                 unescapedNotes,
@@ -3372,10 +3369,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (header.getContent() != null) {
             content = getContent(header.getContent(), sourceJsonPath + "/content");
         }
-        boolean isDeprecated = false;
-        if (header.getDeprecated() != null) {
-            isDeprecated = header.getDeprecated();
-        }
+        Boolean deprecated = header.getDeprecated();
 
         // the parameter model name is obtained from the schema $ref
         // e.g. #/components/schemas/list_pageQuery_parameter => toModelName(list_pageQuery_parameter)
@@ -3404,10 +3398,9 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         boolean finalRequired = required;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, deprecated, finalSchema, finalRefInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3469,10 +3462,7 @@ public class DefaultCodegen implements CodegenConfig {
             content = getContent(parameter.getContent(), sourceJsonPath + "/content");
         }
 
-        boolean isDeprecated = false;
-        if (parameter.getDeprecated() != null) {
-            isDeprecated = parameter.getDeprecated();
-        }
+        Boolean deprecated = parameter.getDeprecated();
 
         // the parameter model name is obtained from the schema $ref
         // e.g. #/components/schemas/list_pageQuery_parameter => toModelName(list_pageQuery_parameter)
@@ -3525,9 +3515,8 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;

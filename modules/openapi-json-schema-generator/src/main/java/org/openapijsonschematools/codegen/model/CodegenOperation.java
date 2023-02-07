@@ -126,7 +126,7 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", isDeprecated=").append(deprecated);
+        sb.append(", deprecated=").append(deprecated);
         sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
         sb.append(", httpMethod='").append(httpMethod).append('\'');
