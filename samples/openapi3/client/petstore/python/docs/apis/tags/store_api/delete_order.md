@@ -64,17 +64,17 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [_400.response_cls](#response_400response_cls) | Invalid ID supplied
-404 | [_404.response_cls](#response_404response_cls) | Order not found
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid ID supplied
+404 | [ResponseFor404.response_cls](#response_404response_cls) | Order not found
 
-#### <a id="response_400response_cls" >_400.response_cls</a>
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404response_cls" >_404.response_cls</a>
+#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

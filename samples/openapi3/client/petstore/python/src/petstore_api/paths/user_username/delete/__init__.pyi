@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -155,7 +155,7 @@ class DeleteUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -175,7 +175,7 @@ class DeleteUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -205,7 +205,7 @@ class ApiForDelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -225,7 +225,7 @@ class ApiForDelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

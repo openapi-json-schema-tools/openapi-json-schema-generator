@@ -44,7 +44,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
 
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -166,7 +166,7 @@ class Classname(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -179,7 +179,7 @@ class Classname(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
 
@@ -204,7 +204,7 @@ class Classname(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -240,7 +240,7 @@ class ApiForPatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -253,7 +253,7 @@ class ApiForPatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
 
@@ -278,7 +278,7 @@ class ApiForPatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

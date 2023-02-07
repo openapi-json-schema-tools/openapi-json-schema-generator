@@ -171,16 +171,16 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | success
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), [_200.content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), [ResponseFor200.content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -200,7 +200,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="response_200contentmultipart_form_dataschema" >_200.content.multipart_form_data.schema</a>
+# <a id="response_200contentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

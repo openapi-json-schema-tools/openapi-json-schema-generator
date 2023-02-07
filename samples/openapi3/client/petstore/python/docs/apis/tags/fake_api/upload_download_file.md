@@ -58,16 +58,16 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | successful operation
+200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_octet_streamschema" >_200.content.application_octet_stream.schema</a>
+# <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
 
 file to download
 

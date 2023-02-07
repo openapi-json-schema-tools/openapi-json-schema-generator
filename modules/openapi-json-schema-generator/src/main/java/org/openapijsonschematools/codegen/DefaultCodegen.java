@@ -870,6 +870,8 @@ public class DefaultCodegen implements CodegenConfig {
 
     public String toResponseModuleName(String componentName) { return toModuleFilename(componentName); }
 
+    public String getCamelCaseResponse(String componentName) { return toModelName(componentName); }
+
     public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
@@ -5014,7 +5016,7 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             case "responses":
                 snakeCaseName = toResponseModuleName(usedKey);
-                camelCaseName = toModelName(usedKey);
+                camelCaseName = getCamelCaseResponse(usedKey);
                 break;
         }
         CodegenKey ck = new CodegenKey(

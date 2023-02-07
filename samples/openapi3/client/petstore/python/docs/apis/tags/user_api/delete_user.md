@@ -58,9 +58,9 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-404 | [_404.response_cls](#response_404response_cls) | User not found
+404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-#### <a id="response_404response_cls" >_404.response_cls</a>
+#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

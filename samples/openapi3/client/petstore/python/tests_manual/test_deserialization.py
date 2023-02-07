@@ -415,17 +415,17 @@ class DeserializationTests(unittest.TestCase):
         # make sure that an exception is thrown on an invalid type value
         with self.assertRaises(petstore_api.ApiTypeError):
             response = self.__response('test str')
-            response_200._200.deserialize(response, self.configuration)
+            response_200.ResponseFor200.deserialize(response, self.configuration)
 
         # make sure that an exception is thrown on an invalid value
         with self.assertRaises(petstore_api.ApiValueError):
             response = self.__response(21.0)
-            response_200._200.deserialize(response, self.configuration)
+            response_200.ResponseFor200.deserialize(response, self.configuration)
 
         # valid value works
         number_val = 11.0
         response = self.__response(number_val)
-        response = response_200._200.deserialize(response, self.configuration)
+        response = response_200.ResponseFor200.deserialize(response, self.configuration)
         self.assertTrue(isinstance(response.body, NumberWithValidations))
         self.assertEqual(response.body, number_val)
 
@@ -435,7 +435,7 @@ class DeserializationTests(unittest.TestCase):
         from petstore_api.components.schema import string_enum
         data = ["placed", None]
         response = self.__response(data)
-        deserialized = response_200._200.deserialize(response, self.configuration)
+        deserialized = response_200.ResponseFor200.deserialize(response, self.configuration)
         assert isinstance(deserialized.body, ArrayOfEnums)
         expected_results = ArrayOfEnums([string_enum.StringEnum(v) for v in data])
         assert expected_results == deserialized.body

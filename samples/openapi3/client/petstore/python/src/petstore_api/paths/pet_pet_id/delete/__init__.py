@@ -85,11 +85,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': response_400._400,
+        '400': response_400.ResponseFor400,
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '400': response_400._400,
+    '400': response_400.ResponseFor400,
 }
 
 

@@ -1762,6 +1762,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
     }
 
+    public String getCamelCaseResponse(String name) {
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "ResponseFor" + name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return toModelName(name);
+        }
+    }
+
     @Override
     public String toParameterDocFilename(String componentName) { return toParameterFilename(componentName); }
 
