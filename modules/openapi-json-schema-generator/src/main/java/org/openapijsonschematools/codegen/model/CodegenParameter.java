@@ -41,12 +41,14 @@ public class CodegenParameter {
     public final Boolean deprecated;
     public final CodegenSchema schema;
     public final String in;
-    public final boolean isAllowEmptyValue, isDeepObject;
+    public final Boolean allowEmptyValue;
+    public final boolean isDeepObject;
     // stores the openapi name property
     public final String name;
     public final CodegenRefInfo<CodegenParameter> refInfo;
+    public final Boolean allowReserved;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, boolean isAllowEmptyValue, boolean isDeepObject, String name, CodegenRefInfo<CodegenParameter> refInfo) {
+    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, boolean isDeepObject, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
@@ -61,10 +63,11 @@ public class CodegenParameter {
         this.deprecated = deprecated;
         this.schema = schema;
         this.in = in;
-        this.isAllowEmptyValue = isAllowEmptyValue;
+        this.allowEmptyValue = allowEmptyValue;
         this.isDeepObject = isDeepObject;
         this.name = name;
         this.refInfo = refInfo;
+        this.allowReserved = allowReserved;
     }
 
     public CodegenParameter getDeepestRef() {
@@ -107,7 +110,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(jsonPathPiece, in, explode, name, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, in, explode, name, description, unescapedDescription, style, isDeepObject, allowEmptyValue, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule, allowReserved);
     }
 
     @Override
@@ -127,6 +130,7 @@ public class CodegenParameter {
                 explode == that.explode &&
                 deprecated == that.deprecated &&
                 Objects.equals(schema, that.schema) &&
+                Objects.equals(allowReserved, that.allowReserved) &&
                 Objects.equals(style, that.style) &&
                 Objects.equals(in, that.in) &&
                 Objects.equals(refInfo, that.refInfo) &&
@@ -152,9 +156,10 @@ public class CodegenParameter {
         sb.append(", schema=").append(schema);
         sb.append(", in=").append(in);
         sb.append(", deepObject='").append(isDeepObject).append('\'');
-        sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
+        sb.append(", allowEmptyValue='").append(allowEmptyValue).append('\'');
         sb.append(", baseName='").append(name).append('\'');
         sb.append(", refInfo='").append(refInfo).append('\'');
+        sb.append(", allowReserved=").append(allowReserved).append('\'');
         sb.append('}');
         return sb.toString();
     }

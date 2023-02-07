@@ -3476,11 +3476,10 @@ public class DefaultCodegen implements CodegenConfig {
         String baseName = parameter.getName();
 
         String in = parameter.getIn();
-        boolean isAllowEmptyValue = false;
+        Boolean allowEmptyValue = parameter.getAllowEmptyValue();
         if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
-            isAllowEmptyValue = parameter.getAllowEmptyValue() != null && parameter.getAllowEmptyValue();
         } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
-            required = true;
+            required = Boolean.TRUE;
         } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(parameter.getIn())) {
         } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
         } else {
@@ -3495,7 +3494,6 @@ public class DefaultCodegen implements CodegenConfig {
         // should be overridden by lang codegen
         String example = getParameterExampleValue(parameter);
 
-        boolean finalIsAllowEmptyValue = isAllowEmptyValue;
         boolean finalIsDeepObject = isDeepObject;
         String finalStyle = style;
         TreeSet<String> finalImports = imports;
@@ -3504,7 +3502,8 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        Boolean allowReserved = parameter.getAllowReserved();
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, finalIsDeepObject, baseName, finalRefInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
