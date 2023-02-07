@@ -24,8 +24,8 @@ import org.openapijsonschematools.codegen.CodegenCallback;
 import java.util.*;
 
 public class CodegenOperation {
-    public final boolean isDeprecated,
-            hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
+    public final Boolean deprecated;
+    public final boolean hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public final String summary, unescapedNotes, notes;
     public final CodegenKey httpMethod;
     public final CodegenKey path;
@@ -51,8 +51,8 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(boolean isDeprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
-        this.isDeprecated = isDeprecated;
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+        this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
         this.unescapedNotes = unescapedNotes;
@@ -126,7 +126,7 @@ public class CodegenOperation {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
-        sb.append(", isDeprecated=").append(isDeprecated);
+        sb.append(", isDeprecated=").append(deprecated);
         sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
         sb.append(", httpMethod='").append(httpMethod).append('\'');
@@ -162,7 +162,7 @@ public class CodegenOperation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
-        return isDeprecated == that.isDeprecated &&
+        return deprecated == that.deprecated &&
                 Objects.equals(path, that.path) &&
                 Objects.equals(operationId, that.operationId) &&
                 Objects.equals(httpMethod, that.httpMethod) &&
@@ -194,7 +194,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(isDeprecated, path, operationId, httpMethod,
+        return Objects.hash(deprecated, path, operationId, httpMethod,
                 summary, unescapedNotes, notes, defaultResponse,
                 produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
