@@ -1515,7 +1515,6 @@ public class ModelUtils {
     private static void setStringValidations(Integer minLength, Integer maxLength, String pattern, CodegenSchema target) {
         if (minLength != null) target.minLength = minLength;
         if (maxLength != null) target.maxLength = maxLength;
-        if (pattern != null) target.pattern = pattern;
     }
 
     private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, CodegenSchema target) {

@@ -205,11 +205,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toRegularExpression(String pattern) {
-        return addRegularExpressionDelimiter(pattern);
-    }
-
-    @Override
     public String toParamName(String name) {
         // to avoid conflicts with 'callback' parameter for async call
         if ("callback".equals(name)) {

@@ -31,7 +31,7 @@ public class CodegenSchema {
     public Boolean exclusiveMinimum;
     public Integer maxLength;
     public Integer minLength;
-    public String pattern;
+    public CodegenPatternInfo patternInfo;
     public Integer maxItems;
     public Integer minItems;
     public Boolean uniqueItems;
@@ -83,7 +83,7 @@ public class CodegenSchema {
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
 
     public boolean hasValidation() {
-        if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || pattern != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
+        if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
             return true;
         }
         return false;
@@ -147,7 +147,7 @@ public class CodegenSchema {
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", maxLength=").append(maxLength);
         sb.append(", minLength=").append(minLength);
-        sb.append(", pattern='").append(pattern).append('\'');
+        sb.append(", patternInfo='").append(patternInfo).append('\'');
         sb.append(", example='").append(example).append('\'');
         sb.append(", minimum='").append(minimum).append('\'');
         sb.append(", maximum='").append(maximum).append('\'');
@@ -238,7 +238,7 @@ public class CodegenSchema {
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(maxLength, that.maxLength) &&
                 Objects.equals(minLength, that.minLength) &&
-                Objects.equals(pattern, that.pattern) &&
+                Objects.equals(patternInfo, that.patternInfo) &&
                 Objects.equals(example, that.example) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
@@ -256,7 +256,7 @@ public class CodegenSchema {
         return Objects.hash(description,
                 name, defaultValue,
                 title, unescapedDescription,
-                maxLength, minLength, pattern, example, minimum, maximum,
+                maxLength, minLength, patternInfo, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 readOnly, writeOnly, nullable,
                 enumNameToValue, items, additionalProperties,

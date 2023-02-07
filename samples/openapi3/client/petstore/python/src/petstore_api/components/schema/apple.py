@@ -73,9 +73,9 @@ class Apple(
                     }
                     regex={
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
+                        'flags': {
+                            re.I,
+                        },
                     }
             __annotations__ = {
                 "cultivar": Cultivar,

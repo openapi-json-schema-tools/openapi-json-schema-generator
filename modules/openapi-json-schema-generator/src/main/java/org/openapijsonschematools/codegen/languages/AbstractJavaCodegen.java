@@ -34,6 +34,7 @@ import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.VendorExtension;
@@ -1702,8 +1703,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toRegularExpression(String pattern) {
-        return escapeText(pattern);
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        return new CodegenPatternInfo(escapeText(pattern), null);
     }
 
     @Override

@@ -42,7 +42,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         number=32.1,
         _float=3.14,
         double=67.8,
-        string="a",
+        string="A",
         pattern_without_delimiter="AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
         byte='YQ==',
         binary=open('/path/to/file', 'rb'),

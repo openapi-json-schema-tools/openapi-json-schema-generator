@@ -25,22 +25,29 @@ min_properties = {{minProperties}}
 {{#neq minimum null}}
 {{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}} = {{minimum}}
 {{/neq}}
-{{#neq pattern null}}
+{{#neq patternInfo null}}
 regex={
-{{#if vendorExtensions.x-regex}}
-    'pattern': r'{{{vendorExtensions.x-regex}}}',  # noqa: E501
-{{else}}
+    {{#with patternInfo}}
     'pattern': r'{{{pattern}}}',  # noqa: E501
-{{/if}}
-{{#each vendorExtensions.x-modifiers}}
-{{#if @first}}
-    'flags': (
-{{/if}}
-        {{#unless @first}}| {{/unless}}re.{{.}}
-{{#if @last}}
-    )
-{{/if}}
-{{/each}}
+        {{#if flags}}
+    'flags': {
+            {{#each flags}}
+                {{#eq this "i"}}
+        re.I,
+                {{/eq}}
+                {{#eq this "m"}}
+        re.M,
+                {{/eq}}
+                {{#eq this "s"}}
+        re.S,
+                {{/eq}}
+                {{#eq this "u"}}
+        re.U,
+                {{/eq}}
+            {{/each}}
+    },
+        {{/if}}
+    {{/with}}
 }
 {{/neq}}
 {{#neq multipleOf null}}

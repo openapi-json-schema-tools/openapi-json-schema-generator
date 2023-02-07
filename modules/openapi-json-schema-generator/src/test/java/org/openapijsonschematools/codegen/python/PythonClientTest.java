@@ -39,6 +39,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -187,9 +188,8 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
-        Assert.assertEquals(cm.pattern, expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
-        Assert.assertFalse(cm.vendorExtensions.containsKey("x-modifiers"));
+        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertNull(cm.patternInfo.flags);
     }
 
     @Test
@@ -207,9 +207,8 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "a.";
-        Assert.assertEquals(cm.pattern, expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
+        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertEquals(cm.patternInfo.flags, new LinkedHashSet<>(Arrays.asList("s", "i", "m")));
     }
 
     @Test

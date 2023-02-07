@@ -25,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.GeneratorLanguage;
@@ -855,8 +856,8 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toRegularExpression(String pattern) {
-        return escapeText(pattern);
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        return new CodegenPatternInfo(escapeText(pattern), null);
     }
 
     private boolean startsWithTwoUppercaseLetters(String name) {

@@ -48,6 +48,7 @@ import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
@@ -1093,7 +1094,11 @@ public class DefaultCodegen implements CodegenConfig {
      * @param pattern the pattern (regular expression)
      * @return properly-escaped pattern
      */
-    public String toRegularExpression(String pattern) {
+    @Override
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        if (pattern == null) {
+            return null;
+        }
         return addRegularExpressionDelimiter(escapeText(pattern));
     }
 
@@ -2427,11 +2432,6 @@ public class DefaultCodegen implements CodegenConfig {
         return discriminator;
     }
 
-    protected void updatePropertyForString(CodegenSchema property, Schema p) {
-        property.pattern = toRegularExpression(p.getPattern());
-    }
-
-
     protected boolean isValid(String name) {
         return !isReservedWord(name);
     }
@@ -2733,20 +2733,14 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenSchema> oneOfProps = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
             property.oneOf = oneOfProps;
         }
-        if (ModelUtils.isIntegerSchema(p)) { // integer type
-        } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
-        } else if (ModelUtils.isFileSchema(p) && !ModelUtils.isStringSchema(p)) {
-        } else if (ModelUtils.isStringSchema(p)) {
-            updatePropertyForString(property, p);
-        } else if (ModelUtils.isNumberSchema(p)) {
-        } else if (ModelUtils.isArraySchema(p)) {
-        } else if (ModelUtils.isAnyType(p)) {
+        if (ModelUtils.isAnyType(p)) {
             // The 'null' value is allowed when the OAS schema is 'any type'.
             // See https://github.com/OAI/OpenAPI-Specification/issues/1389
             if (Boolean.FALSE.equals(p.getNullable())) {
                 LOGGER.warn("Schema '{}' is any type, which includes the 'null' value. 'nullable' cannot be set to 'false'", p.getName());
             }
         }
+        property.patternInfo = getPatternInfo(p.getPattern());
         // handle inner property
         if (p.getItems() != null) {
             CodegenSchema items = fromSchema(
@@ -4706,16 +4700,17 @@ public class DefaultCodegen implements CodegenConfig {
      * @param pattern the pattern (regular expression)
      * @return the pattern with delimiter
      */
-    public String addRegularExpressionDelimiter(String pattern) {
+    public CodegenPatternInfo addRegularExpressionDelimiter(String pattern) {
         if (StringUtils.isEmpty(pattern)) {
-            return pattern;
+            return new CodegenPatternInfo(pattern, null);
         }
 
+        String usedPattern = pattern;
         if (!pattern.matches("^/.*")) {
-            return "/" + pattern.replaceAll("/", "\\\\/") + "/";
+            usedPattern = "/" + pattern.replaceAll("/", "\\\\/") + "/";
         }
 
-        return pattern;
+        return new CodegenPatternInfo(usedPattern, null);
     }
 
     /**

@@ -120,9 +120,9 @@ class Schema(
                     }
                     regex={
                         'pattern': r'[a-z]',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
+                        'flags': {
+                            re.I,
+                        },
                     }
             
             
