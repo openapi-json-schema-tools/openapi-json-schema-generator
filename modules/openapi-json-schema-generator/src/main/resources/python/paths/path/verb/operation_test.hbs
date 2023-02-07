@@ -15,9 +15,9 @@ from .. import ApiTestMixin
 
 
 {{#with operation}}
-class Test{{httpMethod.camelCaseName}}(ApiTestMixin, unittest.TestCase):
+class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     """
-    {{httpMethod.camelCaseName}} unit test stubs
+    {{httpMethod.camelCase}} unit test stubs
 {{#if summary}}
         {{{summary}}}  # noqa: E501
 {{/if}}
@@ -26,7 +26,7 @@ class Test{{httpMethod.camelCaseName}}(ApiTestMixin, unittest.TestCase):
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = {{httpMethod.name}}.ApiFor{{httpMethod.camelCaseName}}(api_client=used_api_client)  # noqa: E501
+        self.api = {{httpMethod.name}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
@@ -36,10 +36,10 @@ class Test{{httpMethod.camelCaseName}}(ApiTestMixin, unittest.TestCase):
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../name.camelCaseName }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../name.camelCase }}
             {{/with}}
         {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=name.camelCaseName }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=name.camelCase }}
         {{/if}}
     {{/if}}
 {{/each}}

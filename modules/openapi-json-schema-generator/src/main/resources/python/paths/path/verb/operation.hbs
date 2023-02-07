@@ -94,7 +94,7 @@ _servers = (
 
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-default_response = response_default.{{name.camelCaseName}}
+default_response = response_default.{{name.camelCase}}
 {{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
@@ -102,13 +102,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_{{@key}}.{{name.camelCaseName}},
+        '{{@key}}': response_{{@key}}.{{name.camelCase}},
 {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_{{@key}}.{{name.camelCaseName}},
+    '{{@key}}': response_{{@key}}.{{name.camelCase}},
 {{/each}}
 }
 {{/if}}
@@ -308,7 +308,7 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class {{operationId.camelCaseName}}(BaseApi):
+class {{operationId.camelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
 {{#if requestBody}}
@@ -339,7 +339,7 @@ class {{operationId.camelCaseName}}(BaseApi):
         )
 
 
-class ApiFor{{httpMethod.camelCaseName}}(BaseApi):
+class ApiFor{{httpMethod.camelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
 {{#if requestBody}}

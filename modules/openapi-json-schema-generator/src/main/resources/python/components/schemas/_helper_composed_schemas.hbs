@@ -14,7 +14,7 @@ class AllOf:
     {{#if refInfo.refClass}}
         {{name.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{name.camelCase}},
     {{/if}}
 {{/each}}
     ]
@@ -35,7 +35,7 @@ class OneOf:
     {{#if refInfo.refClass}}
         {{name.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{name.camelCase}},
     {{/if}}
 {{/each}}
     ]
@@ -56,7 +56,7 @@ class AnyOf:
     {{#if refInfo.refClass}}
         {{name.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{name.camelCase}},
     {{/if}}
 {{/each}}
     ]

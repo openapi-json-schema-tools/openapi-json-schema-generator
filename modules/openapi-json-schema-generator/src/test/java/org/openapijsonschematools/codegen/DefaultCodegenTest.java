@@ -1446,11 +1446,11 @@ public class DefaultCodegenTest {
             CodegenKey ck = codegen.getKey("application/json");
             switch (req.httpMethod.name) {
                 case "post":
-                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataPost");
+                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataPost");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "NewNotificationData");
                     break;
                 case "delete":
-                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataDelete");
+                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataDelete");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "DeleteNotificationData");
                     break;
                 default:
@@ -3372,7 +3372,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "UsersGetAll");
+        assertEquals(co.operationId.camelCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3381,7 +3381,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3390,7 +3390,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3399,7 +3399,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "UsersGetAll");
+        assertEquals(co.operationId.camelCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3408,7 +3408,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3417,7 +3417,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
     }
 
     @Test

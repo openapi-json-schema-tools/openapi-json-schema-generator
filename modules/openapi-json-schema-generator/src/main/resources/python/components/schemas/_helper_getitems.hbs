@@ -8,9 +8,9 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> '{{
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.{{name.camelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.{{name.camelCase}}: ...
         {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCase}}: ...
         {{/if}}
     {{else}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> schemas.AnyTypeSchema: ...
@@ -26,7 +26,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> sch
 {{#if refInfo.refClass}}
 def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
 {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCaseName}}: ...
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCase}}: ...
 {{/if}}
 {{/each}}
 {{/if}}
@@ -35,7 +35,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Sch
         {{#unless isBooleanSchemaFalse}}
 
 @typing.overload
-def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}: ...
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCase}}{{/if}}: ...
         {{/unless}}
     {{else}}
 
@@ -48,7 +48,7 @@ def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}:
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCase}}{{/if}}:
     # dict_instance[name] accessor
     return super().__getitem__(name)
         {{/unless}}
@@ -64,9 +64,9 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> '{{> 
 {{else}}
     {{#if name}}
         {{#if schemaIsFromAdditionalProperties}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.{{name.camelCaseName}}: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.{{name.camelCase}}: ...
         {{else}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCaseName}}: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> Schema_.Properties.{{name.camelCase}}: ...
         {{/if}}
     {{else}}
 def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> schemas.AnyTypeSchema: ...
@@ -82,7 +82,7 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> schem
 {{#if refInfo.refClass}}
 def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset]: ...
 {{else}}
-def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> typing.Union[Schema_.Properties.{{name.camelCaseName}}, schemas.Unset]: ...
+def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> typing.Union[Schema_.Properties.{{name.camelCase}}, schemas.Unset]: ...
 {{/if}}
 {{/each}}
 {{/if}}
@@ -91,7 +91,7 @@ def get_item_(self, name: typing_extensions.Literal["{{{@key.name}}}"]) -> typin
         {{#unless isBooleanSchemaFalse}}
 
 @typing.overload
-def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}, schemas.Unset]: ...
+def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCase}}{{/if}}, schemas.Unset]: ...
         {{/unless}}
     {{else}}
 
@@ -104,7 +104,7 @@ def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schem
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-def get_item_(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}:
+def get_item_(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCase}}{{/if}}:
     return super().get_item_(name)
         {{/unless}}
     {{/with}}

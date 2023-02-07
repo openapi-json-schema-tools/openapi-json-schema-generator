@@ -1,6 +1,6 @@
 
 
-class {{name.camelCaseName}}(
+class {{name.camelCase}}(
     schemas.ListSchema
 ):
 {{#if componentModule}}
@@ -27,5 +27,5 @@ class {{name.camelCaseName}}(
 
     {{> components/schemas/_helper_new }}
 
-    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCaseName}}{{/if}}{{/with}}:
+    def __getitem__(self, i: int) -> {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{name.camelCase}}{{/if}}{{/with}}:
         return super().__getitem__(i)

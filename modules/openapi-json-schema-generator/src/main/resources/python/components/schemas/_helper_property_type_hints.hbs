@@ -8,9 +8,9 @@
                 {{else}}
                     {{#if name}}
                         {{#if schemaIsFromAdditionalProperties}}
-{{@key.name}}: Schema_.{{name.camelCaseName}}
+{{@key.name}}: Schema_.{{name.camelCase}}
                         {{else}}
-{{@key.name}}: Schema_.Properties.{{name.camelCaseName}}
+{{@key.name}}: Schema_.Properties.{{name.camelCase}}
                         {{/if}}
                     {{else}}
 {{@key.name}}: schemas.AnyTypeSchema

@@ -5,7 +5,7 @@
 {{#with response}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.camelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{name.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
 import datetime
@@ -43,7 +43,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}},
+        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -61,7 +61,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}},
+        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -80,15 +80,15 @@ class _ApiResponse(api_client.ApiResponse):
     {{/unless}}
 
 
-class {{name.camelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
+class {{name.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
     {{#each content}}
 
 
-    class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
+    class __{{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}
             {{else}}
         pass
             {{/with}}
@@ -99,13 +99,13 @@ class {{name.camelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
         '__Content',
         {
         {{#each content}}
-            '{{{@key.name}}}': typing.Type[__{{@key.camelCaseName}}MediaType],
+            '{{{@key.name}}}': typing.Type[__{{@key.camelCase}}MediaType],
         {{/each}}
         }
     )
     content: __Content = {
         {{#each content}}
-        '{{{@key.name}}}': __{{@key.camelCaseName}}MediaType,
+        '{{{@key.name}}}': __{{@key.camelCase}}MediaType,
         {{/each}}
     }
     {{/if}}

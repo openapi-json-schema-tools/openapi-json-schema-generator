@@ -3,24 +3,24 @@
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
 {{#if refInfo}}
-# {{name.camelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.snakeCase}}" ></a>
+# {{name.camelCase}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.snakeCase}}" ></a>
 {{else}}
-# <a id="{{name.snakeCase}}" >{{name.camelCaseName}}</a>
+# <a id="{{name.snakeCase}}" >{{name.camelCase}}</a>
 {{/if}}
-## <a id="{{name.snakeCase}}response_cls" >{{name.camelCaseName}}.response_cls</a>
+## <a id="{{name.snakeCase}}response_cls" >{{name.camelCase}}.response_cls</a>
 {{else}}
-#### <a id="{{name.snakeCase}}response_cls" >{{name.camelCaseName}}.response_cls</a>
+#### <a id="{{name.snakeCase}}response_cls" >{{name.camelCase}}.response_cls</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if refInfo}}
     {{#with getDeepestRef}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.camelCaseName}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.camelCase}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[{{../name.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{name.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.camelCaseName}}.content.{{@key.snakeCase}}.schema](#{{../name.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../name.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 headers | {{#unless headers}}Unset{{else}}[{{name.snakeCase}}.Headers](#{{name.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#each content}}
         {{#with this.schema}}
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [{{../../name.camelCaseName}}.headers.{{../name.snakeCase}}.schema](#{{../../name.snakeCase}}headers{{../name.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.camelCase}}.headers.{{../name.snakeCase}}.schema](#{{../../name.snakeCase}}headers{{../name.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
                         {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [{{../../../name.camelCaseName}}.headers.{{../../name.snakeCase}}.content.{{../@key.snakeCase}}.{{name.snakeCase}}](#{{../../../name.snakeCase}}headers{{../../name.snakeCase}}content{{../@key.snakeCase}}{{name.snakeCase}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../name.camelCase}}.headers.{{../../name.snakeCase}}.content.{{../@key.snakeCase}}.{{name.snakeCase}}](#{{../../../name.snakeCase}}headers{{../../name.snakeCase}}content{{../@key.snakeCase}}{{name.snakeCase}}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}

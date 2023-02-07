@@ -3,11 +3,11 @@
         {{#if required}}
             {{#if schema}}
                 {{#with schema}}
-            '{{../@key}}': typing.Union[{{../../name.snakeCase}}.{{../../name.camelCaseName}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../../name.snakeCase}}.{{../../name.camelCase}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
                 {{/with}}
             {{else}}
                 {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../name.snakeCase}}.{{../../../name.camelCaseName}}.content["{{{../@key.name}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../name.snakeCase}}.{{../../../name.camelCase}}.content["{{{../@key.name}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -16,11 +16,11 @@
     {{#if required}}
         {{#if schema}}
             {{#with schema}}
-            '{{../@key}}': typing.Union[{{../name.snakeCase}}.{{../name.camelCaseName}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../name.snakeCase}}.{{../name.camelCase}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
             {{/with}}
         {{else}}
             {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.snakeCase}}.{{../name.camelCaseName}}.content["{{{../@key.name}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.snakeCase}}.{{../name.camelCase}}.content["{{{../@key.name}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
             {{/each}}
         {{/if}}
     {{/if}}
