@@ -58,6 +58,6 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
 {{#if required}}
     required = True
 {{/if}}
-{{#if isExplode}}
+{{#if explode}}
     explode = True
 {{/if}}

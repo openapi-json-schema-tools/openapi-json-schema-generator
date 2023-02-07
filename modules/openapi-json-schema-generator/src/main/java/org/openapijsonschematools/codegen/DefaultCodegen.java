@@ -3383,9 +3383,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
         }
 
-        // the default value is false
-        // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#user-content-parameterexplode
-        boolean isExplode = header.getExplode() == null ? false : header.getExplode();
+        Boolean explode = header.getExplode();
 
         String style = null;
         if (header.getStyle() != null) {
@@ -3400,7 +3398,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, deprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3476,9 +3474,7 @@ public class DefaultCodegen implements CodegenConfig {
             );
         }
 
-        // the default value is false
-        // https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#user-content-parameterexplode
-        boolean isExplode = parameter.getExplode() == null ? false : parameter.getExplode();
+        Boolean explode = parameter.getExplode();
 
         String style = null;
         if (parameter.getStyle() != null) {
@@ -3516,7 +3512,7 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, explode, finalStyle, deprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;

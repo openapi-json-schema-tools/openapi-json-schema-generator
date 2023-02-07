@@ -4027,7 +4027,7 @@ public class DefaultCodegenTest {
         @Test
         public void setShouldExplode() {
             CodegenParameter parameter = codegenParameter("/set_should_explode");
-            assertTrue(parameter.isExplode);
+            assertTrue(parameter.explode);
         }
 
         @Test
