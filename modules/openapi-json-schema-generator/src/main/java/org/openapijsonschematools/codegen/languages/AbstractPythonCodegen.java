@@ -205,11 +205,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toRegularExpression(String pattern) {
-        return addRegularExpressionDelimiter(pattern);
-    }
-
-    @Override
     public String toParamName(String name) {
         // to avoid conflicts with 'callback' parameter for async call
         if ("callback".equals(name)) {
@@ -526,22 +521,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     public void setPackageVersion(String packageVersion) {
         this.packageVersion = packageVersion;
     }
-
-    @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-        String type = null;
-        if (typeMapping.containsKey(openAPIType)) {
-            type = typeMapping.get(openAPIType);
-            if (languageSpecificPrimitives.contains(type)) {
-                return type;
-            }
-        } else {
-            type = toModelName(openAPIType);
-        }
-        return type;
-    }
-
 
     @Override
     public String toModelName(String name) {

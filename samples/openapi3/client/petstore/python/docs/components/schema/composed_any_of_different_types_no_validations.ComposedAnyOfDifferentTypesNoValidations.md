@@ -5,7 +5,7 @@
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ### Composed Schemas (allOf/anyOf/oneOf/not)
 #### anyOf
@@ -14,7 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [anyOf_0](#anyOf_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [anyOf_1](#anyOf_1) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [anyOf_2](#anyOf_2) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
-[anyOf_3](#anyOf_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
+[anyOf_3](#anyOf_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 [anyOf_4](#anyOf_4) | str,  | str,  |  |
 [anyOf_5](#anyOf_5) | str,  | str,  |  |
 [anyOf_6](#anyOf_6) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -54,7 +54,7 @@ str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
+bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
 # anyOf_4
 
@@ -101,7 +101,7 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  |
+items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 # anyOf_10
 

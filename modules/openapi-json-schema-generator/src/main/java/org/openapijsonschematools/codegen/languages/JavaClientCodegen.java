@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.languages;
 
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
@@ -708,10 +707,10 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                         sort(operation.allParams, new Comparator<CodegenParameter>() {
                             @Override
                             public int compare(CodegenParameter one, CodegenParameter another) {
-                                if (one.isPathParam && another.isQueryParam) {
+                                if (one.in.equals("path") && another.in.equals("query")) {
                                     return -1;
                                 }
-                                if (one.isQueryParam && another.isPathParam) {
+                                if (one.in.equals("query") && another.in.equals("path")) {
                                     return 1;
                                 }
                                 return 0;
@@ -787,7 +786,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (!BooleanUtils.toBoolean(model.isEnum)) {
+        if (model.enumNameToValue == null) {
             //final String lib = getLibrary();
             //Needed imports for Jackson based libraries
             if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
@@ -818,26 +817,11 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             model.imports.remove("ToStringSerializer");
         }
 
-        if (property.isArray && property.uniqueItems && !JACKSON.equals(serializationLibrary)) {
+        if (property.types != null && property.types.contains("array") && property.uniqueItems && !JACKSON.equals(serializationLibrary)) {
             // clean-up
             model.imports.remove("JsonDeserialize");
             property.vendorExtensions.remove("x-setter-extra-annotation");
         }
-    }
-
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
-        //Needed import for Gson based libraries
-        if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
-            for (CodegenSchema cm : objs.values()) {
-                // for enum model
-                if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
-                    cm.imports.add(importMapping.get("SerializedName"));
-                }
-            }
-        }
-        return objs;
     }
 
     public void setUseOneOfDiscriminatorLookup(boolean useOneOfDiscriminatorLookup) {

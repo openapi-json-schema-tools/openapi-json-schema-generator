@@ -25,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.GeneratorLanguage;
@@ -337,28 +338,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         }
     }
 
-    /**
-     * returns the OpenAPI type for the property
-     *
-     * @param p OpenAPI property object
-     * @return string presentation of the type
-     **/
-    @Override
-    public String getSchemaType(Schema p) {
-        String openAPIType = super.getSchemaType(p);
-        String type;
-        // This maps, for example, long -> kotlin.Long based on hashes in this type's constructor
-        if (typeMapping.containsKey(openAPIType)) {
-            type = typeMapping.get(openAPIType);
-            if (languageSpecificPrimitives.contains(type)) {
-                return toModelName(type);
-            }
-        } else {
-            type = openAPIType;
-        }
-        return toModelName(type);
-    }
-
     @Override
     public String modelDocFileFolder() {
         return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);
@@ -371,7 +350,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
 
     @Override
     public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
         for (CodegenSchema cm : objs.values()) {
             if (cm.discriminator != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
@@ -379,13 +357,13 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             }
 
             for (CodegenSchema var : cm.properties.values()) {
-                if (var.isEnum || isSerializableModel()) {
+                if (var.enumNameToValue != null || isSerializableModel()) {
                     cm.vendorExtensions.put("x-has-data-class-body", true);
                     break;
                 }
             }
         }
-        return postProcessModelsEnum(objs);
+        return objs;
     }
 
     @Override
@@ -564,7 +542,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         String modified;
         if (value.length() == 0) {
             modified = "EMPTY";
@@ -815,23 +793,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toEnumValue(String value, CodegenSchema prop) {
-        if (prop.isInteger) {
-            return value;
-        } else if (prop.isDouble) {
-            if (value.contains(".")) {
-                return value;
-            } else {
-                return value + ".0"; // Float and double must have .0
-            }
-        } else if (prop.isFloat) {
-            return value + "f";
-        } else {
-            return "\"" + escapeText(value) + "\"";
-        }
-    }
-
-    @Override
     public String toParamName(String name) {
         // to avoid conflicts with 'callback' parameter for async call
         if ("callback".equals(name)) {
@@ -895,8 +856,8 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toRegularExpression(String pattern) {
-        return escapeText(pattern);
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        return new CodegenPatternInfo(escapeText(pattern), null);
     }
 
     private boolean startsWithTwoUppercaseLetters(String name) {

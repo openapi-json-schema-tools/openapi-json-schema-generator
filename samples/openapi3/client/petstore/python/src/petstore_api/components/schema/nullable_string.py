@@ -24,8 +24,8 @@ from petstore_api import schemas  # noqa: F401
 
 
 class NullableString(
-    schemas.StrBase,
     schemas.NoneBase,
+    schemas.StrBase,
     schemas.Schema,
     schemas.NoneStrMixin
 ):

@@ -1,14 +1,12 @@
 package org.openapijsonschematools.codegen.model;
 
-import org.openapijsonschematools.codegen.model.ObjectWithTypeBooleans;
-
 public class SchemaTestCase {
-    public String description;
-    public ObjectWithTypeBooleans data;
+    public final String description;
+    public final EnumValue data;
     // true means the test case should pass, false means it should fail
-    public boolean valid;
+    public final boolean valid;
 
-    public SchemaTestCase(String description, ObjectWithTypeBooleans data, boolean valid) {
+    public SchemaTestCase(String description, EnumValue data, boolean valid) {
         this.description = description;
         this.data = data;
         this.valid = valid;

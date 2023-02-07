@@ -355,7 +355,7 @@ public class DefaultGeneratorTest {
 
         String expectedPattern = "^\\d{3}-\\d{2}-\\d{4}$";
         // NOTE: double-escaped regex for when the value is intended to be dumped in template into a String location.
-        String escapedPattern = config.toRegularExpression(expectedPattern);
+        String escapedPattern = config.getPatternInfo(expectedPattern).pattern;
 
         Schema stringRegex = openAPI.getComponents().getSchemas().get("StringRegex");
         // Sanity check.
@@ -371,7 +371,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A"
         );
-        Assert.assertEquals(stringRegexProperty.pattern, escapedPattern);
+        Assert.assertEquals(stringRegexProperty.patternInfo.pattern, escapedPattern);
 
         config.fromSchema(
                 openAPI.getComponents().getSchemas().get("StringRegex"),
@@ -391,13 +391,13 @@ public class DefaultGeneratorTest {
                 body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
         CodegenKey ck = config.getKey("*/*");
-        Assert.assertEquals(codegenParameter.content.get(ck).schema.refInfo.ref.pattern, escapedPattern);
+        Assert.assertEquals(codegenParameter.content.get(ck).schema.refInfo.ref.patternInfo.pattern, escapedPattern);
 
         // Validate when converting to response
         ApiResponse response = operation.getResponses().get("200");
         CodegenResponse codegenResponse = config.fromResponse(response, "#/paths/~1fake~1StringRegex/post/responses/200");
 
-        Assert.assertEquals(codegenResponse.content.get(ck).schema.refInfo.ref.pattern, escapedPattern);
+        Assert.assertEquals(codegenResponse.content.get(ck).schema.refInfo.ref.patternInfo.pattern, escapedPattern);
     }
 
     @Test

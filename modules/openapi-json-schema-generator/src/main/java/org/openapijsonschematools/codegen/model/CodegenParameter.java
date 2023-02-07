@@ -41,13 +41,13 @@ public class CodegenParameter {
     public final String style;
     public final boolean isDeprecated;
     public final CodegenSchema schema;
-    public final boolean isQueryParam, isPathParam, isHeaderParam,
-            isCookieParam, isAllowEmptyValue, isDeepObject;
+    public final String in;
+    public final boolean isAllowEmptyValue, isDeepObject;
     // stores the openapi name property
     public final String baseName;
     public final CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, boolean isQueryParam, boolean isPathParam, boolean isHeaderParam, boolean isCookieParam, boolean isAllowEmptyValue, boolean isDeepObject, String baseName, CodegenRefInfo<CodegenParameter> refInfo) {
+    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, String in, boolean isAllowEmptyValue, boolean isDeepObject, String baseName, CodegenRefInfo<CodegenParameter> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
@@ -62,10 +62,7 @@ public class CodegenParameter {
         this.style = style;
         this.isDeprecated = isDeprecated;
         this.schema = schema;
-        this.isQueryParam = isQueryParam;
-        this.isPathParam = isPathParam;
-        this.isHeaderParam = isHeaderParam;
-        this.isCookieParam = isCookieParam;
+        this.in = in;
         this.isAllowEmptyValue = isAllowEmptyValue;
         this.isDeepObject = isDeepObject;
         this.baseName = baseName;
@@ -112,7 +109,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, isQueryParam, isPathParam, isHeaderParam, isCookieParam, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(name, in, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -134,16 +131,15 @@ public class CodegenParameter {
                 isDeprecated == that.isDeprecated &&
                 Objects.equals(schema, that.schema) &&
                 Objects.equals(style, that.style) &&
-                isQueryParam == that.isQueryParam &&
-                isPathParam == that.isPathParam &&
-                isHeaderParam == that.isHeaderParam &&
-                isCookieParam == that.isCookieParam &&
+                Objects.equals(in, that.in) &&
                 Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(baseName, that.baseName) &&
                 Objects.equals(isDeepObject, that.isDeepObject);
     }
 
-    protected void addInstanceInfo(StringBuilder sb) {
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenParameter{");
         sb.append(", name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
@@ -158,20 +154,11 @@ public class CodegenParameter {
         sb.append(", style='").append(style).append('\'');
         sb.append(", isDeprecated=").append(isDeprecated);
         sb.append(", schema=").append(schema);
-        sb.append(", isQueryParam=").append(isQueryParam);
-        sb.append(", isPathParam=").append(isPathParam);
-        sb.append(", isHeaderParam=").append(isHeaderParam);
-        sb.append(", isCookieParam=").append(isCookieParam);
+        sb.append(", in=").append(in);
         sb.append(", deepObject='").append(isDeepObject).append('\'');
         sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
         sb.append(", refInfo='").append(refInfo).append('\'');
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CodegenParameter{");
-        addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
     }

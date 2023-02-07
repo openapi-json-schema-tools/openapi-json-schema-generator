@@ -52,7 +52,14 @@ class ArrayWithValidationsInItems(
 
     def __new__(
         cls,
-        arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, ]]],
+        arg_: typing.Union[
+            typing.Tuple[
+                typing.Union[Schema_.Items, decimal.Decimal, int, ], ...
+            ],
+            typing.List[
+                typing.Union[Schema_.Items, decimal.Decimal, int, ]
+            ],
+        ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ArrayWithValidationsInItems':
         return super().__new__(

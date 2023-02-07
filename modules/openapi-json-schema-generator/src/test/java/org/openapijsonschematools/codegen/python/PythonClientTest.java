@@ -26,6 +26,7 @@ import org.openapijsonschematools.codegen.DefaultGenerator;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
+import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -38,6 +39,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -186,9 +188,8 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
-        Assert.assertEquals(cm.pattern, expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
-        Assert.assertFalse(cm.vendorExtensions.containsKey("x-modifiers"));
+        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertNull(cm.patternInfo.flags);
     }
 
     @Test
@@ -206,9 +207,8 @@ public class PythonClientTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "a.";
-        Assert.assertEquals(cm.pattern, expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-regex"), expectedRegexPattern);
-        Assert.assertEquals(cm.vendorExtensions.get("x-modifiers"), Arrays.asList("DOTALL", "IGNORECASE", "MULTILINE"));
+        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertEquals(cm.patternInfo.flags, new LinkedHashSet<>(Arrays.asList("s", "i", "m")));
     }
 
     @Test
@@ -231,10 +231,10 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        ArrayList<Map<String, Object>> enumVars = (ArrayList<Map<String, Object>>) cm.allowableValues.get("enumVars");
+        Map<String, EnumValue> enumVars = cm.enumNameToValue;
         Assert.assertEquals(enumVars.size(), 2);
-        Assert.assertEquals(enumVars.get(0).get("name"), "DIGIT_THREE_67B9C");
-        Assert.assertEquals(enumVars.get(1).get("name"), "FFA5A4");
+        Assert.assertEquals(enumVars.get("DIGIT_THREE_67B9C").value, "#367B9C");
+        Assert.assertEquals(enumVars.get("FFA5A4").value, "#FFA5A4");
     }
 
     @Test(description = "format imports of models using a package containing dots")

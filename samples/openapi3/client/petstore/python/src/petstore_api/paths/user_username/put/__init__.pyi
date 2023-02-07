@@ -59,7 +59,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -69,7 +69,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -103,7 +103,7 @@ class BaseApi(api_client.Api):
 
     def _update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -183,7 +183,7 @@ class UpdateUser(BaseApi):
     @typing.overload
     def update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -193,7 +193,7 @@ class UpdateUser(BaseApi):
     @typing.overload
     def update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -204,7 +204,7 @@ class UpdateUser(BaseApi):
     @typing.overload
     def update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -215,7 +215,7 @@ class UpdateUser(BaseApi):
     @typing.overload
     def update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -227,7 +227,7 @@ class UpdateUser(BaseApi):
 
     def update_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -250,7 +250,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -260,7 +260,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -271,7 +271,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -282,7 +282,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,
@@ -294,7 +294,7 @@ class ApiForPut(BaseApi):
 
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         stream: bool = False,

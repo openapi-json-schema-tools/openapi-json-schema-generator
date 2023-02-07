@@ -42,7 +42,7 @@ with petstore_api.ApiClient(configuration) as api_client:
         number=32.1,
         _float=3.14,
         double=67.8,
-        string="a",
+        string="A",
         pattern_without_delimiter="AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
         byte='YQ==',
         binary=open('/path/to/file', 'rb'),
@@ -90,7 +90,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **int64** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 64 bit integer
 **float** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | [optional] value must be a 32 bit float
 **string** | str,  | str,  | None | [optional]
-**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  | None | [optional]
+**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | None | [optional]
 **date** | str, datetime.date,  | str,  | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **dateTime** | str, datetime.datetime,  | str,  | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.11111+01:00 value must conform to RFC-3339 date-time
 **password** | str,  | str,  | None | [optional]

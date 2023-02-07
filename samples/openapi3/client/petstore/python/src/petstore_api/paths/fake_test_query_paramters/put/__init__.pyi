@@ -43,7 +43,7 @@ class RequestQueryParameters:
             'http': typing.Union[parameter_2._2.schema, list, tuple, ],
             'url': typing.Union[parameter_3._3.schema, list, tuple, ],
             'context': typing.Union[parameter_4._4.schema, list, tuple, ],
-            'refParam': typing.Union[parameter_5._5.schema, ],
+            'refParam': typing.Union[parameter_5._5.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

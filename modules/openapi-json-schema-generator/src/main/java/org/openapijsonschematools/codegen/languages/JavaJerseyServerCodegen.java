@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.languages;
 
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
@@ -84,7 +83,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         }
 
         //Add imports for Jackson
-        if (!BooleanUtils.toBoolean(model.isEnum)) {
+        if (model.enumNameToValue == null) {
             model.imports.add("JsonProperty");
         }
     }
@@ -128,22 +127,6 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
 
         // JsonNullable is not implemented for this generator
         openApiNullable = false;
-    }
-
-
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModelsEnum(TreeMap<String, CodegenSchema> objs) {
-        objs = super.postProcessModelsEnum(objs);
-
-        //Add imports for Jackson
-        for (CodegenSchema cm : objs.values()) {
-            // for enum model
-            if (Boolean.TRUE.equals(cm.isEnum) && cm.allowableValues != null) {
-                cm.imports.add(importMapping.get("JsonValue"));
-            }
-        }
-
-        return objs;
     }
 
 }

@@ -24,8 +24,8 @@ from petstore_api import schemas  # noqa: F401
 
 
 class StringEnum(
-    schemas.StrBase,
     schemas.NoneBase,
+    schemas.StrBase,
     schemas.Schema,
     schemas.NoneStrMixin
 ):
@@ -46,8 +46,8 @@ class StringEnum(
             "approved": "APPROVED",
             "delivered": "DELIVERED",
             "single quoted": "SINGLE_QUOTED",
-            "multiple\nlines": "MULTIPLE_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE_WITH_NEWLINE",
+            "multiple\nlines": "MULTIPLE_NEW_LINE_LINES",
+            "double quote \n with newline": "DOUBLE_QUOTE__NEW_LINE__WITH_NEWLINE",
             schemas.NoneClass.NONE: "NONE",
         }
     
@@ -68,11 +68,11 @@ class StringEnum(
         return cls("single quoted")
     
     @schemas.classproperty
-    def MULTIPLE_LINES(cls):
+    def MULTIPLE_NEW_LINE_LINES(cls):
         return cls("multiple\nlines")
     
     @schemas.classproperty
-    def DOUBLE_QUOTE_WITH_NEWLINE(cls):
+    def DOUBLE_QUOTE__NEW_LINE__WITH_NEWLINE(cls):
         return cls("double quote \n with newline")
     
     @schemas.classproperty

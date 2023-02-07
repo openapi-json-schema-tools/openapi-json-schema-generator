@@ -50,7 +50,7 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -63,7 +63,7 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -78,7 +78,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -88,7 +88,7 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -101,7 +101,7 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -168,7 +168,7 @@ class ArrayModel(BaseApi):
     def array_model(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -181,7 +181,7 @@ class ArrayModel(BaseApi):
     def array_model(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -196,7 +196,7 @@ class ArrayModel(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -206,7 +206,7 @@ class ArrayModel(BaseApi):
     def array_model(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -219,7 +219,7 @@ class ArrayModel(BaseApi):
     def array_model(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -242,7 +242,7 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -255,7 +255,7 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -270,7 +270,7 @@ class ApiForPost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -280,7 +280,7 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -293,7 +293,7 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, schemas.Unset] = schemas.unset,
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple, schemas.Unset] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

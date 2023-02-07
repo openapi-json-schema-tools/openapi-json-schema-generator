@@ -24,8 +24,8 @@ from petstore_api import schemas  # noqa: F401
 
 
 class Apple(
-    schemas.DictBase,
     schemas.NoneBase,
+    schemas.DictBase,
     schemas.Schema,
     schemas.NoneFrozenDictMixin
 ):
@@ -73,9 +73,7 @@ class Apple(
                     }
                     regex={
                         'pattern': r'^[A-Z\s]*$',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
+                        'flags': re.I,
                     }
             __annotations__ = {
                 "cultivar": Cultivar,
@@ -126,7 +124,7 @@ class Apple(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, None, ],
+        *args_: typing.Union[None, dict, frozendict.frozendict, ],
         origin: typing.Union[Schema_.Properties.Origin, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],

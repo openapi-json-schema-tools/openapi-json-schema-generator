@@ -1,4 +1,4 @@
-class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#if isQueryParam}}Query{{/if}}{{#if isPathParam}}Path{{/if}}{{#if isHeaderParam}}Header{{/if}}{{#if isCookieParam}}Cookie{{/if}}Parameter{{#if noName}}WithoutName{{/if}}):
+class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
     name = "{{baseName}}"
 {{/unless}}

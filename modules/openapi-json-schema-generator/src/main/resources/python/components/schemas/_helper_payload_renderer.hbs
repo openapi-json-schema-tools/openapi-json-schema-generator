@@ -1,35 +1,36 @@
-{{#if isMap}}
+{{#eq type "object"}}
 {
-{{#each value}}
-{{#with @key}}
-    {{> components/schemas/_helper_payload_renderer endChar=':'}}
-{{/with}}
-{{#with this}}
+    {{#each value}}
+    "{{{@key}}}":
+        {{#with this}}
         {{> components/schemas/_helper_payload_renderer endChar=','}}
-{{/with}}
-{{/each}}
+        {{/with}}
+    {{/each}}
 }{{endChar}}
-{{/if}}
-{{#if isArray}}
+{{/eq}}
+{{#eq type"array"}}
 [
-{{#each value}}
+    {{#each value}}
     {{> components/schemas/_helper_payload_renderer endChar=','}}
-{{/each}}
+    {{/each}}
 ]{{endChar}}
-{{/if}}
-{{#or isNumber isUnboundedInteger}}
+{{/eq}}
+{{#eq type "number"}}
 {{value}}{{endChar}}
-{{/or}}
-{{#if isBoolean}}
-{{#if value}}
+{{/eq}}
+{{#eq type "integer"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "boolean"}}
+    {{#if value}}
 True{{endChar}}
-{{else}}
+    {{else}}
 False{{endChar}}
-{{/if}}
-{{/if}}
-{{#if isNull}}
+    {{/if}}
+{{/eq}}
+{{#eq type "null"}}
 None{{endChar}}
-{{/if}}
-{{#if isString}}
+{{/eq}}
+{{#eq type "string"}}
 "{{{value}}}"{{endChar}}
-{{/if}}
+{{/eq}}

@@ -1,59 +1,76 @@
 def __new__(
     cls,
-{{#if hasMultipleTypes}}
-    *args_: typing.Union[{{> _helper_schema_python_types }}],
-{{else}}
-{{#if isArray }}
-    arg_: typing.Union[typing.Tuple[{{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}], typing.List[{{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}]],
-{{else}}
-    *args_: typing.Union[{{> _helper_schema_python_types }}],
-{{/if}}
-{{/if}}
-{{#unless isNull}}
-{{#if requiredProperties}}
-{{#each requiredProperties}}
-{{#if @key.nameIsValid}}
-{{#with this}}
-{{#if refInfo.refClass}}
-    {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
-{{else}}
-    {{#if name}}
-        {{#if schemaIsFromAdditionalProperties}}
-    {{@key.name}}: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "array" }}
+    arg_: typing.Union[
+        typing.Tuple[
+            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
+        ],
+        typing.List[
+            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
+        ],
+    ],
         {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
-        {{/if}}
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
     {{else}}
-    {{@key.name}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
-    {{/if}}
-{{/if}}
-{{/with}}
-{{/if}}
-{{/each}}
-{{/if}}
-{{/unless}}
-{{#each optionalProperties}}
-{{#if @key.nameIsValid}}
-{{#if refInfo.refClass}}
-    {{@key.name}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+    {{/eq}}
 {{else}}
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+{{/if}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.nameIsValid}}
+                    {{#with this}}
+                        {{#if refInfo.refClass}}
+    {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
+                        {{else}}
+                            {{#if name}}
+                                {{#if schemaIsFromAdditionalProperties}}
+    {{@key.name}}: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+                                {{else}}
+    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+                                {{/if}}
+                            {{else}}
+    {{@key.name}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
+{{/if}}
+{{#each optionalProperties}}
+    {{#if @key.nameIsValid}}
+        {{#if refInfo.refClass}}
+    {{@key.name}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
+        {{else}}
     {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
-{{/if}}
-{{/if}}
+        {{/if}}
+    {{/if}}
 {{/each}}
     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
 {{#with additionalProperties}}
-{{#unless isBooleanSchemaFalse}}
-{{#if refInfo.refClass}}
+    {{#unless isBooleanSchemaFalse}}
+        {{#if refInfo.refClass}}
     **kwargs: '{{> components/schemas/_helper_refclass_with_module }}',
-{{else}}
+        {{else}}
     **kwargs: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
-{{/if}}
-{{/unless}}
+        {{/if}}
+    {{/unless}}
 {{else}}
-{{#or isMap isAnyType}}
+    {{#eq types null}}
     **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
-{{/or}}
+    {{else}}
+        {{#contains types "object"}}
+    **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
+        {{/contains}}
+    {{/eq}}
 {{/with}}
 ) -> '{{name.camelCaseName}}':
     return super().__new__(
@@ -61,36 +78,50 @@ def __new__(
 {{#if hasMultipleTypes}}
         *args_,
 {{else}}
-{{#if isArray }}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "array"}}
         arg_,
+        {{else}}
+        *args_,
+        {{/contains}}
+    {{else}}
+        *args_,
+    {{/eq}}
 {{else}}
         *args_,
 {{/if}}
 {{/if}}
-{{#unless isNull}}
-{{#if requiredProperties}}
-{{#each requiredProperties}}
-{{#if @key.nameIsValid}}
-{{#with this}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.nameIsValid}}
+                    {{#with this}}
         {{@key.name}}={{@key.name}},
-{{/with}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
 {{/if}}
-{{/each}}
-{{/if}}
-{{/unless}}
 {{#each optionalProperties}}
-{{#if @key.nameIsValid}}
+    {{#if @key.nameIsValid}}
         {{@key.name}}={{@key.name}},
-{{/if}}
+    {{/if}}
 {{/each}}
         configuration_=configuration_,
 {{#with additionalProperties}}
-{{#unless isBooleanSchemaFalse}}
+    {{#unless isBooleanSchemaFalse}}
         **kwargs,
-{{/unless}}
+    {{/unless}}
 {{else}}
-{{#or isMap isAnyType}}
+    {{#eq types null}}
         **kwargs,
-{{/or}}
+    {{else}}
+        {{#contains types "object"}}
+        **kwargs,
+        {{/contains}}
+    {{/eq}}
 {{/with}}
     )

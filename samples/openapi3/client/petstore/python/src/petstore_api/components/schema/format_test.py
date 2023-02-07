@@ -132,7 +132,14 @@ class FormatTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]]],
+                    arg_: typing.Union[
+                        typing.Tuple[
+                            typing.Union[Schema_.Items, decimal.Decimal, int, float, ], ...
+                        ],
+                        typing.List[
+                            typing.Union[Schema_.Items, decimal.Decimal, int, float, ]
+                        ],
+                    ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayWithUniqueItems':
                     return super().__new__(
@@ -156,9 +163,7 @@ class FormatTest(
                     }
                     regex={
                         'pattern': r'[a-z]',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
+                        'flags': re.I,
                     }
             Byte = schemas.StrSchema
             Binary = schemas.BinarySchema
@@ -207,9 +212,7 @@ class FormatTest(
                     }
                     regex={
                         'pattern': r'^image_\d{1,3}$',  # noqa: E501
-                        'flags': (
-                            re.IGNORECASE
-                        )
+                        'flags': re.I,
                     }
             NoneProp = schemas.NoneSchema
             __annotations__ = {

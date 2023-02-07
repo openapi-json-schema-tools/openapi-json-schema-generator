@@ -27,6 +27,7 @@ import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenKey;
+import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurity;
 import org.openapijsonschematools.codegen.CodegenType;
@@ -39,6 +40,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
@@ -82,6 +84,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public static final String USE_NOSE = "useNose";
     public static final String RECURSION_LIMIT = "recursionLimit";
     public static final String USE_INLINE_MODEL_RESOLVER = "useInlineModelResolver";
+    private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
 
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
@@ -598,12 +601,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 "    - Exceptions: int/float is stored as Decimal, When receiving data from headers it will start as str and may need to be cast for example to int");
     }
 
-    @Override
-    public Schema unaliasSchema(Schema schema) {
-        // python allows schemas to be inlined at any location so unaliasing should do nothing
-        return schema;
-    }
-
     public String pythonDate(Object dateValue) {
         String strValue = null;
         if (dateValue instanceof OffsetDateTime) {
@@ -745,57 +742,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
         // fix needed for values with /n /t etc in them
         CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
-        if (cp.isInteger && cp.format == null) {
+        if (cp.types != null && cp.types.contains("integer") && cp.format == null) {
             // this generator treats integers as type number
             // this is done so type int + float has the same base class (decimal.Decimal)
             // so integer validation info must be set using formatting
             cp.format = "int";
-        }
-        if (cp.isAnyType && cp.isNullable) {
-            cp.isNullable = false;
-        }
-        if (cp.isNullable && cp.refInfo == null) {
-            cp.isNull = true;
-            cp.isNullable = false;
-            cp.hasMultipleTypes = true;
-        }
-        if (p.getPattern() != null) {
-            postProcessPattern(p.getPattern(), cp.vendorExtensions);
-        }
-        if (cp.isEnum) {
-            updateCodegenPropertyEnum(cp);
         }
         return cp;
     }
 
     public String getItemsName(Schema containingSchema, String containingSchemaName) {
         return "items";
-    }
-
-    /**
-     * Update codegen property's enum by adding "enumVars" (with name and value)
-     *
-     * @param var list of CodegenSchema
-     */
-    @Override
-    public void updateCodegenPropertyEnum(CodegenSchema var) {
-        // we have a custom version of this method to omit overwriting the defaultValue
-        Map<String, Object> allowableValues = var.allowableValues;
-
-        if (allowableValues == null) {
-            return;
-        }
-
-        List<Object> values = (List<Object>) allowableValues.get("values");
-        if (values == null) {
-            return;
-        }
-
-        // put "enumVars" map into `allowableValues", including `name` and `value`
-        List<Map<String, Object>> enumVars = buildEnumVars(values, var);
-
-        allowableValues.put("enumVars", enumVars);
-        // overwriting defaultValue omitted from here
     }
 
     /**
@@ -806,7 +763,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, CodegenSchema prop) {
+    public String toEnumVarName(String value, Schema prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -833,6 +790,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
             return value;
         }
+        value = value.replace("\t", "_TAB_");
+        value = value.replace("\n", "_NEW_LINE_");
+        value = value.replace("\r", "_CARRIAGE_RETURN_");
         // Replace " " with _
         String usedValue = value.replaceAll("\\s+", "_");
         // strip first character if it is invalid
@@ -841,9 +801,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         usedValue = usedValue.replaceAll("^[^_a-zA-Z]", "");
         boolean firstCharStripped = usedValue.length() == lengthBeforeFirstCharStrip - 1;
         // Replace / with _ for path enums
-        usedValue = usedValue.replaceAll("/", "_");
+        usedValue = usedValue.replace("/", "_");
         // Replace . with _ for tag enums
-        usedValue = usedValue.replaceAll("\\.", "_");
+        usedValue = usedValue.replace(".", "_");
         // add underscore at camelCase locations
         String regex = "([a-z])([A-Z]+)";
         String replacement = "$1_$2";
@@ -886,17 +846,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected List<Map<String, Object>> buildEnumVars(List<Object> values, CodegenSchema prop) {
-        List<Map<String, Object>> enumVars = new ArrayList<>();
+    @Override
+    protected LinkedHashMap<String, EnumValue> getEnumNameToValue(Schema prop) {
+        if (prop.getEnum() == null) {
+            return null;
+        }
+
+        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
+        List<Object> values = prop.getEnum();
         if (isRemoveEnumValuePrefix()) {
             String commonPrefix = findCommonPrefixOfVars(values);
             truncateIdx = commonPrefix.length();
         }
 
         for (Object value : values) {
-            Map<String, Object> enumVar = new HashMap<>();
             String enumName;
             if (truncateIdx == 0) {
                 enumName = String.valueOf(value);
@@ -907,59 +872,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }
             }
 
-            enumVar.put("name", toEnumVarName(enumName, prop));
-            if (value instanceof Integer) {
-                enumVar.put("value", value);
-            } else if (value instanceof Double) {
-                enumVar.put("value", value);
-            } else if (value instanceof Long) {
-                enumVar.put("value", value);
-            } else if (value instanceof Float) {
-                enumVar.put("value", value);
-            } else if (value instanceof BigDecimal) {
-                enumVar.put("value", value);
-            } else if (value == null) {
-                enumVar.put("value", "schemas.NoneClass.NONE");
-            } else if (value instanceof Boolean) {
-                if (value.equals(Boolean.TRUE)) {
-                    enumVar.put("value", "schemas.BoolClass.TRUE");
-                } else {
-                    enumVar.put("value", "schemas.BoolClass.FALSE");
-                }
-            } else {
-                String fixedValue = (String) processTestExampleData(value);
-                enumVar.put("value", ensureQuotes(fixedValue));
+            String usedName = toEnumVarName(enumName, prop);
+            Object usedValue = value;
+            if (value instanceof String ) {
+                usedValue = (String) processTestExampleData(usedValue);
             }
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
+            enumNameToValue.put(usedName, toEnumValue(usedValue, null));
         }
 
-        if (enumUnknownDefaultCase) {
-            // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
-            // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.
-            Map<String, Object> enumVar = new HashMap<>();
-            String enumName = enumUnknownDefaultCaseName;
-
-            String enumValue;
-            if (prop.isString) {
-                enumValue = enumUnknownDefaultCaseName;
-            } else {
-                // This is a dummy value that attempts to avoid collisions with previously specified cases.
-                // Int.max / 192
-                // The number 192 that is used to calculate this random value, is the Swift Evolution proposal for frozen/non-frozen enums.
-                // [SE-0192](https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md)
-                // Since this functionality was born in the Swift 5 generator and latter on broth to all generators
-                // https://github.com/OpenAPITools/openapi-generator/pull/11013
-                enumValue = String.valueOf(11184809);
-            }
-
-            enumVar.put("name", toEnumVarName(enumName, prop));
-            enumVar.put("value", toEnumValue(enumValue, prop));
-            enumVar.put("isString", prop.isString);
-            enumVars.add(enumVar);
-        }
-
-        return enumVars;
+        return enumNameToValue;
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -1028,37 +949,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return value;
     }
 
-    /**
-     * Returns the python type for the property.
-     *
-     * @param schema property schema
-     * @return string presentation of the type
-     **/
-    @SuppressWarnings("static-method")
-    @Override
-    public String getSchemaType(Schema schema) {
-        String openAPIType = getSingleSchemaType(schema);
-        if (typeMapping.containsKey(openAPIType)) {
-            String type = typeMapping.get(openAPIType);
-            return type;
-        }
-        return toModelName(openAPIType);
-    }
-
     public String getRefClassWithRefModule(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
             return  toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
         }
         return null;
-    }
-
-    @Override
-    public String toInstantiationType(Schema property) {
-        if (ModelUtils.isArraySchema(property) || ModelUtils.isMapSchema(property) || property.getAdditionalProperties() != null) {
-            return getSchemaType(property);
-        }
-        return super.toInstantiationType(property);
     }
 
     /**
@@ -1320,15 +1216,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 example = "2";
             } else if (StringUtils.isNotBlank(schema.getPattern())) {
                 String pattern = schema.getPattern();
-                List<Object> results = getPatternAndModifiers(pattern);
-                String extractedPattern = (String) results.get(0);
-                List<String> regexFlags = (List<String>) results.get(1);
+                CodegenPatternInfo results = getPatternInfo(pattern);
+                String extractedPattern = results.pattern;
+                LinkedHashSet<String> regexFlags = results.flags;
                 /*
                 RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
                 So strip off the leading / and trailing / and turn on ignore case if we have it
                  */
                 RgxGen rgxGen = null;
-                if (regexFlags.size() > 0 && regexFlags.contains("i")) {
+                if (regexFlags != null && regexFlags.contains("i")) {
                     rgxGen = new RgxGen(extractedPattern);
                     RgxGenProperties properties = new RgxGenProperties();
                     RgxGenOption.CASE_INSENSITIVE.setInProperties(properties, true);
@@ -1606,110 +1502,57 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return modelNameToSchemaCache;
     }
 
-    protected void updatePropertyForString(CodegenSchema property, Schema p) {
-        if (ModelUtils.isByteArraySchema(p)) {
-            // isString stays true, format stores that this is a byte
-        } else if (ModelUtils.isBinarySchema(p)) {
-            // format stores that this is binary
-            property.isString = true;
-        } else if (ModelUtils.isUUIDSchema(p)) {
-            // isString stays true, format stores that this is a uuid
-        } else if (ModelUtils.isURISchema(p)) {
-            property.isUri = true;
-        } else if (ModelUtils.isEmailSchema(p)) {
-            property.isEmail = true;
-        } else if (ModelUtils.isDateSchema(p)) { // date format
-            // isString stays true, format stores that this is a date
-        } else if (ModelUtils.isDateTimeSchema(p)) { // date-time format
-            // isString stays true, format stores that this is a date-time
-        } else if (ModelUtils.isDecimalSchema(p)) { // type: string, format: number
-            // isString stays true, format stores that this is a number
-        }
-        property.pattern = toRegularExpression(p.getPattern());
-    }
-
+    /**
+     * Notes:
+     * RgxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
+     * So strip off the leading / and trailing / and turn on ignore case if we have it
+     *
+     * json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
+     *
+     * Flags: https://262.ecma-international.org/13.0/#sec-get-regexp.prototype.flags
+     * d hasIndices: indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group
+     * g global: the regular expression should be tested against all possible matches in a string
+     * i ignoreCase: case should be ignored while attempting a match in a string
+     * m multiline: a multiline input string should be treated as multiple lines
+     * s dotAll: the dot special character (.) should additionally match 4 line terminator ("newline") characters in a string
+     * u unicode: enables various Unicode-related features such as unicode code point escapes
+     * y sticky: the regex attempts to match the target string only from the index indicated by the lastIndex property
+     *
+     * Python flags:
+     * https://docs.python.org/3/library/re.html#flags
+     * i, m, s u
+     *
+     * @param pattern the pattern (regular expression)
+     * @return the resultant regex for python
+     */
     @Override
-    public String toRegularExpression(String pattern) {
+    public CodegenPatternInfo getPatternInfo(String pattern) {
         if (pattern == null) {
             return null;
         }
-        List<Object> results = getPatternAndModifiers(pattern);
-        String extractedPattern = (String) results.get(0);
-        return extractedPattern;
-    }
-
-    protected void updatePropertyForNumber(CodegenSchema property, Schema p) {
-        property.isNumber = true;
-        // float and double differentiation is determined with format info
-    }
-
-    protected void updatePropertyForInteger(CodegenSchema property, Schema p) {
-        property.isInteger = true;
-        // int32 and int64 differentiation is determined with format info
-    }
-
-    @Override
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        // process enum in models
-        return postProcessModelsEnum(objs);
-    }
-
-    /**
-     * @param pattern the regex pattern
-     * @return List<String pattern, List<String modifer>>
-     */
-    private List<Object> getPatternAndModifiers(String pattern) {
-        /*
-        Notes:
-        RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
-        So strip off the leading / and trailing / and turn on ignore case if we have it
-
-        json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
-         */
-        Pattern valueExtractor = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
-        Matcher m = valueExtractor.matcher(pattern);
+        Matcher m = patternRegex.matcher(pattern);
         if (m.find()) {
             int groupCount = m.groupCount();
             if (groupCount == 1) {
                 // only pattern found
                 String isolatedPattern = m.group(1);
-                return Arrays.asList(isolatedPattern, null);
+                return new CodegenPatternInfo(isolatedPattern, null);
             } else if (groupCount == 2) {
                 List<String> modifiers = new ArrayList<String>();
                 // patterns and flag found
                 String isolatedPattern = m.group(1);
-                String flags = m.group(2);
-                if (flags.contains("s")) {
-                    modifiers.add("DOTALL");
+                String foundFlags = m.group(2);
+                if (foundFlags.isEmpty()) {
+                    return new CodegenPatternInfo(isolatedPattern, null);
                 }
-                if (flags.contains("i")) {
-                    modifiers.add("IGNORECASE");
+                LinkedHashSet<String> flags = new LinkedHashSet<>();
+                for (Character c: foundFlags.toCharArray()) {
+                    flags.add(c.toString());
                 }
-                if (flags.contains("m")) {
-                    modifiers.add("MULTILINE");
-                }
-                return Arrays.asList(isolatedPattern, modifiers);
+                return new CodegenPatternInfo(isolatedPattern, flags);
             }
         }
-        return Arrays.asList(pattern, new ArrayList<String>());
-    }
-
-    /*
-     * The OpenAPI pattern spec follows the Perl convention and style of modifiers. Python
-     * does not support this in as natural a way so it needs to convert it. See
-     * https://docs.python.org/2/howto/regex.html#compilation-flags for details.
-     */
-    public void postProcessPattern(String pattern, Map<String, Object> vendorExtensions) {
-        if (pattern != null) {
-            List<Object> results = getPatternAndModifiers(pattern);
-            String extractedPattern = (String) results.get(0);
-            List<String> modifiers = (List<String>) results.get(1);
-
-            vendorExtensions.put("x-regex", extractedPattern);
-            if (modifiers.size() > 0) {
-                vendorExtensions.put("x-modifiers", modifiers);
-            }
-        }
+        return new CodegenPatternInfo(pattern, null);
     }
 
     @Override
@@ -1768,20 +1611,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
 
     public String toHeaderDocFilename(String componentName) { return toHeaderFilename(componentName); }
-
-    @Override
-    public String addRegularExpressionDelimiter(String pattern) {
-        if (StringUtils.isEmpty(pattern)) {
-            return pattern;
-        }
-
-        if (!pattern.matches("^/.*")) {
-            // Perform a negative lookbehind on each `/` to ensure that it is escaped.
-            return "/" + pattern.replaceAll("(?<!\\\\)\\/", "\\\\/") + "/";
-        }
-
-        return pattern;
-    }
 
     @Override
     public String apiFileFolder() {
