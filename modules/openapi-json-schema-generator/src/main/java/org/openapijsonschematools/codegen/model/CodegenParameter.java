@@ -30,7 +30,6 @@ public class CodegenParameter {
     public final String description;
     public final String unescapedDescription;
     public final String example; // example value (x-example)
-    public final String jsonSchema;
     public final Map<String, Object> vendorExtensions;
     public final boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
@@ -47,11 +46,10 @@ public class CodegenParameter {
     public final String name;
     public final CodegenRefInfo<CodegenParameter> refInfo;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, String in, boolean isAllowEmptyValue, boolean isDeepObject, String name, CodegenRefInfo<CodegenParameter> refInfo) {
+    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, String in, boolean isAllowEmptyValue, boolean isDeepObject, String name, CodegenRefInfo<CodegenParameter> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
@@ -109,7 +107,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(jsonPathPiece, in, isExplode, name, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, in, isExplode, name, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -125,7 +123,6 @@ public class CodegenParameter {
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 isExplode == that.isExplode &&
                 isDeprecated == that.isDeprecated &&
@@ -144,7 +141,6 @@ public class CodegenParameter {
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);

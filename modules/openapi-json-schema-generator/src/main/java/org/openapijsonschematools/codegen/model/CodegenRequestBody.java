@@ -13,7 +13,6 @@ import java.util.TreeSet;
 public class CodegenRequestBody {
     public final String description;
     public final String unescapedDescription;
-    public final String jsonSchema;
     public final Map<String, Object> vendorExtensions;
     /**
      * Determines whether this parameter is mandatory. If the parameter is in "path",
@@ -27,10 +26,9 @@ public class CodegenRequestBody {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
 
-    public CodegenRequestBody(String description, String unescapedDescription, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
@@ -42,7 +40,7 @@ public class CodegenRequestBody {
 
     @Override
     public int hashCode() {
-        return Objects.hash(description, unescapedDescription, jsonPathPiece, jsonSchema, vendorExtensions, required, content, refInfo, imports, componentModule);
+        return Objects.hash(description, unescapedDescription, jsonPathPiece, vendorExtensions, required, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -57,7 +55,6 @@ public class CodegenRequestBody {
             Objects.equals(content, that.content) &&
             Objects.equals(description, that.description) &&
             Objects.equals(unescapedDescription, that.unescapedDescription) &&
-            Objects.equals(jsonSchema, that.jsonSchema) &&
             Objects.equals(vendorExtensions, that.vendorExtensions) &&
             Objects.equals(refInfo, that.refInfo);
     }
@@ -66,7 +63,6 @@ public class CodegenRequestBody {
         sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);

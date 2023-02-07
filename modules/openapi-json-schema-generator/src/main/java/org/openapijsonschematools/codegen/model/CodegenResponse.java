@@ -20,21 +20,20 @@ package org.openapijsonschematools.codegen.model;
 import java.util.*;
 
 public class CodegenResponse {
-    public final CodegenKey jsonPathPiece;
-    public final Map<String, CodegenHeader> headers;
     public final String message;
-    public final String jsonSchema;
-    public final Map<String, Object> vendorExtensions;
+    public final Map<String, CodegenHeader> headers;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final CodegenRefInfo<CodegenResponse> refInfo;
+    // TODO add links in the future
+    public final CodegenKey jsonPathPiece;
+    public final Map<String, Object> vendorExtensions;
     public final TreeSet<String> imports;
     public final String componentModule;
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String message, String jsonSchema, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, String componentModule) {
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String message, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, String componentModule) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
         this.message = message;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.content = content;
         this.refInfo = refInfo;
@@ -45,8 +44,7 @@ public class CodegenResponse {
     @Override
     public int hashCode() {
         return Objects.hash(jsonPathPiece, message,
-                jsonSchema, vendorExtensions,
-                headers, content,
+                vendorExtensions, headers, content,
                 refInfo, imports, componentModule);
     }
 
@@ -61,7 +59,6 @@ public class CodegenResponse {
                 Objects.equals(content, that.content) &&
                 Objects.equals(headers, that.headers) &&
                 Objects.equals(message, that.message) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(componentModule, that.componentModule);
     }
@@ -71,7 +68,6 @@ public class CodegenResponse {
         final StringBuilder sb = new StringBuilder("CodegenResponse{");
         sb.append(", name='").append(jsonPathPiece).append('\'');
         sb.append(", message='").append(message).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", headers=").append(headers);
         sb.append(", content=").append(content);

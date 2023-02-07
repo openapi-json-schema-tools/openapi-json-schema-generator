@@ -3232,7 +3232,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         String message = escapeText(response.getDescription());
-        String jsonSchema = Json.pretty(response);
         Map<String, Object> vendorExtensions = null;
         if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
             vendorExtensions = response.getExtensions();
@@ -3276,7 +3275,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenRefInfo finalRefInfo = refInfo;
         String finalComponentModule = componentModule;
         TreeSet<String> finalImports = imports;
-        r = new CodegenResponse(name, finalHeaders, message, jsonSchema, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
+        r = new CodegenResponse(name, finalHeaders, message, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -3373,7 +3372,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         String description = escapeText(header.getDescription());
         String unescapedDescription = header.getDescription();
-        String jsonSchema = Json.pretty(header);
         Map<String, Object> vendorExtensions = null;
         if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
             vendorExtensions = header.getExtensions();
@@ -3421,7 +3419,7 @@ public class DefaultCodegen implements CodegenConfig {
         boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, finalRefInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3470,7 +3468,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         String description = escapeText(parameter.getDescription());
         String unescapedDescription = parameter.getDescription();
-        String jsonSchema = Json.pretty(parameter);
         Map<String, Object> vendorExtensions = null;
         if (parameter.getExtensions() != null && !parameter.getExtensions().isEmpty()) {
             vendorExtensions = parameter.getExtensions();
@@ -3542,7 +3539,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         boolean finalIsDeprecated = isDeprecated;
         CodegenSchema finalSchema = schema;
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, isExplode, finalStyle, finalIsDeprecated, finalSchema, in, finalIsAllowEmptyValue, finalIsDeepObject, baseName, finalRefInfo);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
@@ -5050,7 +5047,6 @@ public class DefaultCodegen implements CodegenConfig {
 
         String description = escapeText(requestBody.getDescription());
         String unescapedDescription = requestBody.getDescription();
-        String jsonSchema = Json.pretty(requestBody);
         Map<String, Object> vendorExtensions = null;
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             vendorExtensions = requestBody.getExtensions();
@@ -5071,7 +5067,7 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         boolean finalRequired = required;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, jsonSchema, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
+        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, finalRequired, finalContent, finalImports, finalComponentModule, name, finalRefInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
