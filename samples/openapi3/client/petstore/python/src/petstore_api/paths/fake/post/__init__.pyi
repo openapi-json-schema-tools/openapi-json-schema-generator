@@ -110,7 +110,7 @@ class BaseApi(api_client.Api):
                 _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post'.upper(),
+            method='post',
             headers=_headers,
             fields=_fields,
             body=_body,

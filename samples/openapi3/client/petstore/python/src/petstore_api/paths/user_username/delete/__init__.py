@@ -130,7 +130,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='delete'.upper(),
+            method='delete',
             stream=stream,
             timeout=timeout,
         )

@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='put'.upper(),
+            method='put',
             stream=stream,
             timeout=timeout,
         )

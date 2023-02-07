@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class CodegenKey {
     public final String name;
-    public final boolean nameIsValid;
+    public final boolean isValid;
     public final String snakeCaseName;
     public final String camelCaseName;
 
-    public CodegenKey(String name, boolean nameIsValid, String snakeCaseName, String camelCaseName) {
+    public CodegenKey(String name, boolean isValid, String snakeCaseName, String camelCaseName) {
         this.name = name;
-        this.nameIsValid = nameIsValid;
+        this.isValid = isValid;
         this.snakeCaseName = snakeCaseName;
         this.camelCaseName = camelCaseName;
     }
@@ -21,13 +21,13 @@ public class CodegenKey {
         if (o == null || getClass() != o.getClass()) return false;
         CodegenKey that = (CodegenKey) o;
         return Objects.equals(name, that.name) &&
-                Objects.equals(nameIsValid, that.nameIsValid) &&
+                Objects.equals(isValid, that.isValid) &&
                 Objects.equals(snakeCaseName, that.snakeCaseName) &&
                 Objects.equals(camelCaseName, that.camelCaseName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, nameIsValid, snakeCaseName, camelCaseName);
+        return Objects.hash(name, isValid, snakeCaseName, camelCaseName);
     }
 }

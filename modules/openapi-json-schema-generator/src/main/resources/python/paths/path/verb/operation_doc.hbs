@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
     {{#if refInfo}}
 [**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
     {{else}}
-[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.camelCaseName}}.content.{{../@key.snakeCaseName}}.{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#request_bodycontent{{../@key.snakeCaseName}}{{#if name.nameIsValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+[body](#request_body) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../name.camelCaseName}}.content.{{../@key.snakeCaseName}}.{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}](#request_bodycontent{{../@key.snakeCaseName}}{{#if name.isValid}}{{name.name}}{{else}}{{name.snakeCaseName}}{{/if}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
     {{/if}}
     {{/with}}
     {{#if queryParams}}

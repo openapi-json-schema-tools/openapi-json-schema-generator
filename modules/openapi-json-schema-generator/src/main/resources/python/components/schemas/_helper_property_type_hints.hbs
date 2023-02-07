@@ -1,7 +1,7 @@
 {{#if requiredProperties}}
 
     {{#each requiredProperties}}
-        {{#if @key.nameIsValid}}
+        {{#if @key.isValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
 {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}'

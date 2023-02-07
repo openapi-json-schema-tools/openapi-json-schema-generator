@@ -24,7 +24,7 @@ def __new__(
     {{#eq types.size 1}}
         {{#contains types "object"}}
             {{#each requiredProperties}}
-                {{#if @key.nameIsValid}}
+                {{#if @key.isValid}}
                     {{#with this}}
                         {{#if refInfo.refClass}}
     {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
@@ -46,7 +46,7 @@ def __new__(
     {{/eq}}
 {{/if}}
 {{#each optionalProperties}}
-    {{#if @key.nameIsValid}}
+    {{#if @key.isValid}}
         {{#if refInfo.refClass}}
     {{@key.name}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
         {{else}}
@@ -96,7 +96,7 @@ def __new__(
     {{#eq types.size 1}}
         {{#contains types "object"}}
             {{#each requiredProperties}}
-                {{#if @key.nameIsValid}}
+                {{#if @key.isValid}}
                     {{#with this}}
         {{@key.name}}={{@key.name}},
                     {{/with}}
@@ -106,7 +106,7 @@ def __new__(
     {{/eq}}
 {{/if}}
 {{#each optionalProperties}}
-    {{#if @key.nameIsValid}}
+    {{#if @key.isValid}}
         {{@key.name}}={{@key.name}},
     {{/if}}
 {{/each}}
