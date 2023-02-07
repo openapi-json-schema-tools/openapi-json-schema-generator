@@ -1,9 +1,7 @@
 {{#eq type "object"}}
 {
     {{#each value}}
-        {{#with @key}}
-    {{> components/schemas/_helper_payload_renderer endChar=':'}}
-        {{/with}}
+    "{{{@key}}}":
         {{#with this}}
         {{> components/schemas/_helper_payload_renderer endChar=','}}
         {{/with}}

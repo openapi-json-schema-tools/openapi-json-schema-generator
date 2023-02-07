@@ -93,14 +93,12 @@ class AnyofComplexTypes(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    bar: typing.Union[Schema_.Properties.Bar, decimal.Decimal, int, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AnyOf0':
                     return super().__new__(
                         cls,
                         *args_,
-                        bar=bar,
                         configuration_=configuration_,
                         **kwargs,
                     )
@@ -160,14 +158,12 @@ class AnyofComplexTypes(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    foo: typing.Union[Schema_.Properties.Foo, str, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AnyOf1':
                     return super().__new__(
                         cls,
                         *args_,
-                        foo=foo,
                         configuration_=configuration_,
                         **kwargs,
                     )

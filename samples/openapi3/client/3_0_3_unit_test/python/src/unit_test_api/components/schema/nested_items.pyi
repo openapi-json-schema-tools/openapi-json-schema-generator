@@ -66,7 +66,14 @@ class NestedItems(
                         
                             def __new__(
                                 cls,
-                                arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]], typing.List[typing.Union[Schema_.Items, decimal.Decimal, int, float, ]]],
+                                arg_: typing.Union[
+                                    typing.Tuple[
+                                        typing.Union[Schema_.Items, decimal.Decimal, int, float, ], ...
+                                    ],
+                                    typing.List[
+                                        typing.Union[Schema_.Items, decimal.Decimal, int, float, ]
+                                    ],
+                                ],
                                 configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                             ) -> 'Items':
                                 return super().__new__(
@@ -80,7 +87,14 @@ class NestedItems(
                 
                     def __new__(
                         cls,
-                        arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+                        arg_: typing.Union[
+                            typing.Tuple[
+                                typing.Union[Schema_.Items, list, tuple, ], ...
+                            ],
+                            typing.List[
+                                typing.Union[Schema_.Items, list, tuple, ]
+                            ],
+                        ],
                         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     ) -> 'Items':
                         return super().__new__(
@@ -94,7 +108,14 @@ class NestedItems(
         
             def __new__(
                 cls,
-                arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+                arg_: typing.Union[
+                    typing.Tuple[
+                        typing.Union[Schema_.Items, list, tuple, ], ...
+                    ],
+                    typing.List[
+                        typing.Union[Schema_.Items, list, tuple, ]
+                    ],
+                ],
                 configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
             ) -> 'Items':
                 return super().__new__(
@@ -108,7 +129,14 @@ class NestedItems(
 
     def __new__(
         cls,
-        arg_: typing.Union[typing.Tuple[typing.Union[Schema_.Items, list, tuple, ]], typing.List[typing.Union[Schema_.Items, list, tuple, ]]],
+        arg_: typing.Union[
+            typing.Tuple[
+                typing.Union[Schema_.Items, list, tuple, ], ...
+            ],
+            typing.List[
+                typing.Union[Schema_.Items, list, tuple, ]
+            ],
+        ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'NestedItems':
         return super().__new__(

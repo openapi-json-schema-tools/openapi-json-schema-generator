@@ -2337,12 +2337,12 @@ class BoolSchema(
 
 
 class AnyTypeSchema(
+    NoneBase,
     DictBase,
     ListBase,
-    NumberBase,
     StrBase,
+    NumberBase,
     BoolBase,
-    NoneBase,
     Schema,
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):

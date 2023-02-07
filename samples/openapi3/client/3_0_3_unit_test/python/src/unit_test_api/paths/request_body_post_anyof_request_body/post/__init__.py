@@ -46,7 +46,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -93,7 +93,7 @@ class BaseApi(api_client.Api):
 
     def _post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -158,7 +158,7 @@ class PostAnyofRequestBody(BaseApi):
     @typing.overload
     def post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -170,7 +170,7 @@ class PostAnyofRequestBody(BaseApi):
     @typing.overload
     def post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -183,7 +183,7 @@ class PostAnyofRequestBody(BaseApi):
     @typing.overload
     def post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -193,7 +193,7 @@ class PostAnyofRequestBody(BaseApi):
     @typing.overload
     def post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -205,7 +205,7 @@ class PostAnyofRequestBody(BaseApi):
 
     def post_anyof_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -226,7 +226,7 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -238,7 +238,7 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -251,7 +251,7 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         stream: bool = False,
@@ -261,7 +261,7 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -273,7 +273,7 @@ class ApiForPost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/json',
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
