@@ -7,10 +7,10 @@ public class CodegenEncoding {
     public final String contentType;
     public final Map<String, CodegenHeader> headers;
     public final String style;
-    public final boolean explode;
+    public final Boolean explode;
     public final boolean allowReserved;
 
-    public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, boolean explode, boolean allowReserved) {
+    public CodegenEncoding(String contentType, Map<String, CodegenHeader> headers, String style, Boolean explode, boolean allowReserved) {
         this.contentType = contentType;
         this.headers = headers;
         this.style = style;
