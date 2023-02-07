@@ -96,13 +96,13 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each queryParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -124,13 +124,13 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headerParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -151,13 +151,13 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each pathParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -178,13 +178,13 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each cookieParams}}
         {{#if refInfo}}
-{{getDeepestRef.baseName}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
+{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{baseName}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../baseName}} | [{{../jsonPathPiece.camelCase}}.content.{{{@key.original}}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{{@key.original}}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}

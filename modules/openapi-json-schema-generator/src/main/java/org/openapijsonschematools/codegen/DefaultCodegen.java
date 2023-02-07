@@ -3117,7 +3117,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else if (paramOrRef.in.equals("cookie")) {
                     cookieParams.add(p);
                 } else {
-                    LOGGER.warn("Unknown parameter type for {}", p.baseName);
+                    LOGGER.warn("Unknown parameter type for {}", p.name);
                 }
 
             }

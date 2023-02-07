@@ -3190,7 +3190,7 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
         ));
         for (CodegenParameter param : co.pathParams) {
-            if (!modelNamesWithoutRequired.contains(param.baseName)) {
+            if (!modelNamesWithoutRequired.contains(param.name)) {
                 // All variables must be in the above sets
                 fail();
             }

@@ -1,6 +1,6 @@
 class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
-    name = "{{baseName}}"
+    name = "{{name}}"
 {{/unless}}
 {{#if style}}
 {{#eq style "matrix"}}
