@@ -1171,6 +1171,10 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(basename);
     }
 
+    public String getCamelCaseParameter(String basename) {
+        return toModelName(basename);
+    }
+
     @Override
     public String toParameterDocFilename(String componentName) { return toModuleFilename(componentName); }
 
@@ -4998,7 +5002,7 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             case "parameters":
                 snakeCaseName = toParameterFilename(usedKey);
-                camelCaseName = toModelName(usedKey);
+                camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 snakeCaseName = toRequestBodyFilename(usedKey);

@@ -36,9 +36,9 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someVar': typing.Union[parameter_0._0.schema, str, ],
-            'SomeVar': typing.Union[parameter_1._1.schema, str, ],
-            'some_var': typing.Union[parameter_2._2.schema, str, ],
+            'someVar': typing.Union[parameter_0.Parameter0.schema, str, ],
+            'SomeVar': typing.Union[parameter_1.Parameter1.schema, str, ],
+            'some_var': typing.Union[parameter_2.Parameter2.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -54,9 +54,9 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
-        parameter_1._1,
-        parameter_2._2,
+        parameter_0.Parameter0,
+        parameter_1.Parameter1,
+        parameter_2.Parameter2,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(

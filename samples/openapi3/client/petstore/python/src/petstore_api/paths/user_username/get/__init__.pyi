@@ -36,7 +36,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0._0.schema, str, ],
+            'username': typing.Union[parameter_0.Parameter0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -52,7 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]_all_accept_content_types = (
     "application/xml",
     "application/json",

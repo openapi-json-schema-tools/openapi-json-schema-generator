@@ -1739,6 +1739,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toParameterFilename(String name) {
+        // adds prefix parameter_ onto the result so modules do not start with _
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint
@@ -1746,6 +1747,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
             return "parameter_" + toModuleFilename(name);
+        }
+    }
+
+    @Override
+    public String getCamelCaseParameter(String name) {
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "Parameter" + name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return toModelName(name);
         }
     }
 

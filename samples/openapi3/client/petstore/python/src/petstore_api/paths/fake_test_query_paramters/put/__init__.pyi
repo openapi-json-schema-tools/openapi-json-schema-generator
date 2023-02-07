@@ -38,12 +38,12 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'pipe': typing.Union[parameter_0._0.schema, list, tuple, ],
-            'ioutil': typing.Union[parameter_1._1.schema, list, tuple, ],
-            'http': typing.Union[parameter_2._2.schema, list, tuple, ],
-            'url': typing.Union[parameter_3._3.schema, list, tuple, ],
-            'context': typing.Union[parameter_4._4.schema, list, tuple, ],
-            'refParam': typing.Union[parameter_5._5.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'pipe': typing.Union[parameter_0.Parameter0.schema, list, tuple, ],
+            'ioutil': typing.Union[parameter_1.Parameter1.schema, list, tuple, ],
+            'http': typing.Union[parameter_2.Parameter2.schema, list, tuple, ],
+            'url': typing.Union[parameter_3.Parameter3.schema, list, tuple, ],
+            'context': typing.Union[parameter_4.Parameter4.schema, list, tuple, ],
+            'refParam': typing.Union[parameter_5.Parameter5.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -59,12 +59,12 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
-        parameter_1._1,
-        parameter_2._2,
-        parameter_3._3,
-        parameter_4._4,
-        parameter_5._5,
+        parameter_0.Parameter0,
+        parameter_1.Parameter1,
+        parameter_2.Parameter2,
+        parameter_3.Parameter3,
+        parameter_4.Parameter4,
+        parameter_5.Parameter5,
     ]
 
 class BaseApi(api_client.Api):

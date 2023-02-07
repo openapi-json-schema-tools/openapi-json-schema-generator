@@ -35,7 +35,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[parameter_0._0.schema, str, ],
+            'query': typing.Union[parameter_0.Parameter0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -51,7 +51,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 
 class BaseApi(api_client.Api):

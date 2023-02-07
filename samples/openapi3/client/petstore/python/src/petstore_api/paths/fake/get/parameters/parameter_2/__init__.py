@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _2(api_client.QueryParameter):
+class Parameter2(api_client.QueryParameter):
     name = "enum_query_string_array"
     style = api_client.ParameterStyle.FORM
     schema = schema.Schema

@@ -38,7 +38,7 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'mapBean': typing.Union[parameter_0._0.schema, dict, frozendict.frozendict, ],
+            'mapBean': typing.Union[parameter_0.Parameter0.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -49,7 +49,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 
 class BaseApi(api_client.Api):

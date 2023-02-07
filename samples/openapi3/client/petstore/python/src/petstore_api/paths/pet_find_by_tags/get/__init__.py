@@ -35,7 +35,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'tags': typing.Union[parameter_0._0.schema, list, tuple, ],
+            'tags': typing.Union[parameter_0.Parameter0.schema, list, tuple, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -51,7 +51,7 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 _auth = [
     'http_signature_test',

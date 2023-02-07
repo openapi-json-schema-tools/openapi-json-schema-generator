@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _18(api_client.CookieParameter):
+class Parameter18(api_client.CookieParameter):
     name = "A-B"
     style = api_client.ParameterStyle.FORM
     schema = schema.Schema

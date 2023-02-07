@@ -35,7 +35,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[parameter_0._0.schema, str, ],
+            'order_id': typing.Union[parameter_0.Parameter0.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -51,7 +51,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(

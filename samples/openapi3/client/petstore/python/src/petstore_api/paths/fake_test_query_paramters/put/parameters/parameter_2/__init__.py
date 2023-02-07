@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _2(api_client.QueryParameter):
+class Parameter2(api_client.QueryParameter):
     name = "http"
     style = api_client.ParameterStyle.SPACE_DELIMITED
     schema = schema.Schema

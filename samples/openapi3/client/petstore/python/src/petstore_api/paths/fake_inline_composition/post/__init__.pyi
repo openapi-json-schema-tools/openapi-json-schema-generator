@@ -41,8 +41,8 @@ class RequestQueryParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'compositionAtRoot': typing.Union[parameter_0._0.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'compositionInProperty': typing.Union[parameter_1._1.schema, dict, frozendict.frozendict, ],
+            'compositionAtRoot': typing.Union[parameter_0.Parameter0.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'compositionInProperty': typing.Union[parameter_1.Parameter1.schema, dict, frozendict.frozendict, ],
         },
         total=False
     )
@@ -53,8 +53,8 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
-        parameter_1._1,
+        parameter_0.Parameter0,
+        parameter_1.Parameter1,
     ]_all_accept_content_types = (
     "application/json",
     "multipart/form-data",

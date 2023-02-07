@@ -14,7 +14,7 @@ from petstore_api import api_client
 from .content.application_json import schema as application_json_schema
 
 
-class _0(api_client.QueryParameter):
+class Parameter0(api_client.QueryParameter):
     name = "someParam"
 
 

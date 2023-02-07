@@ -102,13 +102,13 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [_2.schema](#parameter_2schema) | | optional
-enum_query_string | [_3.schema](#parameter_3schema) | | optional
-enum_query_integer | [_4.schema](#parameter_4schema) | | optional
-enum_query_double | [_5.schema](#parameter_5schema) | | optional
+enum_query_string_array | [Parameter2.schema](#parameter_2schema) | | optional
+enum_query_string | [Parameter3.schema](#parameter_3schema) | | optional
+enum_query_integer | [Parameter4.schema](#parameter_4schema) | | optional
+enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
 
 
-# <a id="parameter_2schema" >_2.schema</a>
+# <a id="parameter_2schema" >Parameter2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -120,21 +120,21 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="parameter_3schema" >_3.schema</a>
+# <a id="parameter_3schema" >Parameter3.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-# <a id="parameter_4schema" >_4.schema</a>
+# <a id="parameter_4schema" >Parameter4.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-# <a id="parameter_5schema" >_5.schema</a>
+# <a id="parameter_5schema" >Parameter5.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -146,10 +146,10 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [_0.schema](#parameter_0schema) | | optional
-enum_header_string | [_1.schema](#parameter_1schema) | | optional
+enum_header_string_array | [Parameter0.schema](#parameter_0schema) | | optional
+enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
 
-# <a id="parameter_0schema" >_0.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -161,7 +161,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-# <a id="parameter_1schema" >_1.schema</a>
+# <a id="parameter_1schema" >Parameter1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
