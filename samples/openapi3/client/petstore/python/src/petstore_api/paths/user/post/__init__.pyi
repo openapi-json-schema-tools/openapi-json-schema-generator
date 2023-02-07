@@ -135,7 +135,7 @@ class BaseApi(api_client.Api):
 
 
 class CreateUser(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def create_user(

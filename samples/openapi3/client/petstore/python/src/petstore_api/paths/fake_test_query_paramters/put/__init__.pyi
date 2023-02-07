@@ -157,7 +157,7 @@ class BaseApi(api_client.Api):
 
 
 class QueryParameterCollectionFormat(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def query_parameter_collection_format(

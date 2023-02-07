@@ -27,7 +27,7 @@ class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "que
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{name.snakeCaseName}}.{{name.camelCaseName}}
+    schema = {{name.snakeCase}}.{{name.camelCaseName}}
     {{/with}}
 {{/if}}
 {{#if content}}
@@ -37,7 +37,7 @@ class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "que
     class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}
         {{/with}}
     {{/with}}
 {{/each}}

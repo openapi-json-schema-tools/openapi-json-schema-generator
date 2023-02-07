@@ -15,10 +15,10 @@ Ref Class | Input Type | Accessed Type | Description
             {{/if}}
             {{#each content}}
                 {{#with this.schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCaseName}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
                 {{/with}}
             {{/each}}
         {{/with}}
@@ -29,7 +29,7 @@ Ref Class | Input Type | Accessed Type | Description
 {{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name }}
                 {{else}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../name.snakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../name.snakeCase }}
                 {{/if}}
             {{/with}}
         {{else}}
@@ -38,10 +38,10 @@ Ref Class | Input Type | Accessed Type | Description
                     {{#with schema}}
                         {{#if ../componentModule}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName}}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase}}
                         {{else}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.snakeCaseName schemaNamePrefix4="content" schemaNamePrefix5=../@key.snakeCaseName}}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../../../name schemaNamePrefix2="headers" schemaNamePrefix3=../../name.snakeCase schemaNamePrefix4="content" schemaNamePrefix5=../@key.snakeCase}}
                         {{/if}}
                     {{/with}}
                 {{/with}}

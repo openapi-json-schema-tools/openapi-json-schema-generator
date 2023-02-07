@@ -23,12 +23,12 @@ from {{packageName}} import schemas
     {{#if content}}
     {{#each content}}
         {{#with this.schema}}
-from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
+from .content.{{../@key.snakeCase}} import {{name.snakeCase}} as {{../@key.snakeCase}}_{{name.snakeCase}}
         {{/with}}
     {{/each}}
     {{/if}}
     {{#each headers}}
-from .headers import {{name.snakeCaseName}}
+from .headers import {{name.snakeCase}}
     {{/each}}
     {{#if headers}}
 {{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
@@ -43,7 +43,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}},
+        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -61,7 +61,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}},
+        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -88,7 +88,7 @@ class {{name.camelCaseName}}(api_client.OpenApiResponse[_ApiResponse]):
     class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}
             {{else}}
         pass
             {{/with}}

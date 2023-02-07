@@ -169,7 +169,7 @@ class BaseApi(api_client.Api):
 
 
 class QueryParamWithJsonContentType(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def query_param_with_json_content_type(

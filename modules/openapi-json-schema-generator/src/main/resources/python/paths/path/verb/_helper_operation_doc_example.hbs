@@ -116,7 +116,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}(
+        api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParams}}
             path_params=path_params,
     {{/if}}
@@ -144,11 +144,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}
@@ -223,7 +223,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}(
+        api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParams}}
             path_params=path_params,
     {{/if}}
@@ -243,11 +243,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}
@@ -260,15 +260,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}()
+        api_response = api_instance.{{{operationId.snakeCase}}}()
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}

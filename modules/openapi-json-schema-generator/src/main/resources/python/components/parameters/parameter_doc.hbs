@@ -16,10 +16,10 @@ Ref Class | Input Type | Accessed Type | Description
         {{else}}
             {{#each getDeepestRef.content}}
                 {{#with this.schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName }}
+### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCaseName}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
                 {{/with}}
             {{/each}}
         {{/if}}
@@ -32,7 +32,7 @@ Ref Class | Input Type | Accessed Type | Description
     {{else}}
         {{#each content}}
             {{#with this.schema}}
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
             {{/with}}
         {{/each}}
     {{/if}}

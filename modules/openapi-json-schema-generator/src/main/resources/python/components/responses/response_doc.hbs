@@ -3,36 +3,36 @@
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
 {{#if refInfo}}
-# {{name.camelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.snakeCaseName}}" ></a>
+# {{name.camelCaseName}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{name.snakeCase}}" ></a>
 {{else}}
-# <a id="{{name.snakeCaseName}}" >{{name.camelCaseName}}</a>
+# <a id="{{name.snakeCase}}" >{{name.camelCaseName}}</a>
 {{/if}}
-## <a id="{{name.snakeCaseName}}response_cls" >{{name.camelCaseName}}.response_cls</a>
+## <a id="{{name.snakeCase}}response_cls" >{{name.camelCaseName}}.response_cls</a>
 {{else}}
-#### <a id="{{name.snakeCaseName}}response_cls" >{{name.camelCaseName}}.response_cls</a>
+#### <a id="{{name.snakeCase}}response_cls" >{{name.camelCaseName}}.response_cls</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if refInfo}}
     {{#with getDeepestRef}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{../name.snakeCaseName}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{name.snakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../name.camelCaseName}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{../name.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{name.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.camelCaseName}}.content.{{@key.snakeCaseName}}.schema](#{{../name.snakeCaseName}}content{{@key.snakeCaseName}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{name.snakeCaseName}}.Headers](#{{name.snakeCaseName}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../name.camelCaseName}}.content.{{@key.snakeCase}}.schema](#{{../name.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{name.snakeCase}}.Headers](#{{name.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#each content}}
         {{#with this.schema}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCaseName }}
+{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../name schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
         {{/with}}
     {{/each}}
     {{#if headers}}
         {{#if componentModule}}
 ## Headers
         {{else}}
-#### <a id="{{name.snakeCaseName}}Headers" >{{name.snakeCaseName}}.Headers</a>
+#### <a id="{{name.snakeCase}}Headers" >{{name.snakeCase}}.Headers</a>
         {{/if}}
 
 Key | Accessed Type | Description  | Notes
@@ -49,7 +49,7 @@ Key | Accessed Type | Description  | Notes
                             {{#each content}}
                                 {{#with this}}
                                     {{#with schema}}
-{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.snakeCaseName}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{name.snakeCase}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../name.snakeCase}}content{{../@key.snakeCase}}{{name.snakeCase}}) | | {{#unless required}}optional{{/unless}}
                                     {{/with}}
                                 {{/with}}
                             {{/each}}
@@ -58,13 +58,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [{{../../name.camelCaseName}}.headers.{{../name.snakeCaseName}}.schema](#{{../../name.snakeCaseName}}headers{{../name.snakeCaseName}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../name.camelCaseName}}.headers.{{../name.snakeCase}}.schema](#{{../../name.snakeCase}}headers{{../name.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
                         {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [{{../../../name.camelCaseName}}.headers.{{../../name.snakeCaseName}}.content.{{../@key.snakeCaseName}}.{{name.snakeCaseName}}](#{{../../../name.snakeCaseName}}headers{{../../name.snakeCaseName}}content{{../@key.snakeCaseName}}{{name.snakeCaseName}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../name.camelCaseName}}.headers.{{../../name.snakeCase}}.content.{{../@key.snakeCase}}.{{name.snakeCase}}](#{{../../../name.snakeCase}}headers{{../../name.snakeCase}}content{{../@key.snakeCase}}{{name.snakeCase}}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}

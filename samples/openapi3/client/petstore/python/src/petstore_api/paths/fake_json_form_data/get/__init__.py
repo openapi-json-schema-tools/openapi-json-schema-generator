@@ -152,7 +152,7 @@ class BaseApi(api_client.Api):
 
 
 class JsonFormData(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def json_form_data(

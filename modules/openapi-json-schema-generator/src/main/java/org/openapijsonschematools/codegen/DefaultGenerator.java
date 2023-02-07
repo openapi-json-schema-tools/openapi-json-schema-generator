@@ -521,7 +521,7 @@ public class DefaultGenerator implements Generator {
                 }
                 String path = co.path.name;
                 String operationJsonPath = "#/paths/" + ModelUtils.encodeSlashes(path) + "/" + co.httpMethod.name;
-                String pathModuleName = co.path.snakeCaseName;
+                String pathModuleName = co.path.snakeCase;
                 if (!pathToPathModule.containsKey(path)) {
                     pathToPathModule.put(path, pathModuleName);
                 }
@@ -582,7 +582,7 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
-                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCaseName + ".md"));
+                        outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCase + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                     }
                 }

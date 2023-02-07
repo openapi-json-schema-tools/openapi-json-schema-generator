@@ -1762,7 +1762,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String toComponentModule(String componentName, String priorJsonPathSegment) {
         switch (priorJsonPathSegment) {
             case "schemas":
-                return getKey(componentName).snakeCaseName;
+                return getKey(componentName).snakeCase;
             case "requestBodies":
                 return toRequestBodyFilename(componentName);
             case "responses":

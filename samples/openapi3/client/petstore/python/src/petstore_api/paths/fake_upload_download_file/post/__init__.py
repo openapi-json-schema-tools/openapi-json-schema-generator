@@ -165,7 +165,7 @@ class BaseApi(api_client.Api):
 
 
 class UploadDownloadFile(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def upload_download_file(

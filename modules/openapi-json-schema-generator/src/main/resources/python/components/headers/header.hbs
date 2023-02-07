@@ -13,14 +13,14 @@ import typing_extensions
 from {{packageName}} import api_client
     {{#if schema}}
         {{#with schema}}
-from . import {{name.snakeCaseName}}
+from . import {{name.snakeCase}}
         {{/with}}
     {{else}}
         {{#if content}}
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
-from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
+from .content.{{../@key.snakeCase}} import {{name.snakeCase}} as {{../@key.snakeCase}}_{{name.snakeCase}}
                     {{/with}}
                 {{/with}}
             {{/each}}

@@ -4083,7 +4083,7 @@ public class DefaultCodegen implements CodegenConfig {
             pathPieces[2] = null;
             if (pathPieces.length == 4) {
                 // #/components/schemas/SomeSchema
-                pathPieces[3] = getKey(pathPieces[3]).snakeCaseName;
+                pathPieces[3] = getKey(pathPieces[3]).snakeCase;
             }
             return;
         } else if (pathPieces[2].equals("requestBodies")) {
@@ -4097,21 +4097,21 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCaseName;
+                pathPieces[5] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCaseName;
+                pathPieces[5] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCaseName;
+                pathPieces[5] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
@@ -4126,12 +4126,12 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = getKey(contentType).snakeCaseName;
+                    pathPieces[7] = getKey(contentType).snakeCase;
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCaseName;
+                pathPieces[5] = getKey(contentType).snakeCase;
             }
         }
     }
@@ -4170,7 +4170,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCaseName;
+                pathPieces[7] = getKey(contentType).snakeCase;
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7]);
@@ -4178,7 +4178,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                    pathPieces[9] = getKey(contentType).snakeCaseName;
+                    pathPieces[9] = getKey(contentType).snakeCase;
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -4188,13 +4188,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCaseName;
+                pathPieces[7] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = getKey(contentType).snakeCaseName;
+                pathPieces[6] = getKey(contentType).snakeCase;
             }
         }
     }
@@ -4974,7 +4974,7 @@ public class DefaultCodegen implements CodegenConfig {
                     // property is of type self
                     return null;
                 }
-                return getKey(refPieces[3]).snakeCaseName;
+                return getKey(refPieces[3]).snakeCase;
         }
         return null;
     }

@@ -14,7 +14,7 @@ from {{packageName}} import api_client
     {{#each content}}
     {{#with this}}
         {{#with schema}}
-from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
+from .content.{{../@key.snakeCase}} import {{name.snakeCase}} as {{../@key.snakeCase}}_{{name.snakeCase}}
         {{/with}}
     {{/with}}
     {{/each}}
@@ -26,7 +26,7 @@ class {{name.camelCaseName}}(api_client.RequestBody):
     class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCaseName}}
             {{/with}}
         {{/with}}
     {{/each}}
