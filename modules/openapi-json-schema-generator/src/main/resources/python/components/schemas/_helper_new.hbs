@@ -5,10 +5,10 @@ def __new__(
         {{#contains types "array" }}
     arg_: typing.Union[
         typing.Tuple[
-            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
+            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
         ],
         typing.List[
-            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
+            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
         ],
     ],
         {{else}}
@@ -29,11 +29,11 @@ def __new__(
                         {{#if refInfo.refClass}}
     {{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}',
                         {{else}}
-                            {{#if name}}
+                            {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
-    {{@key.original}}: typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{else}}
-    {{@key.original}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{/if}}
                             {{else}}
     {{@key.original}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
@@ -50,7 +50,7 @@ def __new__(
         {{#if refInfo.refClass}}
     {{@key.original}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
         {{else}}
-    {{@key.original}}: typing.Union[Schema_.Properties.{{name.camelCase}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
         {{/if}}
     {{/if}}
 {{/each}}
@@ -60,7 +60,7 @@ def __new__(
         {{#if refInfo.refClass}}
     **kwargs: '{{> components/schemas/_helper_refclass_with_module }}',
         {{else}}
-    **kwargs: typing.Union[Schema_.{{name.camelCase}}, {{> _helper_schema_python_types }}],
+    **kwargs: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
         {{/if}}
     {{/unless}}
 {{else}}
@@ -72,7 +72,7 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{/with}}
-) -> '{{name.camelCase}}':
+) -> '{{jsonPathPiece.camelCase}}':
     return super().__new__(
         cls,
 {{#if hasMultipleTypes}}

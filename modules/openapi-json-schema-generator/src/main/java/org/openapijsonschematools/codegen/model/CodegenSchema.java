@@ -75,7 +75,7 @@ public class CodegenSchema {
     // Extra needed fields
     public String componentModule;
     public TreeSet<String> imports;
-    public CodegenKey name;
+    public CodegenKey jsonPathPiece;
     public String unescapedDescription;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
@@ -140,7 +140,7 @@ public class CodegenSchema {
 
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", description='").append(description).append('\'');
-        sb.append(", name='").append(name).append('\'');
+        sb.append(", name='").append(jsonPathPiece).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
@@ -231,7 +231,7 @@ public class CodegenSchema {
                 Objects.equals(optionalProperties, that.optionalProperties) &&
                 Objects.equals(properties, that.properties) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(name, that.name) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
@@ -253,7 +253,7 @@ public class CodegenSchema {
     @Override
     public int hashCode() {
         return Objects.hash(description,
-                name, defaultValue,
+                jsonPathPiece, defaultValue,
                 title, unescapedDescription,
                 maxLength, minLength, patternInfo, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,

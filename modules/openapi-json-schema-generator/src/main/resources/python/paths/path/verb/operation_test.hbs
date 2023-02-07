@@ -36,7 +36,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../name.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../jsonPathPiece.camelCase }}
             {{/with}}
         {{else}}
     {{> paths/path/verb/_helper_operation_test_response_content responseClassName=name.camelCase }}

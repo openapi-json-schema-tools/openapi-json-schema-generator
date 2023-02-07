@@ -24,10 +24,10 @@ public class CodegenRequestBody {
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
     public final String componentModule;
-    public final CodegenKey name;
+    public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
 
-    public CodegenRequestBody(String description, String unescapedDescription, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey name, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(String description, String unescapedDescription, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.jsonSchema = jsonSchema;
@@ -36,13 +36,13 @@ public class CodegenRequestBody {
         this.content = content;
         this.imports = imports;
         this.componentModule = componentModule;
-        this.name = name;
+        this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(description, unescapedDescription, name, jsonSchema, vendorExtensions, required, content, refInfo, imports, componentModule);
+        return Objects.hash(description, unescapedDescription, jsonPathPiece, jsonSchema, vendorExtensions, required, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class CodegenRequestBody {
         if (!(o instanceof CodegenRequestBody)) return false;
         CodegenRequestBody that = (CodegenRequestBody) o;
         return required == that.required &&
-            Objects.equals(name, that.name) &&
+            Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
             Objects.equals(componentModule, that.componentModule) &&
             Objects.equals(imports, that.imports) &&
             Objects.equals(content, that.content) &&
@@ -63,7 +63,7 @@ public class CodegenRequestBody {
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append("name='").append(name).append('\'');
+        sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", jsonSchema='").append(jsonSchema).append('\'');

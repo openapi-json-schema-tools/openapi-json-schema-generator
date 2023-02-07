@@ -39,14 +39,14 @@ public class CodegenHeader {
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
     public final String componentModule;
-    public final CodegenKey name;
+    public final CodegenKey jsonPathPiece;
     public final boolean isExplode;
     public final String style;
     public final boolean isDeprecated;
     public final CodegenSchema schema;
     public final CodegenRefInfo<CodegenHeader> refInfo;
 
-    public CodegenHeader(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
+    public CodegenHeader(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
@@ -56,7 +56,7 @@ public class CodegenHeader {
         this.content = content;
         this.imports = imports;
         this.componentModule = componentModule;
-        this.name = name;
+        this.jsonPathPiece = jsonPathPiece;
         this.isExplode = isExplode;
         this.style = style;
         this.isDeprecated = isDeprecated;
@@ -66,7 +66,7 @@ public class CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class CodegenHeader {
         if (!(o instanceof CodegenHeader)) return false;
         CodegenHeader that = (CodegenHeader) o;
         return required == that.required &&
-                Objects.equals(name, that.name) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(content, that.content) &&
@@ -92,7 +92,7 @@ public class CodegenHeader {
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append("name='").append(name).append('\'');
+        sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');

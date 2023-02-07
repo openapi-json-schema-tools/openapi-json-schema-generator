@@ -1,4 +1,4 @@
-class {{name.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
+class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
     name = "{{baseName}}"
 {{/unless}}
@@ -27,7 +27,7 @@ class {{name.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{name.snakeCase}}.{{name.camelCase}}
+    schema = {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
     {{/with}}
 {{/if}}
 {{#if content}}
@@ -37,7 +37,7 @@ class {{name.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}
     class __{{@key.camelCase}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
         {{/with}}
     {{/with}}
 {{/each}}

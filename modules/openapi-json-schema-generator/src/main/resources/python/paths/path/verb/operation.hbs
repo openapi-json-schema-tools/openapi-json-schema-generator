@@ -26,7 +26,7 @@ from .responses import response_{{@key}}
 from . import request_body
 {{/with}}
 {{#each allParams}}
-from .parameters import {{name.snakeCase}}
+from .parameters import {{jsonPathPiece.snakeCase}}
 {{/each}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
@@ -94,7 +94,7 @@ _servers = (
 
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-default_response = response_default.{{name.camelCase}}
+default_response = response_default.{{jsonPathPiece.camelCase}}
 {{/with}}
 {{/if}}
 {{#if nonDefaultResponses}}
@@ -102,13 +102,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_{{@key}}.{{name.camelCase}},
+        '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
 {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
 {{#each nonDefaultResponses}}
-    '{{@key}}': response_{{@key}}.{{name.camelCase}},
+    '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 }
 {{/if}}

@@ -6,12 +6,12 @@ import unittest
 
 import {{packageName}}
 {{#with schema}}
-from {{packageName}}.components.schema.{{componentModule}} import {{name.camelCase}}
+from {{packageName}}.components.schema.{{componentModule}} import {{jsonPathPiece.camelCase}}
 from {{packageName}} import configuration
 
 
-class Test{{name.camelCase}}(unittest.TestCase):
-    """{{name.camelCase}} unit test stubs"""
+class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
+    """{{jsonPathPiece.camelCase}} unit test stubs"""
     configuration_ = configuration.Configuration()
 
 {{#each testCases}}
@@ -19,7 +19,7 @@ class Test{{name.camelCase}}(unittest.TestCase):
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
 {{#if valid}}
-        {{name.camelCase}}.from_openapi_data_(
+        {{jsonPathPiece.camelCase}}.from_openapi_data_(
 {{#with data}}
             {{> components/schemas/_helper_payload_renderer endChar=',' }}
 {{/with}}
@@ -27,7 +27,7 @@ class Test{{name.camelCase}}(unittest.TestCase):
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{name.camelCase}}.from_openapi_data_(
+            {{jsonPathPiece.camelCase}}.from_openapi_data_(
 {{#with data}}
                 {{> components/schemas/_helper_payload_renderer endChar=','}}
 {{/with}}

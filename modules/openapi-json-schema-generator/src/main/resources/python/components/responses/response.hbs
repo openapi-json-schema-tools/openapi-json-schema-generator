@@ -5,7 +5,7 @@
 {{#with response}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
 import datetime
@@ -23,12 +23,12 @@ from {{packageName}} import schemas
     {{#if content}}
     {{#each content}}
         {{#with this.schema}}
-from .content.{{../@key.snakeCase}} import {{name.snakeCase}} as {{../@key.snakeCase}}_{{name.snakeCase}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
         {{/with}}
     {{/each}}
     {{/if}}
     {{#each headers}}
-from .headers import {{name.snakeCase}}
+from .headers import {{jsonPathPiece.snakeCase}}
     {{/each}}
     {{#if headers}}
 {{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
@@ -43,7 +43,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}},
+        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -61,7 +61,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{#each content}}
     {{#if this.schema}}
         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}},
+        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
         {{/with}}
     {{else}}
         schemas.Unset,
@@ -80,7 +80,7 @@ class _ApiResponse(api_client.ApiResponse):
     {{/unless}}
 
 
-class {{name.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
+class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
     {{#each content}}
 
@@ -88,7 +88,7 @@ class {{name.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
     class __{{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
             {{else}}
         pass
             {{/with}}

@@ -3,11 +3,11 @@
         {{#if required}}
             {{#if schema}}
                 {{#with schema}}
-            '{{../@key}}': typing.Union[{{../../name.snakeCase}}.{{../../name.camelCase}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../../jsonPathPiece.snakeCase}}.{{../../jsonPathPiece.camelCase}}.{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],
                 {{/with}}
             {{else}}
                 {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../name.snakeCase}}.{{../../../name.camelCase}}.content["{{{../@key.original}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../jsonPathPiece.snakeCase}}.{{../../../jsonPathPiece.camelCase}}.content["{{{../@key.original}}}"].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -16,11 +16,11 @@
     {{#if required}}
         {{#if schema}}
             {{#with schema}}
-            '{{../@key}}': typing.Union[{{../name.snakeCase}}.{{../name.camelCase}}.{{name.snakeCase}}, {{> _helper_schema_python_types }}],
+            '{{../@key}}': typing.Union[{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}.{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],
             {{/with}}
         {{else}}
             {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../name.snakeCase}}.{{../name.camelCase}}.content["{{{../@key.original}}}"].{{name.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}.content["{{{../@key.original}}}"].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
             {{/each}}
         {{/if}}
     {{/if}}

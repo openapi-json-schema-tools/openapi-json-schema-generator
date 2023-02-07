@@ -5,7 +5,7 @@
 {{#with requestBody}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
 import typing_extensions
@@ -14,19 +14,19 @@ from {{packageName}} import api_client
     {{#each content}}
     {{#with this}}
         {{#with schema}}
-from .content.{{../@key.snakeCase}} import {{name.snakeCase}} as {{../@key.snakeCase}}_{{name.snakeCase}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
         {{/with}}
     {{/with}}
     {{/each}}
 
-class {{name.camelCase}}(api_client.RequestBody):
+class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#each content}}
 
 
     class __{{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}] = {{../@key.snakeCase}}_{{name.snakeCase}}.{{name.camelCase}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
             {{/with}}
         {{/with}}
     {{/each}}

@@ -37,9 +37,9 @@ class Properties:
     __annotations__ = {
 {{#each properties}}
 {{#if refInfo.refClass}}
-        "{{{@key.original}}}": {{name.snakeCase}},
+        "{{{@key.original}}}": {{jsonPathPiece.snakeCase}},
 {{else}}
-        "{{{@key.original}}}": {{name.camelCase}},
+        "{{{@key.original}}}": {{jsonPathPiece.camelCase}},
 {{/if}}
 {{/each}}
     }

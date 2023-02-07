@@ -781,8 +781,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                     .collect(Collectors.toList());
 
             for (CodegenSchema var : vars) {
-                if (var.name != null) {
-                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name.original.replace("$", "\\$"));
+                if (var.jsonPathPiece != null) {
+                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.jsonPathPiece.original.replace("$", "\\$"));
                 }
             }
         }

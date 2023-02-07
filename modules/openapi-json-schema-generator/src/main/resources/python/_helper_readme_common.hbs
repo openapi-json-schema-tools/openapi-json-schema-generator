@@ -28,7 +28,7 @@ HTTP request | Method | Description
 
 {{#each schemas}}
 {{#with this}}
- - [{{name.camelCase}}]({{modelDocPath}}{{componentModule}}.{{name.camelCase}}.md)
+ - [{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.{{jsonPathPiece.camelCase}}.md)
 {{/with}}
 {{/each}}
 {{#if requestBodies}}
@@ -36,7 +36,7 @@ HTTP request | Method | Description
 ## Component RequestBodies
 
 {{#each requestBodies}}
-- {{#with this}}[{{name.camelCase}}](docs/components/request_bodies/{{componentModule}}.md){{/with}}
+- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{componentModule}}.md){{/with}}
 {{/each}}
 {{/if}}
 {{#if responses}}
@@ -44,7 +44,7 @@ HTTP request | Method | Description
 ## Component Responses
 
 {{#each responses}}
-- {{#with this}}[{{name.camelCase}}](docs/components/responses/{{componentModule}}.md){{/with}}
+- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/responses/{{componentModule}}.md){{/with}}
 {{/each}}
 {{/if}}
 {{#if headers}}
@@ -52,7 +52,7 @@ HTTP request | Method | Description
 ## Component Headers
 
 {{#each headers}}
-- {{#with this}}[{{name.camelCase}}](docs/components/headers/{{componentModule}}.md){{/with}}
+- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/headers/{{componentModule}}.md){{/with}}
 {{/each}}
 {{/if}}
 {{#if parameters}}
@@ -60,7 +60,7 @@ HTTP request | Method | Description
 ## Component Parameters
 
 {{#each parameters}}
-- {{#with this}}[{{name.camelCase}}](docs/components/parameters/{{componentModule}}.md){{/with}}
+- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{componentModule}}.md){{/with}}
 {{/each}}
 {{/if}}
 

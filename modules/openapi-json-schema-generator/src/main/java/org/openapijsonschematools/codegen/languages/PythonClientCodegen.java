@@ -1168,7 +1168,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.propertyBaseName);
-                cp.name = ck;
+                cp.jsonPathPiece = ck;
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1339,7 +1339,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
                 CodegenKey ck = getKey(disc.propertyBaseName);
-                cp.name = ck;
+                cp.jsonPathPiece = ck;
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1400,7 +1400,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             propName = toVarName(propName);
             String propModelName = null;
             Object propExample = null;
-            if (discProp != null && propName.equals(discProp.name.original)) {
+            if (discProp != null && propName.equals(discProp.jsonPathPiece.original)) {
                 propModelName = null;
                 propExample = discProp.example;
             } else {

@@ -1931,8 +1931,8 @@ public class DefaultCodegen implements CodegenConfig {
             int modelDiscriminators = 0; // only one discriminator allowed in a ComposedModel
             for (Schema innerSchema : composed.getAllOf()) { // TODO need to work with anyOf, oneOf as well
                 if (m.discriminator == null && innerSchema.getDiscriminator() != null) {
-                    LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.name);
-                    m.discriminator = createDiscriminator(m.name.original, innerSchema, this.openAPI, sourceJsonPath);
+                    LOGGER.debug("discriminator is set to null (not correctly set earlier): {}", m.jsonPathPiece);
+                    m.discriminator = createDiscriminator(m.jsonPathPiece.original, innerSchema, this.openAPI, sourceJsonPath);
                     modelDiscriminators++;
                 }
 
@@ -5008,7 +5008,7 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         CodegenKey name = getName(expectedComponentType, currentJsonPath);
-        instance.name = name;
+        instance.jsonPathPiece = name;
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/schemas/A
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
