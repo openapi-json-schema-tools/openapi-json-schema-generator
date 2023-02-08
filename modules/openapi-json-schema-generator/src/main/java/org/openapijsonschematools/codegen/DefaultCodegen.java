@@ -1765,7 +1765,7 @@ public class DefaultCodegen implements CodegenConfig {
             type = "string";
         } else if (value instanceof LinkedHashMap) {
             LinkedHashMap<String, EnumValue> castMap = new LinkedHashMap<>();
-            for (Map.Entry entry: ((LinkedHashMap<String, Object>) value).entrySet()) {
+            for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
                 String entryKey = (String) entry.getKey();
                 Object entryValue = entry.getValue();
                 EnumValue castValue = toEnumValue(entryValue, null);
@@ -1775,7 +1775,7 @@ public class DefaultCodegen implements CodegenConfig {
             usedValue = castMap;
         } else if (value instanceof ArrayList) {
             ArrayList<EnumValue> castList = new ArrayList<>();
-            for (Object item: (ArrayList<Object>) value) {
+            for (Object item: (ArrayList<?>) value) {
                 EnumValue castItem = toEnumValue(item, null);
                 castList.add(castItem);
             }
@@ -1805,7 +1805,17 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String schemaName = refToTestCases.substring(xSchemaTestExamplesRefPrefix.length());
         HashMap<String, SchemaTestCase> schemaTestCases = new HashMap<>();
-        LinkedHashMap<String, Object> schemaNameToTestCases = (LinkedHashMap<String, Object>) vendorExtensions.get(xSchemaTestExamplesKey);
+        Object originalSchemaNameToTestCases = vendorExtensions.get(xSchemaTestExamplesKey);
+        LinkedHashMap<String, Object> schemaNameToTestCases = new LinkedHashMap<>();
+        if (originalSchemaNameToTestCases instanceof LinkedHashMap) {
+            for (Entry entry: ((LinkedHashMap<?, ?>) originalSchemaNameToTestCases).entrySet()) {
+                String key = (String) entry.getKey();
+                Object value = entry.getValue();
+                schemaNameToTestCases.put(key, value);
+            }
+        } else {
+            return null;
+        }
 
         if (!schemaNameToTestCases.containsKey(schemaName)) {
             return null;
