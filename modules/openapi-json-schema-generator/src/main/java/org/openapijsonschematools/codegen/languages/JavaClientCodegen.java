@@ -954,9 +954,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
-        generateYAMLSpecFile(objs);
-        return super.postProcessSupportingFileData(objs);
+    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
+        generateYAMLSpecFile(data);
+        return super.postProcessSupportingFileData(data);
     }
 
     @Override

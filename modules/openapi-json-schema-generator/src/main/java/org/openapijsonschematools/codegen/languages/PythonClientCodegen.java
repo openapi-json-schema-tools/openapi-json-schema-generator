@@ -1713,9 +1713,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return tag;
     }
 
-    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
-        objs.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
-        return objs;
+    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
+        data.put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, nonCompliantUseDiscrIfCompositionFails);
+        return data;
     }
 
     @Override

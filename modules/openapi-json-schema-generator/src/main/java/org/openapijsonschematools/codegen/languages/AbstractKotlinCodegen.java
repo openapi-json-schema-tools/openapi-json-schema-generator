@@ -349,8 +349,8 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        for (CodegenSchema cm : objs.values()) {
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models) {
+        for (CodegenSchema cm : models.values()) {
             if (cm.discriminator != null) {
                 cm.vendorExtensions.put("x-has-data-class-body", true);
                 break;
@@ -363,7 +363,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
                 }
             }
         }
-        return objs;
+        return models;
     }
 
     @Override

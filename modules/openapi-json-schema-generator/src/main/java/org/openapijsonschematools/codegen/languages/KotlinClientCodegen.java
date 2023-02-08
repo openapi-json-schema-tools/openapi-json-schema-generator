@@ -764,8 +764,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        TreeMap<String, CodegenSchema> objects = super.postProcessModels(objs);
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models) {
+        TreeMap<String, CodegenSchema> objects = super.postProcessModels(models);
 
         for (CodegenSchema cm: objects.values()) {
             if (getGenerateRoomModels()) {

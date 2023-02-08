@@ -256,17 +256,17 @@ public interface CodegenConfig {
 
     void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations);
 
-    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> objs);
+    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
 
     void postProcess();
 
     TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
-    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> schemas);
+    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
 
-    OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> schemas);
+    OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas);
 
-    Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
+    Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
 
