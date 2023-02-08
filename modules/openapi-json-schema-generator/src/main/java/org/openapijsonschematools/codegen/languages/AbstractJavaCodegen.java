@@ -890,15 +890,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         // should be the same as the model name
         return toModelName(name);
     }
-
-    @Override
-    public String getAlias(String name) {
-        if (typeAliases != null && typeAliases.containsKey(name)) {
-            return typeAliases.get(name);
-        }
-        return name;
-    }
-
     @Override
     public String toDefaultValue(Schema schema) {
         schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
@@ -1146,31 +1137,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else {
             return null;
         }
-    }
-
-    @Override
-    public String toOperationId(String operationId) {
-        // throw exception if method name is empty
-        if (StringUtils.isEmpty(operationId)) {
-            throw new RuntimeException("Empty method/operation name (operationId) not allowed");
-        }
-
-        operationId = camelize(sanitizeName(operationId), true);
-
-        // method name cannot use reserved keyword, e.g. return
-        if (isReservedWord(operationId)) {
-            String newOperationId = camelize("call_" + operationId, true);
-            LOGGER.warn("{} (reserved word) cannot be used as method name. Renamed to {}", operationId, newOperationId);
-            return newOperationId;
-        }
-
-        // operationId starts with a number
-        if (operationId.matches("^\\d.*")) {
-            LOGGER.warn(operationId + " (starting with a number) cannot be used as method name. Renamed to " + camelize("call_" + operationId), true);
-            operationId = camelize("call_" + operationId, true);
-        }
-
-        return operationId;
     }
 
     @Override
