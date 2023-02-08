@@ -104,7 +104,6 @@ import io.swagger.v3.oas.models.security.OAuthFlows;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
-import io.swagger.v3.parser.util.SchemaTypeUtil;
 
 @SuppressWarnings("rawtypes")
 public class DefaultCodegen implements CodegenConfig {
@@ -2091,7 +2090,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (cs == null) { // cannot lookup the model based on the name
                     LOGGER.error("Failed to lookup the schema '{}' when processing oneOf/anyOf. Please check to ensure it's defined properly.", modelName);
                 } else {
-                    Map<String, Object> vendorExtensions = cs.getExtensions();
+                    Map vendorExtensions = cs.getExtensions();
                     if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                         String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
                         mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath, "schemas"));
@@ -2104,8 +2103,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     protected List<MappedModel> getAllOfDescendants(String thisSchemaName, OpenAPI openAPI, String sourceJsonPath) {
-        ArrayList<String> queue = new ArrayList();
-        List<MappedModel> descendentSchemas = new ArrayList();
+        ArrayList<String> queue = new ArrayList<>();
+        List<MappedModel> descendentSchemas = new ArrayList<>();
         Map<String, Schema> schemas = ModelUtils.getSchemas(openAPI);
         String currentSchemaName = thisSchemaName;
         Set<String> keys = schemas.keySet();
@@ -2150,7 +2149,7 @@ public class DefaultCodegen implements CodegenConfig {
             MappedModel mm = new MappedModel(currentSchemaName, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas"));
             descendentSchemas.add(mm);
             Schema cs = schemas.get(currentSchemaName);
-            Map<String, Object> vendorExtensions = cs.getExtensions();
+            Map vendorExtensions = cs.getExtensions();
             if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                 String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
                 mm = new MappedModel(xDiscriminatorValue, getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas"));
@@ -2471,23 +2470,23 @@ public class DefaultCodegen implements CodegenConfig {
             );
         }
         property.xml = xml;
-        if (p.getExtensions() != null && !p.getExtensions().isEmpty()) {
-            property.vendorExtensions.putAll(p.getExtensions());
+        if (((Schema<?>) p).getExtensions() != null && !((Schema<?>) p).getExtensions().isEmpty()) {
+            property.vendorExtensions = ((Schema<?>) p).getExtensions();
         }
 
         Schema notSchema = p.getNot();
         if (notSchema != null) {
             property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
         }
-        List<Schema> allOfs = p.getAllOf();
+        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
         if (allOfs != null && !allOfs.isEmpty()) {
             property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
         }
-        List<Schema> anyOfs = p.getAnyOf();
+        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
         }
-        List<Schema> oneOfs = p.getOneOf();
+        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
         if (oneOfs != null && !oneOfs.isEmpty()) {
             property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
         }
@@ -2505,9 +2504,9 @@ public class DefaultCodegen implements CodegenConfig {
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
         property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
-        property.properties = getProperties(p.getProperties(), sourceJsonPath, currentJsonPath);
+        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath);
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
-                : new LinkedHashSet<String>(p.getRequired());
+                : new LinkedHashSet<>(((Schema<?>) p).getRequired());
         property.optionalProperties = getOptionalProperties(property.properties, required);
         property.requiredProperties = getRequiredProperties(required, property.properties, p.getAdditionalProperties(), property.additionalProperties);
 
@@ -3003,7 +3002,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
         String expectedComponentType = "responses";
         String ref = response.get$ref();
-        CodegenRefInfo refInfo = null;
+        CodegenRefInfo<CodegenResponse> refInfo = null;
         TreeSet<String> imports = null;
         if (ref != null) {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
@@ -3023,10 +3022,9 @@ public class DefaultCodegen implements CodegenConfig {
 
         Map<String, CodegenHeader> finalHeaders = headers;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
-        CodegenRefInfo finalRefInfo = refInfo;
         String finalComponentModule = componentModule;
         TreeSet<String> finalImports = imports;
-        r = new CodegenResponse(jsonPathPiece, finalHeaders, description, finalVendorExtensions, content, finalRefInfo, finalImports, finalComponentModule);
+        r = new CodegenResponse(jsonPathPiece, finalHeaders, description, finalVendorExtensions, content, refInfo, finalImports, finalComponentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -3103,7 +3101,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         String ref = header.get$ref();
         String expectedComponentType = "headers";
-        CodegenRefInfo refInfo = null;
+        CodegenRefInfo<CodegenHeader> refInfo = null;
         TreeSet<String> imports = null;
         if (ref != null) {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
@@ -3155,12 +3153,11 @@ public class DefaultCodegen implements CodegenConfig {
         TreeSet<String> finalImports = imports;
         String finalComponentModule = componentModule;
         String finalStyle = style;
-        CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, finalRefInfo);
+        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3189,7 +3186,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         String ref = parameter.get$ref();
         String expectedComponentType = "parameters";
-        CodegenRefInfo refInfo = null;
+        CodegenRefInfo<CodegenParameter> refInfo = null;
         TreeSet<String> imports = null;
         if (ref != null) {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
@@ -3254,12 +3251,11 @@ public class DefaultCodegen implements CodegenConfig {
         String finalStyle = style;
         TreeSet<String> finalImports = imports;
         String finalComponentModule = componentModule;
-        CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         Boolean allowReserved = parameter.getAllowReserved();
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, finalRefInfo, allowReserved);
+        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, refInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
@@ -4263,7 +4259,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
 
-        List<Object> values = schema.getEnum();
+        ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -4278,10 +4274,26 @@ public class DefaultCodegen implements CodegenConfig {
         String xEnumDescriptionsKey = "x-enum-descriptions";
         if (schema.getExtensions() != null) {
             if (schema.getExtensions().containsKey(xEnumVarnamesKey)) {
-                xEnumVarnames = (List<String>) schema.getExtensions().get(xEnumVarnamesKey);
+                xEnumVarnames = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumVarnamesKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumVarnames.add((String) item);
+                        }
+                    }
+                }
             }
             if (schema.getExtensions().containsKey(xEnumDescriptionsKey)) {
-                xEnumDescriptions = (List<String>) schema.getExtensions().get(xEnumDescriptionsKey);
+                xEnumDescriptions = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumDescriptionsKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumDescriptions.add((String) item);
+                        }
+                    }
+                }
             }
         }
 
@@ -4669,7 +4681,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         String ref = requestBody.get$ref();
         String expectedComponentType = "requestBodies";
-        CodegenRefInfo refInfo = null;
+        CodegenRefInfo<CodegenRequestBody> refInfo = null;
         TreeSet<String> imports = null;
         if (ref != null) {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
@@ -4702,10 +4714,9 @@ public class DefaultCodegen implements CodegenConfig {
         // should be overridden by lang codegen
         TreeSet<String> finalImports = imports;
         String finalComponentModule = componentModule;
-        CodegenRefInfo finalRefInfo = refInfo;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, finalRefInfo);
+        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, finalComponentModule, jsonPathPiece, refInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }

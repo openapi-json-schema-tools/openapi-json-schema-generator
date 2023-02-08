@@ -63,7 +63,7 @@ public class CodegenSchema {
     public String example;
     public Boolean deprecated;
     // openapi Specification Extensions
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
+    public Map<String, Object> vendorExtensions;
 
     // 3.1.0
     public LinkedHashSet<String> types;
