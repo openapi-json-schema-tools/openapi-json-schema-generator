@@ -1805,10 +1805,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String schemaName = refToTestCases.substring(xSchemaTestExamplesRefPrefix.length());
         HashMap<String, SchemaTestCase> schemaTestCases = new HashMap<>();
-        Object originalSchemaNameToTestCases = vendorExtensions.get(xSchemaTestExamplesKey);
+        Object rawData = vendorExtensions.get(xSchemaTestExamplesKey);
         LinkedHashMap<String, Object> schemaNameToTestCases = new LinkedHashMap<>();
-        if (originalSchemaNameToTestCases instanceof LinkedHashMap) {
-            for (Entry entry: ((LinkedHashMap<?, ?>) originalSchemaNameToTestCases).entrySet()) {
+        if (rawData instanceof LinkedHashMap) {
+            for (Entry entry: ((LinkedHashMap<?, ?>) rawData).entrySet()) {
                 String key = (String) entry.getKey();
                 Object value = entry.getValue();
                 schemaNameToTestCases.put(key, value);
@@ -1820,15 +1820,25 @@ public class DefaultCodegen implements CodegenConfig {
         if (!schemaNameToTestCases.containsKey(schemaName)) {
             return null;
         }
-        LinkedHashMap<String, LinkedHashMap<String, Object>> testNameToTesCase = (LinkedHashMap<String, LinkedHashMap<String, Object>>) schemaNameToTestCases.get(schemaName);
-        for (Entry<String, LinkedHashMap<String, Object>> entry: testNameToTesCase.entrySet()) {
-            LinkedHashMap<String, Object> testExample = (LinkedHashMap<String, Object>) entry.getValue();
-            String nameInSnakeCase = toTestCaseName(entry.getKey());
-            Object data = processTestExampleData(testExample.get("data"));
+        rawData = schemaNameToTestCases.get(schemaName);
+        if (!(rawData instanceof LinkedHashMap)) {
+            return null;
+        }
+        for (Entry entry: ((LinkedHashMap<?, ?>) rawData).entrySet()) {
+            String nameInSnakeCase = toTestCaseName((String) entry.getKey());
+            Object testExample = entry.getValue();
+            if (!(testExample instanceof LinkedHashMap)) {
+                continue;
+            }
+            LinkedHashMap castTestExample = (LinkedHashMap) testExample;
+            // LinkedHashMap<String, Object> testExample = (LinkedHashMap<String, Object>) entry.getValue();
+            Object data = processTestExampleData(castTestExample.get("data"));
+            String description = (String) castTestExample.get("description");
+            boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(
-                    (String) testExample.getOrDefault("description", ""),
+                    description,
                     toEnumValue(data, null),
-                    (boolean) testExample.get("valid")
+                    valid
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
         }
