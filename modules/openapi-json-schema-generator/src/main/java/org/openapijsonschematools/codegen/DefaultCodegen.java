@@ -2396,6 +2396,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
                 // import from $ref
                 property.imports = new TreeSet<>();
+                assert generatorMetadata != null;
                 addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
             }
             // TODO with 3.1.0 schemas continue processing
@@ -2514,6 +2515,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             // imports from properties/items/additionalPoperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();
+            assert generatorMetadata != null;
             addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
         }
 
@@ -4579,11 +4581,10 @@ public class DefaultCodegen implements CodegenConfig {
             if (mt.getExtensions() != null && mt.getExtensions().containsKey(xSchemaTestExamplesKey)) {
                 Object objNodeWithRef = mt.getExtensions().get(xSchemaTestExamplesKey);
                 if (objNodeWithRef instanceof LinkedHashMap) {
-                    LinkedHashMap<String, String> nodeWithRef = (LinkedHashMap<String, String>) objNodeWithRef;
                     String refKey = "$ref";
-                    String refToTestCases = nodeWithRef.getOrDefault(refKey, null);
-                    if (refToTestCases != null) {
-                        schemaTestCases = extractSchemaTestCases(refToTestCases);
+                    Object refToTestCases = ((LinkedHashMap<?, ?>) objNodeWithRef).getOrDefault(refKey, null);
+                    if (refToTestCases instanceof String) {
+                        schemaTestCases = extractSchemaTestCases((String) refToTestCases);
                     }
                 }
             }
