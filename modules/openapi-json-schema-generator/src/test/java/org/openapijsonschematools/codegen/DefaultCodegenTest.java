@@ -256,21 +256,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testArraySchemaIsNotIncludedInAliases() throws Exception {
-        final DefaultCodegen codegen = new DefaultCodegen();
-        Map<String, Schema> schemas = new HashMap<String, Schema>() {
-            {
-                put("ArraySchemaTest", new ArraySchema());
-            }
-
-        };
-
-        Map<String, String> aliases = codegen.getAllAliases(schemas);
-
-        Assert.assertEquals(aliases.size(), 0);
-    }
-
-    @Test
     public void testDateTimeFormParameterHasDefaultValue() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
         final DefaultCodegen codegen = new DefaultCodegen();
