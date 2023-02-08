@@ -1830,7 +1830,6 @@ public class DefaultCodegen implements CodegenConfig {
                 continue;
             }
             LinkedHashMap castTestExample = (LinkedHashMap) testExample;
-            // LinkedHashMap<String, Object> testExample = (LinkedHashMap<String, Object>) entry.getValue();
             Object data = processTestExampleData(castTestExample.get("data"));
             String description = (String) castTestExample.get("description");
             boolean valid = (boolean) castTestExample.get("valid");
