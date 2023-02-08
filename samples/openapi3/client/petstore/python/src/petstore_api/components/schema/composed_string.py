@@ -47,11 +47,11 @@ class ComposedString(
 
     def __new__(
         cls,
-        *args_: typing.Union[str, ],
+        arg_: str, 
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedString':
         return super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
         )

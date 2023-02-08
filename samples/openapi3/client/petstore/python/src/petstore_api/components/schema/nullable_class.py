@@ -57,12 +57,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, decimal.Decimal, int, ],
+                    arg_: typing.Union[None, decimal.Decimal, int, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'IntegerProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -84,12 +84,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, decimal.Decimal, int, float, ],
+                    arg_: typing.Union[None, decimal.Decimal, int, float, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'NumberProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -111,12 +111,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, bool, ],
+                    arg_: typing.Union[None, bool, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'BooleanProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -138,12 +138,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, str, ],
+                    arg_: typing.Union[None, str, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'StringProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -167,12 +167,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, str, datetime.date, ],
+                    arg_: typing.Union[None, str, datetime.date, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'DateProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -196,12 +196,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, str, datetime.datetime, ],
+                    arg_: typing.Union[None, str, datetime.datetime, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'DatetimeProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -224,12 +224,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, list, tuple, ],
+                    arg_: typing.Union[None, list, tuple, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayNullableProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
@@ -280,12 +280,12 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, list, tuple, ],
+                    arg_: typing.Union[None, list, tuple, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                 ) -> 'ArrayAndItemsNullableProp':
                     return super().__new__(
                         cls,
-                        *args_,
+                        arg_,
                         configuration_=configuration_,
                     )
             
