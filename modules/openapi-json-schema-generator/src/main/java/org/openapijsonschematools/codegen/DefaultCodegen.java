@@ -106,6 +106,7 @@ import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 
+@SuppressWarnings("rawtypes")
 public class DefaultCodegen implements CodegenConfig {
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultCodegen.class);
 
@@ -236,7 +237,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected final static Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)application/json(;.*)?");
     protected final static Pattern JSON_VENDOR_MIME_PATTERN = Pattern.compile("(?i)application/vnd.(.*)+json(;.*)?");
-    private static final Pattern COMMON_PREFIX_ENUM_NAME = Pattern.compile("[a-zA-Z0-9]+\\z");
+    private static final Pattern COMMON_PREFIX_ENUM_NAME = Pattern.compile("[a-zA-Z\\d]+\\z");
 
     /**
      * True if the code generator supports multiple class inheritance.
@@ -272,8 +273,6 @@ public class DefaultCodegen implements CodegenConfig {
     // They are translated to words like "Dollar" and prefixed with '
     // Then translated back during JSON encoding and decoding
     protected Map<String, String> specialCharReplacements = new LinkedHashMap<>();
-    // When a model is an alias for a simple type
-    protected Map<String, String> typeAliases = null;
     // The extension of the generated documentation files (defaults to markdown .md)
     protected String docExtension;
     protected String ignoreFilePathOverride;
@@ -651,7 +650,7 @@ public class DefaultCodegen implements CodegenConfig {
     @SuppressWarnings("static-method")
     public String escapeText(String input) {
         if (input == null) {
-            return input;
+            return null;
         }
 
         // remove \t, \n, \r
@@ -677,7 +676,7 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String escapeTextWhileAllowingNewLines(String input) {
         if (input == null) {
-            return input;
+            return null;
         }
 
         // remove \t
@@ -689,7 +688,7 @@ public class DefaultCodegen implements CodegenConfig {
                 StringEscapeUtils.unescapeJava(
                                 StringEscapeUtils.escapeJava(input)
                                         .replace("\\/", "/"))
-                        .replaceAll("[\\t]", " ")
+                        .replaceAll("\\t", " ")
                         .replace("\\", "\\\\")
                         .replace("\"", "\\\""));
     }
@@ -2975,16 +2974,13 @@ public class DefaultCodegen implements CodegenConfig {
 
         // move "required" parameters in front of "optional" parameters
         if (sortParamsByRequiredFlag) {
-            Collections.sort(allParams, new Comparator<CodegenParameter>() {
-                @Override
-                public int compare(CodegenParameter one, CodegenParameter another) {
-                    if (one.required == another.required)
-                        return 0;
-                    else if (one.required)
-                        return -1;
-                    else
-                        return 1;
-                }
+            allParams.sort((one, another) -> {
+                if (one.required == another.required)
+                    return 0;
+                else if (one.required)
+                    return -1;
+                else
+                    return 1;
             });
         }
         List<CodegenSecurity> authMethods = null;
@@ -3317,13 +3313,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         String in = parameter.getIn();
         Boolean allowEmptyValue = parameter.getAllowEmptyValue();
-        if (parameter instanceof QueryParameter || "query".equalsIgnoreCase(parameter.getIn())) {
-        } else if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
+        if (parameter instanceof PathParameter || "path".equalsIgnoreCase(parameter.getIn())) {
             required = Boolean.TRUE;
-        } else if (parameter instanceof HeaderParameter || "header".equalsIgnoreCase(parameter.getIn())) {
-        } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
-        } else {
-            LOGGER.warn("Unknown parameter type: {}", parameter.getName());
         }
 
         // set the parameter example value
@@ -3378,11 +3369,11 @@ public class DefaultCodegen implements CodegenConfig {
             Boolean isKeyInQuery = null;
             Boolean isKeyInHeader = null;
             Boolean isKeyInCookie = null;
-            String flow = null;
-            String authorizationUrl = null;
-            String tokenUrl = null;
-            String refreshUrl = null;
-            List<Map<String, Object>> scopes = null;
+            String flow;
+            String authorizationUrl;
+            String tokenUrl;
+            String refreshUrl;
+            List<Map<String, Object>> scopes;
             Boolean isCode = null;
             Boolean isPassword = null;
             Boolean isApplication = null;
@@ -3418,7 +3409,6 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (SecurityScheme.Type.OAUTH2.equals(securityScheme.getType())) {
                 final OAuthFlows flows = securityScheme.getFlows();
                 boolean isFlowEmpty = true;
-                isOAuth = true;
                 if (securityScheme.getFlows() == null) {
                     throw new RuntimeException("missing oauth flow in " + name);
                 }
@@ -3436,14 +3426,14 @@ public class DefaultCodegen implements CodegenConfig {
                             type,
                             scheme,
                             isBasic,
-                            isOAuth,
+                            true,
                             isApiKey,
                             isBasicBasic,
                             isBasicBearer,
                             isHttpSignature,
-                            bearerFormat,
+                            null,
                             vendorExtensions,
-                            keyParamName,
+                            null,
                             isKeyInQuery,
                             isKeyInHeader,
                             isKeyInCookie,
@@ -3453,7 +3443,7 @@ public class DefaultCodegen implements CodegenConfig {
                             refreshUrl,
                             scopes,
                             isCode,
-                            isPassword,
+                            true,
                             isApplication,
                             isImplicit
                     );
@@ -3473,14 +3463,14 @@ public class DefaultCodegen implements CodegenConfig {
                             type,
                             scheme,
                             isBasic,
-                            isOAuth,
+                            true,
                             isApiKey,
                             isBasicBasic,
                             isBasicBearer,
                             isHttpSignature,
-                            bearerFormat,
+                            null,
                             vendorExtensions,
-                            keyParamName,
+                            null,
                             isKeyInQuery,
                             isKeyInHeader,
                             isKeyInCookie,
@@ -3492,7 +3482,7 @@ public class DefaultCodegen implements CodegenConfig {
                             isCode,
                             isPassword,
                             isApplication,
-                            isImplicit
+                            true
                     );
                     codegenSecurities.add(cs);
                 }
@@ -3510,14 +3500,14 @@ public class DefaultCodegen implements CodegenConfig {
                             type,
                             scheme,
                             isBasic,
-                            isOAuth,
+                            true,
                             isApiKey,
                             isBasicBasic,
                             isBasicBearer,
                             isHttpSignature,
-                            bearerFormat,
+                            null,
                             vendorExtensions,
-                            keyParamName,
+                            null,
                             isKeyInQuery,
                             isKeyInHeader,
                             isKeyInCookie,
@@ -3528,7 +3518,7 @@ public class DefaultCodegen implements CodegenConfig {
                             scopes,
                             isCode,
                             isPassword,
-                            isApplication,
+                            true,
                             isImplicit
                     );
                     codegenSecurities.add(cs);
@@ -3539,7 +3529,6 @@ public class DefaultCodegen implements CodegenConfig {
                     refreshUrl = flows.getAuthorizationCode().getRefreshUrl();
 
                     scopes = getScopes(flows.getAuthorizationCode().getScopes());
-                    isCode = true;
                     flow = "accessCode";
                     isFlowEmpty = false;
                     final CodegenSecurity cs = new CodegenSecurity(
@@ -3547,14 +3536,14 @@ public class DefaultCodegen implements CodegenConfig {
                             type,
                             scheme,
                             isBasic,
-                            isOAuth,
+                            true,
                             isApiKey,
                             isBasicBasic,
                             isBasicBearer,
                             isHttpSignature,
-                            bearerFormat,
+                            null,
                             vendorExtensions,
-                            keyParamName,
+                            null,
                             isKeyInQuery,
                             isKeyInHeader,
                             isKeyInCookie,
@@ -3563,7 +3552,7 @@ public class DefaultCodegen implements CodegenConfig {
                             tokenUrl,
                             refreshUrl,
                             scopes,
-                            isCode,
+                            true,
                             isPassword,
                             isApplication,
                             isImplicit
@@ -3594,11 +3583,11 @@ public class DefaultCodegen implements CodegenConfig {
                     isKeyInQuery,
                     isKeyInHeader,
                     isKeyInCookie,
-                    flow,
-                    authorizationUrl,
-                    tokenUrl,
-                    refreshUrl,
-                    scopes,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
                     isCode,
                     isPassword,
                     isApplication,
@@ -3608,12 +3597,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         // sort auth methods to maintain the same order
-        codegenSecurities.sort(new Comparator<CodegenSecurity>() {
-            @Override
-            public int compare(CodegenSecurity one, CodegenSecurity another) {
-                return ObjectUtils.compare(one.name, another.name);
-            }
-        });
+        codegenSecurities.sort((one, another) -> ObjectUtils.compare(one.name, another.name));
 
         return codegenSecurities;
     }
@@ -3644,7 +3628,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         String tmpPath = path;
         tmpPath = tmpPath.replaceAll("\\{", "");
-        tmpPath = tmpPath.replaceAll("\\}", "");
+        tmpPath = tmpPath.replaceAll("}", "");
         String[] parts = (tmpPath + "/" + httpMethod).split("/");
         StringBuilder builder = new StringBuilder();
         if ("/".equals(tmpPath)) {
@@ -3690,11 +3674,7 @@ public class DefaultCodegen implements CodegenConfig {
     @SuppressWarnings("static-method")
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation
             co, Map<String, List<CodegenOperation>> operations) {
-        List<CodegenOperation> opList = operations.get(tag);
-        if (opList == null) {
-            opList = new ArrayList<>();
-            operations.put(tag, opList);
-        }
+        List<CodegenOperation> opList = operations.computeIfAbsent(tag, k -> new ArrayList<>());
         // check for operationId uniqueness
         String operationId = co.operationId.original;
         int counter = 0;
@@ -3709,16 +3689,8 @@ public class DefaultCodegen implements CodegenConfig {
         opList.add(co);
     }
 
-    protected void addImports(CodegenSchema m, CodegenSchema type) {
-        addImports(m.imports, type);
-    }
-
-    protected void addImports(Set<String> importsToBeAddedTo, CodegenSchema type) {
-        addImports(importsToBeAddedTo, getImports(type, generatorMetadata.getFeatureSet()));
-    }
-
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
-        importsToAdd.stream().forEach(i -> addImport(importsToBeAddedTo, i));
+        importsToAdd.forEach(i -> addImport(importsToBeAddedTo, i));
     }
 
     protected void addImport(Set<String> importsToBeAddedTo, String type) {
@@ -3792,40 +3764,6 @@ public class DefaultCodegen implements CodegenConfig {
             optionalProperties.put(key, prop);
         }
         return optionalProperties;
-    }
-
-    /**
-     * Determine all of the types in the model definitions (schemas) that are aliases of
-     * simple types.
-     *
-     * @param schemas The complete set of model definitions (schemas).
-     * @return A mapping from model name to type alias
-     */
-    Map<String, String> getAllAliases(Map<String, Schema> schemas) {
-        if (schemas == null || schemas.isEmpty()) {
-            return new HashMap<>();
-        }
-
-        Map<String, String> aliases = new HashMap<>();
-        for (Map.Entry<String, Schema> entry : schemas.entrySet()) {
-            Schema schema = entry.getValue();
-            if (isAliasOfSimpleTypes(schema)) {
-                String oasName = entry.getKey();
-                String schemaType = getPrimitiveType(schema);
-                aliases.put(oasName, schemaType);
-            }
-
-        }
-
-        return aliases;
-    }
-
-    private static Boolean isAliasOfSimpleTypes(Schema schema) {
-        return (!ModelUtils.isObjectSchema(schema)
-                && !ModelUtils.isArraySchema(schema)
-                && !ModelUtils.isMapSchema(schema)
-                && !ModelUtils.isComposedSchema(schema)
-                && schema.getEnum() == null);
     }
 
     /**
@@ -4005,7 +3943,7 @@ public class DefaultCodegen implements CodegenConfig {
             updatePathsFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
-                .filter(p -> Objects.nonNull(p))
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
     }
@@ -4067,16 +4005,8 @@ public class DefaultCodegen implements CodegenConfig {
         this.removeOperationIdPrefix = removeOperationIdPrefix;
     }
 
-    public String getRemoveOperationIdPrefixDelimiter() {
-        return removeOperationIdPrefixDelimiter;
-    }
-
     public void setRemoveOperationIdPrefixDelimiter(String removeOperationIdPrefixDelimiter) {
         this.removeOperationIdPrefixDelimiter = removeOperationIdPrefixDelimiter;
-    }
-
-    public int getRemoveOperationIdPrefixCount() {
-        return removeOperationIdPrefixCount;
     }
 
     public void setRemoveOperationIdPrefixCount(int removeOperationIdPrefixCount) {
@@ -4270,15 +4200,6 @@ public class DefaultCodegen implements CodegenConfig {
         return httpUserAgent;
     }
 
-    @SuppressWarnings("static-method")
-    protected CliOption buildLibraryCliOption(Map<String, String> supportedLibraries) {
-        StringBuilder sb = new StringBuilder("library template (sub-template) to use:");
-        for (String lib : supportedLibraries.keySet()) {
-            sb.append("\n").append(lib).append(" - ").append(supportedLibraries.get(lib));
-        }
-        return new CliOption(CodegenConstants.LIBRARY, sb.toString());
-    }
-
     /**
      * Sanitize name (parameter, property, method, etc)
      *
@@ -4434,7 +4355,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
 
-        Integer i = 0;
+        int i = 0;
         for (Object value : values) {
             String description = null;
             if (xEnumDescriptions != null && xEnumDescriptions.size() > i) {
@@ -4465,7 +4386,6 @@ public class DefaultCodegen implements CodegenConfig {
         if (enumUnknownDefaultCase) {
             // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
             // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.
-            Map<String, Object> enumVar = new HashMap<>();
             String enumName = enumUnknownDefaultCaseName;
 
             String value;
@@ -4621,7 +4541,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         Set<String> contentKeys = response.getContent().keySet();
-        if (contentKeys == null || contentKeys.isEmpty()) {
+        if (contentKeys.isEmpty()) {
             return null;
         }
         LinkedHashSet<String> produces = new LinkedHashSet<>();
@@ -4887,25 +4807,23 @@ public class DefaultCodegen implements CodegenConfig {
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
         }
-        CodegenKey ck = new CodegenKey(
+        return new CodegenKey(
                 usedKey,
                 isValid,
                 snakeCaseName,
                 camelCaseName
         );
-        return ck;
     }
 
     public CodegenKey getKey(String key) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
-        CodegenKey ck = new CodegenKey(
+        return new CodegenKey(
                 usedKey,
                 isValid,
                 toModelFilename(usedKey),
                 toModelName(usedKey)
         );
-        return ck;
     }
 
     protected LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, Object schemaAdditionalProperties, CodegenSchema additionalProperties) {
@@ -4971,22 +4889,6 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             }
         }
-    }
-
-    protected void removeOption(String key) {
-        for (int i = 0; i < cliOptions.size(); i++) {
-            if (key.equals(cliOptions.get(i).getOpt())) {
-                cliOptions.remove(i);
-                break;
-            }
-        }
-    }
-
-    protected void addSwitch(String key, String description, Boolean defaultValue) {
-        CliOption option = CliOption.newBoolean(key, description);
-        if (defaultValue != null)
-            option.defaultValue(defaultValue.toString());
-        cliOptions.add(option);
     }
 
     /**
@@ -5159,24 +5061,6 @@ public class DefaultCodegen implements CodegenConfig {
         this.removeEnumValuePrefix = removeEnumValuePrefix;
     }
 
-    //// Following methods are related to the "useOneOfInterfaces" feature
-
-    /**
-     * Add "x-one-of-name" extension to a given oneOf schema (assuming it has at least 1 oneOf elements)
-     *
-     * @param s    schema to add the extension to
-     * @param name name of the parent oneOf schema
-     */
-    public void addOneOfNameExtension(ComposedSchema s, String name) {
-        if (s.getOneOf() != null && s.getOneOf().size() > 0) {
-            s.addExtension("x-one-of-name", name);
-        }
-    }
-
-    public void addImportsToOneOfInterface(List<Map<String, String>> imports) {
-    }
-    //// End of methods related to the "useOneOfInterfaces" feature
-
     protected void modifyFeatureSet(Consumer<FeatureSet.Builder> processor) {
         FeatureSet.Builder builder = getFeatureSet().modify();
         processor.accept(builder);
@@ -5210,9 +5094,9 @@ public class DefaultCodegen implements CodegenConfig {
             return exceptions;
         }
 
-        private String name;
-        private String removeCharRegEx;
-        private List<String> exceptions;
+        private final String name;
+        private final String removeCharRegEx;
+        private final List<String> exceptions;
 
         @Override
         public boolean equals(Object o) {
@@ -5283,7 +5167,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenSchema> xOf = new ArrayList<>();
         int i = 0;
         for (Schema xOfSchema : xOfCollection) {
-            CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + String.valueOf(i));
+            CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + i);
             xOf.add(cp);
             i += 1;
         }
@@ -5330,18 +5214,6 @@ public class DefaultCodegen implements CodegenConfig {
     */
     protected String handleSpecialCharacters(String name) { return name; }
 
-    public String getItemsName(Schema containingSchema, String containingSchemaName) {
-        if (containingSchema.getExtensions() != null && containingSchema.getExtensions().get("x-item-name") != null) {
-            return containingSchema.getExtensions().get("x-item-name").toString();
-        }
-        return toVarName(containingSchemaName);
-    }
-
-    public String getAdditionalPropertiesName() {
-        return "additional_properties";
-    }
-
-
     /**
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
      * This will be used in openapi 3.1.0 spec processing to ensure that Booleans become Schemas
@@ -5362,9 +5234,6 @@ public class DefaultCodegen implements CodegenConfig {
             // null case
             return null;
         } else if (schema instanceof Schema) {
-            if (schema == null) {
-                return null;
-            }
             return (Schema) schema;
         } else if (schema == null) {
             return null;
