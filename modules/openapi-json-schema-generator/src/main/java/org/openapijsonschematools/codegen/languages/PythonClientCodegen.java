@@ -63,7 +63,6 @@ import org.openapijsonschematools.codegen.api.TemplateProcessor;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
