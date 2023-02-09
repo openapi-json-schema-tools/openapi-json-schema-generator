@@ -63,6 +63,7 @@ import org.openapijsonschematools.codegen.api.TemplateProcessor;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -811,41 +812,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    @Override
-    protected LinkedHashMap<String, EnumValue> getEnumNameToValue(Schema prop) {
-        if (prop.getEnum() == null) {
-            return null;
+    protected EnumValue toEnumValue(Object value, String description) {
+        if (value instanceof String) {
+            return super.toEnumValue(processTestExampleData(value), description);
         }
-
-        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
-        int truncateIdx = 0;
-
-        List<Object> values = prop.getEnum();
-        if (isRemoveEnumValuePrefix()) {
-            String commonPrefix = findCommonPrefixOfVars(values);
-            truncateIdx = commonPrefix.length();
-        }
-
-        for (Object value : values) {
-            String enumName;
-            if (truncateIdx == 0) {
-                enumName = String.valueOf(value);
-            } else {
-                enumName = value.toString().substring(truncateIdx);
-                if (enumName.isEmpty()) {
-                    enumName = value.toString();
-                }
-            }
-
-            String usedName = toEnumVarName(enumName, prop);
-            Object usedValue = value;
-            if (value instanceof String ) {
-                usedValue = processTestExampleData(usedValue);
-            }
-            enumNameToValue.put(usedName, toEnumValue(usedValue, null));
-        }
-
-        return enumNameToValue;
+        return super.toEnumValue(value, description);
     }
 
     protected String toTestCaseName(String specTestCaseName) {
