@@ -857,23 +857,23 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     protected Object processTestExampleData(Object value) {
-        if (value instanceof Integer){
-            return value;
-        } else if (value instanceof Double || value instanceof Float || value instanceof Boolean){
+        if (value instanceof Integer || value instanceof Double || value instanceof Float || value instanceof Boolean){
             return value;
         } else if (value instanceof String) {
             return handleSpecialCharacters((String) value);
         } else if (value instanceof LinkedHashMap) {
-            LinkedHashMap<String, Object> fixedValues = new LinkedHashMap();
-            for (Map.Entry entry: ((LinkedHashMap<String, Object>) value).entrySet()) {
+            LinkedHashMap<String, Object> fixedValues = new LinkedHashMap<>();
+            for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
                 String entryKey = (String) processTestExampleData(entry.getKey());
                 Object entryValue = processTestExampleData(entry.getValue());
                 fixedValues.put(entryKey, entryValue);
             }
             return fixedValues;
         } else if (value instanceof ArrayList) {
-            ArrayList<Object> fixedValues = (ArrayList<Object>) value;
-            fixedValues.replaceAll(this::processTestExampleData);
+            ArrayList<Object> fixedValues = new ArrayList<>();
+            for (Object valueItem: (ArrayList) value) {
+                fixedValues.add(processTestExampleData(valueItem));
+            }
             return fixedValues;
         }
         return value;
@@ -1132,7 +1132,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     example = pythonDateTime(objExample);
                 }
             } else if (ModelUtils.isBinarySchema(schema)) {
-                if (example == null) {
+                if (objExample == null) {
                     example = "/path/to/file";
                 }
                 example = "open('" + example + "', 'rb')";
@@ -1177,6 +1177,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             } else {
                 example = "string_example";
             }
+            assert example != null;
             return fullPrefix + ensureQuotes(example) + closeChars;
         } else if (ModelUtils.isIntegerSchema(schema)) {
             if (objExample == null) {
@@ -1308,7 +1309,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     private String exampleForObjectModel(Schema schema, String fullPrefix, String closeChars, CodegenSchema discProp, int indentationLevel, int exampleLine, String closingIndentation, List<Schema> includedSchemas) {
 
-        Map<String, Schema> requiredAndOptionalProps = schema.getProperties();
+        Map<String, Schema> requiredAndOptionalProps = ((Schema<?>) schema).getProperties();
         if (requiredAndOptionalProps == null || requiredAndOptionalProps.isEmpty()) {
             return fullPrefix + closeChars;
         }
