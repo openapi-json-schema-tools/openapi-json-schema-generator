@@ -518,24 +518,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
     }
 
-    @Override
-    public String requestBodyFileFolder(String componentName) {
-        String requestBodyFilename = toRequestBodyFilename(componentName);
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + File.separatorChar + requestBodyFilename;
-    }
-
-    @Override
-    public String headerFileFolder(String componentName) {
-        String headerFilename = toHeaderFilename(componentName);
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "headers" + File.separatorChar + headerFilename;
-    }
-
-    @Override
-    public String parameterFileFolder(String componentName) {
-        String parameterFilename = toParameterFilename(componentName);
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "parameters" + File.separatorChar + parameterFilename;
-    }
-
     public String headerDocFileFolder() {
         return outputFolder + File.separator + headerDocPath;
     }
@@ -1584,12 +1566,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String apiFileFolder() {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar +  apiPackage() + File.separatorChar + "tags";
     }
-
-    @Override
-    public String modelFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separator + modelPackage().replace('.', File.separatorChar);
-    }
-
+    
     @Override
     public String apiTestFileFolder() {
         return outputFolder + File.separatorChar + testFolder;

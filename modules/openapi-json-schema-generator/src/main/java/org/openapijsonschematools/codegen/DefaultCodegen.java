@@ -646,13 +646,6 @@ public class DefaultCodegen implements CodegenConfig {
         return compiler;
     }
 
-    // override with any special handling for the templating engine
-    @Override
-    @SuppressWarnings("unused")
-    public TemplatingEngineAdapter processTemplatingEngine(TemplatingEngineAdapter templatingEngine) {
-        return templatingEngine;
-    }
-
     // override with any special text escaping logic
     @Override
     @SuppressWarnings("static-method")
@@ -740,11 +733,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Set<String> defaultIncludes() {
-        return defaultIncludes;
-    }
-
-    @Override
     public Map<String, String> typeMapping() {
         return typeMapping;
     }
@@ -797,11 +785,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String apiPackage() {
         return apiPackage;
-    }
-
-    @Override
-    public String fileSuffix() {
-        return fileSuffix;
     }
 
     @Override
@@ -892,11 +875,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String modelFileFolder() {
-        return outputFolder + File.separator + modelPackage().replace('.', File.separatorChar);
-    }
-
-    @Override
     public String apiTestFileFolder() {
         return outputFolder + File.separator + testPackage().replace('.', File.separatorChar);
     }
@@ -923,13 +901,7 @@ public class DefaultCodegen implements CodegenConfig {
     public String responseDocFileFolder() { return outputFolder; }
 
     @Override
-    public String headerFileFolder(String componentName) { return outputFolder; }
-
-    @Override
     public String headerDocFileFolder() { return outputFolder; }
-
-    @Override
-    public String parameterFileFolder(String componentName) { return outputFolder; }
 
     @Override
     public String parameterDocFileFolder() { return outputFolder; }
@@ -1443,72 +1415,6 @@ public class DefaultCodegen implements CodegenConfig {
      */
     protected String getSymbolName(String input) {
         return specialCharReplacements.get(input);
-    }
-
-    /**
-     * Return the example path
-     *
-     * @param path      the path of the operation
-     * @param operation OAS operation object
-     * @return string presentation of the example path
-     */
-    @Override
-    @SuppressWarnings("static-method")
-    public String generateExamplePath(String path, Operation operation) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(path);
-
-        if (operation.getParameters() != null) {
-            int count = 0;
-
-            for (Parameter param : operation.getParameters()) {
-                if (param instanceof QueryParameter) {
-                    StringBuilder paramPart = new StringBuilder();
-                    QueryParameter qp = (QueryParameter) param;
-
-                    if (count == 0) {
-                        paramPart.append("?");
-                    } else {
-                        paramPart.append(",");
-                    }
-                    count += 1;
-                    if (!param.getRequired()) {
-                        paramPart.append("[");
-                    }
-                    paramPart.append(param.getName()).append("=");
-                    paramPart.append("{");
-
-                    // TODO support for multi, tsv?
-                    if (qp.getStyle() != null) {
-                        paramPart.append(param.getName()).append("1");
-                        if (Parameter.StyleEnum.FORM.equals(qp.getStyle())) {
-                            if (qp.getExplode() != null && qp.getExplode()) {
-                                paramPart.append(",");
-                            } else {
-                                paramPart.append("&").append(param.getName()).append("=");
-                                paramPart.append(param.getName()).append("2");
-                            }
-                        } else if (Parameter.StyleEnum.PIPEDELIMITED.equals(qp.getStyle())) {
-                            paramPart.append("|");
-                        } else if (Parameter.StyleEnum.SPACEDELIMITED.equals(qp.getStyle())) {
-                            paramPart.append("%20");
-                        } else {
-                            LOGGER.warn("query parameter '{}' style not support: {}", param.getName(), qp.getStyle());
-                        }
-                    } else {
-                        paramPart.append(param.getName());
-                    }
-
-                    paramPart.append("}");
-                    if (!param.getRequired()) {
-                        paramPart.append("]");
-                    }
-                    sb.append(paramPart);
-                }
-            }
-        }
-
-        return sb.toString();
     }
 
     public String toExampleValue(Schema schema, Object objExample) {
@@ -3912,11 +3818,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public boolean shouldOverwrite(String filename) {
-        return !(skipOverwrite && new File(filename).exists());
-    }
-
-    @Override
     public boolean isSkipOverwrite() {
         return skipOverwrite;
     }
@@ -3924,16 +3825,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public void setSkipOverwrite(boolean skipOverwrite) {
         this.skipOverwrite = skipOverwrite;
-    }
-
-    @Override
-    public boolean isRemoveOperationIdPrefix() {
-        return removeOperationIdPrefix;
-    }
-
-    @Override
-    public boolean isSkipOperationExample() {
-        return skipOperationExample;
     }
 
     @Override
@@ -3962,17 +3853,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public void setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
         this.hideGenerationTimestamp = hideGenerationTimestamp;
-    }
-
-    /**
-     * All library templates supported.
-     * (key: library name, value: library description)
-     *
-     * @return the supported libraries
-     */
-    @Override
-    public Map<String, String> supportedLibraries() {
-        return supportedLibraries;
     }
 
     /**
@@ -4014,86 +3894,6 @@ public class DefaultCodegen implements CodegenConfig {
      */
     public final boolean isLibrary(String library) {
         return library.equals(this.library);
-    }
-
-    /**
-     * Set Git host.
-     *
-     * @param gitHost Git host
-     */
-    @Override
-    public void setGitHost(String gitHost) {
-        this.gitHost = gitHost;
-    }
-
-    /**
-     * Git host.
-     *
-     * @return Git host
-     */
-    @Override
-    public String getGitHost() {
-        return gitHost;
-    }
-
-    /**
-     * Set Git user ID.
-     *
-     * @param gitUserId Git user ID
-     */
-    @Override
-    public void setGitUserId(String gitUserId) {
-        this.gitUserId = gitUserId;
-    }
-
-    /**
-     * Git user ID
-     *
-     * @return Git user ID
-     */
-    @Override
-    public String getGitUserId() {
-        return gitUserId;
-    }
-
-    /**
-     * Set Git repo ID.
-     *
-     * @param gitRepoId Git repo ID
-     */
-    @Override
-    public void setGitRepoId(String gitRepoId) {
-        this.gitRepoId = gitRepoId;
-    }
-
-    /**
-     * Git repo ID
-     *
-     * @return Git repo ID
-     */
-    @Override
-    public String getGitRepoId() {
-        return gitRepoId;
-    }
-
-    /**
-     * Set release note.
-     *
-     * @param releaseNote Release note
-     */
-    @Override
-    public void setReleaseNote(String releaseNote) {
-        this.releaseNote = releaseNote;
-    }
-
-    /**
-     * Release note
-     *
-     * @return Release note
-     */
-    @Override
-    public String getReleaseNote() {
-        return releaseNote;
     }
 
     /**
@@ -5123,16 +4923,6 @@ public class DefaultCodegen implements CodegenConfig {
             i += 1;
         }
         return xOf;
-    }
-
-    @Override
-    public String requestBodyFileFolder(String componentName) {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "request_bodies" + toRequestBodyFilename(componentName);
-    }
-
-    @Override
-    public String responseFileFolder(String componentName) {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar + "components" + File.separatorChar + "responses" + File.separatorChar + toResponseModuleName(componentName);
     }
 
     @Override
