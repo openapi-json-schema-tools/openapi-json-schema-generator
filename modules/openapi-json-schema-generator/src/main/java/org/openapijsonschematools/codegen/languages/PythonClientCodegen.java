@@ -1728,9 +1728,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected String getRefClassWithModule(String ref, String sourceJsonPath, String expectedComponentType) {
-        String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
-        String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
+    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
+        String refModule = toRefModule(ref, sourceJsonPath, "schemas");
+        String refClass = toRefClass(ref, sourceJsonPath, "schemas");
         if (refModule == null) {
             return refClass;
         }

@@ -648,7 +648,8 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
 
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, mappedModels);
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(ck, null, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
         assertEquals(animalModel.hasDiscriminatorWithNonEmptyMapping(), true);
     }
@@ -697,7 +698,8 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, new TreeSet<>());
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, new TreeSet<>());
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -718,7 +720,9 @@ public class DefaultCodegenTest {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
-        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+
+        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema pet = codegen.fromSchema(
@@ -735,7 +739,8 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
         }
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema reptile = codegen.fromSchema(
@@ -752,7 +757,8 @@ public class DefaultCodegenTest {
         for (String myPetName : myPetNames) {
             hs.add(new CodegenDiscriminator.MappedModel(myPetName, codegen.toModelName(myPetName)));
         }
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         modelName = "MyPets";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema myPets = codegen.fromSchema(
@@ -830,7 +836,8 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, null);
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, null);
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -850,7 +857,8 @@ public class DefaultCodegenTest {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
-        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema pet = codegen.fromSchema(
@@ -866,7 +874,8 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
         }
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema reptile = codegen.fromSchema(
@@ -877,7 +886,8 @@ public class DefaultCodegenTest {
         Assert.assertNull(reptile.discriminator);
 
         // the MyPets discriminator contains Cat and Lizard
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         hs.clear();
         modelName = "MyPets";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -1271,7 +1281,8 @@ public class DefaultCodegenTest {
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        CodegenDiscriminator test = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey testPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator test = new CodegenDiscriminator(testPropName, mapping, mappedModels);
         assertEquals(discriminator, test);
     }
 
@@ -1283,7 +1294,8 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
 
@@ -1295,7 +1307,8 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
 
@@ -1326,17 +1339,16 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(cm);
 
         // check that the discriminator's MappedModels also contains the x-discriminator-values
-        String prop = "object_type";
-        String propertyName = config.toVarName(prop);
-        String propertyBaseName = prop;
+        String propertyName = "object_type";
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-        discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
-        assertEquals(cm.discriminator, discriminator);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
+        assertEquals(cm.discriminator, expectedDiscriminator);
     }
 
 
@@ -1765,8 +1777,7 @@ public class DefaultCodegenTest {
     }
 
     private void verifyPersonDiscriminator(CodegenDiscriminator discriminator) {
-        String propertyName = "DollarUnderscoretype";
-        String propertyBaseName = "$_type";
+        String propertyName = "$_type";
         HashMap<String, String> mapping = new HashMap<>();
         mapping.put("a", "#/components/schemas/Adult");
         mapping.put("c", "Child");
@@ -1776,7 +1787,8 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Child", "Child"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
     }
 

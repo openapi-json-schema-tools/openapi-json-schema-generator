@@ -528,19 +528,27 @@ public class DefaultCodegen implements CodegenConfig {
      * @return the common prefix for naming
      */
     public String findCommonPrefixOfVars(List<Object> vars) {
-        if (vars.size() > 1) {
-            try {
-                String[] listStr = vars.toArray(new String[vars.size()]);
-                String prefix = StringUtils.getCommonPrefix(listStr);
-                // exclude trailing characters that should be part of a valid variable
-                // e.g. ["status-on", "status-off"] => "status-" (not "status-o")
-                final Matcher matcher = COMMON_PREFIX_ENUM_NAME.matcher(prefix);
-                return matcher.replaceAll("");
-            } catch (ArrayStoreException e) {
-                // do nothing, just return default value
+        if (!(vars.size() > 1)) {
+            return "";
+        }
+        ArrayList<String> stringVars = new ArrayList<>();
+        for (Object var: vars) {
+            if (var instanceof String) {
+                stringVars.add((String) var);
+            } else {
+                return "";
             }
         }
-        return "";
+        String[] stringVarsArray = Arrays.copyOf(
+                stringVars.toArray(), stringVars.size(), String[].class);
+        String prefix = StringUtils.getCommonPrefix(stringVarsArray);
+        if (prefix == null || prefix.isEmpty()) {
+            return "";
+        }
+        // exclude trailing characters that should be part of a valid variable
+        // e.g. ["status-on", "status-off"] => "status-" (not "status-o")
+        final Matcher matcher = COMMON_PREFIX_ENUM_NAME.matcher(prefix);
+        return matcher.replaceAll("");
     }
 
     /**
@@ -2084,8 +2092,8 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn("'{}' defines discriminator '{}', but the referenced schema '{}' is incorrect. {}",
                             composedSchemaName, discPropName, modelName, msgSuffix);
                 }
-                String refClassWithoutModule = toRefClass("#/components/schemas/" + modelName, sourceJsonPath, "schemas");
-                MappedModel mm = new MappedModel(modelName, refClassWithoutModule);
+                String refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
+                MappedModel mm = new MappedModel(modelName, refClass);
                 descendantSchemas.add(mm);
                 Schema cs = ModelUtils.getSchema(openAPI, modelName);
                 if (cs == null) { // cannot look up the model based on the name
@@ -2094,8 +2102,8 @@ public class DefaultCodegen implements CodegenConfig {
                     Map vendorExtensions = cs.getExtensions();
                     if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                         String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        String otherRefClassWithoutModule = toRefClass("#/components/schemas/" + modelName, sourceJsonPath, "schemas");
-                        mm = new MappedModel(xDiscriminatorValue, otherRefClassWithoutModule);
+                        refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
+                        mm = new MappedModel(xDiscriminatorValue, refClass);
                         descendantSchemas.add(mm);
                     }
                 }
@@ -2148,19 +2156,23 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
             }
             currentSchemaName = queue.remove(0);
-            String refClass = toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas");
+            String refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
             MappedModel mm = new MappedModel(currentSchemaName, refClass);
             descendantSchemas.add(mm);
             Schema cs = schemas.get(currentSchemaName);
             Map vendorExtensions = cs.getExtensions();
             if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
                 String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                refClass = toRefClass("#/components/schemas/" + currentSchemaName, sourceJsonPath, "schemas");
+                refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
                 mm = new MappedModel(xDiscriminatorValue, refClass);
                 descendantSchemas.add(mm);
             }
         }
         return descendantSchemas;
+    }
+
+    protected String getRefClassWithModule(String ref, String sourceJsonPath) {
+        return toRefClass(ref, sourceJsonPath, "schemas");
     }
 
     protected CodegenDiscriminator createDiscriminator(String schemaName, Schema schema, OpenAPI openAPI, String sourceJsonPath) {
@@ -2183,11 +2195,11 @@ public class DefaultCodegen implements CodegenConfig {
                     if (ModelUtils.getSchema(openAPI, name) == null) {
                         LOGGER.error("Failed to lookup the schema '{}' when processing the discriminator mapping of oneOf/anyOf. Please check to ensure it's defined properly.", name);
                     } else {
-                        modelName = toRefClass(e.getValue(), sourceJsonPath, "schemas");
+                        modelName = getRefClassWithModule(e.getValue(), sourceJsonPath);
                     }
                 } else {
                     String ref = "#/components/schemas/" + value;
-                    modelName = toRefClass(ref, sourceJsonPath, "schemas");
+                    modelName = getRefClassWithModule(ref, sourceJsonPath);
                 }
                 if (modelName != null) {
                     mappedModels.add(new MappedModel(e.getKey(), modelName));
@@ -5089,8 +5101,8 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Check if the given MIME is a JSON Vendor MIME.
      * JSON MIME examples:
-     * application/vnd.mycompany+json
-     * application/vnd.mycompany.resourceA.version1+json
+     * application/vnd.company+json
+     * application/vnd.company.resourceA.version1+json
      *
      * @param mime MIME string
      * @return true if the input matches the JSON vendor MIME
