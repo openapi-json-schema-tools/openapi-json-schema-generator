@@ -929,6 +929,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (ref != null) {
             schema = ModelUtils.getSchema(this.openAPI, ModelUtils.getSimpleRef(ref));
         }
+        if (schema == null) {
+            return null;
+        }
         // TODO handle examples in object models in the future
         boolean objectModel = (ModelUtils.isObjectSchema(schema) || ModelUtils.isMapSchema(schema) || ModelUtils.isComposedSchema(schema));
         if (objectModel) {
@@ -977,6 +980,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String ref = schema.get$ref();
         if (ref != null) {
             sc = ModelUtils.getSchema(this.openAPI, ModelUtils.getSimpleRef(ref));
+        }
+        if (sc == null) {
+            return Boolean.FALSE;
         }
         return ModelUtils.isStringSchema(sc) && !ModelUtils.isDateSchema(sc) && !ModelUtils.isDateTimeSchema(sc) && !"Number".equalsIgnoreCase(sc.getFormat()) && !ModelUtils.isByteArraySchema(sc) && !ModelUtils.isBinarySchema(sc) && schema.getPattern() == null;
     }
@@ -1189,11 +1195,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
                 // this seed makes it so if we have [a-z] we pick a
                 Random random = new Random(18);
-                if (rgxGen != null) {
-                    example = rgxGen.generate(random);
-                } else {
-                    throw new RuntimeException("rgxGen cannot be null. Please open an issue in the openapi-generator github repo.");
-                }
+                example = rgxGen.generate(random);
             } else if (schema.getMinLength() != null) {
                 example = "";
                 int len = schema.getMinLength();
@@ -1384,9 +1386,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return currentExample;
         }
         Schema schema = sc;
+        if (sc == null) {
+            return null;
+        }
         String ref = sc.get$ref();
         if (ref != null) {
             schema = ModelUtils.getSchema(this.openAPI, ModelUtils.getSimpleRef(ref));
+        }
+        if (schema == null) {
+            return null;
         }
         Object example = getObjectExample(schema);
         if (example != null) {
