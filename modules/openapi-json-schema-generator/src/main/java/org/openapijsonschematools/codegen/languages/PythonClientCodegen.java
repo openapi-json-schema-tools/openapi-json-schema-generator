@@ -1566,7 +1566,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     public String apiFileFolder() {
         return outputFolder + File.separatorChar + packagePath() + File.separatorChar +  apiPackage() + File.separatorChar + "tags";
     }
-    
+
     @Override
     public String apiTestFileFolder() {
         return outputFolder + File.separatorChar + testFolder;

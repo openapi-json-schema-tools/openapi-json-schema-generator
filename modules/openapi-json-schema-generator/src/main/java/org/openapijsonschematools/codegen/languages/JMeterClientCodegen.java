@@ -181,15 +181,6 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
     }
 
     /**
-     * Location to write model files.  You can use the modelPackage() as defined when the class is
-     * instantiated
-     */
-    @Override
-    public String modelFileFolder() {
-        return outputFolder + File.separator + sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar);
-    }
-
-    /**
      * Location to write api files.  You can use the apiPackage() as defined when the class is
      * instantiated
      */
