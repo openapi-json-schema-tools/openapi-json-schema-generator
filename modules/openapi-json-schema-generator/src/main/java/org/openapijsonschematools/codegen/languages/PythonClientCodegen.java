@@ -115,6 +115,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // if another schema $refs a schema in a parameter, the json path
         // and generated module must have the same parameter index as the spec
         sortParamsByRequiredFlag = Boolean.FALSE;
+        removeEnumValuePrefix = false;
 
         modifyFeatureSet(features -> features
                 .includeSchemaSupportFeatures(
@@ -740,62 +741,64 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String floatPattern = "^[-+]?\\d+\\.\\d+$";
         Boolean intMatch = Pattern.matches(intPattern, value);
         Boolean floatMatch = Pattern.matches(floatPattern, value);
+        String usedValue = value;
         if (intMatch || floatMatch) {
             String plusSign = "^\\+.+";
             String negSign = "^-.+";
             if (Pattern.matches(plusSign, value)) {
-                value = value.replace("+", "POSITIVE_");
+                usedValue = value.replace("+", "POSITIVE_");
             } else if (Pattern.matches(negSign, value)) {
-                value = value.replace("-", "NEGATIVE_");
+                usedValue = value.replace("-", "NEGATIVE_");
             } else {
-                value = "POSITIVE_" + value;
+                usedValue = "POSITIVE_" + value;
             }
             if (floatMatch) {
-                value = value.replace(".", "_PT_");
+                usedValue = value.replace(".", "_PT_");
             }
-            return value;
+            return usedValue;
         }
-        value = value.replace("\t", "_TAB_");
-        value = value.replace("\n", "_NEW_LINE_");
-        value = value.replace("\r", "_CARRIAGE_RETURN_");
+        usedValue = usedValue.replace("\t", "_TAB_");
+        usedValue = usedValue.replace("\n", "_NEW_LINE_");
+        usedValue = usedValue.replace("\r", "_CARRIAGE_RETURN_");
         // Replace " " with _
-        StringBuilder usedValue = new StringBuilder(value.replaceAll("\\s+", "_"));
+        usedValue = usedValue.replaceAll("\\s+", "_");
+        // Replace / with _ for path enums
+        usedValue = usedValue.replace("/", "_");
+        // Replace . with _ for tag enums
+        usedValue = usedValue.replace(".", "_");
+        // add underscore at camelCase locations
+
         // strip first character if it is invalid
         int lengthBeforeFirstCharStrip = usedValue.length();
         char firstChar = usedValue.charAt(0);
-        usedValue = new StringBuilder(usedValue.toString().replaceAll("^[^_a-zA-Z]", ""));
+        usedValue = usedValue.replaceAll("^[^_a-zA-Z]", "");
         boolean firstCharStripped = usedValue.length() == lengthBeforeFirstCharStrip - 1;
-        // Replace / with _ for path enums
-        usedValue = new StringBuilder(usedValue.toString().replace("/", "_"));
-        // Replace . with _ for tag enums
-        usedValue = new StringBuilder(usedValue.toString().replace(".", "_"));
-        // add underscore at camelCase locations
+        // add charname of first character back on
+        if (firstCharStripped) {
+            String charName = Character.getName(Character.hashCode(firstChar));
+            usedValue = charNameToVarName(charName) + "_" + usedValue;
+        }
+
+        // add camel case underscore
         String regex = "([a-z])([A-Z]+)";
         String replacement = "$1_$2";
-        usedValue = new StringBuilder(usedValue.toString().replaceAll(regex, replacement));
+        usedValue = usedValue.replaceAll(regex, replacement);
         // Replace invalid characters with empty space
-        usedValue = new StringBuilder(usedValue.toString().replaceAll("\\W*", ""));
+        usedValue = usedValue.replaceAll("\\W*", "");
         // uppercase
-        usedValue = new StringBuilder(usedValue.toString().toUpperCase(Locale.ROOT));
+        usedValue = usedValue.toUpperCase(Locale.ROOT);
 
+        // convert value char by char
         if (usedValue.length() == 0) {
             for (int i = 0; i < value.length(); i++){
                 char c = value.charAt(i);
                 String charName = Character.getName(Character.hashCode(c));
-                usedValue.append(charNameToVarName(charName));
+                usedValue = usedValue + (charNameToVarName(charName));
             }
             // remove trailing _
-            usedValue = new StringBuilder(usedValue.toString().replaceAll("_$", ""));
+            usedValue = usedValue.replaceAll("_$", "");
         }
-        // check first character to see if it is valid
-        // if not then add a valid prefix
-        boolean validFirstChar = Pattern.matches("^[_a-zA-Z]", usedValue.substring(0,1));
-        if (!validFirstChar && firstCharStripped) {
-            String charName = Character.getName(Character.hashCode(firstChar));
-            usedValue.insert(0, charNameToVarName(charName) + "_");
-        }
-
-        return usedValue.toString();
+        return usedValue;
     }
 
     /**
@@ -807,7 +810,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      */
     private String charNameToVarName(String charName) {
         String varName = charName.replaceAll("[\\-\\s]", "_");
-        varName = varName.replaceAll("SIGN", "");
         return varName;
     }
 
