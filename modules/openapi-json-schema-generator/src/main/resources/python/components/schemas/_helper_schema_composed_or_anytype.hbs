@@ -46,7 +46,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#if format}}
         format = '{{format}}'
 {{/if}}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{#if items}}
@@ -63,7 +63,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#or allOf anyOf oneOf not}}
         {{> components/schemas/_helper_composed_schemas }}
 {{/or}}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
     {{> components/schemas/_helper_enums }}
 {{/if}}
 

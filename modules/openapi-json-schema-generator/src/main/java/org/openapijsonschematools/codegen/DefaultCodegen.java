@@ -190,7 +190,7 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> inlineSchemaNameMapping = new HashMap<>();
     // a map to store the inline schema naming conventions
     protected Map<String, String> inlineSchemaNameDefault = new HashMap<>();
-    protected String modelPackage = "", apiPackage = "", fileSuffix;
+    protected String modelPackage = "", apiPackage = "";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
     protected String testPackage = "";
@@ -265,7 +265,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Boolean sortModelPropertiesByRequiredFlag = false;
     protected Boolean ensureUniqueParams = true;
     protected Boolean allowUnicodeIdentifiers = false;
-    protected String gitHost, gitUserId, gitRepoId, releaseNote;
     protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
     // How to encode special characters like $
@@ -2322,7 +2321,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (p.equals(falseSchema)) {
             property.isBooleanSchemaFalse = true;
         }
-        property.enumNameToValue = getEnumNameToValue(p);
+        property.enumValueToName = getEnumValueToName(p);
         property.type = p.getType();
         property.types = getTypes(p);
 
@@ -4064,13 +4063,13 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected LinkedHashMap<String, EnumValue> getEnumNameToValue(Schema schema) {
+    protected LinkedHashMap<EnumValue, String> getEnumValueToName(Schema schema) {
         if (schema.getEnum() == null) {
             return null;
         }
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
-        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
+        LinkedHashMap<EnumValue, String> enumValuetoName = new LinkedHashMap<>();
         int truncateIdx = 0;
 
         if (isRemoveEnumValuePrefix()) {
@@ -4131,7 +4130,7 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = toEnumValue(value, description);
-            enumNameToValue.put(usedName, enumValue);
+            enumValuetoName.put(enumValue, usedName);
             i += 1;
         }
 
@@ -4157,10 +4156,10 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = toEnumValue(value, null);
-            enumNameToValue.put(usedName, enumValue);
+            enumValuetoName.put(enumValue, usedName);
         }
 
-        return enumNameToValue;
+        return enumValuetoName;
     }
 
     /**

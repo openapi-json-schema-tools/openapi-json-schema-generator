@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -231,7 +230,7 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        Map<String, EnumValue> enumVars = cm.enumNameToValue;
+        Map<String, EnumValue> enumVars = cm.enumValueToName;
         Assert.assertEquals(enumVars.size(), 2);
         Assert.assertEquals(enumVars.get("DIGIT_THREE_67B9C").value, "#367B9C");
         Assert.assertEquals(enumVars.get("FFA5A4").value, "#FFA5A4");

@@ -1,23 +1,23 @@
 enum_value_to_name = {
-{{#each enumNameToValue}}
-    {{#eq this.type "string"}}
-    "{{{this.value}}}": "{{@key}}",
+{{#each enumValueToName}}
+    {{#eq @key.type "string"}}
+    "{{{@key.value}}}": "{{this}}",
     {{/eq}}
-    {{#eq this.type "number"}}
-    {{{this.value}}}: "{{@key}}",
+    {{#eq @key.type "number"}}
+    {{{@key.value}}}: "{{this}}",
     {{/eq}}
-    {{#eq this.type "integer"}}
-    {{{this.value}}}: "{{@key}}",
+    {{#eq @key.type "integer"}}
+    {{{@key.value}}}: "{{this}}",
     {{/eq}}
-    {{#eq this.type "boolean"}}
-        {{#if this.value}}
-    schemas.BoolClass.TRUE: "{{@key}}",
+    {{#eq @key.type "boolean"}}
+        {{#if @key.value}}
+    schemas.BoolClass.TRUE: "{{this}}",
         {{else}}
-    schemas.BoolClass.FALSE: "{{@key}}",
+    schemas.BoolClass.FALSE: "{{this}}",
         {{/if}}
     {{/eq}}
-    {{#eq this.type "null"}}
-    schemas.NoneClass.NONE: "{{@key}}",
+    {{#eq @key.type "null"}}
+    schemas.NoneClass.NONE: "{{this}}",
     {{/eq}}
 {{/each}}
 }

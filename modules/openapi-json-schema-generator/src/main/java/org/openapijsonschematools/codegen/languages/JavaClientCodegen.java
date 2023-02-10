@@ -786,7 +786,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (model.enumNameToValue == null) {
+        if (model.enumValueToName == null) {
             //final String lib = getLibrary();
             //Needed imports for Jackson based libraries
             if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {

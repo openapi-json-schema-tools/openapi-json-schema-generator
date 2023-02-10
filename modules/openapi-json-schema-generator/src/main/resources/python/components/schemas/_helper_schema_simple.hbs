@@ -19,7 +19,7 @@ class {{jsonPathPiece.camelCase}}(
     """
 {{/if}}
 {{#unless isStub}}
-{{#or hasValidation enumNameToValue format}}
+{{#or hasValidation enumValueToName format}}
 
 
     class Schema_:
@@ -31,17 +31,17 @@ class {{jsonPathPiece.camelCase}}(
         format = '{{format}}'
 {{/if}}
         {{> components/schemas/_helper_validations }}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{/or}}
 {{/unless}}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
     {{> components/schemas/_helper_enums }}
 {{/if}}
 {{#if isStub}}
 {{#if hasValidation}}
-{{#unless enumNameToValue}}
+{{#unless enumValueToName}}
     pass
 {{/unless}}
 {{/if}}
