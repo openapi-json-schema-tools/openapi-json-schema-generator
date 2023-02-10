@@ -488,10 +488,11 @@ public class DefaultCodegenTest {
     public void updateCodegenPropertyEnum() {
         CodegenSchema array = codegenPropertyWithArrayOfIntegerValues();
 
-        Map<String, EnumValue> enumVars = array.items.enumValueToName;
+        Map<EnumValue, String> enumVars = array.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("_1").value, 1);
-        Assert.assertEquals(enumVars.get("_1").type, "integer");
+        Assert.assertEquals(enumVars.size(), 1);
+        EnumValue key = new EnumValue(1, "integer", null);
+        Assert.assertEquals(enumVars.get(key), "_1");
     }
 
     @Test
@@ -499,30 +500,30 @@ public class DefaultCodegenTest {
         DefaultCodegen codegen = new DefaultCodegen();
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("dog", "cat"), "updateCodegenPropertyEnumWithExtension1", Arrays.asList("DOGVAR", "CATVAR"));
-            LinkedHashMap<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
             Assert.assertNotNull(enumVars);
-            Assert.assertEquals(enumVars.get("DOGVAR").value, "dog");
-            Assert.assertEquals(enumVars.get("CATVAR").value, "cat");
+            Assert.assertEquals(enumVars.get(new EnumValue("dog", "string", null)), "DOGVAR");
+            Assert.assertEquals(enumVars.get(new EnumValue("cat", "string", null)), "CATVAR");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("1", "2"), "updateCodegenPropertyEnumWithExtension2", Arrays.asList("ONE", "TWO"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
-            Assert.assertEquals(enumVars.get("ONE").value, "1");
-            Assert.assertEquals(enumVars.get("TWO").value, "2");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("1", "string", null)), "ONE");
+            Assert.assertEquals(enumVars.get(new EnumValue("2", "string", null)), "TWO");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("a", "b", "c", "d"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
-            Assert.assertEquals(enumVars.get("FOO").value, "a");
-            Assert.assertEquals(enumVars.get("BAR").value, "b");
-            Assert.assertEquals(enumVars.get("C").value, "c");
-            Assert.assertEquals(enumVars.get("D").value, "d");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("a", "string", null)), "FOO");
+            Assert.assertEquals(enumVars.get(new EnumValue("b", "string", null)), "BAR");
+            Assert.assertEquals(enumVars.get(new EnumValue("c", "string", null)), "C");
+            Assert.assertEquals(enumVars.get(new EnumValue("d", "string", null)), "D");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("a", "b"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR", "BAZ"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
-            Assert.assertEquals(enumVars.get("FOO").value, "a");
-            Assert.assertEquals(enumVars.get("BAR").value, "b");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("a", "string", null)), "FOO");
+            Assert.assertEquals(enumVars.get(new EnumValue("b", "string", null)), "BAR");
             Assert.assertEquals(enumVars.size(), 2);
         }
     }
@@ -532,10 +533,10 @@ public class DefaultCodegenTest {
         DefaultCodegen codegen = new DefaultCodegen();
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithPrefixRemoved", null);
 
-        Map<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
+        Map<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "CAT");
     }
 
     @Test
@@ -545,10 +546,10 @@ public class DefaultCodegenTest {
 
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithoutPrefixRemoved", null);
 
-        Map<String, EnumValue> enumVars = enumProperty.items.enumValueToName;
+        Map<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("ANIMAL_DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("ANIMAL_CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "ANIMAL_DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "ANIMAL_CAT");
     }
 
     @Test
@@ -557,10 +558,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> schemas = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithPrefixRemoved", null, null);
         CodegenSchema cm = schemas.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumValueToName;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "CAT");
     }
 
     @Test
@@ -570,10 +571,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithoutPrefixRemoved", null, null);
         CodegenSchema cm = objs.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumValueToName;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("ANIMAL_DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("ANIMAL_CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "ANIMAL_DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "ANIMAL_CAT");
     }
 
     @Test
@@ -582,12 +583,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithExtension", Arrays.asList("DOGVAR", "CATVAR"), Arrays.asList("This is a dog", "This is a cat"));
         CodegenSchema cm = objs.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumValueToName;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOGVAR").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("DOGVAR").description, "This is a dog");
-        Assert.assertEquals(enumVars.get("CATVAR").value, "animal_cat");
-        Assert.assertEquals(enumVars.get("CATVAR").description, "This is a cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", "This is a dog")), "DOGVAR");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", "This is a cat")), "CATVAR");
     }
 
     @Test

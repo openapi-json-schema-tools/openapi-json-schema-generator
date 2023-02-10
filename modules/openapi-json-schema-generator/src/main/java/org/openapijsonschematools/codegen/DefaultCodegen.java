@@ -1666,7 +1666,7 @@ public class DefaultCodegen implements CodegenConfig {
         return data;
     }
 
-    protected EnumValue toEnumValue(Object value, String description) {
+    protected EnumValue getEnumValue(Object value, String description) {
         Object usedValue = value;
         String type = null;
         if (value instanceof Integer){
@@ -1680,7 +1680,7 @@ public class DefaultCodegen implements CodegenConfig {
             for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
                 String entryKey = (String) entry.getKey();
                 Object entryValue = entry.getValue();
-                EnumValue castValue = toEnumValue(entryValue, null);
+                EnumValue castValue = getEnumValue(entryValue, null);
                 castMap.put(entryKey, castValue);
             }
             type = "object";
@@ -1688,7 +1688,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (value instanceof ArrayList) {
             ArrayList<EnumValue> castList = new ArrayList<>();
             for (Object item: (ArrayList<?>) value) {
-                EnumValue castItem = toEnumValue(item, null);
+                EnumValue castItem = getEnumValue(item, null);
                 castList.add(castItem);
             }
             type = "array";
@@ -1748,7 +1748,7 @@ public class DefaultCodegen implements CodegenConfig {
             boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(
                     description,
-                    toEnumValue(data, null),
+                    getEnumValue(data, null),
                     valid
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
@@ -2556,6 +2556,29 @@ public class DefaultCodegen implements CodegenConfig {
         return result;
     }
 
+    protected CodegenKey getOperationId(Operation operation, String path, String httpMethod) {
+        String operationId = getOrGenerateOperationId(operation, path, httpMethod);
+
+        // remove prefix in operationId
+        if (removeOperationIdPrefix) {
+            // The prefix is everything before the removeOperationIdPrefixCount occurrence of removeOperationIdPrefixDelimiter
+            String[] components = operationId.split("[" + removeOperationIdPrefixDelimiter + "]");
+            if (components.length > 1) {
+                // If removeOperationIdPrefixCount is -1 or bigger that the number of occurrences, uses the last one
+                int component_number = removeOperationIdPrefixCount == -1 ? components.length - 1 : removeOperationIdPrefixCount;
+                component_number = Math.min(component_number, components.length - 1);
+                // Reconstruct the operationId from its split elements and the delimiter
+                operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
+            }
+        }
+        return new CodegenKey(
+                operationId,
+                isValid(operationId),
+                toPathFilename(operationId),
+                toModelName(operationId)
+        );
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -2604,26 +2627,7 @@ public class DefaultCodegen implements CodegenConfig {
             tags.put(tagName, codegenTag);
         }
 
-        String operationId = getOrGenerateOperationId(operation, path, httpMethod);
-
-        // remove prefix in operationId
-        if (removeOperationIdPrefix) {
-            // The prefix is everything before the removeOperationIdPrefixCount occurrence of removeOperationIdPrefixDelimiter
-            String[] components = operationId.split("[" + removeOperationIdPrefixDelimiter + "]");
-            if (components.length > 1) {
-                // If removeOperationIdPrefixCount is -1 or bigger that the number of occurrences, uses the last one
-                int component_number = removeOperationIdPrefixCount == -1 ? components.length - 1 : removeOperationIdPrefixCount;
-                component_number = Math.min(component_number, components.length - 1);
-                // Reconstruct the operationId from its split elements and the delimiter
-                operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
-            }
-        }
-        CodegenKey operationIdKey = new CodegenKey(
-                operationId,
-                isValid(operationId),
-                toPathFilename(operationId),
-                toModelName(operationId)
-        );
+        CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
         String usedPath;
         if (isStrictSpecBehavior() && !path.startsWith("/")) {
@@ -2874,7 +2878,7 @@ public class DefaultCodegen implements CodegenConfig {
                 callbacks,
                 externalDocs,
                 vendorExtensions,
-                operationIdKey);
+                operationId);
     }
 
     /**
@@ -4129,7 +4133,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = toEnumValue(value, description);
+            EnumValue enumValue = getEnumValue(value, description);
             enumValueToName.put(enumValue, usedName);
 
             if (!enumNameToValue.containsKey(usedName)) {

@@ -811,11 +811,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return varName;
     }
 
-    protected EnumValue toEnumValue(Object value, String description) {
+    protected EnumValue getEnumValue(Object value, String description) {
         if (value instanceof String) {
-            return super.toEnumValue(processTestExampleData(value), description);
+            return super.getEnumValue(processTestExampleData(value), description);
         }
-        return super.toEnumValue(value, description);
+        return super.getEnumValue(value, description);
     }
 
     protected String toTestCaseName(String specTestCaseName) {
