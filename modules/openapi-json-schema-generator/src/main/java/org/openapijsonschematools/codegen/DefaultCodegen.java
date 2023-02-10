@@ -297,7 +297,6 @@ public class DefaultCodegen implements CodegenConfig {
     // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
     // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fall back to this case.
     protected boolean enumUnknownDefaultCase = false;
-    protected String enumUnknownDefaultCaseName = "unknown_default_open_api";
 
     // make openapi available to all methods
     protected OpenAPI openAPI;
@@ -4069,7 +4068,8 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
-        LinkedHashMap<EnumValue, String> enumValuetoName = new LinkedHashMap<>();
+        LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
         if (isRemoveEnumValuePrefix()) {
@@ -4130,36 +4130,21 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = toEnumValue(value, description);
-            enumValuetoName.put(enumValue, usedName);
+            enumValueToName.put(enumValue, usedName);
+
+            if (!enumNameToValue.containsKey(usedName)) {
+                enumNameToValue.put(usedName, enumValue);
+            } else {
+                LOGGER.error(
+                        "Enum error: two generated enum variable names collide. The values {} and {} generate variable name {} . Please file an issue at https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues",
+                        enumNameToValue.get(usedName).value,
+                        enumValue.value,
+                        usedName);
+            }
             i += 1;
         }
 
-        // TODO remove this
-        if (enumUnknownDefaultCase) {
-            // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
-            // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fall back to this case.
-            String enumName = enumUnknownDefaultCaseName;
-
-            String value;
-            boolean typeIsString = schema.getType() != null && schema.getType().equals("string");
-            if (typeIsString) {
-                value = enumUnknownDefaultCaseName;
-            } else {
-                // This is a dummy value that attempts to avoid collisions with previously specified cases.
-                // Int.max / 192
-                // The number 192 that is used to calculate this random value, is the Swift Evolution proposal for frozen/non-frozen enums.
-                // [SE-0192](https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md)
-                // Since this functionality was born in the Swift 5 generator and latter on broth to all generators
-                // https://github.com/OpenAPITools/openapi-generator/pull/11013
-                value = String.valueOf(11184809);
-            }
-
-            String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = toEnumValue(value, null);
-            enumValuetoName.put(enumValue, usedName);
-        }
-
-        return enumValuetoName;
+        return enumValueToName;
     }
 
     /**
