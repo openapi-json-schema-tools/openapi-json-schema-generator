@@ -43,11 +43,11 @@ class EnumArrays(
             ):
                 
                 @schemas.classproperty
-                def GREATER_THAN_EQUALS(cls):
+                def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
                     return cls(">=")
                 
                 @schemas.classproperty
-                def DOLLAR(cls):
+                def DOLLAR_SIGN(cls):
                     return cls("$")
             
             

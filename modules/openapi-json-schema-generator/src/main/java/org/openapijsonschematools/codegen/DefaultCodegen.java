@@ -2556,6 +2556,13 @@ public class DefaultCodegen implements CodegenConfig {
         return result;
     }
 
+    protected String getOperationIdSnakeCase(String operationId) {
+        if (StringUtils.isEmpty(operationId)) {
+            throw new RuntimeException("Empty method name (operationId) not allowed");
+        }
+        return org.openapijsonschematools.codegen.utils.StringUtils.underscore(operationId);
+    }
+
     protected CodegenKey getOperationId(Operation operation, String path, String httpMethod) {
         String operationId = getOrGenerateOperationId(operation, path, httpMethod);
 
@@ -2574,7 +2581,7 @@ public class DefaultCodegen implements CodegenConfig {
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
-                toPathFilename(operationId),
+                getOperationIdSnakeCase(operationId),
                 toModelName(operationId)
         );
     }

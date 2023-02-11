@@ -42,16 +42,16 @@ class Schema(
                     str,
                 }
                 enum_value_to_name = {
-                    ">": "GREATER_THAN",
-                    "$": "DOLLAR",
+                    ">": "GREATER_THAN_SIGN",
+                    "$": "DOLLAR_SIGN",
                 }
             
             @schemas.classproperty
-            def GREATER_THAN(cls):
+            def GREATER_THAN_SIGN(cls):
                 return cls(">")
             
             @schemas.classproperty
-            def DOLLAR(cls):
+            def DOLLAR_SIGN(cls):
                 return cls("$")
 
     def __new__(

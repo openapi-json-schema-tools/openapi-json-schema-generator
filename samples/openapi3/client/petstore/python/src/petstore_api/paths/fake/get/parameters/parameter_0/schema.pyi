@@ -37,11 +37,11 @@ class Schema(
         ):
             
             @schemas.classproperty
-            def GREATER_THAN(cls):
+            def GREATER_THAN_SIGN(cls):
                 return cls(">")
             
             @schemas.classproperty
-            def DOLLAR(cls):
+            def DOLLAR_SIGN(cls):
                 return cls("$")
 
     def __new__(

@@ -733,35 +733,54 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
-        } else if (value.equals("null")) {
+        }
+        if (value.equals("null")) {
             return "NONE";
         }
 
+        // value is int or float
         String intPattern = "^[-+]?\\d+$";
         String floatPattern = "^[-+]?\\d+\\.\\d+$";
         Boolean intMatch = Pattern.matches(intPattern, value);
         Boolean floatMatch = Pattern.matches(floatPattern, value);
-        String usedValue = value;
         if (intMatch || floatMatch) {
             String plusSign = "^\\+.+";
             String negSign = "^-.+";
+            String enumVarName;
             if (Pattern.matches(plusSign, value)) {
-                usedValue = value.replace("+", "POSITIVE_");
+                enumVarName = value.replace("+", "POSITIVE_");
             } else if (Pattern.matches(negSign, value)) {
-                usedValue = value.replace("-", "NEGATIVE_");
+                enumVarName = value.replace("-", "NEGATIVE_");
             } else {
-                usedValue = "POSITIVE_" + value;
+                enumVarName = "POSITIVE_" + value;
             }
             if (floatMatch) {
-                usedValue = value.replace(".", "_PT_");
+                enumVarName = enumVarName.replace(".", "_PT_");
             }
-            return usedValue;
+            return enumVarName;
         }
-        usedValue = usedValue.replace("\t", "_TAB_");
+
+        // every character in value is not allowed
+        String valueWithAllowedCharsOnly = value.replaceAll("^\\W+", "");
+        if (valueWithAllowedCharsOnly.isEmpty()) {
+            StringBuilder usedValueBuilder = new StringBuilder();
+            for (int i = 0; i < value.length(); i++){
+                char c = value.charAt(i);
+                String charName = Character.getName(Character.hashCode(c));
+                if (usedValueBuilder.length() > 0) {
+                    usedValueBuilder.append("_");
+                }
+                usedValueBuilder.append(charNameToVarName(charName));
+            }
+            return usedValueBuilder.toString();
+        }
+
+        String usedValue = value.replace("\t", "_TAB_");
         usedValue = usedValue.replace("\n", "_NEW_LINE_");
         usedValue = usedValue.replace("\r", "_CARRIAGE_RETURN_");
         // Replace " " with _
         usedValue = usedValue.replaceAll("\\s+", "_");
+
         // Replace / with _ for path enums
         usedValue = usedValue.replace("/", "_");
         // Replace . with _ for tag enums
@@ -784,17 +803,38 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String replacement = "$1_$2";
         usedValue = usedValue.replaceAll(regex, replacement);
         // Replace invalid characters with empty space
+
+        // replace all invalid characters with their character name descriptions
+        // TODO replace the first character strip with this
+        Pattern nonWordCharPattern = Pattern.compile("\\W+");
+        Matcher matcher = nonWordCharPattern.matcher(usedValue);
+        if (matcher.find()) {
+            // TODO implement here
+            // https://www.tutorialspoint.com/getting-the-list-of-all-the-matches-java-regular-expressions
+            int cnt = matcher.groupCount();
+            for (int i = matcher.groupCount() - 1; i > -1; i--) {
+                int start = matcher.start(i);
+                int end = matcher.end(i);
+                String a = "a";
+            }
+        }
+
         usedValue = usedValue.replaceAll("\\W*", "");
         // uppercase
         usedValue = usedValue.toUpperCase(Locale.ROOT);
 
+        // TODO delete this
         // convert value char by char
         if (usedValue.length() == 0) {
+            StringBuilder usedValueBuilder = new StringBuilder();
             for (int i = 0; i < value.length(); i++){
                 char c = value.charAt(i);
                 String charName = Character.getName(Character.hashCode(c));
-                usedValue = usedValue + (charNameToVarName(charName));
+                usedValueBuilder.append(charNameToVarName(charName));
             }
+            usedValue = usedValueBuilder.toString();
+        }
+        if (usedValue.length() > 1) {
             // remove trailing _
             usedValue = usedValue.replaceAll("_$", "");
         }
@@ -803,14 +843,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     /**
      * Replace - and " " with _
-     * Remove SIGN
      *
      * @param charName the input
      * @return the variable name
      */
     private String charNameToVarName(String charName) {
-        String varName = charName.replaceAll("[\\-\\s]", "_");
-        return varName;
+        return charName.replaceAll("[\\-\\s]", "_");
     }
 
     protected EnumValue getEnumValue(Object value, String description) {

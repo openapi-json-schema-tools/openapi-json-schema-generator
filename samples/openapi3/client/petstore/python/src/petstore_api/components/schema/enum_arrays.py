@@ -49,16 +49,16 @@ class EnumArrays(
                         str,
                     }
                     enum_value_to_name = {
-                        ">=": "GREATER_THAN_EQUALS",
-                        "$": "DOLLAR",
+                        ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
+                        "$": "DOLLAR_SIGN",
                     }
                 
                 @schemas.classproperty
-                def GREATER_THAN_EQUALS(cls):
+                def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
                     return cls(">=")
                 
                 @schemas.classproperty
-                def DOLLAR(cls):
+                def DOLLAR_SIGN(cls):
                     return cls("$")
             
             
