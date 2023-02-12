@@ -36,5 +36,5 @@ class Schema(
         return cls("-efg")
     
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
         return cls("(xyz)")

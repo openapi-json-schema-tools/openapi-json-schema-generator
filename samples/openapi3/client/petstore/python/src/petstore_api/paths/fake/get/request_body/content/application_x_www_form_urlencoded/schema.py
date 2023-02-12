@@ -99,7 +99,7 @@ class Schema(
                     enum_value_to_name = {
                         "_abc": "_ABC",
                         "-efg": "HYPHEN_MINUS_EFG",
-                        "(xyz)": "LEFT_PARENTHESIS_XYZ",
+                        "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
                     }
                 
                 @schemas.classproperty
@@ -111,7 +111,7 @@ class Schema(
                     return cls("-efg")
                 
                 @schemas.classproperty
-                def LEFT_PARENTHESIS_XYZ(cls):
+                def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
                     return cls("(xyz)")
             __annotations__ = {
                 "enum_form_string_array": EnumFormStringArray,

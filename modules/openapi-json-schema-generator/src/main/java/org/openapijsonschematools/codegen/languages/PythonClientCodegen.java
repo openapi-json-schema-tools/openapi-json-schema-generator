@@ -775,65 +775,51 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return usedValueBuilder.toString();
         }
 
-        String usedValue = value.replace("\t", "_TAB_");
-        usedValue = usedValue.replace("\n", "_NEW_LINE_");
-        usedValue = usedValue.replace("\r", "_CARRIAGE_RETURN_");
+        String usedValue = value;
         // Replace " " with _
-        usedValue = usedValue.replaceAll("\\s+", "_");
-
-        // Replace / with _ for path enums
-        usedValue = usedValue.replace("/", "_");
-        // Replace . with _ for tag enums
-        usedValue = usedValue.replace(".", "_");
-        // add underscore at camelCase locations
-
-        // strip first character if it is invalid
-        int lengthBeforeFirstCharStrip = usedValue.length();
-        char firstChar = usedValue.charAt(0);
-        usedValue = usedValue.replaceAll("^[^_a-zA-Z]", "");
-        boolean firstCharStripped = usedValue.length() == lengthBeforeFirstCharStrip - 1;
-        // add charname of first character back on
-        if (firstCharStripped) {
-            String charName = Character.getName(Character.hashCode(firstChar));
-            usedValue = charNameToVarName(charName) + "_" + usedValue;
+        usedValue = usedValue.replaceAll("[ ]+", "_");
+        
+        // replace all invalid characters with their character name descriptions
+        Pattern nonWordCharPattern = Pattern.compile("\\W+");
+        Matcher matcher = nonWordCharPattern.matcher(usedValue);
+        Stack<AbstractMap.SimpleEntry<Integer, String>> matchStartToGroup = new Stack<>();
+        while (matcher.find()) {
+            matchStartToGroup.add(new AbstractMap.SimpleEntry(matcher.start(), matcher.group()));
+        }
+        char underscore = "_".charAt(0);
+        while (!matchStartToGroup.isEmpty()) {
+            AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
+            Integer startIndex = entry.getKey();
+            String match = entry.getValue();
+            String prefix = "";
+            String suffix = "";
+            if (startIndex > 0 && usedValue.charAt(startIndex-1) != underscore) {
+                prefix = "_";
+            }
+            Integer indexAfter = startIndex + match.length();
+            if (startIndex + match.length() < usedValue.length() && usedValue.charAt(indexAfter) != underscore) {
+                suffix = "_";
+            }
+            String convertedMatch = "";
+            for (int i = 0; i < match.length(); i++) {
+                String charName = charNameToVarName(Character.getName(Character.hashCode(match.charAt(i))));
+                convertedMatch = convertedMatch + charName;
+                if (i != match.length() - 1) {
+                    convertedMatch = convertedMatch + "_";
+                }
+            }
+            String replacement = prefix + convertedMatch + suffix;
+            usedValue = usedValue.substring(0, startIndex) + replacement + usedValue.substring(indexAfter);
         }
 
         // add camel case underscore
         String regex = "([a-z])([A-Z]+)";
-        String replacement = "$1_$2";
-        usedValue = usedValue.replaceAll(regex, replacement);
-        // Replace invalid characters with empty space
+        String regexReplacement = "$1_$2";
+        usedValue = usedValue.replaceAll(regex, regexReplacement);
 
-        // replace all invalid characters with their character name descriptions
-        // TODO replace the first character strip with this
-        Pattern nonWordCharPattern = Pattern.compile("\\W+");
-        Matcher matcher = nonWordCharPattern.matcher(usedValue);
-        if (matcher.find()) {
-            // TODO implement here
-            // https://www.tutorialspoint.com/getting-the-list-of-all-the-matches-java-regular-expressions
-            int cnt = matcher.groupCount();
-            for (int i = matcher.groupCount() - 1; i > -1; i--) {
-                int start = matcher.start(i);
-                int end = matcher.end(i);
-                String a = "a";
-            }
-        }
-
-        usedValue = usedValue.replaceAll("\\W*", "");
         // uppercase
         usedValue = usedValue.toUpperCase(Locale.ROOT);
 
-        // TODO delete this
-        // convert value char by char
-        if (usedValue.length() == 0) {
-            StringBuilder usedValueBuilder = new StringBuilder();
-            for (int i = 0; i < value.length(); i++){
-                char c = value.charAt(i);
-                String charName = Character.getName(Character.hashCode(c));
-                usedValueBuilder.append(charNameToVarName(charName));
-            }
-            usedValue = usedValueBuilder.toString();
-        }
         if (usedValue.length() > 1) {
             // remove trailing _
             usedValue = usedValue.replaceAll("_$", "");
@@ -848,7 +834,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
      * @return the variable name
      */
     private String charNameToVarName(String charName) {
-        return charName.replaceAll("[\\-\\s]", "_");
+        // - and " " -> _
+        String result = charName.replaceAll("[\\-\\s]", "_");
+        // remove parentheses
+        return result.replaceAll("[([)]]", "");
     }
 
     protected EnumValue getEnumValue(Object value, String description) {
