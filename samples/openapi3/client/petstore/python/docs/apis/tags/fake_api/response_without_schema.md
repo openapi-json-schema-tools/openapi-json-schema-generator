@@ -10,7 +10,6 @@
 
 ## Summary
 receives a response without schema
-This endpoint does not need any parameter.
 
 ## Return Types
 

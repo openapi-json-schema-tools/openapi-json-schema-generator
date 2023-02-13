@@ -14,7 +14,6 @@ Returns pet inventories by status
 
 ## Description
 Returns a map of status codes to quantities
-This endpoint does not need any parameter.
 
 ## Return Types
 

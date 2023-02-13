@@ -6,7 +6,6 @@
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
-This endpoint does not need any parameter.
 
 ## Return Types
 

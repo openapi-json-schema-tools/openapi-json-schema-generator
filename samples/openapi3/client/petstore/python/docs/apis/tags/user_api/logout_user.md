@@ -10,7 +10,6 @@
 
 ## Summary
 Logs out current logged in user session
-This endpoint does not need any parameter.
 
 ## Return Types
 

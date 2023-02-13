@@ -10,7 +10,6 @@
 
 ## Summary
 Health check endpoint
-This endpoint does not need any parameter.
 
 ## Return Types
 
