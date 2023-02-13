@@ -70,6 +70,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
+
 @SuppressWarnings("rawtypes")
 public class PythonClientCodegen extends AbstractPythonCodegen {
     private final Logger LOGGER = LoggerFactory.getLogger(PythonClientCodegen.class);
@@ -778,7 +780,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         String usedValue = value;
         // Replace " " with _
         usedValue = usedValue.replaceAll("[ ]+", "_");
-        
+
         // replace all invalid characters with their character name descriptions
         Pattern nonWordCharPattern = Pattern.compile("\\W+");
         Matcher matcher = nonWordCharPattern.matcher(usedValue);
@@ -1820,6 +1822,28 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return toParameterRefClass(ref);
         }
         return null;
+    }
+
+    @Override
+    public String getOperationIdSnakeCase(String operationId) {
+        // throw exception if method name is empty (should not occur as an auto-generated method name will be used)
+        if (StringUtils.isEmpty(operationId)) {
+            throw new RuntimeException("Empty method name (operationId) not allowed");
+        }
+
+        // method name cannot use reserved keyword, e.g. return
+        if (isReservedWord(operationId)) {
+            LOGGER.warn("{} (reserved word) cannot be used as method name. Renamed to {}", operationId, underscore(sanitizeName("call_" + operationId)));
+            operationId = "call_" + operationId;
+        }
+
+        // operationId starts with a number
+        if (operationId.matches("^\\d.*")) {
+            LOGGER.warn("{} (starting with a number) cannot be used as method name. Renamed to {}", operationId, underscore(sanitizeName("call_" + operationId)));
+            operationId = "call_" + operationId;
+        }
+
+        return underscore(sanitizeName(operationId));
     }
 
     @Override
