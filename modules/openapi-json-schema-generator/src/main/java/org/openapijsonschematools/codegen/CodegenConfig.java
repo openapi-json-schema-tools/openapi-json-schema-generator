@@ -78,15 +78,11 @@ public interface CodegenConfig {
 
     String apiDocFileFolder();
 
-    String fileSuffix();
-
     String outputFolder();
 
     String templateDir();
 
     String embeddedTemplateDir();
-
-    String modelFileFolder();
 
     String modelTestFileFolder();
 
@@ -94,11 +90,7 @@ public interface CodegenConfig {
 
     String requestBodyDocFileFolder();
 
-    String headerFileFolder(String componentName);
-
     String headerDocFileFolder();
-
-    String parameterFileFolder(String componentName);
 
     String parameterDocFileFolder();
 
@@ -107,10 +99,6 @@ public interface CodegenConfig {
     String modelPackagePathFragment();
 
     String packageName();
-
-    String requestBodyFileFolder(String componentName);
-
-    String responseFileFolder(String componentName);
 
     String responseDocFileFolder();
 
@@ -138,8 +126,6 @@ public interface CodegenConfig {
 
     List<CliOption> cliOptions();
 
-    String generateExamplePath(String path, Operation operation);
-
     Set<String> reservedWords();
 
     List<SupportingFile> supportingFiles();
@@ -154,7 +140,7 @@ public interface CodegenConfig {
 
     void setOutputDir(String dir);
 
-    CodegenSchema fromSchema(Schema schema, String sourceJsonPath, String currentJsonPath);
+    CodegenSchema fromSchema(Schema<?> schema, String sourceJsonPath, String currentJsonPath);
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
@@ -163,8 +149,6 @@ public interface CodegenConfig {
     List<CodegenServer> fromServers(List<Server> servers);
 
     List<CodegenServerVariable> fromServerVariables(Map<String, ServerVariable> variables);
-
-    Set<String> defaultIncludes();
 
     Map<String, String> typeMapping();
 
@@ -214,8 +198,6 @@ public interface CodegenConfig {
 
     Compiler processCompiler(Compiler compiler);
 
-    TemplatingEngineAdapter processTemplatingEngine(TemplatingEngineAdapter templatingEngine);
-
     String sanitizeTag(String tag);
 
     String toApiFilename(String name);
@@ -256,17 +238,17 @@ public interface CodegenConfig {
 
     void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations);
 
-    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> objs);
+    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
 
     void postProcess();
 
     TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
-    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> schemas);
+    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
 
-    OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> schemas);
+    OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas);
 
-    Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs);
+    Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
 
@@ -279,25 +261,17 @@ public interface CodegenConfig {
 
     String apiDocFilename(String templateName, String tag);
 
-    boolean shouldOverwrite(String filename);
-
     boolean isSkipOverwrite();
 
     void setSkipOverwrite(boolean skipOverwrite);
 
-    boolean isRemoveOperationIdPrefix();
-
     void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix);
-
-    boolean isSkipOperationExample();
 
     void setSkipOperationExample(boolean skipOperationExample);
 
-    public boolean isHideGenerationTimestamp();
+    boolean isHideGenerationTimestamp();
 
-    public void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
-
-    Map<String, String> supportedLibraries();
+    void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
 
     void setLibrary(String library);
 
@@ -307,22 +281,6 @@ public interface CodegenConfig {
      * @return library template
      */
     String getLibrary();
-
-    void setGitHost(String gitHost);
-
-    String getGitHost();
-
-    void setGitUserId(String gitUserId);
-
-    String getGitUserId();
-
-    void setGitRepoId(String gitRepoId);
-
-    String getGitRepoId();
-
-    void setReleaseNote(String releaseNote);
-
-    String getReleaseNote();
 
     void setHttpUserAgent(String httpUserAgent);
 
@@ -355,9 +313,9 @@ public interface CodegenConfig {
 
     TemplatingEngineAdapter getTemplatingEngine();
 
-    public boolean isEnableMinimalUpdate();
+    boolean isEnableMinimalUpdate();
 
-    public void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
+    void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
 
     boolean isStrictSpecBehavior();
 

@@ -24,8 +24,6 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 
-import java.util.*;
-
 public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
 
     protected static final String LIBRARY_JERSEY1 = "jersey1";
@@ -83,7 +81,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         }
 
         //Add imports for Jackson
-        if (model.enumNameToValue == null) {
+        if (model.enumValueToName == null) {
             model.imports.add("JsonProperty");
         }
     }

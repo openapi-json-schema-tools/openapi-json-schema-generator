@@ -2,20 +2,40 @@ def __new__(
     cls,
 {{#if types}}
     {{#eq types.size 1}}
-        {{#contains types "array" }}
+        {{#contains types "array"}}
     arg_: typing.Union[
         typing.Tuple[
-            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
+            {{#with ../items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
         ],
         typing.List[
-            {{#with items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
+            {{#with ../items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
         ],
     ],
-        {{else}}
+        {{/contains}}
+        {{#contains types "object"}}
     *args_: typing.Union[{{> _helper_schema_python_types }}],
         {{/contains}}
+        {{#contains types "string"}}
+    arg_: {{> _helper_schema_python_types }}
+        {{/contains}}
+        {{#contains types "number"}}
+    arg_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
+        {{#contains types "integer"}}
+    arg_: {{> _helper_schema_python_types }}
+        {{/contains}}
+        {{#contains types "boolean"}}
+    arg_: {{> _helper_schema_python_types }}
+        {{/contains}}
+        {{#contains types "null"}}
+    arg_: {{> _helper_schema_python_types }}
+        {{/contains}}
     {{else}}
+        {{#contains types "object"}}
     *args_: typing.Union[{{> _helper_schema_python_types }}],
+        {{else}}
+    arg_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
     {{/eq}}
 {{else}}
     *args_: typing.Union[{{> _helper_schema_python_types }}],
@@ -24,19 +44,19 @@ def __new__(
     {{#eq types.size 1}}
         {{#contains types "object"}}
             {{#each requiredProperties}}
-                {{#if @key.nameIsValid}}
+                {{#if @key.isValid}}
                     {{#with this}}
                         {{#if refInfo.refClass}}
-    {{@key.name}}: '{{> components/schemas/_helper_refclass_with_module }}',
+    {{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}',
                         {{else}}
-                            {{#if name}}
+                            {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
-    {{@key.name}}: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
                                 {{/if}}
                             {{else}}
-    {{@key.name}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
+    {{@key.original}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
                             {{/if}}
                         {{/if}}
                     {{/with}}
@@ -46,11 +66,11 @@ def __new__(
     {{/eq}}
 {{/if}}
 {{#each optionalProperties}}
-    {{#if @key.nameIsValid}}
+    {{#if @key.isValid}}
         {{#if refInfo.refClass}}
-    {{@key.name}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
+    {{@key.original}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset] = schemas.unset,
         {{else}}
-    {{@key.name}}: typing.Union[Schema_.Properties.{{name.camelCaseName}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}schemas.Unset] = schemas.unset,
         {{/if}}
     {{/if}}
 {{/each}}
@@ -60,7 +80,7 @@ def __new__(
         {{#if refInfo.refClass}}
     **kwargs: '{{> components/schemas/_helper_refclass_with_module }}',
         {{else}}
-    **kwargs: typing.Union[Schema_.{{name.camelCaseName}}, {{> _helper_schema_python_types }}],
+    **kwargs: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
         {{/if}}
     {{/unless}}
 {{else}}
@@ -72,33 +92,25 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{/with}}
-) -> '{{name.camelCaseName}}':
+) -> '{{jsonPathPiece.camelCase}}':
     return super().__new__(
         cls,
-{{#if hasMultipleTypes}}
+{{#eq types null}}
         *args_,
 {{else}}
-{{#if types}}
-    {{#eq types.size 1}}
-        {{#contains types "array"}}
-        arg_,
-        {{else}}
+    {{#contains types "object"}}
         *args_,
-        {{/contains}}
     {{else}}
-        *args_,
-    {{/eq}}
-{{else}}
-        *args_,
-{{/if}}
-{{/if}}
+        arg_,
+    {{/contains}}
+{{/eq}}
 {{#if types}}
     {{#eq types.size 1}}
         {{#contains types "object"}}
             {{#each requiredProperties}}
-                {{#if @key.nameIsValid}}
+                {{#if @key.isValid}}
                     {{#with this}}
-        {{@key.name}}={{@key.name}},
+        {{@key.original}}={{@key.original}},
                     {{/with}}
                 {{/if}}
             {{/each}}
@@ -106,8 +118,8 @@ def __new__(
     {{/eq}}
 {{/if}}
 {{#each optionalProperties}}
-    {{#if @key.nameIsValid}}
-        {{@key.name}}={{@key.name}},
+    {{#if @key.isValid}}
+        {{@key.original}}={{@key.original}},
     {{/if}}
 {{/each}}
         configuration_=configuration_,

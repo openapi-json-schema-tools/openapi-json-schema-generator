@@ -41,17 +41,17 @@ class ComposedOneOfDifferentTypes(
         class OneOf:
         
             @staticmethod
-            def one_of0() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def _0() -> typing.Type['number_with_validations.NumberWithValidations']:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def one_of1() -> typing.Type['animal.Animal']:
+            def _1() -> typing.Type['animal.Animal']:
                 return animal.Animal
-            OneOf2 = schemas.NoneSchema
-            OneOf3 = schemas.DateSchema
+            _2 = schemas.NoneSchema
+            _3 = schemas.DateSchema
             
             
-            class OneOf4(
+            class _4(
                 schemas.DictSchema
             ):
             
@@ -60,7 +60,7 @@ class ComposedOneOfDifferentTypes(
                     *args_: typing.Union[dict, frozendict.frozendict, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'OneOf4':
+                ) -> '_4':
                     return super().__new__(
                         cls,
                         *args_,
@@ -69,7 +69,7 @@ class ComposedOneOfDifferentTypes(
                     )
             
             
-            class OneOf5(
+            class _5(
                 schemas.ListSchema
             ):
             
@@ -91,7 +91,7 @@ class ComposedOneOfDifferentTypes(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-                ) -> 'OneOf5':
+                ) -> '_5':
                     return super().__new__(
                         cls,
                         arg_,
@@ -102,18 +102,18 @@ class ComposedOneOfDifferentTypes(
                     return super().__getitem__(i)
             
             
-            class OneOf6(
+            class _6(
                 schemas.DateTimeSchema
             ):
                 pass
             classes = [
-                one_of0,
-                one_of1,
-                OneOf2,
-                OneOf3,
-                OneOf4,
-                OneOf5,
-                OneOf6,
+                _0,
+                _1,
+                _2,
+                _3,
+                _4,
+                _5,
+                _6,
             ]
 
 

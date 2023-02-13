@@ -115,7 +115,7 @@ class BaseApi(api_client.Api):
             _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post'.upper(),
+            method='post',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -139,7 +139,7 @@ class BaseApi(api_client.Api):
 
 
 class CreateUsersWithListInput(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def create_users_with_list_input(

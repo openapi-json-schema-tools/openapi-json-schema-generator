@@ -117,42 +117,42 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [_0.schema](#parameter_0schema) | | optional
-aB | [_1.schema](#parameter_1schema) | | optional
-Ab | [_2.schema](#parameter_2schema) | | optional
-self | [_3.schema](#parameter_3schema) | | optional
-A-B | [_4.schema](#parameter_4schema) | | optional
+1 | [Parameter0.schema](#parameter_0schema) | | optional
+aB | [Parameter1.schema](#parameter_1schema) | | optional
+Ab | [Parameter2.schema](#parameter_2schema) | | optional
+self | [Parameter3.schema](#parameter_3schema) | | optional
+A-B | [Parameter4.schema](#parameter_4schema) | | optional
 
 
-# <a id="parameter_0schema" >_0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_1schema" >_1.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_2schema" >_2.schema</a>
+# <a id="parameter_1schema" >Parameter1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_3schema" >_3.schema</a>
+# <a id="parameter_2schema" >Parameter2.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_4schema" >_4.schema</a>
+# <a id="parameter_3schema" >Parameter3.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+# <a id="parameter_4schema" >Parameter4.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -164,33 +164,33 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [_5.schema](#parameter_5schema) | | optional
-aB | [_6.schema](#parameter_6schema) | | optional
-self | [_7.schema](#parameter_7schema) | | optional
-A-B | [_8.schema](#parameter_8schema) | | optional
+1 | [Parameter5.schema](#parameter_5schema) | | optional
+aB | [Parameter6.schema](#parameter_6schema) | | optional
+self | [Parameter7.schema](#parameter_7schema) | | optional
+A-B | [Parameter8.schema](#parameter_8schema) | | optional
 
-# <a id="parameter_5schema" >_5.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_6schema" >_6.schema</a>
+# <a id="parameter_5schema" >Parameter5.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_7schema" >_7.schema</a>
+# <a id="parameter_6schema" >Parameter6.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_8schema" >_8.schema</a>
+# <a id="parameter_7schema" >Parameter7.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+# <a id="parameter_8schema" >Parameter8.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -202,41 +202,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [_9.schema](#parameter_9schema) | | 
-aB | [_10.schema](#parameter_10schema) | | 
-Ab | [_11.schema](#parameter_11schema) | | 
-self | [_12.schema](#parameter_12schema) | | 
-A-B | [_13.schema](#parameter_13schema) | | 
+1 | [Parameter9.schema](#parameter_9schema) | | 
+aB | [Parameter10.schema](#parameter_10schema) | | 
+Ab | [Parameter11.schema](#parameter_11schema) | | 
+self | [Parameter12.schema](#parameter_12schema) | | 
+A-B | [Parameter13.schema](#parameter_13schema) | | 
 
-# <a id="parameter_9schema" >_9.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_10schema" >_10.schema</a>
+# <a id="parameter_9schema" >Parameter9.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_11schema" >_11.schema</a>
+# <a id="parameter_10schema" >Parameter10.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_12schema" >_12.schema</a>
+# <a id="parameter_11schema" >Parameter11.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_13schema" >_13.schema</a>
+# <a id="parameter_12schema" >Parameter12.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+# <a id="parameter_13schema" >Parameter13.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -248,41 +248,41 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [_14.schema](#parameter_14schema) | | optional
-aB | [_15.schema](#parameter_15schema) | | optional
-Ab | [_16.schema](#parameter_16schema) | | optional
-self | [_17.schema](#parameter_17schema) | | optional
-A-B | [_18.schema](#parameter_18schema) | | optional
+1 | [Parameter14.schema](#parameter_14schema) | | optional
+aB | [Parameter15.schema](#parameter_15schema) | | optional
+Ab | [Parameter16.schema](#parameter_16schema) | | optional
+self | [Parameter17.schema](#parameter_17schema) | | optional
+A-B | [Parameter18.schema](#parameter_18schema) | | optional
 
-# <a id="parameter_14schema" >_14.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_15schema" >_15.schema</a>
+# <a id="parameter_14schema" >Parameter14.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_16schema" >_16.schema</a>
+# <a id="parameter_15schema" >Parameter15.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_17schema" >_17.schema</a>
+# <a id="parameter_16schema" >Parameter16.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="parameter_18schema" >_18.schema</a>
+# <a id="parameter_17schema" >Parameter17.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+# <a id="parameter_18schema" >Parameter18.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -294,16 +294,16 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | success
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

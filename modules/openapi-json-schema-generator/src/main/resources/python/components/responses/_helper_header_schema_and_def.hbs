@@ -26,6 +26,6 @@ class {{xParamsName}}:
 
     parameters = [
     {{#each xParams}}
-        {{name.snakeCaseName}}.{{name.camelCaseName}},
+        {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
     {{/each}}
     ]

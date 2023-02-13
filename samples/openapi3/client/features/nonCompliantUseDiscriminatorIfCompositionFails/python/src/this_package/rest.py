@@ -113,7 +113,6 @@ class RESTClientObject(object):
                                 timeout. It can also be a pair (tuple) of
                                 (connection, read) timeouts.
         """
-        method = method.upper()
         assert method in ['GET', 'HEAD', 'DELETE', 'POST', 'PUT',
                           'PATCH', 'OPTIONS']
 
@@ -134,7 +133,7 @@ class RESTClientObject(object):
 
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
-            if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:
+            if method in {'POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE'}:
                 if 'Content-Type' not in headers and body is None:
                     r = self.pool_manager.request(
                         method,
@@ -196,7 +195,7 @@ class RESTClientObject(object):
 
         return r
 
-    def GET(self, url, headers=None, stream=False,
+    def get(self, url, headers=None, stream=False,
             timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("GET", url,
                             headers=headers,
@@ -204,7 +203,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             fields=fields)
 
-    def HEAD(self, url, headers=None, stream=False,
+    def head(self, url, headers=None, stream=False,
              timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("HEAD", url,
                             headers=headers,
@@ -212,7 +211,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             fields=fields)
 
-    def OPTIONS(self, url, headers=None,
+    def options(self, url, headers=None,
                 body=None, stream=False, timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("OPTIONS", url,
                             headers=headers,
@@ -220,7 +219,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             body=body, fields=fields)
 
-    def DELETE(self, url, headers=None, body=None,
+    def delete(self, url, headers=None, body=None,
                stream=False, timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("DELETE", url,
                             headers=headers,
@@ -228,7 +227,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             body=body, fields=fields)
 
-    def POST(self, url, headers=None,
+    def post(self, url, headers=None,
              body=None, stream=False, timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("POST", url,
                             headers=headers,
@@ -236,7 +235,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             body=body, fields=fields)
 
-    def PUT(self, url, headers=None,
+    def put(self, url, headers=None,
             body=None, stream=False, timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("PUT", url,
                             headers=headers,
@@ -244,7 +243,7 @@ class RESTClientObject(object):
                             timeout=timeout,
                             body=body, fields=fields)
 
-    def PATCH(self, url, headers=None,
+    def patch(self, url, headers=None,
               body=None, stream=False, timeout=None, fields=None) -> urllib3.HTTPResponse:
         return self.request("PATCH", url,
                             headers=headers,

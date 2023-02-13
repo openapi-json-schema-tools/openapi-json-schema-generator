@@ -12,9 +12,9 @@ class AllOf:
     classes = [
 {{#each allOf}}
     {{#if refInfo.refClass}}
-        {{name.snakeCaseName}},
+        {{jsonPathPiece.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{jsonPathPiece.camelCase}},
     {{/if}}
 {{/each}}
     ]
@@ -33,9 +33,9 @@ class OneOf:
     classes = [
 {{#each oneOf}}
     {{#if refInfo.refClass}}
-        {{name.snakeCaseName}},
+        {{jsonPathPiece.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{jsonPathPiece.camelCase}},
     {{/if}}
 {{/each}}
     ]
@@ -54,9 +54,9 @@ class AnyOf:
     classes = [
 {{#each anyOf}}
     {{#if refInfo.refClass}}
-        {{name.snakeCaseName}},
+        {{jsonPathPiece.snakeCase}},
     {{else}}
-        {{name.camelCaseName}},
+        {{jsonPathPiece.camelCase}},
     {{/if}}
 {{/each}}
     ]

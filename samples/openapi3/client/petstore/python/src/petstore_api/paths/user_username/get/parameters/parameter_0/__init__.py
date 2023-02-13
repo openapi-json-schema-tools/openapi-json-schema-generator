@@ -8,4 +8,4 @@
 
 
 from petstore_api.components.parameters import parameter_path_user_name
-_0 = parameter_path_user_name.PathUserName
+Parameter0 = parameter_path_user_name.PathUserName

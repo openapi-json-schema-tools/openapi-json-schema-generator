@@ -33,40 +33,38 @@ public class CodegenHeader {
     public final String description;
     public final String unescapedDescription;
     public final String example; // example value (x-example)
-    public final String jsonSchema;
     public final Map<String, Object> vendorExtensions;
-    public final boolean required;
+    public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
     public final String componentModule;
-    public final CodegenKey name;
-    public final boolean isExplode;
+    public final CodegenKey jsonPathPiece;
+    public final Boolean explode;
     public final String style;
-    public final boolean isDeprecated;
+    public final Boolean deprecated;
     public final CodegenSchema schema;
     public final CodegenRefInfo<CodegenHeader> refInfo;
 
-    public CodegenHeader(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
+    public CodegenHeader(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
         this.imports = imports;
         this.componentModule = componentModule;
-        this.name = name;
-        this.isExplode = isExplode;
+        this.jsonPathPiece = jsonPathPiece;
+        this.explode = explode;
         this.style = style;
-        this.isDeprecated = isDeprecated;
+        this.deprecated = deprecated;
         this.schema = schema;
         this.refInfo = refInfo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, isExplode, description, unescapedDescription, style, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, explode, description, unescapedDescription, style, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -75,36 +73,34 @@ public class CodegenHeader {
         if (!(o instanceof CodegenHeader)) return false;
         CodegenHeader that = (CodegenHeader) o;
         return required == that.required &&
-                Objects.equals(name, that.name) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                isExplode == that.isExplode &&
-                isDeprecated == that.isDeprecated &&
+                explode == that.explode &&
+                deprecated == that.deprecated &&
                 Objects.equals(schema, that.schema) &&
                 Objects.equals(style, that.style) &&
                 Objects.equals(refInfo, that.refInfo);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append("name='").append(name).append('\'');
+        sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
-        sb.append(", isExplode=").append(isExplode);
+        sb.append(", explode=").append(explode);
         sb.append(", style='").append(style).append('\'');
-        sb.append(", isDeprecated=").append(isDeprecated);
+        sb.append(", deprecated=").append(deprecated);
         sb.append(", schema=").append(schema);
         sb.append(", refInfo=").append(refInfo);
     }
@@ -147,7 +143,7 @@ public class CodegenHeader {
         if (content != null) {
             for (Map.Entry<CodegenKey, CodegenMediaType> entry: content.entrySet()) {
                 if (entry.getValue().schema != null) {
-                    String contentType = entry.getKey().name;
+                    String contentType = entry.getKey().original;
                     return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
             }

@@ -30,7 +30,6 @@ import java.util.stream.Stream;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
@@ -765,8 +764,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     }
 
     @Override
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> objs) {
-        TreeMap<String, CodegenSchema> objects = super.postProcessModels(objs);
+    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models) {
+        TreeMap<String, CodegenSchema> objects = super.postProcessModels(models);
 
         for (CodegenSchema cm: objects.values()) {
             if (getGenerateRoomModels()) {
@@ -782,8 +781,8 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                     .collect(Collectors.toList());
 
             for (CodegenSchema var : vars) {
-                if (var.name != null) {
-                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.name.name.replace("$", "\\$"));
+                if (var.jsonPathPiece != null) {
+                    var.vendorExtensions.put(VENDOR_EXTENSION_BASE_NAME_LITERAL, var.jsonPathPiece.original.replace("$", "\\$"));
                 }
             }
         }

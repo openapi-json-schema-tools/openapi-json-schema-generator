@@ -37,18 +37,18 @@ class ComposedAnyOfDifferentTypesNoValidations(
         # any type
         
         class AnyOf:
-            AnyOf0 = schemas.DictSchema
-            AnyOf1 = schemas.DateSchema
-            AnyOf2 = schemas.DateTimeSchema
-            AnyOf3 = schemas.BinarySchema
-            AnyOf4 = schemas.StrSchema
-            AnyOf5 = schemas.StrSchema
-            AnyOf6 = schemas.DictSchema
-            AnyOf7 = schemas.BoolSchema
-            AnyOf8 = schemas.NoneSchema
+            _0 = schemas.DictSchema
+            _1 = schemas.DateSchema
+            _2 = schemas.DateTimeSchema
+            _3 = schemas.BinarySchema
+            _4 = schemas.StrSchema
+            _5 = schemas.StrSchema
+            _6 = schemas.DictSchema
+            _7 = schemas.BoolSchema
+            _8 = schemas.NoneSchema
             
             
-            class AnyOf9(
+            class _9(
                 schemas.ListSchema
             ):
             
@@ -68,7 +68,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
-                ) -> 'AnyOf9':
+                ) -> '_9':
                     return super().__new__(
                         cls,
                         arg_,
@@ -77,29 +77,29 @@ class ComposedAnyOfDifferentTypesNoValidations(
             
                 def __getitem__(self, i: int) -> Schema_.Items:
                     return super().__getitem__(i)
-            AnyOf10 = schemas.NumberSchema
-            AnyOf11 = schemas.Float32Schema
-            AnyOf12 = schemas.Float64Schema
-            AnyOf13 = schemas.IntSchema
-            AnyOf14 = schemas.Int32Schema
-            AnyOf15 = schemas.Int64Schema
+            _10 = schemas.NumberSchema
+            _11 = schemas.Float32Schema
+            _12 = schemas.Float64Schema
+            _13 = schemas.IntSchema
+            _14 = schemas.Int32Schema
+            _15 = schemas.Int64Schema
             classes = [
-                AnyOf0,
-                AnyOf1,
-                AnyOf2,
-                AnyOf3,
-                AnyOf4,
-                AnyOf5,
-                AnyOf6,
-                AnyOf7,
-                AnyOf8,
-                AnyOf9,
-                AnyOf10,
-                AnyOf11,
-                AnyOf12,
-                AnyOf13,
-                AnyOf14,
-                AnyOf15,
+                _0,
+                _1,
+                _2,
+                _3,
+                _4,
+                _5,
+                _6,
+                _7,
+                _8,
+                _9,
+                _10,
+                _11,
+                _12,
+                _13,
+                _14,
+                _15,
             ]
 
 

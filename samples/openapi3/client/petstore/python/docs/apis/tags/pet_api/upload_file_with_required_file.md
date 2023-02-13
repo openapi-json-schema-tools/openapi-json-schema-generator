@@ -95,9 +95,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [_0.schema](#parameter_0schema) | | 
+petId | [Parameter0.schema](#parameter_0schema) | | 
 
-# <a id="parameter_0schema" >_0.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -109,16 +109,16 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | successful operation
+200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 

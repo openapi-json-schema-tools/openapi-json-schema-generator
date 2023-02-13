@@ -39,8 +39,8 @@ class EnumClass(
         }
         enum_value_to_name = {
             "_abc": "_ABC",
-            "-efg": "EFG",
-            "(xyz)": "XYZ",
+            "-efg": "HYPHEN_MINUS_EFG",
+            "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
             "COUNT_1M": "COUNT_1M",
             "COUNT_50M": "COUNT_50M",
         }
@@ -50,11 +50,11 @@ class EnumClass(
         return cls("_abc")
     
     @schemas.classproperty
-    def EFG(cls):
+    def HYPHEN_MINUS_EFG(cls):
         return cls("-efg")
     
     @schemas.classproperty
-    def XYZ(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
         return cls("(xyz)")
     
     @schemas.classproperty

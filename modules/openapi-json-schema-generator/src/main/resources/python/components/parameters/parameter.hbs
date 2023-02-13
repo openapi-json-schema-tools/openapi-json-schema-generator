@@ -5,7 +5,7 @@
 {{#with parameter}}
 {{#if refInfo}}
 {{> _helper_imports }}
-{{name.camelCaseName}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import typing
 import typing_extensions
@@ -14,14 +14,14 @@ from {{packageName}} import api_client
 
     {{#if schema}}
         {{#with schema}}
-from . import {{name.snakeCaseName}}
+from . import {{jsonPathPiece.snakeCase}}
         {{/with}}
     {{else}}
         {{#if content}}
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
-from .content.{{../@key.snakeCaseName}} import {{name.snakeCaseName}} as {{../@key.snakeCaseName}}_{{name.snakeCaseName}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
                     {{/with}}
                 {{/with}}
             {{/each}}

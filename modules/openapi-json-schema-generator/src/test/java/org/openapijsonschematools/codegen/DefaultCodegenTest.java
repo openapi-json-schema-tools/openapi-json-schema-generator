@@ -110,7 +110,7 @@ public class DefaultCodegenTest {
         CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
         assertEquals(operation.pathParams.get(0).imports, null);
         assertEquals(operation.pathParams.get(0).schema.imports.size(), 1);
-        Assert.assertTrue(operation.pathParams.get(0).schema.refInfo.ref.enumNameToValue != null);
+        Assert.assertTrue(operation.pathParams.get(0).schema.refInfo.ref.enumValueToName != null);
     }
 
     @Test
@@ -256,21 +256,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testArraySchemaIsNotIncludedInAliases() throws Exception {
-        final DefaultCodegen codegen = new DefaultCodegen();
-        Map<String, Schema> schemas = new HashMap<String, Schema>() {
-            {
-                put("ArraySchemaTest", new ArraySchema());
-            }
-
-        };
-
-        Map<String, String> aliases = codegen.getAllAliases(schemas);
-
-        Assert.assertEquals(aliases.size(), 0);
-    }
-
-    @Test
     public void testDateTimeFormParameterHasDefaultValue() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
         final DefaultCodegen codegen = new DefaultCodegen();
@@ -343,15 +328,15 @@ public class DefaultCodegenTest {
         CodegenSchema empty_map_cp = null;
 
         for (CodegenSchema cp : cm.properties.values()) {
-            if ("map_with_undeclared_properties_string".equals(cp.name.name)) {
+            if ("map_with_undeclared_properties_string".equals(cp.jsonPathPiece.original)) {
                 map_with_undeclared_properties_string_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_1".equals(cp.jsonPathPiece.original)) {
                 map_with_undeclared_properties_anytype_1_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_2".equals(cp.jsonPathPiece.original)) {
                 map_with_undeclared_properties_anytype_2_cp = cp;
-            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.name.name)) {
+            } else if ("map_with_undeclared_properties_anytype_3".equals(cp.jsonPathPiece.original)) {
                 map_with_undeclared_properties_anytype_3_cp = cp;
-            } else if ("empty_map".equals(cp.name.name)) {
+            } else if ("empty_map".equals(cp.jsonPathPiece.original)) {
                 empty_map_cp = cp;
             }
         }
@@ -503,10 +488,11 @@ public class DefaultCodegenTest {
     public void updateCodegenPropertyEnum() {
         CodegenSchema array = codegenPropertyWithArrayOfIntegerValues();
 
-        Map<String, EnumValue> enumVars = array.items.enumNameToValue;
+        Map<EnumValue, String> enumVars = array.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("_1").value, 1);
-        Assert.assertEquals(enumVars.get("_1").type, "integer");
+        Assert.assertEquals(enumVars.size(), 1);
+        EnumValue key = new EnumValue(1, "integer", null);
+        Assert.assertEquals(enumVars.get(key), "_1");
     }
 
     @Test
@@ -514,30 +500,30 @@ public class DefaultCodegenTest {
         DefaultCodegen codegen = new DefaultCodegen();
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("dog", "cat"), "updateCodegenPropertyEnumWithExtension1", Arrays.asList("DOGVAR", "CATVAR"));
-            LinkedHashMap<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
             Assert.assertNotNull(enumVars);
-            Assert.assertEquals(enumVars.get("DOGVAR").value, "dog");
-            Assert.assertEquals(enumVars.get("CATVAR").value, "cat");
+            Assert.assertEquals(enumVars.get(new EnumValue("dog", "string", null)), "DOGVAR");
+            Assert.assertEquals(enumVars.get(new EnumValue("cat", "string", null)), "CATVAR");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("1", "2"), "updateCodegenPropertyEnumWithExtension2", Arrays.asList("ONE", "TWO"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
-            Assert.assertEquals(enumVars.get("ONE").value, "1");
-            Assert.assertEquals(enumVars.get("TWO").value, "2");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("1", "string", null)), "ONE");
+            Assert.assertEquals(enumVars.get(new EnumValue("2", "string", null)), "TWO");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("a", "b", "c", "d"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
-            Assert.assertEquals(enumVars.get("FOO").value, "a");
-            Assert.assertEquals(enumVars.get("BAR").value, "b");
-            Assert.assertEquals(enumVars.get("C").value, "c");
-            Assert.assertEquals(enumVars.get("D").value, "d");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("a", "string", null)), "FOO");
+            Assert.assertEquals(enumVars.get(new EnumValue("b", "string", null)), "BAR");
+            Assert.assertEquals(enumVars.get(new EnumValue("c", "string", null)), "C");
+            Assert.assertEquals(enumVars.get(new EnumValue("d", "string", null)), "D");
         }
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("a", "b"), "updateCodegenPropertyEnumWithExtension3", Arrays.asList("FOO", "BAR", "BAZ"));
-            Map<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
-            Assert.assertEquals(enumVars.get("FOO").value, "a");
-            Assert.assertEquals(enumVars.get("BAR").value, "b");
+            LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
+            Assert.assertEquals(enumVars.get(new EnumValue("a", "string", null)), "FOO");
+            Assert.assertEquals(enumVars.get(new EnumValue("b", "string", null)), "BAR");
             Assert.assertEquals(enumVars.size(), 2);
         }
     }
@@ -547,10 +533,10 @@ public class DefaultCodegenTest {
         DefaultCodegen codegen = new DefaultCodegen();
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithPrefixRemoved", null);
 
-        Map<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
+        Map<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "CAT");
     }
 
     @Test
@@ -560,10 +546,10 @@ public class DefaultCodegenTest {
 
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithoutPrefixRemoved", null);
 
-        Map<String, EnumValue> enumVars = enumProperty.items.enumNameToValue;
+        Map<EnumValue, String> enumVars = enumProperty.items.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("ANIMAL_DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("ANIMAL_CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "ANIMAL_DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "ANIMAL_CAT");
     }
 
     @Test
@@ -572,10 +558,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> schemas = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithPrefixRemoved", null, null);
         CodegenSchema cm = schemas.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumNameToValue;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "CAT");
     }
 
     @Test
@@ -585,10 +571,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithoutPrefixRemoved", null, null);
         CodegenSchema cm = objs.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumNameToValue;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("ANIMAL_DOG").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("ANIMAL_CAT").value, "animal_cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", null)), "ANIMAL_DOG");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", null)), "ANIMAL_CAT");
     }
 
     @Test
@@ -597,12 +583,10 @@ public class DefaultCodegenTest {
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithExtension", Arrays.asList("DOGVAR", "CATVAR"), Arrays.asList("This is a dog", "This is a cat"));
         CodegenSchema cm = objs.get("model");
 
-        Map<String, EnumValue> enumVars = cm.enumNameToValue;
+        Map<EnumValue, String> enumVars = cm.enumValueToName;
         Assert.assertNotNull(enumVars);
-        Assert.assertEquals(enumVars.get("DOGVAR").value, "animal_dog");
-        Assert.assertEquals(enumVars.get("DOGVAR").description, "This is a dog");
-        Assert.assertEquals(enumVars.get("CATVAR").value, "animal_cat");
-        Assert.assertEquals(enumVars.get("CATVAR").description, "This is a cat");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_dog", "string", "This is a dog")), "DOGVAR");
+        Assert.assertEquals(enumVars.get(new EnumValue("animal_cat", "string", "This is a cat")), "CATVAR");
     }
 
     @Test
@@ -663,7 +647,8 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
 
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, mappedModels);
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(ck, null, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
         assertEquals(animalModel.hasDiscriminatorWithNonEmptyMapping(), true);
     }
@@ -712,7 +697,8 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, new TreeSet<>());
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, new TreeSet<>());
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -733,7 +719,9 @@ public class DefaultCodegenTest {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
-        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+
+        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema pet = codegen.fromSchema(
@@ -750,7 +738,8 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
         }
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema reptile = codegen.fromSchema(
@@ -767,7 +756,8 @@ public class DefaultCodegenTest {
         for (String myPetName : myPetNames) {
             hs.add(new CodegenDiscriminator.MappedModel(myPetName, codegen.toModelName(myPetName)));
         }
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         modelName = "MyPets";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema myPets = codegen.fromSchema(
@@ -845,7 +835,8 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, null);
+        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, null);
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
         List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
@@ -865,7 +856,8 @@ public class DefaultCodegenTest {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
-        CodegenDiscriminator petDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema pet = codegen.fromSchema(
@@ -881,7 +873,8 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
         }
-        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
         CodegenSchema reptile = codegen.fromSchema(
@@ -892,7 +885,8 @@ public class DefaultCodegenTest {
         Assert.assertNull(reptile.discriminator);
 
         // the MyPets discriminator contains Cat and Lizard
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(propertyName, propertyBaseName, null, false, hs);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         hs.clear();
         modelName = "MyPets";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -1286,7 +1280,8 @@ public class DefaultCodegenTest {
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        CodegenDiscriminator test = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey testPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator test = new CodegenDiscriminator(testPropName, mapping, mappedModels);
         assertEquals(discriminator, test);
     }
 
@@ -1298,7 +1293,8 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
 
@@ -1310,7 +1306,8 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
 
@@ -1341,17 +1338,16 @@ public class DefaultCodegenTest {
         Assert.assertNotNull(cm);
 
         // check that the discriminator's MappedModels also contains the x-discriminator-values
-        String prop = "object_type";
-        String propertyName = config.toVarName(prop);
-        String propertyBaseName = prop;
+        String propertyName = "object_type";
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-        discriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
-        assertEquals(cm.discriminator, discriminator);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
+        assertEquals(cm.discriminator, expectedDiscriminator);
     }
 
 
@@ -1405,7 +1401,7 @@ public class DefaultCodegenTest {
     }
 
     private List<String> getRequiredVars(CodegenSchema model) {
-        return model.requiredProperties.keySet().stream().map(ck -> ck.name).collect(Collectors.toList());
+        return model.requiredProperties.keySet().stream().map(ck -> ck.original).collect(Collectors.toList());
     }
 
     @Test
@@ -1444,17 +1440,17 @@ public class DefaultCodegenTest {
             Assert.assertEquals(req.responses.size(), 2);
 
             CodegenKey ck = codegen.getKey("application/json");
-            switch (req.httpMethod.name) {
+            switch (req.httpMethod.original) {
                 case "post":
-                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataPost");
+                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataPost");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "NewNotificationData");
                     break;
                 case "delete":
-                    Assert.assertEquals(req.operationId.camelCaseName, "OnDataDataDelete");
+                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataDelete");
                     Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "DeleteNotificationData");
                     break;
                 default:
-                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod.name));
+                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.httpMethod.original));
             }
         });
     }
@@ -1470,9 +1466,9 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co1 = codegen.fromOperation("/here", "get", operation2, null);
-        Assert.assertEquals(co1.path.name, "/here");
+        Assert.assertEquals(co1.path.original, "/here");
         CodegenOperation co2 = codegen.fromOperation("some/path", "get", operation2, null);
-        Assert.assertEquals(co2.path.name, "/some/path");
+        Assert.assertEquals(co2.path.original, "/some/path");
     }
 
     @Test
@@ -1490,8 +1486,8 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co = codegen.fromOperation("/here", "get", myOperation, null);
-        Assert.assertEquals(co.responses.get("422").message, "Error");
-        Assert.assertEquals(co.responses.get("default").message, "Default");
+        Assert.assertEquals(co.responses.get("422").description, "Error");
+        Assert.assertEquals(co.responses.get("default").description, "Default");
     }
 
     @Test
@@ -1624,7 +1620,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.jsonPathPiece.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("integer"));
 
@@ -1634,7 +1630,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.jsonPathPiece.original, "someModel");
         Assert.assertTrue(cm.types.contains("integer"));
         Assert.assertTrue(cm.types.size() == 1);
     }
@@ -1652,7 +1648,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.jsonPathPiece.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("integer"));
         Assert.assertTrue(cp.format.equals("int64"));
@@ -1663,7 +1659,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.jsonPathPiece.original, "someModel");
         Assert.assertTrue(cm.types.size() == 1);
         Assert.assertTrue(cm.types.contains("integer"));
         Assert.assertTrue(cm.format.equals("int64"));
@@ -1682,7 +1678,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A/properties/someProperty",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.jsonPathPiece.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
 
@@ -1692,7 +1688,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.jsonPathPiece.original, "someModel");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
     }
@@ -1710,7 +1706,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.jsonPathPiece.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
         Assert.assertTrue(cp.format.equals("float"));
@@ -1721,7 +1717,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.jsonPathPiece.original, "someModel");
         assertEquals(cm.types.size(), 1);
         Assert.assertTrue(cm.types.contains("number"));
         assertEquals(cm.format, "float");
@@ -1740,7 +1736,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/A",
                 "#/components/schemas/A/properties/someProperty"
         );
-        Assert.assertEquals(cp.name.name, "someProperty");
+        Assert.assertEquals(cp.jsonPathPiece.original, "someProperty");
         Assert.assertTrue(cp.types.size() == 1);
         Assert.assertTrue(cp.types.contains("number"));
         Assert.assertTrue(cp.format.equals("double"));
@@ -1751,7 +1747,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/someModel",
                 "#/components/schemas/someModel"
         );
-        Assert.assertEquals(cm.name.name, "someModel");
+        Assert.assertEquals(cm.jsonPathPiece.original, "someModel");
         Assert.assertTrue(cm.types.size() == 1);
         Assert.assertTrue(cm.types.contains("number"));
         Assert.assertTrue(cm.format.equals("double"));
@@ -1780,8 +1776,7 @@ public class DefaultCodegenTest {
     }
 
     private void verifyPersonDiscriminator(CodegenDiscriminator discriminator) {
-        String propertyName = "DollarUnderscoretype";
-        String propertyBaseName = "$_type";
+        String propertyName = "$_type";
         HashMap<String, String> mapping = new HashMap<>();
         mapping.put("a", "#/components/schemas/Adult");
         mapping.put("c", "Child");
@@ -1791,7 +1786,8 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Child", "Child"));
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(propertyName, propertyBaseName, mapping, false, mappedModels);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
     }
 
@@ -3145,7 +3141,7 @@ public class DefaultCodegenTest {
         ));
         for (CodegenKey key: cm.properties.keySet()) {
             CodegenSchema prop = cm.properties.get(key);
-            if (propertyNamesWithoutRequired.contains(key.name)) {
+            if (propertyNamesWithoutRequired.contains(key.original)) {
                 assertNull(prop.requiredProperties);
             } else {
                 assertNotNull(prop.requiredProperties);
@@ -3190,7 +3186,7 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
         ));
         for (CodegenParameter param : co.pathParams) {
-            if (!modelNamesWithoutRequired.contains(param.baseName)) {
+            if (!modelNamesWithoutRequired.contains(param.name)) {
                 // All variables must be in the above sets
                 fail();
             }
@@ -3232,7 +3228,7 @@ public class DefaultCodegenTest {
         CodegenKey ck = codegen.getKey("application/json");
         for (CodegenResponse cr : co.responses.values()) {
             LinkedHashMap<CodegenKey, CodegenSchema> reqProps = cr.content.get(ck).schema.requiredProperties;
-            if (modelNamesWithoutRequired.contains(cr.message)) {
+            if (modelNamesWithoutRequired.contains(cr.description)) {
                 assertNull(reqProps);
             } else {
                 assertNotNull(reqProps);
@@ -3372,7 +3368,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "UsersGetAll");
+        assertEquals(co.operationId.camelCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3381,7 +3377,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3390,7 +3386,7 @@ public class DefaultCodegenTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3399,7 +3395,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "UsersGetAll");
+        assertEquals(co.operationId.camelCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3408,7 +3404,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3417,7 +3413,7 @@ public class DefaultCodegenTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(path, "GET", operation, null);
-        assertEquals(co.operationId.camelCaseName, "GetAll");
+        assertEquals(co.operationId.camelCase, "GetAll");
     }
 
     @Test
@@ -3767,7 +3763,7 @@ public class DefaultCodegenTest {
         CodegenSchema cp = mt.schema;
         assertTrue(cp.types.contains("object"));
         assertEquals(cp.refInfo, null);
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
 
         CodegenParameter coordinatesReferencedSchema = co.queryParams.get(1);
         content = coordinatesReferencedSchema.content;
@@ -3776,7 +3772,7 @@ public class DefaultCodegenTest {
         cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object")); // because it is a referenced schema
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
     }
 
     @Test
@@ -3798,13 +3794,13 @@ public class DefaultCodegenTest {
         CodegenMediaType mt = content.get(jsonKey);
         assertNull(mt.encoding);
         CodegenSchema cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertNotNull(cp);
 
         mt = content.get(textKey);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertNotNull(cp);
         // Note: the inline model resolver has a bug for this use case; it extracts an inline request body into a component
         // but the schema it references is not string type
@@ -3820,7 +3816,7 @@ public class DefaultCodegenTest {
         mt = content.get(applicationJson);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertEquals(cp.refInfo.refClass, "Coordinates");
 
         codegen.fromSchema(
@@ -3832,7 +3828,7 @@ public class DefaultCodegenTest {
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
 
         codegen.fromSchema(
@@ -3872,14 +3868,14 @@ public class DefaultCodegenTest {
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(ck)));
 
         CodegenParameter schemaParam = co.queryParams.get(2);
-        assertEquals(schemaParam.schema.name.name, "schema");
+        assertEquals(schemaParam.schema.jsonPathPiece.original, "schema");
 
         CodegenResponse cr = co.responses.get("200");
         Map<String, CodegenHeader> responseHeaders = cr.headers;
         assertEquals(2, responseHeaders.size());
         CodegenHeader header1 = responseHeaders.get("X-Rate-Limit");
         assertTrue(header1.schema.types.contains("integer"));
-        assertEquals(header1.schema.name.name, "schema");
+        assertEquals(header1.schema.jsonPathPiece.original, "schema");
 
         codegen.fromHeader(
                 openAPI.getComponents().getHeaders().get("X-Rate-Limit"),
@@ -3888,7 +3884,7 @@ public class DefaultCodegenTest {
 
         CodegenHeader header2 = responseHeaders.get("X-Rate-Limit-Ref");
         assertTrue(header2.refInfo.ref.schema.types.contains("integer"));
-        assertEquals(header2.refInfo.ref.schema.name.name, "schema");
+        assertEquals(header2.refInfo.ref.schema.jsonPathPiece.original, "schema");
 
         content = cr.content;
         CodegenKey applicationJson = codegen.getKey("application/json");
@@ -3899,7 +3895,7 @@ public class DefaultCodegenTest {
         CodegenSchema cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object"));
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
 
         codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("stringWithMinLength"),
@@ -3910,7 +3906,7 @@ public class DefaultCodegenTest {
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
 
         codegen.fromSchema(
@@ -3927,12 +3923,12 @@ public class DefaultCodegenTest {
         cp = mt.schema;
         assertTrue(cp.refInfo.ref.types.contains("object"));
         assertEquals(cp.refInfo.refClass, "Coordinates");
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
 
         mt = content.get(textPlain);
         assertNull(mt.encoding);
         cp = mt.schema;
-        assertEquals(cp.name.name, "schema");
+        assertEquals(cp.jsonPathPiece.original, "schema");
         assertTrue(cp.refInfo.ref.types.contains("string"));
     }
 
@@ -3982,12 +3978,12 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         CodegenKey ck = codegen.getKey("foo");
-        Assert.assertEquals(fooRequired.properties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooRequired.properties.get(ck).jsonPathPiece.original, "foo");
 
         assertEquals(fooRequired.requiredProperties.size(), 1);
-        Assert.assertEquals(fooRequired.requiredProperties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooRequired.requiredProperties.get(ck).jsonPathPiece.original, "foo");
 
-        Assert.assertEquals(fooOptional.properties.get(ck).name.name, "foo");
+        Assert.assertEquals(fooOptional.properties.get(ck).jsonPathPiece.original, "foo");
         assertEquals(fooOptional.requiredProperties, null);
     }
 
@@ -4027,7 +4023,7 @@ public class DefaultCodegenTest {
         @Test
         public void setShouldExplode() {
             CodegenParameter parameter = codegenParameter("/set_should_explode");
-            assertTrue(parameter.isExplode);
+            assertTrue(parameter.explode);
         }
 
         @Test

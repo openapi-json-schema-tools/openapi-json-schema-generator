@@ -32,9 +32,9 @@ class Schema(
         return cls("_abc")
     
     @schemas.classproperty
-    def EFG(cls):
+    def HYPHEN_MINUS_EFG(cls):
         return cls("-efg")
     
     @schemas.classproperty
-    def XYZ(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
         return cls("(xyz)")

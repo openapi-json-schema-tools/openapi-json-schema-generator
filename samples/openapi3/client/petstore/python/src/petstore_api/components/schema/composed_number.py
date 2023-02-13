@@ -39,19 +39,19 @@ class ComposedNumber(
         }
         
         class AllOf:
-            AllOf0 = schemas.AnyTypeSchema
+            _0 = schemas.AnyTypeSchema
             classes = [
-                AllOf0,
+                _0,
             ]
 
 
     def __new__(
         cls,
-        *args_: typing.Union[decimal.Decimal, int, float, ],
+        arg_: typing.Union[decimal.Decimal, int, float, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedNumber':
         return super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
         )

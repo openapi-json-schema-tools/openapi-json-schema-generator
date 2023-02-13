@@ -123,7 +123,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='put'.upper(),
+            method='put',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -158,7 +158,7 @@ class BaseApi(api_client.Api):
 
 
 class UpdatePet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def update_pet(

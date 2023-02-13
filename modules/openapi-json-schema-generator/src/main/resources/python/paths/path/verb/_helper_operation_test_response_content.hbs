@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod.name}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.name}}}"].schema
+response_body_schema = {{httpMethod.original}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.original}}}"].schema
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}
@@ -9,7 +9,7 @@ response_body_schema = {{httpMethod.name}}.response_{{../@key}}.{{responseClassN
 
 def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
     # {{description}}
-    accept_content_type = '{{{../@key.name}}}'
+    accept_content_type = '{{{../@key.original}}}'
 
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
         payload = (
@@ -33,13 +33,13 @@ def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         assert api_response.body == deserialized_response_body
     {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            self.api.{{httpMethod.name}}(
+            self.api.{{httpMethod.original}}(
                 accept_content_types=(accept_content_type,)
             )
         self.assert_pool_manager_request_called_with(
             mock_request,
-            self.configuration_.host + "{{{path.name}}}",
-            method='{{httpMethod.name}}'.upper(),
+            self.configuration_.host + "{{{path.original}}}",
+            method='{{httpMethod.original}}'.upper(),
             content_type=None,
             accept_content_type=accept_content_type,
         )

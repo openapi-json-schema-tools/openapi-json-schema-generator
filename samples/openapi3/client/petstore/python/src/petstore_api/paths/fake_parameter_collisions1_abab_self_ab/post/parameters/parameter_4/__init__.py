@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _4(api_client.QueryParameter):
+class Parameter4(api_client.QueryParameter):
     name = "A-B"
     style = api_client.ParameterStyle.FORM
     schema = schema.Schema

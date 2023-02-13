@@ -71,10 +71,10 @@ Type | Description  | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [_0.schema](#parameter_0schema) | | 
+query | [Parameter0.schema](#parameter_0schema) | | 
 
 
-# <a id="parameter_0schema" >_0.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

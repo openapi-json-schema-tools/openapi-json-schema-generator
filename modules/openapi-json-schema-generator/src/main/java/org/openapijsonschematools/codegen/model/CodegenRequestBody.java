@@ -13,36 +13,29 @@ import java.util.TreeSet;
 public class CodegenRequestBody {
     public final String description;
     public final String unescapedDescription;
-    public final String jsonSchema;
     public final Map<String, Object> vendorExtensions;
-    /**
-     * Determines whether this parameter is mandatory. If the parameter is in "path",
-     * this property is required and its value MUST be true. Otherwise, the property
-     * MAY be included and its default value is false.
-     */
-    public final boolean required;
+    public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
     public final String componentModule;
-    public final CodegenKey name;
+    public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
 
-    public CodegenRequestBody(String description, String unescapedDescription, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey name, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
         this.imports = imports;
         this.componentModule = componentModule;
-        this.name = name;
+        this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(description, unescapedDescription, name, jsonSchema, vendorExtensions, required, content, refInfo, imports, componentModule);
+        return Objects.hash(description, unescapedDescription, jsonPathPiece, vendorExtensions, required, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -51,22 +44,20 @@ public class CodegenRequestBody {
         if (!(o instanceof CodegenRequestBody)) return false;
         CodegenRequestBody that = (CodegenRequestBody) o;
         return required == that.required &&
-            Objects.equals(name, that.name) &&
+            Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
             Objects.equals(componentModule, that.componentModule) &&
             Objects.equals(imports, that.imports) &&
             Objects.equals(content, that.content) &&
             Objects.equals(description, that.description) &&
             Objects.equals(unescapedDescription, that.unescapedDescription) &&
-            Objects.equals(jsonSchema, that.jsonSchema) &&
             Objects.equals(vendorExtensions, that.vendorExtensions) &&
             Objects.equals(refInfo, that.refInfo);
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
-        sb.append("name='").append(name).append('\'');
+        sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);

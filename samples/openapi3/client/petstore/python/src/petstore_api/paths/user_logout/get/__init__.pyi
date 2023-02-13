@@ -75,7 +75,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='get'.upper(),
+            method='get',
             stream=stream,
             timeout=timeout,
         )
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
 
 
 class LogoutUser(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def logout_user(

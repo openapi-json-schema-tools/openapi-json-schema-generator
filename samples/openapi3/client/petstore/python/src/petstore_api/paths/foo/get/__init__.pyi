@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='get'.upper(),
+            method='get',
             headers=_headers,
             stream=stream,
             timeout=timeout,
@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
 
 
 class FooGet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def foo_get(

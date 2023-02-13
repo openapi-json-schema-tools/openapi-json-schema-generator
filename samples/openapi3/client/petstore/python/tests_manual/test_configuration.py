@@ -41,7 +41,7 @@ class ConfigurationTests(unittest.TestCase):
             mock_request.return_value = urllib3.HTTPResponse(status=200)
             api.add_pet({'name': 'pet', 'photoUrls': []})
             mock_request.assert_called_with(
-                'POST',
+                'post',
                 'https://path-server-test.petstore.local/v2/pet',
                 headers=HTTPHeaderDict({
                     'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ class ConfigurationTests(unittest.TestCase):
             mock_request.return_value = urllib3.HTTPResponse(status=200)
             api.delete_pet(path_params=dict(petId=123456789))
             mock_request.assert_called_with(
-                'DELETE',
+                'delete',
                 'https://localhost:8080/v1/pet/123456789',
                 headers={'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python'},
                 fields=None,

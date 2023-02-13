@@ -20,21 +20,20 @@ package org.openapijsonschematools.codegen.model;
 import java.util.*;
 
 public class CodegenResponse {
-    public final CodegenKey name;
+    public final String description;
     public final Map<String, CodegenHeader> headers;
-    public final String message;
-    public final String jsonSchema;
-    public final Map<String, Object> vendorExtensions;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final CodegenRefInfo<CodegenResponse> refInfo;
+    // TODO add links in the future
+    public final CodegenKey jsonPathPiece;
+    public final Map<String, Object> vendorExtensions;
     public final TreeSet<String> imports;
     public final String componentModule;
 
-    public CodegenResponse(CodegenKey name, Map<String, CodegenHeader> headers, String message, String jsonSchema, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, String componentModule) {
-        this.name = name;
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, String componentModule) {
+        this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
-        this.message = message;
-        this.jsonSchema = jsonSchema;
+        this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.content = content;
         this.refInfo = refInfo;
@@ -44,9 +43,8 @@ public class CodegenResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, message,
-                jsonSchema, vendorExtensions,
-                headers, content,
+        return Objects.hash(jsonPathPiece, description,
+                vendorExtensions, headers, content,
                 refInfo, imports, componentModule);
     }
 
@@ -55,13 +53,12 @@ public class CodegenResponse {
         if (this == o) return true;
         if (!(o instanceof CodegenResponse)) return false;
         CodegenResponse that = (CodegenResponse) o;
-        return Objects.equals(name, that.name) &&
+        return Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(headers, that.headers) &&
-                Objects.equals(message, that.message) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
+                Objects.equals(description, that.description) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(componentModule, that.componentModule);
     }
@@ -69,9 +66,8 @@ public class CodegenResponse {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenResponse{");
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", message='").append(message).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
+        sb.append(", name='").append(jsonPathPiece).append('\'');
+        sb.append(", message='").append(description).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", headers=").append(headers);
         sb.append(", content=").append(content);

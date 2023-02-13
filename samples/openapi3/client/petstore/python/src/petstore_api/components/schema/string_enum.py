@@ -46,8 +46,8 @@ class StringEnum(
             "approved": "APPROVED",
             "delivered": "DELIVERED",
             "single quoted": "SINGLE_QUOTED",
-            "multiple\nlines": "MULTIPLE_NEW_LINE_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE__NEW_LINE__WITH_NEWLINE",
+            "multiple\nlines": "MULTIPLE_LINE_FEED_LF_LINES",
+            "double quote \n with newline": "DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE",
             schemas.NoneClass.NONE: "NONE",
         }
     
@@ -68,11 +68,11 @@ class StringEnum(
         return cls("single quoted")
     
     @schemas.classproperty
-    def MULTIPLE_NEW_LINE_LINES(cls):
+    def MULTIPLE_LINE_FEED_LF_LINES(cls):
         return cls("multiple\nlines")
     
     @schemas.classproperty
-    def DOUBLE_QUOTE__NEW_LINE__WITH_NEWLINE(cls):
+    def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls):
         return cls("double quote \n with newline")
     
     @schemas.classproperty
@@ -82,11 +82,11 @@ class StringEnum(
 
     def __new__(
         cls,
-        *args_: typing.Union[None, str, ],
+        arg_: typing.Union[None, str, ],
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'StringEnum':
         return super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
         )

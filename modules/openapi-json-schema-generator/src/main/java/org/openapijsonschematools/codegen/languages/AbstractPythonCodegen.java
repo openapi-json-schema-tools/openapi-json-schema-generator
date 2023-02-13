@@ -216,28 +216,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toOperationId(String operationId) {
-        // throw exception if method name is empty (should not occur as an auto-generated method name will be used)
-        if (StringUtils.isEmpty(operationId)) {
-            throw new RuntimeException("Empty method name (operationId) not allowed");
-        }
-
-        // method name cannot use reserved keyword, e.g. return
-        if (isReservedWord(operationId)) {
-            LOGGER.warn("{} (reserved word) cannot be used as method name. Renamed to {}", operationId, underscore(sanitizeName("call_" + operationId)));
-            operationId = "call_" + operationId;
-        }
-
-        // operationId starts with a number
-        if (operationId.matches("^\\d.*")) {
-            LOGGER.warn("{} (starting with a number) cannot be used as method name. Renamed to {}", operationId, underscore(sanitizeName("call_" + operationId)));
-            operationId = "call_" + operationId;
-        }
-
-        return underscore(sanitizeName(operationId));
-    }
-
-    @Override
     public String escapeQuotationMark(String input) {
         // remove ' to avoid code injection
         return input.replace("'", "");

@@ -49,10 +49,10 @@ class ParentPet(
         class AllOf:
         
             @staticmethod
-            def all_of0() -> typing.Type['grandparent_animal.GrandparentAnimal']:
+            def _0() -> typing.Type['grandparent_animal.GrandparentAnimal']:
                 return grandparent_animal.GrandparentAnimal
             classes = [
-                all_of0,
+                _0,
             ]
 
 

@@ -53,16 +53,16 @@ class Schema(
                                 str,
                             }
                             enum_value_to_name = {
-                                ">": "GREATER_THAN",
-                                "$": "DOLLAR",
+                                ">": "GREATER_THAN_SIGN",
+                                "$": "DOLLAR_SIGN",
                             }
                         
                         @schemas.classproperty
-                        def GREATER_THAN(cls):
+                        def GREATER_THAN_SIGN(cls):
                             return cls(">")
                         
                         @schemas.classproperty
-                        def DOLLAR(cls):
+                        def DOLLAR_SIGN(cls):
                             return cls("$")
             
                 def __new__(
@@ -98,8 +98,8 @@ class Schema(
                     }
                     enum_value_to_name = {
                         "_abc": "_ABC",
-                        "-efg": "EFG",
-                        "(xyz)": "XYZ",
+                        "-efg": "HYPHEN_MINUS_EFG",
+                        "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
                     }
                 
                 @schemas.classproperty
@@ -107,11 +107,11 @@ class Schema(
                     return cls("_abc")
                 
                 @schemas.classproperty
-                def EFG(cls):
+                def HYPHEN_MINUS_EFG(cls):
                     return cls("-efg")
                 
                 @schemas.classproperty
-                def XYZ(cls):
+                def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
                     return cls("(xyz)")
             __annotations__ = {
                 "enum_form_string_array": EnumFormStringArray,

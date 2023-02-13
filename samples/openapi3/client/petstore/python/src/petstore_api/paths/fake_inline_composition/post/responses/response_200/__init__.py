@@ -33,7 +33,7 @@ class _ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class _200(api_client.OpenApiResponse[_ApiResponse]):
+class ResponseFor200(api_client.OpenApiResponse[_ApiResponse]):
     response_cls = _ApiResponse
 
 

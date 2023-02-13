@@ -56,37 +56,37 @@ username | [PathUserName](../../../components/parameters/parameter_path_user_nam
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | successful operation
-400 | [_400.response_cls](#response_400response_cls) | Invalid username supplied
-404 | [_404.response_cls](#response_404response_cls) | User not found
+200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
+404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_xml.schema](#response_200contentapplication_xmlschema), [_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_xmlschema" >_200.content.application_xml.schema</a>
+# <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../../components/schema/user.User.md) |  | 
 
 
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../../components/schema/user.User.md) |  | 
 
 
-#### <a id="response_400response_cls" >_400.response_cls</a>
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404response_cls" >_404.response_cls</a>
+#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

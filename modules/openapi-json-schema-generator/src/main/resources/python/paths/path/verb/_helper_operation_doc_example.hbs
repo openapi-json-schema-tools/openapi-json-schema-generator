@@ -34,11 +34,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{#each pathParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
                 {{/if}}
             {{else}}
                 {{#if required}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
                 {{/if}}
             {{/if}}
         {{/each}}
@@ -49,11 +49,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{#each queryParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
                 {{/if}}
             {{else}}
             {{#if required}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
                 {{/if}}
             {{/if}}
         {{/each}}
@@ -64,11 +64,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{#each cookieParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
                 {{/if}}
             {{else}}
                 {{#if required}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
                 {{/if}}
             {{/if}}
         {{/each}}
@@ -79,11 +79,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         {{#each headerParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
                 {{/if}}
             {{else}}
                 {{#if required}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
                 {{/if}}
             {{/if}}
         {{/each}}
@@ -116,7 +116,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}(
+        api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParams}}
             path_params=path_params,
     {{/if}}
@@ -144,11 +144,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}
@@ -160,9 +160,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     path_params = {
         {{#each pathParams}}
             {{#if refInfo}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
     }
@@ -171,9 +171,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     query_params = {
         {{#each queryParams}}
             {{#if refInfo}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
     }
@@ -182,9 +182,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     cookie_params = {
         {{#each cookieParams}}
             {{#if refInfo}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
     }
@@ -193,9 +193,9 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     header_params = {
         {{#each headerParams}}
             {{#if refInfo}}
-        '{{getDeepestRef.baseName}}': {{{getDeepestRef.example}}},
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
-        '{{baseName}}': {{{example}}},
+        '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
     }
@@ -223,7 +223,7 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}(
+        api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParams}}
             path_params=path_params,
     {{/if}}
@@ -243,11 +243,11 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}
@@ -260,15 +260,15 @@ with {{{packageName}}}.ApiClient(configuration) as api_client:
     {{#if summary}}
         # {{{summary}}}
     {{/if}}
-        api_response = api_instance.{{{operationId.snakeCaseName}}}()
+        api_response = api_instance.{{{operationId.snakeCase}}}()
         pprint(api_response)
     except {{{packageName}}}.ApiException as e:
     {{#if tag}}
-        print("Exception when calling {{tag.className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
     {{else}}
         {{#each tags}}
             {{#if @first}}
-        print("Exception when calling {{className}}->{{operationId.snakeCaseName}}: %s\n" % e)
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
             {{/if}}
         {{/each}}
     {{/if}}

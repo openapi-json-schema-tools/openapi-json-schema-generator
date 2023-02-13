@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _0(api_client.QueryParameter):
+class Parameter0(api_client.QueryParameter):
     name = "mapBean"
     style=api_client.ParameterStyle.DEEP_OBJECT
     schema = schema.Schema

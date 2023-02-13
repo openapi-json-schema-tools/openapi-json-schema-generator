@@ -36,7 +36,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[parameter_0._0.schema, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_0.Parameter0.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -52,7 +52,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 _auth = [
     'petstore_auth',
@@ -62,11 +62,11 @@ _auth = [
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '405': response_405._405,
+        '405': response_405.ResponseFor405,
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '405': response_405._405,
+    '405': response_405.ResponseFor405,
 }
 
 
@@ -159,7 +159,7 @@ class BaseApi(api_client.Api):
                 _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post'.upper(),
+            method='post',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -191,7 +191,7 @@ class BaseApi(api_client.Api):
 
 
 class UpdatePetWithForm(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def update_pet_with_form(

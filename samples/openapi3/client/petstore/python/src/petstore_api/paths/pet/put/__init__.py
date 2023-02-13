@@ -52,15 +52,15 @@ _servers = (
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': response_400._400,
-        '404': response_404._404,
-        '405': response_405._405,
+        '400': response_400.ResponseFor400,
+        '404': response_404.ResponseFor404,
+        '405': response_405.ResponseFor405,
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '400': response_400._400,
-    '404': response_404._404,
-    '405': response_405._405,
+    '400': response_400.ResponseFor400,
+    '404': response_404.ResponseFor404,
+    '405': response_405.ResponseFor405,
 }
 
 
@@ -155,7 +155,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='put'.upper(),
+            method='put',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -190,7 +190,7 @@ class BaseApi(api_client.Api):
 
 
 class UpdatePet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def update_pet(

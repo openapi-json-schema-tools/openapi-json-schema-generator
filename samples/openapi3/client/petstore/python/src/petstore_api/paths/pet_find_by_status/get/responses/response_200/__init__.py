@@ -8,4 +8,4 @@
 
 
 from petstore_api.components.responses import response_successful_xml_and_json_array_of_pet
-_200 = response_successful_xml_and_json_array_of_pet.SuccessfulXmlAndJsonArrayOfPet
+ResponseFor200 = response_successful_xml_and_json_array_of_pet.SuccessfulXmlAndJsonArrayOfPet

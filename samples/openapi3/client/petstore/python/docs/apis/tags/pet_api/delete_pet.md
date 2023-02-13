@@ -80,9 +80,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [_0.schema](#parameter_0schema) | | optional
+api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
-# <a id="parameter_0schema" >_0.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -94,9 +94,9 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [_1.schema](#parameter_1schema) | | 
+petId | [Parameter1.schema](#parameter_1schema) | | 
 
-# <a id="parameter_1schema" >_1.schema</a>
+# <a id="parameter_1schema" >Parameter1.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -108,9 +108,9 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [_400.response_cls](#response_400response_cls) | Invalid pet value
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid pet value
 
-#### <a id="response_400response_cls" >_400.response_cls</a>
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

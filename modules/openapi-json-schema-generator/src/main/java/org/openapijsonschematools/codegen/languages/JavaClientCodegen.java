@@ -786,7 +786,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (model.enumNameToValue == null) {
+        if (model.enumValueToName == null) {
             //final String lib = getLibrary();
             //Needed imports for Jackson based libraries
             if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
@@ -954,9 +954,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
-        generateYAMLSpecFile(objs);
-        return super.postProcessSupportingFileData(objs);
+    public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
+        generateYAMLSpecFile(data);
+        return super.postProcessSupportingFileData(data);
     }
 
     @Override
@@ -966,17 +966,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             apiVarName = escapeReservedWord(apiVarName);
         }
         return apiVarName;
-    }
-
-    @Override
-    public void addImportsToOneOfInterface(List<Map<String, String>> imports) {
-        for (String i : Arrays.asList("JsonSubTypes", "JsonTypeInfo", "JsonIgnoreProperties")) {
-            Map<String, String> oneImport = new HashMap<>();
-            oneImport.put("import", importMapping.get(i));
-            if (!imports.contains(oneImport)) {
-                imports.add(oneImport);
-            }
-        }
     }
 
     @Override

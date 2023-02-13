@@ -40,7 +40,7 @@ class RequestHeaderParameters:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'api_key': typing.Union[parameter_0._0.schema, str, ],
+            'api_key': typing.Union[parameter_0.Parameter0.schema, str, ],
         },
         total=False
     )
@@ -51,14 +51,14 @@ class RequestHeaderParameters:
 
 
     parameters = [
-        parameter_0._0,
+        parameter_0.Parameter0,
     ]
 
 class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[parameter_1._1.schema, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_1.Parameter1.schema, decimal.Decimal, int, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -74,7 +74,7 @@ class RequestPathParameters:
 
 
     parameters = [
-        parameter_1._1,
+        parameter_1.Parameter1,
     ]
 
 class BaseApi(api_client.Api):
@@ -149,7 +149,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='delete'.upper(),
+            method='delete',
             headers=_headers,
             auth_settings=_auth,
             stream=stream,
@@ -179,7 +179,7 @@ class BaseApi(api_client.Api):
 
 
 class DeletePet(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def delete_pet(

@@ -38,14 +38,14 @@ class EnumWithEscapedCharacters(
             str,
         }
         enum_value_to_name = {
-            "foo\nbar": "FOO_NEW_LINE_BAR",
-            "foo\rbar": "FOO_CARRIAGE_RETURN_BAR",
+            "foo\nbar": "FOO_LINE_FEED_LF_BAR",
+            "foo\rbar": "FOO_CARRIAGE_RETURN_CR_BAR",
         }
     
     @schemas.classproperty
-    def FOO_NEW_LINE_BAR(cls):
+    def FOO_LINE_FEED_LF_BAR(cls):
         return cls("foo\nbar")
     
     @schemas.classproperty
-    def FOO_CARRIAGE_RETURN_BAR(cls):
+    def FOO_CARRIAGE_RETURN_CR_BAR(cls):
         return cls("foo\rbar")

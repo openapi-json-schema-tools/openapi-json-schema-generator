@@ -1,7 +1,7 @@
 {{#if requiredProperties}}
 required = {
 {{#each requiredProperties}}
-    "{{{@key.name}}}",
+    "{{{@key.original}}}",
 {{/each}}
 }
 {{/if}}
@@ -13,7 +13,7 @@ required = {
 @staticmethod
 def discriminator():
     return {
-        '{{{propertyBaseName}}}': {
+        '{{{propertyName.original}}}': {
 {{/if}}
             '{{mappingName}}': {{{modelName}}},
 {{#if @last}}
@@ -37,9 +37,9 @@ class Properties:
     __annotations__ = {
 {{#each properties}}
 {{#if refInfo.refClass}}
-        "{{{@key.name}}}": {{name.snakeCaseName}},
+        "{{{@key.original}}}": {{jsonPathPiece.snakeCase}},
 {{else}}
-        "{{{@key.name}}}": {{name.camelCaseName}},
+        "{{{@key.original}}}": {{jsonPathPiece.camelCase}},
 {{/if}}
 {{/each}}
     }

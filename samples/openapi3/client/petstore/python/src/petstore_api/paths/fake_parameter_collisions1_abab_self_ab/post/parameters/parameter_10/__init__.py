@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _10(api_client.PathParameter):
+class Parameter10(api_client.PathParameter):
     name = "aB"
     style = api_client.ParameterStyle.SIMPLE
     schema = schema.Schema

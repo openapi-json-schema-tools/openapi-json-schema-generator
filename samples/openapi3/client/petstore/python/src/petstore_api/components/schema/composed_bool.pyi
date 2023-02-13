@@ -39,19 +39,19 @@ class ComposedBool(
         }
         
         class AllOf:
-            AllOf0 = schemas.AnyTypeSchema
+            _0 = schemas.AnyTypeSchema
             classes = [
-                AllOf0,
+                _0,
             ]
 
 
     def __new__(
         cls,
-        *args_: typing.Union[bool, ],
+        arg_: bool, 
         configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
     ) -> 'ComposedBool':
         return super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
         )

@@ -704,7 +704,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return schema.from_openapi_data_(extracted_data)
+                return cls.schema.from_openapi_data_(extracted_data)
         # cls.content will be length one
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
@@ -896,7 +896,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         if cls.headers is not None:
             cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
-            for header_name, header_param in self.headers.items():
+            for header_name, header_param in cls.headers.items():
                 header_value = response.headers.get(header_name)
                 if header_value is None:
                     continue
@@ -1152,46 +1152,46 @@ class ApiClient:
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request using RESTClient."""
-        if method == "GET":
-            return self.rest_client.GET(url,
+        if method == "get":
+            return self.rest_client.get(url,
                                         stream=stream,
                                         timeout=timeout,
                                         headers=headers)
-        elif method == "HEAD":
-            return self.rest_client.HEAD(url,
+        elif method == "head":
+            return self.rest_client.head(url,
                                          stream=stream,
                                          timeout=timeout,
                                          headers=headers)
-        elif method == "OPTIONS":
-            return self.rest_client.OPTIONS(url,
+        elif method == "options":
+            return self.rest_client.options(url,
                                             headers=headers,
                                             fields=fields,
                                             stream=stream,
                                             timeout=timeout,
                                             body=body)
-        elif method == "POST":
-            return self.rest_client.POST(url,
+        elif method == "post":
+            return self.rest_client.post(url,
                                          headers=headers,
                                          fields=fields,
                                          stream=stream,
                                          timeout=timeout,
                                          body=body)
-        elif method == "PUT":
-            return self.rest_client.PUT(url,
+        elif method == "put":
+            return self.rest_client.put(url,
                                         headers=headers,
                                         fields=fields,
                                         stream=stream,
                                         timeout=timeout,
                                         body=body)
-        elif method == "PATCH":
-            return self.rest_client.PATCH(url,
+        elif method == "patch":
+            return self.rest_client.patch(url,
                                           headers=headers,
                                           fields=fields,
                                           stream=stream,
                                           timeout=timeout,
                                           body=body)
-        elif method == "DELETE":
-            return self.rest_client.DELETE(url,
+        elif method == "delete":
+            return self.rest_client.delete(url,
                                            headers=headers,
                                            stream=stream,
                                            timeout=timeout,

@@ -1,6 +1,6 @@
-class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
+class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "query"}}Query{{/eq}}{{#eq in "path"}}Path{{/eq}}{{#eq in "header"}}Header{{/eq}}{{#eq in "cookie"}}Cookie{{/eq}}Parameter{{#if noName}}WithoutName{{/if}}):
 {{#unless noName}}
-    name = "{{baseName}}"
+    name = "{{name}}"
 {{/unless}}
 {{#if style}}
 {{#eq style "matrix"}}
@@ -27,17 +27,17 @@ class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "que
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{name.snakeCaseName}}.{{name.camelCaseName}}
+    schema = {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
     {{/with}}
 {{/if}}
 {{#if content}}
 {{#each content}}
 
 
-    class __{{@key.camelCaseName}}MediaType(api_client.MediaType):
+    class __{{@key.camelCase}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}] = {{../@key.snakeCaseName}}_{{name.snakeCaseName}}.{{name.camelCaseName}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
         {{/with}}
     {{/with}}
 {{/each}}
@@ -45,19 +45,19 @@ class {{name.camelCaseName}}(api_client.{{#if noName}}Header{{/if}}{{#eq in "que
         '__Content',
         {
 {{#each content}}
-            '{{{@key.name}}}': typing.Type[__{{@key.camelCaseName}}MediaType],
+            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
 {{/each}}
         }
     )
     content: __Content = {
 {{#each content}}
-        '{{{@key.name}}}': __{{@key.camelCaseName}}MediaType,
+        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
 {{/each}}
     }
 {{/if}}
 {{#if required}}
     required = True
 {{/if}}
-{{#if isExplode}}
+{{#if explode}}
     explode = True
 {{/if}}

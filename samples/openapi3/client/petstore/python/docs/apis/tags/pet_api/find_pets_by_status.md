@@ -124,10 +124,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [_0.schema](#parameter_0schema) | | 
+status | [Parameter0.schema](#parameter_0schema) | | 
 
 
-# <a id="parameter_0schema" >_0.schema</a>
+# <a id="parameter_0schema" >Parameter0.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -145,9 +145,9 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation
-400 | [_400.response_cls](#response_400response_cls) | Invalid status value
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
 
-#### <a id="response_400response_cls" >_400.response_cls</a>
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

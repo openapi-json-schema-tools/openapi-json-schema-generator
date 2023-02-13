@@ -30,43 +30,42 @@ public class CodegenParameter {
     public final String description;
     public final String unescapedDescription;
     public final String example; // example value (x-example)
-    public final String jsonSchema;
     public final Map<String, Object> vendorExtensions;
-    public final boolean required;
+    public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final Set<String> imports;
     public final String componentModule;
-    public final CodegenKey name;
-    public final boolean isExplode;
+    public final CodegenKey jsonPathPiece;
+    public final Boolean explode;
     public final String style;
-    public final boolean isDeprecated;
+    public final Boolean deprecated;
     public final CodegenSchema schema;
     public final String in;
-    public final boolean isAllowEmptyValue, isDeepObject;
+    public final Boolean allowEmptyValue;
     // stores the openapi name property
-    public final String baseName;
+    public final String name;
     public final CodegenRefInfo<CodegenParameter> refInfo;
+    public final Boolean allowReserved;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, String jsonSchema, Map<String, Object> vendorExtensions, boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey name, boolean isExplode, String style, boolean isDeprecated, CodegenSchema schema, String in, boolean isAllowEmptyValue, boolean isDeepObject, String baseName, CodegenRefInfo<CodegenParameter> refInfo) {
+    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;
-        this.jsonSchema = jsonSchema;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
         this.imports = imports;
         this.componentModule = componentModule;
-        this.name = name;
-        this.isExplode = isExplode;
+        this.jsonPathPiece = jsonPathPiece;
+        this.explode = explode;
         this.style = style;
-        this.isDeprecated = isDeprecated;
+        this.deprecated = deprecated;
         this.schema = schema;
         this.in = in;
-        this.isAllowEmptyValue = isAllowEmptyValue;
-        this.isDeepObject = isDeepObject;
-        this.baseName = baseName;
+        this.allowEmptyValue = allowEmptyValue;
+        this.name = name;
         this.refInfo = refInfo;
+        this.allowReserved = allowReserved;
     }
 
     public CodegenParameter getDeepestRef() {
@@ -99,7 +98,7 @@ public class CodegenParameter {
         if (content != null) {
             for (Map.Entry<CodegenKey, CodegenMediaType> entry: content.entrySet()) {
                 if (entry.getValue().schema != null) {
-                    String contentType = entry.getKey().name;
+                    String contentType = entry.getKey().original;
                     return jsonPath + "/content/" + ModelUtils.encodeSlashes(contentType) + "/schema";
                 }
             }
@@ -109,7 +108,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, in, isExplode, baseName, description, unescapedDescription, style, isDeepObject, isAllowEmptyValue, example, jsonSchema, vendorExtensions, isDeprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, in, explode, name, description, unescapedDescription, style, allowEmptyValue, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule, allowReserved);
     }
 
     @Override
@@ -118,47 +117,45 @@ public class CodegenParameter {
         if (!(o instanceof CodegenParameter)) return false;
         CodegenParameter that = (CodegenParameter) o;
         return required == that.required &&
-                Objects.equals(name, that.name) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(componentModule, that.componentModule) &&
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
-                Objects.equals(jsonSchema, that.jsonSchema) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
-                isExplode == that.isExplode &&
-                isDeprecated == that.isDeprecated &&
+                explode == that.explode &&
+                deprecated == that.deprecated &&
                 Objects.equals(schema, that.schema) &&
+                Objects.equals(allowReserved, that.allowReserved) &&
                 Objects.equals(style, that.style) &&
                 Objects.equals(in, that.in) &&
                 Objects.equals(refInfo, that.refInfo) &&
-                Objects.equals(baseName, that.baseName) &&
-                Objects.equals(isDeepObject, that.isDeepObject);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenParameter{");
-        sb.append(", name='").append(name).append('\'');
+        sb.append(", name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');
-        sb.append(", jsonSchema='").append(jsonSchema).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
-        sb.append(", isExplode=").append(isExplode);
+        sb.append(", explode=").append(explode);
         sb.append(", style='").append(style).append('\'');
-        sb.append(", isDeprecated=").append(isDeprecated);
+        sb.append(", deprecated=").append(deprecated);
         sb.append(", schema=").append(schema);
         sb.append(", in=").append(in);
-        sb.append(", deepObject='").append(isDeepObject).append('\'');
-        sb.append(", allowEmptyValue='").append(isAllowEmptyValue).append('\'');
-        sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", allowEmptyValue='").append(allowEmptyValue).append('\'');
+        sb.append(", baseName='").append(name).append('\'');
         sb.append(", refInfo='").append(refInfo).append('\'');
+        sb.append(", allowReserved=").append(allowReserved).append('\'');
         sb.append('}');
         return sb.toString();
     }

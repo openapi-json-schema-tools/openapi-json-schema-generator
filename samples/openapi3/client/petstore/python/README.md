@@ -155,12 +155,12 @@ with petstore_api.ApiClient(configuration) as api_client:
     )
     try:
         # To test special tags
-        api_response = api_instance._123_test_special_tags(
+        api_response = api_instance.call_123_test__special_tags(
             body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling AnotherFakeApi->_123_test_special_tags: %s\n" % e)
+        print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
 ```
 
 ## Endpoints
@@ -169,7 +169,7 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-**patch** /another-fake/dummy | [AnotherFakeApi](docs/apis/tags/AnotherFakeApi.md).[_123_test_special_tags](docs/apis/tags/another_fake_api/_123_test_special_tags.md)  | To test special tags
+**patch** /another-fake/dummy | [AnotherFakeApi](docs/apis/tags/AnotherFakeApi.md).[call_123_test__special_tags](docs/apis/tags/another_fake_api/call_123_test__special_tags.md)  | To test special tags
 **get** /fake/additional-properties-with-array-of-enums | [FakeApi](docs/apis/tags/FakeApi.md).[additional_properties_with_array_of_enums](docs/apis/tags/fake_api/additional_properties_with_array_of_enums.md)  | Additional Properties with Array of Enums
 **put** /fake/body-with-file-schema | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_file_schema](docs/apis/tags/fake_api/body_with_file_schema.md)  | 
 **put** /fake/body-with-query-params | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_query_params](docs/apis/tags/fake_api/body_with_query_params.md)  | 

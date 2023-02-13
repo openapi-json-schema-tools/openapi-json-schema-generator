@@ -33,5 +33,5 @@ class NulCharactersInStrings(
     """
     
     @schemas.classproperty
-    def HELLOTHERE(cls):
+    def HELLO_NULL_THERE(cls):
         return cls("hello\x00there")

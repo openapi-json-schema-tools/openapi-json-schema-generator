@@ -36,9 +36,9 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someVar': typing.Union[parameter_0._0.schema, str, ],
-            'SomeVar': typing.Union[parameter_1._1.schema, str, ],
-            'some_var': typing.Union[parameter_2._2.schema, str, ],
+            'someVar': typing.Union[parameter_0.Parameter0.schema, str, ],
+            'SomeVar': typing.Union[parameter_1.Parameter1.schema, str, ],
+            'some_var': typing.Union[parameter_2.Parameter2.schema, str, ],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -54,19 +54,19 @@ class RequestQueryParameters:
 
 
     parameters = [
-        parameter_0._0,
-        parameter_1._1,
-        parameter_2._2,
+        parameter_0.Parameter0,
+        parameter_1.Parameter1,
+        parameter_2.Parameter2,
     ]
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200._200,
+        '200': response_200.ResponseFor200,
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200._200,
+    '200': response_200.ResponseFor200,
 }
 
 
@@ -79,7 +79,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -132,7 +132,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='put'.upper(),
+            method='put',
             stream=stream,
             timeout=timeout,
         )
@@ -160,7 +160,7 @@ class BaseApi(api_client.Api):
 
 
 class CaseSensitiveParams(BaseApi):
-    # this class is used by api classes that refer to endpoints with operationId.snakeCaseName fn names
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
     @typing.overload
     def case_sensitive_params(
@@ -170,7 +170,7 @@ class CaseSensitiveParams(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -190,7 +190,7 @@ class CaseSensitiveParams(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -220,7 +220,7 @@ class ApiForPut(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
     ]: ...
 
     @typing.overload
@@ -240,7 +240,7 @@ class ApiForPut(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200._200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

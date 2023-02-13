@@ -37,11 +37,11 @@ class AllofWithTwoEmptySchemas(
         # any type
         
         class AllOf:
-            AllOf0 = schemas.AnyTypeSchema
-            AllOf1 = schemas.AnyTypeSchema
+            _0 = schemas.AnyTypeSchema
+            _1 = schemas.AnyTypeSchema
             classes = [
-                AllOf0,
-                AllOf1,
+                _0,
+                _1,
             ]
 
 

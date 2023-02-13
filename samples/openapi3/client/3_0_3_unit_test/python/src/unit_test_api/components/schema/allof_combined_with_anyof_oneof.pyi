@@ -39,7 +39,7 @@ class AllofCombinedWithAnyofOneof(
         class AllOf:
             
             
-            class AllOf0(
+            class _0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -53,7 +53,7 @@ class AllofCombinedWithAnyofOneof(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'AllOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -61,13 +61,13 @@ class AllofCombinedWithAnyofOneof(
                         **kwargs,
                     )
             classes = [
-                AllOf0,
+                _0,
             ]
         
         class OneOf:
             
             
-            class OneOf0(
+            class _0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -81,7 +81,7 @@ class AllofCombinedWithAnyofOneof(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'OneOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -89,13 +89,13 @@ class AllofCombinedWithAnyofOneof(
                         **kwargs,
                     )
             classes = [
-                OneOf0,
+                _0,
             ]
         
         class AnyOf:
             
             
-            class AnyOf0(
+            class _0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -109,7 +109,7 @@ class AllofCombinedWithAnyofOneof(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'AnyOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -117,7 +117,7 @@ class AllofCombinedWithAnyofOneof(
                         **kwargs,
                     )
             classes = [
-                AnyOf0,
+                _0,
             ]
 
 

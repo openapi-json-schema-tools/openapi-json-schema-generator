@@ -176,9 +176,9 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
             List<CodegenOperation> ops = operations.getOperation();
             for (CodegenOperation operation : ops) {
                 if (commonPath == null) {
-                    commonPath = operation.path.name;
+                    commonPath = operation.path.original;
                 } else {
-                    commonPath = getCommonPath(commonPath, operation.path.name);
+                    commonPath = getCommonPath(commonPath, operation.path.original);
                 }
             }
             objs.put("commonPath", "/".equals(commonPath) ? StringUtils.EMPTY : commonPath);

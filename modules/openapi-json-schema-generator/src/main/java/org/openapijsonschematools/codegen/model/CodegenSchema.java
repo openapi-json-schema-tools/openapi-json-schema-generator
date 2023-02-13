@@ -19,7 +19,13 @@ package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeSet;
 
 public class CodegenSchema {
     // 3.0.0
@@ -38,7 +44,7 @@ public class CodegenSchema {
     public Integer maxProperties;
     public Integer minProperties;
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
-    public LinkedHashMap<String, EnumValue> enumNameToValue; // enum info
+    public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
     public String type;
     public List<CodegenSchema> allOf = null;
     public List<CodegenSchema> anyOf = null;
@@ -63,7 +69,7 @@ public class CodegenSchema {
     public String example;
     public Boolean deprecated;
     // openapi Specification Extensions
-    public Map<String, Object> vendorExtensions = new HashMap<String, Object>();
+    public Map<String, Object> vendorExtensions;
 
     // 3.1.0
     public LinkedHashSet<String> types;
@@ -75,17 +81,14 @@ public class CodegenSchema {
     // Extra needed fields
     public String componentModule;
     public TreeSet<String> imports;
-    public CodegenKey name;
+    public CodegenKey jsonPathPiece;
     public String unescapedDescription;
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
 
     public boolean hasValidation() {
-        if (maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null) {
-            return true;
-        }
-        return false;
+        return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
     public boolean hasMultipleTypes() {
@@ -98,10 +101,7 @@ public class CodegenSchema {
         }
         if (discriminator.mappedModels == null) {
             return false;
-        } else if (discriminator.mappedModels.isEmpty()) {
-            return false;
-        }
-        return true;
+        } else return !discriminator.mappedModels.isEmpty();
     }
 
     public CodegenSchema getDeepestRef() {
@@ -132,15 +132,12 @@ public class CodegenSchema {
         if (allOf != null || anyOf != null || oneOf != null || not != null) {
             return true;
         }
-        if (types != null && (types.contains("array") || types.contains("object"))) {
-            return true;
-        }
-        return false;
+        return types != null && (types.contains("array") || types.contains("object"));
     }
 
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", description='").append(description).append('\'');
-        sb.append(", name='").append(name).append('\'');
+        sb.append(", name='").append(jsonPathPiece).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
@@ -158,7 +155,7 @@ public class CodegenSchema {
         sb.append(", readOnly=").append(readOnly);
         sb.append(", writeOnly=").append(writeOnly);
         sb.append(", nullable=").append(nullable);
-        sb.append(", allowableValues=").append(enumNameToValue);
+        sb.append(", allowableValues=").append(enumValueToName);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
@@ -190,6 +187,7 @@ public class CodegenSchema {
         sb.append(", componentModule=").append(componentModule);
         sb.append(", testCases=").append(testCases);
     }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CodegenSchema{");
@@ -231,7 +229,7 @@ public class CodegenSchema {
                 Objects.equals(optionalProperties, that.optionalProperties) &&
                 Objects.equals(properties, that.properties) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(name, that.name) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
@@ -241,7 +239,7 @@ public class CodegenSchema {
                 Objects.equals(example, that.example) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
-                Objects.equals(enumNameToValue, that.enumNameToValue) &&
+                Objects.equals(enumValueToName, that.enumValueToName) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
@@ -253,12 +251,12 @@ public class CodegenSchema {
     @Override
     public int hashCode() {
         return Objects.hash(description,
-                name, defaultValue,
+                jsonPathPiece, defaultValue,
                 title, unescapedDescription,
                 maxLength, minLength, patternInfo, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 readOnly, writeOnly, nullable,
-                enumNameToValue, items, additionalProperties,
+                enumValueToName, items, additionalProperties,
                 vendorExtensions, maxItems, minItems, xml,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,

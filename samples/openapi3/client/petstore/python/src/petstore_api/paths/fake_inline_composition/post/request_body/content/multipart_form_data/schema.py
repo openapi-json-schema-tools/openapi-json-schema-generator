@@ -45,7 +45,7 @@ class Schema(
                     class AllOf:
                         
                         
-                        class AllOf0(
+                        class _0(
                             schemas.StrSchema
                         ):
                         
@@ -56,7 +56,7 @@ class Schema(
                                 }
                                 min_length = 1
                         classes = [
-                            AllOf0,
+                            _0,
                         ]
             
             

@@ -14,7 +14,7 @@ from petstore_api import api_client
 from . import schema
 
 
-class _0(api_client.HeaderParameter):
+class Parameter0(api_client.HeaderParameter):
     name = "api_key"
     style = api_client.ParameterStyle.SIMPLE
     schema = schema.Schema

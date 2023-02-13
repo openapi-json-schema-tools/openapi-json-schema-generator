@@ -524,7 +524,7 @@ def validate_exclusive_maximum(
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
-    if arg >= exclusive_minimum:
+    if arg >= exclusive_maximum:
         _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value less than",
@@ -1417,22 +1417,6 @@ class Schema:
             __path_to_schemas
         )
 
-    def __init__(
-        self,
-        *args_: typing.Union[
-            dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema'],
-        configuration_: typing.Optional[configuration_module.Configuration] = None,
-        **kwargs: typing.Union[
-            dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, 'Schema', Unset
-        ]
-    ):
-        """
-        this is needed to fix 'Unexpected argument' warning in pycharm
-        this code does nothing because all Schema instances are immutable
-        this means that all input data is passed into and used in new, and after the new instance is made
-        no new attributes are assigned and init is not used
-        """
-        pass
 
 """
 import itertools

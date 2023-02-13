@@ -1,6 +1,6 @@
 
 
-class {{name.camelCaseName}}(
+class {{jsonPathPiece.camelCase}}(
 {{#eq types null}}
     {{#if format}}
         {{#eq format "uuid"}}
@@ -46,7 +46,7 @@ class {{name.camelCaseName}}(
 {{#if format}}
         format = '{{format}}'
 {{/if}}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{#if items}}
@@ -63,7 +63,7 @@ class {{name.camelCaseName}}(
 {{#or allOf anyOf oneOf not}}
         {{> components/schemas/_helper_composed_schemas }}
 {{/or}}
-{{#if enumNameToValue}}
+{{#if enumValueToName}}
     {{> components/schemas/_helper_enums }}
 {{/if}}
 
