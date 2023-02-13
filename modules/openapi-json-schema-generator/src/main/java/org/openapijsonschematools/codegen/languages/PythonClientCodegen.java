@@ -786,7 +786,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         Matcher matcher = nonWordCharPattern.matcher(usedValue);
         Stack<AbstractMap.SimpleEntry<Integer, String>> matchStartToGroup = new Stack<>();
         while (matcher.find()) {
-            matchStartToGroup.add(new AbstractMap.SimpleEntry(matcher.start(), matcher.group()));
+            matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
         char underscore = "_".charAt(0);
         while (!matchStartToGroup.isEmpty()) {
@@ -798,16 +798,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             if (startIndex > 0 && usedValue.charAt(startIndex-1) != underscore) {
                 prefix = "_";
             }
-            Integer indexAfter = startIndex + match.length();
+            int indexAfter = startIndex + match.length();
             if (startIndex + match.length() < usedValue.length() && usedValue.charAt(indexAfter) != underscore) {
                 suffix = "_";
             }
-            String convertedMatch = "";
+            StringBuilder convertedMatch = new StringBuilder();
             for (int i = 0; i < match.length(); i++) {
                 String charName = charNameToVarName(Character.getName(Character.hashCode(match.charAt(i))));
-                convertedMatch = convertedMatch + charName;
+                convertedMatch.append(charName);
                 if (i != match.length() - 1) {
-                    convertedMatch = convertedMatch + "_";
+                    convertedMatch.append("_");
                 }
             }
             String replacement = prefix + convertedMatch + suffix;
@@ -839,7 +839,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // - and " " -> _
         String result = charName.replaceAll("[\\-\\s]", "_");
         // remove parentheses
-        return result.replaceAll("[([)]]", "");
+        return result.replaceAll("[()]]", "");
     }
 
     protected EnumValue getEnumValue(Object value, String description) {
