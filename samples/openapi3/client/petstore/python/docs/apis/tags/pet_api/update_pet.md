@@ -3,7 +3,7 @@
 <a name="update_pet"></a>
 
 Update an existing pet
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

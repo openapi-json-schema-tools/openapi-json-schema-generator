@@ -5,7 +5,7 @@
 Finds Pets by status
 
 Multiple status values can be provided with comma separated strings
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

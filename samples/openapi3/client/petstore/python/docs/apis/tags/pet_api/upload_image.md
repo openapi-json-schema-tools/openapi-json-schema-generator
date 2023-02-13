@@ -3,7 +3,7 @@
 <a name="upload_image"></a>
 
 uploads an image
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

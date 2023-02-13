@@ -3,7 +3,7 @@
 <a name="login_user"></a>
 
 Logs user into the system
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -2,7 +2,7 @@
 # **foo_get**
 <a name="foo_get"></a>
 
-### Table of Contents
+## Table of Contents
 - [Return Types](#return-types)
 
 ### Code Example

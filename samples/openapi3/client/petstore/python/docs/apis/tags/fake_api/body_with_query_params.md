@@ -2,7 +2,7 @@
 # **body_with_query_params**
 <a name="body_with_query_params"></a>
 
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

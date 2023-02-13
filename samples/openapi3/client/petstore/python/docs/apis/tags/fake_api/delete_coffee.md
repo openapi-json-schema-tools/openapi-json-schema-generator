@@ -5,7 +5,7 @@
 Delete coffee
 
 Delete the coffee identified by the given id, (delete without request body)
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

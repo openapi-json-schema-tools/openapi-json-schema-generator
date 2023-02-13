@@ -3,7 +3,7 @@
 <a name="array_of_enums"></a>
 
 Array of Enums
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

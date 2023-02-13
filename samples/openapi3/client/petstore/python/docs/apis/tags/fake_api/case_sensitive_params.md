@@ -4,7 +4,7 @@
 
 
 Ensures that original naming is used in endpoint params, that way we on't have collisions
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

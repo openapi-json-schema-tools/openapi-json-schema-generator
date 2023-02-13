@@ -5,7 +5,7 @@
 To test enum parameters
 
 To test enum parameters
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -3,7 +3,7 @@
 <a name="upload_file"></a>
 
 uploads a file using multipart/form-data
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

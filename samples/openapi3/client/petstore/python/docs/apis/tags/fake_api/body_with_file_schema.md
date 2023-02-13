@@ -4,7 +4,7 @@
 
 
 For this test, the body for this request much reference a schema named `File`.
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

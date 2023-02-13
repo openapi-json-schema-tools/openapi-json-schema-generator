@@ -3,7 +3,7 @@
 <a name="create_users_with_list_input"></a>
 
 Creates list of users with given input array
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

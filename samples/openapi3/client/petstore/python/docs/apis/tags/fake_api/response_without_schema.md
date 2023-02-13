@@ -3,7 +3,7 @@
 <a name="response_without_schema"></a>
 
 receives a response without schema
-### Table of Contents
+## Table of Contents
 - [Return Types](#return-types)
 
 ### Code Example

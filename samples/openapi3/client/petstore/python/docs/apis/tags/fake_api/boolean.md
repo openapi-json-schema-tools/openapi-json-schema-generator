@@ -4,7 +4,7 @@
 
 
 Test serialization of outer boolean types
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

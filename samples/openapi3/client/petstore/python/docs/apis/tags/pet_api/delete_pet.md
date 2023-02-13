@@ -3,7 +3,7 @@
 <a name="delete_pet"></a>
 
 Deletes a pet
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

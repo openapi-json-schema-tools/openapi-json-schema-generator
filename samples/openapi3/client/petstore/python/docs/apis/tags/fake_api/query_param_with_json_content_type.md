@@ -3,7 +3,7 @@
 <a name="query_param_with_json_content_type"></a>
 
 query param with json content-type
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

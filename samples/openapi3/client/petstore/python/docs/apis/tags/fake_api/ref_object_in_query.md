@@ -3,7 +3,7 @@
 <a name="ref_object_in_query"></a>
 
 user list
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

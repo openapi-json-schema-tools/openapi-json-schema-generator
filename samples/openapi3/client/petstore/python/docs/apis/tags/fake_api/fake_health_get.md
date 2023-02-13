@@ -3,7 +3,7 @@
 <a name="fake_health_get"></a>
 
 Health check endpoint
-### Table of Contents
+## Table of Contents
 - [Return Types](#return-types)
 
 ### Code Example

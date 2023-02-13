@@ -5,7 +5,7 @@
 Find pet by ID
 
 Returns a single pet
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

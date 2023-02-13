@@ -3,7 +3,7 @@
 <a name="additional_properties_with_array_of_enums"></a>
 
 Additional Properties with Array of Enums
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

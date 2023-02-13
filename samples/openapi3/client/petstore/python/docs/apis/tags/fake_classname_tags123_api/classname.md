@@ -5,7 +5,7 @@
 To test class name in snake case
 
 To test class name in snake case
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

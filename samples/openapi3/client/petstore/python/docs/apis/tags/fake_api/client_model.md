@@ -5,7 +5,7 @@
 To test \"client\" model
 
 To test \"client\" model
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

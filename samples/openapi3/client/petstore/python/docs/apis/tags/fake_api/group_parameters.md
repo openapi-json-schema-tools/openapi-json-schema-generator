@@ -5,7 +5,7 @@
 Fake endpoint to test group parameters (optional)
 
 Fake endpoint to test group parameters (optional)
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

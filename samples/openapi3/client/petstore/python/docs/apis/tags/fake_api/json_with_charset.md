@@ -3,7 +3,7 @@
 <a name="json_with_charset"></a>
 
 json with charset tx and rx
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -5,7 +5,7 @@
 Add a new pet to the store
 
 Add a new pet to the store
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

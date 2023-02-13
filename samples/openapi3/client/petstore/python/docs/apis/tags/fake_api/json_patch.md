@@ -5,7 +5,7 @@
 json patch
 
 json patch route with a requestBody
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

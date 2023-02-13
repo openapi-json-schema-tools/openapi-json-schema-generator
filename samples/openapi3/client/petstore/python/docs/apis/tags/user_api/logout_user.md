@@ -3,7 +3,7 @@
 <a name="logout_user"></a>
 
 Logs out current logged in user session
-### Table of Contents
+## Table of Contents
 - [Return Types](#return-types)
 
 ### Code Example

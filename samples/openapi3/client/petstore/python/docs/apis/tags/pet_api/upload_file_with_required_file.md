@@ -3,7 +3,7 @@
 <a name="upload_file_with_required_file"></a>
 
 uploads an image (required)
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -3,7 +3,7 @@
 <a name="inline_composition"></a>
 
 testing composed schemas at inline locations
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

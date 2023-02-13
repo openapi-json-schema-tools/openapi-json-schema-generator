@@ -4,7 +4,7 @@
 
 
 Test serialization of outer enum
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

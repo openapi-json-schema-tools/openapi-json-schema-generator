@@ -4,7 +4,7 @@
 
 
 Test serialization of object with $refed properties
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

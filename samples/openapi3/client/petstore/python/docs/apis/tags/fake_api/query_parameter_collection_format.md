@@ -4,7 +4,7 @@
 
 
 To test the collection format in query parameters
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

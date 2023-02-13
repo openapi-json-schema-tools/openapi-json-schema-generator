@@ -3,7 +3,7 @@
 <a name="parameter_collisions"></a>
 
 parameter collision case
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -3,7 +3,7 @@
 <a name="place_order"></a>
 
 Place an order for a pet
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

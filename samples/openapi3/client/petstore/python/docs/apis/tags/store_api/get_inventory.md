@@ -5,7 +5,7 @@
 Returns pet inventories by status
 
 Returns a map of status codes to quantities
-### Table of Contents
+## Table of Contents
 - [Return Types](#return-types)
 
 ### Code Example

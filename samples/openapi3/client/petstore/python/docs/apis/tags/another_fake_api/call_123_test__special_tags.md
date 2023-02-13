@@ -5,7 +5,7 @@
 To test special tags
 
 To test special tags and operation ID starting with number
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

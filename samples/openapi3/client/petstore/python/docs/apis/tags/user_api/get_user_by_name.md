@@ -3,7 +3,7 @@
 <a name="get_user_by_name"></a>
 
 Get user by user name
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

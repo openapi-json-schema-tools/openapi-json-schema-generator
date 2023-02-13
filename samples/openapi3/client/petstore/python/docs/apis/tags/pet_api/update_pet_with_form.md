@@ -3,7 +3,7 @@
 <a name="update_pet_with_form"></a>
 
 Updates a pet in the store with form data
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 

@@ -3,7 +3,7 @@
 <a name="inline_additional_properties"></a>
 
 test inline additionalProperties
-### Table of Contents
+## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
 
