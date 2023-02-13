@@ -6,7 +6,6 @@
 - [Description](#description)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Description
@@ -49,10 +48,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

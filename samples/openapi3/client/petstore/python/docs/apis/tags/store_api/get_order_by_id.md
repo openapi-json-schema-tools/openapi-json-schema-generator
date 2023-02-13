@@ -7,7 +7,6 @@
 - [Description](#description)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -81,10 +80,6 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

@@ -5,7 +5,6 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -17,10 +16,6 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

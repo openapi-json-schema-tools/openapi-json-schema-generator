@@ -6,7 +6,6 @@
 - [Summary](#summary)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -68,10 +67,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

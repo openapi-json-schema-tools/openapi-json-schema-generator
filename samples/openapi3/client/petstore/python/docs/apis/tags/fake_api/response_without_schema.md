@@ -5,7 +5,6 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -24,10 +23,6 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

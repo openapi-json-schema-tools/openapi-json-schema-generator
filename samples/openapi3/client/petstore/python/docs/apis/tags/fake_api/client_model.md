@@ -7,7 +7,6 @@
 - [Description](#description)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -46,10 +45,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../../components/schema/client.Client.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

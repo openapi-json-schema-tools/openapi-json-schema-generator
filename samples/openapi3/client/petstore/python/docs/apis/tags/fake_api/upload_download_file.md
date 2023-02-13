@@ -6,7 +6,6 @@
 - [Summary](#summary)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -55,10 +54,6 @@ file to download
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

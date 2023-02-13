@@ -6,7 +6,6 @@
 - [Summary](#summary)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -205,10 +204,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

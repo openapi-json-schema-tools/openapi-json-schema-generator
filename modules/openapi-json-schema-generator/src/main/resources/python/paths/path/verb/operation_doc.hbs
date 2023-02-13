@@ -14,7 +14,9 @@
 - [Arguments](#arguments)
 {{/or}}
 - [Return Types](#return-types)
+{{#if authMethods}}
 - [Authorization](#authorization)
+{{/if}}
 - [Code Sample](#code-sample)
 {{#if summary}}
 
@@ -220,14 +222,12 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{> components/responses/response_doc response=this headerSize="###" complexTypePrefix="../../../components/schema/" }}
 {{/unless}}
 {{/each}}
+{{#if authMethods}}
 
 ## Authorization
 
-{{#unless authMethods}}
-No authorization required
-{{else}}
 {{#each authMethods}}[{{{name}}}](../../../../README.md#{{{name}}}){{#unless @last}}, {{/unless}}{{/each}}
-{{/unless}}
+{{/if}}
 
 ## Code Sample
 

@@ -6,7 +6,6 @@
 - [Summary](#summary)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -49,10 +48,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArrayOfEnums**](../../../components/schema/array_of_enums.ArrayOfEnums.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

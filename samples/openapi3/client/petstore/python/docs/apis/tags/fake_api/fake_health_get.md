@@ -5,7 +5,6 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -30,10 +29,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 

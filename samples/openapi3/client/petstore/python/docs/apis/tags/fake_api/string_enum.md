@@ -6,7 +6,6 @@
 - [Description](#description)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Description
@@ -49,10 +48,6 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
 
-
-## Authorization
-
-No authorization required
 
 ## Code Sample
 
