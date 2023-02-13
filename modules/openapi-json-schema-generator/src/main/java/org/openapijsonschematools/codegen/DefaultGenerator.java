@@ -821,7 +821,7 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
-        templateData.put("docRoot", "../../");
+        templateData.put("requestBody", requestBody);
         Boolean generateRequestBodies = Boolean.TRUE;
         Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
         if (templateInfo != null && !templateInfo.isEmpty()) {
@@ -853,6 +853,7 @@ public class DefaultGenerator implements Generator {
         }
         // doc generation
         Boolean generateRequestBodyDocumentaion = Boolean.TRUE;
+        templateData.put("headerSize", "##");
         String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
         for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
             String templateName = entry.getKey();
