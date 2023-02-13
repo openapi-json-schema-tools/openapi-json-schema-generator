@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.uuid_string
+petstore_api.components.schema.uuid_string
 # UUIDString
 
 ## Schema Type Info

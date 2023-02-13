@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.json_patch_request_add_replace_test
+petstore_api.components.schema.json_patch_request_add_replace_test
 # JSONPatchRequestAddReplaceTest
 
 ## Schema Type Info

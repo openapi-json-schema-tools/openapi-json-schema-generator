@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_optional_test_prop
+petstore_api.components.schema.object_with_optional_test_prop
 # ObjectWithOptionalTestProp
 
 ## Schema Type Info

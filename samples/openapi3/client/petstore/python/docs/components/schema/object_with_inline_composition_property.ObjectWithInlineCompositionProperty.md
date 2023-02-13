@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_inline_composition_property
+petstore_api.components.schema.object_with_inline_composition_property
 # ObjectWithInlineCompositionProperty
 
 ## Schema Type Info

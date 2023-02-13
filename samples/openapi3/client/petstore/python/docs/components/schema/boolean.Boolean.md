@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.boolean
+petstore_api.components.schema.boolean
 # Boolean
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.isosceles_triangle
+petstore_api.components.schema.isosceles_triangle
 # IsoscelesTriangle
 
 ## Schema Type Info

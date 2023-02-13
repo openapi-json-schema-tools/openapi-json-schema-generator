@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.composed_one_of_different_types
+petstore_api.components.schema.composed_one_of_different_types
 # ComposedOneOfDifferentTypes
 
 this is a model that allows payloads of type object or number

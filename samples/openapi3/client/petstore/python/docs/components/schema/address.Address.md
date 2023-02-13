@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.address
+petstore_api.components.schema.address
 # Address
 
 ## Schema Type Info

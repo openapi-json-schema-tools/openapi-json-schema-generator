@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.additional_properties_validator
+petstore_api.components.schema.additional_properties_validator
 # AdditionalPropertiesValidator
 
 ## Schema Type Info

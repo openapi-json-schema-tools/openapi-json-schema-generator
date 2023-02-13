@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.shape_or_null
+petstore_api.components.schema.shape_or_null
 # ShapeOrNull
 
 The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.

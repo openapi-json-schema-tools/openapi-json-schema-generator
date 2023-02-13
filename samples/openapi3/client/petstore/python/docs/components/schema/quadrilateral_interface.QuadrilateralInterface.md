@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.quadrilateral_interface
+petstore_api.components.schema.quadrilateral_interface
 # QuadrilateralInterface
 
 ## Schema Type Info

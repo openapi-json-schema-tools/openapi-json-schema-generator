@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.simple_quadrilateral
+petstore_api.components.schema.simple_quadrilateral
 # SimpleQuadrilateral
 
 ## Schema Type Info

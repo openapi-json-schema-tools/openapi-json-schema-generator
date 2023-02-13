@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.category
+petstore_api.components.schema.category
 # Category
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.triangle_interface
+petstore_api.components.schema.triangle_interface
 # TriangleInterface
 
 ## Schema Type Info

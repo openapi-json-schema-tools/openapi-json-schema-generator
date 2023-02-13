@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.string_enum
+petstore_api.components.schema.string_enum
 # StringEnum
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.enum_test
+petstore_api.components.schema.enum_test
 # EnumTest
 
 ## Schema Type Info

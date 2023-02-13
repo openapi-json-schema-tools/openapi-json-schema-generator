@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.string_with_validation
+petstore_api.components.schema.string_with_validation
 # StringWithValidation
 
 ## Schema Type Info

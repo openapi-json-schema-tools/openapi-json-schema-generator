@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.self_referencing_object_model
+petstore_api.components.schema.self_referencing_object_model
 # SelfReferencingObjectModel
 
 ## Schema Type Info

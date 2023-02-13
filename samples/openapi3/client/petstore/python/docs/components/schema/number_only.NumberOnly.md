@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.number_only
+petstore_api.components.schema.number_only
 # NumberOnly
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.danish_pig
+petstore_api.components.schema.danish_pig
 # DanishPig
 
 ## Schema Type Info

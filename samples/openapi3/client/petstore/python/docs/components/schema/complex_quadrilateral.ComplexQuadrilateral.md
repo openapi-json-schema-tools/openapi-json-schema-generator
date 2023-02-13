@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.complex_quadrilateral
+petstore_api.components.schema.complex_quadrilateral
 # ComplexQuadrilateral
 
 ## Schema Type Info

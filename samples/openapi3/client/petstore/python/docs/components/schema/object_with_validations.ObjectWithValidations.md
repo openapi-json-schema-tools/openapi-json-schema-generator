@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_validations
+petstore_api.components.schema.object_with_validations
 # ObjectWithValidations
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.nullable_class
+petstore_api.components.schema.nullable_class
 # NullableClass
 
 ## Schema Type Info

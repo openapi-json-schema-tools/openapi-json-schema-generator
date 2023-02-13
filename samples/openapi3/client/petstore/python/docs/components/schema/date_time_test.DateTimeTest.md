@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.date_time_test
+petstore_api.components.schema.date_time_test
 # DateTimeTest
 
 ## Schema Type Info

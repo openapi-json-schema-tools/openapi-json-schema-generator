@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.composed_none
+petstore_api.components.schema.composed_none
 # ComposedNone
 
 ## Schema Type Info

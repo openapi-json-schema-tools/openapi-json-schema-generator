@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.any_type_not_string
+petstore_api.components.schema.any_type_not_string
 # AnyTypeNotString
 
 ## Schema Type Info

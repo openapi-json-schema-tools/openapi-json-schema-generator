@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.object_with_invalid_named_refed_properties
+petstore_api.components.schema.object_with_invalid_named_refed_properties
 # ObjectWithInvalidNamedRefedProperties
 
 ## Schema Type Info

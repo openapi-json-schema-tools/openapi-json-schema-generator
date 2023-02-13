@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.decimal_payload
+petstore_api.components.schema.decimal_payload
 # DecimalPayload
 
 ## Schema Type Info

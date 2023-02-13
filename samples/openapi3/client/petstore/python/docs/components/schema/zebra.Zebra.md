@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.zebra
+petstore_api.components.schema.zebra
 # Zebra
 
 ## Schema Type Info

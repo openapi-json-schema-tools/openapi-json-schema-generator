@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.currency
+petstore_api.components.schema.currency
 # Currency
 
 ## Schema Type Info

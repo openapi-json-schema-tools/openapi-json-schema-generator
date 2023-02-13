@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.abstract_step_message
+petstore_api.components.schema.abstract_step_message
 # AbstractStepMessage
 
 Abstract Step

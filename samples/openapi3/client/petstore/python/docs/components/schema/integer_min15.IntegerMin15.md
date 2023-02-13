@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.integer_min15
+petstore_api.components.schema.integer_min15
 # IntegerMin15
 
 ## Schema Type Info

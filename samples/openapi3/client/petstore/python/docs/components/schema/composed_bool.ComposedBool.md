@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.composed_bool
+petstore_api.components.schema.composed_bool
 # ComposedBool
 
 ## Schema Type Info

@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.schema.equilateral_triangle
+petstore_api.components.schema.equilateral_triangle
 # EquilateralTriangle
 
 ## Schema Type Info
