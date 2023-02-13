@@ -4,6 +4,8 @@
 
 
 Test serialization of object with $refed properties
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -32,7 +34,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->composed_one_of_different_types: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -50,7 +52,7 @@ Type | Description  | Notes
 [**ComposedOneOfDifferentTypes**](../../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
 
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

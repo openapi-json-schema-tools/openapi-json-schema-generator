@@ -5,6 +5,8 @@
 Find purchase order by ID
 
 For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -36,7 +38,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->get_order_by_id: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -60,7 +62,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

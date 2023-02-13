@@ -3,6 +3,8 @@
 <a name="upload_download_file"></a>
 
 uploads a file and downloads a file using application/octet-stream
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -32,7 +34,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -53,7 +55,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

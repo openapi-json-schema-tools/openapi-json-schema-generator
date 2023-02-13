@@ -5,6 +5,8 @@
 Add a new pet to the store
 
 Add a new pet to the store
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -122,7 +124,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->add_pet: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -133,7 +135,7 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

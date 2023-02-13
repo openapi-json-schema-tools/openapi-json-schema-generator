@@ -5,6 +5,8 @@
 Delete purchase order by ID
 
 For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -36,7 +38,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->delete_order: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -59,7 +61,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

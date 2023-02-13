@@ -3,6 +3,8 @@
 <a name="array_of_enums"></a>
 
 Array of Enums
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -34,7 +36,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->array_of_enums: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -52,7 +54,7 @@ Type | Description  | Notes
 [**ArrayOfEnums**](../../../components/schema/array_of_enums.ArrayOfEnums.md) |  | 
 
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

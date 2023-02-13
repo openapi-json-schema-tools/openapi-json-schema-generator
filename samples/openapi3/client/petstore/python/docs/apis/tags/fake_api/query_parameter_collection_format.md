@@ -4,6 +4,8 @@
 
 
 To test the collection format in query parameters
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -49,7 +51,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->query_parameter_collection_format: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -137,7 +139,7 @@ Type | Description  | Notes
 [**StringWithValidation**](../../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

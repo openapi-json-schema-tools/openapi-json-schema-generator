@@ -3,6 +3,8 @@
 <a name="ref_object_in_query"></a>
 
 user list
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -36,7 +38,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->ref_object_in_query: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -59,7 +61,7 @@ Type | Description  | Notes
 [**Foo**](../../../components/schema/foo.Foo.md) |  | 
 
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

@@ -29,10 +29,9 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```
-### Parameters
 This endpoint does not need any parameter.
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

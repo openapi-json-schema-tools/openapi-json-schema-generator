@@ -10,6 +10,10 @@
 
 {{{notes}}}
 {{/if}}
+{{#or requestBody queryParams headerParams pathParams cookieParams}}
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
+{{/or}}
 
 ### Example
 
@@ -32,8 +36,8 @@
 {{/each}}
 {{/if}}
 {{> paths/path/verb/_helper_operation_doc_example }}
-### Parameters
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -200,7 +204,7 @@ Key | Input Type | Description  | Notes
 This endpoint does not need any parameter.
 {{/or}}
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------

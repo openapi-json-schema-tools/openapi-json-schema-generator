@@ -5,6 +5,8 @@
 Create user
 
 This can only be done by the logged in user.
+[Parameters](#parameters)
+[Return Types, Responses](#return-types-responses)
 
 ### Example
 
@@ -48,7 +50,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->create_user: %s\n" % e)
 ```
-### Parameters
+## Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -65,7 +67,7 @@ Type | Description  | Notes
 [**User**](../../../components/schema/user.User.md) |  | 
 
 
-### Return Types, Responses
+## Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
