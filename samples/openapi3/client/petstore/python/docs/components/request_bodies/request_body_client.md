@@ -1,4 +1,4 @@
-## petstore_api.components.request_bodies.request_body_client
+petstore_api.components.request_bodies.request_body_client
 # Client
 ## <a id="request_body_clientcontentapplication_jsonschema" >Client.content.application_json.schema</a>
 Type | Description  | Notes
