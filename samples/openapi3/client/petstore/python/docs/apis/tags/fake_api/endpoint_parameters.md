@@ -2,15 +2,19 @@
 # **endpoint_parameters**
 <a name="endpoint_parameters"></a>
 
-Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-
-Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+
+## Description
+Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
 
 ## Arguments
 

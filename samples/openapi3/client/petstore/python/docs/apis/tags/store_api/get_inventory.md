@@ -2,15 +2,18 @@
 # **get_inventory**
 <a name="get_inventory"></a>
 
-Returns pet inventories by status
-
-Returns a map of status codes to quantities
-
 ## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
+## Summary
+Returns pet inventories by status
+
+## Description
+Returns a map of status codes to quantities
 This endpoint does not need any parameter.
 
 ## Return Types

@@ -2,13 +2,15 @@
 # **place_order**
 <a name="place_order"></a>
 
-Place an order for a pet
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Place an order for a pet
 
 ## Arguments
 

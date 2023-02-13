@@ -2,13 +2,15 @@
 # **delete_pet**
 <a name="delete_pet"></a>
 
-Deletes a pet
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Deletes a pet
 
 ## Arguments
 

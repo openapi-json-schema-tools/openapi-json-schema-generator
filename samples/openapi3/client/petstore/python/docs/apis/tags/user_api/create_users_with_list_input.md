@@ -2,13 +2,15 @@
 # **create_users_with_list_input**
 <a name="create_users_with_list_input"></a>
 
-Creates list of users with given input array
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Creates list of users with given input array
 
 ## Arguments
 

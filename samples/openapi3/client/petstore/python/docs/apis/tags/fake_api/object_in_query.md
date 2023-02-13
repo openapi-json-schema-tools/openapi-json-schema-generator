@@ -2,13 +2,15 @@
 # **object_in_query**
 <a name="object_in_query"></a>
 
-user list
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+user list
 
 ## Arguments
 

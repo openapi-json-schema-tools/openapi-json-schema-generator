@@ -2,14 +2,15 @@
 # **case_sensitive_params**
 <a name="case_sensitive_params"></a>
 
-
-Ensures that original naming is used in endpoint params, that way we on't have collisions
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Ensures that original naming is used in endpoint params, that way we on't have collisions
 
 ## Arguments
 

@@ -2,13 +2,14 @@
 # **fake_health_get**
 <a name="fake_health_get"></a>
 
-Health check endpoint
-
 ## Table of Contents
+- [Summary](#summary)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
+## Summary
+Health check endpoint
 This endpoint does not need any parameter.
 
 ## Return Types

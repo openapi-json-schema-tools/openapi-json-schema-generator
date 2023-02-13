@@ -2,13 +2,15 @@
 # **upload_download_file**
 <a name="upload_download_file"></a>
 
-uploads a file and downloads a file using application/octet-stream
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+uploads a file and downloads a file using application/octet-stream
 
 ## Arguments
 

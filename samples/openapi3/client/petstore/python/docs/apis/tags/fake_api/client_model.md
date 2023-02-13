@@ -2,15 +2,19 @@
 # **client_model**
 <a name="client_model"></a>
 
-To test \"client\" model
-
-To test \"client\" model
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+To test \"client\" model
+
+## Description
+To test \"client\" model
 
 ## Arguments
 

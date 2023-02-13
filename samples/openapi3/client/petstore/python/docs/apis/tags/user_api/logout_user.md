@@ -2,13 +2,14 @@
 # **logout_user**
 <a name="logout_user"></a>
 
-Logs out current logged in user session
-
 ## Table of Contents
+- [Summary](#summary)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
+## Summary
+Logs out current logged in user session
 This endpoint does not need any parameter.
 
 ## Return Types

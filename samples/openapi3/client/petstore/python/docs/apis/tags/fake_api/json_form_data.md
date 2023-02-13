@@ -2,13 +2,15 @@
 # **json_form_data**
 <a name="json_form_data"></a>
 
-test json serialization of form data
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+test json serialization of form data
 
 ## Arguments
 

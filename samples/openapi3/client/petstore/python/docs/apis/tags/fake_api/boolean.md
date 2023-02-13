@@ -2,14 +2,15 @@
 # **boolean**
 <a name="boolean"></a>
 
-
-Test serialization of outer boolean types
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of outer boolean types
 
 ## Arguments
 

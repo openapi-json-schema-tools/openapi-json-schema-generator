@@ -2,15 +2,19 @@
 # **get_pet_by_id**
 <a name="get_pet_by_id"></a>
 
-Find pet by ID
-
-Returns a single pet
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Find pet by ID
+
+## Description
+Returns a single pet
 
 ## Arguments
 

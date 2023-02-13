@@ -2,14 +2,15 @@
 # **number_with_validations**
 <a name="number_with_validations"></a>
 
-
-Test serialization of outer number types
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of outer number types
 
 ## Arguments
 

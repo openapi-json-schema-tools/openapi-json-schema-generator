@@ -2,14 +2,15 @@
 # **array_model**
 <a name="array_model"></a>
 
-
-Test serialization of ArrayModel
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of ArrayModel
 
 ## Arguments
 

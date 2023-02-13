@@ -2,13 +2,15 @@
 # **query_param_with_json_content_type**
 <a name="query_param_with_json_content_type"></a>
 
-query param with json content-type
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+query param with json content-type
 
 ## Arguments
 

@@ -2,15 +2,19 @@
 # **delete_user**
 <a name="delete_user"></a>
 
-Delete user
-
-This can only be done by the logged in user.
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Delete user
+
+## Description
+This can only be done by the logged in user.
 
 ## Arguments
 

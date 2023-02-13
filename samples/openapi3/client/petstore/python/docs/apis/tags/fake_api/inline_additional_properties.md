@@ -2,13 +2,15 @@
 # **inline_additional_properties**
 <a name="inline_additional_properties"></a>
 
-test inline additionalProperties
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+test inline additionalProperties
 
 ## Arguments
 

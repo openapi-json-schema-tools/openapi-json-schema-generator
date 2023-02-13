@@ -2,15 +2,19 @@
 # **delete_order**
 <a name="delete_order"></a>
 
-Delete purchase order by ID
-
-For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Delete purchase order by ID
+
+## Description
+For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
 
 ## Arguments
 

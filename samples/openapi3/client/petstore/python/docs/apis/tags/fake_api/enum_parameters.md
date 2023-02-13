@@ -2,15 +2,19 @@
 # **enum_parameters**
 <a name="enum_parameters"></a>
 
-To test enum parameters
-
-To test enum parameters
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+To test enum parameters
+
+## Description
+To test enum parameters
 
 ## Arguments
 

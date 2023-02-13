@@ -2,15 +2,19 @@
 # **find_pets_by_status**
 <a name="find_pets_by_status"></a>
 
-Finds Pets by status
-
-Multiple status values can be provided with comma separated strings
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Finds Pets by status
+
+## Description
+Multiple status values can be provided with comma separated strings
 
 ## Arguments
 

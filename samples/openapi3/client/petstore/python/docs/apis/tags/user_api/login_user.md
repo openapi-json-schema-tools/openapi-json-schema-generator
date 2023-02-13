@@ -2,13 +2,15 @@
 # **login_user**
 <a name="login_user"></a>
 
-Logs user into the system
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Logs user into the system
 
 ## Arguments
 

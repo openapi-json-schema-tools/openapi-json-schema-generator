@@ -2,14 +2,15 @@
 # **string**
 <a name="string"></a>
 
-
-Test serialization of outer string types
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of outer string types
 
 ## Arguments
 

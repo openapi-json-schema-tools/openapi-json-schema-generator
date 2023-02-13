@@ -2,15 +2,19 @@
 # **add_pet**
 <a name="add_pet"></a>
 
-Add a new pet to the store
-
-Add a new pet to the store
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Add a new pet to the store
+
+## Description
+Add a new pet to the store
 
 ## Arguments
 

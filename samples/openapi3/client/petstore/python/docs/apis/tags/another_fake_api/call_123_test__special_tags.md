@@ -2,15 +2,19 @@
 # **call_123_test__special_tags**
 <a name="call_123_test__special_tags"></a>
 
-To test special tags
-
-To test special tags and operation ID starting with number
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+To test special tags
+
+## Description
+To test special tags and operation ID starting with number
 
 ## Arguments
 

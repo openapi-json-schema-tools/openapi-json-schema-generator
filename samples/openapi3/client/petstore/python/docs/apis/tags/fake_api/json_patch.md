@@ -2,15 +2,19 @@
 # **json_patch**
 <a name="json_patch"></a>
 
-json patch
-
-json patch route with a requestBody
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+json patch
+
+## Description
+json patch route with a requestBody
 
 ## Arguments
 

@@ -2,15 +2,19 @@
 # **get_order_by_id**
 <a name="get_order_by_id"></a>
 
-Find purchase order by ID
-
-For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Find purchase order by ID
+
+## Description
+For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
 
 ## Arguments
 

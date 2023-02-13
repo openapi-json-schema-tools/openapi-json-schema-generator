@@ -2,15 +2,19 @@
 # **find_pets_by_tags**
 <a name="find_pets_by_tags"></a>
 
-Finds Pets by tags
-
-Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Finds Pets by tags
+
+## Description
+Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 
 ## Arguments
 

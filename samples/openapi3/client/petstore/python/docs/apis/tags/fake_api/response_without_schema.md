@@ -2,13 +2,14 @@
 # **response_without_schema**
 <a name="response_without_schema"></a>
 
-receives a response without schema
-
 ## Table of Contents
+- [Summary](#summary)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
+## Summary
+receives a response without schema
 This endpoint does not need any parameter.
 
 ## Return Types

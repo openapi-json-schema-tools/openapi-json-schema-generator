@@ -2,14 +2,15 @@
 # **query_parameter_collection_format**
 <a name="query_parameter_collection_format"></a>
 
-
-To test the collection format in query parameters
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+To test the collection format in query parameters
 
 ## Arguments
 

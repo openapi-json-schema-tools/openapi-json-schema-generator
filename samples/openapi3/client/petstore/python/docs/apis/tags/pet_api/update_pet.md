@@ -2,13 +2,15 @@
 # **update_pet**
 <a name="update_pet"></a>
 
-Update an existing pet
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Update an existing pet
 
 ## Arguments
 

@@ -2,13 +2,15 @@
 # **inline_composition**
 <a name="inline_composition"></a>
 
-testing composed schemas at inline locations
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+testing composed schemas at inline locations
 
 ## Arguments
 

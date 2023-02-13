@@ -2,13 +2,15 @@
 # **parameter_collisions**
 <a name="parameter_collisions"></a>
 
-parameter collision case
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+parameter collision case
 
 ## Arguments
 

@@ -2,15 +2,19 @@
 # **group_parameters**
 <a name="group_parameters"></a>
 
-Fake endpoint to test group parameters (optional)
-
-Fake endpoint to test group parameters (optional)
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Fake endpoint to test group parameters (optional)
+
+## Description
+Fake endpoint to test group parameters (optional)
 
 ## Arguments
 

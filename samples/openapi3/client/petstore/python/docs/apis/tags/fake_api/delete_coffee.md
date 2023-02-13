@@ -2,15 +2,19 @@
 # **delete_coffee**
 <a name="delete_coffee"></a>
 
-Delete coffee
-
-Delete the coffee identified by the given id, (delete without request body)
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Delete coffee
+
+## Description
+Delete the coffee identified by the given id, (delete without request body)
 
 ## Arguments
 

@@ -2,13 +2,15 @@
 # **get_user_by_name**
 <a name="get_user_by_name"></a>
 
-Get user by user name
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Get user by user name
 
 ## Arguments
 

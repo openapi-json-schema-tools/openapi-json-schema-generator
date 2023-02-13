@@ -2,13 +2,15 @@
 # **update_pet_with_form**
 <a name="update_pet_with_form"></a>
 
-Updates a pet in the store with form data
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Updates a pet in the store with form data
 
 ## Arguments
 

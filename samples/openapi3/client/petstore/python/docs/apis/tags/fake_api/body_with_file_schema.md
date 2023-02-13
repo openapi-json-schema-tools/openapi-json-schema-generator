@@ -2,14 +2,15 @@
 # **body_with_file_schema**
 <a name="body_with_file_schema"></a>
 
-
-For this test, the body for this request much reference a schema named `File`.
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+For this test, the body for this request much reference a schema named `File`.
 
 ## Arguments
 

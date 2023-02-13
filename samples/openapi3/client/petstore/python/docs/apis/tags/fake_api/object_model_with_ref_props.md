@@ -2,14 +2,15 @@
 # **object_model_with_ref_props**
 <a name="object_model_with_ref_props"></a>
 
-
-Test serialization of object with $refed properties
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of object with $refed properties
 
 ## Arguments
 

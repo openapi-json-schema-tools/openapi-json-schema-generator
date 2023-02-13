@@ -2,15 +2,19 @@
 # **update_user**
 <a name="update_user"></a>
 
-Updated user
-
-This can only be done by the logged in user.
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Updated user
+
+## Description
+This can only be done by the logged in user.
 
 ## Arguments
 

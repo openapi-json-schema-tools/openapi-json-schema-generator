@@ -2,13 +2,15 @@
 # **upload_image**
 <a name="upload_image"></a>
 
-uploads an image
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+uploads an image
 
 ## Arguments
 

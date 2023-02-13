@@ -2,14 +2,15 @@
 # **string_enum**
 <a name="string_enum"></a>
 
-
-Test serialization of outer enum
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of outer enum
 
 ## Arguments
 

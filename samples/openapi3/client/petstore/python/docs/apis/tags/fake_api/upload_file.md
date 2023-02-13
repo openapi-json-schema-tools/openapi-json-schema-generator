@@ -2,13 +2,15 @@
 # **upload_file**
 <a name="upload_file"></a>
 
-uploads a file using multipart/form-data
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+uploads a file using multipart/form-data
 
 ## Arguments
 

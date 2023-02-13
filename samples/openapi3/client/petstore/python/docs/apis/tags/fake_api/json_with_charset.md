@@ -2,13 +2,15 @@
 # **json_with_charset**
 <a name="json_with_charset"></a>
 
-json with charset tx and rx
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+json with charset tx and rx
 
 ## Arguments
 

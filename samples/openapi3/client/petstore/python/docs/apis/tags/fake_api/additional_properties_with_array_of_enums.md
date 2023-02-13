@@ -2,13 +2,15 @@
 # **additional_properties_with_array_of_enums**
 <a name="additional_properties_with_array_of_enums"></a>
 
-Additional Properties with Array of Enums
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Additional Properties with Array of Enums
 
 ## Arguments
 

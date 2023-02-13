@@ -2,13 +2,15 @@
 # **array_of_enums**
 <a name="array_of_enums"></a>
 
-Array of Enums
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+Array of Enums
 
 ## Arguments
 

@@ -2,9 +2,8 @@
 # **body_with_query_params**
 <a name="body_with_query_params"></a>
 
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)

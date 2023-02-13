@@ -3,23 +3,31 @@
 # **{{{operationId.snakeCase}}}**
 <a name="{{{operationId.snakeCase}}}"></a>
 
-{{#if summary}}
-{{{summary}}}
-{{/if}}
-{{#if notes}}
-
-{{{notes}}}
-{{/if}}
-
 ## Table of Contents
+{{#if summary}}
+- [Summary](#summary)
+{{/if}}
+{{#if description}}
+- [Description](#description)
+{{/if}}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
-- [Arguments](#Arguments)
+- [Arguments](#arguments)
 {{/or}}
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+{{#if summary}}
 
+## Summary
+{{{summary}}}
+{{/if}}
+{{#if description}}
+
+## Description
+{{{description}}}
+{{/if}}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
+
 ## Arguments
 
 Name | Type | Description  | Notes

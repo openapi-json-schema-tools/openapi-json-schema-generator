@@ -2,15 +2,19 @@
 # **classname**
 <a name="classname"></a>
 
-To test class name in snake case
-
-To test class name in snake case
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+To test class name in snake case
+
+## Description
+To test class name in snake case
 
 ## Arguments
 

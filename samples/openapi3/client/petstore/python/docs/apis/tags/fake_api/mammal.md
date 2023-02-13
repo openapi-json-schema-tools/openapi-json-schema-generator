@@ -2,14 +2,15 @@
 # **mammal**
 <a name="mammal"></a>
 
-
-Test serialization of mammals
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Description](#description)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Description
+Test serialization of mammals
 
 ## Arguments
 

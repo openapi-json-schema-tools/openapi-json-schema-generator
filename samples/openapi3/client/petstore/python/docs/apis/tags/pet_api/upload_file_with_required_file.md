@@ -2,13 +2,15 @@
 # **upload_file_with_required_file**
 <a name="upload_file_with_required_file"></a>
 
-uploads an image (required)
-
 ## Table of Contents
-- [Arguments](#Arguments)
+- [Summary](#summary)
+- [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
+
+## Summary
+uploads an image (required)
 
 ## Arguments
 
