@@ -1077,6 +1077,7 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("header", header);
+                templateData.put("headerSize", "##");
                 templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("docRoot", "../../");
 

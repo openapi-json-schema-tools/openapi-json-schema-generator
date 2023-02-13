@@ -2,11 +2,11 @@
 {{#if componentModule}}
 <a name="top"></a>
 ## {{packageName}}.components.responses.{{componentModule}}
-{{#if refInfo}}
+    {{#if refInfo}}
 # {{jsonPathPiece.camelCase}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{jsonPathPiece.snakeCase}}" ></a>
-{{else}}
+    {{else}}
 # <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
-{{/if}}
+    {{/if}}
 ## <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
 {{else}}
 #### <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
@@ -74,7 +74,7 @@ Key | Accessed Type | Description  | Notes
         {{/each}}
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this }}
+{{> components/headers/header_doc header=this headerSize="###" }}
             {{/unless}}
         {{/each}}
     {{/if}}
