@@ -2805,13 +2805,13 @@ public class DefaultCodegen implements CodegenConfig {
         // create optional, required parameters
         for (CodegenParameter cp : allParams) {
             if (cp.refInfo != null) {
-                if (cp.getDeepestRef().required) { //required parameters
+                if (Boolean.TRUE.equals(cp.getDeepestRef().required)) { //required parameters
                     hasRequiredParamOrBody = true;
                 } else { // optional parameters
                     hasOptionalParamOrBody = true;
                 }
             } else {
-                if (cp.required) { //required parameters
+                if (Boolean.TRUE.equals(cp.required)) { //required parameters
                     hasRequiredParamOrBody = true;
                 } else { // optional parameters
                     hasOptionalParamOrBody = true;
