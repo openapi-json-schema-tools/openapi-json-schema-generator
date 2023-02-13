@@ -3,10 +3,11 @@
 <a name="upload_files"></a>
 
 uploads files using multipart/form-data
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -38,7 +39,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_files: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -75,7 +76,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

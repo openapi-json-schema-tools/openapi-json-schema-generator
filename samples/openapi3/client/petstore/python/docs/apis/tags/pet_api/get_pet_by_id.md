@@ -5,10 +5,11 @@
 Find pet by ID
 
 Returns a single pet
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 * Api Key Authentication (api_key):
 ```python
@@ -49,7 +50,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->get_pet_by_id: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -73,7 +74,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

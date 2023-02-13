@@ -5,10 +5,11 @@
 Fake endpoint to test group parameters (optional)
 
 Fake endpoint to test group parameters (optional)
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 * Bearer (JWT) Authentication (bearer_test):
 ```python
@@ -74,7 +75,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -145,7 +146,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

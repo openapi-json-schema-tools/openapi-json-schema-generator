@@ -5,8 +5,10 @@
 Returns pet inventories by status
 
 Returns a map of status codes to quantities
+### Table of Contents
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 * Api Key Authentication (api_key):
 ```python
@@ -44,7 +46,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 ```
 This endpoint does not need any parameter.
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

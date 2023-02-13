@@ -3,10 +3,11 @@
 <a name="inline_composition"></a>
 
 testing composed schemas at inline locations
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -41,7 +42,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->inline_composition: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,7 +169,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

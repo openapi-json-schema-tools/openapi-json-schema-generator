@@ -10,12 +10,13 @@
 
 {{{notes}}}
 {{/if}}
+### Table of Contents
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+- [Arguments](#Arguments)
 {{/or}}
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 {{#if authMethods}}
 {{#each authMethods}}
@@ -37,7 +38,7 @@
 {{/if}}
 {{> paths/path/verb/_helper_operation_doc_example }}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -204,7 +205,7 @@ Key | Input Type | Description  | Notes
 This endpoint does not need any parameter.
 {{/or}}
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

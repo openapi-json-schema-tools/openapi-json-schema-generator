@@ -3,10 +3,11 @@
 <a name="inline_additional_properties"></a>
 
 test inline additionalProperties
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -36,7 +37,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->inline_additional_properties: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -59,7 +60,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

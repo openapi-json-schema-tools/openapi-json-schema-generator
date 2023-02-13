@@ -4,10 +4,11 @@
 
 
 Test serialization of ArrayModel
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -36,7 +37,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->array_model: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -54,7 +55,7 @@ Type | Description  | Notes
 [**AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
 
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

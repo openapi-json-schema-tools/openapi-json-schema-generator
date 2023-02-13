@@ -3,8 +3,10 @@
 <a name="logout_user"></a>
 
 Logs out current logged in user session
+### Table of Contents
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -31,7 +33,7 @@ with petstore_api.ApiClient(configuration) as api_client:
 ```
 This endpoint does not need any parameter.
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

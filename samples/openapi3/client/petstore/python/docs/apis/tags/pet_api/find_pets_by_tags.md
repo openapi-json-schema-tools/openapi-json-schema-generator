@@ -5,10 +5,11 @@
 Finds Pets by tags
 
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 * OAuth Authentication (petstore_auth):
 ```python
@@ -111,7 +112,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->find_pets_by_tags: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -140,7 +141,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

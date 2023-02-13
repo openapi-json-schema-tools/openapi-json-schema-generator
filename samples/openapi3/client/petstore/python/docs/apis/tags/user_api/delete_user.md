@@ -5,10 +5,11 @@
 Delete user
 
 This can only be done by the logged in user.
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -38,7 +39,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->delete_user: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -54,7 +55,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RefPathUserName](../../../components/parameters/parameter_ref_path_user_name.md) | | 
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

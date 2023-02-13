@@ -4,10 +4,11 @@
 
 
 For this test, the body for this request much reference a schema named `File`.
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -41,7 +42,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->body_with_file_schema: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -58,7 +59,7 @@ Type | Description  | Notes
 [**FileSchemaTestClass**](../../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
 
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

@@ -5,10 +5,11 @@
 Finds Pets by status
 
 Multiple status values can be provided with comma separated strings
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 * OAuth Authentication (petstore_auth):
 ```python
@@ -111,7 +112,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->find_pets_by_status: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -141,7 +142,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------

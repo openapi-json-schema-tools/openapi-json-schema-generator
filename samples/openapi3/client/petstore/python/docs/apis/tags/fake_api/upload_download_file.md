@@ -3,10 +3,11 @@
 <a name="upload_download_file"></a>
 
 uploads a file and downloads a file using application/octet-stream
-[Parameters](#parameters)
-[Return Types, Responses](#return-types-responses)
+### Table of Contents
+- [Arguments](#Arguments)
+- [Return Types](#return-types)
 
-### Example
+### Code Example
 
 ```python
 import petstore_api
@@ -34,7 +35,7 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
 ```
-## Parameters
+## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -55,7 +56,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
 
-## Return Types, Responses
+## Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------
