@@ -29,6 +29,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
+#### Parameter0
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
 ##### Schema Type Info
@@ -43,6 +44,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [Parameter1.schema](#parameter_1schema) | | 
 
+#### Parameter1
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 
 ##### Schema Type Info

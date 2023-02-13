@@ -3,6 +3,8 @@
 <a name="top"></a>
 {{../packageName}}.components.parameters.{{componentModule}}
 # {{jsonPathPiece.camelCase}}
+{{else}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
 {{/if}}
 {{#if refInfo}}
     {{#with getDeepestRef}}
