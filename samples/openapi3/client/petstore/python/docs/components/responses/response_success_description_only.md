@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.responses.response_success_description_only
+petstore_api.components.responses.response_success_description_only
 # <a id="response_success_description_only" >SuccessDescriptionOnly</a>
 ## <a id="response_success_description_onlyresponse_cls" >SuccessDescriptionOnly.response_cls</a>
 Name | Type | Description  | Notes

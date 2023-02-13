@@ -219,7 +219,7 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{#each responses}}
 {{#unless refInfo.refModule}}
 
-{{> components/responses/response_doc response=this complexTypePrefix="../../../components/schema/" }}
+{{> components/responses/response_doc response=this headerSize="###" complexTypePrefix="../../../components/schema/" }}
 {{/unless}}
 {{/each}}
 

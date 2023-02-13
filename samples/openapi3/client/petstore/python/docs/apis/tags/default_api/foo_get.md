@@ -15,14 +15,14 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#response_defaultresponse_cls) | response
 
-#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
+### <a id="response_defaultresponse_cls" >Default.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
+#### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

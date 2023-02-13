@@ -578,6 +578,7 @@ public class DefaultGenerator implements Generator {
                         Map<String, Object> endpointInfo = new HashMap<>();
                         List<CodegenOperation> operation = Arrays.asList(co);
                         endpointInfo.put("operation", operation);
+                        endpointInfo.put("headerSize", "##");
                         endpointInfo.put("packageName", packageName);
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);

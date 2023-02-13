@@ -1,5 +1,5 @@
 <a name="top"></a>
-## petstore_api.components.responses.response_success_with_json_api_response
+petstore_api.components.responses.response_success_with_json_api_response
 # <a id="response_success_with_json_api_response" >SuccessWithJsonApiResponse</a>
 ## <a id="response_success_with_json_api_responseresponse_cls" >SuccessWithJsonApiResponse.response_cls</a>
 Name | Type | Description  | Notes
@@ -8,7 +8,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
 headers | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseHeaders) |  |
 
-# <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
+#### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
