@@ -839,7 +839,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // - and " " -> _
         String result = charName.replaceAll("[\\-\\s]", "_");
         // remove parentheses
-        return result.replaceAll("[()]]", "");
+        return result.replaceAll("[()]", "");
     }
 
     protected EnumValue getEnumValue(Object value, String description) {
