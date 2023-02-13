@@ -32,28 +32,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### <a id="request_body" >body</a>
 #### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_form_string_array** | [list, tuple, ](#enum_form_string_array) | [tuple, ](#enum_form_string_array) | Form parameter enum test (string array) | [optional]
 **enum_form_string** | str,  | str,  | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# enum_form_string_array
+#### enum_form_string_array
 
 Form parameter enum test (string array)
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  | Form parameter enum test (string array) |
 
-### Tuple Items
+#### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
@@ -71,33 +71,33 @@ enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
 
 #### <a id="parameter_2schema" >Parameter2.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+#### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 #### <a id="parameter_3schema" >Parameter3.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
 #### <a id="parameter_4schema" >Parameter4.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
 #### <a id="parameter_5schema" >Parameter5.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
@@ -112,19 +112,19 @@ enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
 
 #### <a id="parameter_0schema" >Parameter0.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+#### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 #### <a id="parameter_1schema" >Parameter1.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
@@ -146,7 +146,7 @@ headers | Unset | headers were not defined |
 
 #### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

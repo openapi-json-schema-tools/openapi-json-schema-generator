@@ -13,7 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#_not) | str,  | str,  |  |
 
-# _not
+## _not
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes

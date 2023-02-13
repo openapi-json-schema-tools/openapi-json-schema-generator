@@ -12,14 +12,14 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | list, tuple,  | tuple,  | any string name can be used but the value must be the correct type | [optional]
 
-# any_string_name
+## any_string_name
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) |  |

@@ -36,7 +36,7 @@ query | [Parameter0.schema](#parameter_0schema) | |
 
 #### <a id="parameter_0schema" >Parameter0.schema</a>
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

@@ -28,7 +28,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 file to upload
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
@@ -51,7 +51,7 @@ headers | Unset | headers were not defined |
 
 file to download
 
-## Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
