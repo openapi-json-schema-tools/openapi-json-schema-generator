@@ -524,7 +524,7 @@ def validate_exclusive_maximum(
 ) -> None:
     if not isinstance(arg, decimal.Decimal):
         return None
-    if arg >= exclusive_minimum:
+    if arg >= exclusive_maximum:
         _raise_validation_error_message(
             value=arg,
             constraint_msg="must be a value less than",
