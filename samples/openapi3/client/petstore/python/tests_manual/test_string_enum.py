@@ -48,8 +48,8 @@ class TestStringEnum(unittest.TestCase):
         assert StringEnum.PLACED == 'placed'
         assert StringEnum.APPROVED == 'approved'
         assert StringEnum.DELIVERED == 'delivered'
-        assert StringEnum.DOUBLE_QUOTE__NEW_LINE__WITH_NEWLINE == "double quote \n with newline"
-        assert StringEnum.MULTIPLE_NEW_LINE_LINES == "multiple\nlines"
+        assert StringEnum.DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE == "double quote \n with newline"
+        assert StringEnum.MULTIPLE_LINE_FEED_LF_LINES == "multiple\nlines"
         assert StringEnum.SINGLE_QUOTED == "single quoted"
 
 
