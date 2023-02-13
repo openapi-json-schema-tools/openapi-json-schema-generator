@@ -704,7 +704,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return schema.from_openapi_data_(extracted_data)
+                return cls.schema.from_openapi_data_(extracted_data)
         # cls.content will be length one
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
@@ -896,7 +896,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         if cls.headers is not None:
             cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
             deserialized_headers = {}
-            for header_name, header_param in self.headers.items():
+            for header_name, header_param in cls.headers.items():
                 header_value = response.headers.get(header_name)
                 if header_value is None:
                     continue
