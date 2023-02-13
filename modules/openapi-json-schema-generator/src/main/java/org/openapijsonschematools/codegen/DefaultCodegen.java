@@ -1656,16 +1656,6 @@ public class DefaultCodegen implements CodegenConfig {
         return specTestCaseName;
     }
 
-    /**
-     * A method that allows generators to pre-process test example payloads
-     * This can be useful if one needs to change how values like null in string are represented
-     * @param data the test data payload
-     * @return the updated test data payload
-     */
-    protected Object processTestExampleData(Object data) {
-        return data;
-    }
-
     protected EnumValue getEnumValue(Object value, String description) {
         Object usedValue = value;
         String type = null;
@@ -1675,10 +1665,11 @@ public class DefaultCodegen implements CodegenConfig {
             type = "number";
         } else if (value instanceof String) {
             type = "string";
+            usedValue = handleSpecialCharacters((String) value);
         } else if (value instanceof LinkedHashMap) {
             LinkedHashMap<String, EnumValue> castMap = new LinkedHashMap<>();
             for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
-                String entryKey = (String) entry.getKey();
+                String entryKey = handleSpecialCharacters((String) entry.getKey());
                 Object entryValue = entry.getValue();
                 EnumValue castValue = getEnumValue(entryValue, null);
                 castMap.put(entryKey, castValue);
@@ -1743,7 +1734,7 @@ public class DefaultCodegen implements CodegenConfig {
                 continue;
             }
             LinkedHashMap castTestExample = (LinkedHashMap) testExample;
-            Object data = processTestExampleData(castTestExample.get("data"));
+            Object data = castTestExample.get("data");
             String description = (String) castTestExample.get("description");
             boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(

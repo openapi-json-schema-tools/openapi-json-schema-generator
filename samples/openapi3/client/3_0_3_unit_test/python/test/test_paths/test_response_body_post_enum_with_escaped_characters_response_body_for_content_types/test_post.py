@@ -40,7 +40,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "foo\\rbar"
+                "foo\rbar"
             )
             mock_request.return_value = self.response(
                 self.json_bytes(payload),
@@ -70,7 +70,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "foo\\nbar"
+                "foo\nbar"
             )
             mock_request.return_value = self.response(
                 self.json_bytes(payload),

@@ -39,7 +39,6 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
@@ -842,13 +841,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return result.replaceAll("[()]", "");
     }
 
-    protected EnumValue getEnumValue(Object value, String description) {
-        if (value instanceof String) {
-            return super.getEnumValue(processTestExampleData(value), description);
-        }
-        return super.getEnumValue(value, description);
-    }
-
     protected String toTestCaseName(String specTestCaseName) {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, specTestCaseName);
     }
@@ -885,29 +877,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             stringValue = stringValue.replace(formFeed, "\\f");
         }
         return stringValue;
-    }
-
-    protected Object processTestExampleData(Object value) {
-        if (value instanceof Integer || value instanceof Double || value instanceof Float || value instanceof Boolean){
-            return value;
-        } else if (value instanceof String) {
-            return handleSpecialCharacters((String) value);
-        } else if (value instanceof LinkedHashMap) {
-            LinkedHashMap<String, Object> fixedValues = new LinkedHashMap<>();
-            for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
-                String entryKey = (String) processTestExampleData(entry.getKey());
-                Object entryValue = processTestExampleData(entry.getValue());
-                fixedValues.put(entryKey, entryValue);
-            }
-            return fixedValues;
-        } else if (value instanceof ArrayList) {
-            ArrayList<Object> fixedValues = new ArrayList<>();
-            for (Object valueItem: (ArrayList) value) {
-                fixedValues.add(processTestExampleData(valueItem));
-            }
-            return fixedValues;
-        }
-        return value;
     }
 
     public String getRefClassWithRefModule(Schema sc) {
