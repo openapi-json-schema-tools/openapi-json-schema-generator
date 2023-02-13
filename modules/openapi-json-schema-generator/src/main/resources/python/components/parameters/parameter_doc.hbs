@@ -1,14 +1,14 @@
 {{#with parameter}}
 {{#if componentModule}}
 <a name="top"></a>
-## {{../packageName}}.components.parameters.{{componentModule}}
+{{../packageName}}.components.parameters.{{componentModule}}
 # {{jsonPathPiece.camelCase}}
 {{/if}}
 {{#if refInfo}}
     {{#with getDeepestRef}}
         {{#if schema}}
             {{#with schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../jsonPathPiece }}
+{{headerSize}} {{> components/_helper_anchor_fancy schemaNamePrefix1=../../jsonPathPiece }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../refInfo.refClass}}.schema](../../components/parameters/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
@@ -16,7 +16,7 @@ Ref Class | Input Type | Accessed Type | Description
         {{else}}
             {{#each getDeepestRef.content}}
                 {{#with this.schema}}
-### {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{headerSize}} {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
