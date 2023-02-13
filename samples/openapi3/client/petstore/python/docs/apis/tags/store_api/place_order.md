@@ -3,45 +3,13 @@
 <a name="place_order"></a>
 
 Place an order for a pet
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import store_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = store_api.StoreApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    body = order.Order(
-        id=1,
-        pet_id=1,
-        quantity=1,
-        ship_date="2020-02-02T20:20:20.000222Z",
-        status="placed",
-        complete=False,
-    )
-    try:
-        # Place an order for a pet
-        api_response = api_instance.place_order(
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling StoreApi->place_order: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -54,7 +22,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
@@ -94,8 +62,44 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import store_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = store_api.StoreApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = order.Order(
+        id=1,
+        pet_id=1,
+        quantity=1,
+        ship_date="2020-02-02T20:20:20.000222Z",
+        status="placed",
+        complete=False,
+    )
+    try:
+        # Place an order for a pet
+        api_response = api_instance.place_order(
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling StoreApi->place_order: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

@@ -5,40 +5,13 @@
 To test special tags
 
 To test special tags and operation ID starting with number
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import another_fake_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = another_fake_api.AnotherFakeApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    body = client.Client(
-        client="client_example",
-    )
-    try:
-        # To test special tags
-        api_response = api_instance.call_123_test__special_tags(
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -70,8 +43,39 @@ Type | Description  | Notes
 [**Client**](../../../components/schema/client.Client.md) |  | 
 
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import another_fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = another_fake_api.AnotherFakeApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = client.Client(
+        client="client_example",
+    )
+    try:
+        # To test special tags
+        api_response = api_instance.call_123_test__special_tags(
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../AnotherFakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

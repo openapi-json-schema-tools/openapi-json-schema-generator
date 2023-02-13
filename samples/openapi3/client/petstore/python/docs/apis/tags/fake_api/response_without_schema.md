@@ -3,10 +3,33 @@
 <a name="response_without_schema"></a>
 
 receives a response without schema
+
 ## Table of Contents
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
+This endpoint does not need any parameter.
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | contents without schema definition
+
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[Unset, Unset, ] |  |
+headers | Unset | headers were not defined |
+
+## Authorization
+
+No authorization required
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -31,24 +54,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->response_without_schema: %s\n" % e)
 ```
-This endpoint does not need any parameter.
-
-## Return Types
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | contents without schema definition
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[Unset, Unset, ] |  |
-headers | Unset | headers were not defined |
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

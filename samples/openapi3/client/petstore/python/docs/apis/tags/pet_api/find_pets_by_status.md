@@ -5,11 +5,63 @@
 Finds Pets by status
 
 Multiple status values can be provided with comma separated strings
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### <a id="requestqueryparameters" >query_params</a>
+#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+status | [Parameter0.schema](#parameter_0schema) | | 
+
+
+# <a id="parameter_0schema" >Parameter0.schema</a>
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
+
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+## Authorization
+
+[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
+
+## Code Sample
 
 * OAuth Authentication (petstore_auth):
 ```python
@@ -112,53 +164,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->find_pets_by_status: %s\n" % e)
 ```
-## Arguments
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter_0schema) | | 
-
-
-# <a id="parameter_0schema" >Parameter0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"
-
-## Return Types
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
-
-#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-### Authorization
-
-[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
 
 [[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

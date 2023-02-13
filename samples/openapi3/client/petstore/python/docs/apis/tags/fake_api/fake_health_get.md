@@ -3,10 +3,39 @@
 <a name="fake_health_get"></a>
 
 Health check endpoint
+
 ## Table of Contents
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
+This endpoint does not need any parameter.
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | The instance started successfully
+
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+headers | Unset | headers were not defined |
+
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
+
+
+## Authorization
+
+No authorization required
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -31,30 +60,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
 ```
-This endpoint does not need any parameter.
-
-## Return Types
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | The instance started successfully
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
-
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

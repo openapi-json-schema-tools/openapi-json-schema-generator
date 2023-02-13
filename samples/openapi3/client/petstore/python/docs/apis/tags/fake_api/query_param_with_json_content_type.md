@@ -3,40 +3,13 @@
 <a name="query_param_with_json_content_type"></a>
 
 query param with json content-type
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import fake_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fake_api.FakeApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    query_params = {
-        'someParam': ,
-    }
-    try:
-        # query param with json content-type
-        api_response = api_instance.query_param_with_json_content_type(
-            query_params=query_params,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -83,8 +56,39 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fake_api.FakeApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    query_params = {
+        'someParam': ,
+    }
+    try:
+        # query param with json content-type
+        api_response = api_instance.query_param_with_json_content_type(
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->query_param_with_json_content_type: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

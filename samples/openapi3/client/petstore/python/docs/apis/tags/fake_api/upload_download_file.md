@@ -3,38 +3,13 @@
 <a name="upload_download_file"></a>
 
 uploads a file and downloads a file using application/octet-stream
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import fake_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fake_api.FakeApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    body = open('/path/to/file', 'rb')
-    try:
-        # uploads a file and downloads a file using application/octet-stream
-        api_response = api_instance.upload_download_file(
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -47,7 +22,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-### <a id="request_body_request_bodycontentapplication_octet_streamschema" >RequestBody.content.application_octet_stream.schema</a>
+#### <a id="request_body_request_bodycontentapplication_octet_streamschema" >RequestBody.content.application_octet_stream.schema</a>
 
 file to upload
 
@@ -79,8 +54,37 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fake_api.FakeApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = open('/path/to/file', 'rb')
+    try:
+        # uploads a file and downloads a file using application/octet-stream
+        api_response = api_instance.upload_download_file(
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

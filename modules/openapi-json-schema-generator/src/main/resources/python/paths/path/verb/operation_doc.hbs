@@ -10,33 +10,15 @@
 
 {{{notes}}}
 {{/if}}
+
 ## Table of Contents
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#Arguments)
 {{/or}}
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-{{#if authMethods}}
-{{#each authMethods}}
-{{#if isBasic}}
-{{#if isBasicBasic}}
-* Basic Authentication ({{name}}):
-{{/if}}
-{{#if isBasicBearer}}
-* Bearer{{#if bearerFormat}} ({{{bearerFormat}}}){{/if}} Authentication ({{name}}):
-{{/if}}
-{{/if}}
-{{#if isApiKey}}
-* Api Key Authentication ({{name}}):
-{{/if}}
-{{#if isOAuth}}
-* OAuth Authentication ({{name}}):
-{{/if}}
-{{/each}}
-{{/if}}
-{{> paths/path/verb/_helper_operation_doc_example }}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 ## Arguments
 
@@ -89,7 +71,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{#unless requestBody.refInfo}}
 
 ### <a id="request_body" >body</a>
-{{> components/request_bodies/request_body_doc requestBody=requestBody headerSize="###" }}
+{{> components/request_bodies/request_body_doc requestBody=requestBody headerSize="####" }}
     {{/unless}}
     {{/if}}
     {{#if queryParams}}
@@ -233,13 +215,35 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{/unless}}
 {{/each}}
 
-### Authorization
+## Authorization
 
 {{#unless authMethods}}
 No authorization required
 {{else}}
 {{#each authMethods}}[{{{name}}}](../../../../README.md#{{{name}}}){{#unless @last}}, {{/unless}}{{/each}}
 {{/unless}}
+
+## Code Sample
+
+{{#if authMethods}}
+{{#each authMethods}}
+{{#if isBasic}}
+{{#if isBasicBasic}}
+* Basic Authentication ({{name}}):
+{{/if}}
+{{#if isBasicBearer}}
+* Bearer{{#if bearerFormat}} ({{{bearerFormat}}}){{/if}} Authentication ({{name}}):
+{{/if}}
+{{/if}}
+{{#if isApiKey}}
+* Api Key Authentication ({{name}}):
+{{/if}}
+{{#if isOAuth}}
+* OAuth Authentication ({{name}}):
+{{/if}}
+{{/each}}
+{{/if}}
+{{> paths/path/verb/_helper_operation_doc_example }}
 
 [[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
 {{/each}}

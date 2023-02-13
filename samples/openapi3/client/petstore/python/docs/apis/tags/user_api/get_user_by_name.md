@@ -3,40 +3,13 @@
 <a name="get_user_by_name"></a>
 
 Get user by user name
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import user_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = user_api.UserApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'username': "username_example",
-    }
-    try:
-        # Get user by user name
-        api_response = api_instance.get_user_by_name(
-            path_params=path_params,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling UserApi->get_user_by_name: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -96,8 +69,39 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import user_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = user_api.UserApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'username': "username_example",
+    }
+    try:
+        # Get user by user name
+        api_response = api_instance.get_user_by_name(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling UserApi->get_user_by_name: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

@@ -3,42 +3,13 @@
 <a name="upload_files"></a>
 
 uploads files using multipart/form-data
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import fake_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fake_api.FakeApi(api_client)
-
-    # example passing only optional values
-    body = dict(
-        files=[
-            open('/path/to/file', 'rb')
-        ],
-    )
-    try:
-        # uploads files using multipart/form-data
-        api_response = api_instance.upload_files(
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->upload_files: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -51,7 +22,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
+#### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -96,8 +67,41 @@ Type | Description  | Notes
 [**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 
 
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fake_api.FakeApi(api_client)
+
+    # example passing only optional values
+    body = dict(
+        files=[
+            open('/path/to/file', 'rb')
+        ],
+    )
+    try:
+        # uploads files using multipart/form-data
+        api_response = api_instance.upload_files(
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->upload_files: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

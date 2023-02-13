@@ -3,95 +3,13 @@
 <a name="parameter_collisions"></a>
 
 parameter collision case
+
 ## Table of Contents
 - [Arguments](#Arguments)
 - [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
 
-### Code Example
-
-```python
-import petstore_api
-from petstore_api.apis.tags import fake_api
-from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-)
-
-# Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = fake_api.FakeApi(api_client)
-
-    # example passing only required values which don't have defaults set
-    path_params = {
-        '1': "1_example",
-        'aB': "aB_example",
-        'Ab': "Ab_example",
-        'self': "self_example",
-        'A-B': "A-B_example",
-    }
-    query_params = {
-    }
-    cookie_params = {
-    }
-    header_params = {
-    }
-    try:
-        # parameter collision case
-        api_response = api_instance.parameter_collisions(
-            path_params=path_params,
-            query_params=query_params,
-            header_params=header_params,
-            cookie_params=cookie_params,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
-
-    # example passing only optional values
-    path_params = {
-        '1': "1_example",
-        'aB': "aB_example",
-        'Ab': "Ab_example",
-        'self': "self_example",
-        'A-B': "A-B_example",
-    }
-    query_params = {
-        '1': "1_example",
-        'aB': "aB_example",
-        'Ab': "Ab_example",
-        'self': "self_example",
-        'A-B': "A-B_example",
-    }
-    cookie_params = {
-        '1': "1_example",
-        'aB': "aB_example",
-        'Ab': "Ab_example",
-        'self': "self_example",
-        'A-B': "A-B_example",
-    }
-    header_params = {
-        '1': "1_example",
-        'aB': "aB_example",
-        'self': "self_example",
-        'A-B': "A-B_example",
-    }
-    body = None
-    try:
-        # parameter collision case
-        api_response = api_instance.parameter_collisions(
-            path_params=path_params,
-            query_params=query_params,
-            header_params=header_params,
-            cookie_params=cookie_params,
-            body=body,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
-```
 ## Arguments
 
 Name | Type | Description  | Notes
@@ -108,7 +26,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -313,8 +231,94 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-### Authorization
+## Authorization
 
 No authorization required
+
+## Code Sample
+
+```python
+import petstore_api
+from petstore_api.apis.tags import fake_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = fake_api.FakeApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        '1': "1_example",
+        'aB': "aB_example",
+        'Ab': "Ab_example",
+        'self': "self_example",
+        'A-B': "A-B_example",
+    }
+    query_params = {
+    }
+    cookie_params = {
+    }
+    header_params = {
+    }
+    try:
+        # parameter collision case
+        api_response = api_instance.parameter_collisions(
+            path_params=path_params,
+            query_params=query_params,
+            header_params=header_params,
+            cookie_params=cookie_params,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        '1': "1_example",
+        'aB': "aB_example",
+        'Ab': "Ab_example",
+        'self': "self_example",
+        'A-B': "A-B_example",
+    }
+    query_params = {
+        '1': "1_example",
+        'aB': "aB_example",
+        'Ab': "Ab_example",
+        'self': "self_example",
+        'A-B': "A-B_example",
+    }
+    cookie_params = {
+        '1': "1_example",
+        'aB': "aB_example",
+        'Ab': "Ab_example",
+        'self': "self_example",
+        'A-B': "A-B_example",
+    }
+    header_params = {
+        '1': "1_example",
+        'aB': "aB_example",
+        'self': "self_example",
+        'A-B': "A-B_example",
+    }
+    body = None
+    try:
+        # parameter collision case
+        api_response = api_instance.parameter_collisions(
+            path_params=path_params,
+            query_params=query_params,
+            header_params=header_params,
+            cookie_params=cookie_params,
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
+```
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
