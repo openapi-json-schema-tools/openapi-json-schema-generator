@@ -41,7 +41,7 @@ class OneofWithRequired(
         class OneOf:
             
             
-            class OneOf0(
+            class _0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -101,7 +101,7 @@ class OneofWithRequired(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'OneOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -110,7 +110,7 @@ class OneofWithRequired(
                     )
             
             
-            class OneOf1(
+            class _1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -170,7 +170,7 @@ class OneofWithRequired(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'OneOf1':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *args_,
@@ -178,8 +178,8 @@ class OneofWithRequired(
                         **kwargs,
                     )
             classes = [
-                OneOf0,
-                OneOf1,
+                _0,
+                _1,
             ]
 
 

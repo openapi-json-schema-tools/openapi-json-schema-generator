@@ -32,7 +32,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_200._200.content["application/json"].schema
+    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
     
     def test_match_string_with_nul_passes(self):
         # match string with nul
@@ -40,7 +40,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "hello\x00there"
+                "hello\\x00there"
             )
             mock_request.return_value = self.response(
                 self.json_bytes(payload),

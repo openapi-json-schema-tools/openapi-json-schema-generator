@@ -37,11 +37,11 @@ class AllofWithTheLastEmptySchema(
         # any type
         
         class AllOf:
-            AllOf0 = schemas.NumberSchema
-            AllOf1 = schemas.AnyTypeSchema
+            _0 = schemas.NumberSchema
+            _1 = schemas.AnyTypeSchema
             classes = [
-                AllOf0,
-                AllOf1,
+                _0,
+                _1,
             ]
 
 

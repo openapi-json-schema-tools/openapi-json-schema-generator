@@ -39,7 +39,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # member 2 is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "foo\rbar"
+                "foo\\rbar"
             )
             body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
@@ -69,7 +69,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # member 1 is valid
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "foo\nbar"
+                "foo\\nbar"
             )
             body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,

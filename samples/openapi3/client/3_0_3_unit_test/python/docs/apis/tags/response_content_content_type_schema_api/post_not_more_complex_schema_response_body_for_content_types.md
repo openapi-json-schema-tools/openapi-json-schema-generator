@@ -35,16 +35,16 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.response_cls](#response_200response_cls) | success
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-#### <a id="response_200response_cls" >_200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[_200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_200contentapplication_jsonschema" >_200.content.application_json.schema</a>
+# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**NotMoreComplexSchema**](../../../components/schema/not_more_complex_schema.NotMoreComplexSchema.md) |  | 

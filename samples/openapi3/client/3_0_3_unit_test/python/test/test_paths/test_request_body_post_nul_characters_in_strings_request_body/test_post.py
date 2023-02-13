@@ -39,7 +39,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # match string with nul
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "hello\x00there"
+                "hello\\x00there"
             )
             body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,

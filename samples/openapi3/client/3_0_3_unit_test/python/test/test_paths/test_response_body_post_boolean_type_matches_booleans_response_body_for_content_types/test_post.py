@@ -32,7 +32,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body_schema = post.response_200._200.content["application/json"].schema
+    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
     
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean

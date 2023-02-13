@@ -38,9 +38,9 @@ class NulCharactersInStrings(
             str,
         }
         enum_value_to_name = {
-            "hello\x00there": "HELLOTHERE",
+            "hello\x00there": "HELLO_NULL_THERE",
         }
     
     @schemas.classproperty
-    def HELLOTHERE(cls):
+    def HELLO_NULL_THERE(cls):
         return cls("hello\x00there")

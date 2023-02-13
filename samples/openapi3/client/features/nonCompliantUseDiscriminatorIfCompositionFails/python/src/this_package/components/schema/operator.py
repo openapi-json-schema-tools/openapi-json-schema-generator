@@ -50,15 +50,15 @@ class Operator(
         class OneOf:
         
             @staticmethod
-            def one_of0() -> typing.Type['addition_operator.AdditionOperator']:
+            def _0() -> typing.Type['addition_operator.AdditionOperator']:
                 return addition_operator.AdditionOperator
         
             @staticmethod
-            def one_of1() -> typing.Type['subtraction_operator.SubtractionOperator']:
+            def _1() -> typing.Type['subtraction_operator.SubtractionOperator']:
                 return subtraction_operator.SubtractionOperator
             classes = [
-                one_of0,
-                one_of1,
+                _0,
+                _1,
             ]
 
 

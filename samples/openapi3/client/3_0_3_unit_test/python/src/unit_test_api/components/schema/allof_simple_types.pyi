@@ -39,7 +39,7 @@ class AllofSimpleTypes(
         class AllOf:
             
             
-            class AllOf0(
+            class _0(
                 schemas.AnyTypeSchema,
             ):
             
@@ -53,7 +53,7 @@ class AllofSimpleTypes(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'AllOf0':
+                ) -> '_0':
                     return super().__new__(
                         cls,
                         *args_,
@@ -62,7 +62,7 @@ class AllofSimpleTypes(
                     )
             
             
-            class AllOf1(
+            class _1(
                 schemas.AnyTypeSchema,
             ):
             
@@ -76,7 +76,7 @@ class AllofSimpleTypes(
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
                     configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'AllOf1':
+                ) -> '_1':
                     return super().__new__(
                         cls,
                         *args_,
@@ -84,8 +84,8 @@ class AllofSimpleTypes(
                         **kwargs,
                     )
             classes = [
-                AllOf0,
-                AllOf1,
+                _0,
+                _1,
             ]
 
 
