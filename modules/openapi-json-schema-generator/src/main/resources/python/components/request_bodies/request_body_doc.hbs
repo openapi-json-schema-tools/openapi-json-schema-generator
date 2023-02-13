@@ -19,9 +19,9 @@ Ref Class | Input Type | Accessed Type | Description
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref headerSize="###" anchorContainsPeriod=true schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize="###" schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> components/_helper_schema_doc_with_ref headerSize="###" anchorContainsPeriod=true schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize="###" schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

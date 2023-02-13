@@ -27,12 +27,12 @@ Ref Class | Input Type | Accessed Type | Description
 {{else}}
     {{#if schema}}
         {{#with schema}}
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../jsonPathPiece }}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece }}
         {{/with}}
     {{else}}
         {{#each content}}
             {{#with this.schema}}
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
             {{/with}}
         {{/each}}
     {{/if}}
