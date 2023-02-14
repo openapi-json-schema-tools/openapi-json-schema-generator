@@ -1,5 +1,8 @@
 petstore_api.components.request_bodies.request_body_user_array
 # UserArray
+
+## <a id="request_body_user_arraydescription" >UserArray.description</a>
+List of user object
 ## <a id="request_body_user_arraycontentapplication_jsonschema" >UserArray.content.application_json.schema</a>
 
 ## Schema Type Info
