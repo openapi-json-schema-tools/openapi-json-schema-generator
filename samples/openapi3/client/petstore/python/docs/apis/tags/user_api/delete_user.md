@@ -39,6 +39,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
+
+### <a id="response_404description" >ResponseFor404.description</a>
+User not found
+
 ### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

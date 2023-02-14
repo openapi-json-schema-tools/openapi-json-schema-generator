@@ -1434,6 +1434,7 @@ paths:
                   - type: string
                     minLength: 1
       requestBody:
+        description: multiple content types
         content:
           application/json:
             schema:
@@ -1450,7 +1451,7 @@ paths:
                       minLength: 1
       responses:
         200:
-          description: success
+          description: success, multiple content types
           content:
             application/json:
               schema:
@@ -1529,7 +1530,7 @@ paths:
       operationId: responseWithoutSchema
       responses:
         '200':
-          description: contents without schema definition
+          description: contents without schema definition, multiple content types
           content:
             application/json: {}
             application/xml: {}
@@ -1639,7 +1640,7 @@ components:
             $ref: '#/components/schemas/StringWithValidation'
   responses:
     SuccessfulXmlAndJsonArrayOfPet:
-      description: successful operation
+      description: successful operation, multiple content types
       content:
         application/xml:
           schema:
@@ -1714,7 +1715,7 @@ components:
         application/xml:
           schema:
             $ref: '#/components/schemas/RefPet'
-      description: Pet object that needs to be added to the store
+      description: Pet object that needs to be added to the store, multiple content types
       required: true
   headers:
     StringHeader:

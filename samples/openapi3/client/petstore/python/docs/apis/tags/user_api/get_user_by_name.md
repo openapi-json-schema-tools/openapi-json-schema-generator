@@ -37,6 +37,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
+
+### <a id="response_200description" >ResponseFor200.description</a>
+successful operation
+
 ### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -58,12 +62,20 @@ Type | Description  | Notes
 [**User**](../../../components/schema/user.User.md) |  | 
 
 
+
+### <a id="response_400description" >ResponseFor400.description</a>
+Invalid username supplied
+
 ### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+
+### <a id="response_404description" >ResponseFor404.description</a>
+User not found
 
 ### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes

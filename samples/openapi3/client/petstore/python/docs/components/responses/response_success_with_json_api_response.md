@@ -1,6 +1,10 @@
 <a name="top"></a>
 petstore_api.components.responses.response_success_with_json_api_response
 # <a id="response_success_with_json_api_response" >SuccessWithJsonApiResponse</a>
+
+## <a id="response_success_with_json_api_responsedescription" >SuccessWithJsonApiResponse.description</a>
+successful operation
+
 ## <a id="response_success_with_json_api_responseresponse_cls" >SuccessWithJsonApiResponse.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

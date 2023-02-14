@@ -7,10 +7,14 @@
     {{else}}
 # <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
     {{/if}}
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
-{{else}}
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
 {{/if}}
+{{#if description}}
+
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}description" >{{jsonPathPiece.camelCase}}.description</a>
+{{description}}
+{{/if}}
+
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

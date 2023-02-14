@@ -51,8 +51,12 @@ items | str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation
+200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid tag value
+
+
+### <a id="response_400description" >ResponseFor400.description</a>
+Invalid tag value
 
 ### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes

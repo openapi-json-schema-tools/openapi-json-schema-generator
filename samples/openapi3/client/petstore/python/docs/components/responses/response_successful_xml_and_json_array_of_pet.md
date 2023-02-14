@@ -1,6 +1,10 @@
 <a name="top"></a>
 petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
 # <a id="response_successful_xml_and_json_array_of_pet" >SuccessfulXmlAndJsonArrayOfPet</a>
+
+## <a id="response_successful_xml_and_json_array_of_petdescription" >SuccessfulXmlAndJsonArrayOfPet.description</a>
+successful operation, multiple content types
+
 ## <a id="response_successful_xml_and_json_array_of_petresponse_cls" >SuccessfulXmlAndJsonArrayOfPet.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

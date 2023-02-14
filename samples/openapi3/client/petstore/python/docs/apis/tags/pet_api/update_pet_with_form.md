@@ -60,6 +60,10 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
 
+
+### <a id="response_405description" >ResponseFor405.description</a>
+Invalid input
+
 ### <a id="response_405response_cls" >ResponseFor405.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

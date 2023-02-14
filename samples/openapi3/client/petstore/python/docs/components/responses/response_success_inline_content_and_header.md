@@ -1,6 +1,10 @@
 <a name="top"></a>
 petstore_api.components.responses.response_success_inline_content_and_header
 # <a id="response_success_inline_content_and_header" >SuccessInlineContentAndHeader</a>
+
+## <a id="response_success_inline_content_and_headerdescription" >SuccessInlineContentAndHeader.description</a>
+successful operation
+
 ## <a id="response_success_inline_content_and_headerresponse_cls" >SuccessInlineContentAndHeader.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
