@@ -35,16 +35,24 @@ HTTP request | Method | Description
 
 ## Component RequestBodies
 
+Class | Description
+----- | ------------
 {{#each requestBodies}}
-- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{componentModule}}.md){{/with}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
 {{/each}}
 {{/if}}
 {{#if responses}}
 
 ## Component Responses
 
+Class | Description
+----- | ------------
 {{#each responses}}
-- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/responses/{{componentModule}}.md){{/with}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/responses/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
 {{/each}}
 {{/if}}
 {{#if headers}}

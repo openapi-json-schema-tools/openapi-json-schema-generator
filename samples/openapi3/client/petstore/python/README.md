@@ -361,19 +361,23 @@ HTTP request | Method | Description
 
 ## Component RequestBodies
 
-- [Client](docs/components/request_bodies/request_body_client.md)
-- [Pet](docs/components/request_bodies/request_body_pet.md)
-- [RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md)
-- [UserArray](docs/components/request_bodies/request_body_user_array.md)
+Class | Description
+----- | ------------
+[Client](docs/components/request_bodies/request_body_client.md) | client model
+[Pet](docs/components/request_bodies/request_body_pet.md) | Pet object that needs to be added to the store, multiple content types
+[RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md) |
+[UserArray](docs/components/request_bodies/request_body_user_array.md) | List of user object
 
 ## Component Responses
 
-- [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md)
-- [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md)
-- [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md)
-- [SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md)
-- [SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md)
-- [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_successful_xml_and_json_array_of_pet.md)
+Class | Description
+----- | ------------
+[RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md) |
+[RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md) |
+[SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md) | Success
+[SuccessInlineContentAndHeader](docs/components/responses/response_success_inline_content_and_header.md) | successful operation
+[SuccessWithJsonApiResponse](docs/components/responses/response_success_with_json_api_response.md) | successful operation
+[SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_successful_xml_and_json_array_of_pet.md) | successful operation, multiple content types
 
 ## Component Headers
 
