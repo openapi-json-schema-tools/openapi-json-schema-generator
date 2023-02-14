@@ -5,8 +5,10 @@ petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
+[body](#body) | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
+
+### Body
 
 #### <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
 

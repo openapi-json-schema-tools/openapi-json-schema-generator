@@ -5,8 +5,10 @@ petstore_api.components.responses.response_success_with_json_api_response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
-headers | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseHeaders) |  |
+[body](#body) | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
+[headers](#headers) | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseHeaders) |  |
+
+### Body
 
 #### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
 Type | Description  | Notes

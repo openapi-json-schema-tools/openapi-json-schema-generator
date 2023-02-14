@@ -20,8 +20,12 @@ body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.
 headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+{{#and content componentModule}}[body](#body){{else}}body{{/and}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+{{#and headers componentModule}}[headers](#headers){{else}}headers{{/and}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#and content componentModule}}
+
+### Body
+    {{/and}}
     {{#each content}}
         {{#with this.schema}}
 
