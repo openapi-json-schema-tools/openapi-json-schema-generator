@@ -54,16 +54,18 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
+#### <a id="response_200content" >response_200.content</a>
+
+##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Pet**](../../../components/schema/pet.Pet.md) |  | 
 
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**RefPet**](../../../components/schema/ref_pet.RefPet.md) |  | 

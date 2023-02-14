@@ -20,25 +20,21 @@ body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.
 headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-{{#and content componentModule}}[body](#body){{else}}body{{/and}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-{{#and headers componentModule}}[headers](#headers){{else}}headers{{/and}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-    {{#and content componentModule}}
+{{#if content}}[body](#{{jsonPathPiece.snakeCase}}content){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+{{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#if content}}
 
-{{headerSize}}# Body
-    {{/and}}
-    {{#each content}}
-        {{#with this.schema}}
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}content" >{{jsonPathPiece.snakeCase}}.content</a>
+        {{#each content}}
+            {{#with this.schema}}
 
-{{> components/_helper_schema_doc_with_ref headerSize="####" schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
-        {{/with}}
-    {{/each}}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "##" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+            {{/with}}
+        {{/each}}
+    {{/if}}
     {{#if headers}}
-        {{#if componentModule}}
 
-{{headerSize}}# Headers
-        {{else}}
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}Headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
-        {{/if}}
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -79,7 +75,7 @@ Key | Accessed Type | Description  | Notes
         {{/each}}
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this headerSize="####" }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") }}
             {{/unless}}
         {{/each}}
     {{/if}}

@@ -43,14 +43,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
+[body](#response_200content) | typing.Union[[ResponseFor200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
+#### <a id="response_200content" >response_200.content</a>
+
+##### <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
 
 file to download
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |

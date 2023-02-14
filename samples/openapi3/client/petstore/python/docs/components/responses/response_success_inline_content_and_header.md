@@ -5,10 +5,10 @@ petstore_api.components.responses.response_success_inline_content_and_header
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
-[headers](#headers) | [response_success_inline_content_and_header.Headers](#response_success_inline_content_and_headerHeaders) |  |
+[body](#response_success_inline_content_and_headercontent) | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
+[headers](#response_success_inline_content_and_headerheaders) | [response_success_inline_content_and_header.Headers](#response_success_inline_content_and_headerheaders) |  |
 
-### Body
+### <a id="response_success_inline_content_and_headercontent" >response_success_inline_content_and_header.content</a>
 
 #### <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 
@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
-### Headers
+### <a id="response_success_inline_content_and_headerheaders" >response_success_inline_content_and_header.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

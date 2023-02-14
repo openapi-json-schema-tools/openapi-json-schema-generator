@@ -58,23 +58,26 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | [response_200.Headers](#response_200Headers) |  |
+[body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[headers](#response_200headers) | [response_200.Headers](#response_200headers) |  |
 
-#### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
+#### <a id="response_200content" >response_200.content</a>
 
-#### Schema Type Info
+##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
+
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### <a id="response_200Headers" >response_200.Headers</a>
+
+#### <a id="response_200headers" >response_200.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -86,16 +89,16 @@ ref-content-schema-header | [RefContentSchemaHeader.content.application_json.sch
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
-#### <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
+##### <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-#### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
+##### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time

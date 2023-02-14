@@ -21,8 +21,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[Unset, Unset, ] |  |
+[body](#response_200content) | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
+
+#### <a id="response_200content" >response_200.content</a>
 
 ## Code Sample
 

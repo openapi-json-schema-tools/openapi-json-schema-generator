@@ -5,10 +5,10 @@ petstore_api.components.responses.response_success_with_json_api_response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
-[headers](#headers) | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseHeaders) |  |
+[body](#response_success_with_json_api_responsecontent) | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
+[headers](#response_success_with_json_api_responseheaders) | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseheaders) |  |
 
-### Body
+### <a id="response_success_with_json_api_responsecontent" >response_success_with_json_api_response.content</a>
 
 #### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
 Type | Description  | Notes
@@ -16,7 +16,7 @@ Type | Description  | Notes
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
 
-### Headers
+### <a id="response_success_with_json_api_responseheaders" >response_success_with_json_api_response.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

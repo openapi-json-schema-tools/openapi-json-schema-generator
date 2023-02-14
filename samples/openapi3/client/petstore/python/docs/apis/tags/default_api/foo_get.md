@@ -17,17 +17,19 @@ default | [Default.response_cls](#response_defaultresponse_cls) | response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
+[body](#response_defaultcontent) | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
+#### <a id="response_defaultcontent" >response_default.content</a>
 
-#### Schema Type Info
+##### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
+
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **string** | [**Foo**](../../../components/schema/foo.Foo.md) | [**Foo**](../../../components/schema/foo.Foo.md) |  | [optional]

@@ -146,12 +146,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor404.content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
+[body](#response_404content) | typing.Union[[ResponseFor404.content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
+#### <a id="response_404content" >response_404.content</a>
 
-#### Schema Type Info
+##### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
+
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
