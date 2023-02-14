@@ -5,8 +5,6 @@ petstore_api.components.schema.health_check_result
 ## description
 Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
 
-Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

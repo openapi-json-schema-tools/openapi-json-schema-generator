@@ -5,8 +5,6 @@ petstore_api.components.schema._return
 ## description
 Model for testing reserved words
 
-Model for testing reserved words
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

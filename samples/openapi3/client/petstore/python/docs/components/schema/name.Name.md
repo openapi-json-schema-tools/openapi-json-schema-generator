@@ -5,8 +5,6 @@ petstore_api.components.schema.name
 ## description
 Model for testing model name same as property name
 
-Model for testing model name same as property name
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

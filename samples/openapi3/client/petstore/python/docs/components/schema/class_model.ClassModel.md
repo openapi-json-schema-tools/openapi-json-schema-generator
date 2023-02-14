@@ -5,8 +5,6 @@ petstore_api.components.schema.class_model
 ## description
 Model for testing model with \&quot;_class\&quot; property
 
-Model for testing model with \"_class\" property
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

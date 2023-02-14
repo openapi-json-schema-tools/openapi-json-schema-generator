@@ -5,8 +5,6 @@ petstore_api.components.schema.abstract_step_message
 ## description
 Abstract Step
 
-Abstract Step
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

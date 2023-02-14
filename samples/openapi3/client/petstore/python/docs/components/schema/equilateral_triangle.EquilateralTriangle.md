@@ -14,14 +14,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
 [_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## _1
+##### _1
 
-## Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **triangleType** | str,  | str,  |  | [optional] must be one of ["EquilateralTriangle", ]

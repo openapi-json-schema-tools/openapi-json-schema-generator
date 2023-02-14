@@ -5,8 +5,6 @@ petstore_api.components.schema.shape_or_null
 ## description
 The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
 
-The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.
-
 ## Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -20,9 +18,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
-## _0
+##### _0
 
-## Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |

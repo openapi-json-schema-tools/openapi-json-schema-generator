@@ -28,8 +28,6 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### description
 file to upload
 
-file to upload
-
 #### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -58,8 +56,6 @@ headers | Unset | headers were not defined |
 ##### <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
 
 ##### description
-file to download
-
 file to download
 
 ##### Schema Type Info
