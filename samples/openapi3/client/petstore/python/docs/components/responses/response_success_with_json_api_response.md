@@ -13,7 +13,7 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
 
-## Headers
+### Headers
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
