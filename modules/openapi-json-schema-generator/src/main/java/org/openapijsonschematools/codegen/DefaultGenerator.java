@@ -801,6 +801,7 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("complexTypePrefix", "../../components/schema/");
+                templateData.put("headerSize", "##");
                 templateData.put("response", response);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);

@@ -7,9 +7,9 @@
     {{else}}
 # <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
     {{/if}}
-## <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
 {{else}}
-### <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
 {{/if}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -24,7 +24,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
 {{#and headers componentModule}}[headers](#headers){{else}}headers{{/and}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#and content componentModule}}
 
-### Body
+{{headerSize}}# Body
     {{/and}}
     {{#each content}}
         {{#with this.schema}}
@@ -34,9 +34,10 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
     {{/each}}
     {{#if headers}}
         {{#if componentModule}}
-### Headers
+
+{{headerSize}}# Headers
         {{else}}
-#### <a id="{{jsonPathPiece.snakeCase}}Headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}Headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
         {{/if}}
 
 Key | Accessed Type | Description  | Notes
