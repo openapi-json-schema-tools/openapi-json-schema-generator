@@ -2,6 +2,9 @@
 petstore_api.components.schema.special_model_name
 # SpecialModelName
 
+## description
+model with an invalid class name for python
+
 model with an invalid class name for python
 
 ## Schema Type Info

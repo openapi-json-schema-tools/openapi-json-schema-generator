@@ -2,6 +2,9 @@
 petstore_api.components.schema.composed_one_of_different_types
 # ComposedOneOfDifferentTypes
 
+## description
+this is a model that allows payloads of type object or number
+
 this is a model that allows payloads of type object or number
 
 ## Schema Type Info

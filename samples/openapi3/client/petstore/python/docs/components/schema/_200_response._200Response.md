@@ -2,6 +2,9 @@
 petstore_api.components.schema._200_response
 # _200Response
 
+## description
+model with an invalid class name for python, starts with a number
+
 model with an invalid class name for python, starts with a number
 
 ## Schema Type Info

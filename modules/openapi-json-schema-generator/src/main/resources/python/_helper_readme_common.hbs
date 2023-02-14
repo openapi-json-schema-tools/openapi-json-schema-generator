@@ -23,14 +23,18 @@ HTTP request | Method | Description
 **{{httpMethod.original}}** {{path.original}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/with}}
 {{/each}}
+{{#if schemas}}
 
 ## Component Schemas
 
+Class | Description
+----- | ------------
 {{#each schemas}}
-{{#with this}}
- - [{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.{{jsonPathPiece.camelCase}}.md)
-{{/with}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.{{jsonPathPiece.camelCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
 {{/each}}
+{{/if}}
 {{#if requestBodies}}
 
 ## Component RequestBodies

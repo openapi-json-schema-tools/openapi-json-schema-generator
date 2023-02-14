@@ -27,6 +27,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## objectWithNoDeclaredProps
 
+## description
+test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
+
 test code generation for objects Value must be a map of strings to values. It cannot be the 'null' value.
 
 ## Schema Type Info
@@ -36,6 +39,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | test code generation f
 
 ## objectWithNoDeclaredPropsNullable
 
+## description
+test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
+
 test code generation for nullable objects. Value must be a map of strings to values or the 'null' value.
 
 ## Schema Type Info
@@ -44,6 +50,9 @@ Input Type | Accessed Type | Description | Notes
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
 
 ## anyTypeExceptNullProp
+
+## description
+any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
 
 any type except 'null' Here the 'type' attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
 

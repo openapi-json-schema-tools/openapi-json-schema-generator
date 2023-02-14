@@ -2,6 +2,9 @@
 petstore_api.components.schema.shape_or_null
 # ShapeOrNull
 
+## description
+The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
+
 The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.
 
 ## Schema Type Info

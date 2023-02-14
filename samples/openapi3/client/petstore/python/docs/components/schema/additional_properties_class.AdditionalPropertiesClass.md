@@ -84,6 +84,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## empty_map
 
+## description
+an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
+
 an object with no declared properties and no undeclared properties, hence it's an empty map.
 
 ## Schema Type Info

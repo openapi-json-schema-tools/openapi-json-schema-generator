@@ -2,6 +2,9 @@
 petstore_api.components.schema.name
 # Name
 
+## description
+Model for testing model name same as property name
+
 Model for testing model name same as property name
 
 ## Schema Type Info

@@ -2,6 +2,9 @@
 petstore_api.components.schema.nullable_shape
 # NullableShape
 
+## description
+The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0)
+
 The value may be a shape or the 'null' value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema >= 3.0)
 
 ## Schema Type Info

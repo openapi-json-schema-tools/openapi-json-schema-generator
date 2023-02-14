@@ -4,6 +4,11 @@
 {{packageName}}.components.schema.{{componentModule}}
 # {{jsonPathPiece.camelCase}}
 {{/if}}
+{{#if description}}
+
+{{headerSize}} description
+{{description}}
+{{/if}}
 {{#if refInfo}}
 {{headerSize}} Schema Type Info
 Ref Class | Input Type | Accessed Type | Description
