@@ -96,7 +96,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 {{headerSize}}# Composed Schemas (allOf/anyOf/oneOf/not)
     {{#if allOf}}
-{{headerSize}}## allOf
+{{headerSize}}# allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each allOf}}
@@ -105,13 +105,13 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each allOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}### {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "###" "") }}
+{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
     {{#if anyOf}}
-{{headerSize}}## anyOf
+{{headerSize}}# anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each anyOf}}
@@ -120,13 +120,13 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each anyOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}### {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "###" "") }}
+{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
     {{#if oneOf}}
-{{headerSize}}## oneOf
+{{headerSize}}# oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#each oneOf}}
@@ -135,21 +135,21 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each oneOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}### {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "###" "") }}
+{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
     {{#if not}}
-{{headerSize}}## not
+{{headerSize}}# not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
     {{#with not}}
 {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}### {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "###" "") }}
+{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/with}}
     {{/if}}

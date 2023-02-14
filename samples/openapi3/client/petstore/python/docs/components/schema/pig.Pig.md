@@ -8,7 +8,7 @@ Input Type | Accessed Type | Description | Notes
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ### Composed Schemas (allOf/anyOf/oneOf/not)
-#### oneOf
+### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) | [**BasquePig**](basque_pig.BasquePig.md) |  |
