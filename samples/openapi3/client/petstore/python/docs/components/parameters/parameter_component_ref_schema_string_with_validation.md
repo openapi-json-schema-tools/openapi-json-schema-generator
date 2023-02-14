@@ -1,6 +1,9 @@
 <a name="top"></a>
 petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
 # ComponentRefSchemaStringWithValidation
+
+### <a id="parameter_component_ref_schema_string_with_validationdescription" >ComponentRefSchemaStringWithValidation.description</a>
+a path string with validation
 ### <a id="parameter_component_ref_schema_string_with_validationcontentapplication_jsonschema" >ComponentRefSchemaStringWithValidation.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

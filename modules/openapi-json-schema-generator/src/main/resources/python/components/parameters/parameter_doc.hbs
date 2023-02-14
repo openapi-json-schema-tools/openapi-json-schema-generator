@@ -6,6 +6,11 @@
 {{else}}
 {{headerSize}} {{jsonPathPiece.camelCase}}
 {{/if}}
+{{#if description}}
+
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}description" >{{jsonPathPiece.camelCase}}.description</a>
+{{description}}
+{{/if}}
 {{#if refInfo}}
     {{#with getDeepestRef}}
         {{#if schema}}

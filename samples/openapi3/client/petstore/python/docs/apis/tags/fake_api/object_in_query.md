@@ -29,6 +29,9 @@ mapBean | [Parameter0.schema](#parameter_0schema) | | optional
 
 
 #### Parameter0
+
+##### <a id="parameter_0description" >Parameter0.description</a>
+mapBean
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
 ##### Schema Type Info

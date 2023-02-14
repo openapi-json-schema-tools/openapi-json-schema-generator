@@ -1,6 +1,9 @@
 <a name="top"></a>
 petstore_api.components.parameters.parameter_ref_schema_string_with_validation
 # RefSchemaStringWithValidation
+
+### <a id="parameter_ref_schema_string_with_validationdescription" >RefSchemaStringWithValidation.description</a>
+a path string with validation
 ### <a id="parameter_ref_schema_string_with_validationschema" >RefSchemaStringWithValidation.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------

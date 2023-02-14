@@ -59,16 +59,24 @@ Class | Description
 
 ## Component Headers
 
+Class | Description
+----- | ------------
 {{#each headers}}
-- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/headers/{{componentModule}}.md){{/with}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/headers/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
 {{/each}}
 {{/if}}
 {{#if parameters}}
 
 ## Component Parameters
 
+Class | Description
+----- | ------------
 {{#each parameters}}
-- {{#with this}}[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{componentModule}}.md){{/with}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
 {{/each}}
 {{/if}}
 

@@ -381,19 +381,23 @@ Class | Description
 
 ## Component Headers
 
-- [Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md)
-- [NumberHeader](docs/components/headers/header_number_header.md)
-- [RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md)
-- [RefSchemaHeader](docs/components/headers/header_ref_schema_header.md)
-- [RefStringHeader](docs/components/headers/header_ref_string_header.md)
-- [StringHeader](docs/components/headers/header_string_header.md)
+Class | Description
+----- | ------------
+[Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md) | int32 JSON content-type header
+[NumberHeader](docs/components/headers/header_number_header.md) | number header description
+[RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md) | int32 JSON content-type header
+[RefSchemaHeader](docs/components/headers/header_ref_schema_header.md) | header that has a ref in the schema
+[RefStringHeader](docs/components/headers/header_ref_string_header.md) |
+[StringHeader](docs/components/headers/header_string_header.md) | string header description
 
 ## Component Parameters
 
-- [ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md)
-- [PathUserName](docs/components/parameters/parameter_path_user_name.md)
-- [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md)
-- [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md)
+Class | Description
+----- | ------------
+[ComponentRefSchemaStringWithValidation](docs/components/parameters/parameter_component_ref_schema_string_with_validation.md) | a path string with validation
+[PathUserName](docs/components/parameters/parameter_path_user_name.md) | the use name to use
+[RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md) |
+[RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md) | a path string with validation
 
 ## Documentation For Authorization
 

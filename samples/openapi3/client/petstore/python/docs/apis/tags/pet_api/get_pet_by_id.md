@@ -34,6 +34,9 @@ Key | Input Type | Description  | Notes
 petId | [Parameter0.schema](#parameter_0schema) | | 
 
 #### Parameter0
+
+##### <a id="parameter_0description" >Parameter0.description</a>
+ID of pet to return
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
 ##### Schema Type Info

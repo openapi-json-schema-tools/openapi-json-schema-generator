@@ -31,6 +31,9 @@ password | [Parameter1.schema](#parameter_1schema) | |
 
 
 #### Parameter0
+
+##### <a id="parameter_0description" >Parameter0.description</a>
+The user name for login
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
 ##### Schema Type Info
@@ -39,6 +42,9 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 #### Parameter1
+
+##### <a id="parameter_1description" >Parameter1.description</a>
+The password for login in clear text
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 
 ##### Schema Type Info
@@ -93,12 +99,18 @@ ref-content-schema-header | [RefContentSchemaHeader.content.application_json.sch
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
+##### <a id="header_x_rate_limitdescription" >XRateLimit.description</a>
+calls per hour allowed by the user
+
 ##### <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
 
 ##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+
+##### <a id="header_x_expires_afterdescription" >XExpiresAfter.description</a>
+date in UTC when token expires
 
 ##### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
 
