@@ -56,7 +56,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >response_200.content</a>
+#### <a id="response_200content" >ResponseFor200.content</a>
 
 ##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 Type | Description  | Notes

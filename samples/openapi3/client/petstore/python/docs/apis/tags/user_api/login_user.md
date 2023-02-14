@@ -61,7 +61,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 [headers](#response_200headers) | [response_200.Headers](#response_200headers) |  |
 
-#### <a id="response_200content" >response_200.content</a>
+#### <a id="response_200content" >ResponseFor200.content</a>
 
 ##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 
@@ -77,7 +77,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### <a id="response_200headers" >response_200.Headers</a>
+#### <a id="response_200headers" >ResponseFor200.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

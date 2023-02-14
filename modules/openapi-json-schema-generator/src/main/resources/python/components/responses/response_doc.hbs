@@ -24,7 +24,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
 {{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if content}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}content" >{{jsonPathPiece.snakeCase}}.content</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}content" >{{jsonPathPiece.camelCase}}.content</a>
         {{#each content}}
             {{#with this.schema}}
 
@@ -34,7 +34,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
     {{/if}}
     {{#if headers}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}headers" >{{jsonPathPiece.camelCase}}.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

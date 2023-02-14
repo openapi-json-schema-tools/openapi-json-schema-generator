@@ -149,7 +149,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_404content) | typing.Union[[ResponseFor404.content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404content" >response_404.content</a>
+#### <a id="response_404content" >ResponseFor404.content</a>
 
 ##### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
 

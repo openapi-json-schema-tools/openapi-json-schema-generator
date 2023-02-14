@@ -24,7 +24,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >response_200.content</a>
+#### <a id="response_200content" >ResponseFor200.content</a>
 
 ## Code Sample
 

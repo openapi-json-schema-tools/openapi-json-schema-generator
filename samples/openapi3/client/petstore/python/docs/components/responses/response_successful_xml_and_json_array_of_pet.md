@@ -8,7 +8,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_successful_xml_and_json_array_of_petcontent) | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-### <a id="response_successful_xml_and_json_array_of_petcontent" >response_successful_xml_and_json_array_of_pet.content</a>
+### <a id="response_successful_xml_and_json_array_of_petcontent" >SuccessfulXmlAndJsonArrayOfPet.content</a>
 
 #### <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
 

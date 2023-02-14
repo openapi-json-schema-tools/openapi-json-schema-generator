@@ -44,7 +44,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_json_charsetutf8.schema](#response_200contentapplication_json_charsetutf8schema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >response_200.content</a>
+#### <a id="response_200content" >ResponseFor200.content</a>
 
 ##### <a id="response_200contentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
 

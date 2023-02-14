@@ -20,7 +20,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_defaultcontent) | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_defaultcontent" >response_default.content</a>
+#### <a id="response_defaultcontent" >Default.content</a>
 
 ##### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 

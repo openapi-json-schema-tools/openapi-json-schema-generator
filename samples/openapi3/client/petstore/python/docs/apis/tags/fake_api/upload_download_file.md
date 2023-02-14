@@ -46,7 +46,7 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >response_200.content</a>
+#### <a id="response_200content" >ResponseFor200.content</a>
 
 ##### <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
 
