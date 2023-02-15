@@ -19,8 +19,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
 1. #### _0
-1. 
-#### Schema Type Info
+1. #### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |

@@ -16,8 +16,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) |  |
 
 1. #### _0
-1. 
-#### Schema Type Info
+1. #### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |

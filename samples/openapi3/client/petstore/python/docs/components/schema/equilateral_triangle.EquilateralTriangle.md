@@ -15,12 +15,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 1. #### _1
-1. 
-#### Schema Type Info
+1. #### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
