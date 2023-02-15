@@ -14,9 +14,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_not](#_not) | str,  | str,  |  |
 
 1. #### _not
+   
    #### Schema Type Info
-   | Input Type | Accessed Type | Description | Notes |
-   | ------------ | ------------- | ------------- | ------------- |
-   |str,  | str,  |  ||
+   Input Type | Accessed Type | Description | Notes
+   ------------ | ------------- | ------------- | -------------
+   str,  | str,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
