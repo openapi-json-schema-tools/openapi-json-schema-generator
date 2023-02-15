@@ -7,8 +7,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-### anyOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
@@ -28,70 +28,70 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_14](#_14) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 [_15](#_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-1. #### _0
+1. 2 _0
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-1. #### _1
+1. 2 _1
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-1. #### _2
+1. 2 _2
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-1. #### _3
+1. 2 _3
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-1. #### _4
+1. 2 _4
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str,  | str,  |  |
 
-1. #### _5
+1. 2 _5
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str,  | str,  |  |
 
-1. #### _6
+1. 2 _6
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-1. #### _7
+1. 2 _7
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    bool,  | BoolClass,  |  |
 
-1. #### _8
+1. 2 _8
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    None,  | NoneClass,  |  |
 
-1. #### _9
+1. 2 _9
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
@@ -103,42 +103,42 @@ Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-1. #### _10
+1. 2 _10
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
-1. #### _11
+1. 2 _11
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
-1. #### _12
+1. 2 _12
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
-1. #### _13
+1. 2 _13
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    decimal.Decimal, int,  | decimal.Decimal,  |  |
 
-1. #### _14
+1. 2 _14
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-1. #### _15
+1. 2 _15
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes

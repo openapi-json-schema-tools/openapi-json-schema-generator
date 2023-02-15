@@ -7,7 +7,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  | [optional]
@@ -16,7 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **shapes** | [list, tuple, ](#shapes) | [tuple, ](#shapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
-1. #### shapes
+1. 2 shapes
    
    4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
