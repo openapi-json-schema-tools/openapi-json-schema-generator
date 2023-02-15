@@ -50,11 +50,12 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected error
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
+### <a id="response_default" >Default</a>
 
-### <a id="response_defaultdescription" >Default.description</a>
+#### <a id="response_defaultdescription" >Default.description</a>
 Unexpected error
 
-### <a id="response_defaultresponse_cls" >Default.response_cls</a>
+#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -28,17 +28,17 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
 {{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if content}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}content" >{{jsonPathPiece.camelCase}}.content</a>
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}content" >{{jsonPathPiece.camelCase}}.content</a>
         {{#each content}}
             {{#with this.schema}}
 
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "##" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
             {{/with}}
         {{/each}}
     {{/if}}
     {{#if headers}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}headers" >{{jsonPathPiece.camelCase}}.Headers</a>
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}headers" >{{jsonPathPiece.camelCase}}.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -79,7 +79,7 @@ Key | Accessed Type | Description  | Notes
         {{/each}}
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "#" "") }}
             {{/unless}}
         {{/each}}
     {{/if}}

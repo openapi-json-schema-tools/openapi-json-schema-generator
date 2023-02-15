@@ -12,28 +12,28 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_successful_xml_and_json_array_of_petcontent) | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-### <a id="response_successful_xml_and_json_array_of_petcontent" >SuccessfulXmlAndJsonArrayOfPet.content</a>
+## <a id="response_successful_xml_and_json_array_of_petcontent" >SuccessfulXmlAndJsonArrayOfPet.content</a>
 
-#### <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
+### <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-###### Tuple Items
+##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  |
 
-#### <a id="response_successful_xml_and_json_array_of_petcontentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
+### <a id="response_successful_xml_and_json_array_of_petcontentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-###### Tuple Items
+##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**RefPet**](../../components/schema/ref_pet.RefPet.md) | [**RefPet**](../../components/schema/ref_pet.RefPet.md) | [**RefPet**](../../components/schema/ref_pet.RefPet.md) |  |

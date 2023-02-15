@@ -12,29 +12,29 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#response_success_inline_content_and_headercontent) | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
 [headers](#response_success_inline_content_and_headerheaders) | [response_success_inline_content_and_header.Headers](#response_success_inline_content_and_headerheaders) |  |
 
-### <a id="response_success_inline_content_and_headercontent" >SuccessInlineContentAndHeader.content</a>
+## <a id="response_success_inline_content_and_headercontent" >SuccessInlineContentAndHeader.content</a>
 
-#### <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
+### <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+#### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
-### <a id="response_success_inline_content_and_headerheaders" >SuccessInlineContentAndHeader.Headers</a>
+## <a id="response_success_inline_content_and_headerheaders" >SuccessInlineContentAndHeader.Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 someHeader | [SuccessInlineContentAndHeader.headers.header_some_header.schema](#response_success_inline_content_and_headerheadersheader_some_headerschema) | | optional
 
-#### <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
+### <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

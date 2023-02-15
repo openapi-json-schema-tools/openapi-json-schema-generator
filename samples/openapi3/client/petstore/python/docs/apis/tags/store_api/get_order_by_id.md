@@ -52,11 +52,12 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid ID supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Order not found
 
+### <a id="response_200" >ResponseFor200</a>
 
-### <a id="response_200description" >ResponseFor200.description</a>
+#### <a id="response_200description" >ResponseFor200.description</a>
 successful operation
 
-### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
+#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -77,22 +78,24 @@ Type | Description  | Notes
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
+### <a id="response_400" >ResponseFor400</a>
 
-### <a id="response_400description" >ResponseFor400.description</a>
+#### <a id="response_400description" >ResponseFor400.description</a>
 Invalid ID supplied
 
-### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
+#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
+### <a id="response_404" >ResponseFor404</a>
 
-### <a id="response_404description" >ResponseFor404.description</a>
+#### <a id="response_404description" >ResponseFor404.description</a>
 Order not found
 
-### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
+#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
