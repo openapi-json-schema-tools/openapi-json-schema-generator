@@ -17,15 +17,15 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
 #### shapes
-
-#### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-##### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |
+    
+    #### Schema Type Info
+    Input Type | Accessed Type | Description | Notes
+    ------------ | ------------- | ------------- | -------------
+    list, tuple,  | tuple,  |  |
+    
+    ##### Tuple Items
+    Class Name | Input Type | Accessed Type | Description | Notes
+    ------------- | ------------- | ------------- | ------------- | -------------
+    [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
