@@ -20,13 +20,13 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   4# Composed Schemas (allOf/anyOf/oneOf/not)
-   4# allOf
+   4 Composed Schemas (allOf/anyOf/oneOf/not)
+   4 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 4## _0
+   1. 4 _0
       
       6 Schema Type Info
       Input Type | Accessed Type | Description | Notes

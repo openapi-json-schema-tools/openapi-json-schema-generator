@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | str,  | str,  |  | must be one of ["fish", "crab", ]

@@ -55,13 +55,13 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
    
-   4# Composed Schemas (allOf/anyOf/oneOf/not)
-   4# not
+   4 Composed Schemas (allOf/anyOf/oneOf/not)
+   4 not
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_not](#_not) | None,  | NoneClass,  |  |
    
-   1. 4## _not
+   1. 4 _not
       
       6 Schema Type Info
       Input Type | Accessed Type | Description | Notes

@@ -19,7 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) |  |

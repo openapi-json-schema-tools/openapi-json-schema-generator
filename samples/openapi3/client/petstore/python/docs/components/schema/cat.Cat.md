@@ -21,7 +21,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   4# Dictionary Keys
+   4 Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **declawed** | bool,  | BoolClass,  |  | [optional]

@@ -66,13 +66,13 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   6# Composed Schemas (allOf/anyOf/oneOf/not)
-   6# allOf
+   6 Composed Schemas (allOf/anyOf/oneOf/not)
+   6 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 6## _0
+   1. 6 _0
       
       8 Schema Type Info
       Input Type | Accessed Type | Description | Notes
@@ -130,13 +130,13 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   7# Composed Schemas (allOf/anyOf/oneOf/not)
-   7# allOf
+   7 Composed Schemas (allOf/anyOf/oneOf/not)
+   7 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 7## _0
+   1. 7 _0
       
       9 Schema Type Info
       Input Type | Accessed Type | Description | Notes
@@ -203,13 +203,13 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   7# Composed Schemas (allOf/anyOf/oneOf/not)
-   7# allOf
+   7 Composed Schemas (allOf/anyOf/oneOf/not)
+   7 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 7## _0
+   1. 7 _0
       
       9 Schema Type Info
       Input Type | Accessed Type | Description | Notes

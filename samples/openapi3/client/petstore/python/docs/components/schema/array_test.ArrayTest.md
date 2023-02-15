@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | str,  | str,  |  |
@@ -34,19 +34,19 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [items](#items) | list, tuple,  | tuple,  |  |
    
-   1. 4## items
+   1. 4 items
       
       6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       list, tuple,  | tuple,  |  |
       
-      6# Tuple Items
+      6 Tuple Items
       Class Name | Input Type | Accessed Type | Description | Notes
       ------------- | ------------- | ------------- | ------------- | -------------
       items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
@@ -58,19 +58,19 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [items](#items) | list, tuple,  | tuple,  |  |
    
-   1. 4## items
+   1. 4 items
       
       6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       list, tuple,  | tuple,  |  |
       
-      6# Tuple Items
+      6 Tuple Items
       Class Name | Input Type | Accessed Type | Description | Notes
       ------------- | ------------- | ------------- | ------------- | -------------
       [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) |  |

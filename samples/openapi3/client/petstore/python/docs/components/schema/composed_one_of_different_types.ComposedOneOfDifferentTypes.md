@@ -50,7 +50,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |

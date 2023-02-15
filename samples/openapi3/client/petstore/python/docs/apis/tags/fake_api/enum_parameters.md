@@ -53,7 +53,7 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  | Form parameter enum test (string array) |
    
-   6# Tuple Items
+   6 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"

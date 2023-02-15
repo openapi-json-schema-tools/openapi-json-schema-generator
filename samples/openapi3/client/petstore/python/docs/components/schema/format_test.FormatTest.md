@@ -40,7 +40,7 @@ Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   4# Tuple Items
+   4 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
