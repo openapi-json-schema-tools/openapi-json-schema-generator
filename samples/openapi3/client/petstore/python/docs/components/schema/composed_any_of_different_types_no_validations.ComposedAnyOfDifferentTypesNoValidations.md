@@ -29,119 +29,103 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_15](#_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 1. #### _0
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 
 1. #### _1
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD|
 
 1. #### _2
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time|
 
 1. #### _3
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  ||
 
 1. #### _4
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str,  | str,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str,  | str,  |  ||
 
 1. #### _5
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str,  | str,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str,  | str,  |  ||
 
 1. #### _6
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 
 1. #### _7
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|bool,  | BoolClass,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |bool,  | BoolClass,  |  ||
 
 1. #### _8
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|None,  | NoneClass,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |None,  | NoneClass,  |  ||
 
 1. #### _9
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|list, tuple,  | tuple,  |  ||
-##### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |list, tuple,  | tuple,  |  ||
+  ##### Tuple Items
+  Class Name | Input Type | Accessed Type | Description | Notes
+  ------------- | ------------- | ------------- | ------------- | -------------
+  items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 1. #### _10
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int, float,  | decimal.Decimal,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int, float,  | decimal.Decimal,  |  ||
 
 1. #### _11
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float|
 
 1. #### _12
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float|
 
 1. #### _13
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int,  | decimal.Decimal,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int,  | decimal.Decimal,  |  ||
 
 1. #### _14
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer|
 
 1. #### _15
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer|
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

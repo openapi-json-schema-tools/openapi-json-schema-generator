@@ -44,17 +44,16 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 1. ###### enum_form_string_array
-1. ###### description
-Form parameter enum test (string array)
-###### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|list, tuple,  | tuple,  | Form parameter enum test (string array) ||
-####### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
-
+  ###### description
+  Form parameter enum test (string array)
+  ###### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |list, tuple,  | tuple,  | Form parameter enum test (string array) ||
+  ####### Tuple Items
+  Class Name | Input Type | Accessed Type | Description | Notes
+  ------------- | ------------- | ------------- | ------------- | -------------
+  items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
 ### <a id="requestqueryparameters" >query_params</a>
 #### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>

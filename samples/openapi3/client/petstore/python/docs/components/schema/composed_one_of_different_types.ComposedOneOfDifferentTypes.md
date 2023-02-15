@@ -23,42 +23,37 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_6](#_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 1. #### _2
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|None,  | NoneClass,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |None,  | NoneClass,  |  ||
 
 1. #### _3
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD|
 
 1. #### _4
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 
 1. #### _5
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|list, tuple,  | tuple,  |  ||
-##### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |list, tuple,  | tuple,  |  ||
+  ##### Tuple Items
+  Class Name | Input Type | Accessed Type | Description | Notes
+  ------------- | ------------- | ------------- | ------------- | -------------
+  items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 1. #### _6
-1. #### Schema Type Info
-| Input Type | Accessed Type | Description | Notes |
-| ------------ | ------------- | ------------- | ------------- |
-|str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time|
-
+  #### Schema Type Info
+  | Input Type | Accessed Type | Description | Notes |
+  | ------------ | ------------- | ------------- | ------------- |
+  |str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time|
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
