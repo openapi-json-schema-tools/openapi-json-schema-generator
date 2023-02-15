@@ -23,9 +23,9 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-#### <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
+##### <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |

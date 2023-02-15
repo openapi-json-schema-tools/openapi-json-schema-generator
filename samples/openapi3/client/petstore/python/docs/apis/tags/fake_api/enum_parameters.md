@@ -29,31 +29,31 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-#### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
+##### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
 
-#### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-#### Dictionary Keys
+##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_form_string_array** | [list, tuple, ](#enum_form_string_array) | [tuple, ](#enum_form_string_array) | Form parameter enum test (string array) | [optional]
 **enum_form_string** | str,  | str,  | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-1. 4 enum_form_string_array
+1. 5 enum_form_string_array
    
-   6 description
+   7 description
    Form parameter enum test (string array)
    
-   6 Schema Type Info
+   7 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  | Form parameter enum test (string array) |
    
-   6 Tuple Items
+   7 Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"

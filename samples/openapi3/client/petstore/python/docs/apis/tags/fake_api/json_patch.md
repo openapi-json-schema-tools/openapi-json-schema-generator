@@ -26,7 +26,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-#### <a id="request_body_request_bodycontentapplication_json_patchjsonschema" >RequestBody.content.application_json_patchjson.schema</a>
+##### <a id="request_body_request_bodycontentapplication_json_patchjsonschema" >RequestBody.content.application_json_patchjson.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**JSONPatchRequest**](../../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
