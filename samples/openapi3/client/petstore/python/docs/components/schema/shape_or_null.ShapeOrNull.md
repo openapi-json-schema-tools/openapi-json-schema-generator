@@ -18,11 +18,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
-#### _0
-    
-    #### Schema Type Info
-    Input Type | Accessed Type | Description | Notes
-    ------------ | ------------- | ------------- | -------------
-    None,  | NoneClass,  |  |
+1. #### _0
+1. 
+#### Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None,  | NoneClass,  |  |
+
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

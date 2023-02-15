@@ -48,8 +48,8 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-{{headerSize}}## {{@key.original}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{@key.original}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/if}}
     {{/unless}}
     {{/if}}
@@ -58,8 +58,8 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-{{headerSize}}## {{@key.original}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{@key.original}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/if}}
     {{/unless}}
     {{/each}}
@@ -69,8 +69,8 @@ Key | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-{{headerSize}}## any_string_name
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## any_string_name
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/if}}
     {{/unless}}
     {{/unless}}
@@ -86,8 +86,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#unless refInfo.refClass}}
     {{#if isComplicated}}
 
-{{headerSize}}## {{jsonPathPiece.original}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{jsonPathPiece.original}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/if}}
     {{/unless}}
     {{/with}}
@@ -105,8 +105,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each allOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -120,8 +120,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each anyOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -135,8 +135,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each oneOf}}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/each}}
     {{/if}}
@@ -148,8 +148,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#unless refInfo.refClass}}
 
-{{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
-    {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
+1. {{headerSize}}## {{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}
+1. {{> components/schemas/schema_doc_indent schema=this headerSize=(join headerSize "##" "") }}
     {{/unless}}
     {{/with}}
     {{/if}}

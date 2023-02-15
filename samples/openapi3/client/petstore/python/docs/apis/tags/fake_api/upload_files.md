@@ -36,17 +36,18 @@ Key | Input Type | Accessed Type | Description | Notes
 **files** | [list, tuple, ](#files) | [tuple, ](#files) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-###### files
-    
-    ###### Schema Type Info
-    Input Type | Accessed Type | Description | Notes
-    ------------ | ------------- | ------------- | -------------
-    list, tuple,  | tuple,  |  |
-    
-    ####### Tuple Items
-    Class Name | Input Type | Accessed Type | Description | Notes
-    ------------- | ------------- | ------------- | ------------- | -------------
-    items | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
+1. ###### files
+1. 
+###### Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+####### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
+
 
 ## Return Types
 
