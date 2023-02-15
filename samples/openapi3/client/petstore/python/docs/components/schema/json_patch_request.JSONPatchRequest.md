@@ -20,6 +20,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
    4 Composed Schemas (allOf/anyOf/oneOf/not)
+   
    4 oneOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
