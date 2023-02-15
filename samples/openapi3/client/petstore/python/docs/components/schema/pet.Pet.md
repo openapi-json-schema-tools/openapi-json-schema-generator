@@ -23,9 +23,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### photoUrls
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
@@ -34,9 +34,9 @@ items | str,  | str,  |  |
 
 1. #### tags
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------

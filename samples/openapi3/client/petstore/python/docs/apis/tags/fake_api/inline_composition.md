@@ -42,9 +42,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. ###### _0
 1. ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 #### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
 
@@ -61,9 +61,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. ###### someProp
 1. ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  ||
 ####### Composed Schemas (allOf/anyOf/oneOf/not)
 ####### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
@@ -71,9 +71,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#_0) | str,  | str,  |  |
 1. ######## _0
 1. ######## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 
 
@@ -102,9 +102,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. ####### _0
 1. ####### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 
 #### Parameter1
@@ -123,9 +123,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. ####### someProp
 1. ####### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  ||
 ######## Composed Schemas (allOf/anyOf/oneOf/not)
 ######## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
@@ -133,9 +133,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#_0) | str,  | str,  |  |
 1. ######### _0
 1. ######### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 
 
@@ -174,9 +174,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. ####### _0
 1. ####### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 
 ##### <a id="response_200contentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
@@ -194,9 +194,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. ####### someProp
 1. ####### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  ||
 ######## Composed Schemas (allOf/anyOf/oneOf/not)
 ######## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
@@ -204,9 +204,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#_0) | str,  | str,  |  |
 1. ######### _0
 1. ######### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str,  | str,  |  ||
 
 
 

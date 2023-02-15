@@ -5,34 +5,34 @@
 {{/if}}
 {{#if refInfo}}
 {{headerSize}} Schema Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.{{refInfo.refClass}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
+| Ref Class | Input Type | Accessed Type | Description |
+| --------- | ---------- | ------------- | ------------ |
+| [{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.{{refInfo.refClass}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}|
 {{else}}
 {{headerSize}} Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}|
     {{#or properties additionalProperties requiredProperties}}
 {{headerSize}}# Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+| Key | Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
         {{#each requiredProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+| **{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }} |
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
+| **{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{@key.original}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }} |
         {{/each}}
         {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
         {{#if isBooleanSchemaTrue}}
-**any_string_name** | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
+| **any_string_name** | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] |
         {{else}}
-**any_string_name** | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
+| **any_string_name** | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }} |
         {{/if}}
         {{/unless}}
         {{else}}
-**any_string_name** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | {{> components/schemas/_helper_types_all_accessed_oneline }} | any string name can be used but the value must be the correct type | [optional]
+| **any_string_name** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | {{> components/schemas/_helper_types_all_accessed_oneline }} | any string name can be used but the value must be the correct type | [optional] |
         {{/with}}
     {{/or}}
     {{#each requiredProperties}}

@@ -17,9 +17,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### array_of_string
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
@@ -28,18 +28,18 @@ items | str,  | str,  |  |
 
 1. #### array_array_of_integer
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items) | list, tuple,  | tuple,  |  |
 1. ###### items
 1. ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
@@ -49,18 +49,18 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 
 1. #### array_array_of_model
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items) | list, tuple,  | tuple,  |  |
 1. ###### items
 1. ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------

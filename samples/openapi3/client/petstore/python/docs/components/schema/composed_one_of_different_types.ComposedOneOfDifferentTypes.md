@@ -24,30 +24,30 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. #### _2
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None,  | NoneClass,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|None,  | NoneClass,  |  ||
 
 
 1. #### _3
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD|
 
 
 1. #### _4
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 
 
 1. #### _5
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
@@ -56,9 +56,9 @@ items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid
 
 1. #### _6
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time|
 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

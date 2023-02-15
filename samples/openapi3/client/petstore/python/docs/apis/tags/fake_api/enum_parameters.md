@@ -47,9 +47,9 @@ Key | Input Type | Accessed Type | Description | Notes
 1. ###### description
 Form parameter enum test (string array)
 ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | Form parameter enum test (string array) |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  | Form parameter enum test (string array) ||
 ####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------

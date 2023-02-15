@@ -18,45 +18,45 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### map_map_of_string
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 ##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+| Key | Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional] |
 1. ###### any_string_name
 1. ###### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 ####### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
+| Key | Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] |
 
 
 
 1. #### map_of_enum_string
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 ##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower", ]
+| Key | Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower", ] |
 
 
 1. #### direct_map
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|dict, frozendict.frozendict,  | frozendict.frozendict,  |  ||
 ##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | bool,  | BoolClass,  | any string name can be used but the value must be the correct type | [optional]
+| Key | Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- | ------------- |
+| **any_string_name** | bool,  | BoolClass,  | any string name can be used but the value must be the correct type | [optional] |
 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

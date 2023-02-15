@@ -15,9 +15,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### ArrayNumber
 1. #### Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+| Input Type | Accessed Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+|list, tuple,  | tuple,  |  ||
 ##### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
