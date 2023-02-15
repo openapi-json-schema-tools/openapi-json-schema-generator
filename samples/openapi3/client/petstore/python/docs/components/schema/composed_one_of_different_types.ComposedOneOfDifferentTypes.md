@@ -24,40 +24,40 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. #### _2
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    None,  | NoneClass,  |  |
 
 1. #### _3
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 1. #### _4
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 1. #### _5
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ##### Tuple Items
+   4# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 1. #### _6
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time

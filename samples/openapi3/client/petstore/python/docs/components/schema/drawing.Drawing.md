@@ -18,12 +18,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### shapes
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ##### Tuple Items
+   4# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |

@@ -20,7 +20,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. #### _0
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    None,  | NoneClass,  |  |

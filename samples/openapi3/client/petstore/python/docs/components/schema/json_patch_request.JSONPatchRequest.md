@@ -14,13 +14,13 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 1. #### items
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   ##### Composed Schemas (allOf/anyOf/oneOf/not)
-   ##### oneOf
+   4# Composed Schemas (allOf/anyOf/oneOf/not)
+   4# oneOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
       [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |  |

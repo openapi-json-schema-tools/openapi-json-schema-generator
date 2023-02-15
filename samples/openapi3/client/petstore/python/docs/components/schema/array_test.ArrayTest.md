@@ -17,60 +17,60 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### array_of_string
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ##### Tuple Items
+   4# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | str,  | str,  |  |
 
 1. #### array_array_of_integer
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ##### Tuple Items
+   4# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [items](#items) | list, tuple,  | tuple,  |  |
    
-   1. ###### items
+   1. 4## items
       
-      ###### Schema Type Info
+      6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       list, tuple,  | tuple,  |  |
       
-      ####### Tuple Items
+      6# Tuple Items
       Class Name | Input Type | Accessed Type | Description | Notes
       ------------- | ------------- | ------------- | ------------- | -------------
       items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 1. #### array_array_of_model
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ##### Tuple Items
+   4# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [items](#items) | list, tuple,  | tuple,  |  |
    
-   1. ###### items
+   1. 4## items
       
-      ###### Schema Type Info
+      6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       list, tuple,  | tuple,  |  |
       
-      ####### Tuple Items
+      6# Tuple Items
       Class Name | Input Type | Accessed Type | Description | Notes
       ------------- | ------------- | ------------- | ------------- | -------------
       [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) |  |

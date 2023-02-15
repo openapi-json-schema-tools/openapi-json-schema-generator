@@ -22,88 +22,88 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### map_property
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
 1. #### map_of_map_property
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
    
-   1. ###### any_string_name
+   1. 4## any_string_name
       
-      ###### Schema Type Info
+      6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
       
-      ####### Dictionary Keys
+      6# Dictionary Keys
       Key | Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | ------------- | -------------
       **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
 1. #### map_with_undeclared_properties_anytype_1
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 1. #### map_with_undeclared_properties_anytype_2
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 1. #### map_with_undeclared_properties_anytype_3
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 1. #### empty_map
    
-   #### description
+   4 description
    an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
 
 1. #### map_with_undeclared_properties_string
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]

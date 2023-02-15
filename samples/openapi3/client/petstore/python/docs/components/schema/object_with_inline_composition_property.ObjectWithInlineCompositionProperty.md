@@ -15,20 +15,20 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### someProp
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   ##### Composed Schemas (allOf/anyOf/oneOf/not)
-   ##### allOf
+   4# Composed Schemas (allOf/anyOf/oneOf/not)
+   4# allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. ###### _0
+   1. 4## _0
       
-      ###### Schema Type Info
+      6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       str,  | str,  |  |

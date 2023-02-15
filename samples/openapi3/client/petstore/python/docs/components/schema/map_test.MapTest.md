@@ -18,48 +18,48 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### map_map_of_string
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
    
-   1. ###### any_string_name
+   1. 4## any_string_name
       
-      ###### Schema Type Info
+      6 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
       
-      ####### Dictionary Keys
+      6# Dictionary Keys
       Key | Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | ------------- | -------------
       **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
 1. #### map_of_enum_string
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower", ]
 
 1. #### direct_map
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | bool,  | BoolClass,  | any string name can be used but the value must be the correct type | [optional]

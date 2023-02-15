@@ -38,12 +38,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. ###### files
    
-   ###### Schema Type Info
+   6 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    list, tuple,  | tuple,  |  |
    
-   ####### Tuple Items
+   6# Tuple Items
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    items | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |

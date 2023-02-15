@@ -17,12 +17,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 1. #### map
    
-   #### Schema Type Info
+   4 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
    
-   ##### Dictionary Keys
+   4# Dictionary Keys
    Key | Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | ------------- | -------------
    **any_string_name** | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | any string name can be used but the value must be the correct type | [optional]
