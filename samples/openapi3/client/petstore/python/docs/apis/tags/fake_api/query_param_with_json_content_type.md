@@ -35,7 +35,7 @@ someParam | [Parameter0.content.application_json.schema](#parameter_0contentappl
 The internal object id
 ##### <a id="parameter_0contentapplication_jsonschema" >Parameter0.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
@@ -62,7 +62,7 @@ headers | Unset | headers were not defined |
 
 ##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |

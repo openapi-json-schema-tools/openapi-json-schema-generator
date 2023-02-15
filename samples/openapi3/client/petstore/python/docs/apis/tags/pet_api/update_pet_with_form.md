@@ -24,7 +24,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-##### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
+#### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
 
 ##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -51,7 +51,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ID of pet that needs to be updated
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

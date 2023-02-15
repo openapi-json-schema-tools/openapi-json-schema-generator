@@ -27,7 +27,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 #### <a id="request_body_request_bodydescription" >RequestBody.description</a>
 multiple content types
-##### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 
 ##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -46,7 +46,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str,  | str,  |  |
-##### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
+#### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
 
 ##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -92,20 +92,20 @@ compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
 #### Parameter0
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-##### Composed Schemas (allOf/anyOf/oneOf/not)
-##### allOf
+###### Composed Schemas (allOf/anyOf/oneOf/not)
+###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#_0) | str,  | str,  |  |
 
-1. 5 _0
+1. 6 _0
    
-   7 Schema Type Info
+   8 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str,  | str,  |  |
@@ -113,34 +113,34 @@ Class Name | Input Type | Accessed Type | Description | Notes
 #### Parameter1
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#someProp) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#someProp) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-1. 5 someProp
+1. 6 someProp
    
-   7 Schema Type Info
+   8 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   7 Composed Schemas (allOf/anyOf/oneOf/not)
+   8 Composed Schemas (allOf/anyOf/oneOf/not)
    
-   7 allOf
+   8 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 7 _0
+   1. 8 _0
       
-      9 Schema Type Info
+      10 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       str,  | str,  |  |
@@ -167,54 +167,54 @@ headers | Unset | headers were not defined |
 
 ##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-##### Composed Schemas (allOf/anyOf/oneOf/not)
-##### allOf
+###### Composed Schemas (allOf/anyOf/oneOf/not)
+###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#_0) | str,  | str,  |  |
 
-1. 5 _0
+1. 6 _0
    
-   7 Schema Type Info
+   8 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    str,  | str,  |  |
 
 ##### <a id="response_200contentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#someProp) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#someProp) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-1. 5 someProp
+1. 6 someProp
    
-   7 Schema Type Info
+   8 Schema Type Info
    Input Type | Accessed Type | Description | Notes
    ------------ | ------------- | ------------- | -------------
    dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
    
-   7 Composed Schemas (allOf/anyOf/oneOf/not)
+   8 Composed Schemas (allOf/anyOf/oneOf/not)
    
-   7 allOf
+   8 allOf
    Class Name | Input Type | Accessed Type | Description | Notes
    ------------- | ------------- | ------------- | ------------- | -------------
    [_0](#_0) | str,  | str,  |  |
    
-   1. 7 _0
+   1. 8 _0
       
-      9 Schema Type Info
+      10 Schema Type Info
       Input Type | Accessed Type | Description | Notes
       ------------ | ------------- | ------------- | -------------
       str,  | str,  |  |

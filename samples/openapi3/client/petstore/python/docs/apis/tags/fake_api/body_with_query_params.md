@@ -19,7 +19,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-##### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../../components/schema/user.User.md) |  | 
@@ -36,7 +36,7 @@ query | [Parameter0.schema](#parameter_0schema) | |
 #### Parameter0
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

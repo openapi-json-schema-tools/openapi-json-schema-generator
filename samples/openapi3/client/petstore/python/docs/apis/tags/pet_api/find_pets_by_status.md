@@ -40,12 +40,12 @@ status | [Parameter0.schema](#parameter_0schema) | |
 Status values that need to be considered for filter
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-###### Tuple Items
+####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of "available"

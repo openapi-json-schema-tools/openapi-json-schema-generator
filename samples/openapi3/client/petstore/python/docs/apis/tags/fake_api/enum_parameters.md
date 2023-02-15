@@ -29,7 +29,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-##### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
+#### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
 
 ##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
@@ -75,12 +75,12 @@ enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
 Query parameter enum test (string array)
 ##### <a id="parameter_2schema" >Parameter2.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-###### Tuple Items
+####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
@@ -91,7 +91,7 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 Query parameter enum test (string)
 ##### <a id="parameter_3schema" >Parameter3.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
@@ -102,7 +102,7 @@ str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the ser
 Query parameter enum test (double)
 ##### <a id="parameter_4schema" >Parameter4.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
@@ -113,7 +113,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value m
 Query parameter enum test (double)
 ##### <a id="parameter_5schema" >Parameter5.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
@@ -132,12 +132,12 @@ enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
 Header parameter enum test (string array)
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-###### Tuple Items
+####### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
@@ -148,7 +148,7 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 Header parameter enum test (string)
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
@@ -176,7 +176,7 @@ headers | Unset | headers were not defined |
 
 ##### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

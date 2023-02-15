@@ -1,9 +1,9 @@
-{{#if headerSize}}{{headerSize}}{{else}}#{{/if}} <a id="{{> components/_helper_fancy_schema_name spacer="" }}" >{{> components/_helper_fancy_schema_name spacer="." }}</a>
+{{headerSize}} <a id="{{> components/_helper_fancy_schema_name spacer="" }}" >{{> components/_helper_fancy_schema_name spacer="." }}</a>
 {{#if refInfo.refClass}}
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**{{refInfo.refClass}}**]({{complexTypePrefix}}{{> components/schemas/_helper_refclass_with_module }}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
 
 {{else}}
-{{> components/schemas/schema_doc schema=this }}
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "#" "") }}
 {{/if}}

@@ -36,7 +36,7 @@ password | [Parameter1.schema](#parameter_1schema) | |
 The user name for login
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -47,7 +47,7 @@ str,  | str,  |  |
 The password for login in clear text
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -75,14 +75,14 @@ response | urllib3.HTTPResponse | Raw response |
 
 ##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 ##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -104,7 +104,7 @@ calls per hour allowed by the user
 
 ##### <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
@@ -114,7 +114,7 @@ date in UTC when token expires
 
 ##### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time

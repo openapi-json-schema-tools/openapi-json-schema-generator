@@ -5,7 +5,7 @@ petstore_api.components.headers.header_string_header
 string header description
 ## <a id="header_string_headerschema" >StringHeader.schema</a>
 
-## Schema Type Info
+### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

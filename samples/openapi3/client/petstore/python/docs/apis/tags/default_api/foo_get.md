@@ -28,12 +28,12 @@ headers | Unset | headers were not defined |
 
 ##### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 
-##### Schema Type Info
+###### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **string** | [**Foo**](../../../components/schema/foo.Foo.md) | [**Foo**](../../../components/schema/foo.Foo.md) |  | [optional]
