@@ -1,7 +1,7 @@
 petstore_api.components.request_bodies.request_body_pet
 # Pet
 
-## <a id="request_body_petdescription" >Pet.description</a>
+## Description
 Pet object that needs to be added to the store, multiple content types
 ## <a id="request_body_petcontentapplication_jsonschema" >Pet.content.application_json.schema</a>
 Type | Description  | Notes

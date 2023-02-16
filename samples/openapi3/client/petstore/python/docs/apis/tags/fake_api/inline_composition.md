@@ -25,7 +25,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="request_body" >body</a>
 
-#### <a id="request_body_request_bodydescription" >RequestBody.description</a>
+#### Description
 multiple content types
 #### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
 #### Schema
