@@ -17,19 +17,19 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | contents without schema definition, multiple content types
 
-### <a id="response_200" >ResponseFor200</a>
+## <a id="response_200" >ResponseFor200</a>
 
-#### <a id="response_200description" >Description</a>
+### <a id="response_200description" >Description</a>
 contents without schema definition, multiple content types
 
-#### <a id="response_200response_cls" >response_cls</a>
+### <a id="response_200response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >content</a>
+### <a id="response_200content" >content</a>
 
 ## Code Sample
 

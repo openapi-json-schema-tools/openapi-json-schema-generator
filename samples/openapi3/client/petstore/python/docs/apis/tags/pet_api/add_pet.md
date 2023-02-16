@@ -35,12 +35,12 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
 
-### <a id="response_405" >ResponseFor405</a>
+## <a id="response_405" >ResponseFor405</a>
 
-#### <a id="response_405description" >Description</a>
+### <a id="response_405description" >Description</a>
 Invalid input
 
-#### <a id="response_405response_cls" >response_cls</a>
+### <a id="response_405response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

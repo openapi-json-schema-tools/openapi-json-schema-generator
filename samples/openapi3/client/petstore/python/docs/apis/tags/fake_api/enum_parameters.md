@@ -168,24 +168,24 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Not found
 
-### <a id="response_404" >ResponseFor404</a>
+## <a id="response_404" >ResponseFor404</a>
 
-#### <a id="response_404description" >Description</a>
+### <a id="response_404description" >Description</a>
 Not found
 
-#### <a id="response_404response_cls" >response_cls</a>
+### <a id="response_404response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_404content) | typing.Union[[content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404content" >content</a>
+### <a id="response_404content" >content</a>
 
-##### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
-##### Schema
+#### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
+#### Schema
 
-###### Type Info
+##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
