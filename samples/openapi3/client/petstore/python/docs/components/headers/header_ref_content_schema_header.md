@@ -4,7 +4,7 @@ petstore_api.components.headers.header_ref_content_schema_header
 ## <a id="header_ref_content_schema_headerdescription" >RefContentSchemaHeader.description</a>
 int32 JSON content-type header
 
-## <a id="header_ref_content_schema_headercontentapplication_jsonschema" >RefContentSchemaHeader.content.application_json.schema</a>
+# <a id="header_ref_content_schema_headercontentapplication_jsonschema" >RefContentSchemaHeader.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 

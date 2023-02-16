@@ -1,13 +1,13 @@
 {{#with header}}
     {{#if componentModule}}
 {{packageName}}.components.headers.{{componentModule}}
-# {{jsonPathPiece.camelCase}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
     {{else}}
 {{headerSize}} {{jsonPathPiece.camelCase}}
     {{/if}}
     {{#if description}}
 
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}description" >{{jsonPathPiece.camelCase}}.description</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}description" >{{jsonPathPiece.camelCase}}.description</a>
 {{description}}
     {{/if}}
     {{#if refInfo}}
@@ -33,10 +33,10 @@ Ref Class | Input Type | Accessed Type | Description
         {{#if schema}}
             {{#with schema}}
                 {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece }}
                 {{else}}
 
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../jsonPathPiece.snakeCase }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../jsonPathPiece.snakeCase }}
                 {{/if}}
             {{/with}}
         {{else}}

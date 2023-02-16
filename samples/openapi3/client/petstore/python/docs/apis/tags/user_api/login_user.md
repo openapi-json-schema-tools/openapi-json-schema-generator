@@ -107,7 +107,7 @@ str,  | str,  |  |
 #### Header Details
 ##### XRateLimit
 
-##### <a id="header_x_rate_limitdescription" >XRateLimit.description</a>
+###### <a id="header_x_rate_limitdescription" >XRateLimit.description</a>
 calls per hour allowed by the user
 
 ##### <a id="response_200headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
@@ -119,13 +119,13 @@ Input Type | Accessed Type | Description | Notes
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 ##### XExpiresAfter
 
-##### <a id="header_x_expires_afterdescription" >XExpiresAfter.description</a>
+###### <a id="header_x_expires_afterdescription" >XExpiresAfter.description</a>
 date in UTC when token expires
 
-##### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
-##### Schema
+###### <a id="response_200headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
+###### Schema
 
-###### Type Info
+####### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time

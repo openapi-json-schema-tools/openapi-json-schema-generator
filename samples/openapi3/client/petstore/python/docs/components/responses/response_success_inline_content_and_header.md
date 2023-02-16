@@ -36,10 +36,10 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Header Details
 ### SomeHeader
 
-### <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
-### Schema
+#### <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
+#### Schema
 
-#### Type Info
+##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
