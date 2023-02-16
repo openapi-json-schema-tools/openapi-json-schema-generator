@@ -1,7 +1,7 @@
 petstore_api.components.headers.header_number_header
 # NumberHeader
 
-## <a id="header_number_headerdescription" >NumberHeader.description</a>
+## Description
 number header description
 ## <a id="header_number_headerschema" >NumberHeader.schema</a>
 ## Schema
