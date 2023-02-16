@@ -23,13 +23,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="request_body" >body</a>
 #### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
+#### Schema
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-##### Dictionary Keys
+#### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **param** | str,  | str,  | field1 |

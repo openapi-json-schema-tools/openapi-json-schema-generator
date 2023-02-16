@@ -38,8 +38,9 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ##### <a id="parameter_0description" >Parameter0.description</a>
 ID of pet to return
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+##### Schema
 
-###### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

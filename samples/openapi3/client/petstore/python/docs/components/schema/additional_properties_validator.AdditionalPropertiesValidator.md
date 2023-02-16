@@ -15,40 +15,40 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [_2](#_2) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-1. 2 _0
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-   
-   4 Dictionary Keys
-   Key | Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | ------------- | -------------
-   **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+## _0
 
-1. 2 _1
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-   
-   4 Dictionary Keys
-   Key | Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | ------------- | -------------
-   **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-1. 2 _2
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-   
-   4 Dictionary Keys
-   Key | Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | ------------- | -------------
-   **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+## Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+
+## _1
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+
+## Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+
+## _2
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+
+## Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -31,8 +31,9 @@ api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
 #### Parameter0
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+##### Schema
 
-###### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
@@ -49,8 +50,9 @@ petId | [Parameter1.schema](#parameter_1schema) | |
 ##### <a id="parameter_1description" >Parameter1.description</a>
 Pet id to delete
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
+##### Schema
 
-###### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

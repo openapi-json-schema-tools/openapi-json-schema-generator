@@ -25,48 +25,47 @@ Key | Input Type | Accessed Type | Description | Notes
 **anyTypePropNullable** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-1. 2 objectWithNoDeclaredProps
-   
-   4 description
-   test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   dict, frozendict.frozendict,  | frozendict.frozendict,  | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
+## ObjectWithNoDeclaredProps
 
-1. 2 objectWithNoDeclaredPropsNullable
-   
-   4 description
-   test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
+## description
+test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
 
-1. 2 anyTypeExceptNullProp
-   
-   4 description
-   any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
-   
-   4 Composed Schemas (allOf/anyOf/oneOf/not)
-   
-   4 not
-   Class Name | Input Type | Accessed Type | Description | Notes
-   ------------- | ------------- | ------------- | ------------- | -------------
-   [_not](#_not) | None,  | NoneClass,  |  |
-   
-   1. 4 _not
-      
-      6 Schema Type Info
-      Input Type | Accessed Type | Description | Notes
-      ------------ | ------------- | ------------- | -------------
-      None,  | NoneClass,  |  |
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
+
+## ObjectWithNoDeclaredPropsNullable
+
+## description
+test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
+
+## AnyTypeExceptNullProp
+
+## description
+any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
+
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## not
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[_not](#_not) | None,  | NoneClass,  |  |
+
+## _Not
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None,  | NoneClass,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

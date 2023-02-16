@@ -15,64 +15,64 @@ Key | Input Type | Accessed Type | Description | Notes
 **array_array_of_model** | [list, tuple, ](#array_array_of_model) | [tuple, ](#array_array_of_model) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-1. 2 array_of_string
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   list, tuple,  | tuple,  |  |
-   
-   4 Tuple Items
-   Class Name | Input Type | Accessed Type | Description | Notes
-   ------------- | ------------- | ------------- | ------------- | -------------
-   items | str,  | str,  |  |
+## ArrayOfString
 
-1. 2 array_array_of_integer
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   list, tuple,  | tuple,  |  |
-   
-   4 Tuple Items
-   Class Name | Input Type | Accessed Type | Description | Notes
-   ------------- | ------------- | ------------- | ------------- | -------------
-   [items](#items) | list, tuple,  | tuple,  |  |
-   
-   1. 4 items
-      
-      6 Schema Type Info
-      Input Type | Accessed Type | Description | Notes
-      ------------ | ------------- | ------------- | -------------
-      list, tuple,  | tuple,  |  |
-      
-      6 Tuple Items
-      Class Name | Input Type | Accessed Type | Description | Notes
-      ------------- | ------------- | ------------- | ------------- | -------------
-      items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
 
-1. 2 array_array_of_model
-   
-   4 Schema Type Info
-   Input Type | Accessed Type | Description | Notes
-   ------------ | ------------- | ------------- | -------------
-   list, tuple,  | tuple,  |  |
-   
-   4 Tuple Items
-   Class Name | Input Type | Accessed Type | Description | Notes
-   ------------- | ------------- | ------------- | ------------- | -------------
-   [items](#items) | list, tuple,  | tuple,  |  |
-   
-   1. 4 items
-      
-      6 Schema Type Info
-      Input Type | Accessed Type | Description | Notes
-      ------------ | ------------- | ------------- | -------------
-      list, tuple,  | tuple,  |  |
-      
-      6 Tuple Items
-      Class Name | Input Type | Accessed Type | Description | Notes
-      ------------- | ------------- | ------------- | ------------- | -------------
-      [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) |  |
+## Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  |
+
+## ArrayArrayOfInteger
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+## Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[items](#items) | list, tuple,  | tuple,  |  |
+
+## Items
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+## Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+## ArrayArrayOfModel
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+## Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[items](#items) | list, tuple,  | tuple,  |  |
+
+## Items
+
+## Schema Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+## Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) | [**ReadOnlyFirst**](read_only_first.ReadOnlyFirst.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

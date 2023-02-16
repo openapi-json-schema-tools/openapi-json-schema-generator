@@ -24,11 +24,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="request_body" >body</a>
 #### <a id="request_body_request_bodycontentapplication_octet_streamschema" >RequestBody.content.application_octet_stream.schema</a>
+#### Schema
 
-##### description
+#### description
 file to upload
 
-##### Schema Type Info
+#### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
@@ -55,11 +56,12 @@ headers | Unset | headers were not defined |
 #### <a id="response_200content" >ResponseFor200.content</a>
 
 ##### <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
+##### Schema
 
-###### description
+##### description
 file to download
 
-###### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |

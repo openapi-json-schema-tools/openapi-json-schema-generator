@@ -36,8 +36,9 @@ order_id | [Parameter0.schema](#parameter_0schema) | |
 ##### <a id="parameter_0description" >Parameter0.description</a>
 ID of the order that needs to be deleted
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+##### Schema
 
-###### Schema Type Info
+##### Schema Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
