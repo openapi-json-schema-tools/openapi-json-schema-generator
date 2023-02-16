@@ -16,7 +16,7 @@ response | urllib3.HTTPResponse | Raw response |
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [SuccessInlineContentAndHeader.headers.header_some_header.schema](#response_success_inline_content_and_headerheadersheader_some_headerschema) | | optional
+someHeader | [headers.header_some_header.schema](#response_success_inline_content_and_headerheadersheader_some_headerschema) | | optional
 
 ## <a id="response_success_inline_content_and_headercontent" >content</a>
 

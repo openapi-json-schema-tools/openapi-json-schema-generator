@@ -79,9 +79,9 @@ response | urllib3.HTTPResponse | Raw response |
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
-X-Rate-Limit | [ResponseFor200.headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
+X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
-X-Expires-After | [ResponseFor200.headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
+X-Expires-After | [headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional

@@ -53,13 +53,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [{{../../jsonPathPiece.camelCase}}.headers.{{../jsonPathPiece.snakeCase}}.schema](#{{../../jsonPathPiece.snakeCase}}headers{{../jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [headers.{{../jsonPathPiece.snakeCase}}.schema](#{{../../jsonPathPiece.snakeCase}}headers{{../jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
                         {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [{{../../../jsonPathPiece.camelCase}}.headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{../../../jsonPathPiece.snakeCase}}headers{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{../../../jsonPathPiece.snakeCase}}headers{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}
