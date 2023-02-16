@@ -31,7 +31,7 @@ someParam | [Parameter0.content.application_json.schema](#parameter_0contentappl
 
 #### Parameter0
 
-##### <a id="parameter_0description" >Parameter0.description</a>
+##### Description
 The internal object id
 ##### <a id="parameter_0contentapplication_jsonschema" >Parameter0.content.application_json.schema</a>
 ##### Schema

@@ -2,13 +2,13 @@
 {{#if componentModule}}
 <a name="top"></a>
 {{../packageName}}.components.parameters.{{componentModule}}
-# {{jsonPathPiece.camelCase}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
 {{else}}
 {{headerSize}} {{jsonPathPiece.camelCase}}
 {{/if}}
 {{#if description}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}description" >{{jsonPathPiece.camelCase}}.description</a>
+{{headerSize}}# Description
 {{description}}
 {{/if}}
 {{#if refInfo}}

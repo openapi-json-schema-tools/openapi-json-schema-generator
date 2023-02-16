@@ -2,9 +2,9 @@
 petstore_api.components.parameters.parameter_ref_schema_string_with_validation
 # RefSchemaStringWithValidation
 
-### <a id="parameter_ref_schema_string_with_validationdescription" >RefSchemaStringWithValidation.description</a>
+## Description
 a path string with validation
-### <a id="parameter_ref_schema_string_with_validationschema" >RefSchemaStringWithValidation.schema</a>
+## <a id="parameter_ref_schema_string_with_validationschema" >RefSchemaStringWithValidation.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 

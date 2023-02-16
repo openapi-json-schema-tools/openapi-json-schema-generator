@@ -47,7 +47,7 @@ petId | [Parameter1.schema](#parameter_1schema) | |
 
 #### Parameter1
 
-##### <a id="parameter_1description" >Parameter1.description</a>
+##### Description
 Pet id to delete
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 ##### Schema

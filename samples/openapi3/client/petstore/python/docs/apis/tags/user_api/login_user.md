@@ -32,7 +32,7 @@ password | [Parameter1.schema](#parameter_1schema) | |
 
 #### Parameter0
 
-##### <a id="parameter_0description" >Parameter0.description</a>
+##### Description
 The user name for login
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 ##### Schema
@@ -44,7 +44,7 @@ str,  | str,  |  |
 
 #### Parameter1
 
-##### <a id="parameter_1description" >Parameter1.description</a>
+##### Description
 The password for login in clear text
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
 ##### Schema

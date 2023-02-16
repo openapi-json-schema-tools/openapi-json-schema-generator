@@ -35,7 +35,7 @@ tags | [Parameter0.schema](#parameter_0schema) | |
 
 #### Parameter0
 
-##### <a id="parameter_0description" >Parameter0.description</a>
+##### Description
 Tags to filter by
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 ##### Schema
