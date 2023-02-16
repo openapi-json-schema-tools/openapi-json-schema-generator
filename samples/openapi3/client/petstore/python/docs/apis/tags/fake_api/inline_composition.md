@@ -163,7 +163,7 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), [ResponseFor200.content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
+[body](#response_200content) | typing.Union[[content.application_json.schema](#response_200contentapplication_jsonschema), [content.multipart_form_data.schema](#response_200contentmultipart_form_dataschema), ] |  |
 headers | Unset | headers were not defined |
 
 #### <a id="response_200content" >content</a>

@@ -22,7 +22,7 @@ response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_defaultcontent) | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
+[body](#response_defaultcontent) | typing.Union[[content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
 #### <a id="response_defaultcontent" >content</a>

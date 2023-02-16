@@ -71,8 +71,20 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-[headers](#response_200headers) | [response_200.Headers](#response_200headers) |  |
+[body](#response_200content) | typing.Union[[content.application_xml.schema](#response_200contentapplication_xmlschema), [content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[headers](#response_200headers) | [Headers](#response_200headers) |  |
+
+#### <a id="response_200headers" >Headers</a>
+
+Key | Accessed Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
+X-Rate-Limit | [ResponseFor200.headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
+int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
+X-Expires-After | [ResponseFor200.headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
+ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
+stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
+numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
 
 #### <a id="response_200content" >content</a>
 
@@ -92,17 +104,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### <a id="response_200headers" >Headers</a>
-
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
-X-Rate-Limit | [ResponseFor200.headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
-int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
-X-Expires-After | [ResponseFor200.headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
-ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
-stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
-numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
+#### Header Details
+##### XRateLimit
 
 ##### <a id="header_x_rate_limitdescription" >XRateLimit.description</a>
 calls per hour allowed by the user
@@ -114,6 +117,7 @@ calls per hour allowed by the user
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+##### XExpiresAfter
 
 ##### <a id="header_x_expires_afterdescription" >XExpiresAfter.description</a>
 date in UTC when token expires

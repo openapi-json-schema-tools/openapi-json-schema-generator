@@ -9,16 +9,8 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_success_with_json_api_responsecontent) | typing.Union[[SuccessWithJsonApiResponse.content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
-[headers](#response_success_with_json_api_responseheaders) | [response_success_with_json_api_response.Headers](#response_success_with_json_api_responseheaders) |  |
-
-## <a id="response_success_with_json_api_responsecontent" >content</a>
-
-### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
-
+[body](#response_success_with_json_api_responsecontent) | typing.Union[[content.application_json.schema](#response_success_with_json_api_responsecontentapplication_jsonschema), ] |  |
+[headers](#response_success_with_json_api_responseheaders) | [Headers](#response_success_with_json_api_responseheaders) |  |
 
 ## <a id="response_success_with_json_api_responseheaders" >Headers</a>
 
@@ -29,5 +21,15 @@ int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../compo
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
 stringHeader | [RefStringHeader.schema](../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
 numberHeader | [NumberHeader.schema](../../components/headers/header_number_header.md#header_number_headerschema) | | optional
+
+## <a id="response_success_with_json_api_responsecontent" >content</a>
+
+### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 
+
+
+## Header Details
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

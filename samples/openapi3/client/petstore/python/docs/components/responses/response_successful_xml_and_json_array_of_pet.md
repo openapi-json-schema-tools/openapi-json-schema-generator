@@ -9,7 +9,7 @@ successful operation, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_successful_xml_and_json_array_of_petcontent) | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
+[body](#response_successful_xml_and_json_array_of_petcontent) | typing.Union[[content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
 ## <a id="response_successful_xml_and_json_array_of_petcontent" >content</a>

@@ -24,18 +24,8 @@ body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.
 headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-{{#if content}}[body](#{{jsonPathPiece.snakeCase}}content){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-{{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-    {{#if content}}
-
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}content" >content</a>
-        {{#each content}}
-            {{#with this.schema}}
-
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
-            {{/with}}
-        {{/each}}
-    {{/if}}
+{{#if content}}[body](#{{jsonPathPiece.snakeCase}}content){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+{{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if headers}}
 
 {{headerSize}} <a id="{{jsonPathPiece.snakeCase}}headers" >Headers</a>
@@ -77,6 +67,20 @@ Key | Accessed Type | Description  | Notes
                 {{/if}}
             {{/with}}
         {{/each}}
+    {{/if}}
+    {{#if content}}
+
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}content" >content</a>
+        {{#each content}}
+            {{#with this.schema}}
+
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+            {{/with}}
+        {{/each}}
+    {{/if}}
+    {{#if headers}}
+
+{{headerSize}} Header Details
         {{#each headers}}
             {{#unless refInfo}}
 {{> components/headers/header_doc header=this headerSize=(join headerSize "#" "") }}

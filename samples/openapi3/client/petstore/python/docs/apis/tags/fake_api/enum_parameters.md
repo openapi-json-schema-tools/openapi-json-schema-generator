@@ -177,7 +177,7 @@ Not found
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_404content) | typing.Union[[ResponseFor404.content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
+[body](#response_404content) | typing.Union[[content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
 #### <a id="response_404content" >content</a>

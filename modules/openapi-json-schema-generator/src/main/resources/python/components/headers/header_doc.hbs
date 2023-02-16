@@ -2,6 +2,8 @@
     {{#if componentModule}}
 {{packageName}}.components.headers.{{componentModule}}
 # {{jsonPathPiece.camelCase}}
+    {{else}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
     {{/if}}
     {{#if description}}
 
