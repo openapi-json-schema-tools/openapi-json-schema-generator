@@ -6,7 +6,7 @@ number header description
 ## <a id="header_number_headerschema" >NumberHeader.schema</a>
 ## Schema
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | value must be numeric and storable in decimal.Decimal

@@ -2,13 +2,13 @@
 petstore_api.components.schema.cat
 # Cat
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-## Composed Schemas (allOf/anyOf/oneOf/not)
-## allOf
+### Composed Schemas (allOf/anyOf/oneOf/not)
+### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
@@ -16,12 +16,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ## _1
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **declawed** | bool,  | BoolClass,  |  | [optional]

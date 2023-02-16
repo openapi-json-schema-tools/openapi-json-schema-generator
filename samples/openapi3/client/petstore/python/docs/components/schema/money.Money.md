@@ -2,12 +2,12 @@
 petstore_api.components.schema.money
 # Money
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **amount** | str,  | str,  |  | value must be numeric and storable in decimal.Decimal

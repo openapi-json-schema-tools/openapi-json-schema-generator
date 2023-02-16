@@ -2,12 +2,12 @@
 petstore_api.components.schema.category
 # Category
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str,  | str,  |  | if omitted the server will use the default value of "default-name"

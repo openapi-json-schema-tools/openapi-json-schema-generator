@@ -38,7 +38,7 @@ The internal object id
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 ##### Schema
 
-##### Schema Type Info
+###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

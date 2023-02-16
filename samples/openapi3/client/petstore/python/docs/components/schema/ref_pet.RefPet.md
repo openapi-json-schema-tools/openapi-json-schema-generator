@@ -1,7 +1,7 @@
 <a name="top"></a>
 petstore_api.components.schema.ref_pet
 # RefPet
-## Schema Type Info
+### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Pet](../../components/schemas/pet.Pet.md#pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |

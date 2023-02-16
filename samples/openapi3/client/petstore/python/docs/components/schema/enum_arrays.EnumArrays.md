@@ -2,12 +2,12 @@
 petstore_api.components.schema.enum_arrays
 # EnumArrays
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **just_symbol** | str,  | str,  |  | [optional] must be one of [">=", "$", ]
@@ -16,12 +16,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## ArrayEnum
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of ["fish", "crab", ]

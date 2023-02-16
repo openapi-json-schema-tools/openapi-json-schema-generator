@@ -2,7 +2,7 @@
 petstore_api.components.schema.integer_enum_one_value
 # IntegerEnumOneValue
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [0, ]

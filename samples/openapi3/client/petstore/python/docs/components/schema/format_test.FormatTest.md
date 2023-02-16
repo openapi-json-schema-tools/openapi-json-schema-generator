@@ -2,12 +2,12 @@
 petstore_api.components.schema.format_test
 # FormatTest
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **byte** | str,  | str,  |  |
@@ -35,12 +35,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## ArrayWithUniqueItems
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |

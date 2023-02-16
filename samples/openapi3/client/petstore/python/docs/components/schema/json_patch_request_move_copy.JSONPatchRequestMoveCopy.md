@@ -2,12 +2,12 @@
 petstore_api.components.schema.json_patch_request_move_copy
 # JSONPatchRequestMoveCopy
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **from** | str,  | str,  | A JSON Pointer path. |

@@ -40,7 +40,7 @@ ID of pet to return
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 ##### Schema
 
-##### Schema Type Info
+###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

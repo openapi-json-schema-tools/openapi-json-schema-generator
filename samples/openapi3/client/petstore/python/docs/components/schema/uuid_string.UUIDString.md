@@ -2,7 +2,7 @@
 petstore_api.components.schema.uuid_string
 # UUIDString
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, uuid.UUID,  | str,  |  | value must be a uuid

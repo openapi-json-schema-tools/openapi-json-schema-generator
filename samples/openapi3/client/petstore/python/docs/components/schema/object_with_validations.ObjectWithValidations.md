@@ -2,7 +2,7 @@
 petstore_api.components.schema.object_with_validations
 # ObjectWithValidations
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

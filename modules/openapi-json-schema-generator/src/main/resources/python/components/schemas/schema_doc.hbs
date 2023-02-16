@@ -8,23 +8,23 @@
 {{/if}}
 {{#if description}}
 
-{{headerSize}} description
+{{headerSize}}# Description
 {{description}}
 {{/if}}
 {{#if refInfo}}
-{{headerSize}} Schema Type Info
+{{headerSize}}# Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.{{refInfo.refClass}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
 {{else}}
 
-{{headerSize}} Schema Type Info
+{{headerSize}}# Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
     {{#or properties additionalProperties requiredProperties}}
 
-{{headerSize}} Dictionary Keys
+{{headerSize}}# Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
         {{#each requiredProperties}}
@@ -47,7 +47,7 @@ Key | Input Type | Accessed Type | Description | Notes
     {{/or}}
     {{#if items}}
 
-{{headerSize}} Tuple Items
+{{headerSize}}# List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with items}}
@@ -56,10 +56,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{/if}}
     {{#or allOf anyOf oneOf not}}
 
-{{headerSize}} Composed Schemas (allOf/anyOf/oneOf/not)
+{{headerSize}}# Composed Schemas (allOf/anyOf/oneOf/not)
     {{/or}}
     {{#if allOf}}
-{{headerSize}} allOf
+{{headerSize}}# allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each allOf}}
@@ -67,7 +67,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{/each}}
     {{/if}}
     {{#if anyOf}}
-{{headerSize}} anyOf
+{{headerSize}}# anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each anyOf}}
@@ -75,7 +75,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{/each}}
     {{/if}}
     {{#if oneOf}}
-{{headerSize}} oneOf
+{{headerSize}}# oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each oneOf}}
@@ -83,7 +83,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{/each}}
     {{/if}}
     {{#if not}}
-{{headerSize}} not
+{{headerSize}}# not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with not}}

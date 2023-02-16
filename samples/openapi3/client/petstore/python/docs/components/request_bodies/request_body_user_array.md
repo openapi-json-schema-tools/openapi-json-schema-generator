@@ -6,12 +6,12 @@ List of user object
 ## <a id="request_body_user_arraycontentapplication_jsonschema" >UserArray.content.application_json.schema</a>
 ## Schema
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  |

@@ -2,7 +2,7 @@
 petstore_api.components.schema.currency
 # Currency
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["eur", "usd", ]

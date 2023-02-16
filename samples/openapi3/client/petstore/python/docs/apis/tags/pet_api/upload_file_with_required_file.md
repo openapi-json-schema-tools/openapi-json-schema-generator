@@ -28,12 +28,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
 #### Schema
 
-#### Schema Type Info
+##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-#### Dictionary Keys
+##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **requiredFile** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
@@ -54,7 +54,7 @@ ID of pet to update
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
 ##### Schema
 
-##### Schema Type Info
+###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

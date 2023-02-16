@@ -2,12 +2,12 @@
 petstore_api.components.schema.object_with_decimal_properties
 # ObjectWithDecimalProperties
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **length** | [**DecimalPayload**](decimal_payload.DecimalPayload.md) | [**DecimalPayload**](decimal_payload.DecimalPayload.md) |  | [optional]

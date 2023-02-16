@@ -2,12 +2,12 @@
 petstore_api.components.schema.array_of_number_only
 # ArrayOfNumberOnly
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **ArrayNumber** | [list, tuple, ](#ArrayNumber) | [tuple, ](#ArrayNumber) |  | [optional]
@@ -15,12 +15,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## ArrayNumber
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int, float,  | decimal.Decimal,  |  |

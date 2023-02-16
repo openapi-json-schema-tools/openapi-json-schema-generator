@@ -7,7 +7,7 @@ the use name to use
 ### <a id="parameter_path_user_nameschema" >PathUserName.schema</a>
 ### Schema
 
-### Schema Type Info
+#### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

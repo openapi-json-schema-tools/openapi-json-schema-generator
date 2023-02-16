@@ -6,7 +6,7 @@ string header description
 ## <a id="header_string_headerschema" >StringHeader.schema</a>
 ## Schema
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

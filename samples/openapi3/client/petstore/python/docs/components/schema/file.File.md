@@ -2,15 +2,15 @@
 petstore_api.components.schema.file
 # File
 
-## description
+### Description
 Must be named &#x60;File&#x60; for test.
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Must be named &#x60;File&#x60; for test. |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **sourceURI** | str,  | str,  | Test capitalization | [optional]

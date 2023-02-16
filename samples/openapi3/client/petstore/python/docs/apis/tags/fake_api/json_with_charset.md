@@ -26,7 +26,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
 #### Schema
 
-#### Schema Type Info
+##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
@@ -55,7 +55,7 @@ headers | Unset | headers were not defined |
 ##### <a id="response_200contentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
 ##### Schema
 
-##### Schema Type Info
+###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |

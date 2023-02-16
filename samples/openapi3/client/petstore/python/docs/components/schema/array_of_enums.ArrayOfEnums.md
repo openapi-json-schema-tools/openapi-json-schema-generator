@@ -2,12 +2,12 @@
 petstore_api.components.schema.array_of_enums
 # ArrayOfEnums
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) | [**StringEnum**](string_enum.StringEnum.md) |  |

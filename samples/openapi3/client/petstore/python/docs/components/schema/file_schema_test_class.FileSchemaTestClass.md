@@ -2,12 +2,12 @@
 petstore_api.components.schema.file_schema_test_class
 # FileSchemaTestClass
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## Dictionary Keys
+### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **file** | [**File**](file.File.md) | [**File**](file.File.md) |  | [optional]
@@ -16,12 +16,12 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ## Files
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-## Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**File**](file.File.md) | [**File**](file.File.md) | [**File**](file.File.md) |  |

@@ -2,7 +2,7 @@
 petstore_api.components.schema.integer_max10
 # IntegerMax10
 
-## Schema Type Info
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
