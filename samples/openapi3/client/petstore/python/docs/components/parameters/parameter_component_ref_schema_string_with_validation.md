@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
 # ComponentRefSchemaStringWithValidation
 

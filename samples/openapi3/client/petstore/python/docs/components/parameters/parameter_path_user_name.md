@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.parameters.parameter_path_user_name
 # PathUserName
 

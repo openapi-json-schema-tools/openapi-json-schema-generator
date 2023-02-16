@@ -1,10 +1,8 @@
 {{#with header}}
     {{#if componentModule}}
 {{packageName}}.components.headers.{{componentModule}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
-    {{else}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
     {{/if}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
     {{#if description}}
 
 {{headerSize}}# Description

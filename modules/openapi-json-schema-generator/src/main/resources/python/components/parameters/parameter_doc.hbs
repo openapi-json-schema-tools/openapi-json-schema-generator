@@ -1,11 +1,8 @@
 {{#with parameter}}
 {{#if componentModule}}
-<a name="top"></a>
 {{../packageName}}.components.parameters.{{componentModule}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
-{{else}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
 {{/if}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
 {{#if description}}
 
 {{headerSize}}# Description

@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.parameters.parameter_ref_path_user_name
 # RefPathUserName
 # <a id="parameter_ref_path_user_nameschema" >RefPathUserName.schema</a>
