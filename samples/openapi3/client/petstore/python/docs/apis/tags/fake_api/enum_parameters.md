@@ -19,7 +19,7 @@ To test enum parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
 [query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
 [header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body

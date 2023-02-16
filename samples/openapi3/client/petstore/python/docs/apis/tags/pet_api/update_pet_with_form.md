@@ -16,7 +16,7 @@ Updates a pet in the store with form data
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
 [path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file

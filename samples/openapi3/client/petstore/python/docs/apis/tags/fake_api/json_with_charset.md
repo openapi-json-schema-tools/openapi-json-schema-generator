@@ -15,7 +15,7 @@ json with charset tx and rx
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_json_charsetutf8.schema](#request_bodycontentapplication_json_charsetutf8schema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[RequestBody.content.application_json_charsetutf8.schema](#request_body_request_bodycontentapplication_json_charsetutf8schema), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json; charset=utf-8", ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file

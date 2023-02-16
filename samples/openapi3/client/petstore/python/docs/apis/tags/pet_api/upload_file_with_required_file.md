@@ -16,7 +16,7 @@ uploads an image (required)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.multipart_form_data.schema](#request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
+[body](#request_body) | typing.Union[[RequestBody.content.multipart_form_data.schema](#request_body_request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
 [path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
