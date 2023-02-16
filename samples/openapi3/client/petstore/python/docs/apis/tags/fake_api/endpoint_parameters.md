@@ -64,10 +64,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ### <a id="response_404" >ResponseFor404</a>
 
-#### <a id="response_404description" >ResponseFor404.description</a>
+#### <a id="response_404description" >Description</a>
 User not found
 
-#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
+#### <a id="response_404response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

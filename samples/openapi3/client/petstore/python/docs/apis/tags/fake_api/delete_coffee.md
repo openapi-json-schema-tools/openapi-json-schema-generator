@@ -53,10 +53,10 @@ default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected err
 
 ### <a id="response_default" >Default</a>
 
-#### <a id="response_defaultdescription" >Default.description</a>
+#### <a id="response_defaultdescription" >Description</a>
 Unexpected error
 
-#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
+#### <a id="response_defaultresponse_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -2,17 +2,17 @@
 petstore_api.components.responses.response_success_inline_content_and_header
 # <a id="response_success_inline_content_and_header" >SuccessInlineContentAndHeader</a>
 
-## <a id="response_success_inline_content_and_headerdescription" >SuccessInlineContentAndHeader.description</a>
+## <a id="response_success_inline_content_and_headerdescription" >Description</a>
 successful operation
 
-## <a id="response_success_inline_content_and_headerresponse_cls" >SuccessInlineContentAndHeader.response_cls</a>
+## <a id="response_success_inline_content_and_headerresponse_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_success_inline_content_and_headercontent) | typing.Union[[SuccessInlineContentAndHeader.content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
 [headers](#response_success_inline_content_and_headerheaders) | [response_success_inline_content_and_header.Headers](#response_success_inline_content_and_headerheaders) |  |
 
-## <a id="response_success_inline_content_and_headercontent" >SuccessInlineContentAndHeader.content</a>
+## <a id="response_success_inline_content_and_headercontent" >content</a>
 
 ### <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 ### Schema
@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
-## <a id="response_success_inline_content_and_headerheaders" >SuccessInlineContentAndHeader.Headers</a>
+## <a id="response_success_inline_content_and_headerheaders" >Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

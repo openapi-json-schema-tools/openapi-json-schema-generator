@@ -15,17 +15,17 @@ default | [Default.response_cls](#response_defaultresponse_cls) | response
 
 ### <a id="response_default" >Default</a>
 
-#### <a id="response_defaultdescription" >Default.description</a>
+#### <a id="response_defaultdescription" >Description</a>
 response
 
-#### <a id="response_defaultresponse_cls" >Default.response_cls</a>
+#### <a id="response_defaultresponse_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_defaultcontent) | typing.Union[[Default.content.application_json.schema](#response_defaultcontentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_defaultcontent" >Default.content</a>
+#### <a id="response_defaultcontent" >content</a>
 
 ##### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
 ##### Schema

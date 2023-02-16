@@ -67,10 +67,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ### <a id="response_405" >ResponseFor405</a>
 
-#### <a id="response_405description" >ResponseFor405.description</a>
+#### <a id="response_405description" >Description</a>
 Invalid input
 
-#### <a id="response_405response_cls" >ResponseFor405.response_cls</a>
+#### <a id="response_405response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

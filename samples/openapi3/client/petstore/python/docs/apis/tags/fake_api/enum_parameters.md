@@ -170,17 +170,17 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ### <a id="response_404" >ResponseFor404</a>
 
-#### <a id="response_404description" >ResponseFor404.description</a>
+#### <a id="response_404description" >Description</a>
 Not found
 
-#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
+#### <a id="response_404response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_404content) | typing.Union[[ResponseFor404.content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_404content" >ResponseFor404.content</a>
+#### <a id="response_404content" >content</a>
 
 ##### <a id="response_404contentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
 ##### Schema

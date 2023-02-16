@@ -41,17 +41,17 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ### <a id="response_200" >ResponseFor200</a>
 
-#### <a id="response_200description" >ResponseFor200.description</a>
+#### <a id="response_200description" >Description</a>
 Output model
 
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
+#### <a id="response_200response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >ResponseFor200.content</a>
+#### <a id="response_200content" >content</a>
 
 ##### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes

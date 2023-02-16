@@ -55,17 +55,17 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ### <a id="response_200" >ResponseFor200</a>
 
-#### <a id="response_200description" >ResponseFor200.description</a>
+#### <a id="response_200description" >Description</a>
 successful operation
 
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
+#### <a id="response_200response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 [body](#response_200content) | typing.Union[[ResponseFor200.content.application_xml.schema](#response_200contentapplication_xmlschema), [ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
 headers | Unset | headers were not defined |
 
-#### <a id="response_200content" >ResponseFor200.content</a>
+#### <a id="response_200content" >content</a>
 
 ##### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 Type | Description  | Notes
@@ -81,10 +81,10 @@ Type | Description  | Notes
 
 ### <a id="response_400" >ResponseFor400</a>
 
-#### <a id="response_400description" >ResponseFor400.description</a>
+#### <a id="response_400description" >Description</a>
 Invalid ID supplied
 
-#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
+#### <a id="response_400response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -93,10 +93,10 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_404" >ResponseFor404</a>
 
-#### <a id="response_404description" >ResponseFor404.description</a>
+#### <a id="response_404description" >Description</a>
 Order not found
 
-#### <a id="response_404response_cls" >ResponseFor404.response_cls</a>
+#### <a id="response_404response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
