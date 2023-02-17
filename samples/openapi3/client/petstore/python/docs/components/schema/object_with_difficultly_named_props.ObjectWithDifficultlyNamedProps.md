@@ -2,15 +2,15 @@
 petstore_api.components.schema.object_with_difficultly_named_props
 # ObjectWithDifficultlyNamedProps
 
-### Description
+## Description
 model with properties that have invalid names for python
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | model with properties that have invalid names for python |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **123-list** | str,  | str,  |  |

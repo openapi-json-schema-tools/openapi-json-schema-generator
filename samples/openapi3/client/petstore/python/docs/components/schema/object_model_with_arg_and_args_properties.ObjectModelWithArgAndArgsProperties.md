@@ -2,12 +2,12 @@
 petstore_api.components.schema.object_model_with_arg_and_args_properties
 # ObjectModelWithArgAndArgsProperties
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **arg** | str,  | str,  |  |

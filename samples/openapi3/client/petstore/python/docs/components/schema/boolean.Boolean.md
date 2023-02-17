@@ -2,7 +2,7 @@
 petstore_api.components.schema.boolean
 # Boolean
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |

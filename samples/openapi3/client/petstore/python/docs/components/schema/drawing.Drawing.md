@@ -2,12 +2,12 @@
 petstore_api.components.schema.drawing
 # Drawing
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  | [optional]
@@ -16,14 +16,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **shapes** | [list, tuple, ](#shapes) | [tuple, ](#shapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
-## Shapes
+# Shapes
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### List Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |

@@ -2,7 +2,7 @@
 petstore_api.components.schema.string_enum_with_default_value
 # StringEnumWithDefaultValue
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["placed", "approved", "delivered", ] if omitted the server will use the default value of "placed"

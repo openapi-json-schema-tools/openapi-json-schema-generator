@@ -2,26 +2,26 @@
 petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-### allOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
 [_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-## _1
+# _1
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **test** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |

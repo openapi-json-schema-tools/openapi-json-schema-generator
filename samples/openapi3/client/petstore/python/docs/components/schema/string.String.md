@@ -2,7 +2,7 @@
 petstore_api.components.schema.string
 # String
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

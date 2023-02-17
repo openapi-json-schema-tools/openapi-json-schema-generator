@@ -2,12 +2,12 @@
 petstore_api.components.schema.json_patch_request_add_replace_test
 # JSONPatchRequestAddReplaceTest
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **op** | str,  | str,  | The operation to perform. | must be one of ["add", "replace", "test", ]

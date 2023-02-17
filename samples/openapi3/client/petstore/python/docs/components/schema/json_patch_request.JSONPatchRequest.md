@@ -2,25 +2,25 @@
 petstore_api.components.schema.json_patch_request
 # JSONPatchRequest
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### List Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-## Items
+# Items
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-### oneOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |  |

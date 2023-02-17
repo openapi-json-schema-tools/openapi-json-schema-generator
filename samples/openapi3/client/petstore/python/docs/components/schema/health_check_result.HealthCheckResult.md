@@ -2,15 +2,15 @@
 petstore_api.components.schema.health_check_result
 # HealthCheckResult
 
-### Description
+## Description
 Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **NullableMessage** | None, str,  | NoneClass, str,  |  | [optional]

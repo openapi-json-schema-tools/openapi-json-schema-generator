@@ -2,7 +2,7 @@
 petstore_api.components.schema.decimal_payload
 # DecimalPayload
 
-### Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | value must be numeric and storable in decimal.Decimal
