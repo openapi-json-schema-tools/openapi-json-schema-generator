@@ -1,11 +1,11 @@
 {{#with requestBody}}
 {{#if componentModule}}
 {{packageName}}.components.request_bodies.{{componentModule}}
-# {{jsonPathPiece.camelCase}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
 {{/if}}
 {{#if description}}
 
-{{headerSize}} Description
+{{headerSize}}# Description
 {{description}}
 {{/if}}
 {{#if refInfo}}
@@ -13,7 +13,7 @@
         {{#each content}}
             {{#with this.schema}}
 
-{{headerSize}} {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{headerSize}}# {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
@@ -24,9 +24,9 @@ Ref Class | Input Type | Accessed Type | Description
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

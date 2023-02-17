@@ -853,8 +853,8 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // doc generation
-        Boolean generateRequestBodyDocumentaion = Boolean.TRUE;
-        templateData.put("headerSize", "##");
+        Boolean generateRequestBodyDocumentation = Boolean.TRUE;
+        templateData.put("headerSize", "#");
         String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
         for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
             String templateName = entry.getKey();
@@ -864,7 +864,7 @@ public class DefaultGenerator implements Generator {
 
             templateData.put("complexTypePrefix", "../../components/schema/");
             try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentaion, CodegenConstants.REQUEST_BODY_DOCS);
+                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
