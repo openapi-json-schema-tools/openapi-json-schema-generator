@@ -1,20 +1,19 @@
 {{#with response}}
 {{#if componentModule}}
-<a name="top"></a>
 {{packageName}}.components.responses.{{componentModule}}
-    {{#if refInfo}}
-# {{jsonPathPiece.camelCase}} [ref](../../components/responses/{{refInfo.refModule}}.md)<a id="{{jsonPathPiece.snakeCase}}" ></a>
-    {{else}}
-# <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
-    {{/if}}
+{{/if}}
+{{#if refInfo}}
+{{headerSize}} {{jsonPathPiece.camelCase}} [ref](../../components/responses/{{refInfo.refModule}}.md)<a id="{{jsonPathPiece.snakeCase}}" ></a>
+{{else}}
+{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
 {{/if}}
 {{#if description}}
 
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}description" >Description</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}description" >Description</a>
 {{description}}
 {{/if}}
 
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}response_cls" >response_cls</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}response_cls" >response_cls</a>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -28,7 +27,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Header
 {{#if headers}}[headers](#{{jsonPathPiece.snakeCase}}headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#{{jsonPathPiece.snakeCase}}headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if headers}}
 
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}headers" >Headers</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}headers" >Headers</a>
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -70,20 +69,20 @@ Key | Accessed Type | Description  | Notes
     {{/if}}
     {{#if content}}
 
-{{headerSize}} <a id="{{jsonPathPiece.snakeCase}}content" >content</a>
+{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}content" >content</a>
         {{#each content}}
             {{#with this.schema}}
 
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "##" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
             {{/with}}
         {{/each}}
     {{/if}}
     {{#if headers}}
 
-{{headerSize}} Header Details
+{{headerSize}}# Header Details
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this headerSize=(join headerSize "#" "") }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") }}
             {{/unless}}
         {{/each}}
     {{/if}}

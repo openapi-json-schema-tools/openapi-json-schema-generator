@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
 # <a id="response_successful_xml_and_json_array_of_pet" >SuccessfulXmlAndJsonArrayOfPet</a>
 

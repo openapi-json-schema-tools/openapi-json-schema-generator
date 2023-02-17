@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.responses.response_success_inline_content_and_header
 # <a id="response_success_inline_content_and_header" >SuccessInlineContentAndHeader</a>
 
