@@ -24,6 +24,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="request_body" >body</a>
 #### <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
+
 #### Schema
 
 ##### Type Info
@@ -53,6 +54,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200contentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
+
 #### Schema
 
 ##### Type Info

@@ -31,6 +31,7 @@ api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
 #### Parameter0
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -50,6 +51,7 @@ petId | [Parameter1.schema](#parameter_1schema) | |
 ##### Description
 Pet id to delete
 ##### <a id="parameter_1schema" >Parameter1.schema</a>
+
 ##### Schema
 
 ###### Type Info

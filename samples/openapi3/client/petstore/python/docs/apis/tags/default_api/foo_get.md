@@ -28,6 +28,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_defaultcontent" >content</a>
 
 #### <a id="response_defaultcontentapplication_jsonschema" >Default.content.application_json.schema</a>
+
 #### Schema
 
 ##### Type Info

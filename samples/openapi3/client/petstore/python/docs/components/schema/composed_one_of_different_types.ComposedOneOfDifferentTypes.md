@@ -1,4 +1,5 @@
 petstore_api.components.schema.composed_one_of_different_types
+
 # ComposedOneOfDifferentTypes
 
 ## Description
@@ -21,28 +22,32 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_5](#oneOf_5) | list, tuple,  | tuple,  |  |
 [_6](#oneOf_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# _2<a id="oneOf_2"></a>
+<a id="oneOf_2"></a>
+# _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# _3<a id="oneOf_3"></a>
+<a id="oneOf_3"></a>
+# _3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# _4<a id="oneOf_4"></a>
+<a id="oneOf_4"></a>
+# _4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# _5<a id="oneOf_5"></a>
+<a id="oneOf_5"></a>
+# _5
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,7 +59,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-# _6<a id="oneOf_6"></a>
+<a id="oneOf_6"></a>
+# _6
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

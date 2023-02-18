@@ -1,4 +1,5 @@
 petstore_api.components.schema.additional_properties_class
+
 # AdditionalPropertiesClass
 
 ## Type Info
@@ -19,7 +20,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_string** | [dict, frozendict.frozendict, ](#propertiesmap_with_undeclared_properties_string) | [frozendict.frozendict, ](#propertiesmap_with_undeclared_properties_string) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# MapProperty<a id="propertiesmap_property"></a>
+<a id="propertiesmap_property"></a>
+# MapProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -31,7 +33,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-# MapOfMapProperty<a id="propertiesmap_of_map_property"></a>
+<a id="propertiesmap_of_map_property"></a>
+# MapOfMapProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -43,7 +46,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-# AdditionalProperties<a id="propertiesmap_of_map_propertyadditional_properties"></a>
+<a id="propertiesmap_of_map_propertyadditional_properties"></a>
+# AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -55,21 +59,24 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-# MapWithUndeclaredPropertiesAnytype1<a id="propertiesmap_with_undeclared_properties_anytype1"></a>
+<a id="propertiesmap_with_undeclared_properties_anytype1"></a>
+# MapWithUndeclaredPropertiesAnytype1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# MapWithUndeclaredPropertiesAnytype2<a id="propertiesmap_with_undeclared_properties_anytype2"></a>
+<a id="propertiesmap_with_undeclared_properties_anytype2"></a>
+# MapWithUndeclaredPropertiesAnytype2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# MapWithUndeclaredPropertiesAnytype3<a id="propertiesmap_with_undeclared_properties_anytype3"></a>
+<a id="propertiesmap_with_undeclared_properties_anytype3"></a>
+# MapWithUndeclaredPropertiesAnytype3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -81,7 +88,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# EmptyMap<a id="propertiesempty_map"></a>
+<a id="propertiesempty_map"></a>
+# EmptyMap
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
@@ -95,7 +103,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no decl
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
-# MapWithUndeclaredPropertiesString<a id="propertiesmap_with_undeclared_properties_string"></a>
+<a id="propertiesmap_with_undeclared_properties_string"></a>
+# MapWithUndeclaredPropertiesString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

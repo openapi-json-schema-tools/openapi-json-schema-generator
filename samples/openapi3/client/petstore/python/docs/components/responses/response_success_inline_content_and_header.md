@@ -20,6 +20,7 @@ someHeader | [headers.header_some_header.schema](#response_success_inline_conten
 ## <a id="response_success_inline_content_and_headercontent" >content</a>
 
 ### <a id="response_success_inline_content_and_headercontentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
+
 ### Schema
 
 #### Type Info
@@ -36,6 +37,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ### SomeHeader
 
 #### <a id="response_success_inline_content_and_headerheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
+
 #### Schema
 
 ##### Type Info

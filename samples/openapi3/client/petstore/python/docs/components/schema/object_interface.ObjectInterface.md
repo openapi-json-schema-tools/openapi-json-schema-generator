@@ -1,4 +1,5 @@
 petstore_api.components.schema.object_interface
+
 # ObjectInterface
 
 ## Type Info

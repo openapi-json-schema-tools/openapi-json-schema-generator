@@ -25,6 +25,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### <a id="request_body" >body</a>
 #### <a id="request_body_request_bodycontentapplication_x_www_form_urlencodedschema" >RequestBody.content.application_x_www_form_urlencoded.schema</a>
+
 #### Schema
 
 ##### Type Info
@@ -51,6 +52,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ##### Description
 ID of pet that needs to be updated
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info

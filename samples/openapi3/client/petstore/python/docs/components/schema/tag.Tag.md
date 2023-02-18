@@ -1,4 +1,5 @@
 petstore_api.components.schema.tag
+
 # Tag
 
 ## Type Info

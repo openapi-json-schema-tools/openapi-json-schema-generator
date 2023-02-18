@@ -1,4 +1,5 @@
 petstore_api.components.schema.zebra
+
 # Zebra
 
 ## Type Info

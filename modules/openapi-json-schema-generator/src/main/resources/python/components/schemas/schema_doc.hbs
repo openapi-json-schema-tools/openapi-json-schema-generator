@@ -2,7 +2,8 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
-{{headerSize}} {{jsonPathPiece.camelCase}}{{#neq anchorId ""}}<a id="{{anchorId}}">{{/neq}}{{#neq anchorId ""}}</a>{{/neq}}
+{{#neq anchorId ""}}<a id="{{anchorId}}"></a>{{/neq}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
 {{#if description}}
 
 {{headerSize}}# Description

@@ -1,4 +1,5 @@
 petstore_api.components.schema.any_type_not_string
+
 # AnyTypeNotString
 
 ## Type Info
@@ -12,7 +13,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#_not) | str,  | str,  |  |
 
-# _Not<a id="_not"></a>
+<a id="_not"></a>
+# _Not
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

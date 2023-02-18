@@ -37,6 +37,7 @@ order_id | [Parameter0.schema](#parameter_0schema) | |
 ##### Description
 ID of pet that needs to be fetched
 ##### <a id="parameter_0schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info

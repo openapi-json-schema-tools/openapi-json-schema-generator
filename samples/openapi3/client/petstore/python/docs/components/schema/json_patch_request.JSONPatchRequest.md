@@ -1,4 +1,5 @@
 petstore_api.components.schema.json_patch_request
+
 # JSONPatchRequest
 
 ## Type Info
@@ -11,7 +12,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-# Items<a id="items"></a>
+<a id="items"></a>
+# Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
