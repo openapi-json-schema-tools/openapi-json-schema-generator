@@ -6,8 +6,64 @@ import com.github.jknack.handlebars.TagType;
 
 import java.io.IOException;
 import java.util.Locale;
+import static org.apache.commons.lang3.Validate.isTrue;
+import static org.apache.commons.lang3.Validate.notNull;
+import org.apache.commons.lang3.StringUtils;
+import java.util.Iterator;
 
 public enum StringHelpers implements Helper<Object> {
+    /**
+     * Custom version of this helper written to allow strings to be joined to empty string
+     * Joins an array, iterator or an iterable with a string.
+     * For example:
+     *
+     * <pre>
+     * {{join value " // " [prefix=""] [suffix=""]}}
+     * </pre>
+     *
+     * <p>
+     * If value is the list ['a', 'b', 'c'], the output will be the string "a // b // c".
+     * </p>
+     * Or:
+     *
+     * <pre>
+     * {{join "a" "b" "c" " // " [prefix=""] [suffix=""]}}
+     * Join the "a", "b", "c", the output will be the string "a // b // c".
+     * </pre>
+     */
+    join {
+        @Override
+        public Object apply(final Object context, final Options options) {
+            if (!(context instanceof String)) {
+                return "";
+            }
+            return safeApply(context, options);
+        }
+
+        protected CharSequence safeApply(final Object context, final Options options) {
+            int separatorIdx = options.params.length - 1;
+            Object separator = options.param(separatorIdx, null);
+            notNull(separator, "found 'null', expected 'separator' at param[%s]", separatorIdx);
+            isTrue(separator instanceof String,
+                    "found '%s', expected 'separator' at param[%s]", separator, separatorIdx);
+            String prefix = options.hash("prefix", "");
+            String suffix = options.hash("suffix", "");
+            if (context instanceof Iterable) {
+                return prefix + StringUtils.join((Iterable<?>) context, (String) separator) + suffix;
+            }
+            if (context instanceof Iterator) {
+                return prefix + StringUtils.join((Iterator<?>) context, (String) separator) + suffix;
+            }
+            if (context.getClass().isArray()) {
+                return prefix + StringUtils.join((Object[]) context, (String) separator) + suffix;
+            }
+            // join everything as single values
+            Object[] values = new Object[options.params.length];
+            System.arraycopy(options.params, 0, values, 1, separatorIdx);
+            values[0] = context;
+            return prefix + StringUtils.join(values, (String) separator) + suffix;
+        }
+    },
 
     /**
      * Indicates the string starts with the defined value.

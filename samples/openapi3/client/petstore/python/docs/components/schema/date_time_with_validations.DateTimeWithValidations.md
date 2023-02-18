@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.date_time_with_validations
 # DateTimeWithValidations
 

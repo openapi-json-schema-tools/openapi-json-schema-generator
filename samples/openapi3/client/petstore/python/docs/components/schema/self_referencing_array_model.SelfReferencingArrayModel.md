@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.self_referencing_array_model
 # SelfReferencingArrayModel
 

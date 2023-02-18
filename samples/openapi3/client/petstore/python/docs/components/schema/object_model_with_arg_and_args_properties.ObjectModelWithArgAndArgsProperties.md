@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.object_model_with_arg_and_args_properties
 # ObjectModelWithArgAndArgsProperties
 

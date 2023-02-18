@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.req_props_from_explicit_add_props
 # ReqPropsFromExplicitAddProps
 

@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.nullable_shape
 # NullableShape
 
@@ -16,9 +15,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
-[_2](#_2) | None,  | NoneClass,  |  |
+[_2](#oneOf_2) | None,  | NoneClass,  |  |
 
-# _2
+# <a id="oneOf_2">_2</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

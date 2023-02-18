@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.integer_enum_with_default_value
 # IntegerEnumWithDefaultValue
 

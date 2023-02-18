@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.array_of_array_of_number_only
 # ArrayOfArrayOfNumberOnly
 
@@ -10,10 +9,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**ArrayArrayNumber** | [list, tuple, ](#ArrayArrayNumber) | [tuple, ](#ArrayArrayNumber) |  | [optional]
+**ArrayArrayNumber** | [list, tuple, ](#propertiesArrayArrayNumber) | [tuple, ](#propertiesArrayArrayNumber) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# ArrayArrayNumber
+# <a id="propertiesarray_array_number">ArrayArrayNumber</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -23,9 +22,9 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | list, tuple,  | tuple,  |  |
+[items](#propertiesarray_array_numberitems) | list, tuple,  | tuple,  |  |
 
-# Items
+# <a id="propertiesarray_array_numberitems">Items</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

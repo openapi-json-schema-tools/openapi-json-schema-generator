@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.map_test
 # MapTest
 
@@ -10,13 +9,13 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**map_map_of_string** | [dict, frozendict.frozendict, ](#map_map_of_string) | [frozendict.frozendict, ](#map_map_of_string) |  | [optional]
-**map_of_enum_string** | [dict, frozendict.frozendict, ](#map_of_enum_string) | [frozendict.frozendict, ](#map_of_enum_string) |  | [optional]
-**direct_map** | [dict, frozendict.frozendict, ](#direct_map) | [frozendict.frozendict, ](#direct_map) |  | [optional]
+**map_map_of_string** | [dict, frozendict.frozendict, ](#propertiesmap_map_of_string) | [frozendict.frozendict, ](#propertiesmap_map_of_string) |  | [optional]
+**map_of_enum_string** | [dict, frozendict.frozendict, ](#propertiesmap_of_enum_string) | [frozendict.frozendict, ](#propertiesmap_of_enum_string) |  | [optional]
+**direct_map** | [dict, frozendict.frozendict, ](#propertiesdirect_map) | [frozendict.frozendict, ](#propertiesdirect_map) |  | [optional]
 **indirect_map** | [**StringBooleanMap**](string_boolean_map.StringBooleanMap.md) | [**StringBooleanMap**](string_boolean_map.StringBooleanMap.md) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# MapMapOfString
+# <a id="propertiesmap_map_of_string">MapMapOfString</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -28,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-# AdditionalProperties
+# <a id="propertiesmap_map_of_stringadditional_properties">AdditionalProperties</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -40,7 +39,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-# MapOfEnumString
+# <a id="propertiesmap_of_enum_string">MapOfEnumString</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -52,7 +51,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower", ]
 
-# DirectMap
+# <a id="propertiesdirect_map">DirectMap</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

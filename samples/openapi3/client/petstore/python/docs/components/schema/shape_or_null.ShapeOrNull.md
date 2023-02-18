@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.shape_or_null
 # ShapeOrNull
 
@@ -14,11 +13,11 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#_0) | None,  | NoneClass,  |  |
+[_0](#oneOf_0) | None,  | NoneClass,  |  |
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
-# _0
+# <a id="oneOf_0">_0</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

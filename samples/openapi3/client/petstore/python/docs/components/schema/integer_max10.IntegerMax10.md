@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.integer_max10
 # IntegerMax10
 

@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.some_object
 # SomeObject
 

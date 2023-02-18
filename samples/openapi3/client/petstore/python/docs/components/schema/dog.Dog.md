@@ -1,4 +1,3 @@
-<a name="top"></a>
 petstore_api.components.schema.dog
 # Dog
 
@@ -12,9 +11,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
-[_1](#_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# _1
+# <a id="allOf_1">_1</a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
