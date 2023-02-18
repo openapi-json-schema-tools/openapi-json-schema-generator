@@ -13,7 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# <a id="allOf_1">_1</a>
+# _1<a id="allOf_1"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

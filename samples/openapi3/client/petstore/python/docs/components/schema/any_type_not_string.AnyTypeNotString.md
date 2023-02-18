@@ -12,7 +12,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#_not) | str,  | str,  |  |
 
-# <a id="_not">_Not</a>
+# _Not<a id="_not"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

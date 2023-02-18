@@ -27,70 +27,70 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_14](#anyOf_14) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 [_15](#anyOf_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# <a id="anyOf_0">_0</a>
+# _0<a id="anyOf_0"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# <a id="anyOf_1">_1</a>
+# _1<a id="anyOf_1"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# <a id="anyOf_2">_2</a>
+# _2<a id="anyOf_2"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# <a id="anyOf_3">_3</a>
+# _3<a id="anyOf_3"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-# <a id="anyOf_4">_4</a>
+# _4<a id="anyOf_4"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="anyOf_5">_5</a>
+# _5<a id="anyOf_5"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# <a id="anyOf_6">_6</a>
+# _6<a id="anyOf_6"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# <a id="anyOf_7">_7</a>
+# _7<a id="anyOf_7"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |
 
-# <a id="anyOf_8">_8</a>
+# _8<a id="anyOf_8"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# <a id="anyOf_9">_9</a>
+# _9<a id="anyOf_9"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -102,42 +102,42 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-# <a id="anyOf_10">_10</a>
+# _10<a id="anyOf_10"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
-# <a id="anyOf_11">_11</a>
+# _11<a id="anyOf_11"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
-# <a id="anyOf_12">_12</a>
+# _12<a id="anyOf_12"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
-# <a id="anyOf_13">_13</a>
+# _13<a id="anyOf_13"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  |
 
-# <a id="anyOf_14">_14</a>
+# _14<a id="anyOf_14"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# <a id="anyOf_15">_15</a>
+# _15<a id="anyOf_15"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

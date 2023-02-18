@@ -14,7 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [_2](#allOf_2) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# <a id="allOf_0">_0</a>
+# _0<a id="allOf_0"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -26,7 +26,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# <a id="allOf_1">_1</a>
+# _1<a id="allOf_1"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -38,7 +38,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# <a id="allOf_2">_2</a>
+# _2<a id="allOf_2"></a>
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
