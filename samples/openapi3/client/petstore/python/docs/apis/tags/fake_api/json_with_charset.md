@@ -23,7 +23,13 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-#### <a id="request_body_request_bodycontentapplication_json_charsetutf8schema" >RequestBody.content.application_json_charsetutf8.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#contentapplication_json_charsetutf8schema)
+
+#### <a id="application_json_charsetutf8schema" >content.application_json_charsetutf8.schema</a>
 
 #### Schema
 
@@ -53,7 +59,7 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
 
 #### Schema
 

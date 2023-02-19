@@ -1,6 +1,6 @@
 petstore_api.components.headers.header_ref_string_header
 # RefStringHeader
-# <a id="header_ref_string_headerschema" >RefStringHeader.schema</a>
+# <a id="header_ref_string_headerorg.openapijsonschematools.codegen.model.CodegenKey@4bc247f3schema" >RefStringHeader.schema</a>
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [StringHeader.schema](../../components/headers/header_string_header.md#header_string_headerschema) | str,  | str,  | 

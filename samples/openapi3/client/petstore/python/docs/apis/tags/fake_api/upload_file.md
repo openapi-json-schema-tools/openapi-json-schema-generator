@@ -23,7 +23,13 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
 ### <a id="request_body" >body</a>
-#### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
+
+#### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 
 #### Schema
 
@@ -60,7 +66,7 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../../components/schema/api_response.ApiResponse.md) |  | 

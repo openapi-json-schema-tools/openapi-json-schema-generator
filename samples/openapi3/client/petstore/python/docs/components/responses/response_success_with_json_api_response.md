@@ -23,7 +23,7 @@ numberHeader | [NumberHeader.schema](../../components/headers/header_number_head
 
 ## <a id="response_success_with_json_api_responsecontent" >content</a>
 
-### <a id="response_success_with_json_api_responsecontentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
+### <a id="response_success_with_json_api_responseorg.openapijsonschematools.codegen.model.CodegenKey@45c35112contentapplication_jsonschema" >SuccessWithJsonApiResponse.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ApiResponse**](../../components/schema/api_response.ApiResponse.md) |  | 

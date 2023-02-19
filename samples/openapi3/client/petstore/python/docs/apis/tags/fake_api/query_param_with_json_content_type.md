@@ -33,7 +33,7 @@ someParam | [Parameter0.content.application_json.schema](#parameter_0contentappl
 
 ##### Description
 The internal object id
-##### <a id="parameter_0contentapplication_jsonschema" >Parameter0.content.application_json.schema</a>
+##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3contentapplication_jsonschema" >Parameter0.content.application_json.schema</a>
 
 ##### Schema
 
@@ -63,7 +63,7 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
 #### Schema
 

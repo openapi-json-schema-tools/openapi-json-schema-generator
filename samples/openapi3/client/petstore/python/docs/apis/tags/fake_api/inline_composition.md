@@ -27,7 +27,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 #### Description
 multiple content types
-#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
+
+#### <a id="application_jsonschema" >content.application_json.schema</a>
 
 #### Schema
 
@@ -49,7 +56,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### <a id="request_body_request_bodycontentmultipart_form_dataschema" >RequestBody.content.multipart_form_data.schema</a>
+#### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 
 #### Schema
 
@@ -96,7 +103,7 @@ compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
 
 
 #### Parameter0
-##### <a id="parameter_0schema" >Parameter0.schema</a>
+##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
 
 ##### Schema
 
@@ -120,7 +127,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 #### Parameter1
-##### <a id="parameter_1schema" >Parameter1.schema</a>
+##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@36cec952schema" >Parameter1.schema</a>
 
 ##### Schema
 
@@ -178,7 +185,7 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 
 #### Schema
 
@@ -201,7 +208,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### <a id="response_200contentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
 
 #### Schema
 

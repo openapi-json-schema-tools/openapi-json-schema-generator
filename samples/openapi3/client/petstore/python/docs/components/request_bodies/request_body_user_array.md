@@ -3,7 +3,13 @@ petstore_api.components.request_bodies.request_body_user_array
 
 ## Description
 List of user object
-## <a id="request_body_user_arraycontentapplication_jsonschema" >UserArray.content.application_json.schema</a>
+
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+
+## <a id="application_jsonschema" >content.application_json.schema</a>
 
 ## Schema
 

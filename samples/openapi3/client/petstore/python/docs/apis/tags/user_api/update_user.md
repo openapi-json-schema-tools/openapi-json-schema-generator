@@ -30,7 +30,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 #### Description
 Updated user object
-#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+
+#### <a id="application_jsonschema" >content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**User**](../../../components/schema/user.User.md) |  | 

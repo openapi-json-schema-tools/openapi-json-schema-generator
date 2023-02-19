@@ -26,7 +26,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 #### Description
 Input boolean as post body
-#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+
+#### <a id="application_jsonschema" >content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../../components/schema/boolean.Boolean.md) |  | 
@@ -53,7 +59,7 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Boolean**](../../../components/schema/boolean.Boolean.md) |  | 

@@ -26,7 +26,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 #### Description
 order placed for purchasing the pet
-#### <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+
+#### <a id="application_jsonschema" >content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
@@ -54,13 +60,13 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_200content" >content</a>
 
-#### <a id="response_200contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 
 
 
-#### <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Order**](../../../components/schema/order.Order.md) |  | 

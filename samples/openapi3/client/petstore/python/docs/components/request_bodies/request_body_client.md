@@ -3,7 +3,13 @@ petstore_api.components.request_bodies.request_body_client
 
 ## Description
 client model
-## <a id="request_body_clientcontentapplication_jsonschema" >Client.content.application_json.schema</a>
+
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+
+## <a id="application_jsonschema" >content.application_json.schema</a>
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Client**](../../components/schema/client.Client.md) |  | 

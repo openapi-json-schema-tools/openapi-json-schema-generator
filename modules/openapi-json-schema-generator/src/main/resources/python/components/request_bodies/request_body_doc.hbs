@@ -11,6 +11,15 @@
 {{#if refInfo}}
     {{#with getDeepestRef}}
         {{#each content}}
+            {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+            {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#content{{@key.snakeCase}}{{this.schema.jsonPathPiece.snakeCase}})
+        {{/each}}
+        {{#each content}}
             {{#with this.schema}}
 
 {{headerSize}}# {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
@@ -22,11 +31,21 @@ Ref Class | Input Type | Accessed Type | Description
     {{/with}}
 {{else}}
     {{#each content}}
+        {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+        {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#content{{@key.snakeCase}}{{this.schema.jsonPathPiece.snakeCase}})
+    {{/each}}
+
+    {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1="content" schemaNamePrefix2=@key.snakeCase complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
+{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1="content" schemaNamePrefix2=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

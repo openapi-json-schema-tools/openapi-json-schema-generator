@@ -13,7 +13,7 @@ headers | Unset | headers were not defined |
 
 ## <a id="response_successful_xml_and_json_array_of_petcontent" >content</a>
 
-### <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
+### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@45c223f3contentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
 
 ### Schema
 
@@ -27,7 +27,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  |
 
-### <a id="response_successful_xml_and_json_array_of_petcontentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
+### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@45c223f3contentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
 
 ### Schema
 
