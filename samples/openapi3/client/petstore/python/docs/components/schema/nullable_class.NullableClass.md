@@ -1,4 +1,5 @@
 petstore_api.components.schema.nullable_class
+identifierPieces=[]
 
 # NullableClass
 
@@ -24,6 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **object_items_nullable** | [dict, frozendict.frozendict, ](#propertiesobject_items_nullable) | [frozendict.frozendict, ](#propertiesobject_items_nullable) |  | [optional]
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesarray_nullable_prop"></a>
 # ArrayNullableProp
 
@@ -37,6 +39,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#propertiesarray_nullable_propitems) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesarray_nullable_propitems"></a>
 # Items
 
@@ -45,6 +48,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesarray_and_items_nullable_prop"></a>
 # ArrayAndItemsNullableProp
 
@@ -58,6 +62,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#propertiesarray_and_items_nullable_propitems) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesarray_and_items_nullable_propitems"></a>
 # Items
 
@@ -66,6 +71,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesarray_items_nullable"></a>
 # ArrayItemsNullable
 
@@ -79,6 +85,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#propertiesarray_items_nullableitems) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesarray_items_nullableitems"></a>
 # Items
 
@@ -87,6 +94,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesobject_nullable_prop"></a>
 # ObjectNullableProp
 
@@ -100,6 +108,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesobject_nullable_propadditional_properties"></a>
 # AdditionalProperties
 
@@ -108,6 +117,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesobject_and_items_nullable_prop"></a>
 # ObjectAndItemsNullableProp
 
@@ -121,6 +131,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesobject_and_items_nullable_propadditional_properties"></a>
 # AdditionalProperties
 
@@ -129,6 +140,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="propertiesobject_items_nullable"></a>
 # ObjectItemsNullable
 
@@ -142,6 +154,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesobject_items_nullableadditional_properties"></a>
 # AdditionalProperties
 
@@ -150,6 +163,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="additional_properties"></a>
 # AdditionalProperties
 

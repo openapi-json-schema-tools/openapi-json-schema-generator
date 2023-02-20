@@ -1,4 +1,5 @@
 petstore_api.components.schema.health_check_result
+identifierPieces=[]
 
 # HealthCheckResult
 

@@ -1,4 +1,5 @@
 petstore_api.components.schema.file
+identifierPieces=[]
 
 # File
 

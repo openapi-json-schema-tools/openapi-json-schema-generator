@@ -1,4 +1,5 @@
 petstore_api.components.schema.file_schema_test_class
+identifierPieces=[]
 
 # FileSchemaTestClass
 
@@ -14,6 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **files** | [list, tuple, ](#propertiesfiles) | [tuple, ](#propertiesfiles) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesfiles"></a>
 # Files
 

@@ -1,4 +1,5 @@
 petstore_api.components.schema.pet
+identifierPieces=[]
 
 # Pet
 
@@ -21,6 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesphoto_urls"></a>
 # PhotoUrls
 
@@ -34,6 +36,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
+identifierPieces=[]
 <a id="propertiestags"></a>
 # Tags
 

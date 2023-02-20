@@ -1,4 +1,5 @@
 petstore_api.components.schema.additional_properties_validator
+identifierPieces=[]
 
 # AdditionalPropertiesValidator
 
@@ -15,6 +16,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [_2](#allOf_2) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="allOf_0"></a>
 # _0
 
@@ -28,6 +30,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="allOf_1"></a>
 # _1
 
@@ -41,6 +44,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="allOf_2"></a>
 # _2
 

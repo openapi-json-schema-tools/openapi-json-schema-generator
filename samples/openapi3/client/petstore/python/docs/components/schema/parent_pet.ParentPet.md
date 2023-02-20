@@ -1,4 +1,5 @@
 petstore_api.components.schema.parent_pet
+identifierPieces=[]
 
 # ParentPet
 

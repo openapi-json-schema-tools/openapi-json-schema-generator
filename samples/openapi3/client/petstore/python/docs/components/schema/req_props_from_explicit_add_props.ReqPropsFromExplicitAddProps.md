@@ -1,4 +1,5 @@
 petstore_api.components.schema.req_props_from_explicit_add_props
+identifierPieces=[]
 
 # ReqPropsFromExplicitAddProps
 

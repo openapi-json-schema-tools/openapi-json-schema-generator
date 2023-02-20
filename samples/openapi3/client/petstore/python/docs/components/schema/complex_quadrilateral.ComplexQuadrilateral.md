@@ -1,4 +1,5 @@
 petstore_api.components.schema.complex_quadrilateral
+identifierPieces=[]
 
 # ComplexQuadrilateral
 
@@ -14,6 +15,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="allOf_1"></a>
 # _1
 

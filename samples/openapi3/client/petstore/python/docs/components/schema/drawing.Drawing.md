@@ -1,4 +1,5 @@
 petstore_api.components.schema.drawing
+identifierPieces=[]
 
 # Drawing
 
@@ -16,6 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **shapes** | [list, tuple, ](#propertiesshapes) | [tuple, ](#propertiesshapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
+identifierPieces=[]
 <a id="propertiesshapes"></a>
 # Shapes
 

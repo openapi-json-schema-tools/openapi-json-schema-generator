@@ -1,4 +1,5 @@
 petstore_api.components.schema.abstract_step_message
+identifierPieces=[]
 
 # AbstractStepMessage
 

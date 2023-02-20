@@ -1,4 +1,5 @@
 petstore_api.components.schema.integer_max10
+identifierPieces=[]
 
 # IntegerMax10
 

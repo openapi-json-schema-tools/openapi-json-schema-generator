@@ -1,4 +1,5 @@
 petstore_api.components.schema.number_with_validations
+identifierPieces=[]
 
 # NumberWithValidations
 

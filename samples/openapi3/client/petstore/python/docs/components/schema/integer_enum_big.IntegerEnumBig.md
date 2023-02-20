@@ -1,4 +1,5 @@
 petstore_api.components.schema.integer_enum_big
+identifierPieces=[]
 
 # IntegerEnumBig
 

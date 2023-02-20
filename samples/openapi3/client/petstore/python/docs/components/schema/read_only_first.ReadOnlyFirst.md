@@ -1,4 +1,5 @@
 petstore_api.components.schema.read_only_first
+identifierPieces=[]
 
 # ReadOnlyFirst
 

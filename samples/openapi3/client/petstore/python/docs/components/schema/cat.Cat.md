@@ -1,4 +1,5 @@
 petstore_api.components.schema.cat
+identifierPieces=[]
 
 # Cat
 
@@ -14,6 +15,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+identifierPieces=[]
 <a id="allOf_1"></a>
 # _1
 

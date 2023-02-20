@@ -397,6 +397,7 @@ public class DefaultGenerator implements Generator {
             String filename = config.modelDocFileFolder() + File.separator + config.toModelDocFilename(modelName) + suffix;
             modelData.put("headerSize", "#");
             modelData.put("anchorId", "");
+            modelData.put("identifierPieces", new ArrayList<String>());
 
             File written = processTemplateToFile(modelData, templateName, filename, generateModelDocumentation, CodegenConstants.MODEL_DOCS);
             if (written != null) {

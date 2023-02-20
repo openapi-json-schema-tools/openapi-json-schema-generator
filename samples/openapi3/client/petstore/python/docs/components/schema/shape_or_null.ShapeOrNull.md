@@ -1,4 +1,5 @@
 petstore_api.components.schema.shape_or_null
+identifierPieces=[]
 
 # ShapeOrNull
 
@@ -18,6 +19,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
+identifierPieces=[]
 <a id="oneOf_0"></a>
 # _0
 

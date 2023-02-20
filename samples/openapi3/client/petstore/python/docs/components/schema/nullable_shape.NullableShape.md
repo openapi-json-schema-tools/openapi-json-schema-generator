@@ -1,4 +1,5 @@
 petstore_api.components.schema.nullable_shape
+identifierPieces=[]
 
 # NullableShape
 
@@ -18,6 +19,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 [_2](#oneOf_2) | None,  | NoneClass,  |  |
 
+identifierPieces=[]
 <a id="oneOf_2"></a>
 # _2
 
