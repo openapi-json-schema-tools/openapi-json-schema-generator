@@ -19,7 +19,7 @@ someHeader | [headers.header_some_header.schema](#response_success_inline_conten
 
 ## <a id="response_success_inline_content_and_headercontent" >content</a>
 
-### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@c55ad4e9contentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
+### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475econtentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 <a id=""></a>
 ### 
 
@@ -36,7 +36,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Header Details
 ### SomeHeader
 
-#### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@c55ad4e9headersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
+#### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475eheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
 <a id=""></a>
 #### 
 

@@ -3,7 +3,7 @@ petstore_api.components.headers.header_number_header
 
 ## Description
 number header description
-## <a id="header_number_headerorg.openapijsonschematools.codegen.model.CodegenKey@909774dfschema" >NumberHeader.schema</a>
+## <a id="header_number_headerorg.openapijsonschematools.codegen.model.CodegenKey@e43b8a17schema" >NumberHeader.schema</a>
 <a id=""></a>
 ## 
 

@@ -58,7 +58,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 ID of pet to update
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
+##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
 <a id=""></a>
 ##### 
 
