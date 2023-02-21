@@ -855,6 +855,9 @@ public class DefaultGenerator implements Generator {
         // doc generation
         Boolean generateRequestBodyDocumentation = Boolean.TRUE;
         templateData.put("headerSize", "#");
+        ArrayList<Object> identifierPieces = new ArrayList<>();
+        identifierPieces.add(requestBody.jsonPathPiece);
+        templateData.put("identifierPieces", identifierPieces);
         String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
         for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
             String templateName = entry.getKey();

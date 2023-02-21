@@ -2,6 +2,7 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
+{{> components/_helper_header_from_identifier_pieces }}
 {{headerSize}} {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}} {{/unless}}{{/each}}
 {{#if description}}
 
