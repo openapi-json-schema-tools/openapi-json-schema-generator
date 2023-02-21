@@ -1,5 +1,5 @@
 petstore_api.components.schema.number_only
-identifierPieces=[]
+[]
 
 # NumberOnly
 

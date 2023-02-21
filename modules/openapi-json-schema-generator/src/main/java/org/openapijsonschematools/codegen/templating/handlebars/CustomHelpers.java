@@ -3,16 +3,11 @@ package org.openapijsonschematools.codegen.templating.handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.TagType;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import static org.apache.commons.lang3.Validate.isTrue;
-import static org.apache.commons.lang3.Validate.notNull;
 
 public enum CustomHelpers implements Helper<Object> {
 
@@ -34,11 +29,11 @@ public enum CustomHelpers implements Helper<Object> {
         @Override public Object apply(final Object a, final Options options) throws IOException {
             Object b = options.param(0, null);
             boolean result;
-            if (Map.class.isInstance(a)) {
-                Map mapA = (Map) a;
+            if (a instanceof Map<?, ?>) {
+                Map<?, ?> mapA = (Map<?, ?>) a;
                 result = mapA.containsKey(b);
-            } else if (Set.class.isInstance(a)) {
-                Set setA = (Set) a;
+            } else if (a instanceof Set<?>) {
+                Set<?> setA = (Set<?>) a;
                 result = setA.contains(b);
             } else {
                 result = false;
@@ -81,17 +76,11 @@ public enum CustomHelpers implements Helper<Object> {
     add {
         @Override
         public Object apply(final Object context, final Options options) {
-            if (!(context instanceof ArrayList)) {
-                return "";
-            }
-            return safeApply((ArrayList<String>) context, options);
-        }
-
-        protected CharSequence safeApply(final ArrayList<String> context, final Options options) {
-            // join everything as single values
-            Object[] values = new Object[options.params.length];
-            for (Object item: options.params) {
-                context.add((String) item);
+            if (context instanceof ArrayList) {
+                for (Object item: options.params) {
+                    ((ArrayList<Object>) context).add(item);
+                }
+                return context;
             }
             return null;
         }

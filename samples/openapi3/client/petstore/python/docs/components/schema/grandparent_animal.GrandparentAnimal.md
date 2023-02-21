@@ -1,5 +1,5 @@
 petstore_api.components.schema.grandparent_animal
-identifierPieces=[]
+[]
 
 # GrandparentAnimal
 

@@ -1,5 +1,5 @@
 petstore_api.components.schema.zebra
-identifierPieces=[]
+[]
 
 # Zebra
 

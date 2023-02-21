@@ -1,5 +1,5 @@
 petstore_api.components.schema.nullable_string
-identifierPieces=[]
+[]
 
 # NullableString
 

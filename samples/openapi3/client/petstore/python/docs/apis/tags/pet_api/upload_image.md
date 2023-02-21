@@ -32,7 +32,7 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
 
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
-identifierPieces=[]
+[]
 
 #### Schema
 
@@ -60,7 +60,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ##### Description
 ID of pet to update
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
-identifierPieces=[]
+[]
 
 ##### Schema
 

@@ -2,7 +2,7 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
-identifierPieces={{identifierPieces}}
+{{identifierPieces}}
 {{#neq anchorId ""}}<a id="{{anchorId}}"></a>{{/neq}}
 {{headerSize}} {{jsonPathPiece.camelCase}}
 {{#if description}}
@@ -98,7 +98,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
             {{#unless refInfo.refClass}}
                 {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
                 {{/if}}
             {{/unless}}
         {{/if}}
@@ -110,7 +110,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
             {{/if}}
         {{/unless}}
     {{/each}}
@@ -123,7 +123,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
                 {{#unless refInfo.refClass}}
                     {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
                     {{/if}}
                 {{/unless}}
             {{/unless}}
@@ -136,7 +136,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
             {{/if}}
         {{/unless}}
     {{/with}}
@@ -146,7 +146,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each allOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId "allOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "allOf" jsonPathPiece) anchorId=(join anchorId "allOf" jsonPathPiece.snakeCase "") }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -154,7 +154,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each anyOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId "anyOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "anyOf" jsonPathPiece) anchorId=(join anchorId "anyOf" jsonPathPiece.snakeCase "") }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -162,7 +162,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each oneOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId "oneOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "oneOf" jsonPathPiece) anchorId=(join anchorId "oneOf" jsonPathPiece.snakeCase "") }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -170,7 +170,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#with not}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
         {{/unless}}
     {{/with}}
 {{/if}}

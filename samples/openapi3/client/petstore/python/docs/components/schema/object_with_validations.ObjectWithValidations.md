@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_validations
-identifierPieces=[]
+[]
 
 # ObjectWithValidations
 

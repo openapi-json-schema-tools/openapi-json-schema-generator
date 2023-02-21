@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_min15
-identifierPieces=[]
+[]
 
 # IntegerMin15
 

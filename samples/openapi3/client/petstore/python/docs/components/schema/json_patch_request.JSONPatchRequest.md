@@ -1,5 +1,5 @@
 petstore_api.components.schema.json_patch_request
-identifierPieces=[]
+[]
 
 # JSONPatchRequest
 
@@ -13,7 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-identifierPieces=[]
+[org.openapijsonschematools.codegen.model.CodegenKey@4562cb0]
 <a id="items"></a>
 # Items
 

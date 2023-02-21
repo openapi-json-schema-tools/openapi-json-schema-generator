@@ -1,5 +1,5 @@
 petstore_api.components.schema.date_with_validations
-identifierPieces=[]
+[]
 
 # DateWithValidations
 

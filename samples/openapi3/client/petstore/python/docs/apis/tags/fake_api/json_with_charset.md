@@ -30,7 +30,7 @@ Content-Type | Schema
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#contentapplication_json_charsetutf8schema)
 
 #### <a id="application_json_charsetutf8schema" >content.application_json_charsetutf8.schema</a>
-identifierPieces=[]
+[]
 
 #### Schema
 
@@ -61,7 +61,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
-identifierPieces=[]
+[]
 
 #### Schema
 

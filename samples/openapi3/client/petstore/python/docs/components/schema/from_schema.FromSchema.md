@@ -1,5 +1,5 @@
 petstore_api.components.schema.from_schema
-identifierPieces=[]
+[]
 
 # FromSchema
 

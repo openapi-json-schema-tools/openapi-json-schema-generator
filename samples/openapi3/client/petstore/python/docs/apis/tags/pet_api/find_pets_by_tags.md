@@ -38,7 +38,7 @@ tags | [Parameter0.schema](#parameter_0schema) | |
 ##### Description
 Tags to filter by
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
-identifierPieces=[]
+[]
 
 ##### Schema
 

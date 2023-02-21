@@ -1,5 +1,5 @@
 petstore_api.components.schema.additional_properties_with_array_of_enums
-identifierPieces=[]
+[]
 
 # AdditionalPropertiesWithArrayOfEnums
 
@@ -13,7 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | list, tuple,  | tuple,  | any string name can be used but the value must be the correct type | [optional]
 
-identifierPieces=[]
+[org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
 <a id="additional_properties"></a>
 # AdditionalProperties
 

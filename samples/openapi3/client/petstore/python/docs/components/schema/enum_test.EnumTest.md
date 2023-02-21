@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_test
-identifierPieces=[]
+[]
 
 # EnumTest
 

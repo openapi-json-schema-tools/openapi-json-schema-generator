@@ -1,5 +1,5 @@
 petstore_api.components.schema.class_model
-identifierPieces=[]
+[]
 
 # ClassModel
 

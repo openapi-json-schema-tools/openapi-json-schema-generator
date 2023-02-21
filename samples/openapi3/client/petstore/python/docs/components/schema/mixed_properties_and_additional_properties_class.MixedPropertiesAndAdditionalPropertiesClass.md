@@ -1,5 +1,5 @@
 petstore_api.components.schema.mixed_properties_and_additional_properties_class
-identifierPieces=[]
+[]
 
 # MixedPropertiesAndAdditionalPropertiesClass
 
@@ -16,7 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map** | [dict, frozendict.frozendict, ](#propertiesmap) | [frozendict.frozendict, ](#propertiesmap) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-identifierPieces=[]
+[properties, org.openapijsonschematools.codegen.model.CodegenKey@bfde6514]
 <a id="propertiesmap"></a>
 # Map
 

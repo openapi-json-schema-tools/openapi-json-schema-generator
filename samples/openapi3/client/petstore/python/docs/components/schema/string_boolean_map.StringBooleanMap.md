@@ -1,5 +1,5 @@
 petstore_api.components.schema.string_boolean_map
-identifierPieces=[]
+[]
 
 # StringBooleanMap
 

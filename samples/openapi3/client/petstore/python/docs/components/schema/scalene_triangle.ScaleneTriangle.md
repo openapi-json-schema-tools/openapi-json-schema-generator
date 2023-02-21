@@ -1,5 +1,5 @@
 petstore_api.components.schema.scalene_triangle
-identifierPieces=[]
+[]
 
 # ScaleneTriangle
 
@@ -15,7 +15,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-identifierPieces=[]
+[allOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785]
 <a id="allOf_1"></a>
 # _1
 

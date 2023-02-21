@@ -1,5 +1,5 @@
 petstore_api.components.schema.api_response
-identifierPieces=[]
+[]
 
 # ApiResponse
 

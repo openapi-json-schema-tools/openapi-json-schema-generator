@@ -1,5 +1,5 @@
 petstore_api.components.schema.ref_pet
-identifierPieces=[]
+[]
 
 # RefPet
 ## Type Info

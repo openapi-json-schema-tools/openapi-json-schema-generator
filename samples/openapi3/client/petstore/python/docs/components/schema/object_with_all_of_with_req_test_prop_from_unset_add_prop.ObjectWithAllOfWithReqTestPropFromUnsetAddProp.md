@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
-identifierPieces=[]
+[]
 
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
@@ -15,7 +15,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-identifierPieces=[]
+[allOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785]
 <a id="allOf_1"></a>
 # _1
 
