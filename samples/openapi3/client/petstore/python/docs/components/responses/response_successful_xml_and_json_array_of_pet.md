@@ -15,7 +15,6 @@ headers | Unset | headers were not defined |
 
 ### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@f699727econtentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
 ### 
-
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -28,7 +27,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@f699727econtentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
 ### 
-
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

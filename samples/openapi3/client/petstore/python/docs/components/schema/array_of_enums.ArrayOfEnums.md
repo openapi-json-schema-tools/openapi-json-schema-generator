@@ -1,6 +1,5 @@
 petstore_api.components.schema.array_of_enums
 # ArrayOfEnums
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

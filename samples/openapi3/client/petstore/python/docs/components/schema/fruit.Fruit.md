@@ -1,6 +1,5 @@
 petstore_api.components.schema.fruit
 # Fruit
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

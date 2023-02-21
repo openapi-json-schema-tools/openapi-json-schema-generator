@@ -31,7 +31,6 @@ Content-Type | Schema
 
 #### <a id="application_octet_streamschema" >content.application_octet_stream.schema</a>
 #### 
-
 ##### Description
 file to upload
 
@@ -63,7 +62,6 @@ headers | Unset | headers were not defined |
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
 #### 
-
 ##### Description
 file to download
 

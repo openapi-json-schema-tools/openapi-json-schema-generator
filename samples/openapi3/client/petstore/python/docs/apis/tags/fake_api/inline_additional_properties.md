@@ -33,7 +33,6 @@ Content-Type | Schema
 
 #### <a id="application_jsonschema" >content.application_json.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

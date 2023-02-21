@@ -1,6 +1,5 @@
 petstore_api.components.schema.basque_pig
 # BasquePig
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

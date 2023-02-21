@@ -33,7 +33,6 @@ Content-Type | Schema
 
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -59,7 +58,6 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ID of pet to update
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

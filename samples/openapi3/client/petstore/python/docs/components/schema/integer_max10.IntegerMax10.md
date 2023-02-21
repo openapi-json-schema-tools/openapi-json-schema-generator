@@ -1,6 +1,5 @@
 petstore_api.components.schema.integer_max10
 # IntegerMax10
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

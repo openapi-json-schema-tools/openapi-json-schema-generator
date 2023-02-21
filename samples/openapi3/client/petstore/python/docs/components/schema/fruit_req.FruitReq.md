@@ -1,6 +1,5 @@
 petstore_api.components.schema.fruit_req
 # FruitReq
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -15,7 +14,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) |  |
 
 # FruitReq oneof _0
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

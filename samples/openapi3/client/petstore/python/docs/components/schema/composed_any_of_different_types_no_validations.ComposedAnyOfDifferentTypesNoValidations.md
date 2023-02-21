@@ -1,6 +1,5 @@
 petstore_api.components.schema.composed_any_of_different_types_no_validations
 # ComposedAnyOfDifferentTypesNoValidations
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -28,70 +27,60 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_15](#composedanyofdifferenttypesnovalidations-anyof-_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _0
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _1
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _2
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _3
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _4
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _5
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _6
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _7
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _8
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _9
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -103,42 +92,36 @@ Class Name | Input Type | Accessed Type | Description | Notes
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _10
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _11
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _12
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _13
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  |
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _14
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # ComposedAnyOfDifferentTypesNoValidations anyof _15
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 petstore_api.components.schema.req_props_from_true_add_props
 # ReqPropsFromTrueAddProps
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

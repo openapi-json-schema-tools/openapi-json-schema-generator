@@ -32,7 +32,6 @@ Content-Type | Schema
 
 #### <a id="application_x_www_form_urlencodedschema" >content.application_x_www_form_urlencoded.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -58,7 +57,6 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ID of pet that needs to be updated
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 petstore_api.components.schema.date_time_test
 # DateTimeTest
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

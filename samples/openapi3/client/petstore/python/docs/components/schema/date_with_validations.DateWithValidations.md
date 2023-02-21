@@ -1,6 +1,5 @@
 petstore_api.components.schema.date_with_validations
 # DateWithValidations
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

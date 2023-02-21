@@ -73,6 +73,7 @@ from petstore_api.components.schema.integer_enum_with_default_value import Integ
 from petstore_api.components.schema.integer_max10 import IntegerMax10
 from petstore_api.components.schema.integer_min15 import IntegerMin15
 from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
+from petstore_api.components.schema.items import Items
 from petstore_api.components.schema.json_patch_request import JSONPatchRequest
 from petstore_api.components.schema.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
 from petstore_api.components.schema.json_patch_request_move_copy import JSONPatchRequestMoveCopy

@@ -1,6 +1,5 @@
 petstore_api.components.schema.json_patch_request_remove
 # JSONPatchRequestRemove
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

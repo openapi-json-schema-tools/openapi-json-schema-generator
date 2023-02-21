@@ -1,6 +1,5 @@
 petstore_api.components.schema.object_with_decimal_properties
 # ObjectWithDecimalProperties
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

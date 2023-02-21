@@ -1,6 +1,5 @@
 petstore_api.components.schema.bar
 # Bar
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

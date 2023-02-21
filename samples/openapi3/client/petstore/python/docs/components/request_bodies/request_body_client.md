@@ -1,6 +1,5 @@
 petstore_api.components.request_bodies.request_body_client
 # Client
-
 ## Description
 client model
 

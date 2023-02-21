@@ -1,6 +1,5 @@
 petstore_api.components.schema.additional_properties_with_array_of_enums
 # AdditionalPropertiesWithArrayOfEnums
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,7 +11,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | list, tuple,  | tuple,  | any string name can be used but the value must be the correct type | [optional]
 
 # AdditionalPropertiesWithArrayOfEnums AdditionalProperties
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

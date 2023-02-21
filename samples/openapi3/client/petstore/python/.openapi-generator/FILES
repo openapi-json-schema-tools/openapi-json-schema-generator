@@ -157,6 +157,7 @@ docs/components/schema/integer_enum_with_default_value.IntegerEnumWithDefaultVal
 docs/components/schema/integer_max10.IntegerMax10.md
 docs/components/schema/integer_min15.IntegerMin15.md
 docs/components/schema/isosceles_triangle.IsoscelesTriangle.md
+docs/components/schema/items.Items.md
 docs/components/schema/json_patch_request.JSONPatchRequest.md
 docs/components/schema/json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md
 docs/components/schema/json_patch_request_move_copy.JSONPatchRequestMoveCopy.md
@@ -510,6 +511,8 @@ src/petstore_api/components/schema/integer_min15.py
 src/petstore_api/components/schema/integer_min15.pyi
 src/petstore_api/components/schema/isosceles_triangle.py
 src/petstore_api/components/schema/isosceles_triangle.pyi
+src/petstore_api/components/schema/items.py
+src/petstore_api/components/schema/items.pyi
 src/petstore_api/components/schema/json_patch_request.py
 src/petstore_api/components/schema/json_patch_request.pyi
 src/petstore_api/components/schema/json_patch_request_add_replace_test.py

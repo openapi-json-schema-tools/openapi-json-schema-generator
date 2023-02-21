@@ -31,7 +31,6 @@ Content-Type | Schema
 
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

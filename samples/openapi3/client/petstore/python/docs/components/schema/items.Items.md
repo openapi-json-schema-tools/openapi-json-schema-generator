@@ -1,20 +1,22 @@
-petstore_api.components.schema.any_type_not_string
-# AnyTypeNotString
+petstore_api.components.schema.items
+# Items
+## Description
+component whose name collides with the inner schema name
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+list, tuple,  | tuple,  | component whose name collides with the inner schema name |
 
-## Composed Schemas (allOf/anyOf/oneOf/not)
-## not
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#anytypenotstring-_not) | str,  | str,  |  |
+[items](#items-items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# AnyTypeNotString _Not
+# Items Items
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

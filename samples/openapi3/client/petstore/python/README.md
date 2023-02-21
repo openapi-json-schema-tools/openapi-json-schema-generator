@@ -293,6 +293,7 @@ Class | Description
 [IntegerMax10](docs/components/schema/integer_max10.IntegerMax10.md) |
 [IntegerMin15](docs/components/schema/integer_min15.IntegerMin15.md) |
 [IsoscelesTriangle](docs/components/schema/isosceles_triangle.IsoscelesTriangle.md) |
+[Items](docs/components/schema/items.Items.md) | component whose name collides with the inner schema name
 [JSONPatchRequest](docs/components/schema/json_patch_request.JSONPatchRequest.md) |
 [JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |
 [JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |

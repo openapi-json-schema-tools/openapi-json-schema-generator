@@ -1,6 +1,5 @@
 petstore_api.components.request_bodies.request_body_user_array
 # UserArray
-
 ## Description
 List of user object
 
@@ -11,7 +10,6 @@ Content-Type | Schema
 
 ## <a id="application_jsonschema" >content.application_json.schema</a>
 ## 
-
 ### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

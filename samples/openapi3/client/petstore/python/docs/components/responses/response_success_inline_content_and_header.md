@@ -21,7 +21,6 @@ someHeader | [headers.header_some_header.schema](#response_success_inline_conten
 
 ### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475econtentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
 ### 
-
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -37,7 +36,6 @@ Key | Input Type | Accessed Type | Description | Notes
 
 #### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475eheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

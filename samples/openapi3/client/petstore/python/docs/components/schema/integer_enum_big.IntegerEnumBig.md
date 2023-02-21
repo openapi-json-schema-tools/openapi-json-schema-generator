@@ -1,6 +1,5 @@
 petstore_api.components.schema.integer_enum_big
 # IntegerEnumBig
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

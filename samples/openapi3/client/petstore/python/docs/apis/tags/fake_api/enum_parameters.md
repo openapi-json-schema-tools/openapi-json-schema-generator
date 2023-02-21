@@ -37,7 +37,6 @@ Content-Type | Schema
 
 #### <a id="application_x_www_form_urlencodedschema" >content.application_x_www_form_urlencoded.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -51,7 +50,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### properties EnumFormStringArray
-
 ##### Description
 Form parameter enum test (string array)
 
@@ -82,7 +80,6 @@ enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
 Query parameter enum test (string array)
 ##### <a id="parameter_2org.openapijsonschematools.codegen.model.CodegenKey@be703df8schema" >Parameter2.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -99,7 +96,6 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 Query parameter enum test (string)
 ##### <a id="parameter_3org.openapijsonschematools.codegen.model.CodegenKey@be7e595aschema" >Parameter3.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -111,7 +107,6 @@ str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the ser
 Query parameter enum test (double)
 ##### <a id="parameter_4org.openapijsonschematools.codegen.model.CodegenKey@be8c74bcschema" >Parameter4.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -123,7 +118,6 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value m
 Query parameter enum test (double)
 ##### <a id="parameter_5org.openapijsonschematools.codegen.model.CodegenKey@be9a901eschema" >Parameter5.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -143,7 +137,6 @@ enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
 Header parameter enum test (string array)
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -160,7 +153,6 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 Header parameter enum test (string)
 ##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@be622296schema" >Parameter1.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -190,7 +182,6 @@ headers | Unset | headers were not defined |
 
 #### <a id="response_404org.openapijsonschematools.codegen.model.CodegenKey@13602c5ccontentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
 #### 
-
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

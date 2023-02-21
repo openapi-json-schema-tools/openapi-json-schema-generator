@@ -1,6 +1,5 @@
 petstore_api.components.schema.equilateral_triangle
 # EquilateralTriangle
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#equilateraltriangle-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # EquilateralTriangle allof _1
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

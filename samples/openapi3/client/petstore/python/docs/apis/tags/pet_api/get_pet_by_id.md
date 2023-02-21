@@ -39,7 +39,6 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 ID of pet to return
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
 ##### 
-
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

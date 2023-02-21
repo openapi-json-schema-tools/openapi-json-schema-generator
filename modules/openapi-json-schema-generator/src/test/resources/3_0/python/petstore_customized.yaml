@@ -1781,6 +1781,11 @@ components:
       type: http
       scheme: signature
   schemas:
+    Items:
+      description: component whose name collides with the inner schema name
+      type: array
+      items:
+        type: object
     Foo:
       type: object
       properties:

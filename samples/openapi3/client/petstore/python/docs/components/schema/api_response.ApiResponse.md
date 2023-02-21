@@ -1,6 +1,5 @@
 petstore_api.components.schema.api_response
 # ApiResponse
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 petstore_api.components.schema.no_additional_properties
 # NoAdditionalProperties
-
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
