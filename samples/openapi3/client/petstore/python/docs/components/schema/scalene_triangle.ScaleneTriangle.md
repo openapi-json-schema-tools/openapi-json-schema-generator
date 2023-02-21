@@ -1,5 +1,4 @@
 petstore_api.components.schema.scalene_triangle
-<a id="scalenetriangle"></a>
 # ScaleneTriangle
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
 [_1](#scalenetriangle-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="scalenetriangle-allof-_1"></a>
 # ScaleneTriangle allof _1
 
 ## Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.object_with_decimal_properties
-<a id="objectwithdecimalproperties"></a>
 # ObjectWithDecimalProperties
 
 ## Type Info

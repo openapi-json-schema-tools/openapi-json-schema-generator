@@ -1,5 +1,4 @@
 petstore_api.components.schema.boolean_enum
-<a id="booleanenum"></a>
 # BooleanEnum
 
 ## Type Info

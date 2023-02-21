@@ -1,5 +1,4 @@
 petstore_api.components.schema.isosceles_triangle
-<a id="isoscelestriangle"></a>
 # IsoscelesTriangle
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
 [_1](#isoscelestriangle-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="isoscelestriangle-allof-_1"></a>
 # IsoscelesTriangle allof _1
 
 ## Type Info

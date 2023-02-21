@@ -1,5 +1,4 @@
 petstore_api.components.schema.capitalization
-<a id="capitalization"></a>
 # Capitalization
 
 ## Type Info

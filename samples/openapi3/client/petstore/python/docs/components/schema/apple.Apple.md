@@ -1,5 +1,4 @@
 petstore_api.components.schema.apple
-<a id="apple"></a>
 # Apple
 
 ## Type Info

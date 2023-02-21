@@ -1,5 +1,4 @@
 petstore_api.components.schema.dog
-<a id="dog"></a>
 # Dog
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
 [_1](#dog-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="dog-allof-_1"></a>
 # Dog allof _1
 
 ## Type Info

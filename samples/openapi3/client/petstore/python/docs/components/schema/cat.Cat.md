@@ -1,5 +1,4 @@
 petstore_api.components.schema.cat
-<a id="cat"></a>
 # Cat
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
 [_1](#cat-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="cat-allof-_1"></a>
 # Cat allof _1
 
 ## Type Info

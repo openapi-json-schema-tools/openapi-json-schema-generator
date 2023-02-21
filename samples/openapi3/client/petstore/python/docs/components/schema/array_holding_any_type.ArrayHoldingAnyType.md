@@ -1,5 +1,4 @@
 petstore_api.components.schema.array_holding_any_type
-<a id="arrayholdinganytype"></a>
 # ArrayHoldingAnyType
 
 ## Type Info

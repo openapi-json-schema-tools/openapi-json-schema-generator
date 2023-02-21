@@ -1,5 +1,4 @@
 petstore_api.components.schema.mixed_properties_and_additional_properties_class
-<a id="mixedpropertiesandadditionalpropertiesclass"></a>
 # MixedPropertiesAndAdditionalPropertiesClass
 
 ## Type Info
@@ -15,7 +14,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **map** | [dict, frozendict.frozendict, ](#mixedpropertiesandadditionalpropertiesclass-properties-map) | [frozendict.frozendict, ](#mixedpropertiesandadditionalpropertiesclass-properties-map) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="mixedpropertiesandadditionalpropertiesclass-properties-map"></a>
 # MixedPropertiesAndAdditionalPropertiesClass properties Map
 
 ## Type Info

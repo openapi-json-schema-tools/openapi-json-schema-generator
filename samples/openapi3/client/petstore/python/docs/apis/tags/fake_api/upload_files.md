@@ -30,7 +30,6 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
 
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
-<a id=""></a>
 #### 
 
 ##### Type Info
@@ -44,7 +43,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **files** | [list, tuple, ](#-properties-files) | [tuple, ](#-properties-files) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="properties-files"></a>
 #### properties Files
 
 ##### Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.address
-<a id="address"></a>
 # Address
 
 ## Type Info

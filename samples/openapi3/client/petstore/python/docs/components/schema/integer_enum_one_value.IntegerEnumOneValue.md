@@ -1,5 +1,4 @@
 petstore_api.components.schema.integer_enum_one_value
-<a id="integerenumonevalue"></a>
 # IntegerEnumOneValue
 
 ## Type Info

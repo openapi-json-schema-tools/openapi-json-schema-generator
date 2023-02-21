@@ -1,5 +1,4 @@
 petstore_api.components.schema.gm_fruit
-<a id="gmfruit"></a>
 # GmFruit
 
 ## Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.array_test
-<a id="arraytest"></a>
 # ArrayTest
 
 ## Type Info
@@ -15,7 +14,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **array_array_of_model** | [list, tuple, ](#arraytest-properties-arrayarrayofmodel) | [tuple, ](#arraytest-properties-arrayarrayofmodel) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="arraytest-properties-arrayofstring"></a>
 # ArrayTest properties ArrayOfString
 
 ## Type Info
@@ -28,7 +26,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-<a id="arraytest-properties-arrayarrayofinteger"></a>
 # ArrayTest properties ArrayArrayOfInteger
 
 ## Type Info
@@ -41,7 +38,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#arraytest-properties-arrayarrayofinteger-items) | list, tuple,  | tuple,  |  |
 
-<a id="arraytest-properties-arrayarrayofinteger-items"></a>
 # ArrayTest properties ArrayArrayOfInteger Items
 
 ## Type Info
@@ -54,7 +50,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-<a id="arraytest-properties-arrayarrayofmodel"></a>
 # ArrayTest properties ArrayArrayOfModel
 
 ## Type Info
@@ -67,7 +62,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#arraytest-properties-arrayarrayofmodel-items) | list, tuple,  | tuple,  |  |
 
-<a id="arraytest-properties-arrayarrayofmodel-items"></a>
 # ArrayTest properties ArrayArrayOfModel Items
 
 ## Type Info

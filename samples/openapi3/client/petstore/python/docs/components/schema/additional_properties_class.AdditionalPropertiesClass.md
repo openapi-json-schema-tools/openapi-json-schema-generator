@@ -1,5 +1,4 @@
 petstore_api.components.schema.additional_properties_class
-<a id="additionalpropertiesclass"></a>
 # AdditionalPropertiesClass
 
 ## Type Info
@@ -20,7 +19,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_string** | [dict, frozendict.frozendict, ](#additionalpropertiesclass-properties-mapwithundeclaredpropertiesstring) | [frozendict.frozendict, ](#additionalpropertiesclass-properties-mapwithundeclaredpropertiesstring) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapproperty"></a>
 # AdditionalPropertiesClass properties MapProperty
 
 ## Type Info
@@ -33,7 +31,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapofmapproperty"></a>
 # AdditionalPropertiesClass properties MapOfMapProperty
 
 ## Type Info
@@ -46,7 +43,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapofmapproperty-additionalproperties"></a>
 # AdditionalPropertiesClass properties MapOfMapProperty AdditionalProperties
 
 ## Type Info
@@ -59,7 +55,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype1"></a>
 # AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype1
 
 ## Type Info
@@ -67,7 +62,6 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype2"></a>
 # AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype2
 
 ## Type Info
@@ -75,7 +69,6 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype3"></a>
 # AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype3
 
 ## Type Info
@@ -88,7 +81,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-emptymap"></a>
 # AdditionalPropertiesClass properties EmptyMap
 
 ## Description
@@ -103,7 +95,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no decl
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
-<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesstring"></a>
 # AdditionalPropertiesClass properties MapWithUndeclaredPropertiesString
 
 ## Type Info

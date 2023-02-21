@@ -1,5 +1,4 @@
 petstore_api.components.schema.array_of_enums
-<a id="arrayofenums"></a>
 # ArrayOfEnums
 
 ## Type Info

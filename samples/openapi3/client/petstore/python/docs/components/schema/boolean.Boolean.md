@@ -1,5 +1,4 @@
 petstore_api.components.schema.boolean
-<a id="boolean"></a>
 # Boolean
 
 ## Type Info

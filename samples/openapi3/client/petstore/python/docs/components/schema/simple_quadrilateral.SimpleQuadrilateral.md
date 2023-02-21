@@ -1,5 +1,4 @@
 petstore_api.components.schema.simple_quadrilateral
-<a id="simplequadrilateral"></a>
 # SimpleQuadrilateral
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) |  |
 [_1](#simplequadrilateral-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="simplequadrilateral-allof-_1"></a>
 # SimpleQuadrilateral allof _1
 
 ## Type Info

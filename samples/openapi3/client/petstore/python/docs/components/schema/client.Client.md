@@ -1,5 +1,4 @@
 petstore_api.components.schema.client
-<a id="client"></a>
 # Client
 
 ## Type Info

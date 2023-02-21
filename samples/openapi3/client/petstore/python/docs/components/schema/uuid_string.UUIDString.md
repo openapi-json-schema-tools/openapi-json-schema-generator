@@ -1,5 +1,4 @@
 petstore_api.components.schema.uuid_string
-<a id="uuidstring"></a>
 # UUIDString
 
 ## Type Info

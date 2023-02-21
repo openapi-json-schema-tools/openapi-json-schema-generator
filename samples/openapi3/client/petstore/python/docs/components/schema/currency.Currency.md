@@ -1,5 +1,4 @@
 petstore_api.components.schema.currency
-<a id="currency"></a>
 # Currency
 
 ## Type Info

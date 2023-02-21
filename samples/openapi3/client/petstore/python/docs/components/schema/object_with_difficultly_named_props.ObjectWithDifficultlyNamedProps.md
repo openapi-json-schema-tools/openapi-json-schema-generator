@@ -1,5 +1,4 @@
 petstore_api.components.schema.object_with_difficultly_named_props
-<a id="objectwithdifficultlynamedprops"></a>
 # ObjectWithDifficultlyNamedProps
 
 ## Description

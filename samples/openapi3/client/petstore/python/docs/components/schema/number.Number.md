@@ -1,5 +1,4 @@
 petstore_api.components.schema.number
-<a id="number"></a>
 # Number
 
 ## Type Info

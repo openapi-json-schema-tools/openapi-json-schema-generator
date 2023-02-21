@@ -1,5 +1,4 @@
 petstore_api.components.schema.read_only_first
-<a id="readonlyfirst"></a>
 # ReadOnlyFirst
 
 ## Type Info

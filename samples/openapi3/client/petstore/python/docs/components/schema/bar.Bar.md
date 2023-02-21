@@ -1,5 +1,4 @@
 petstore_api.components.schema.bar
-<a id="bar"></a>
 # Bar
 
 ## Type Info

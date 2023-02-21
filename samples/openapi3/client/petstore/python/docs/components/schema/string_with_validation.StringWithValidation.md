@@ -1,5 +1,4 @@
 petstore_api.components.schema.string_with_validation
-<a id="stringwithvalidation"></a>
 # StringWithValidation
 
 ## Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.number_only
-<a id="numberonly"></a>
 # NumberOnly
 
 ## Type Info

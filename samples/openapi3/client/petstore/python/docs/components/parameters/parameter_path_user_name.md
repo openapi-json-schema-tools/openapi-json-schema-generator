@@ -4,7 +4,6 @@ petstore_api.components.parameters.parameter_path_user_name
 ## Description
 the use name to use
 ## <a id="parameter_path_user_nameorg.openapijsonschematools.codegen.model.CodegenKey@3bbf9ec6schema" >PathUserName.schema</a>
-<a id=""></a>
 ## 
 
 ### Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.grandparent_animal
-<a id="grandparentanimal"></a>
 # GrandparentAnimal
 
 ## Type Info

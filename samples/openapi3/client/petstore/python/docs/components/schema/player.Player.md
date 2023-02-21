@@ -1,5 +1,4 @@
 petstore_api.components.schema.player
-<a id="player"></a>
 # Player
 
 ## Description

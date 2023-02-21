@@ -1,5 +1,4 @@
 petstore_api.components.schema.banana
-<a id="banana"></a>
 # Banana
 
 ## Type Info

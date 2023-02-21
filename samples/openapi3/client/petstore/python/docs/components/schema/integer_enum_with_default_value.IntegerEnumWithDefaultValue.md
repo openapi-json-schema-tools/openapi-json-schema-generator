@@ -1,5 +1,4 @@
 petstore_api.components.schema.integer_enum_with_default_value
-<a id="integerenumwithdefaultvalue"></a>
 # IntegerEnumWithDefaultValue
 
 ## Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema._return
-<a id="_return"></a>
 # _Return
 
 ## Description

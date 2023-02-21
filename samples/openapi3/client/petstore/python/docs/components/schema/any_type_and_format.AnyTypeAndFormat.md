@@ -1,5 +1,4 @@
 petstore_api.components.schema.any_type_and_format
-<a id="anytypeandformat"></a>
 # AnyTypeAndFormat
 
 ## Type Info

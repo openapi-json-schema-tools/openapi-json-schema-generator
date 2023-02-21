@@ -1,5 +1,4 @@
 petstore_api.components.schema.object_with_optional_test_prop
-<a id="objectwithoptionaltestprop"></a>
 # ObjectWithOptionalTestProp
 
 ## Type Info

@@ -1,5 +1,4 @@
 petstore_api.components.schema.child_cat
-<a id="childcat"></a>
 # ChildCat
 
 ## Type Info
@@ -14,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ParentPet**](parent_pet.ParentPet.md) | [**ParentPet**](parent_pet.ParentPet.md) | [**ParentPet**](parent_pet.ParentPet.md) |  |
 [_1](#childcat-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="childcat-allof-_1"></a>
 # ChildCat allof _1
 
 ## Type Info

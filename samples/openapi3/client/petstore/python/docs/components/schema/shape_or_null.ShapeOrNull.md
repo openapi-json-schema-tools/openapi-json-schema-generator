@@ -1,5 +1,4 @@
 petstore_api.components.schema.shape_or_null
-<a id="shapeornull"></a>
 # ShapeOrNull
 
 ## Description
@@ -18,7 +17,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 
-<a id="shapeornull-oneof-_0"></a>
 # ShapeOrNull oneof _0
 
 ## Type Info

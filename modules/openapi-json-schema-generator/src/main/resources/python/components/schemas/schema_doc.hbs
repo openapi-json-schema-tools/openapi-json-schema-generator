@@ -2,7 +2,6 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
-<a id="{{> components/schemas/_helper_anchor_id }}"></a>
 {{headerSize}} {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}} {{/unless}}{{/each}}
 {{#if description}}
 

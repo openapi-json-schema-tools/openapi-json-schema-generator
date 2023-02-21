@@ -1,5 +1,4 @@
 petstore_api.components.schema.quadrilateral_interface
-<a id="quadrilateralinterface"></a>
 # QuadrilateralInterface
 
 ## Type Info

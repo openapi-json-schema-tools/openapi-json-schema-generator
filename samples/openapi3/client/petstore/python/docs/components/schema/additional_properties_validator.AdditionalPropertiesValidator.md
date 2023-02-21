@@ -1,5 +1,4 @@
 petstore_api.components.schema.additional_properties_validator
-<a id="additionalpropertiesvalidator"></a>
 # AdditionalPropertiesValidator
 
 ## Type Info
@@ -15,7 +14,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#additionalpropertiesvalidator-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 [_2](#additionalpropertiesvalidator-allof-_2) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="additionalpropertiesvalidator-allof-_0"></a>
 # AdditionalPropertiesValidator allof _0
 
 ## Type Info
@@ -28,7 +26,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesvalidator-allof-_1"></a>
 # AdditionalPropertiesValidator allof _1
 
 ## Type Info
@@ -41,7 +38,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesvalidator-allof-_2"></a>
 # AdditionalPropertiesValidator allof _2
 
 ## Type Info

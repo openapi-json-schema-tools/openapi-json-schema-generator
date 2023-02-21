@@ -1,5 +1,4 @@
 petstore_api.components.schema.basque_pig
-<a id="basquepig"></a>
 # BasquePig
 
 ## Type Info

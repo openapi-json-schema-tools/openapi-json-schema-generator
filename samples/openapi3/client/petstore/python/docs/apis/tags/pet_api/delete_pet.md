@@ -31,7 +31,6 @@ api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
 #### Parameter0
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
-<a id=""></a>
 ##### 
 
 ###### Type Info
@@ -51,7 +50,6 @@ petId | [Parameter1.schema](#parameter_1schema) | |
 ##### Description
 Pet id to delete
 ##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@be622296schema" >Parameter1.schema</a>
-<a id=""></a>
 ##### 
 
 ###### Type Info

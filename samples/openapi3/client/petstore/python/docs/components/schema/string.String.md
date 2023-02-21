@@ -1,5 +1,4 @@
 petstore_api.components.schema.string
-<a id="string"></a>
 # String
 
 ## Type Info

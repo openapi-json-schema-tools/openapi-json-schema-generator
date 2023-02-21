@@ -1,5 +1,4 @@
 petstore_api.components.schema.self_referencing_array_model
-<a id="selfreferencingarraymodel"></a>
 # SelfReferencingArrayModel
 
 ## Type Info

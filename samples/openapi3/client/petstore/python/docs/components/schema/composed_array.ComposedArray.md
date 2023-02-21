@@ -1,5 +1,4 @@
 petstore_api.components.schema.composed_array
-<a id="composedarray"></a>
 # ComposedArray
 
 ## Type Info

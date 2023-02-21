@@ -1,5 +1,4 @@
 petstore_api.components.schema.drawing
-<a id="drawing"></a>
 # Drawing
 
 ## Type Info
@@ -16,7 +15,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **shapes** | [list, tuple, ](#drawing-properties-shapes) | [tuple, ](#drawing-properties-shapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
-<a id="drawing-properties-shapes"></a>
 # Drawing properties Shapes
 
 ## Type Info

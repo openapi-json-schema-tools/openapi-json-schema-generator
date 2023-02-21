@@ -1,5 +1,4 @@
 petstore_api.components.schema.req_props_from_true_add_props
-<a id="reqpropsfromtrueaddprops"></a>
 # ReqPropsFromTrueAddProps
 
 ## Type Info
