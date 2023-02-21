@@ -12,10 +12,10 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
-[_1](#dogallOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#dog-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="dogallOf_1"></a>
-# Dog allOf _1
+<a id="dog-allof-_1"></a>
+# Dog allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

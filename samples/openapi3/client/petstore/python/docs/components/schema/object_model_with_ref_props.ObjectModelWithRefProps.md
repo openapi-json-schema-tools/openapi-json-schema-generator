@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_model_with_ref_props
-<a id="object_model_with_ref_props"></a>
+<a id="objectmodelwithrefprops"></a>
 # ObjectModelWithRefProps
 
 ## Description

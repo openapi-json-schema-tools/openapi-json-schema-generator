@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_min15
-<a id="integer_min15"></a>
+<a id="integermin15"></a>
 # IntegerMin15
 
 ## Type Info

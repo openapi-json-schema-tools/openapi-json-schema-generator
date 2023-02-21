@@ -13,10 +13,10 @@ Key | Input Type | Accessed Type | Description | Notes
 **mainShape** | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  | [optional]
 **shapeOrNull** | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) |  | [optional]
 **nullableShape** | [**NullableShape**](nullable_shape.NullableShape.md) | [**NullableShape**](nullable_shape.NullableShape.md) |  | [optional]
-**shapes** | [list, tuple, ](#drawingpropertiesshapes) | [tuple, ](#drawingpropertiesshapes) |  | [optional]
+**shapes** | [list, tuple, ](#drawing-properties-shapes) | [tuple, ](#drawing-properties-shapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
-<a id="drawingpropertiesshapes"></a>
+<a id="drawing-properties-shapes"></a>
 # Drawing properties Shapes
 
 ## Type Info

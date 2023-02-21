@@ -1,5 +1,5 @@
 petstore_api.components.schema.date_time_with_validations
-<a id="date_time_with_validations"></a>
+<a id="datetimewithvalidations"></a>
 # DateTimeWithValidations
 
 ## Type Info

@@ -1,5 +1,5 @@
 petstore_api.components.schema.has_only_read_only
-<a id="has_only_read_only"></a>
+<a id="hasonlyreadonly"></a>
 # HasOnlyReadOnly
 
 ## Type Info

@@ -1,5 +1,5 @@
 petstore_api.components.schema.no_additional_properties
-<a id="no_additional_properties"></a>
+<a id="noadditionalproperties"></a>
 # NoAdditionalProperties
 
 ## Type Info

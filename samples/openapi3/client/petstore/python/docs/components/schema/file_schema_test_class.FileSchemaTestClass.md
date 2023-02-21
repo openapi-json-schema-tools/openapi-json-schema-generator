@@ -1,5 +1,5 @@
 petstore_api.components.schema.file_schema_test_class
-<a id="file_schema_test_class"></a>
+<a id="fileschematestclass"></a>
 # FileSchemaTestClass
 
 ## Type Info
@@ -11,10 +11,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **file** | [**File**](file.File.md) | [**File**](file.File.md) |  | [optional]
-**files** | [list, tuple, ](#file_schema_test_classpropertiesfiles) | [tuple, ](#file_schema_test_classpropertiesfiles) |  | [optional]
+**files** | [list, tuple, ](#fileschematestclass-properties-files) | [tuple, ](#fileschematestclass-properties-files) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="file_schema_test_classpropertiesfiles"></a>
+<a id="fileschematestclass-properties-files"></a>
 # FileSchemaTestClass properties Files
 
 ## Type Info

@@ -1,5 +1,5 @@
 petstore_api.components.schema.string_boolean_map
-<a id="string_boolean_map"></a>
+<a id="stringbooleanmap"></a>
 # StringBooleanMap
 
 ## Type Info

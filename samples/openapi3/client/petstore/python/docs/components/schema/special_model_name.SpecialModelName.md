@@ -1,5 +1,5 @@
 petstore_api.components.schema.special_model_name
-<a id="special_model_name"></a>
+<a id="specialmodelname"></a>
 # SpecialModelName
 
 ## Description

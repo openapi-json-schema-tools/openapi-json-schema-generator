@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_test
-<a id="enum_test"></a>
+<a id="enumtest"></a>
 # EnumTest
 
 ## Type Info

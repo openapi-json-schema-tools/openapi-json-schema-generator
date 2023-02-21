@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_bool
-<a id="composed_bool"></a>
+<a id="composedbool"></a>
 # ComposedBool
 
 ## Type Info
@@ -11,10 +11,10 @@ bool,  | BoolClass,  |  |
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#composed_boolallOf_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+[_0](#composedbool-allof-_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-<a id="composed_boolallOf_0"></a>
-# ComposedBool allOf _0
+<a id="composedbool-allof-_0"></a>
+# ComposedBool allof _0
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

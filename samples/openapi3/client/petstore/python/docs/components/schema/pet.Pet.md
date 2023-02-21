@@ -14,14 +14,14 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Pet object that needs 
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str,  | str,  |  |
-**photoUrls** | [list, tuple, ](#petpropertiesphoto_urls) | [tuple, ](#petpropertiesphoto_urls) |  |
+**photoUrls** | [list, tuple, ](#pet-properties-photourls) | [tuple, ](#pet-properties-photourls) |  |
 **id** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.Category.md) | [**Category**](category.Category.md) |  | [optional]
-**tags** | [list, tuple, ](#petpropertiestags) | [tuple, ](#petpropertiestags) |  | [optional]
+**tags** | [list, tuple, ](#pet-properties-tags) | [tuple, ](#pet-properties-tags) |  | [optional]
 **status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="petpropertiesphoto_urls"></a>
+<a id="pet-properties-photourls"></a>
 # Pet properties PhotoUrls
 
 ## Type Info
@@ -34,7 +34,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-<a id="petpropertiesphoto_urlspropertiestags"></a>
+<a id="pet-properties-photourls-properties-tags"></a>
 # Pet properties PhotoUrls properties Tags
 
 ## Type Info

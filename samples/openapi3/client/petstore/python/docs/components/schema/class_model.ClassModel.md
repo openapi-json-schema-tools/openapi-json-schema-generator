@@ -1,5 +1,5 @@
 petstore_api.components.schema.class_model
-<a id="class_model"></a>
+<a id="classmodel"></a>
 # ClassModel
 
 ## Description

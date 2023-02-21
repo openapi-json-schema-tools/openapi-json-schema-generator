@@ -1,5 +1,5 @@
 petstore_api.components.schema.api_response
-<a id="api_response"></a>
+<a id="apiresponse"></a>
 # ApiResponse
 
 ## Type Info

@@ -1,5 +1,5 @@
 petstore_api.components.schema.from_schema
-<a id="from_schema"></a>
+<a id="fromschema"></a>
 # FromSchema
 
 ## Type Info

@@ -1,5 +1,5 @@
 petstore_api.components.schema.some_object
-<a id="some_object"></a>
+<a id="someobject"></a>
 # SomeObject
 
 ## Type Info

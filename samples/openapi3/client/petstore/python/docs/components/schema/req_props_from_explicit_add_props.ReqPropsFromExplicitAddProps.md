@@ -1,5 +1,5 @@
 petstore_api.components.schema.req_props_from_explicit_add_props
-<a id="req_props_from_explicit_add_props"></a>
+<a id="reqpropsfromexplicitaddprops"></a>
 # ReqPropsFromExplicitAddProps
 
 ## Type Info

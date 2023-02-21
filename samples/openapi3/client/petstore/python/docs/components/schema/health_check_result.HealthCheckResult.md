@@ -1,5 +1,5 @@
 petstore_api.components.schema.health_check_result
-<a id="health_check_result"></a>
+<a id="healthcheckresult"></a>
 # HealthCheckResult
 
 ## Description
