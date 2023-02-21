@@ -28,8 +28,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesvalidator-allof-_0-allof-_1"></a>
-# AdditionalPropertiesValidator allof _0 allof _1
+<a id="additionalpropertiesvalidator-allof-_1"></a>
+# AdditionalPropertiesValidator allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -41,8 +41,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesvalidator-allof-_0-allof-_1-allof-_2"></a>
-# AdditionalPropertiesValidator allof _0 allof _1 allof _2
+<a id="additionalpropertiesvalidator-allof-_2"></a>
+# AdditionalPropertiesValidator allof _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

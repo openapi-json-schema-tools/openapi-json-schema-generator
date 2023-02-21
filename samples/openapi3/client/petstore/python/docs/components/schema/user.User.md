@@ -36,8 +36,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
 
-<a id="user-properties-objectwithnodeclaredprops-properties-objectwithnodeclaredpropsnullable"></a>
-# User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable
+<a id="user-properties-objectwithnodeclaredpropsnullable"></a>
+# User properties ObjectWithNoDeclaredPropsNullable
 
 ## Description
 test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
@@ -47,8 +47,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
 
-<a id="user-properties-objectwithnodeclaredprops-properties-objectwithnodeclaredpropsnullable-properties-anytypeexceptnullprop"></a>
-# User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable properties AnyTypeExceptNullProp
+<a id="user-properties-anytypeexceptnullprop"></a>
+# User properties AnyTypeExceptNullProp
 
 ## Description
 any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
@@ -62,10 +62,10 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#user-properties-objectwithnodeclaredprops-properties-objectwithnodeclaredpropsnullable-properties-anytypeexceptnullprop-_not) | None,  | NoneClass,  |  |
+[_not](#user-properties-anytypeexceptnullprop-_not) | None,  | NoneClass,  |  |
 
-<a id="user-properties-objectwithnodeclaredprops-properties-objectwithnodeclaredpropsnullable-properties-anytypeexceptnullprop-_not"></a>
-# User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable properties AnyTypeExceptNullProp _Not
+<a id="user-properties-anytypeexceptnullprop-_not"></a>
+# User properties AnyTypeExceptNullProp _Not
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

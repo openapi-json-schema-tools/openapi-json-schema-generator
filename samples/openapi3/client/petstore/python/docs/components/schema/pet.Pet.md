@@ -34,8 +34,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-<a id="pet-properties-photourls-properties-tags"></a>
-# Pet properties PhotoUrls properties Tags
+<a id="pet-properties-tags"></a>
+# Pet properties Tags
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -30,24 +30,24 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-<a id="composedoneofdifferenttypes-oneof-_2-oneof-_3"></a>
-# ComposedOneOfDifferentTypes oneof _2 oneof _3
+<a id="composedoneofdifferenttypes-oneof-_3"></a>
+# ComposedOneOfDifferentTypes oneof _3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-<a id="composedoneofdifferenttypes-oneof-_2-oneof-_3-oneof-_4"></a>
-# ComposedOneOfDifferentTypes oneof _2 oneof _3 oneof _4
+<a id="composedoneofdifferenttypes-oneof-_4"></a>
+# ComposedOneOfDifferentTypes oneof _4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="composedoneofdifferenttypes-oneof-_2-oneof-_3-oneof-_4-oneof-_5"></a>
-# ComposedOneOfDifferentTypes oneof _2 oneof _3 oneof _4 oneof _5
+<a id="composedoneofdifferenttypes-oneof-_5"></a>
+# ComposedOneOfDifferentTypes oneof _5
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -59,8 +59,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-<a id="composedoneofdifferenttypes-oneof-_2-oneof-_3-oneof-_4-oneof-_5-oneof-_6"></a>
-# ComposedOneOfDifferentTypes oneof _2 oneof _3 oneof _4 oneof _5 oneof _6
+<a id="composedoneofdifferenttypes-oneof-_6"></a>
+# ComposedOneOfDifferentTypes oneof _6
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

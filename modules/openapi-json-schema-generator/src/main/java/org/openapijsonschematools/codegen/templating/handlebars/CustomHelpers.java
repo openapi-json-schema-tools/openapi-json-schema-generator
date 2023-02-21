@@ -6,6 +6,8 @@ import com.github.jknack.handlebars.TagType;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -77,10 +79,9 @@ public enum CustomHelpers implements Helper<Object> {
         @Override
         public Object apply(final Object context, final Options options) {
             if (context instanceof ArrayList) {
-                for (Object item: options.params) {
-                    ((ArrayList<Object>) context).add(item);
-                }
-                return context;
+                ArrayList<Object> newContext = new ArrayList<>((Collection<?>) context);
+                Collections.addAll(newContext, options.params);
+                return newContext;
             }
             return null;
         }

@@ -33,8 +33,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty
+<a id="additionalpropertiesclass-properties-mapofmapproperty"></a>
+# AdditionalPropertiesClass properties MapOfMapProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -46,8 +46,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties
+<a id="additionalpropertiesclass-properties-mapofmapproperty-additionalproperties"></a>
+# AdditionalPropertiesClass properties MapOfMapProperty AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -59,24 +59,24 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties-properties-mapwithundeclaredpropertiesanytype1"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1
+<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype1"></a>
+# AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties-properties-mapwithundeclaredpropertiesanytype1-properties-mapwithundeclaredpropertiesanytype2"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2
+<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype2"></a>
+# AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties-properties-mapwithundeclaredpropertiesanytype1-properties-mapwithundeclaredpropertiesanytype2-properties-mapwithundeclaredpropertiesanytype3"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3
+<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesanytype3"></a>
+# AdditionalPropertiesClass properties MapWithUndeclaredPropertiesAnytype3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -88,8 +88,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties-properties-mapwithundeclaredpropertiesanytype1-properties-mapwithundeclaredpropertiesanytype2-properties-mapwithundeclaredpropertiesanytype3-properties-emptymap"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3 properties EmptyMap
+<a id="additionalpropertiesclass-properties-emptymap"></a>
+# AdditionalPropertiesClass properties EmptyMap
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
@@ -103,8 +103,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no decl
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
-<a id="additionalpropertiesclass-properties-mapproperty-properties-mapofmapproperty-additionalproperties-properties-mapwithundeclaredpropertiesanytype1-properties-mapwithundeclaredpropertiesanytype2-properties-mapwithundeclaredpropertiesanytype3-properties-emptymap-properties-mapwithundeclaredpropertiesstring"></a>
-# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3 properties EmptyMap properties MapWithUndeclaredPropertiesString
+<a id="additionalpropertiesclass-properties-mapwithundeclaredpropertiesstring"></a>
+# AdditionalPropertiesClass properties MapWithUndeclaredPropertiesString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

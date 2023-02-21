@@ -28,8 +28,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-<a id="arraytest-properties-arrayofstring-properties-arrayarrayofinteger"></a>
-# ArrayTest properties ArrayOfString properties ArrayArrayOfInteger
+<a id="arraytest-properties-arrayarrayofinteger"></a>
+# ArrayTest properties ArrayArrayOfInteger
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -39,10 +39,10 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#arraytest-properties-arrayofstring-properties-arrayarrayofinteger-items) | list, tuple,  | tuple,  |  |
+[items](#arraytest-properties-arrayarrayofinteger-items) | list, tuple,  | tuple,  |  |
 
-<a id="arraytest-properties-arrayofstring-properties-arrayarrayofinteger-items"></a>
-# ArrayTest properties ArrayOfString properties ArrayArrayOfInteger Items
+<a id="arraytest-properties-arrayarrayofinteger-items"></a>
+# ArrayTest properties ArrayArrayOfInteger Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,8 +54,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-<a id="arraytest-properties-arrayofstring-properties-arrayarrayofinteger-items-properties-arrayarrayofmodel"></a>
-# ArrayTest properties ArrayOfString properties ArrayArrayOfInteger Items properties ArrayArrayOfModel
+<a id="arraytest-properties-arrayarrayofmodel"></a>
+# ArrayTest properties ArrayArrayOfModel
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -65,10 +65,10 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#arraytest-properties-arrayofstring-properties-arrayarrayofinteger-items-properties-arrayarrayofmodel-items) | list, tuple,  | tuple,  |  |
+[items](#arraytest-properties-arrayarrayofmodel-items) | list, tuple,  | tuple,  |  |
 
-<a id="arraytest-properties-arrayofstring-properties-arrayarrayofinteger-items-properties-arrayarrayofmodel-items"></a>
-# ArrayTest properties ArrayOfString properties ArrayArrayOfInteger Items properties ArrayArrayOfModel Items
+<a id="arraytest-properties-arrayarrayofmodel-items"></a>
+# ArrayTest properties ArrayArrayOfModel Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

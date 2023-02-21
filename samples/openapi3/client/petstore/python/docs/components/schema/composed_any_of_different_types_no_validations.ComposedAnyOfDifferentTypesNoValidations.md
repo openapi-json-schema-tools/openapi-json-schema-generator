@@ -36,72 +36,72 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1
+<a id="composedanyofdifferenttypesnovalidations-anyof-_1"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2
+<a id="composedanyofdifferenttypesnovalidations-anyof-_2"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3
+<a id="composedanyofdifferenttypesnovalidations-anyof-_3"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4
+<a id="composedanyofdifferenttypesnovalidations-anyof-_4"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5
+<a id="composedanyofdifferenttypesnovalidations-anyof-_5"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _5
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6
+<a id="composedanyofdifferenttypesnovalidations-anyof-_6"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _6
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7
+<a id="composedanyofdifferenttypesnovalidations-anyof-_7"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _7
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8
+<a id="composedanyofdifferenttypesnovalidations-anyof-_8"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _8
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9
+<a id="composedanyofdifferenttypesnovalidations-anyof-_9"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _9
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -113,48 +113,48 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10
+<a id="composedanyofdifferenttypesnovalidations-anyof-_10"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _10
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10-anyof-_11"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10 anyof _11
+<a id="composedanyofdifferenttypesnovalidations-anyof-_11"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _11
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10-anyof-_11-anyof-_12"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10 anyof _11 anyof _12
+<a id="composedanyofdifferenttypesnovalidations-anyof-_12"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _12
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10-anyof-_11-anyof-_12-anyof-_13"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10 anyof _11 anyof _12 anyof _13
+<a id="composedanyofdifferenttypesnovalidations-anyof-_13"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _13
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  |
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10-anyof-_11-anyof-_12-anyof-_13-anyof-_14"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10 anyof _11 anyof _12 anyof _13 anyof _14
+<a id="composedanyofdifferenttypesnovalidations-anyof-_14"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _14
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-<a id="composedanyofdifferenttypesnovalidations-anyof-_0-anyof-_1-anyof-_2-anyof-_3-anyof-_4-anyof-_5-anyof-_6-anyof-_7-anyof-_8-anyof-_9-anyof-_10-anyof-_11-anyof-_12-anyof-_13-anyof-_14-anyof-_15"></a>
-# ComposedAnyOfDifferentTypesNoValidations anyof _0 anyof _1 anyof _2 anyof _3 anyof _4 anyof _5 anyof _6 anyof _7 anyof _8 anyof _9 anyof _10 anyof _11 anyof _12 anyof _13 anyof _14 anyof _15
+<a id="composedanyofdifferenttypesnovalidations-anyof-_15"></a>
+# ComposedAnyOfDifferentTypesNoValidations anyof _15
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

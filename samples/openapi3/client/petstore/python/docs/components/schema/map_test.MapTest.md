@@ -42,8 +42,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-<a id="maptest-properties-mapmapofstring-additionalproperties-properties-mapofenumstring"></a>
-# MapTest properties MapMapOfString AdditionalProperties properties MapOfEnumString
+<a id="maptest-properties-mapofenumstring"></a>
+# MapTest properties MapOfEnumString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -55,8 +55,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower", ]
 
-<a id="maptest-properties-mapmapofstring-additionalproperties-properties-mapofenumstring-properties-directmap"></a>
-# MapTest properties MapMapOfString AdditionalProperties properties MapOfEnumString properties DirectMap
+<a id="maptest-properties-directmap"></a>
+# MapTest properties DirectMap
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
