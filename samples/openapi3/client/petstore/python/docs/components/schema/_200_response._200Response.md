@@ -1,4 +1,5 @@
 petstore_api.components.schema._200_response
+<a id="_200_response"></a>
 # _200Response
 
 ## Description

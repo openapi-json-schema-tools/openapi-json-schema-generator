@@ -1,4 +1,5 @@
 petstore_api.components.schema.date_time_test
+<a id="date_time_test"></a>
 # DateTimeTest
 
 ## Type Info

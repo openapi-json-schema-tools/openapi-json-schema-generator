@@ -1,4 +1,5 @@
 petstore_api.components.schema.animal_farm
+<a id="animal_farm"></a>
 # AnimalFarm
 
 ## Type Info

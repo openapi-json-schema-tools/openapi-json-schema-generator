@@ -1,4 +1,5 @@
 petstore_api.components.schema.foo
+<a id="foo"></a>
 # Foo
 
 ## Type Info

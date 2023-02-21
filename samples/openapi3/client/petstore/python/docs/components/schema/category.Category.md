@@ -1,4 +1,5 @@
 petstore_api.components.schema.category
+<a id="category"></a>
 # Category
 
 ## Type Info

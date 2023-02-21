@@ -1,4 +1,5 @@
 petstore_api.components.schema.object_with_invalid_named_refed_properties
+<a id="object_with_invalid_named_refed_properties"></a>
 # ObjectWithInvalidNamedRefedProperties
 
 ## Type Info

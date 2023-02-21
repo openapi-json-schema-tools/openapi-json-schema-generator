@@ -1,4 +1,5 @@
 petstore_api.components.schema.triangle_interface
+<a id="triangle_interface"></a>
 # TriangleInterface
 
 ## Type Info

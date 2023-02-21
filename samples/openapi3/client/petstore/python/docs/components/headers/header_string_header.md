@@ -4,6 +4,7 @@ petstore_api.components.headers.header_string_header
 ## Description
 string header description
 ## <a id="header_string_headerorg.openapijsonschematools.codegen.model.CodegenKey@bc66dca7schema" >StringHeader.schema</a>
+<a id=""></a>
 ## 
 
 ### Type Info

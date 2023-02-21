@@ -1,4 +1,5 @@
 petstore_api.components.schema.user
+<a id="user"></a>
 # User
 
 ## Type Info
@@ -17,13 +18,14 @@ Key | Input Type | Accessed Type | Description | Notes
 **password** | str,  | str,  |  | [optional]
 **phone** | str,  | str,  |  | [optional]
 **userStatus** | decimal.Decimal, int,  | decimal.Decimal,  | User Status | [optional] value must be a 32 bit integer
-**objectWithNoDeclaredProps** | [dict, frozendict.frozendict, ](#propertiesobject_with_no_declared_props) | [frozendict.frozendict, ](#propertiesobject_with_no_declared_props) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
-**objectWithNoDeclaredPropsNullable** | [None, dict, frozendict.frozendict, ](#propertiesobject_with_no_declared_props_nullable) | [NoneClass, frozendict.frozendict, ](#propertiesobject_with_no_declared_props_nullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
+**objectWithNoDeclaredProps** | [dict, frozendict.frozendict, ](#userpropertiesobject_with_no_declared_props) | [frozendict.frozendict, ](#userpropertiesobject_with_no_declared_props) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
+**objectWithNoDeclaredPropsNullable** | [None, dict, frozendict.frozendict, ](#userpropertiesobject_with_no_declared_props_nullable) | [NoneClass, frozendict.frozendict, ](#userpropertiesobject_with_no_declared_props_nullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
 **anyTypeProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]
-**anyTypeExceptNullProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiesany_type_except_null_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiesany_type_except_null_prop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
+**anyTypeExceptNullProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#userpropertiesany_type_except_null_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#userpropertiesany_type_except_null_prop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
 **anyTypePropNullable** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+<a id="userpropertiesobject_with_no_declared_props"></a>
 # User properties ObjectWithNoDeclaredProps
 
 ## Description
@@ -34,6 +36,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
 
+<a id="userpropertiesobject_with_no_declared_propspropertiesobject_with_no_declared_props_nullable"></a>
 # User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable
 
 ## Description
@@ -44,6 +47,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
 
+<a id="userpropertiesobject_with_no_declared_propspropertiesobject_with_no_declared_props_nullablepropertiesany_type_except_null_prop"></a>
 # User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable properties AnyTypeExceptNullProp
 
 ## Description
@@ -58,8 +62,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | None,  | NoneClass,  |  |
+[_not](#userpropertiesobject_with_no_declared_propspropertiesobject_with_no_declared_props_nullablepropertiesany_type_except_null_prop_not) | None,  | NoneClass,  |  |
 
+<a id="userpropertiesobject_with_no_declared_propspropertiesobject_with_no_declared_props_nullablepropertiesany_type_except_null_prop_not"></a>
 # User properties ObjectWithNoDeclaredProps properties ObjectWithNoDeclaredPropsNullable properties AnyTypeExceptNullProp _Not
 
 ## Type Info

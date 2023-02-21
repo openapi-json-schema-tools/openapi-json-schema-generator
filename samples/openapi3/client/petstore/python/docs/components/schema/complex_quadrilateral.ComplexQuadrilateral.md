@@ -1,4 +1,5 @@
 petstore_api.components.schema.complex_quadrilateral
+<a id="complex_quadrilateral"></a>
 # ComplexQuadrilateral
 
 ## Type Info
@@ -11,8 +12,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) |  |
-[_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#complex_quadrilateralallOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+<a id="complex_quadrilateralallOf_1"></a>
 # ComplexQuadrilateral allOf _1
 
 ## Type Info

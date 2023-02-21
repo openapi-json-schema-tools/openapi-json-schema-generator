@@ -1,4 +1,5 @@
 petstore_api.components.schema.nullable_string
+<a id="nullable_string"></a>
 # NullableString
 
 ## Type Info

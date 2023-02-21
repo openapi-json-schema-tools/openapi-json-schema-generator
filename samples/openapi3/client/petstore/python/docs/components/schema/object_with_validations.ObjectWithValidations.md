@@ -1,4 +1,5 @@
 petstore_api.components.schema.object_with_validations
+<a id="object_with_validations"></a>
 # ObjectWithValidations
 
 ## Type Info

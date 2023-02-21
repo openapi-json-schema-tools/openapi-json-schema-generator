@@ -35,6 +35,7 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
 
 #### <a id="application_jsonschema" >content.application_json.schema</a>
+<a id=""></a>
 #### 
 
 ##### Type Info
@@ -48,6 +49,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
+<a id="allOf_0"></a>
 #### allOf _0
 
 ##### Type Info
@@ -55,6 +57,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
+<a id=""></a>
 #### 
 
 ##### Type Info
@@ -68,6 +71,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+<a id="propertiessome_prop"></a>
 #### properties SomeProp
 
 ##### Type Info
@@ -79,8 +83,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allOf_0) | str,  | str,  |  |
+[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
 
+<a id="propertiessome_propallOf_0"></a>
 #### properties SomeProp allOf _0
 
 ##### Type Info
@@ -99,6 +104,7 @@ compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
 
 #### Parameter0
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
+<a id=""></a>
 ##### 
 
 ###### Type Info
@@ -112,6 +118,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
+<a id="allOf_0"></a>
 ##### allOf _0
 
 ###### Type Info
@@ -121,6 +128,7 @@ str,  | str,  |  |
 
 #### Parameter1
 ##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@36cec952schema" >Parameter1.schema</a>
+<a id=""></a>
 ##### 
 
 ###### Type Info
@@ -134,6 +142,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+<a id="propertiessome_prop"></a>
 ##### properties SomeProp
 
 ###### Type Info
@@ -145,8 +154,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allOf_0) | str,  | str,  |  |
+[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
 
+<a id="propertiessome_propallOf_0"></a>
 ##### properties SomeProp allOf _0
 
 ###### Type Info
@@ -176,6 +186,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
+<a id=""></a>
 #### 
 
 ##### Type Info
@@ -189,6 +200,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
+<a id="allOf_0"></a>
 #### allOf _0
 
 ##### Type Info
@@ -197,6 +209,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
+<a id=""></a>
 #### 
 
 ##### Type Info
@@ -210,6 +223,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+<a id="propertiessome_prop"></a>
 #### properties SomeProp
 
 ##### Type Info
@@ -221,8 +235,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allOf_0) | str,  | str,  |  |
+[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
 
+<a id="propertiessome_propallOf_0"></a>
 #### properties SomeProp allOf _0
 
 ##### Type Info

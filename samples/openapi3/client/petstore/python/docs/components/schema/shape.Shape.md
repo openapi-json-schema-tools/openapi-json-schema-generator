@@ -1,4 +1,5 @@
 petstore_api.components.schema.shape
+<a id="shape"></a>
 # Shape
 
 ## Type Info

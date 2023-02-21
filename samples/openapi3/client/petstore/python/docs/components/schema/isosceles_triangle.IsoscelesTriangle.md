@@ -1,4 +1,5 @@
 petstore_api.components.schema.isosceles_triangle
+<a id="isosceles_triangle"></a>
 # IsoscelesTriangle
 
 ## Type Info
@@ -11,8 +12,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
-[_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#isosceles_triangleallOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
+<a id="isosceles_triangleallOf_1"></a>
 # IsoscelesTriangle allOf _1
 
 ## Type Info

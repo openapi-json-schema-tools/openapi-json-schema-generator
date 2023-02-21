@@ -1,4 +1,5 @@
 petstore_api.components.schema.string_enum
+<a id="string_enum"></a>
 # StringEnum
 
 ## Type Info

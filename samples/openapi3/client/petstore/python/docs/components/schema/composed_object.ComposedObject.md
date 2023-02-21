@@ -1,4 +1,5 @@
 petstore_api.components.schema.composed_object
+<a id="composed_object"></a>
 # ComposedObject
 
 ## Type Info
@@ -10,8 +11,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allOf_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+[_0](#composed_objectallOf_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
+<a id="composed_objectallOf_0"></a>
 # ComposedObject allOf _0
 
 ## Type Info

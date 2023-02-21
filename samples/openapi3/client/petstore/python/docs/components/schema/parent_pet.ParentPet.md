@@ -1,4 +1,5 @@
 petstore_api.components.schema.parent_pet
+<a id="parent_pet"></a>
 # ParentPet
 
 ## Type Info

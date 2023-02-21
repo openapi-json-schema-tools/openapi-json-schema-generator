@@ -1,4 +1,5 @@
 petstore_api.components.schema.integer_enum_big
+<a id="integer_enum_big"></a>
 # IntegerEnumBig
 
 ## Type Info

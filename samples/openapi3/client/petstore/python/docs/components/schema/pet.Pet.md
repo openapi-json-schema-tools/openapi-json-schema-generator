@@ -1,4 +1,5 @@
 petstore_api.components.schema.pet
+<a id="pet"></a>
 # Pet
 
 ## Description
@@ -13,13 +14,14 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Pet object that needs 
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str,  | str,  |  |
-**photoUrls** | [list, tuple, ](#propertiesphoto_urls) | [tuple, ](#propertiesphoto_urls) |  |
+**photoUrls** | [list, tuple, ](#petpropertiesphoto_urls) | [tuple, ](#petpropertiesphoto_urls) |  |
 **id** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.Category.md) | [**Category**](category.Category.md) |  | [optional]
-**tags** | [list, tuple, ](#propertiestags) | [tuple, ](#propertiestags) |  | [optional]
+**tags** | [list, tuple, ](#petpropertiestags) | [tuple, ](#petpropertiestags) |  | [optional]
 **status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
+<a id="petpropertiesphoto_urls"></a>
 # Pet properties PhotoUrls
 
 ## Type Info
@@ -32,6 +34,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
+<a id="petpropertiesphoto_urlspropertiestags"></a>
 # Pet properties PhotoUrls properties Tags
 
 ## Type Info

@@ -1,4 +1,5 @@
 petstore_api.components.schema.json_patch_request_move_copy
+<a id="json_patch_request_move_copy"></a>
 # JSONPatchRequestMoveCopy
 
 ## Type Info

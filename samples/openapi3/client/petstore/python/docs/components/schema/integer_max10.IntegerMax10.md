@@ -1,4 +1,5 @@
 petstore_api.components.schema.integer_max10
+<a id="integer_max10"></a>
 # IntegerMax10
 
 ## Type Info

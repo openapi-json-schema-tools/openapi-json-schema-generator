@@ -1,4 +1,5 @@
 petstore_api.components.schema.string_enum_with_default_value
+<a id="string_enum_with_default_value"></a>
 # StringEnumWithDefaultValue
 
 ## Type Info

@@ -1,4 +1,5 @@
 petstore_api.components.schema.apple_req
+<a id="apple_req"></a>
 # AppleReq
 
 ## Type Info

@@ -1,4 +1,5 @@
 petstore_api.components.schema.composed_number
+<a id="composed_number"></a>
 # ComposedNumber
 
 ## Type Info
@@ -10,8 +11,9 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allOf_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+[_0](#composed_numberallOf_0) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
+<a id="composed_numberallOf_0"></a>
 # ComposedNumber allOf _0
 
 ## Type Info

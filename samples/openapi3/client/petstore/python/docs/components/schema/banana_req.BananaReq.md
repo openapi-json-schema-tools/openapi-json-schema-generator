@@ -1,4 +1,5 @@
 petstore_api.components.schema.banana_req
+<a id="banana_req"></a>
 # BananaReq
 
 ## Type Info

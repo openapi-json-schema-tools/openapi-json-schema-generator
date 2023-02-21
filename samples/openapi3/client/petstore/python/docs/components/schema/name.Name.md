@@ -1,4 +1,5 @@
 petstore_api.components.schema.name
+<a id="name"></a>
 # Name
 
 ## Description

@@ -1,4 +1,5 @@
 petstore_api.components.schema.file
+<a id="file"></a>
 # File
 
 ## Description
