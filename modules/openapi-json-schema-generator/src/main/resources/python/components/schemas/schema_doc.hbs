@@ -2,9 +2,8 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
-{{identifierPieces}}
-{{#neq anchorId ""}}<a id="{{anchorId}}"></a>{{/neq}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
+{{! if needed one can make an anchor with <a id="blah"></a> }}
+{{headerSize}} {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}} {{/unless}}{{/each}}
 {{#if description}}
 
 {{headerSize}}# Description
@@ -27,10 +26,10 @@ Input Type | Accessed Type | Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{anchorId}}properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{anchorId}}properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#{{anchorId}}properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#{{anchorId}}properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> _helper_schema_python_types }}{{#if isComplicated}}](#properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{/if}}{{> components/_helper_schema_accessed_types }}{{#if isComplicated}}](#properties{{@key.snakeCase}}){{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg }}
         {{/each}}
         {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
@@ -50,7 +49,7 @@ Key | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with items}}
-{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{anchorId}}{{jsonPathPiece.snakeCase}}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{jsonPathPiece.snakeCase}}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/with}}
     {{/if}}
     {{#or allOf anyOf oneOf not}}
@@ -62,7 +61,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{anchorId}}allOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#allOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
@@ -70,7 +69,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{anchorId}}anyOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#anyOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
@@ -78,7 +77,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{anchorId}}oneOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#oneOf{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/each}}
     {{/if}}
     {{#if not}}
@@ -86,7 +85,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{anchorId}}{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
+{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{jsonPathPiece.snakeCase}}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
         {{/with}}
     {{/if}}
 {{/if}}
@@ -98,7 +97,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
             {{#unless refInfo.refClass}}
                 {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) }}
                 {{/if}}
             {{/unless}}
         {{/if}}
@@ -110,7 +109,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) anchorId=(join anchorId "properties" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "properties" jsonPathPiece) }}
             {{/if}}
         {{/unless}}
     {{/each}}
@@ -123,7 +122,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
                 {{#unless refInfo.refClass}}
                     {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) }}
                     {{/if}}
                 {{/unless}}
             {{/unless}}
@@ -136,7 +135,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) }}
             {{/if}}
         {{/unless}}
     {{/with}}
@@ -146,7 +145,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each allOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "allOf" jsonPathPiece) anchorId=(join anchorId "allOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "allOf" jsonPathPiece) }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -154,7 +153,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each anyOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "anyOf" jsonPathPiece) anchorId=(join anchorId "anyOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "anyOf" jsonPathPiece) }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -162,7 +161,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each oneOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "oneOf" jsonPathPiece) anchorId=(join anchorId "oneOf" jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces "oneOf" jsonPathPiece) }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -170,7 +169,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#with not}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) anchorId=(join anchorId jsonPathPiece.snakeCase "") }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(add identifierPieces jsonPathPiece) }}
         {{/unless}}
     {{/with}}
 {{/if}}

@@ -1,6 +1,4 @@
 petstore_api.components.schema.special_model_name
-[]
-
 # SpecialModelName
 
 ## Description

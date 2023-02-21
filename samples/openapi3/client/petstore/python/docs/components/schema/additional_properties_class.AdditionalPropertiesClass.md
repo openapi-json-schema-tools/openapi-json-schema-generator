@@ -1,6 +1,4 @@
 petstore_api.components.schema.additional_properties_class
-[]
-
 # AdditionalPropertiesClass
 
 ## Type Info
@@ -21,9 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_string** | [dict, frozendict.frozendict, ](#propertiesmap_with_undeclared_properties_string) | [frozendict.frozendict, ](#propertiesmap_with_undeclared_properties_string) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111]
-<a id="propertiesmap_property"></a>
-# MapProperty
+# AdditionalPropertiesClass properties MapProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -35,9 +31,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874]
-<a id="propertiesmap_of_map_property"></a>
-# MapOfMapProperty
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -49,9 +43,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
-<a id="propertiesmap_of_map_propertyadditional_properties"></a>
-# AdditionalProperties
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -63,27 +55,21 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@b0900c20]
-<a id="propertiesmap_with_undeclared_properties_anytype1"></a>
-# MapWithUndeclaredPropertiesAnytype1
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@b0900c20, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090809f]
-<a id="propertiesmap_with_undeclared_properties_anytype2"></a>
-# MapWithUndeclaredPropertiesAnytype2
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@b0900c20, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090809f, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090f51e]
-<a id="propertiesmap_with_undeclared_properties_anytype3"></a>
-# MapWithUndeclaredPropertiesAnytype3
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -95,9 +81,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@b0900c20, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090809f, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090f51e, properties, org.openapijsonschematools.codegen.model.CodegenKey@46ff7ab]
-<a id="propertiesempty_map"></a>
-# EmptyMap
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3 properties EmptyMap
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
@@ -111,9 +95,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | an object with no decl
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@744bc111, properties, org.openapijsonschematools.codegen.model.CodegenKey@88d93874, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@b0900c20, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090809f, properties, org.openapijsonschematools.codegen.model.CodegenKey@b090f51e, properties, org.openapijsonschematools.codegen.model.CodegenKey@46ff7ab, properties, org.openapijsonschematools.codegen.model.CodegenKey@ba2db11b]
-<a id="propertiesmap_with_undeclared_properties_string"></a>
-# MapWithUndeclaredPropertiesString
+# AdditionalPropertiesClass properties MapProperty properties MapOfMapProperty AdditionalProperties properties MapWithUndeclaredPropertiesAnytype1 properties MapWithUndeclaredPropertiesAnytype2 properties MapWithUndeclaredPropertiesAnytype3 properties EmptyMap properties MapWithUndeclaredPropertiesString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

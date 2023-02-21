@@ -1,6 +1,4 @@
 petstore_api.components.schema.animal_farm
-[]
-
 # AnimalFarm
 
 ## Type Info

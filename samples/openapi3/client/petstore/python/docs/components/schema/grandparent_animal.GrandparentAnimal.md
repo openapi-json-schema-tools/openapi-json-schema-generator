@@ -1,6 +1,4 @@
 petstore_api.components.schema.grandparent_animal
-[]
-
 # GrandparentAnimal
 
 ## Type Info

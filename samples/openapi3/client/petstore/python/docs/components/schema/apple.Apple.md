@@ -1,6 +1,4 @@
 petstore_api.components.schema.apple
-[]
-
 # Apple
 
 ## Type Info

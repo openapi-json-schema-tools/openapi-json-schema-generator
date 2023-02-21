@@ -32,9 +32,7 @@ some_var | [Parameter2.schema](#parameter_2schema) | |
 
 #### Parameter0
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
-[]
-
-##### Schema
+##### 
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -43,9 +41,7 @@ str,  | str,  |  |
 
 #### Parameter1
 ##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@36cec952schema" >Parameter1.schema</a>
-[]
-
-##### Schema
+##### 
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,9 +50,7 @@ str,  | str,  |  |
 
 #### Parameter2
 ##### <a id="parameter_2org.openapijsonschematools.codegen.model.CodegenKey@36cf3dd1schema" >Parameter2.schema</a>
-[]
-
-##### Schema
+##### 
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

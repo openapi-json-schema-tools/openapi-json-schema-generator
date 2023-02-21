@@ -1,6 +1,4 @@
 petstore_api.components.schema.nullable_shape
-[]
-
 # NullableShape
 
 ## Description
@@ -19,9 +17,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
 [_2](#oneOf_2) | None,  | NoneClass,  |  |
 
-[oneOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04]
-<a id="oneOf_2"></a>
-# _2
+# NullableShape oneOf _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

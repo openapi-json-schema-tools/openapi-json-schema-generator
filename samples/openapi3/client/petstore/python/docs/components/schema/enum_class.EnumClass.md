@@ -1,6 +1,4 @@
 petstore_api.components.schema.enum_class
-[]
-
 # EnumClass
 
 ## Type Info

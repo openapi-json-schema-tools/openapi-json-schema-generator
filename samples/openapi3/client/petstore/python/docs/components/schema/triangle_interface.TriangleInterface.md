@@ -1,6 +1,4 @@
 petstore_api.components.schema.triangle_interface
-[]
-
 # TriangleInterface
 
 ## Type Info

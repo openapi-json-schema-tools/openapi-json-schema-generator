@@ -1,6 +1,4 @@
 petstore_api.components.schema.composed_any_of_different_types_no_validations
-[]
-
 # ComposedAnyOfDifferentTypesNoValidations
 
 ## Type Info
@@ -29,90 +27,70 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_14](#anyOf_14) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 [_15](#anyOf_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="anyOf_0"></a>
-# _0
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785]
-<a id="anyOf_1"></a>
-# _1
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04]
-<a id="anyOf_2"></a>
-# _2
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083]
-<a id="anyOf_3"></a>
-# _3
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502]
-<a id="anyOf_4"></a>
-# _4
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981]
-<a id="anyOf_5"></a>
-# _5
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00]
-<a id="anyOf_6"></a>
-# _6
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f]
-<a id="anyOf_7"></a>
-# _7
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe]
-<a id="anyOf_8"></a>
-# _8
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d]
-<a id="anyOf_9"></a>
-# _9
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -124,54 +102,42 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457]
-<a id="anyOf_10"></a>
-# _10
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31658d6]
-<a id="anyOf_11"></a>
-# _11
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10 anyOf _11
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31658d6, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@316cd55]
-<a id="anyOf_12"></a>
-# _12
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10 anyOf _11 anyOf _12
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31658d6, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@316cd55, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31741d4]
-<a id="anyOf_13"></a>
-# _13
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10 anyOf _11 anyOf _12 anyOf _13
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  |
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31658d6, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@316cd55, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31741d4, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@317b653]
-<a id="anyOf_14"></a>
-# _14
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10 anyOf _11 anyOf _12 anyOf _13 anyOf _14
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-[anyOf, org.openapijsonschematools.codegen.model.CodegenKey@378306, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@386c04, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@38e083, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@395502, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@39c981, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3a3e00, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3ab27f, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b26fe, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3b9b7d, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@315e457, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31658d6, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@316cd55, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@31741d4, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@317b653, anyOf, org.openapijsonschematools.codegen.model.CodegenKey@3182ad2]
-<a id="anyOf_15"></a>
-# _15
+# ComposedAnyOfDifferentTypesNoValidations anyOf _0 anyOf _1 anyOf _2 anyOf _3 anyOf _4 anyOf _5 anyOf _6 anyOf _7 anyOf _8 anyOf _9 anyOf _10 anyOf _11 anyOf _12 anyOf _13 anyOf _14 anyOf _15
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,4 @@
 petstore_api.components.schema.gm_fruit
-[]
-
 # GmFruit
 
 ## Type Info

@@ -35,9 +35,7 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
 
 #### <a id="application_jsonschema" >content.application_json.schema</a>
-[]
-
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -50,18 +48,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
-[allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="allOf_0"></a>
-#### _0
+#### allOf _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 #### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
-[]
-
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -74,9 +68,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42]
-<a id="propertiessome_prop"></a>
-#### SomeProp
+#### properties SomeProp
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -87,11 +79,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
+[_0](#allOf_0) | str,  | str,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42, allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="propertiessome_propallOf_0"></a>
-#### _0
+#### properties SomeProp allOf _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -109,9 +99,7 @@ compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
 
 #### Parameter0
 ##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@36ce54d3schema" >Parameter0.schema</a>
-[]
-
-##### Schema
+##### 
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -124,9 +112,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
-[allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="allOf_0"></a>
-##### _0
+##### allOf _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -135,9 +121,7 @@ str,  | str,  |  |
 
 #### Parameter1
 ##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@36cec952schema" >Parameter1.schema</a>
-[]
-
-##### Schema
+##### 
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -150,9 +134,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42]
-<a id="propertiessome_prop"></a>
-##### SomeProp
+##### properties SomeProp
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -163,11 +145,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
+[_0](#allOf_0) | str,  | str,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42, allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="propertiessome_propallOf_0"></a>
-##### _0
+##### properties SomeProp allOf _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -196,9 +176,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-[]
-
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -211,9 +189,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#allOf_0) | str,  | str,  |  |
 
-[allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="allOf_0"></a>
-#### _0
+#### allOf _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -221,9 +197,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@6f9749facontentmultipart_form_dataschema" >ResponseFor200.content.multipart_form_data.schema</a>
-[]
-
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -236,9 +210,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **someProp** | [dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ](#propertiessome_prop) | [frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO](#propertiessome_prop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42]
-<a id="propertiessome_prop"></a>
-#### SomeProp
+#### properties SomeProp
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -249,11 +221,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#propertiessome_propallOf_0) | str,  | str,  |  |
+[_0](#allOf_0) | str,  | str,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@62defb42, allOf, org.openapijsonschematools.codegen.model.CodegenKey@378306]
-<a id="propertiessome_propallOf_0"></a>
-#### _0
+#### properties SomeProp allOf _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

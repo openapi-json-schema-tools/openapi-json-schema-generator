@@ -1,6 +1,4 @@
 petstore_api.components.schema.any_type_not_string
-[]
-
 # AnyTypeNotString
 
 ## Type Info
@@ -14,9 +12,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#_not) | str,  | str,  |  |
 
-[org.openapijsonschematools.codegen.model.CodegenKey@c7c105c3]
-<a id="_not"></a>
-# _Not
+# AnyTypeNotString _Not
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

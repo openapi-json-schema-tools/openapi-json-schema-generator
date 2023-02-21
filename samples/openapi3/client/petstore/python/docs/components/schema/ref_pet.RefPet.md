@@ -1,6 +1,4 @@
 petstore_api.components.schema.ref_pet
-[]
-
 # RefPet
 ## Type Info
 Ref Class | Input Type | Accessed Type | Description

@@ -1,6 +1,4 @@
 petstore_api.components.schema.equilateral_triangle
-[]
-
 # EquilateralTriangle
 
 ## Type Info
@@ -15,9 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
 [_1](#allOf_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[allOf, org.openapijsonschematools.codegen.model.CodegenKey@37f785]
-<a id="allOf_1"></a>
-# _1
+# EquilateralTriangle allOf _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

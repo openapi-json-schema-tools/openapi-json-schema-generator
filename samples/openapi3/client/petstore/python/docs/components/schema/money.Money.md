@@ -1,6 +1,4 @@
 petstore_api.components.schema.money
-[]
-
 # Money
 
 ## Type Info

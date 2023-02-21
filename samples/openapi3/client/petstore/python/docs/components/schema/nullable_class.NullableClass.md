@@ -1,6 +1,4 @@
 petstore_api.components.schema.nullable_class
-[]
-
 # NullableClass
 
 ## Type Info
@@ -25,9 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **object_items_nullable** | [dict, frozendict.frozendict, ](#propertiesobject_items_nullable) | [frozendict.frozendict, ](#propertiesobject_items_nullable) |  | [optional]
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917]
-<a id="propertiesarray_nullable_prop"></a>
-# ArrayNullableProp
+# NullableClass properties ArrayNullableProp
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -37,20 +33,16 @@ None, list, tuple,  | NoneClass, tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#propertiesarray_nullable_propitems) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0]
-<a id="propertiesarray_nullable_propitems"></a>
-# Items
+# NullableClass properties ArrayNullableProp Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae]
-<a id="propertiesarray_and_items_nullable_prop"></a>
-# ArrayAndItemsNullableProp
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -60,20 +52,16 @@ None, list, tuple,  | NoneClass, tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#propertiesarray_and_items_nullable_propitems) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
+[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0]
-<a id="propertiesarray_and_items_nullable_propitems"></a>
-# Items
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc]
-<a id="propertiesarray_items_nullable"></a>
-# ArrayItemsNullable
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -83,20 +71,16 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#propertiesarray_items_nullableitems) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
+[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0]
-<a id="propertiesarray_items_nullableitems"></a>
-# Items
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71]
-<a id="propertiesobject_nullable_prop"></a>
-# ObjectNullableProp
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -108,18 +92,14 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
-<a id="propertiesobject_nullable_propadditional_properties"></a>
-# AdditionalProperties
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@dc624908]
-<a id="propertiesobject_and_items_nullable_prop"></a>
-# ObjectAndItemsNullableProp
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties properties ObjectAndItemsNullableProp
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -131,18 +111,14 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@dc624908, org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
-<a id="propertiesobject_and_items_nullable_propadditional_properties"></a>
-# AdditionalProperties
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties properties ObjectAndItemsNullableProp AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@dc624908, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@2aa436b2]
-<a id="propertiesobject_items_nullable"></a>
-# ObjectItemsNullable
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties properties ObjectAndItemsNullableProp AdditionalProperties properties ObjectItemsNullable
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -154,18 +130,14 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@dc624908, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@2aa436b2, org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
-<a id="propertiesobject_items_nullableadditional_properties"></a>
-# AdditionalProperties
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties properties ObjectAndItemsNullableProp AdditionalProperties properties ObjectItemsNullable AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@2bdbe917, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@197d5dae, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@e2098dcc, org.openapijsonschematools.codegen.model.CodegenKey@4562cb0, properties, org.openapijsonschematools.codegen.model.CodegenKey@36758b71, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@dc624908, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, properties, org.openapijsonschematools.codegen.model.CodegenKey@2aa436b2, org.openapijsonschematools.codegen.model.CodegenKey@a477d385, org.openapijsonschematools.codegen.model.CodegenKey@a477d385]
-<a id="additional_properties"></a>
-# AdditionalProperties
+# NullableClass properties ArrayNullableProp Items properties ArrayAndItemsNullableProp Items properties ArrayItemsNullable Items properties ObjectNullableProp AdditionalProperties properties ObjectAndItemsNullableProp AdditionalProperties properties ObjectItemsNullable AdditionalProperties AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,6 +1,4 @@
 petstore_api.components.schema.array_of_number_only
-[]
-
 # ArrayOfNumberOnly
 
 ## Type Info
@@ -14,9 +12,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **ArrayNumber** | [list, tuple, ](#propertiesarray_number) | [tuple, ](#propertiesarray_number) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@1243df41]
-<a id="propertiesarray_number"></a>
-# ArrayNumber
+# ArrayOfNumberOnly properties ArrayNumber
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

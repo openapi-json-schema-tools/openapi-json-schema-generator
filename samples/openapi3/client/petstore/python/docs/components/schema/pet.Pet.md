@@ -1,6 +1,4 @@
 petstore_api.components.schema.pet
-[]
-
 # Pet
 
 ## Description
@@ -22,9 +20,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@f47477ff]
-<a id="propertiesphoto_urls"></a>
-# PhotoUrls
+# Pet properties PhotoUrls
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -36,9 +32,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-[properties, org.openapijsonschematools.codegen.model.CodegenKey@f47477ff, properties, org.openapijsonschematools.codegen.model.CodegenKey@aa90c517]
-<a id="propertiestags"></a>
-# Tags
+# Pet properties PhotoUrls properties Tags
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

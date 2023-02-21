@@ -28,9 +28,7 @@ headers | Unset | headers were not defined |
 ### <a id="response_defaultcontent" >content</a>
 
 #### <a id="response_defaultorg.openapijsonschematools.codegen.model.CodegenKey@294fd0edcontentapplication_jsonschema" >Default.content.application_json.schema</a>
-[]
-
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

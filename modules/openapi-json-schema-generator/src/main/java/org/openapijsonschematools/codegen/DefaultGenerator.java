@@ -396,8 +396,6 @@ public class DefaultGenerator implements Generator {
             String suffix = docExtension != null ? docExtension : config.modelDocTemplateFiles().get(templateName);
             String filename = config.modelDocFileFolder() + File.separator + config.toModelDocFilename(modelName) + suffix;
             modelData.put("headerSize", "#");
-            modelData.put("anchorId", "");
-            modelData.put("identifierPieces", new ArrayList<String>());
 
             File written = processTemplateToFile(modelData, templateName, filename, generateModelDocumentation, CodegenConstants.MODEL_DOCS);
             if (written != null) {
@@ -1167,6 +1165,9 @@ public class DefaultGenerator implements Generator {
                 generateModelTests(files, schemaData, componentName);
 
                 // to generate model documentation files
+                ArrayList<Object> identifierPieces = new ArrayList<>();
+                identifierPieces.add(schema.jsonPathPiece);
+                schemaData.put("identifierPieces", identifierPieces);
                 generateModelDocumentation(files, schemaData, componentName);
 
             } catch (Exception e) {

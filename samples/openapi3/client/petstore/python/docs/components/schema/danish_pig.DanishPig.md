@@ -1,6 +1,4 @@
 petstore_api.components.schema.danish_pig
-[]
-
 # DanishPig
 
 ## Type Info
