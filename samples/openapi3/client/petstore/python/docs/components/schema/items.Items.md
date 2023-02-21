@@ -1,12 +1,12 @@
 petstore_api.components.schema.items
 # Items
 ## Description
-component whose name collides with the inner schema name
+component&#x27;s name collides with the inner schema name
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | component whose name collides with the inner schema name |
+list, tuple,  | tuple,  | component&#x27;s name collides with the inner schema name |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes

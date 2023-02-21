@@ -31,7 +31,7 @@ class Items(
 
     Do not edit the class manually.
 
-    component whose name collides with the inner schema name
+    component's name collides with the inner schema name
     """
 
 

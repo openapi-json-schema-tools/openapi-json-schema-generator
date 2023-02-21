@@ -293,7 +293,7 @@ Class | Description
 [IntegerMax10](docs/components/schema/integer_max10.IntegerMax10.md) |
 [IntegerMin15](docs/components/schema/integer_min15.IntegerMin15.md) |
 [IsoscelesTriangle](docs/components/schema/isosceles_triangle.IsoscelesTriangle.md) |
-[Items](docs/components/schema/items.Items.md) | component whose name collides with the inner schema name
+[Items](docs/components/schema/items.Items.md) | component&#x27;s name collides with the inner schema name
 [JSONPatchRequest](docs/components/schema/json_patch_request.JSONPatchRequest.md) |
 [JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |
 [JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |
@@ -313,6 +313,7 @@ Class | Description
 [ObjectModelWithArgAndArgsProperties](docs/components/schema/object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties.md) |
 [ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp](docs/components/schema/object_with_all_of_with_req_test_prop_from_unset_add_prop.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.md) |
+[ObjectWithCollidingProperties](docs/components/schema/object_with_colliding_properties.ObjectWithCollidingProperties.md) | component with properties that have name collisions
 [ObjectWithDecimalProperties](docs/components/schema/object_with_decimal_properties.ObjectWithDecimalProperties.md) |
 [ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.ObjectWithDifficultlyNamedProps.md) | model with properties that have invalid names for python
 [ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.ObjectWithInlineCompositionProperty.md) |

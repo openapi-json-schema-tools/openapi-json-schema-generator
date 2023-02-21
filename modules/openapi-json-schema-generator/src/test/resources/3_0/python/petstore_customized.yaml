@@ -1782,10 +1782,18 @@ components:
       scheme: signature
   schemas:
     Items:
-      description: component whose name collides with the inner schema name
+      description: component's name collides with the inner schema name
       type: array
       items:
         type: object
+    ObjectWithCollidingProperties:
+      description: component with properties that have name collisions
+      type: object
+      properties:
+        someProp:
+          type: object
+        someprop:
+          type: object
     Foo:
       type: object
       properties:
