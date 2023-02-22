@@ -35,8 +35,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Header Details
 ### SomeHeader
 
-#### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475eheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
-#### Schema
+#### SomeHeader Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

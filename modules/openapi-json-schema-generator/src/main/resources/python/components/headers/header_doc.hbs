@@ -34,23 +34,22 @@ Ref Class | Input Type | Accessed Type | Description
     {{else}}
         {{#if schema}}
             {{#with schema}}
-                {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece }}
-                {{else}}
 
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../jsonPathPiece.snakeCase }}
+                {{#if ../componentModule}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../components/schema/" }}
+                {{else}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
                 {{/if}}
             {{/with}}
         {{else}}
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
+
                         {{#if ../componentModule}}
-
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../components/schema/" }}
                         {{else}}
-
-{{> components/_helper_schema_doc_with_ref schemaNamePrefix1=../../../../jsonPathPiece schemaNamePrefix2="headers" schemaNamePrefix3=../../jsonPathPiece.snakeCase schemaNamePrefix4="content" schemaNamePrefix5=../@key.snakeCase}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
                         {{/if}}
                     {{/with}}
                 {{/with}}

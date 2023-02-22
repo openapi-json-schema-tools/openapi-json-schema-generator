@@ -110,10 +110,9 @@ str,  | str,  |  |
 ##### Description
 calls per hour allowed by the user
 
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910headersheader_x_rate_limitcontentapplication_jsonschema" >ResponseFor200.headers.header_x_rate_limit.content.application_json.schema</a>
-#### Schema
+##### XRateLimit content ApplicationJson Schema
 
-##### Type Info
+###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
@@ -122,8 +121,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 ##### Description
 date in UTC when token expires
 
-##### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910headersheader_x_expires_afterschema" >ResponseFor200.headers.header_x_expires_after.schema</a>
-##### Schema
+##### XExpiresAfter Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
