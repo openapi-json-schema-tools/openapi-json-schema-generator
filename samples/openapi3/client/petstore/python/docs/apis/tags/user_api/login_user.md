@@ -105,7 +105,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### Header Details
-#### XRateLimit
+#### 
 
 ##### Description
 calls per hour allowed by the user
@@ -117,7 +117,7 @@ calls per hour allowed by the user
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
-#### XExpiresAfter
+#### 
 
 ##### Description
 date in UTC when token expires

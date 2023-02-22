@@ -1071,6 +1071,7 @@ public class DefaultGenerator implements Generator {
 
             generateHeader(files, header, sourceJsonPath);
 
+            // documentation
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
                 String templateName = headerDocInfo.getKey();
@@ -1083,6 +1084,9 @@ public class DefaultGenerator implements Generator {
                 templateData.put("headerSize", "#");
                 templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("docRoot", "../../");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
+
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);

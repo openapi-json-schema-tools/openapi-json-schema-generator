@@ -1,1 +1,1 @@
-{{#each identifierPieces}}{{#if this.anchorPiece}}{{this.anchorPiece}}{{else}}{{this}}{{/if}}{{#unless @last}}-{{/unless}}{{/each}}{{> components/schemas/_helper_identifier_suffix identifierSuffix=(getIdentifierSuffix identifierToHeadingQty identifierPieces) }}
+{{#each identifierPieces}}{{#if this.anchorPiece}}{{this.anchorPiece}}{{else}}{{this}}{{/if}}{{#unless @last}}-{{/unless}}{{/each}}{{#if includeSuffix}}{{> components/schemas/_helper_identifier_suffix identifierSuffix=(getIdentifierSuffix identifierToHeadingQty identifierPieces) }}{{/if}}
