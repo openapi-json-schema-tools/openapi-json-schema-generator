@@ -33,7 +33,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## Header Details
-### 
+### SomeHeader
 
 #### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475eheadersheader_some_headerschema" >SuccessInlineContentAndHeader.headers.header_some_header.schema</a>
 #### Schema

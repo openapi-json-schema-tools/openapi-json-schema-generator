@@ -82,7 +82,7 @@ Key | Accessed Type | Description  | Notes
 {{headerSize}}# Header Details
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") identifierPieces=(append (newArray ) jsonPathPiece) }}
             {{/unless}}
         {{/each}}
     {{/if}}
