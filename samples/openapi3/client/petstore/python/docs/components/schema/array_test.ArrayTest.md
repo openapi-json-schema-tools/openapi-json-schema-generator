@@ -8,9 +8,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**array_of_string** | [list, tuple, ](#arraytest-properties-arrayofstring) | [tuple, ](#arraytest-properties-arrayofstring) |  | [optional]
-**array_array_of_integer** | [list, tuple, ](#arraytest-properties-arrayarrayofinteger) | [tuple, ](#arraytest-properties-arrayarrayofinteger) |  | [optional]
-**array_array_of_model** | [list, tuple, ](#arraytest-properties-arrayarrayofmodel) | [tuple, ](#arraytest-properties-arrayarrayofmodel) |  | [optional]
+[**array_of_string**](#arraytest-properties-arrayofstring) | list, tuple,  | tuple,   | [optional]
+[**array_array_of_integer**](#arraytest-properties-arrayarrayofinteger) | list, tuple,  | tuple,   | [optional]
+[**array_array_of_model**](#arraytest-properties-arrayarrayofmodel) | list, tuple,  | tuple,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # ArrayTest properties ArrayOfString

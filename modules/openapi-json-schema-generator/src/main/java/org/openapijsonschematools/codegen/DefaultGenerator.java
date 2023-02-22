@@ -857,7 +857,8 @@ public class DefaultGenerator implements Generator {
         templateData.put("headerSize", "#");
         ArrayList<Object> identifierPieces = new ArrayList<>();
         identifierPieces.add(requestBody.jsonPathPiece);
-        templateData.put("identifierPieces", identifierPieces);
+        templateData.put("identifierPieces", Collections.unmodifiableList(identifierPieces));
+        templateData.put("identifierToHeadingQty", new HashMap<>());
         String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
         for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
             String templateName = entry.getKey();
@@ -1170,7 +1171,8 @@ public class DefaultGenerator implements Generator {
                 // to generate model documentation files
                 ArrayList<Object> identifierPieces = new ArrayList<>();
                 identifierPieces.add(schema.jsonPathPiece);
-                schemaData.put("identifierPieces", identifierPieces);
+                schemaData.put("identifierPieces", Collections.unmodifiableList(identifierPieces));
+                schemaData.put("identifierToHeadingQty", new HashMap<>());
                 generateModelDocumentation(files, schemaData, componentName);
 
             } catch (Exception e) {

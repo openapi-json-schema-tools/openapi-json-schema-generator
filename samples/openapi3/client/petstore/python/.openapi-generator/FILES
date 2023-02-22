@@ -1447,7 +1447,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_object_with_colliding_properties.py
 test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py
