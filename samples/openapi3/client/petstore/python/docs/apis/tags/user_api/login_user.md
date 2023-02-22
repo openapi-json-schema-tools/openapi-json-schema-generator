@@ -110,6 +110,11 @@ str,  | str,  |  |
 ##### Description
 calls per hour allowed by the user
 
+##### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#xratelimit-content-applicationjson-schema)
+
 ##### XRateLimit content ApplicationJson Schema
 
 ###### Type Info

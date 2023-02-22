@@ -4,6 +4,11 @@ petstore_api.components.headers.header_int32_json_content_type_header
 ## Description
 int32 JSON content-type header
 
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+
 ## content ApplicationJson Schema
 
 ### Type Info

@@ -23,6 +23,15 @@ Ref Class | Input Type | Accessed Type | Description
                 {{/with}}
             {{/if}}
             {{#each content}}
+                {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+                {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+            {{/each}}
+            {{#each content}}
                 {{#with this.schema}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) recordUsage=false }}
 Ref Class | Input Type | Accessed Type | Description
@@ -42,6 +51,15 @@ Ref Class | Input Type | Accessed Type | Description
                 {{/if}}
             {{/with}}
         {{else}}
+            {{#each content}}
+                {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+                {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+            {{/each}}
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
