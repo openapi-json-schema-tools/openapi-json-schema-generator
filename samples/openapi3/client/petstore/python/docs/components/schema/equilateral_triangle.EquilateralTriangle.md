@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
-[_1](#equilateraltriangle-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# EquilateralTriangle allof _1
+# allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

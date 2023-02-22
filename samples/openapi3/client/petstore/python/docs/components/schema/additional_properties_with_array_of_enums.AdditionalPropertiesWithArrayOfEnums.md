@@ -11,7 +11,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | list, tuple,  | tuple,  | any string name can be used but the value must be the correct type | [optional]
 
-# AdditionalPropertiesWithArrayOfEnums AdditionalProperties
+# AdditionalProperties
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **float32** | decimal.Decimal, int, float,  | decimal.Decimal,   | [optional] value must be a 32 bit float
 **double** | decimal.Decimal, int, float,  | decimal.Decimal,   | [optional] value must be a 64 bit float
 **float64** | decimal.Decimal, int, float,  | decimal.Decimal,   | [optional] value must be a 64 bit float
-[**arrayWithUniqueItems**](#formattest-properties-arraywithuniqueitems) | list, tuple,  | tuple,   | [optional]
+[**arrayWithUniqueItems**](#properties-arraywithuniqueitems) | list, tuple,  | tuple,   | [optional]
 **string** | str,  | str,   | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,   | [optional]
 **dateTime** | str, datetime.datetime,  | str,   | [optional] value must conform to RFC-3339 date-time
@@ -32,7 +32,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **noneProp** | None,  | NoneClass,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# FormatTest properties ArrayWithUniqueItems
+# properties ArrayWithUniqueItems
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

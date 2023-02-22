@@ -1,7 +1,11 @@
 {{#with requestBody}}
 {{#if componentModule}}
 {{packageName}}.components.request_bodies.{{componentModule}}
-{{> components/_helper_header_from_identifier_pieces }}
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{else}}
+{{> components/_helper_header_from_identifier_pieces recordUsage=false }}
+{{/eq}}
 {{/if}}
 {{#if description}}
 
@@ -22,7 +26,7 @@ Content-Type | Schema
 
         {{#each content}}
             {{#with this.schema}}
-{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) recordUsage=false }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}

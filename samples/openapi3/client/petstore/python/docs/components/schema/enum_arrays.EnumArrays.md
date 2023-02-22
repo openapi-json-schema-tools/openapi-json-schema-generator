@@ -10,10 +10,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **just_symbol** | str,  | str,   | [optional] must be one of [">=", "$", ]
-[**array_enum**](#enumarrays-properties-arrayenum) | list, tuple,  | tuple,   | [optional]
+[**array_enum**](#properties-arrayenum) | list, tuple,  | tuple,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# EnumArrays properties ArrayEnum
+# properties ArrayEnum
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

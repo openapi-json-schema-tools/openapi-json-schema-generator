@@ -2,9 +2,10 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{componentModule}}
 {{/if}}
-{{> components/_helper_header_from_identifier_pieces }}
-{{#eq identifierPieces.size 1}}
-{{> components/schemas/_helper_identifier_suffix identifierSuffix=(getIdentifierSuffix ../identifierToHeadingQty identifierPieces) }}
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{else}}
+{{> components/_helper_header_from_identifier_pieces recordUsage=false }}
 {{/eq}}
 {{#if description}}
 

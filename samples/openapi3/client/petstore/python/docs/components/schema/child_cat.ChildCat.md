@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ParentPet**](parent_pet.ParentPet.md) | [**ParentPet**](parent_pet.ParentPet.md) | [**ParentPet**](parent_pet.ParentPet.md) |  |
-[_1](#childcat-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# ChildCat allof _1
+# allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

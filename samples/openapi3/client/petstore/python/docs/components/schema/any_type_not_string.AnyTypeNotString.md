@@ -10,9 +10,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#anytypenotstring-_not) | str,  | str,  |  |
+[_not](#_not) | str,  | str,  |  |
 
-# AnyTypeNotString _Not
+# _Not
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

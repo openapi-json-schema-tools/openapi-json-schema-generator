@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) | [**QuadrilateralInterface**](quadrilateral_interface.QuadrilateralInterface.md) |  |
-[_1](#complexquadrilateral-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# ComplexQuadrilateral allof _1
+# allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

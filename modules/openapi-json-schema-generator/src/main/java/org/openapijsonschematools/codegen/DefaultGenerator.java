@@ -1167,9 +1167,7 @@ public class DefaultGenerator implements Generator {
                 generateModelTests(files, schemaData, componentName);
 
                 // to generate model documentation files
-                ArrayList<Object> identifierPieces = new ArrayList<>();
-                identifierPieces.add(schema.jsonPathPiece);
-                schemaData.put("identifierPieces", Collections.unmodifiableList(identifierPieces));
+                schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                 schemaData.put("identifierToHeadingQty", new HashMap<>());
                 generateModelDocumentation(files, schemaData, componentName);
 

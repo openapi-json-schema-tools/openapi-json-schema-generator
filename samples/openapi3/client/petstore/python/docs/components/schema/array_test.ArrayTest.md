@@ -9,12 +9,12 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-[**array_of_string**](#arraytest-properties-arrayofstring) | list, tuple,  | tuple,   | [optional]
-[**array_array_of_integer**](#arraytest-properties-arrayarrayofinteger) | list, tuple,  | tuple,   | [optional]
-[**array_array_of_model**](#arraytest-properties-arrayarrayofmodel) | list, tuple,  | tuple,   | [optional]
+[**array_of_string**](#properties-arrayofstring) | list, tuple,  | tuple,   | [optional]
+[**array_array_of_integer**](#properties-arrayarrayofinteger) | list, tuple,  | tuple,   | [optional]
+[**array_array_of_model**](#properties-arrayarrayofmodel) | list, tuple,  | tuple,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-# ArrayTest properties ArrayOfString
+# properties ArrayOfString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -26,7 +26,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  |
 
-# ArrayTest properties ArrayArrayOfInteger
+# properties ArrayArrayOfInteger
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -36,9 +36,9 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#arraytest-properties-arrayarrayofinteger-items) | list, tuple,  | tuple,  |  |
+[items](#properties-arrayarrayofinteger-items) | list, tuple,  | tuple,  |  |
 
-# ArrayTest properties ArrayArrayOfInteger Items
+# properties ArrayArrayOfInteger Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -50,7 +50,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# ArrayTest properties ArrayArrayOfModel
+# properties ArrayArrayOfModel
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -60,9 +60,9 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#arraytest-properties-arrayarrayofmodel-items) | list, tuple,  | tuple,  |  |
+[items](#properties-arrayarrayofmodel-items) | list, tuple,  | tuple,  |  |
 
-# ArrayTest properties ArrayArrayOfModel Items
+# properties ArrayArrayOfModel Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

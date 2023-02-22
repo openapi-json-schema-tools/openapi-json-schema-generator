@@ -15,34 +15,34 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) | [**NumberWithValidations**](number_with_validations.NumberWithValidations.md) |  |
 [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
-[_2](#composedoneofdifferenttypes-oneof-_2) | None,  | NoneClass,  |  |
-[_3](#composedoneofdifferenttypes-oneof-_3) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_4](#composedoneofdifferenttypes-oneof-_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[_5](#composedoneofdifferenttypes-oneof-_5) | list, tuple,  | tuple,  |  |
-[_6](#composedoneofdifferenttypes-oneof-_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[_2](#oneof-_2) | None,  | NoneClass,  |  |
+[_3](#oneof-_3) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_4](#oneof-_4) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_5](#oneof-_5) | list, tuple,  | tuple,  |  |
+[_6](#oneof-_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# ComposedOneOfDifferentTypes oneof _2
+# oneof _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# ComposedOneOfDifferentTypes oneof _3
+# oneof _3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# ComposedOneOfDifferentTypes oneof _4
+# oneof _4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# ComposedOneOfDifferentTypes oneof _5
+# oneof _5
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -54,7 +54,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
-# ComposedOneOfDifferentTypes oneof _6
+# oneof _6
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

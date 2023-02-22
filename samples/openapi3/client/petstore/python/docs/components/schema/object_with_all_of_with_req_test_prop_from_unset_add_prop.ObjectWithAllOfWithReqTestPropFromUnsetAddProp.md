@@ -11,9 +11,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |  |
-[_1](#objectwithallofwithreqtestpropfromunsetaddprop-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# ObjectWithAllOfWithReqTestPropFromUnsetAddProp allof _1
+# allof _1
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
