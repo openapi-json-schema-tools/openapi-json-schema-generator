@@ -26,10 +26,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#contentapplication_x_www_form_urlencodedschema)
+"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#)
 
-#### <a id="application_x_www_form_urlencodedschema" >content.application_x_www_form_urlencoded.schema</a>
 #### 
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

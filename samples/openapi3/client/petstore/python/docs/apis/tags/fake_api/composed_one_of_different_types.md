@@ -30,13 +30,14 @@ Input model
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ComposedOneOfDifferentTypes**](../../../components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[ComposedOneOfDifferentTypes](../../components/schemas/composed_one_of_different_types.ComposedOneOfDifferentTypes.md#composed_one_of_different_types) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |
 
 ## Return Types
 

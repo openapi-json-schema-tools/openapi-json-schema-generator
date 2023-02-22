@@ -1,5 +1,6 @@
 petstore_api.components.schema.string_boolean_map
 # StringBooleanMap
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 petstore_api.components.schema.object_with_validations
 # ObjectWithValidations
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

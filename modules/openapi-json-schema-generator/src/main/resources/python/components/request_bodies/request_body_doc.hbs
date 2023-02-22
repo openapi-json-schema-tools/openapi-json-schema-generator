@@ -37,15 +37,15 @@ Ref Class | Input Type | Accessed Type | Description
 Content-Type | Schema
 ------------ | -------
         {{/if}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#content{{@key.snakeCase}}{{this.schema.jsonPathPiece.snakeCase}})
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/schemas/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
     {{/each}}
 
     {{#each content}}
     {{#with this.schema}}
     {{#if ../componentModule}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1="content" schemaNamePrefix2=@key.snakeCase complexTypePrefix="../../components/schema/" }}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) complexTypePrefix="../../components/schema/" }}
     {{else}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1="content" schemaNamePrefix2=@key.snakeCase complexTypePrefix="../../../components/schema/" }}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
     {{/if}}
     {{/with}}
     {{/each}}

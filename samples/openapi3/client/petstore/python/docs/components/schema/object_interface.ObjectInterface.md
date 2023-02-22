@@ -1,5 +1,6 @@
 petstore_api.components.schema.object_interface
 # ObjectInterface
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

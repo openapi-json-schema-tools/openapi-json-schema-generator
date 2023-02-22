@@ -30,13 +30,14 @@ Input string as post body
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**String**](../../../components/schema/string.String.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[String](../../components/schemas/string.String.md#string) | str,  | str,  |
 
 ## Return Types
 

@@ -27,10 +27,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/octet-stream" | [content.application_octet_stream.Schema](#contentapplication_octet_streamschema)
+"application/octet-stream" | [content.application_octet_stream.Schema](#)
 
-#### <a id="application_octet_streamschema" >content.application_octet_stream.schema</a>
 #### 
+
 ##### Description
 file to upload
 
@@ -61,7 +61,8 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
-#### 
+#### Schema
+
 ##### Description
 file to download
 

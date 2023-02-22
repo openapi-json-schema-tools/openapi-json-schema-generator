@@ -1,5 +1,6 @@
 petstore_api.components.schema.grandparent_animal
 # GrandparentAnimal
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

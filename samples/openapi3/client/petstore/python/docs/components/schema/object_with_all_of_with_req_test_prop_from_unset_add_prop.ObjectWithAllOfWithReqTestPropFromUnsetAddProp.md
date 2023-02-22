@@ -1,5 +1,6 @@
 petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,6 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#objectwithallofwithreqtestpropfromunsetaddprop-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp allof _1
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

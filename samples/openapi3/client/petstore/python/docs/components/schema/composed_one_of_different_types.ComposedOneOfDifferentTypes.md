@@ -1,5 +1,6 @@
 petstore_api.components.schema.composed_one_of_different_types
 # ComposedOneOfDifferentTypes
+
 ## Description
 this is a model that allows payloads of type object or number
 
@@ -21,24 +22,28 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_6](#composedoneofdifferenttypes-oneof-_6) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 # ComposedOneOfDifferentTypes oneof _2
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
 # ComposedOneOfDifferentTypes oneof _3
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # ComposedOneOfDifferentTypes oneof _4
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # ComposedOneOfDifferentTypes oneof _5
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -50,6 +55,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 # ComposedOneOfDifferentTypes oneof _6
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

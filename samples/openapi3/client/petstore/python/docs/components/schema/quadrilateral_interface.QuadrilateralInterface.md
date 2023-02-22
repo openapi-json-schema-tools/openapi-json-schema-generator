@@ -1,5 +1,6 @@
 petstore_api.components.schema.quadrilateral_interface
 # QuadrilateralInterface
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

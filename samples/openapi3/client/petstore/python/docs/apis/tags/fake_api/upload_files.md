@@ -27,10 +27,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
+"multipart/form-data" | [content.multipart_form_data.Schema](#)
 
-#### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 #### 
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -39,10 +39,11 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-[**files**](#properties-files) | list, tuple,  | tuple,   | [optional]
+[**files**](#) | list, tuple,  | tuple,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### properties Files
+#### 
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -27,10 +27,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"multipart/form-data" | [content.multipart_form_data.Schema](#contentmultipart_form_dataschema)
+"multipart/form-data" | [content.multipart_form_data.Schema](#)
 
-#### <a id="multipart_form_dataschema" >content.multipart_form_data.schema</a>
 #### 
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

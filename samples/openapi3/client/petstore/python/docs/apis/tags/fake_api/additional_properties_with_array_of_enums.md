@@ -30,13 +30,14 @@ Input enum
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**AdditionalPropertiesWithArrayOfEnums**](../../../components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[AdditionalPropertiesWithArrayOfEnums](../../components/schemas/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md#additional_properties_with_array_of_enums) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

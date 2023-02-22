@@ -1,5 +1,6 @@
 petstore_api.components.schema.danish_pig
 # DanishPig
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

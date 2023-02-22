@@ -1,5 +1,6 @@
 petstore_api.components.schema.decimal_payload
 # DecimalPayload
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

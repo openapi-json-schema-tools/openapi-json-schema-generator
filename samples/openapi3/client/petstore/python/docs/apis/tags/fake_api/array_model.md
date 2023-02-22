@@ -30,13 +30,14 @@ Input model
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**AnimalFarm**](../../../components/schema/animal_farm.AnimalFarm.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[AnimalFarm](../../components/schemas/animal_farm.AnimalFarm.md#animal_farm) | list, tuple,  | tuple,  |
 
 ## Return Types
 

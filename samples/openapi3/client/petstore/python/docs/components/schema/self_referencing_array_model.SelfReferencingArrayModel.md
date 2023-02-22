@@ -1,5 +1,6 @@
 petstore_api.components.schema.self_referencing_array_model
 # SelfReferencingArrayModel
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -30,13 +30,14 @@ Input number as post body
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**NumberWithValidations**](../../../components/schema/number_with_validations.NumberWithValidations.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[NumberWithValidations](../../components/schemas/number_with_validations.NumberWithValidations.md#number_with_validations) | decimal.Decimal, int, float,  | decimal.Decimal,  |
 
 ## Return Types
 

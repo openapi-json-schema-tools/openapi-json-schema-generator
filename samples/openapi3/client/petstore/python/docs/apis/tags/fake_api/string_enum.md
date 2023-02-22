@@ -30,13 +30,14 @@ Input enum
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**StringEnum**](../../../components/schema/string_enum.StringEnum.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[StringEnum](../../components/schemas/string_enum.StringEnum.md#string_enum) | None, str,  | NoneClass, str,  |
 
 ## Return Types
 

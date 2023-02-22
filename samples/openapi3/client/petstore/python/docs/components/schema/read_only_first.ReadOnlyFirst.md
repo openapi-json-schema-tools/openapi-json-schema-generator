@@ -1,5 +1,6 @@
 petstore_api.components.schema.read_only_first
 # ReadOnlyFirst
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

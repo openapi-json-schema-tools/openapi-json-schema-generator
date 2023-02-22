@@ -1,5 +1,6 @@
 petstore_api.components.schema.complex_quadrilateral
 # ComplexQuadrilateral
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,6 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#complexquadrilateral-allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # ComplexQuadrilateral allof _1
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

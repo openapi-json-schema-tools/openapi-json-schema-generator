@@ -1,5 +1,6 @@
 petstore_api.components.schema.integer_enum_one_value
 # IntegerEnumOneValue
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -27,10 +27,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#contentapplication_json_charsetutf8schema)
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#)
 
-#### <a id="application_json_charsetutf8schema" >content.application_json_charsetutf8.schema</a>
 #### 
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -58,7 +58,8 @@ headers | Unset | headers were not defined |
 ### <a id="response_200content" >content</a>
 
 #### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_json_charsetutf8schema" >ResponseFor200.content.application_json_charsetutf8.schema</a>
-#### 
+#### Schema
+
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

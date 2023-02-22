@@ -30,13 +30,14 @@ Input model
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.ObjectModelWithRefProps.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

@@ -1,5 +1,6 @@
 petstore_api.components.schema.gm_fruit
 # GmFruit
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

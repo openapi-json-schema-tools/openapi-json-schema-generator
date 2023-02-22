@@ -1,5 +1,6 @@
 petstore_api.components.schema.parent_pet
 # ParentPet
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

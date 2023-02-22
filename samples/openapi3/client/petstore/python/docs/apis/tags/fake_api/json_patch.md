@@ -30,13 +30,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json-patch+json" | [content.application_json_patchjson.Schema](#contentapplication_json_patchjsonschema)
+"application/json-patch+json" | [content.application_json_patchjson.Schema](#)
 
-#### <a id="application_json_patchjsonschema" >content.application_json_patchjson.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**JSONPatchRequest**](../../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[JSONPatchRequest](../../components/schemas/json_patch_request.JSONPatchRequest.md#json_patch_request) | list, tuple,  | tuple,  |
 
 ## Return Types
 

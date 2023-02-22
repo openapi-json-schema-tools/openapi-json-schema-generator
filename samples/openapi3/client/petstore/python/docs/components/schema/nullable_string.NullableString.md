@@ -1,5 +1,6 @@
 petstore_api.components.schema.nullable_string
 # NullableString
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

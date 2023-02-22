@@ -1,5 +1,6 @@
 petstore_api.components.schema.uuid_string
 # UUIDString
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

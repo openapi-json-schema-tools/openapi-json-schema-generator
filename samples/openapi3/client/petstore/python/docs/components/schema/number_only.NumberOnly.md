@@ -1,5 +1,6 @@
 petstore_api.components.schema.number_only
 # NumberOnly
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

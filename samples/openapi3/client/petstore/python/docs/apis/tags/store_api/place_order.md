@@ -30,13 +30,14 @@ order placed for purchasing the pet
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Order**](../../../components/schema/order.Order.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

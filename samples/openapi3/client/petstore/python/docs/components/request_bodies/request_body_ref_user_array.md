@@ -1,5 +1,6 @@
 petstore_api.components.request_bodies.request_body_ref_user_array
 # RefUserArray
+
 ## Content Type To Schema
 Content-Type | Schema
 ------------ | -------

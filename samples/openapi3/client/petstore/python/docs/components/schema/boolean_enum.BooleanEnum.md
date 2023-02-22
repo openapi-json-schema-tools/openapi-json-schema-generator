@@ -1,5 +1,6 @@
 petstore_api.components.schema.boolean_enum
 # BooleanEnum
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

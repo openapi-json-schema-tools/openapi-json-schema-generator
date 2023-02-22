@@ -1,5 +1,6 @@
 petstore_api.components.schema.drawing
 # Drawing
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -15,6 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
 # Drawing properties Shapes
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

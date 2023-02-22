@@ -1,5 +1,6 @@
 petstore_api.components.schema.object_with_inline_composition_property
 # ObjectWithInlineCompositionProperty
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,6 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # ObjectWithInlineCompositionProperty properties SomeProp
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -24,6 +26,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#objectwithinlinecompositionproperty-properties-someprop-allof-_0) | str,  | str,  |  |
 
 # ObjectWithInlineCompositionProperty properties SomeProp allof _0
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

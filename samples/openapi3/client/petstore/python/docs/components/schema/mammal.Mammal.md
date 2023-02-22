@@ -1,5 +1,6 @@
 petstore_api.components.schema.mammal
 # Mammal
+
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

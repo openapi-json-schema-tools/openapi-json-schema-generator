@@ -26,13 +26,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#contentapplication_jsonschema)
+"application/json" | [content.application_json.Schema](#)
 
-#### <a id="application_jsonschema" >content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**FileSchemaTestClass**](../../../components/schema/file_schema_test_class.FileSchemaTestClass.md) |  | 
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[FileSchemaTestClass](../../components/schemas/file_schema_test_class.FileSchemaTestClass.md#file_schema_test_class) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 
