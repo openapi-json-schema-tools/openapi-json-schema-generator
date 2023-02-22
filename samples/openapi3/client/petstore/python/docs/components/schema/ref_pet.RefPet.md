@@ -1,5 +1,6 @@
 petstore_api.components.schema.ref_pet
-# RefPet## Type Info
+# RefPet
+## Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Pet](../../components/schemas/pet.Pet.md#pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |

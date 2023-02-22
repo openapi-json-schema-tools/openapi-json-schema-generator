@@ -11,14 +11,13 @@
 {{headerSize}}# Description
 {{description}}
 {{/if}}
-{{#if refInfo}}
+
 {{headerSize}}# Type Info
+{{#if refInfo}}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.{{refInfo.refClass}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
 {{else}}
-
-{{headerSize}}# Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg }}
