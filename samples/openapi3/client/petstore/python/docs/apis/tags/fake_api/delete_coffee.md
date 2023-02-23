@@ -51,7 +51,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected error
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
-## <a id="response_default" >Default</a>
+## 
 
 ### <a id="response_defaultdescription" >Description</a>
 Unexpected error

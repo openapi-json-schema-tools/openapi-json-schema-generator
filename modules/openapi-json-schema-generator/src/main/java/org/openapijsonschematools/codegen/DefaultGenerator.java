@@ -802,6 +802,8 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("headerSize", "#");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
                 templateData.put("response", response);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);

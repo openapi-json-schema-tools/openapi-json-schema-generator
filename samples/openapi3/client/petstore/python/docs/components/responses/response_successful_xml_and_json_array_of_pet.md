@@ -1,5 +1,5 @@
 petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
-# <a id="response_successful_xml_and_json_array_of_pet" >SuccessfulXmlAndJsonArrayOfPet</a>
+# SuccessfulXmlAndJsonArrayOfPet
 
 ## <a id="response_successful_xml_and_json_array_of_petdescription" >Description</a>
 successful operation, multiple content types
@@ -8,13 +8,16 @@ successful operation, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_successful_xml_and_json_array_of_petcontent) | typing.Union[[content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
+[body](#content) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
+## content
 
-## <a id="response_successful_xml_and_json_array_of_petcontent" >content</a>
-
-### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@f699727econtentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
-### Schema
+### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+### content ApplicationXml Schema
 
 #### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -25,9 +28,7 @@ list, tuple,  | tuple,  |  |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  |
-
-### <a id="response_successful_xml_and_json_array_of_petorg.openapijsonschematools.codegen.model.CodegenKey@f699727econtentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
-### Schema
+### content ApplicationJson Schema
 
 #### Type Info
 Input Type | Accessed Type | Description | Notes

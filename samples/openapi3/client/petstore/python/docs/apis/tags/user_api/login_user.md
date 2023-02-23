@@ -62,7 +62,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username/password supplied
 
-## <a id="response_200" >ResponseFor200</a>
+## 
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -71,33 +71,34 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[content.application_xml.schema](#response_200contentapplication_xmlschema), [content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-[headers](#response_200headers) | [Headers](#response_200headers) |  |
+[body](#content) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
+[headers](#headers) | [Headers](#headers) |  |
 
-### <a id="response_200headers" >Headers</a>
+### Headers
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#header_ref_schema_headerschema) | | 
-X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#response_200headersheader_x_rate_limitcontentapplication_jsonschema) | | 
-int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#header_int32_json_content_type_headercontentapplication_jsonschema) | | 
-X-Expires-After | [headers.header_x_expires_after.schema](#response_200headersheader_x_expires_afterschema) | | optional
-ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#header_ref_content_schema_headercontentapplication_jsonschema) | | 
-stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#header_ref_string_headerschema) | | 
-numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#header_number_headerschema) | | optional
+ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
+X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#) | | 
+int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
+X-Expires-After | [headers.header_x_expires_after.schema](#) | | optional
+ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
+stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
+numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
+### content
 
-### <a id="response_200content" >content</a>
-
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
-#### Schema
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/xml" | [content.application_xml.Schema](#)
+"application/json" | [content.application_json.Schema](#)
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-#### Schema
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -133,7 +134,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-## <a id="response_400" >ResponseFor400</a>
+## 
 
 ### <a id="response_400description" >Description</a>
 Invalid username/password supplied

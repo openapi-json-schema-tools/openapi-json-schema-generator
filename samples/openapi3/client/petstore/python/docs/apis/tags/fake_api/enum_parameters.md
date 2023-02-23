@@ -173,7 +173,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Not found
 
-## <a id="response_404" >ResponseFor404</a>
+## 
 
 ### <a id="response_404description" >Description</a>
 Not found
@@ -182,13 +182,15 @@ Not found
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_404content) | typing.Union[[content.application_json.schema](#response_404contentapplication_jsonschema), ] |  |
+[body](#content) | typing.Union[[content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
+### content
 
-### <a id="response_404content" >content</a>
-
-#### <a id="response_404org.openapijsonschematools.codegen.model.CodegenKey@13602c5ccontentapplication_jsonschema" >ResponseFor404.content.application_json.schema</a>
-#### Schema
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#)
+#### 
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

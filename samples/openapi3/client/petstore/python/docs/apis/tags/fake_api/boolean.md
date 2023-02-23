@@ -46,7 +46,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | Output boolean
 
-## <a id="response_200" >ResponseFor200</a>
+## 
 
 ### <a id="response_200description" >Description</a>
 Output boolean
@@ -55,16 +55,20 @@ Output boolean
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[body](#content) | typing.Union[[content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
+### content
 
-### <a id="response_200content" >content</a>
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#)
+#### 
 
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Boolean**](../../../components/schema/boolean.Boolean.md) |  | 
-
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[Boolean](../../components/schemas/boolean.Boolean.md#boolean) | bool,  | BoolClass,  |
 
 ## Code Sample
 

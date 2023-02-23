@@ -46,7 +46,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | Output model
 
-## <a id="response_200" >ResponseFor200</a>
+## 
 
 ### <a id="response_200description" >Description</a>
 Output model
@@ -55,16 +55,20 @@ Output model
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[body](#content) | typing.Union[[content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
+### content
 
-### <a id="response_200content" >content</a>
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#)
+#### 
 
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**ObjectModelWithRefProps**](../../../components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) |  | 
-
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.ObjectModelWithRefProps.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

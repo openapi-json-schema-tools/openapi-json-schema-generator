@@ -37,7 +37,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-## <a id="response_200" >ResponseFor200</a>
+## 
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -46,24 +46,29 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[content.application_xml.schema](#response_200contentapplication_xmlschema), [content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
+[body](#content) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
+### content
 
-### <a id="response_200content" >content</a>
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/xml" | [content.application_xml.Schema](#)
+"application/json" | [content.application_json.Schema](#)
+#### 
 
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_xmlschema" >ResponseFor200.content.application_xml.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**User**](../../../components/schema/user.User.md) |  | 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+#### 
 
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**User**](../../../components/schema/user.User.md) |  | 
-
-
-## <a id="response_400" >ResponseFor400</a>
+## 
 
 ### <a id="response_400description" >Description</a>
 Invalid username supplied
@@ -75,7 +80,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## <a id="response_404" >ResponseFor404</a>
+## 
 
 ### <a id="response_404description" >Description</a>
 User not found

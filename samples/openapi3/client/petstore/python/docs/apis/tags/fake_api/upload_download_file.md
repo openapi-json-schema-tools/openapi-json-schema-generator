@@ -46,7 +46,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-## <a id="response_200" >ResponseFor200</a>
+## 
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -55,13 +55,15 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_200content) | typing.Union[[content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
+[body](#content) | typing.Union[[content.application_octet_stream.schema](#), ] |  |
 headers | Unset | headers were not defined |
+### content
 
-### <a id="response_200content" >content</a>
-
-#### <a id="response_200org.openapijsonschematools.codegen.model.CodegenKey@a93e2910contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
-#### Schema
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/octet-stream" | [content.application_octet_stream.Schema](#)
+#### 
 
 ##### Description
 file to download

@@ -41,6 +41,18 @@ public class CodegenResponse {
         this.componentModule = componentModule;
     }
 
+    public boolean hasInlineHeader() {
+        if (headers == null) {
+            return false;
+        }
+        for (CodegenHeader header: headers.values()) {
+            if (header.refInfo == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(jsonPathPiece, description,

@@ -49,7 +49,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
 
-## <a id="response_default" >Default</a>
+## 
 
 ### <a id="response_defaultdescription" >Description</a>
 successful operation

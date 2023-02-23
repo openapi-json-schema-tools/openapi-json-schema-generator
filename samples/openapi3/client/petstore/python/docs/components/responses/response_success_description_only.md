@@ -1,5 +1,5 @@
 petstore_api.components.responses.response_success_description_only
-# <a id="response_success_description_only" >SuccessDescriptionOnly</a>
+# SuccessDescriptionOnly
 
 ## <a id="response_success_description_onlydescription" >Description</a>
 Success

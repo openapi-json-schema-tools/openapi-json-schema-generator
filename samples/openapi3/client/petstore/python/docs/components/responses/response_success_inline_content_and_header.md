@@ -1,5 +1,5 @@
 petstore_api.components.responses.response_success_inline_content_and_header
-# <a id="response_success_inline_content_and_header" >SuccessInlineContentAndHeader</a>
+# SuccessInlineContentAndHeader
 
 ## <a id="response_success_inline_content_and_headerdescription" >Description</a>
 successful operation
@@ -8,19 +8,21 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#response_success_inline_content_and_headercontent) | typing.Union[[content.application_json.schema](#response_success_inline_content_and_headercontentapplication_jsonschema), ] |  |
-[headers](#response_success_inline_content_and_headerheaders) | [Headers](#response_success_inline_content_and_headerheaders) |  |
+[body](#content) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
+[headers](#headers) | [Headers](#headers) |  |
 
-## <a id="response_success_inline_content_and_headerheaders" >Headers</a>
+## Headers
 
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [headers.header_some_header.schema](#response_success_inline_content_and_headerheadersheader_some_headerschema) | | optional
+someHeader | [headers.header_some_header.schema](#someheader-schema) | | optional
+## content
 
-## <a id="response_success_inline_content_and_headercontent" >content</a>
-
-### <a id="response_success_inline_content_and_headerorg.openapijsonschematools.codegen.model.CodegenKey@41f6475econtentapplication_jsonschema" >SuccessInlineContentAndHeader.content.application_json.schema</a>
-### Schema
+### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+### content ApplicationJson Schema
 
 #### Type Info
 Input Type | Accessed Type | Description | Notes
