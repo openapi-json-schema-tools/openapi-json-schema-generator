@@ -23,7 +23,7 @@ body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.
 headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-{{#if content}}[body](#content){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=true }}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
+{{#if content}}[body](#body){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=true }}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 {{#if headers}}[headers](#headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if headers}}
 
@@ -68,7 +68,7 @@ Key | Accessed Type | Description  | Notes
         {{/each}}
     {{/if}}
     {{#if content}}
-{{headerSize}}# content
+{{headerSize}}# body
         {{#each content}}
             {{#if @first}}
 

@@ -26,9 +26,9 @@ contents without schema definition, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#content) | typing.Union[Unset, Unset, ] |  |
+[body](#body) | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
-### content
+### body
 
 #### Content Type To Schema
 Content-Type | Schema

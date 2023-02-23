@@ -71,7 +71,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#content) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
 [headers](#headers) | [Headers](#headers) |  |
 
 ### Headers
@@ -85,7 +85,7 @@ X-Expires-After | [headers.header_x_expires_after.schema](#) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
-### content
+### body
 
 #### Content Type To Schema
 Content-Type | Schema

@@ -168,9 +168,9 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#content) | typing.Union[[content.application_json.schema](#), [content.multipart_form_data.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#), [content.multipart_form_data.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### content
+### body
 
 #### Content Type To Schema
 Content-Type | Schema

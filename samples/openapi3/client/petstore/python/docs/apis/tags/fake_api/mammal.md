@@ -55,9 +55,9 @@ Output mammal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#content) | typing.Union[[content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### content
+### body
 
 #### Content Type To Schema
 Content-Type | Schema
