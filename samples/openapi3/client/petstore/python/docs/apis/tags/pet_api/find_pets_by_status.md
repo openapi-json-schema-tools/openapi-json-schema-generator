@@ -38,7 +38,7 @@ status | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 Status values that need to be considered for filter
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -59,7 +59,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid status value

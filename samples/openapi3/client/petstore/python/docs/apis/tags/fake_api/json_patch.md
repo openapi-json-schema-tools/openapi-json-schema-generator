@@ -30,9 +30,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json-patch+json" | [content.application_json_patchjson.Schema](#)
+"application/json-patch+json" | [content.application_json_patchjson.Schema](#content-applicationjsonpatchjson-schema)
 
-#### 
+#### content ApplicationJsonPatchjson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description

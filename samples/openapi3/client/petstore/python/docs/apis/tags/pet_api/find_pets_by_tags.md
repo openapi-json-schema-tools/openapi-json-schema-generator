@@ -37,7 +37,7 @@ tags | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 Tags to filter by
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -58,7 +58,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid tag value
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid tag value

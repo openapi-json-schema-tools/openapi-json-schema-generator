@@ -3,10 +3,12 @@ petstore_api.components.parameters.parameter_ref_schema_string_with_validation
 
 ## Description
 a path string with validation
-## <a id="parameter_ref_schema_string_with_validationorg.openapijsonschematools.codegen.model.CodegenKey@a84ae5f4schema" >RefSchemaStringWithValidation.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 
 
+## Schema
+
+### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[StringWithValidation](../../components/schemas/string_with_validation.StringWithValidation.md#string_with_validation) | str,  | str,  |
 
 [[Back to top]](#top) [[Back to Component Parameters]](../../../README.md#Component-Parameters) [[Back to README]](../../../README.md)

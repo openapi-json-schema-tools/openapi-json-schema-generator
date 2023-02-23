@@ -33,8 +33,12 @@ someParam | [Parameter0.content.application_json.schema](#parameter_0contentappl
 
 ##### Description
 The internal object id
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734contentapplication_jsonschema" >Parameter0.content.application_json.schema</a>
-##### Schema
+
+##### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+##### content ApplicationJson Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -48,7 +52,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 success
@@ -57,16 +61,16 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Body Details
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

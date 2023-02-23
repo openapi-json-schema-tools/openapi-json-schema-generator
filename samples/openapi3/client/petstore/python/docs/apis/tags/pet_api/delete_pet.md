@@ -30,7 +30,7 @@ Key | Input Type | Description  | Notes
 api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
 #### Parameter0
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -49,7 +49,7 @@ petId | [Parameter1.schema](#parameter_1schema) | |
 
 ##### Description
 Pet id to delete
-##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@be622296schema" >Parameter1.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -64,7 +64,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid pet value
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid pet value

@@ -27,9 +27,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"multipart/form-data" | [content.multipart_form_data.Schema](#)
+"multipart/form-data" | [content.multipart_form_data.Schema](#content-multipartformdata-schema)
 
-#### 
+#### content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -39,10 +39,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-[**files**](#) | list, tuple,  | tuple,   | [optional]
+[**files**](#content-multipartformdata-schema-properties-files) | list, tuple,  | tuple,   | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### 
+#### content MultipartFormData Schema properties Files
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -61,7 +61,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -70,16 +70,16 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Body Details
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description

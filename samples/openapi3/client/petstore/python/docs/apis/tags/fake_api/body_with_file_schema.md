@@ -26,9 +26,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description

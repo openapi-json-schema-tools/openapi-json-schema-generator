@@ -29,9 +29,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"multipart/form-data" | [content.multipart_form_data.Schema](#)
+"multipart/form-data" | [content.multipart_form_data.Schema](#content-multipartformdata-schema)
 
-#### 
+#### content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -56,7 +56,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 ID of pet to update
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -71,7 +71,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -80,16 +80,16 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Body Details
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description

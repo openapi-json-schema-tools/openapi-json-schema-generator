@@ -573,6 +573,7 @@ public class DefaultGenerator implements Generator {
 
                     }
                 }
+                // operation docs
                 for (String templateFile: config.pathEndpointDocTemplateFiles()) {
                     for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
                         CodegenTag tag = entry.getValue();
@@ -583,6 +584,9 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
+                        endpointInfo.put("headerSize", "#");
+                        endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                        endpointInfo.put("identifierToHeadingQty", new HashMap<>());
                         outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCase + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                     }
@@ -969,6 +973,8 @@ public class DefaultGenerator implements Generator {
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
                 templateData.put("headerSize", "#");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
                 templateData.put("complexTypePrefix", "../../components/schema/");
 
                 try {

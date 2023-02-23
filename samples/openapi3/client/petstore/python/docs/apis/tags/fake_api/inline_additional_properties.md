@@ -29,9 +29,9 @@ request body
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

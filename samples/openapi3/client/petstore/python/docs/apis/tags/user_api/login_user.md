@@ -34,7 +34,7 @@ password | [Parameter1.schema](#parameter_1schema) | |
 
 ##### Description
 The user name for login
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -46,7 +46,7 @@ str,  | str,  |  |
 
 ##### Description
 The password for login in clear text
-##### <a id="parameter_1org.openapijsonschematools.codegen.model.CodegenKey@be622296schema" >Parameter1.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -62,7 +62,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username/password supplied
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -71,34 +71,34 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 [headers](#headers) | [Headers](#headers) |  |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#)
-"application/json" | [content.application_json.Schema](#)
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Headers
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#) | | 
+X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#xratelimit-content-applicationjson-schema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
-X-Expires-After | [headers.header_x_expires_after.schema](#) | | optional
+X-Expires-After | [headers.header_x_expires_after.schema](#xexpiresafter-schema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
 ### Body Details
-#### 
+#### content ApplicationXml Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -134,7 +134,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid username/password supplied

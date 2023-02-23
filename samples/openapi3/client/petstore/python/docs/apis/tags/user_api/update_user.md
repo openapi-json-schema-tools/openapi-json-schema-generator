@@ -34,9 +34,9 @@ Updated user object
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
@@ -58,7 +58,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid user supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid user supplied
@@ -70,7 +70,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## 
+## ResponseFor404
 
 ### <a id="response_404description" >Description</a>
 User not found

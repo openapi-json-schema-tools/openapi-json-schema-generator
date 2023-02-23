@@ -27,9 +27,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#)
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#content-applicationjsoncharsetutf8-schema)
 
-#### 
+#### content ApplicationJsonCharsetutf8 Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -43,7 +43,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 success
@@ -52,16 +52,16 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#content-applicationjsoncharsetutf8-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#)
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#content-applicationjsoncharsetutf8-schema)
 
 ### Body Details
-#### 
+#### content ApplicationJsonCharsetutf8 Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

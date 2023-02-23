@@ -29,9 +29,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"multipart/form-data" | [content.multipart_form_data.Schema](#)
+"multipart/form-data" | [content.multipart_form_data.Schema](#content-multipartformdata-schema)
 
-#### 
+#### content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -56,7 +56,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 ID of pet to update
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info

@@ -30,9 +30,9 @@ order placed for purchasing the pet
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
@@ -47,7 +47,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid Order
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -56,30 +56,30 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#)
-"application/json" | [content.application_json.Schema](#)
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Body Details
-#### 
+#### content ApplicationXml Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid Order

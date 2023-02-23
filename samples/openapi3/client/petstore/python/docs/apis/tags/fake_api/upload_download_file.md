@@ -27,9 +27,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/octet-stream" | [content.application_octet_stream.Schema](#)
+"application/octet-stream" | [content.application_octet_stream.Schema](#content-applicationoctetstream-schema)
 
-#### 
+#### content ApplicationOctetStream Schema
 
 ##### Description
 file to upload
@@ -46,7 +46,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -55,16 +55,16 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_octet_stream.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_octet_stream.schema](#content-applicationoctetstream-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/octet-stream" | [content.application_octet_stream.Schema](#)
+"application/octet-stream" | [content.application_octet_stream.Schema](#content-applicationoctetstream-schema)
 
 ### Body Details
-#### 
+#### content ApplicationOctetStream Schema
 
 ##### Description
 file to download

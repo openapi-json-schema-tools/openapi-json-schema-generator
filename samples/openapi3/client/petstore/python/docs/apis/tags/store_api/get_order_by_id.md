@@ -36,7 +36,7 @@ order_id | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 ID of pet that needs to be fetched
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -53,7 +53,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid ID supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Order not found
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 successful operation
@@ -62,30 +62,30 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#)
-"application/json" | [content.application_json.Schema](#)
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ### Body Details
-#### 
+#### content ApplicationXml Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
-#### 
+#### content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## 
+## ResponseFor400
 
 ### <a id="response_400description" >Description</a>
 Invalid ID supplied
@@ -97,7 +97,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## 
+## ResponseFor404
 
 ### <a id="response_404description" >Description</a>
 Order not found

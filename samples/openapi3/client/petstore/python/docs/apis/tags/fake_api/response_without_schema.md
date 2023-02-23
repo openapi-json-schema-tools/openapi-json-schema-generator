@@ -17,7 +17,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | contents without schema definition, multiple content types
 
-## 
+## ResponseFor200
 
 ### <a id="response_200description" >Description</a>
 contents without schema definition, multiple content types
@@ -32,8 +32,8 @@ headers | Unset | headers were not defined |
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.](#)
-"application/xml" | [content.application_xml.](#)
+"application/json" | [content.application_json.](#content-applicationjson-)
+"application/xml" | [content.application_xml.](#content-applicationxml-)
 
 ### Body Details
 

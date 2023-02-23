@@ -2,7 +2,11 @@
 {{#if componentModule}}
 {{../packageName}}.components.parameters.{{componentModule}}
 {{/if}}
-{{headerSize}} {{jsonPathPiece.camelCase}}
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{else}}
+{{> components/_helper_header_from_identifier_pieces recordUsage=false }}
+{{/eq}}
 {{#if description}}
 
 {{headerSize}}# Description
@@ -12,18 +16,27 @@
     {{#with getDeepestRef}}
         {{#if schema}}
             {{#with schema}}
-{{../../../headerSize}} {{> components/_helper_anchor_fancy schemaNamePrefix1=../../jsonPathPiece }}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) jsonPathPiece) recordUsage=false }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../refInfo.refClass}}.schema](../../components/parameters/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
+[{{../../refInfo.refClass}}.schema](../../components/parameters/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) jsonPathPiece) includeSuffix=false }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
             {{/with}}
         {{else}}
             {{#each getDeepestRef.content}}
+                {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+                {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+            {{/each}}
+            {{#each getDeepestRef.content}}
                 {{#with this.schema}}
-{{../../../headerSize}} {{> components/_helper_anchor_fancy schemaNamePrefix1=../../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) recordUsage=false }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}schema) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) includeSuffix=false }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
                 {{/with}}
             {{/each}}
         {{/if}}
@@ -31,12 +44,30 @@ Ref Class | Input Type | Accessed Type | Description
 {{else}}
     {{#if schema}}
         {{#with schema}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../jsonPathPiece }}
+
+            {{#if ../componentModule}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../components/schema/" }}
+            {{else}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
+            {{/if}}
         {{/with}}
     {{else}}
         {{#each content}}
+            {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+            {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+        {{/each}}
+        {{#each content}}
             {{#with this.schema}}
-{{> components/_helper_schema_doc_with_ref headerSize=(join headerSize "#" "") schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
+                {{#if ../componentModule}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../components/schema/" }}
+                {{else}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
+                {{/if}}
             {{/with}}
         {{/each}}
     {{/if}}

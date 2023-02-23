@@ -28,9 +28,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#)
+"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#content-applicationxwwwformurlencoded-schema)
 
-#### 
+#### content ApplicationXWwwFormUrlencoded Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -55,7 +55,7 @@ petId | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 ID of pet that needs to be updated
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -70,7 +70,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
 
-## 
+## ResponseFor405
 
 ### <a id="response_405description" >Description</a>
 Invalid input

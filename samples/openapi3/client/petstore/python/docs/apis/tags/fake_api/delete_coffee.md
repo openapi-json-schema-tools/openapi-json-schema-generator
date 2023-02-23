@@ -35,7 +35,7 @@ id | [Parameter0.schema](#parameter_0schema) | |
 
 ##### Description
 The internal object id
-##### <a id="parameter_0org.openapijsonschematools.codegen.model.CodegenKey@be540734schema" >Parameter0.schema</a>
+
 ##### Schema
 
 ###### Type Info
@@ -51,7 +51,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected error
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
-## 
+## Default
 
 ### <a id="response_defaultdescription" >Description</a>
 Unexpected error
