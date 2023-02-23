@@ -10,13 +10,14 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
-## body
 
-### Content Type To Schema
+## Body
 Content-Type | Schema
 ------------ | -------
 "application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+
+## Body Details
 ### content ApplicationXml Schema
 
 #### Type Info

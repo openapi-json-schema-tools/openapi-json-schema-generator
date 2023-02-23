@@ -41,7 +41,7 @@ Ref Class | Input Type | Accessed Type | Description
 Content-Type | Schema
 ------------ | -------
         {{/if}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
     {{/each}}
 
     {{#each content}}

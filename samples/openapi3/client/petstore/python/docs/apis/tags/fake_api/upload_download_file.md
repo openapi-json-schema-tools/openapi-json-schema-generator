@@ -57,12 +57,13 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_octet_stream.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/octet-stream" | [content.application_octet_stream.Schema](#)
+
+### Body Details
 #### 
 
 ##### Description

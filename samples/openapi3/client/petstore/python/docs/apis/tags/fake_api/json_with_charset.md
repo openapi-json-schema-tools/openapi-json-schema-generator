@@ -54,12 +54,13 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#)
+
+### Body Details
 #### 
 
 ##### Type Info

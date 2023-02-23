@@ -184,12 +184,13 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#)
+
+### Body Details
 #### 
 
 ##### Type Info

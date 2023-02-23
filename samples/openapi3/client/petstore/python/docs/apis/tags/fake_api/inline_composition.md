@@ -170,13 +170,14 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_json.schema](#), [content.multipart_form_data.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#)
 "multipart/form-data" | [content.multipart_form_data.Schema](#)
+
+### Body Details
 #### 
 
 ##### Type Info

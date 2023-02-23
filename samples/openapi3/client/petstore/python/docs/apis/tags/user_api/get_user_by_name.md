@@ -48,13 +48,14 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_xml.schema](#), [content.application_json.schema](#), ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/xml" | [content.application_xml.Schema](#)
 "application/json" | [content.application_json.Schema](#)
+
+### Body Details
 #### 
 
 ##### Type Info

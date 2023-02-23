@@ -11,17 +11,17 @@ response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
 [headers](#headers) | [Headers](#headers) |  |
 
-## Headers
-
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-someHeader | [headers.header_some_header.schema](#someheader-schema) | | optional
-## body
-
-### Content Type To Schema
+## Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+
+## Headers
+Key | Accessed Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+someHeader | [headers.header_some_header.schema](#someheader-schema) | | optional
+
+## Body Details
 ### content ApplicationJson Schema
 
 #### Type Info

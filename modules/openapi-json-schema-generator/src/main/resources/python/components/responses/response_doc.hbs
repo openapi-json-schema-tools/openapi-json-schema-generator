@@ -25,10 +25,18 @@ headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../.
 {{else}}
 {{#if content}}[body](#body){{else}}body{{/if}} | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=true }}){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
 {{#if headers}}[headers](#headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#if content}}
+
+{{headerSize}}# Body
+Content-Type | Schema
+------------ | -------
+        {{#each content}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+        {{/each}}
+    {{/if}}
     {{#if headers}}
 
 {{headerSize}}# Headers
-
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headers}}
@@ -68,16 +76,8 @@ Key | Accessed Type | Description  | Notes
         {{/each}}
     {{/if}}
     {{#if content}}
-{{headerSize}}# body
-        {{#each content}}
-            {{#if @first}}
 
-{{headerSize}}## Content Type To Schema
-Content-Type | Schema
------------- | -------
-            {{/if}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
-        {{/each}}
+{{headerSize}}# Body Details
         {{#each content}}
             {{#with this.schema}}
                 {{#if ../componentModule}}

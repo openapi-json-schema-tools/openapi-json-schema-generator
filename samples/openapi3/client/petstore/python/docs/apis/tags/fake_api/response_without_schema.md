@@ -28,13 +28,14 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 [body](#body) | typing.Union[Unset, Unset, ] |  |
 headers | Unset | headers were not defined |
-### body
 
-#### Content Type To Schema
+### Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.](#)
 "application/xml" | [content.application_xml.](#)
+
+### Body Details
 
 ## Code Sample
 
