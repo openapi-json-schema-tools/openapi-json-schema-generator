@@ -39,8 +39,8 @@ headers | Unset | headers were not defined |
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.](#responses-responsefor200-content-applicationjson-)
-"application/xml" | [content.application_xml.](#responses-responsefor200-content-applicationxml-)
+"application/json" | no schema defined
+"application/xml" | no schema defined
 
 ### Body Details
 

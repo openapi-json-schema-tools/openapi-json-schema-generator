@@ -31,7 +31,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../.
 Content-Type | Schema
 ------------ | -------
         {{#each content}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+"{{@key.original}}" | {{#if this.schema}}[content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }}){{else}}no schema defined{{/if}}
         {{/each}}
     {{/if}}
     {{#if headers}}
