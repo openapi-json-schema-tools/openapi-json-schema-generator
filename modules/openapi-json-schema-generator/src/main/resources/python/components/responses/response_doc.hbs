@@ -60,13 +60,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [headers.{{../jsonPathPiece.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../jsonPathPiece jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [headers.{{../jsonPathPiece.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../jsonPathPiece jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
                         {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../../jsonPathPiece "content" ../@key jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../../jsonPathPiece "content" ../@key jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}
@@ -93,7 +93,7 @@ Key | Accessed Type | Description  | Notes
 {{headerSize}}# Header Details
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") identifierPieces=(append (newArray ) jsonPathPiece) }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "headers" jsonPathPiece) }}
             {{/unless}}
         {{/each}}
     {{/and}}

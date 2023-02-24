@@ -84,9 +84,9 @@ Content-Type | Schema
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#xratelimit-content-applicationjson-schema) | | 
+X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#headers-xratelimit-content-applicationjson-schema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
-X-Expires-After | [headers.header_x_expires_after.schema](#xexpiresafter-schema) | | optional
+X-Expires-After | [headers.header_x_expires_after.schema](#headers-xexpiresafter-schema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
@@ -106,7 +106,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### Header Details
-#### XRateLimit
+#### headers XRateLimit
 
 ##### Description
 calls per hour allowed by the user
@@ -114,20 +114,20 @@ calls per hour allowed by the user
 ##### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#xratelimit-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#headers-xratelimit-content-applicationjson-schema)
 
-##### XRateLimit content ApplicationJson Schema
+##### headers XRateLimit content ApplicationJson Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
-#### XExpiresAfter
+#### headers XExpiresAfter
 
 ##### Description
 date in UTC when token expires
 
-##### XExpiresAfter Schema
+##### headers XExpiresAfter Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

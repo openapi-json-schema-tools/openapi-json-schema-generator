@@ -19,7 +19,7 @@ Content-Type | Schema
 ## Headers
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someHeader | [headers.header_some_header.schema](#someheader-schema) | | optional
+someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | | optional
 
 ## Body Details
 ### content ApplicationJson Schema
@@ -35,9 +35,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## Header Details
-### SomeHeader
+### headers SomeHeader
 
-#### SomeHeader Schema
+#### headers SomeHeader Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
