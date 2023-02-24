@@ -39,38 +39,46 @@ from .headers import {{jsonPathPiece.snakeCase}}
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     {{#and headers content}}
+        {{#if hasContentSchema}}
     body: typing.Union[
-    {{#each content}}
-    {{#if this.schema}}
-        {{#with this.schema}}
+            {{#each content}}
+                {{#if this.schema}}
+                    {{#with this.schema}}
         {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
-        {{/with}}
-    {{else}}
+                    {{/with}}
+                {{else}}
         schemas.Unset,
-    {{/if}}
-    {{/each}}
+                {{/if}}
+            {{/each}}
     ]
+        {{else}}
+    body: schemas.Unset = schemas.unset
+        {{/if}}
     headers: Header.Params
     {{else}}
-    {{#or headers content}}
-    {{#if headers}}
+        {{#or headers content}}
+            {{#if headers}}
     headers: Header.Params
     body: schemas.Unset = schemas.unset
-    {{else}}
+            {{else}}
+                {{#if hasContentSchema}}
     body: typing.Union[
-    {{#each content}}
-    {{#if this.schema}}
-        {{#with this.schema}}
+                    {{#each content}}
+                        {{#if this.schema}}
+                            {{#with this.schema}}
         {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
-        {{/with}}
-    {{else}}
+                        {{/with}}
+                    {{else}}
         schemas.Unset,
-    {{/if}}
-    {{/each}}
+                        {{/if}}
+                    {{/each}}
     ]
+                {{else}}
+    body: schemas.Unset = schemas.unset
+                {{/if}}
     headers: schemas.Unset = schemas.unset
-    {{/if}}
-    {{/or}}
+            {{/if}}
+        {{/or}}
     {{/and}}
     {{#unless headers}}
     {{#unless content}}
