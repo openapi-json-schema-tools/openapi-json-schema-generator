@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **object_nullable_prop** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
 **object_and_items_nullable_prop** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
 **object_items_nullable** | dict, frozendict.frozendict,  | frozendict.frozendict, [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
 # properties ArrayNullableProp
 
@@ -90,7 +90,7 @@ None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict, [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
 # properties ObjectNullableProp AdditionalProperties
 
@@ -109,7 +109,7 @@ None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#properties-objectanditemsnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
 # properties ObjectAndItemsNullableProp AdditionalProperties
 
@@ -128,7 +128,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#properties-objectitemsnullable-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
 # properties ObjectItemsNullable AdditionalProperties
 
