@@ -75,7 +75,7 @@ enum_query_integer | [Parameter4.schema](#parameter_4schema) | | optional
 enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
 
 
-#### Parameter2
+#### Parameter Parameter2
 
 ##### Description
 Query parameter enum test (string array)
@@ -92,7 +92,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-#### Parameter3
+#### Parameter Parameter3
 
 ##### Description
 Query parameter enum test (string)
@@ -104,7 +104,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of "-efg"
 
-#### Parameter4
+#### Parameter Parameter4
 
 ##### Description
 Query parameter enum test (double)
@@ -116,7 +116,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-#### Parameter5
+#### Parameter Parameter5
 
 ##### Description
 Query parameter enum test (double)
@@ -136,7 +136,7 @@ Key | Input Type | Description  | Notes
 enum_header_string_array | [Parameter0.schema](#parameter_0schema) | | optional
 enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 Header parameter enum test (string array)
@@ -153,7 +153,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of "$"
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Description
 Header parameter enum test (string)

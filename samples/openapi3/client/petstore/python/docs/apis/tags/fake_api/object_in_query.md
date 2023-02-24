@@ -28,7 +28,7 @@ Key | Input Type | Description  | Notes
 mapBean | [Parameter0.schema](#parameter_0schema) | | optional
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 mapBean

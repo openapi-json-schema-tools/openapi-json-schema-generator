@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_ref_string_header
-# RefStringHeader
+# Header RefStringHeader
 ## Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------

@@ -1,5 +1,5 @@
 petstore_api.components.parameters.parameter_path_user_name
-# PathUserName
+# Parameter PathUserName
 
 ## Description
 the use name to use

@@ -40,7 +40,7 @@ Key | Input Type | Description  | Notes
 query | [Parameter0.schema](#parameter_0schema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Schema
 

@@ -1,5 +1,5 @@
 petstore_api.components.parameters.parameter_ref_path_user_name
-# RefPathUserName
+# Parameter RefPathUserName
 ## Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------

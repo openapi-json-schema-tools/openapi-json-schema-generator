@@ -29,7 +29,7 @@ Key | Input Type | Description  | Notes
 someParam | [Parameter0.content.application_json.schema](#parameter_0contentapplication_jsonschema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 The internal object id

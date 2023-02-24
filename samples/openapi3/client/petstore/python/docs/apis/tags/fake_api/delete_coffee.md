@@ -31,7 +31,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 id | [Parameter0.schema](#parameter_0schema) | | 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 The internal object id

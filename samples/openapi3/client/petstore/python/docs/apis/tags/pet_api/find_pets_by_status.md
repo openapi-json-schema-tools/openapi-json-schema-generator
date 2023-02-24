@@ -34,7 +34,7 @@ Key | Input Type | Description  | Notes
 status | [Parameter0.schema](#parameter_0schema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 Status values that need to be considered for filter

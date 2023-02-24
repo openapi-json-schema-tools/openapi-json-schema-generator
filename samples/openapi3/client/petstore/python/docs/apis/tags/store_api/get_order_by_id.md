@@ -32,7 +32,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 order_id | [Parameter0.schema](#parameter_0schema) | | 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 ID of pet that needs to be fetched

@@ -1,5 +1,5 @@
 petstore_api.components.request_bodies.request_body_user_array
-# UserArray
+# RequestBody UserArray
 
 ## Description
 List of user object

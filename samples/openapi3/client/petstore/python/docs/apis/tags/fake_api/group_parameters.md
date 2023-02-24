@@ -37,7 +37,7 @@ string_group | [Parameter3.schema](#parameter_3schema) | | optional
 int64_group | [Parameter5.schema](#parameter_5schema) | | optional
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 Required String in group parameters
@@ -49,7 +49,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter2
+#### Parameter Parameter2
 
 ##### Description
 Required Integer in group parameters
@@ -61,7 +61,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-#### Parameter3
+#### Parameter Parameter3
 
 ##### Description
 String in group parameters
@@ -73,7 +73,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter5
+#### Parameter Parameter5
 
 ##### Description
 Integer in group parameters
@@ -93,7 +93,7 @@ Key | Input Type | Description  | Notes
 required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
 boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Description
 Required Boolean in group parameters
@@ -105,7 +105,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-#### Parameter4
+#### Parameter Parameter4
 
 ##### Description
 Boolean in group parameters

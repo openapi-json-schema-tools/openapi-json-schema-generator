@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_ref_content_schema_header
-# RefContentSchemaHeader
+# Header RefContentSchemaHeader
 
 ## Description
 int32 JSON content-type header

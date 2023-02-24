@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_string_header
-# StringHeader
+# Header StringHeader
 
 ## Description
 string header description

@@ -30,7 +30,7 @@ username | [Parameter0.schema](#parameter_0schema) | |
 password | [Parameter1.schema](#parameter_1schema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 The user name for login
@@ -42,7 +42,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Description
 The password for login in clear text

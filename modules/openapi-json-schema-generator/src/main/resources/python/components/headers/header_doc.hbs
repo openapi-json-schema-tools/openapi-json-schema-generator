@@ -3,7 +3,7 @@
 {{packageName}}.components.headers.{{componentModule}}
     {{/if}}
     {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Header" jsonPathPiece) recordUsage=true }}
     {{else}}
 {{> components/_helper_header_from_identifier_pieces recordUsage=false }}
     {{/eq}}

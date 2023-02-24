@@ -33,7 +33,7 @@ Key | Input Type | Description  | Notes
 tags | [Parameter0.schema](#parameter_0schema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 Tags to filter by

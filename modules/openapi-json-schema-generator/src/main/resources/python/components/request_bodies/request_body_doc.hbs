@@ -2,7 +2,7 @@
 {{#if componentModule}}
 {{packageName}}.components.request_bodies.{{componentModule}}
 {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "RequestBody" jsonPathPiece) recordUsage=true }}
 {{else}}
 {{> components/_helper_header_from_identifier_pieces recordUsage=false }}
 {{/eq}}

@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_number_header
-# NumberHeader
+# Header NumberHeader
 
 ## Description
 number header description

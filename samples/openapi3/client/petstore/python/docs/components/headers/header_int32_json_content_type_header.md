@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_int32_json_content_type_header
-# Int32JsonContentTypeHeader
+# Header Int32JsonContentTypeHeader
 
 ## Description
 int32 JSON content-type header

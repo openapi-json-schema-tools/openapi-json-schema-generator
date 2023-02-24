@@ -30,7 +30,7 @@ SomeVar | [Parameter1.schema](#parameter_1schema) | |
 some_var | [Parameter2.schema](#parameter_2schema) | | 
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Schema
 
@@ -39,7 +39,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Schema
 
@@ -48,7 +48,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter2
+#### Parameter Parameter2
 
 ##### Schema
 

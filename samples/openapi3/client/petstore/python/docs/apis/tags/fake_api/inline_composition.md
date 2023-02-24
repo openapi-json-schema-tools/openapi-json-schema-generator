@@ -95,7 +95,7 @@ compositionAtRoot | [Parameter0.schema](#parameter_0schema) | | optional
 compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Schema
 
@@ -117,7 +117,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Schema
 

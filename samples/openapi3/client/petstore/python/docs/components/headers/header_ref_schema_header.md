@@ -1,5 +1,5 @@
 petstore_api.components.headers.header_ref_schema_header
-# RefSchemaHeader
+# Header RefSchemaHeader
 
 ## Description
 header that has a ref in the schema

@@ -52,7 +52,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [Parameter0.schema](#parameter_0schema) | | 
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Description
 ID of pet to update

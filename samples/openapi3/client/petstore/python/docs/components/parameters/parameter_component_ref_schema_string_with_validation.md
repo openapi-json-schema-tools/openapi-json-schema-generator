@@ -1,5 +1,5 @@
 petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
-# ComponentRefSchemaStringWithValidation
+# Parameter ComponentRefSchemaStringWithValidation
 
 ## Description
 a path string with validation

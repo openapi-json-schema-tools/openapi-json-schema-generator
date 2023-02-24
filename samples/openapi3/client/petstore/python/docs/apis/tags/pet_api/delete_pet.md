@@ -29,7 +29,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 api_key | [Parameter0.schema](#parameter_0schema) | | optional
 
-#### Parameter0
+#### Parameter Parameter0
 
 ##### Schema
 
@@ -45,7 +45,7 @@ Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [Parameter1.schema](#parameter_1schema) | | 
 
-#### Parameter1
+#### Parameter Parameter1
 
 ##### Description
 Pet id to delete
