@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="getpetbyid"></a>
 # **get_pet_by_id**
-<a name="get_pet_by_id"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Find pet by ID
 
 ## Description
 Returns a single pet
+
+## Path
+"/pet/{petId}"
 
 ## Arguments
 

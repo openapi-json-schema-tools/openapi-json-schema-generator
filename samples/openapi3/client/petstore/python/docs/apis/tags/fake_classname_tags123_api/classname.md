@@ -1,10 +1,10 @@
-<a name="top"></a>
-# **classname**
 <a name="classname"></a>
+# **classname**
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ To test class name in snake case
 
 ## Description
 To test class name in snake case
+
+## Path
+"/fake_classname_test"
 
 ## Arguments
 

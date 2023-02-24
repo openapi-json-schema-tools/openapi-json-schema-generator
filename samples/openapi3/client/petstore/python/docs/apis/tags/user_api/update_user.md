@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="updateuser"></a>
 # **update_user**
-<a name="update_user"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ Updated user
 
 ## Description
 This can only be done by the logged in user.
+
+## Path
+"/user/{username}"
 
 ## Arguments
 

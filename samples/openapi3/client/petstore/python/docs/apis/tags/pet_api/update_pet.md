@@ -1,9 +1,9 @@
-<a name="top"></a>
+<a name="updatepet"></a>
 # **update_pet**
-<a name="update_pet"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -11,6 +11,9 @@
 
 ## Summary
 Update an existing pet
+
+## Path
+"/pet"
 
 ## Arguments
 

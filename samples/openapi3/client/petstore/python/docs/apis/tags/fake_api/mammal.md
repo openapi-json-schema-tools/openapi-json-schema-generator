@@ -1,15 +1,18 @@
-<a name="top"></a>
-# **mammal**
 <a name="mammal"></a>
+# **mammal**
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of mammals
+
+## Path
+"/fake/refs/mammal"
 
 ## Arguments
 

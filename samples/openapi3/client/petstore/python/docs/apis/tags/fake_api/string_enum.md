@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="stringenum"></a>
 # **string_enum**
-<a name="string_enum"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of outer enum
+
+## Path
+"/fake/refs/enum"
 
 ## Arguments
 

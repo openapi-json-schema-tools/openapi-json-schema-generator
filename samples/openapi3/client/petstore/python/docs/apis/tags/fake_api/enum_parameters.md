@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="enumparameters"></a>
 # **enum_parameters**
-<a name="enum_parameters"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ To test enum parameters
 
 ## Description
 To test enum parameters
+
+## Path
+"/fake"
 
 ## Arguments
 

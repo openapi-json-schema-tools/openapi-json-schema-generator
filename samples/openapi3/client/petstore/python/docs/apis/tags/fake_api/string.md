@@ -1,15 +1,18 @@
-<a name="top"></a>
-# **string**
 <a name="string"></a>
+# **string**
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of outer string types
+
+## Path
+"/fake/refs/string"
 
 ## Arguments
 

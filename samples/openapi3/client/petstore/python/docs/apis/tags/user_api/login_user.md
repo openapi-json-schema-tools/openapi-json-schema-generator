@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="loginuser"></a>
 # **login_user**
-<a name="login_user"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Logs user into the system
+
+## Path
+"/user/login"
 
 ## Arguments
 

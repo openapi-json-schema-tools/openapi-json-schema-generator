@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="queryparametercollectionformat"></a>
 # **query_parameter_collection_format**
-<a name="query_parameter_collection_format"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 To test the collection format in query parameters
+
+## Path
+"/fake/test-query-paramters"
 
 ## Arguments
 

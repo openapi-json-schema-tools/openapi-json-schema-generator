@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="placeorder"></a>
 # **place_order**
-<a name="place_order"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Place an order for a pet
+
+## Path
+"/store/order"
 
 ## Arguments
 

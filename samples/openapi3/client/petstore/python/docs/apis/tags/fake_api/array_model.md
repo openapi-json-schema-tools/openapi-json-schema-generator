@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="arraymodel"></a>
 # **array_model**
-<a name="array_model"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of ArrayModel
+
+## Path
+"/fake/refs/arraymodel"
 
 ## Arguments
 

@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="bodywithfileschema"></a>
 # **body_with_file_schema**
-<a name="body_with_file_schema"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 For this test, the body for this request much reference a schema named `File`.
+
+## Path
+"/fake/body-with-file-schema"
 
 ## Arguments
 

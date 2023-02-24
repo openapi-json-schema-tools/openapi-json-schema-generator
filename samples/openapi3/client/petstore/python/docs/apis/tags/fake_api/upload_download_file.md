@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="uploaddownloadfile"></a>
 # **upload_download_file**
-<a name="upload_download_file"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 uploads a file and downloads a file using application/octet-stream
+
+## Path
+"/fake/uploadDownloadFile"
 
 ## Arguments
 

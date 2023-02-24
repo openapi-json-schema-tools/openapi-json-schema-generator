@@ -1,9 +1,9 @@
-<a name="top"></a>
+<a name="uploadfilewithrequiredfile"></a>
 # **upload_file_with_required_file**
-<a name="upload_file_with_required_file"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -11,6 +11,9 @@
 
 ## Summary
 uploads an image (required)
+
+## Path
+"/fake/{petId}/uploadImageWithRequiredFile"
 
 ## Arguments
 

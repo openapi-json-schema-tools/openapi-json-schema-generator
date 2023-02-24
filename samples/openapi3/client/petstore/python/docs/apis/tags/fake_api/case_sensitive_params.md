@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="casesensitiveparams"></a>
 # **case_sensitive_params**
-<a name="case_sensitive_params"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Ensures that original naming is used in endpoint params, that way we on't have collisions
+
+## Path
+"/fake/case-sensitive-params"
 
 ## Arguments
 

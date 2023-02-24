@@ -1,9 +1,9 @@
-<a name="top"></a>
+<a name="deletepet"></a>
 # **delete_pet**
-<a name="delete_pet"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -11,6 +11,9 @@
 
 ## Summary
 Deletes a pet
+
+## Path
+"/pet/{petId}"
 
 ## Arguments
 

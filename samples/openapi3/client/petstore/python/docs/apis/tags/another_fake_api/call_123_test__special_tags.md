@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="_123testspecialtags"></a>
 # **call_123_test__special_tags**
-<a name="call_123_test__special_tags"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ To test special tags
 
 ## Description
 To test special tags and operation ID starting with number
+
+## Path
+"/another-fake/dummy"
 
 ## Arguments
 

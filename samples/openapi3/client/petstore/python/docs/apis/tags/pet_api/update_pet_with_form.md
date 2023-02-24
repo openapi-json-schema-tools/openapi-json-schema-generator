@@ -1,9 +1,9 @@
-<a name="top"></a>
+<a name="updatepetwithform"></a>
 # **update_pet_with_form**
-<a name="update_pet_with_form"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -11,6 +11,9 @@
 
 ## Summary
 Updates a pet in the store with form data
+
+## Path
+"/pet/{petId}"
 
 ## Arguments
 

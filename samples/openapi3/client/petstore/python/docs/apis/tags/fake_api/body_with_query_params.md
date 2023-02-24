@@ -1,11 +1,14 @@
-<a name="top"></a>
+<a name="bodywithqueryparams"></a>
 # **body_with_query_params**
-<a name="body_with_query_params"></a>
 
 ## Table of Contents
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
+
+## Path
+"/fake/body-with-query-params"
 
 ## Arguments
 

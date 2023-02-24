@@ -1,14 +1,17 @@
-<a name="top"></a>
+<a name="fakehealthget"></a>
 # **fake_health_get**
-<a name="fake_health_get"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Health check endpoint
+
+## Path
+"/fake/health"
 
 ## Return Types
 

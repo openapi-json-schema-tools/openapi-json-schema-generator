@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="getinventory"></a>
 # **get_inventory**
-<a name="get_inventory"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ Returns pet inventories by status
 
 ## Description
 Returns a map of status codes to quantities
+
+## Path
+"/store/inventory"
 
 ## Return Types
 

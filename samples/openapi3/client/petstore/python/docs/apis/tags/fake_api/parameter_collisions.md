@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="parametercollisions"></a>
 # **parameter_collisions**
-<a name="parameter_collisions"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 parameter collision case
+
+## Path
+"/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/"
 
 ## Arguments
 

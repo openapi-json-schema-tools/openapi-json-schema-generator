@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="numberwithvalidations"></a>
 # **number_with_validations**
-<a name="number_with_validations"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of outer number types
+
+## Path
+"/fake/refs/number"
 
 ## Arguments
 

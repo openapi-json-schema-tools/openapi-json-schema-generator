@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="inlinecomposition"></a>
 # **inline_composition**
-<a name="inline_composition"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 testing composed schemas at inline locations
+
+## Path
+"/fake/inlineComposition/"
 
 ## Arguments
 

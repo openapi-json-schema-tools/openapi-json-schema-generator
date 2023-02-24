@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="objectmodelwithrefprops"></a>
 # **object_model_with_ref_props**
-<a name="object_model_with_ref_props"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of object with $refed properties
+
+## Path
+"/fake/refs/object_model_with_ref_props"
 
 ## Arguments
 

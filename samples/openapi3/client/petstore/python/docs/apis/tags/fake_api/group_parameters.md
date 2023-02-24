@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="groupparameters"></a>
 # **group_parameters**
-<a name="group_parameters"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Fake endpoint to test group parameters (optional)
 
 ## Description
 Fake endpoint to test group parameters (optional)
+
+## Path
+"/fake"
 
 ## Arguments
 

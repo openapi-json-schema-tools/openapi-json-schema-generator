@@ -1,7 +1,6 @@
-<a name="top"></a>
-{{#each operation}}
+{{#with operation}}
+<a name="{{operationId.anchorPiece}}"></a>
 # **{{{operationId.snakeCase}}}**
-<a name="{{{operationId.snakeCase}}}"></a>
 
 ## Table of Contents
 {{#if summary}}
@@ -10,6 +9,7 @@
 {{#if description}}
 - [Description](#description)
 {{/if}}
+- Path
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#arguments)
 {{/or}}
@@ -28,6 +28,9 @@
 ## Description
 {{{description}}}
 {{/if}}
+
+## Path
+"{{{path.original}}}"
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 ## Arguments
@@ -252,4 +255,4 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{> paths/path/verb/_helper_operation_doc_example }}
 
 [[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
-{{/each}}
+{{/with}}

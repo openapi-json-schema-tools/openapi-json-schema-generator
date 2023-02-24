@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="jsonpatch"></a>
 # **json_patch**
-<a name="json_patch"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ json patch
 
 ## Description
 json patch route with a requestBody
+
+## Path
+"/fake/jsonPatch"
 
 ## Arguments
 

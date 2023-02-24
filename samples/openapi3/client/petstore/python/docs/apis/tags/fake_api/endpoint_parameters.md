@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="endpointparameters"></a>
 # **endpoint_parameters**
-<a name="endpoint_parameters"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Fake endpoint for testing various parameters 假端點 偽のエンドポイン�
 
 ## Description
 Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+
+## Path
+"/fake"
 
 ## Arguments
 

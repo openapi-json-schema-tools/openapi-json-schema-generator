@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="arrayofenums"></a>
 # **array_of_enums**
-<a name="array_of_enums"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Array of Enums
+
+## Path
+"/fake/refs/array-of-enums"
 
 ## Arguments
 

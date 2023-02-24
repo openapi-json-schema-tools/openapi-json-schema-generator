@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="clientmodel"></a>
 # **client_model**
-<a name="client_model"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ To test \"client\" model
 
 ## Description
 To test \"client\" model
+
+## Path
+"/fake"
 
 ## Arguments
 

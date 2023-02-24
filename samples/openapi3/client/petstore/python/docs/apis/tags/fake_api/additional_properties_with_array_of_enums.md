@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="additionalpropertieswitharrayofenums"></a>
 # **additional_properties_with_array_of_enums**
-<a name="additional_properties_with_array_of_enums"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Additional Properties with Array of Enums
+
+## Path
+"/fake/additional-properties-with-array-of-enums"
 
 ## Arguments
 

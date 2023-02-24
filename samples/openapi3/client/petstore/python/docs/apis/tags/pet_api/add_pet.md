@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="addpet"></a>
 # **add_pet**
-<a name="add_pet"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Add a new pet to the store
 
 ## Description
 Add a new pet to the store
+
+## Path
+"/pet"
 
 ## Arguments
 

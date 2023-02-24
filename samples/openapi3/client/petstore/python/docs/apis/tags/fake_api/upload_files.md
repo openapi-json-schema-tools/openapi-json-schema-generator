@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="uploadfiles"></a>
 # **upload_files**
-<a name="upload_files"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 uploads files using multipart/form-data
+
+## Path
+"/fake/uploadFiles"
 
 ## Arguments
 

@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="queryparamwithjsoncontenttype"></a>
 # **query_param_with_json_content_type**
-<a name="query_param_with_json_content_type"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 query param with json content-type
+
+## Path
+"/fake/queryParamWithJsonContentType"
 
 ## Arguments
 

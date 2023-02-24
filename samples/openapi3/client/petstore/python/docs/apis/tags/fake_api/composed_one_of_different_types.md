@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="composedoneofdifferenttypes"></a>
 # **composed_one_of_different_types**
-<a name="composed_one_of_different_types"></a>
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of object with $refed properties
+
+## Path
+"/fake/refs/composed_one_of_number_with_validations"
 
 ## Arguments
 

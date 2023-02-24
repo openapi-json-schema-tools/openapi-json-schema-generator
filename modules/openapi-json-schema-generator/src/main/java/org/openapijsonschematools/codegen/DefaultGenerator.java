@@ -578,8 +578,7 @@ public class DefaultGenerator implements Generator {
                     for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
                         CodegenTag tag = entry.getValue();
                         Map<String, Object> endpointInfo = new HashMap<>();
-                        List<CodegenOperation> operation = Arrays.asList(co);
-                        endpointInfo.put("operation", operation);
+                        endpointInfo.put("operation", co);
                         endpointInfo.put("packageName", packageName);
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);

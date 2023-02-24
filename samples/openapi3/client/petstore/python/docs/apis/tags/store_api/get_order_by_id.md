@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="getorderbyid"></a>
 # **get_order_by_id**
-<a name="get_order_by_id"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ Find purchase order by ID
 
 ## Description
 For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
+
+## Path
+"/store/order/{order_id}"
 
 ## Arguments
 

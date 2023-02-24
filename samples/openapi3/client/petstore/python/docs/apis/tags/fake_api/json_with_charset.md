@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="jsonwithcharset"></a>
 # **json_with_charset**
-<a name="json_with_charset"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 json with charset tx and rx
+
+## Path
+"/fake/jsonWithCharset"
 
 ## Arguments
 

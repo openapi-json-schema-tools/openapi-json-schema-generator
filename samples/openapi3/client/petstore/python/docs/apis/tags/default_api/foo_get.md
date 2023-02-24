@@ -1,10 +1,13 @@
-<a name="top"></a>
+<a name="fooget"></a>
 # **foo_get**
-<a name="foo_get"></a>
 
 ## Table of Contents
+- Path
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
+
+## Path
+"/foo"
 
 ## Return Types
 

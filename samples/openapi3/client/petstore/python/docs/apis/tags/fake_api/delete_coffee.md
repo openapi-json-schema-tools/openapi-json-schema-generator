@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="deletecoffee"></a>
 # **delete_coffee**
-<a name="delete_coffee"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -14,6 +14,9 @@ Delete coffee
 
 ## Description
 Delete the coffee identified by the given id, (delete without request body)
+
+## Path
+"/fake/deleteCoffee/{id}"
 
 ## Arguments
 

@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="findpetsbytags"></a>
 # **find_pets_by_tags**
-<a name="find_pets_by_tags"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Finds Pets by tags
 
 ## Description
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+
+## Path
+"/pet/findByTags"
 
 ## Arguments
 

@@ -1,10 +1,10 @@
-<a name="top"></a>
+<a name="findpetsbystatus"></a>
 # **find_pets_by_status**
-<a name="find_pets_by_status"></a>
 
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -15,6 +15,9 @@ Finds Pets by status
 
 ## Description
 Multiple status values can be provided with comma separated strings
+
+## Path
+"/pet/findByStatus"
 
 ## Arguments
 

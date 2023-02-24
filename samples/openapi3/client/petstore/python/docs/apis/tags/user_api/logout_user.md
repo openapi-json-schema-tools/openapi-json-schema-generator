@@ -1,14 +1,17 @@
-<a name="top"></a>
+<a name="logoutuser"></a>
 # **logout_user**
-<a name="logout_user"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Logs out current logged in user session
+
+## Path
+"/user/logout"
 
 ## Return Types
 

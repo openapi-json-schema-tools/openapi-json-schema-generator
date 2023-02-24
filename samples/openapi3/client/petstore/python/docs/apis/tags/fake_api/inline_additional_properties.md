@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="inlineadditionalproperties"></a>
 # **inline_additional_properties**
-<a name="inline_additional_properties"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 test inline additionalProperties
+
+## Path
+"/fake/inline-additionalProperties"
 
 ## Arguments
 

@@ -1,15 +1,18 @@
-<a name="top"></a>
-# **boolean**
 <a name="boolean"></a>
+# **boolean**
 
 ## Table of Contents
 - [Description](#description)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Description
 Test serialization of outer boolean types
+
+## Path
+"/fake/refs/boolean"
 
 ## Arguments
 

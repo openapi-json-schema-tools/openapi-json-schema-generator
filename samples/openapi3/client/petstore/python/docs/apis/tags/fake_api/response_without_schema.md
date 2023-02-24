@@ -1,14 +1,17 @@
-<a name="top"></a>
+<a name="responsewithoutschema"></a>
 # **response_without_schema**
-<a name="response_without_schema"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 receives a response without schema
+
+## Path
+"/fake/responseWithoutSchema"
 
 ## Return Types
 

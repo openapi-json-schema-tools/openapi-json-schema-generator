@@ -1,15 +1,18 @@
-<a name="top"></a>
+<a name="getuserbyname"></a>
 # **get_user_by_name**
-<a name="get_user_by_name"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Summary
 Get user by user name
+
+## Path
+"/user/{username}"
 
 ## Arguments
 

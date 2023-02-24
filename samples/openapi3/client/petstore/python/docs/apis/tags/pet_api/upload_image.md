@@ -1,9 +1,9 @@
-<a name="top"></a>
+<a name="uploadimage"></a>
 # **upload_image**
-<a name="upload_image"></a>
 
 ## Table of Contents
 - [Summary](#summary)
+- Path
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -11,6 +11,9 @@
 
 ## Summary
 uploads an image
+
+## Path
+"/pet/{petId}/uploadImage"
 
 ## Arguments
 
