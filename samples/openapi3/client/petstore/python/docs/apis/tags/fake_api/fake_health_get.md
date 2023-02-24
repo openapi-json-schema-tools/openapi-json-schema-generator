@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Summary](#summary)
-- Path
+- [Path](#path)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 

@@ -2,7 +2,7 @@
 # **body_with_query_params**
 
 ## Table of Contents
-- Path
+- [Path](#path)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)

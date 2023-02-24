@@ -4,7 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Description](#description)
-- Path
+- [Path](#path)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)

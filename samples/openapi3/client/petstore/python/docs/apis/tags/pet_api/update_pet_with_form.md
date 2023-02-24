@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Summary](#summary)
-- Path
+- [Path](#path)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)

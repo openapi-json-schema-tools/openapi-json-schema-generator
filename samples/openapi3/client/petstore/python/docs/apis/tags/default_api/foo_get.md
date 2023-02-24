@@ -2,7 +2,7 @@
 # **foo_get**
 
 ## Table of Contents
-- Path
+- [Path](#path)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 

@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Description](#description)
-- Path
+- [Path](#path)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
