@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -14,6 +15,9 @@ Updates a pet in the store with form data
 
 ## Path
 "/pet/{petId}"
+
+## HTTP Method
+post
 
 ## Arguments
 

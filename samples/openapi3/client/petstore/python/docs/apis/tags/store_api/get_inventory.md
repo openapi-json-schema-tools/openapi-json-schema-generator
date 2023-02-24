@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ Returns a map of status codes to quantities
 
 ## Path
 "/store/inventory"
+
+## HTTP Method
+get
 
 ## Return Types
 

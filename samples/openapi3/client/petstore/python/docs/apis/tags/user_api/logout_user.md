@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
@@ -12,6 +13,9 @@ Logs out current logged in user session
 
 ## Path
 "/user/logout"
+
+## HTTP Method
+get
 
 ## Return Types
 

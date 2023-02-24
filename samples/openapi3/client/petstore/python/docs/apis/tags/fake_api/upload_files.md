@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ uploads files using multipart/form-data
 
 ## Path
 "/fake/uploadFiles"
+
+## HTTP Method
+post
 
 ## Arguments
 

@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ Fake endpoint for testing various parameters 假端點 偽のエンドポイン�
 
 ## Path
 "/fake"
+
+## HTTP Method
+post
 
 ## Arguments
 

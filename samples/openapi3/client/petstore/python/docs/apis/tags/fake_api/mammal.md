@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ Test serialization of mammals
 
 ## Path
 "/fake/refs/mammal"
+
+## HTTP Method
+post
 
 ## Arguments
 

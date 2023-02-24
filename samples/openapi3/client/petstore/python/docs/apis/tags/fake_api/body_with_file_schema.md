@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ For this test, the body for this request much reference a schema named `File`.
 
 ## Path
 "/fake/body-with-file-schema"
+
+## HTTP Method
+put
 
 ## Arguments
 

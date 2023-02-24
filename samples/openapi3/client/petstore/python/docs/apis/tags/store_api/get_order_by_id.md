@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ For valid response try integer IDs with value <= 5 or > 10. Other values will ge
 
 ## Path
 "/store/order/{order_id}"
+
+## HTTP Method
+get
 
 ## Arguments
 

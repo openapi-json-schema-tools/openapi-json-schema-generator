@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ Ensures that original naming is used in endpoint params, that way we on't have c
 
 ## Path
 "/fake/case-sensitive-params"
+
+## HTTP Method
+put
 
 ## Arguments
 

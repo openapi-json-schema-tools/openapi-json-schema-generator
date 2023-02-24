@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ To test class name in snake case
 
 ## Path
 "/fake_classname_test"
+
+## HTTP Method
+patch
 
 ## Arguments
 

@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ Delete the coffee identified by the given id, (delete without request body)
 
 ## Path
 "/fake/deleteCoffee/{id}"
+
+## HTTP Method
+delete
 
 ## Arguments
 

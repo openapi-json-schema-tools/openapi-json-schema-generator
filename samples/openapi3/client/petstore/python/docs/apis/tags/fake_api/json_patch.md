@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ json patch route with a requestBody
 
 ## Path
 "/fake/jsonPatch"
+
+## HTTP Method
+patch
 
 ## Arguments
 

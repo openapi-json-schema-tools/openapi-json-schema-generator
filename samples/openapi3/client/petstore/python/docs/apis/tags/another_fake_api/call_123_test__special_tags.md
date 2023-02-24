@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ To test special tags and operation ID starting with number
 
 ## Path
 "/another-fake/dummy"
+
+## HTTP Method
+patch
 
 ## Arguments
 

@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
@@ -12,6 +13,9 @@ receives a response without schema
 
 ## Path
 "/fake/responseWithoutSchema"
+
+## HTTP Method
+get
 
 ## Return Types
 

@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ Fake endpoint to test group parameters (optional)
 
 ## Path
 "/fake"
+
+## HTTP Method
+delete
 
 ## Arguments
 

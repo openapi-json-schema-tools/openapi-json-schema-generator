@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ Multiple status values can be provided with comma separated strings
 
 ## Path
 "/pet/findByStatus"
+
+## HTTP Method
+get
 
 ## Arguments
 

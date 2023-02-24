@@ -3,11 +3,15 @@
 
 ## Table of Contents
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Path
 "/foo"
+
+## HTTP Method
+get
 
 ## Return Types
 

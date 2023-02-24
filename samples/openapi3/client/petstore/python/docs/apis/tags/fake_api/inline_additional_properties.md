@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ test inline additionalProperties
 
 ## Path
 "/fake/inline-additionalProperties"
+
+## HTTP Method
+post
 
 ## Arguments
 

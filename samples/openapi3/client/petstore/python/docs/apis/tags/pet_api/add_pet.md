@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ Add a new pet to the store
 
 ## Path
 "/pet"
+
+## HTTP Method
+post
 
 ## Arguments
 

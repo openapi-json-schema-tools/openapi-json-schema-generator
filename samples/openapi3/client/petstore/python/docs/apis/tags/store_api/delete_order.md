@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ For valid response try integer IDs with value < 1000. Anything above 1000 or non
 
 ## Path
 "/store/order/{order_id}"
+
+## HTTP Method
+delete
 
 ## Arguments
 

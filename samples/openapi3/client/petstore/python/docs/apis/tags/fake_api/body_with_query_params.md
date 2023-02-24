@@ -3,12 +3,16 @@
 
 ## Table of Contents
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
 ## Path
 "/fake/body-with-query-params"
+
+## HTTP Method
+put
 
 ## Arguments
 

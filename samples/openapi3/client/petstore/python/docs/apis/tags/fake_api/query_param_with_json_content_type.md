@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Summary](#summary)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -13,6 +14,9 @@ query param with json content-type
 
 ## Path
 "/fake/queryParamWithJsonContentType"
+
+## HTTP Method
+get
 
 ## Arguments
 

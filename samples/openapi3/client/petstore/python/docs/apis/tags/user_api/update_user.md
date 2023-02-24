@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
@@ -17,6 +18,9 @@ This can only be done by the logged in user.
 
 ## Path
 "/user/{username}"
+
+## HTTP Method
+put
 
 ## Arguments
 

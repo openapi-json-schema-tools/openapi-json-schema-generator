@@ -10,6 +10,7 @@
 - [Description](#description)
 {{/if}}
 - [Path](#path)
+- [HTTP Method](#http-method)
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#arguments)
 {{/or}}
@@ -31,6 +32,9 @@
 
 ## Path
 "{{{path.original}}}"
+
+## HTTP Method
+{{{httpMethod.original}}}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 ## Arguments

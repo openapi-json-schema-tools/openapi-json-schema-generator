@@ -5,6 +5,7 @@
 - [Summary](#summary)
 - [Description](#description)
 - [Path](#path)
+- [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Authorization](#authorization)
@@ -18,6 +19,9 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 
 ## Path
 "/pet/findByTags"
+
+## HTTP Method
+get
 
 ## Arguments
 
