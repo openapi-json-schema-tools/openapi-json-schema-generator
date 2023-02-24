@@ -1588,6 +1588,23 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/multipleResponseBodies:
+    get:
+      operationId: multipleResponseBodies
+      summary: multiple responses have response bodies
+      tags:
+        - fake
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema: {}
+        202:
+          description: success
+          content:
+            application/json:
+              schema: {}
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

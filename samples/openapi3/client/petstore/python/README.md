@@ -181,6 +181,7 @@ HTTP request | Method | Description
 **get** /fake/jsonFormData | [FakeApi](docs/apis/tags/FakeApi.md).[json_form_data](docs/apis/tags/fake_api/json_form_data.md)  | test json serialization of form data
 **patch** /fake/jsonPatch | [FakeApi](docs/apis/tags/FakeApi.md).[json_patch](docs/apis/tags/fake_api/json_patch.md)  | json patch
 **post** /fake/jsonWithCharset | [FakeApi](docs/apis/tags/FakeApi.md).[json_with_charset](docs/apis/tags/fake_api/json_with_charset.md)  | json with charset tx and rx
+**get** /fake/multipleResponseBodies | [FakeApi](docs/apis/tags/FakeApi.md).[multiple_response_bodies](docs/apis/tags/fake_api/multiple_response_bodies.md)  | multiple responses have response bodies
 **get** /fake/objInQuery | [FakeApi](docs/apis/tags/FakeApi.md).[object_in_query](docs/apis/tags/fake_api/object_in_query.md)  | user list
 **post** /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ | [FakeApi](docs/apis/tags/FakeApi.md).[parameter_collisions](docs/apis/tags/fake_api/parameter_collisions.md)  | parameter collision case
 **get** /fake/queryParamWithJsonContentType | [FakeApi](docs/apis/tags/FakeApi.md).[query_param_with_json_content_type](docs/apis/tags/fake_api/query_param_with_json_content_type.md)  | query param with json content-type

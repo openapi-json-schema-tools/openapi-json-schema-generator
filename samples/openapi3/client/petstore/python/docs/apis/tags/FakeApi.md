@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**inline_composition**](fake_api/inline_composition.md) | **post** /fake/inlineComposition/ | testing composed schemas at inline locations
 [**json_patch**](fake_api/json_patch.md) | **patch** /fake/jsonPatch | json patch
 [**json_with_charset**](fake_api/json_with_charset.md) | **post** /fake/jsonWithCharset | json with charset tx and rx
+[**multiple_response_bodies**](fake_api/multiple_response_bodies.md) | **get** /fake/multipleResponseBodies | multiple responses have response bodies
 [**object_in_query**](fake_api/object_in_query.md) | **get** /fake/objInQuery | user list
 [**parameter_collisions**](fake_api/parameter_collisions.md) | **post** /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ | parameter collision case
 [**query_param_with_json_content_type**](fake_api/query_param_with_json_content_type.md) | **get** /fake/queryParamWithJsonContentType | query param with json content-type
