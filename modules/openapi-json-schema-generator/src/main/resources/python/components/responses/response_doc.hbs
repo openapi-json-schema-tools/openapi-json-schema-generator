@@ -3,17 +3,17 @@
 {{packageName}}.components.responses.{{componentModule}}
 {{/if}}
 {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) recordUsage=true }}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Response" jsonPathPiece) recordUsage=true }}
 {{else}}
 {{> components/_helper_header_from_identifier_pieces recordUsage=false }}
 {{/eq}}
 {{#if description}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}description" >Description</a>
+{{headerSize}}# Description
 {{description}}
 {{/if}}
 
-{{headerSize}}# <a id="{{jsonPathPiece.snakeCase}}response_cls" >response_cls</a>
+{{headerSize}}# response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -1,10 +1,10 @@
 petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
-# SuccessfulXmlAndJsonArrayOfPet
+# Response SuccessfulXmlAndJsonArrayOfPet
 
-## <a id="response_successful_xml_and_json_array_of_petdescription" >Description</a>
+## Description
 successful operation, multiple content types
 
-## <a id="response_successful_xml_and_json_array_of_petresponse_cls" >response_cls</a>
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

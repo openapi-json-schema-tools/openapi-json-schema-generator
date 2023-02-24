@@ -28,12 +28,12 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
 
-## Default
+## Response Default
 
-### <a id="response_defaultdescription" >Description</a>
+### Description
 successful operation
 
-### <a id="response_defaultresponse_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

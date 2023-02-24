@@ -58,12 +58,12 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid tag value
 
-## ResponseFor400
+## Response ResponseFor400
 
-### <a id="response_400description" >Description</a>
+### Description
 Invalid tag value
 
-### <a id="response_400response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -1,10 +1,10 @@
 petstore_api.components.responses.response_success_inline_content_and_header
-# SuccessInlineContentAndHeader
+# Response SuccessInlineContentAndHeader
 
-## <a id="response_success_inline_content_and_headerdescription" >Description</a>
+## Description
 successful operation
 
-## <a id="response_success_inline_content_and_headerresponse_cls" >response_cls</a>
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

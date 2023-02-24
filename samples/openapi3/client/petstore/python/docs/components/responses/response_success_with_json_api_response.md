@@ -1,10 +1,10 @@
 petstore_api.components.responses.response_success_with_json_api_response
-# SuccessWithJsonApiResponse
+# Response SuccessWithJsonApiResponse
 
-## <a id="response_success_with_json_api_responsedescription" >Description</a>
+## Description
 successful operation
 
-## <a id="response_success_with_json_api_responseresponse_cls" >response_cls</a>
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

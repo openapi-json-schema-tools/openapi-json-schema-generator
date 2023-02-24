@@ -58,24 +58,24 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid user supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-## ResponseFor400
+## Response ResponseFor400
 
-### <a id="response_400description" >Description</a>
+### Description
 Invalid user supplied
 
-### <a id="response_400response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor404
+## Response ResponseFor404
 
-### <a id="response_404description" >Description</a>
+### Description
 User not found
 
-### <a id="response_404response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

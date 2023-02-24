@@ -1,10 +1,10 @@
 petstore_api.components.responses.response_success_description_only
-# SuccessDescriptionOnly
+# Response SuccessDescriptionOnly
 
-## <a id="response_success_description_onlydescription" >Description</a>
+## Description
 Success
 
-## <a id="response_success_description_onlyresponse_cls" >response_cls</a>
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

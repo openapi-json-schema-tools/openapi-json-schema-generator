@@ -1,7 +1,7 @@
 petstore_api.components.responses.response_ref_successful_xml_and_json_array_of_pet
-# RefSuccessfulXmlAndJsonArrayOfPet
+# Response RefSuccessfulXmlAndJsonArrayOfPet
 
-## <a id="response_ref_successful_xml_and_json_array_of_petresponse_cls" >response_cls</a>
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

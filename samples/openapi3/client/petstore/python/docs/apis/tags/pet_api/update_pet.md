@@ -32,36 +32,36 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Pet not found
 405 | [ResponseFor405.response_cls](#response_405response_cls) | Validation exception
 
-## ResponseFor400
+## Response ResponseFor400
 
-### <a id="response_400description" >Description</a>
+### Description
 Invalid ID supplied
 
-### <a id="response_400response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor404
+## Response ResponseFor404
 
-### <a id="response_404description" >Description</a>
+### Description
 Pet not found
 
-### <a id="response_404response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor405
+## Response ResponseFor405
 
-### <a id="response_405description" >Description</a>
+### Description
 Validation exception
 
-### <a id="response_405response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

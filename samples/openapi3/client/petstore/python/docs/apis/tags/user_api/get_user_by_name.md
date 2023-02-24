@@ -37,12 +37,12 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-## ResponseFor200
+## Response ResponseFor200
 
-### <a id="response_200description" >Description</a>
+### Description
 successful operation
 
-### <a id="response_200response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -69,24 +69,24 @@ Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## ResponseFor400
+## Response ResponseFor400
 
-### <a id="response_400description" >Description</a>
+### Description
 Invalid username supplied
 
-### <a id="response_400response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor404
+## Response ResponseFor404
 
-### <a id="response_404description" >Description</a>
+### Description
 User not found
 
-### <a id="response_404response_cls" >response_cls</a>
+### response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
