@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_difficultly_named_props
-# ObjectWithDifficultlyNamedProps
+# Schema ObjectWithDifficultlyNamedProps
 
 ## Description
 model with properties that have invalid names for python

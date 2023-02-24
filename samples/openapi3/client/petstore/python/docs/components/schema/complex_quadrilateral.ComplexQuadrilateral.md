@@ -1,5 +1,5 @@
 petstore_api.components.schema.complex_quadrilateral
-# ComplexQuadrilateral
+# Schema ComplexQuadrilateral
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

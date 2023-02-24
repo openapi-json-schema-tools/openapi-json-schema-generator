@@ -1,5 +1,5 @@
 petstore_api.components.schema.apple_req
-# AppleReq
+# Schema AppleReq
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

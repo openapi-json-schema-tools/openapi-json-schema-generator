@@ -1,5 +1,5 @@
 petstore_api.components.schema.req_props_from_explicit_add_props
-# ReqPropsFromExplicitAddProps
+# Schema ReqPropsFromExplicitAddProps
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

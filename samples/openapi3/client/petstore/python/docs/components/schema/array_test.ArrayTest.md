@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_test
-# ArrayTest
+# Schema ArrayTest
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

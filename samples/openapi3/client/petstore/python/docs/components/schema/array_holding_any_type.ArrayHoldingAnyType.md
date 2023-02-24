@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_holding_any_type
-# ArrayHoldingAnyType
+# Schema ArrayHoldingAnyType
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

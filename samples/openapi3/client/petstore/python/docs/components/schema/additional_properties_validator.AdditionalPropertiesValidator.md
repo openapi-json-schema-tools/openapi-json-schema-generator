@@ -1,5 +1,5 @@
 petstore_api.components.schema.additional_properties_validator
-# AdditionalPropertiesValidator
+# Schema AdditionalPropertiesValidator
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.banana
-# Banana
+# Schema Banana
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

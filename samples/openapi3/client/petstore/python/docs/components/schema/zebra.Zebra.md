@@ -1,5 +1,5 @@
 petstore_api.components.schema.zebra
-# Zebra
+# Schema Zebra
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

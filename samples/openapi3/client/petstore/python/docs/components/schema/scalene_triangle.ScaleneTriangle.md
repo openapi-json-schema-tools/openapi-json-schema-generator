@@ -1,5 +1,5 @@
 petstore_api.components.schema.scalene_triangle
-# ScaleneTriangle
+# Schema ScaleneTriangle
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

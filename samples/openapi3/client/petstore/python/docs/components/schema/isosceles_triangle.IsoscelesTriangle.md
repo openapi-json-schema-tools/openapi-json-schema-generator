@@ -1,5 +1,5 @@
 petstore_api.components.schema.isosceles_triangle
-# IsoscelesTriangle
+# Schema IsoscelesTriangle
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

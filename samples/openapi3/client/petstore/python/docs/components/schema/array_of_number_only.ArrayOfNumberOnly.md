@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_of_number_only
-# ArrayOfNumberOnly
+# Schema ArrayOfNumberOnly
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

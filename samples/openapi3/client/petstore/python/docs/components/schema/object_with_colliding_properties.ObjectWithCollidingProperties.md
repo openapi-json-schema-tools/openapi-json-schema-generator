@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_colliding_properties
-# ObjectWithCollidingProperties
+# Schema ObjectWithCollidingProperties
 
 ## Description
 component with properties that have name collisions

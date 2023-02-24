@@ -1,5 +1,5 @@
 petstore_api.components.schema.child_cat
-# ChildCat
+# Schema ChildCat
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

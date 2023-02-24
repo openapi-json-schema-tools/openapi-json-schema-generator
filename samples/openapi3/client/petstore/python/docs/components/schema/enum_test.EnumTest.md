@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_test
-# EnumTest
+# Schema EnumTest
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

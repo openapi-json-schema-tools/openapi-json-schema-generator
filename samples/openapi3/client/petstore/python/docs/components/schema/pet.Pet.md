@@ -1,5 +1,5 @@
 petstore_api.components.schema.pet
-# Pet
+# Schema Pet
 
 ## Description
 Pet object that needs to be added to the store

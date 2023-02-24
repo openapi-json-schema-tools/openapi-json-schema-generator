@@ -1,5 +1,5 @@
 petstore_api.components.schema.format_test
-# FormatTest
+# Schema FormatTest
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

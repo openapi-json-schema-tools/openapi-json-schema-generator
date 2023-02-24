@@ -1,5 +1,5 @@
 petstore_api.components.schema.pig
-# Pig
+# Schema Pig
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

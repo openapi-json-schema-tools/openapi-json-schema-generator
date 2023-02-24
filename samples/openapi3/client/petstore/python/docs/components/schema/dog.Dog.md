@@ -1,5 +1,5 @@
 petstore_api.components.schema.dog
-# Dog
+# Schema Dog
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

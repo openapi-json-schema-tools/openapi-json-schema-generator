@@ -1,5 +1,5 @@
 petstore_api.components.schema.client
-# Client
+# Schema Client
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

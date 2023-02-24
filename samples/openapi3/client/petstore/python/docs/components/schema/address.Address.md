@@ -1,5 +1,5 @@
 petstore_api.components.schema.address
-# Address
+# Schema Address
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

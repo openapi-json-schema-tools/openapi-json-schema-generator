@@ -1,5 +1,5 @@
 petstore_api.components.schema.map_test
-# MapTest
+# Schema MapTest
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.number_with_validations
-# NumberWithValidations
+# Schema NumberWithValidations
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

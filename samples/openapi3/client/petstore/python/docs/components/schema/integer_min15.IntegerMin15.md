@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_min15
-# IntegerMin15
+# Schema IntegerMin15
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

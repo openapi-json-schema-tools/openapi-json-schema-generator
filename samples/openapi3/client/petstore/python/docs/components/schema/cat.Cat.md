@@ -1,5 +1,5 @@
 petstore_api.components.schema.cat
-# Cat
+# Schema Cat
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.money
-# Money
+# Schema Money
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.user
-# User
+# Schema User
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

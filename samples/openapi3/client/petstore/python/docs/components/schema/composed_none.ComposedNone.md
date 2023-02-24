@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_none
-# ComposedNone
+# Schema ComposedNone
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

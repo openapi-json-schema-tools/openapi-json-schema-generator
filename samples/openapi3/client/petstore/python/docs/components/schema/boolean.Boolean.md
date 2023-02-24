@@ -1,5 +1,5 @@
 petstore_api.components.schema.boolean
-# Boolean
+# Schema Boolean
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

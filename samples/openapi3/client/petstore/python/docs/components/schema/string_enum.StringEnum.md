@@ -1,5 +1,5 @@
 petstore_api.components.schema.string_enum
-# StringEnum
+# Schema StringEnum
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

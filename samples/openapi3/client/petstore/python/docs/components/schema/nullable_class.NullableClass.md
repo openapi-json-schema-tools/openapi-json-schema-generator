@@ -1,5 +1,5 @@
 petstore_api.components.schema.nullable_class
-# NullableClass
+# Schema NullableClass
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

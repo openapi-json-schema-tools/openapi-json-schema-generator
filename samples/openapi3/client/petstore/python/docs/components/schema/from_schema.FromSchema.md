@@ -1,5 +1,5 @@
 petstore_api.components.schema.from_schema
-# FromSchema
+# Schema FromSchema
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

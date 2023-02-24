@@ -1,5 +1,5 @@
 petstore_api.components.schema.apple
-# Apple
+# Schema Apple
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

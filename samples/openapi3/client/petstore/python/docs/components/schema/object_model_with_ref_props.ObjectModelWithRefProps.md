@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_model_with_ref_props
-# ObjectModelWithRefProps
+# Schema ObjectModelWithRefProps
 
 ## Description
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations

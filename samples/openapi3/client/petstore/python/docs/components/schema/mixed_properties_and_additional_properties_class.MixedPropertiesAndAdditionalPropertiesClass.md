@@ -1,5 +1,5 @@
 petstore_api.components.schema.mixed_properties_and_additional_properties_class
-# MixedPropertiesAndAdditionalPropertiesClass
+# Schema MixedPropertiesAndAdditionalPropertiesClass
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

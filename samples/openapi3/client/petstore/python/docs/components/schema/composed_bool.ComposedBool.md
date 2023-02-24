@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_bool
-# ComposedBool
+# Schema ComposedBool
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

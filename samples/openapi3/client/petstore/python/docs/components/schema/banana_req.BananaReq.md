@@ -1,5 +1,5 @@
 petstore_api.components.schema.banana_req
-# BananaReq
+# Schema BananaReq
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

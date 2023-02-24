@@ -1,5 +1,5 @@
 petstore_api.components.schema.items
-# Items
+# Schema Items
 
 ## Description
 component&#x27;s name collides with the inner schema name
@@ -12,7 +12,7 @@ list, tuple,  | tuple,  | component&#x27;s name collides with the inner schema n
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items-1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # Items
 

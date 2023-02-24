@@ -1,5 +1,5 @@
 petstore_api.components.schema.currency
-# Currency
+# Schema Currency
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

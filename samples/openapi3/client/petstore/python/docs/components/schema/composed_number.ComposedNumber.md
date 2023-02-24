@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_number
-# ComposedNumber
+# Schema ComposedNumber
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

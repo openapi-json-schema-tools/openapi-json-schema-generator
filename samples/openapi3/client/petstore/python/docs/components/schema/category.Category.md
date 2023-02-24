@@ -1,5 +1,5 @@
 petstore_api.components.schema.category
-# Category
+# Schema Category
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

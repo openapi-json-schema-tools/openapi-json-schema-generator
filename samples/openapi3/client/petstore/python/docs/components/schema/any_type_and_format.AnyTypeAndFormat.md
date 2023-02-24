@@ -1,5 +1,5 @@
 petstore_api.components.schema.any_type_and_format
-# AnyTypeAndFormat
+# Schema AnyTypeAndFormat
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

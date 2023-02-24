@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_any_of_different_types_no_validations
-# ComposedAnyOfDifferentTypesNoValidations
+# Schema ComposedAnyOfDifferentTypesNoValidations
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

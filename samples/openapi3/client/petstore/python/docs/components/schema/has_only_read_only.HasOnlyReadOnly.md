@@ -1,5 +1,5 @@
 petstore_api.components.schema.has_only_read_only
-# HasOnlyReadOnly
+# Schema HasOnlyReadOnly
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

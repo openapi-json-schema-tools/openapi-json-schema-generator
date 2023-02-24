@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
-# ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+# Schema ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

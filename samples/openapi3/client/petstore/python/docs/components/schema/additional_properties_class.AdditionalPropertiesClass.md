@@ -1,5 +1,5 @@
 petstore_api.components.schema.additional_properties_class
-# AdditionalPropertiesClass
+# Schema AdditionalPropertiesClass
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

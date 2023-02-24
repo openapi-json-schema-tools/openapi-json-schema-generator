@@ -1,5 +1,5 @@
 petstore_api.components.schema.whale
-# Whale
+# Schema Whale
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

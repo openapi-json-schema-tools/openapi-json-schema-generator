@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_class
-# EnumClass
+# Schema EnumClass
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

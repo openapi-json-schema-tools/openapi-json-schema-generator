@@ -1,5 +1,5 @@
 petstore_api.components.schema.triangle_interface
-# TriangleInterface
+# Schema TriangleInterface
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

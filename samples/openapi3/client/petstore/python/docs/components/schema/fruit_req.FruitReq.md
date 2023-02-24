@@ -1,5 +1,5 @@
 petstore_api.components.schema.fruit_req
-# FruitReq
+# Schema FruitReq
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

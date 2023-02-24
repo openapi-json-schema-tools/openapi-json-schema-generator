@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_inline_composition_property
-# ObjectWithInlineCompositionProperty
+# Schema ObjectWithInlineCompositionProperty
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_arrays
-# EnumArrays
+# Schema EnumArrays
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

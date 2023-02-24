@@ -1,5 +1,5 @@
 petstore_api.components.schema.file_schema_test_class
-# FileSchemaTestClass
+# Schema FileSchemaTestClass
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

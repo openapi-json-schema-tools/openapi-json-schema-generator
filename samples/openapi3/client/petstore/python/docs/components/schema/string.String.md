@@ -1,5 +1,5 @@
 petstore_api.components.schema.string
-# String
+# Schema String
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

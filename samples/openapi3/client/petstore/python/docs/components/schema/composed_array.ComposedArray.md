@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_array
-# ComposedArray
+# Schema ComposedArray
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -1,5 +1,5 @@
 petstore_api.components.schema.animal_farm
-# AnimalFarm
+# Schema AnimalFarm
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

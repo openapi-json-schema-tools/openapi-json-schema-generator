@@ -1,5 +1,5 @@
 petstore_api.components.schema.any_type_not_string
-# AnyTypeNotString
+# Schema AnyTypeNotString
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
