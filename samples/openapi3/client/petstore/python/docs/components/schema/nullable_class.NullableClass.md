@@ -9,18 +9,18 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**integer_prop** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,   | [optional]
-**number_prop** | None, decimal.Decimal, int, float,  | NoneClass, decimal.Decimal,   | [optional]
-**boolean_prop** | None, bool,  | NoneClass, BoolClass,   | [optional]
-**string_prop** | None, str,  | NoneClass, str,   | [optional]
-**date_prop** | None, str, datetime.date,  | NoneClass, str,   | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | None, str, datetime.datetime,  | NoneClass, str,   | [optional] value must conform to RFC-3339 date-time
-[**array_nullable_prop**](#properties-arraynullableprop) | None, list, tuple,  | NoneClass, tuple,   | [optional]
-[**array_and_items_nullable_prop**](#properties-arrayanditemsnullableprop) | None, list, tuple,  | NoneClass, tuple,   | [optional]
-[**array_items_nullable**](#properties-arrayitemsnullable) | list, tuple,  | tuple,   | [optional]
-[**object_nullable_prop**](#properties-objectnullableprop) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,   | [optional]
-[**object_and_items_nullable_prop**](#properties-objectanditemsnullableprop) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,   | [optional]
-[**object_items_nullable**](#properties-objectitemsnullable) | dict, frozendict.frozendict,  | frozendict.frozendict,   | [optional]
+**integer_prop** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  |  | [optional]
+**number_prop** | None, decimal.Decimal, int, float,  | NoneClass, decimal.Decimal,  |  | [optional]
+**boolean_prop** | None, bool,  | NoneClass, BoolClass,  |  | [optional]
+**string_prop** | None, str,  | NoneClass, str,  |  | [optional]
+**date_prop** | None, str, datetime.date,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, datetime.datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
+[**array_nullable_prop**](#properties-arraynullableprop) | None, list, tuple,  | NoneClass, tuple,  |  | [optional]
+[**array_and_items_nullable_prop**](#properties-arrayanditemsnullableprop) | None, list, tuple,  | NoneClass, tuple,  |  | [optional]
+[**array_items_nullable**](#properties-arrayitemsnullable) | list, tuple,  | tuple,  |  | [optional]
+[**object_nullable_prop**](#properties-objectnullableprop) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  | [optional]
+[**object_and_items_nullable_prop**](#properties-objectanditemsnullableprop) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  | [optional]
+[**object_items_nullable**](#properties-objectitemsnullable) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional]
 **any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
 
 # properties ArrayNullableProp

@@ -47,8 +47,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str,  | str,  Updated name of the pet | [optional]
-**status** | str,  | str,  Updated status of the pet | [optional]
+**name** | str,  | str,  | Updated name of the pet | [optional]
+**status** | str,  | str,  | Updated status of the pet | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### <a id="requestpathparameters" >path_params</a>

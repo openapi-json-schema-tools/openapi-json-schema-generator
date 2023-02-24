@@ -54,16 +54,16 @@ Key | Input Type | Accessed Type | Description | Notes
 **double** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | value must be a 64 bit float
 **number** | decimal.Decimal, int, float,  | decimal.Decimal,  | None |
 **pattern_without_delimiter** | str,  | str,  | None |
-**integer** | decimal.Decimal, int,  | decimal.Decimal,  None | [optional]
-**int32** | decimal.Decimal, int,  | decimal.Decimal,  None | [optional] value must be a 32 bit integer
-**int64** | decimal.Decimal, int,  | decimal.Decimal,  None | [optional] value must be a 64 bit integer
-**float** | decimal.Decimal, int, float,  | decimal.Decimal,  None | [optional] value must be a 32 bit float
-**string** | str,  | str,  None | [optional]
-**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  None | [optional]
-**date** | str, datetime.date,  | str,  None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | str, datetime.datetime,  | str,  None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.11111+01:00 value must conform to RFC-3339 date-time
-**password** | str,  | str,  None | [optional]
-**callback** | str,  | str,  None | [optional]
+**integer** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional]
+**int32** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 32 bit integer
+**int64** | decimal.Decimal, int,  | decimal.Decimal,  | None | [optional] value must be a 64 bit integer
+**float** | decimal.Decimal, int, float,  | decimal.Decimal,  | None | [optional] value must be a 32 bit float
+**string** | str,  | str,  | None | [optional]
+**binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | None | [optional]
+**date** | str, datetime.date,  | str,  | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**dateTime** | str, datetime.datetime,  | str,  | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.11111+01:00 value must conform to RFC-3339 date-time
+**password** | str,  | str,  | None | [optional]
+**callback** | str,  | str,  | None | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Return Types

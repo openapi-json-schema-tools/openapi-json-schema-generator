@@ -10,6 +10,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **lengthCm** | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
-**sweet** | bool,  | BoolClass,   | [optional]
+**sweet** | bool,  | BoolClass,  |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -10,6 +10,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str,  | str,  |  |
-**mealy** | bool,  | BoolClass,   | [optional]
+**mealy** | bool,  | BoolClass,  |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
