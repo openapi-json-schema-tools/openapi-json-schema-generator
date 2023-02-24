@@ -1,8 +1,7 @@
-<a name="top"></a>
-## unit_test_api.components.schema.enum_with_escaped_characters
-# EnumWithEscapedCharacters
+unit_test_api.components.schema.enum_with_escaped_characters
+# Schema EnumWithEscapedCharacters
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["foo\nbar", "foo\rbar", ]

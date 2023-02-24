@@ -1,13 +1,12 @@
-<a name="top"></a>
-## unit_test_api.components.schema.enums_in_properties
-# EnumsInProperties
+unit_test_api.components.schema.enums_in_properties
+# Schema EnumsInProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **bar** | str,  | str,  |  | must be one of ["bar", ]

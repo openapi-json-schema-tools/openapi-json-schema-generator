@@ -1,8 +1,7 @@
-<a name="top"></a>
-## unit_test_api.components.schema.string_type_matches_strings
-# StringTypeMatchesStrings
+unit_test_api.components.schema.string_type_matches_strings
+# Schema StringTypeMatchesStrings
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |

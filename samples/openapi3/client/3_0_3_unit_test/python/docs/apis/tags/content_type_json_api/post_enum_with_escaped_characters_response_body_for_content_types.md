@@ -1,9 +1,51 @@
-<a name="top"></a>
+<a name="postenumwithescapedcharactersresponsebodyforcontenttypes"></a>
 # **post_enum_with_escaped_characters_response_body_for_content_types**
-<a name="post_enum_with_escaped_characters_response_body_for_content_types"></a>
 
+## Table of Contents
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
 
-### Example
+## Path
+"/responseBody/postEnumWithEscapedCharactersResponseBodyForContentTypes"
+
+## HTTP Method
+post
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
+
+## responses ResponseFor200
+
+### Description
+success
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
+headers | Unset | headers were not defined |
+
+### Body
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+
+### Body Details
+#### responses ResponseFor200 content ApplicationJson Schema
+
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[EnumWithEscapedCharacters](../../components/schemas/enum_with_escaped_characters.EnumWithEscapedCharacters.md#enum_with_escaped_characters) | str,  | str,  |
+
+## Code Sample
 
 ```python
 import unit_test_api
@@ -27,31 +69,5 @@ with unit_test_api.ApiClient(configuration) as api_client:
     except unit_test_api.ApiException as e:
         print("Exception when calling ContentTypeJsonApi->post_enum_with_escaped_characters_response_body_for_content_types: %s\n" % e)
 ```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | success
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**EnumWithEscapedCharacters**](../../../components/schema/enum_with_escaped_characters.EnumWithEscapedCharacters.md) |  | 
-
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

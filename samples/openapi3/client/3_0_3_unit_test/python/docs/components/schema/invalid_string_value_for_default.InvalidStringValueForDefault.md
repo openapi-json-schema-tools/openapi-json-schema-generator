@@ -1,13 +1,12 @@
-<a name="top"></a>
-## unit_test_api.components.schema.invalid_string_value_for_default
-# InvalidStringValueForDefault
+unit_test_api.components.schema.invalid_string_value_for_default
+# Schema InvalidStringValueForDefault
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **bar** | str,  | str,  |  | [optional] if omitted the server will use the default value of "bad"

@@ -1,9 +1,63 @@
-<a name="top"></a>
+<a name="postenumwith1doesnotmatchtruerequestbody"></a>
 # **post_enum_with1_does_not_match_true_request_body**
-<a name="post_enum_with1_does_not_match_true_request_body"></a>
 
+## Table of Contents
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
 
-### Example
+## Path
+"/requestBody/postEnumWith1DoesNotMatchTrueRequestBody"
+
+## HTTP Method
+post
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### RequestBody
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
+
+#### RequestBody content ApplicationJson Schema
+
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[EnumWith1DoesNotMatchTrue](../../components/schemas/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md#enum_with1_does_not_match_true) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
+
+## responses ResponseFor200
+
+### Description
+success
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+## Code Sample
 
 ```python
 import unit_test_api
@@ -30,39 +84,5 @@ with unit_test_api.ApiClient(configuration) as api_client:
     except unit_test_api.ApiException as e:
         print("Exception when calling ContentTypeJsonApi->post_enum_with1_does_not_match_true_request_body: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_json.schema](#request_bodycontentapplication_jsonschema)] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="request_body" >body</a>
-# <a id="request_body_request_bodycontentapplication_jsonschema" >RequestBody.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
-
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | success
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../ContentTypeJsonApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

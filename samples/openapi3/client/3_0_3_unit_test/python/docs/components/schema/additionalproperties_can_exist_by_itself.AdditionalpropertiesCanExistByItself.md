@@ -1,13 +1,12 @@
-<a name="top"></a>
-## unit_test_api.components.schema.additionalproperties_can_exist_by_itself
-# AdditionalpropertiesCanExistByItself
+unit_test_api.components.schema.additionalproperties_can_exist_by_itself
+# Schema AdditionalpropertiesCanExistByItself
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | bool,  | BoolClass,  | any string name can be used but the value must be the correct type | [optional]

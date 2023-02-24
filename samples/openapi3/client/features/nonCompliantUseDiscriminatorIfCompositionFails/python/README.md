@@ -174,9 +174,11 @@ HTTP request | Method | Description
 
 ## Component Schemas
 
- - [AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md)
- - [Operator](docs/components/schema/operator.Operator.md)
- - [SubtractionOperator](docs/components/schema/subtraction_operator.SubtractionOperator.md)
+Class | Description
+----- | ------------
+[AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md) |
+[Operator](docs/components/schema/operator.Operator.md) |
+[SubtractionOperator](docs/components/schema/subtraction_operator.SubtractionOperator.md) |
 
 ## Documentation For Authorization
 

@@ -1,8 +1,7 @@
-<a name="top"></a>
-## unit_test_api.components.schema.number_type_matches_numbers
-# NumberTypeMatchesNumbers
+unit_test_api.components.schema.number_type_matches_numbers
+# Schema NumberTypeMatchesNumbers
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |

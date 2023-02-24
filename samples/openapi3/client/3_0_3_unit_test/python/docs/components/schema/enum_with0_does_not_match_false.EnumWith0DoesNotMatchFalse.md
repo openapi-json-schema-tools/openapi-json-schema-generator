@@ -1,8 +1,7 @@
-<a name="top"></a>
-## unit_test_api.components.schema.enum_with0_does_not_match_false
-# EnumWith0DoesNotMatchFalse
+unit_test_api.components.schema.enum_with0_does_not_match_false
+# Schema EnumWith0DoesNotMatchFalse
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [0, ]

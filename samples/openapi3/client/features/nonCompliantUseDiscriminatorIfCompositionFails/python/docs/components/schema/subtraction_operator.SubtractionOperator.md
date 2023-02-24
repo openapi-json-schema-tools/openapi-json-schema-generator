@@ -1,13 +1,12 @@
-<a name="top"></a>
-## this_package.components.schema.subtraction_operator
-# SubtractionOperator
+this_package.components.schema.subtraction_operator
+# Schema SubtractionOperator
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
