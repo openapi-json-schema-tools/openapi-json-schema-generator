@@ -166,7 +166,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | success, multiple content types
 
-## Response ResponseFor200
+## responses ResponseFor200
 
 ### Description
 success, multiple content types
@@ -175,17 +175,17 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), [content.multipart_form_data.schema](#content-multipartformdata-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responses-responsefor200-content-multipartformdata-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
-"multipart/form-data" | [content.multipart_form_data.Schema](#content-multipartformdata-schema)
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+"multipart/form-data" | [content.multipart_form_data.Schema](#responses-responsefor200-content-multipartformdata-schema)
 
 ### Body Details
-#### content ApplicationJson Schema
+#### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -196,15 +196,15 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#content-applicationjson-schema-allof-_0) | str,  | str,  |  |
+[_0](#responses-responsefor200-content-applicationjson-schema-allof-_0) | str,  | str,  |  |
 
-#### content ApplicationJson Schema allof _0
+#### responses ResponseFor200 content ApplicationJson Schema allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### content MultipartFormData Schema
+#### responses ResponseFor200 content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -214,10 +214,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-[**someProp**](#content-multipartformdata-schema-properties-someprop) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO  | [optional]
+[**someProp**](#responses-responsefor200-content-multipartformdata-schema-properties-someprop) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### content MultipartFormData Schema properties SomeProp
+#### responses ResponseFor200 content MultipartFormData Schema properties SomeProp
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -228,9 +228,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#content-multipartformdata-schema-properties-someprop-allof-_0) | str,  | str,  |  |
+[_0](#responses-responsefor200-content-multipartformdata-schema-properties-someprop-allof-_0) | str,  | str,  |  |
 
-#### content MultipartFormData Schema properties SomeProp allof _0
+#### responses ResponseFor200 content MultipartFormData Schema properties SomeProp allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

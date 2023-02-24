@@ -80,11 +80,7 @@ Key | Accessed Type | Description  | Notes
 {{headerSize}}# Body Details
         {{#each content}}
             {{#with this.schema}}
-                {{#if ../componentModule}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) complexTypePrefix="../../components/schema/" }}
-                {{else}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
-                {{/if}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) }}
             {{/with}}
         {{/each}}
     {{/if}}

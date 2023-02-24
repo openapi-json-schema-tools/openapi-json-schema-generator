@@ -1,8 +1,8 @@
 {{#with operation}}
 <a name="{{operationId.anchorPiece}}"></a>
-# **{{{operationId.snakeCase}}}**
+{{headerSize}} **{{{operationId.snakeCase}}}**
 
-## Table of Contents
+{{headerSize}}# Table of Contents
 {{#if summary}}
 - [Summary](#summary)
 {{/if}}
@@ -21,23 +21,23 @@
 - [Code Sample](#code-sample)
 {{#if summary}}
 
-## Summary
+{{headerSize}}# Summary
 {{{summary}}}
 {{/if}}
 {{#if description}}
 
-## Description
+{{headerSize}}# Description
 {{{description}}}
 {{/if}}
 
-## Path
+{{headerSize}}# Path
 "{{{path.original}}}"
 
-## HTTP Method
+{{headerSize}}# HTTP Method
 {{{httpMethod.original}}}
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 
-## Arguments
+{{headerSize}}# Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -92,8 +92,8 @@ skip_deserialization | bool | default is False | when True, headers and body wil
     {{/if}}
     {{#if queryParams}}
 
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+{{headerSize}}## <a id="requestqueryparameters" >query_params</a>
+{{headerSize}}### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -114,14 +114,14 @@ Key | Input Type | Description  | Notes
         {{#each queryParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> components/parameters/parameter_doc headerSize="####" complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
         {{/unless}}
         {{/each}}
     {{/if}}
     {{#if headerParams}}
 
-### <a id="requestheaderparameters" >header_params</a>
-#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
+{{headerSize}}## <a id="requestheaderparameters" >header_params</a>
+{{headerSize}}### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -141,14 +141,14 @@ Key | Input Type | Description  | Notes
         {{#each headerParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> components/parameters/parameter_doc headerSize="####" complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
         {{/unless}}
         {{/each}}
     {{/if}}
     {{#if pathParams}}
 
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+{{headerSize}}## <a id="requestpathparameters" >path_params</a>
+{{headerSize}}### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,14 +168,14 @@ Key | Input Type | Description  | Notes
         {{#each pathParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> components/parameters/parameter_doc headerSize="####" complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
         {{/unless}}
         {{/each}}
     {{/if}}
     {{#if cookieParams}}
 
-### <a id="requestcookieparameters" >cookie_params</a>
-#### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
+{{headerSize}}## <a id="requestcookieparameters" >cookie_params</a>
+{{headerSize}}### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -195,13 +195,13 @@ Key | Input Type | Description  | Notes
         {{#each cookieParams as | parameter |}}
         {{#unless parameter.refInfo}}
 
-{{> components/parameters/parameter_doc headerSize="####" complexTypePrefix="../../../components/schema/" }}
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
         {{/unless}}
         {{/each}}
     {{/if}}
 {{/or}}
 
-## Return Types
+{{headerSize}}# Return Types
 
 Code | Class | Description
 ------------- | ------------- | -------------
@@ -225,17 +225,17 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{#each responses}}
 {{#unless refInfo.refModule}}
 
-{{> components/responses/response_doc response=this headerSize="##" complexTypePrefix="../../../components/schema/" }}
+{{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "responses" jsonPathPiece) }}
 {{/unless}}
 {{/each}}
 {{#if authMethods}}
 
-## Authorization
+{{headerSize}}# Authorization
 
 {{#each authMethods}}[{{{name}}}](../../../../README.md#{{{name}}}){{#unless @last}}, {{/unless}}{{/each}}
 {{/if}}
 
-## Code Sample
+{{headerSize}}# Code Sample
 
 {{#if authMethods}}
 {{#each authMethods}}

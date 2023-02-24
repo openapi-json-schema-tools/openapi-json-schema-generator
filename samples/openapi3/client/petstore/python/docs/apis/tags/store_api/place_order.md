@@ -54,7 +54,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid Order
 
-## Response ResponseFor200
+## responses ResponseFor200
 
 ### Description
 successful operation
@@ -63,30 +63,30 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#responses-responsefor200-content-applicationxml-schema), [content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
-"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#responses-responsefor200-content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### content ApplicationXml Schema
+#### responses ResponseFor200 content ApplicationXml Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
-#### content ApplicationJson Schema
+#### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## Response ResponseFor400
+## responses ResponseFor400
 
 ### Description
 Invalid Order

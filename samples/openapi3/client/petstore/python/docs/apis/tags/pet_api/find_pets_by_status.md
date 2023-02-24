@@ -66,7 +66,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
 
-## Response ResponseFor400
+## responses ResponseFor400
 
 ### Description
 Invalid status value

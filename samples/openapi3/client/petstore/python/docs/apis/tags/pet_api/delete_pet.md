@@ -71,7 +71,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid pet value
 
-## Response ResponseFor400
+## responses ResponseFor400
 
 ### Description
 Invalid pet value

@@ -584,6 +584,7 @@ public class DefaultGenerator implements Generator {
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
                         endpointInfo.put("headerSize", "#");
+                        endpointInfo.put("complexTypePrefix", "../../../components/schema/");
                         endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                         endpointInfo.put("identifierToHeadingQty", new HashMap<>());
                         outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCase + ".md"));

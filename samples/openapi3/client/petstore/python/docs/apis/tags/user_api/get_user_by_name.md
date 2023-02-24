@@ -44,7 +44,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
 
-## Response ResponseFor200
+## responses ResponseFor200
 
 ### Description
 successful operation
@@ -53,30 +53,30 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#responses-responsefor200-content-applicationxml-schema), [content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
-"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#responses-responsefor200-content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### content ApplicationXml Schema
+#### responses ResponseFor200 content ApplicationXml Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
-#### content ApplicationJson Schema
+#### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## Response ResponseFor400
+## responses ResponseFor400
 
 ### Description
 Invalid username supplied
@@ -88,7 +88,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## Response ResponseFor404
+## responses ResponseFor404
 
 ### Description
 User not found

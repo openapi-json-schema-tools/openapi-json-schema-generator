@@ -44,11 +44,7 @@ Ref Class | Input Type | Accessed Type | Description
         {{#if schema}}
             {{#with schema}}
 
-                {{#if ../componentModule}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../components/schema/" }}
-                {{else}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
-                {{/if}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
             {{/with}}
         {{else}}
             {{#each content}}
@@ -64,11 +60,7 @@ Content-Type | Schema
                 {{#with this}}
                     {{#with schema}}
 
-                        {{#if ../componentModule}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../components/schema/" }}
-                        {{else}}
-{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) complexTypePrefix="../../../components/schema/" }}
-                        {{/if}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}
                     {{/with}}
                 {{/with}}
             {{/each}}

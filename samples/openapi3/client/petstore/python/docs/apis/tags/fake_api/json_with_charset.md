@@ -50,7 +50,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 
-## Response ResponseFor200
+## responses ResponseFor200
 
 ### Description
 success
@@ -59,16 +59,16 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#content-applicationjsoncharsetutf8-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#responses-responsefor200-content-applicationjsoncharsetutf8-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#content-applicationjsoncharsetutf8-schema)
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#responses-responsefor200-content-applicationjsoncharsetutf8-schema)
 
 ### Body Details
-#### content ApplicationJsonCharsetutf8 Schema
+#### responses ResponseFor200 content ApplicationJsonCharsetutf8 Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

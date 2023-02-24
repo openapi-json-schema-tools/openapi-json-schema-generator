@@ -69,7 +69,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username/password supplied
 
-## Response ResponseFor200
+## responses ResponseFor200
 
 ### Description
 successful operation
@@ -78,34 +78,34 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#responses-responsefor200-content-applicationxml-schema), [content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
 [headers](#headers) | [Headers](#headers) |  |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
-"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#responses-responsefor200-content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
 
 ### Headers
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
-X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#headers-xratelimit-content-applicationjson-schema) | | 
+X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#responses-responsefor200-headers-xratelimit-content-applicationjson-schema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
-X-Expires-After | [headers.header_x_expires_after.schema](#headers-xexpiresafter-schema) | | optional
+X-Expires-After | [headers.header_x_expires_after.schema](#responses-responsefor200-headers-xexpiresafter-schema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
 stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
 ### Body Details
-#### content ApplicationXml Schema
+#### responses ResponseFor200 content ApplicationXml Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
-#### content ApplicationJson Schema
+#### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -113,7 +113,7 @@ Input Type | Accessed Type | Description | Notes
 str,  | str,  |  |
 
 ### Header Details
-#### headers XRateLimit
+#### responses ResponseFor200 headers XRateLimit
 
 ##### Description
 calls per hour allowed by the user
@@ -121,27 +121,27 @@ calls per hour allowed by the user
 ##### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#headers-xratelimit-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responses-responsefor200-headers-xratelimit-content-applicationjson-schema)
 
-##### headers XRateLimit content ApplicationJson Schema
+##### responses ResponseFor200 headers XRateLimit content ApplicationJson Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
-#### headers XExpiresAfter
+#### responses ResponseFor200 headers XExpiresAfter
 
 ##### Description
 date in UTC when token expires
 
-##### headers XExpiresAfter Schema
+##### responses ResponseFor200 headers XExpiresAfter Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-## Response ResponseFor400
+## responses ResponseFor400
 
 ### Description
 Invalid username/password supplied
