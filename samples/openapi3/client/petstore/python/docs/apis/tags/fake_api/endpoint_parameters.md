@@ -27,20 +27,20 @@ post
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="request_body" >body</a>
+### RequestBody
 
 #### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#content-applicationxwwwformurlencoded-schema)
+"application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
-#### content ApplicationXWwwFormUrlencoded Schema
+#### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
