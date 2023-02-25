@@ -2570,7 +2570,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         String camelCase = toModelName(operationId);
-        String anchorPiece = camelCase.toLowerCase();
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
@@ -2638,7 +2638,7 @@ public class DefaultCodegen implements CodegenConfig {
             usedPath = path;
         }
         String camelCase = toModelName(path);
-        String anchorPiece = camelCase.toLowerCase();
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         CodegenKey pathKey = new CodegenKey(
                 usedPath,
                 false,  // false because paths have lots of invalid characters
@@ -2816,7 +2816,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         String camelCaseMethod = org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod);
-        String anchorPieceMethod = camelCase.toLowerCase();
+        String anchorPieceMethod = camelCase.toLowerCase(Locale.ROOT);
         CodegenKey httpMethodKey = new CodegenKey(
                 httpMethod,
                 true,
@@ -4554,7 +4554,7 @@ public class DefaultCodegen implements CodegenConfig {
                 break;
         }
         if (camelCaseName != null) {
-            anchorPiece = camelCaseName.toLowerCase();
+            anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
         }
         return new CodegenKey(
                 usedKey,
@@ -4569,7 +4569,7 @@ public class DefaultCodegen implements CodegenConfig {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
         String camelCase = toModelName(usedKey);
-        String anchorPiece = camelCase.toLowerCase();
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 usedKey,
                 isValid,
