@@ -49,16 +49,16 @@ Name | Type | Description  | Notes
     {{/if}}
     {{/with}}
     {{#if queryParams}}
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
     {{/if}}
     {{#if headerParams}}
-[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
     {{/if}}
     {{#if pathParams}}
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
     {{/if}}
     {{#if cookieParams}}
-[cookie_params](#requestcookieparameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -85,120 +85,15 @@ stream | bool | default is False | if True then the response.content will be str
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
     {{#if requestBody}}
-    {{#unless requestBody.refInfo}}
+        {{#unless requestBody.refInfo}}
 
 {{> components/request_bodies/request_body_doc requestBody=requestBody headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces requestBody.jsonPathPiece) }}
-    {{/unless}}
-    {{/if}}
-    {{#if queryParams}}
-
-{{headerSize}}## <a id="requestqueryparameters" >query_params</a>
-{{headerSize}}### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-        {{#each queryParams}}
-        {{#if refInfo}}
-{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
-        {{else}}
-            {{#if schema}}
-{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-            {{else}}
-                {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-                {{/each}}
-            {{/if}}
-        {{/if}}
-        {{/each}}
-
-        {{#each queryParams as | parameter |}}
-        {{#unless parameter.refInfo}}
-
-{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
         {{/unless}}
-        {{/each}}
     {{/if}}
-    {{#if headerParams}}
-
-{{headerSize}}## <a id="requestheaderparameters" >header_params</a>
-{{headerSize}}### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-        {{#each headerParams}}
-        {{#if refInfo}}
-{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
-        {{else}}
-            {{#if schema}}
-{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-            {{else}}
-                {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-                {{/each}}
-            {{/if}}
-        {{/if}}
-        {{/each}}
-        {{#each headerParams as | parameter |}}
-        {{#unless parameter.refInfo}}
-
-{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
-        {{/unless}}
-        {{/each}}
-    {{/if}}
-    {{#if pathParams}}
-
-{{headerSize}}## <a id="requestpathparameters" >path_params</a>
-{{headerSize}}### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-        {{#each pathParams}}
-        {{#if refInfo}}
-{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
-        {{else}}
-            {{#if schema}}
-{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-            {{else}}
-                {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-                {{/each}}
-            {{/if}}
-        {{/if}}
-        {{/each}}
-        {{#each pathParams as | parameter |}}
-        {{#unless parameter.refInfo}}
-
-{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
-        {{/unless}}
-        {{/each}}
-    {{/if}}
-    {{#if cookieParams}}
-
-{{headerSize}}## <a id="requestcookieparameters" >cookie_params</a>
-{{headerSize}}### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-        {{#each cookieParams}}
-        {{#if refInfo}}
-{{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
-        {{else}}
-            {{#if schema}}
-{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-            {{else}}
-                {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{{@key.original}}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
-                {{/each}}
-            {{/if}}
-        {{/if}}
-        {{/each}}
-        {{#each cookieParams as | parameter |}}
-        {{#unless parameter.refInfo}}
-
-{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
-        {{/unless}}
-        {{/each}}
-    {{/if}}
+{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="query" paramType="Query" parameters=queryParams }}
+{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="header" paramType="Header" parameters=headerParams }}
+{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="path" paramType="Path" parameters=pathParams }}
+{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="cookie" paramType="Cookie" parameters=cookieParams }}
 {{/or}}
 
 {{headerSize}}# Return Types

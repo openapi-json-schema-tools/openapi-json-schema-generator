@@ -27,7 +27,7 @@ put
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema)] | required |
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -50,12 +50,13 @@ Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+### path_params
+#### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [PathUserName](../../../components/parameters/parameter_path_user_name.md) | | 
+
 
 ## Return Types
 

@@ -24,7 +24,7 @@ post
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#request_body_request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -52,12 +52,13 @@ Key | Input Type | Accessed Type | Description | Notes
 **additionalMetadata** | str,  | str,  | Additional data to pass to server | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+### path_params
+#### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 petId | [Parameter0.schema](#parameter_0schema) | | 
+
 
 #### Parameter Parameter0
 

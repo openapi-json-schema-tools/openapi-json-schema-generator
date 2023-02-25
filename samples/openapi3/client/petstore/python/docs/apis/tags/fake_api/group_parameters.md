@@ -27,14 +27,14 @@ delete
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+### query_params
+#### RequestQueryParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -92,13 +92,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-### <a id="requestheaderparameters" >header_params</a>
-#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
+### header_params
+#### RequestHeaderParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
 boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
+
 
 #### Parameter Parameter1
 

@@ -23,10 +23,10 @@ post
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema), Unset] | optional, default is unset |
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
-[cookie_params](#requestcookieparameters) | [RequestCookieParameters.Params](#RequestCookieParametersParams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -47,8 +47,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+### query_params
+#### RequestQueryParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -104,8 +104,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="requestheaderparameters" >header_params</a>
-#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
+### header_params
+#### RequestHeaderParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -113,6 +113,7 @@ Key | Input Type | Description  | Notes
 aB | [Parameter6.schema](#parameter_6schema) | | optional
 self | [Parameter7.schema](#parameter_7schema) | | optional
 A-B | [Parameter8.schema](#parameter_8schema) | | optional
+
 
 #### Parameter Parameter5
 
@@ -150,8 +151,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+### path_params
+#### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -160,6 +161,7 @@ aB | [Parameter10.schema](#parameter_10schema) | |
 Ab | [Parameter11.schema](#parameter_11schema) | | 
 self | [Parameter12.schema](#parameter_12schema) | | 
 A-B | [Parameter13.schema](#parameter_13schema) | | 
+
 
 #### Parameter Parameter9
 
@@ -206,8 +208,8 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-### <a id="requestcookieparameters" >cookie_params</a>
-#### <a id="RequestCookieParametersParams" >RequestCookieParameters.Params</a>
+### cookie_params
+#### RequestCookieParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -216,6 +218,7 @@ aB | [Parameter15.schema](#parameter_15schema) | | optional
 Ab | [Parameter16.schema](#parameter_16schema) | | optional
 self | [Parameter17.schema](#parameter_17schema) | | optional
 A-B | [Parameter18.schema](#parameter_18schema) | | optional
+
 
 #### Parameter Parameter14
 

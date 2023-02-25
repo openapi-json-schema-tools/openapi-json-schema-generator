@@ -26,17 +26,18 @@ delete
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[path_params](#requestpathparameters) | [RequestPathParameters.Params](#RequestPathParametersParams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
 
-### <a id="requestpathparameters" >path_params</a>
-#### <a id="RequestPathParametersParams" >RequestPathParameters.Params</a>
+### path_params
+#### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 username | [RefPathUserName](../../../components/parameters/parameter_ref_path_user_name.md) | | 
+
 
 ## Return Types
 

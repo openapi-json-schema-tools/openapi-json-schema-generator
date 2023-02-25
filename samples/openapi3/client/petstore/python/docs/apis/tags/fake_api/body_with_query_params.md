@@ -19,7 +19,7 @@ put
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema)] | required |
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -39,8 +39,8 @@ Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
+### query_params
+#### RequestQueryParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
