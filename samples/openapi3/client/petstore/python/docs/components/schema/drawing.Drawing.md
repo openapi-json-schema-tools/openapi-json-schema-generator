@@ -1,29 +1,28 @@
-<a name="top"></a>
-## petstore_api.components.schema.drawing
-# Drawing
+petstore_api.components.schema.drawing
+# Schema Drawing
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  | [optional]
 **shapeOrNull** | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) |  | [optional]
 **nullableShape** | [**NullableShape**](nullable_shape.NullableShape.md) | [**NullableShape**](nullable_shape.NullableShape.md) |  | [optional]
-**shapes** | [list, tuple, ](#shapes) | [tuple, ](#shapes) |  | [optional]
+**shapes** | list, tuple,  | tuple, [properties.Shapes](#properties-shapes) |  | [optional]
 **any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
-# shapes
+# properties Shapes
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |

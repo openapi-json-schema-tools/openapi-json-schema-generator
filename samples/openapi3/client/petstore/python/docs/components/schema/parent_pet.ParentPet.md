@@ -1,14 +1,13 @@
-<a name="top"></a>
-## petstore_api.components.schema.parent_pet
-# ParentPet
+petstore_api.components.schema.parent_pet
+# Schema ParentPet
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### allOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**GrandparentAnimal**](grandparent_animal.GrandparentAnimal.md) | [**GrandparentAnimal**](grandparent_animal.GrandparentAnimal.md) | [**GrandparentAnimal**](grandparent_animal.GrandparentAnimal.md) |  |

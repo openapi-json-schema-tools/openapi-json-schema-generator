@@ -1,12 +1,142 @@
-<a name="top"></a>
+<a name="groupparameters"></a>
 # **group_parameters**
-<a name="group_parameters"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
+
+## Summary
 Fake endpoint to test group parameters (optional)
 
+## Description
 Fake endpoint to test group parameters (optional)
 
-### Example
+## Path
+"/fake"
+
+## HTTP Method
+delete
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParameters.Params
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+required_string_group | [Parameter0.schema](#parameter_0schema) | | 
+required_int64_group | [Parameter2.schema](#parameter_2schema) | | 
+string_group | [Parameter3.schema](#parameter_3schema) | | optional
+int64_group | [Parameter5.schema](#parameter_5schema) | | optional
+
+
+#### Parameter Parameter0
+
+##### Description
+Required String in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter Parameter2
+
+##### Description
+Required Integer in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+#### Parameter Parameter3
+
+##### Description
+String in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter Parameter5
+
+##### Description
+Integer in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### header_params
+#### RequestHeaderParameters.Params
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
+boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
+
+
+#### Parameter Parameter1
+
+##### Description
+Required Boolean in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | must be one of ["true", "false", ]
+
+#### Parameter Parameter4
+
+##### Description
+Boolean in group parameters
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | must be one of ["true", "false", ]
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+
+## Authorization
+
+[bearer_test](../../../../README.md#bearer_test)
+
+## Code Sample
 
 * Bearer (JWT) Authentication (bearer_test):
 ```python
@@ -72,86 +202,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-[header_params](#requestheaderparameters) | [RequestHeaderParameters.Params](#RequestHeaderParametersParams) | |
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter_0schema) | | 
-required_int64_group | [Parameter2.schema](#parameter_2schema) | | 
-string_group | [Parameter3.schema](#parameter_3schema) | | optional
-int64_group | [Parameter5.schema](#parameter_5schema) | | optional
-
-
-# <a id="parameter_0schema" >Parameter0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_2schema" >Parameter2.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
-
-# <a id="parameter_3schema" >Parameter3.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-# <a id="parameter_5schema" >Parameter5.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
-
-### <a id="requestheaderparameters" >header_params</a>
-#### <a id="RequestHeaderParametersParams" >RequestHeaderParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
-boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
-
-# <a id="parameter_1schema" >Parameter1.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
-
-# <a id="parameter_4schema" >Parameter4.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-
-### Authorization
-
-[bearer_test](../../../../README.md#bearer_test)
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

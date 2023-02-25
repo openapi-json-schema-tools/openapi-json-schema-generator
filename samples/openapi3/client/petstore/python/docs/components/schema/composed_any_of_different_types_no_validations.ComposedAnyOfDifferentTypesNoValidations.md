@@ -1,146 +1,145 @@
-<a name="top"></a>
-## petstore_api.components.schema.composed_any_of_different_types_no_validations
-# ComposedAnyOfDifferentTypesNoValidations
+petstore_api.components.schema.composed_any_of_different_types_no_validations
+# Schema ComposedAnyOfDifferentTypesNoValidations
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### anyOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[_1](#_1) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_2](#_2) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
-[_3](#_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
-[_4](#_4) | str,  | str,  |  |
-[_5](#_5) | str,  | str,  |  |
-[_6](#_6) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
-[_7](#_7) | bool,  | BoolClass,  |  |
-[_8](#_8) | None,  | NoneClass,  |  |
-[_9](#_9) | list, tuple,  | tuple,  |  |
-[_10](#_10) | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
-[_11](#_11) | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
-[_12](#_12) | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
-[_13](#_13) | decimal.Decimal, int,  | decimal.Decimal,  |  |
-[_14](#_14) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
-[_15](#_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+[_0](#anyof-_0) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_1](#anyof-_1) | str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_2](#anyof-_2) | str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
+[_3](#anyof-_3) | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
+[_4](#anyof-_4) | str,  | str,  |  |
+[_5](#anyof-_5) | str,  | str,  |  |
+[_6](#anyof-_6) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[_7](#anyof-_7) | bool,  | BoolClass,  |  |
+[_8](#anyof-_8) | None,  | NoneClass,  |  |
+[_9](#anyof-_9) | list, tuple,  | tuple,  |  |
+[_10](#anyof-_10) | decimal.Decimal, int, float,  | decimal.Decimal,  |  |
+[_11](#anyof-_11) | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
+[_12](#anyof-_12) | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
+[_13](#anyof-_13) | decimal.Decimal, int,  | decimal.Decimal,  |  |
+[_14](#anyof-_14) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+[_15](#anyof-_15) | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-# _0
+# anyof _0
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# _1
+# anyof _1
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# _2
+# anyof _2
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
-# _3
+# anyof _3
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  |  |
 
-# _4
+# anyof _4
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# _5
+# anyof _5
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-# _6
+# anyof _6
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# _7
+# anyof _7
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |
 
-# _8
+# anyof _8
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None,  | NoneClass,  |  |
 
-# _9
+# anyof _9
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-# _10
+# anyof _10
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |
 
-# _11
+# anyof _11
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 32 bit float
 
-# _12
+# anyof _12
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 
-# _13
+# anyof _13
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  |
 
-# _14
+# anyof _14
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
-# _15
+# anyof _15
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

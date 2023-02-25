@@ -1,25 +1,24 @@
-<a name="top"></a>
-## petstore_api.components.schema.additional_properties_with_array_of_enums
-# AdditionalPropertiesWithArrayOfEnums
+petstore_api.components.schema.additional_properties_with_array_of_enums
+# Schema AdditionalPropertiesWithArrayOfEnums
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | list, tuple,  | tuple,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | list, tuple,  | tuple, [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
-# any_string_name
+# AdditionalProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) | [**EnumClass**](enum_class.EnumClass.md) |  |

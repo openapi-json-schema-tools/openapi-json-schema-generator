@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.client
-# Client
+petstore_api.components.schema.client
+# Schema Client
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **client** | str,  | str,  |  | [optional]

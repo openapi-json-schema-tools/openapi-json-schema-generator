@@ -1,15 +1,14 @@
-<a name="top"></a>
-## petstore_api.components.schema.self_referencing_array_model
-# SelfReferencingArrayModel
+petstore_api.components.schema.self_referencing_array_model
+# Schema SelfReferencingArrayModel
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**SelfReferencingArrayModel**](#SelfReferencingArrayModel) | [**SelfReferencingArrayModel**](#SelfReferencingArrayModel) | [**SelfReferencingArrayModel**](#SelfReferencingArrayModel) |  |
+[**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

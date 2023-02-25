@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.decimal_payload
-# DecimalPayload
+petstore_api.components.schema.decimal_payload
+# Schema DecimalPayload
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | value must be numeric and storable in decimal.Decimal

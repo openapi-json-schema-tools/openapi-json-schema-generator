@@ -1,13 +1,12 @@
-<a name="top"></a>
-## unit_test_api.components.schema.ref_in_items
-# RefInItems
+unit_test_api.components.schema.ref_in_items
+# Schema RefInItems
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) | [**PropertyNamedRefThatIsNotAReference**](property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md) |  |

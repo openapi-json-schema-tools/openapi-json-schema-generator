@@ -1,12 +1,59 @@
-<a name="top"></a>
+<a name="jsonpatch"></a>
 # **json_patch**
-<a name="json_patch"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
+
+## Summary
 json patch
 
+## Description
 json patch route with a requestBody
 
-### Example
+## Path
+"/fake/jsonPatch"
+
+## HTTP Method
+patch
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#request_body_request_bodycontentapplication_json_patchjsonschema), Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### RequestBody
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json-patch+json" | [content.application_json_patchjson.Schema](#requestbody-content-applicationjsonpatchjson-schema)
+
+#### RequestBody content ApplicationJsonPatchjson Schema
+
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[JSONPatchRequest](../../components/schemas/json_patch_request.JSONPatchRequest.md#json_patch_request) | list, tuple,  | tuple,  |
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -36,32 +83,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->json_patch: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#request_bodycontentapplication_json_patchjsonschema), Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="request_body" >body</a>
-# <a id="request_body_request_bodycontentapplication_json_patchjsonschema" >RequestBody.content.application_json_patchjson.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**JSONPatchRequest**](../../../components/schema/json_patch_request.JSONPatchRequest.md) |  | 
-
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

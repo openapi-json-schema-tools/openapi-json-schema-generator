@@ -1,12 +1,87 @@
-<a name="top"></a>
+<a name="findpetsbytags"></a>
 # **find_pets_by_tags**
-<a name="find_pets_by_tags"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
+
+## Summary
 Finds Pets by tags
 
+## Description
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 
-### Example
+## Path
+"/pet/findByTags"
+
+## HTTP Method
+get
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParameters.Params
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+tags | [Parameter0.schema](#parameter_0schema) | | 
+
+
+#### Parameter Parameter0
+
+##### Description
+Tags to filter by
+
+##### Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  |
+
+###### List Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  |
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
+400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid tag value
+
+## responses ResponseFor400
+
+### Description
+Invalid tag value
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+## Authorization
+
+[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
+
+## Code Sample
 
 * OAuth Authentication (petstore_auth):
 ```python
@@ -109,52 +184,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->find_pets_by_tags: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[query_params](#requestqueryparameters) | [RequestQueryParameters.Params](#RequestQueryParametersParams) | |
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="requestqueryparameters" >query_params</a>
-#### <a id="RequestQueryParametersParams" >RequestQueryParameters.Params</a>
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-tags | [Parameter0.schema](#parameter_0schema) | | 
-
-
-# <a id="parameter_0schema" >Parameter0.schema</a>
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid tag value
-
-#### <a id="response_400response_cls" >ResponseFor400.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-### Authorization
-
-[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
 
 [[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

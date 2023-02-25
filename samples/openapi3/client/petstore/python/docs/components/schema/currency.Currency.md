@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.currency
-# Currency
+petstore_api.components.schema.currency
+# Schema Currency
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["eur", "usd", ]

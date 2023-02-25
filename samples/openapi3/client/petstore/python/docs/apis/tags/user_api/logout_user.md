@@ -1,10 +1,30 @@
-<a name="top"></a>
+<a name="logoutuser"></a>
 # **logout_user**
-<a name="logout_user"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
+
+## Summary
 Logs out current logged in user session
 
-### Example
+## Path
+"/user/logout"
+
+## HTTP Method
+get
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -29,18 +49,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

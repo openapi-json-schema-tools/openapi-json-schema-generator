@@ -41,6 +41,41 @@ public class CodegenResponse {
         this.componentModule = componentModule;
     }
 
+    /**
+     * Used by templates to only render body details if there is a schema defined for a content type
+     * @return true if there is an inline header
+     */
+    public boolean hasContentSchema() {
+        if (content == null) {
+            return false;
+        }
+        for (CodegenMediaType mediaType: content.values()) {
+            if (mediaType == null) {
+                continue;
+            }
+            if (mediaType.schema != null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Used by templates to only render header details if there is an inline header
+     * @return true if there is an inline header
+     */
+    public boolean hasInlineHeader() {
+        if (headers == null) {
+            return false;
+        }
+        for (CodegenHeader header: headers.values()) {
+            if (header.refInfo == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(jsonPathPiece, description,

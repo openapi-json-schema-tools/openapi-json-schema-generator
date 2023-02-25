@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.object_model_with_arg_and_args_properties
-# ObjectModelWithArgAndArgsProperties
+petstore_api.components.schema.object_model_with_arg_and_args_properties
+# Schema ObjectModelWithArgAndArgsProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **arg** | str,  | str,  |  |

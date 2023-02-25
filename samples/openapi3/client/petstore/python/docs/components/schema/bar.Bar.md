@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.bar
-# Bar
+petstore_api.components.schema.bar
+# Schema Bar
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | if omitted the server will use the default value of "bar"

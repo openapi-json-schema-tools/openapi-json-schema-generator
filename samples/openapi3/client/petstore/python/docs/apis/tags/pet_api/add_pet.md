@@ -1,12 +1,64 @@
-<a name="top"></a>
+<a name="addpet"></a>
 # **add_pet**
-<a name="add_pet"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
+
+## Summary
 Add a new pet to the store
 
+## Description
 Add a new pet to the store
 
-### Example
+## Path
+"/pet"
+
+## HTTP Method
+post
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_jsonschema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_xmlschema)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+host_index | typing.Optional[int] | default is None | Allows one to select a different host
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
+
+## responses ResponseFor405
+
+### Description
+Invalid input
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+## Authorization
+
+[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
+
+## Code Sample
 
 * OAuth Authentication (petstore_auth):
 ```python
@@ -122,34 +174,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->add_pet: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_jsonschema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#request_body_petcontentapplication_xmlschema)] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-host_index | typing.Optional[int] | default is None | Allows one to select a different host
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
-
-#### <a id="response_405response_cls" >ResponseFor405.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
-
-### Authorization
-
-[http_signature_test](../../../../README.md#http_signature_test), [petstore_auth](../../../../README.md#petstore_auth)
 
 [[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

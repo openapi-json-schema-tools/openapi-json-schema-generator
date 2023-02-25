@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.basque_pig
-# BasquePig
+petstore_api.components.schema.basque_pig
+# Schema BasquePig
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **className** | str,  | str,  |  | must be one of ["BasquePig", ]

@@ -2569,11 +2569,14 @@ public class DefaultCodegen implements CodegenConfig {
                 operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
             }
         }
+        String camelCase = toModelName(operationId);
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
                 getOperationIdSnakeCase(operationId),
-                toModelName(operationId)
+                camelCase,
+                anchorPiece
         );
     }
 
@@ -2634,11 +2637,14 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             usedPath = path;
         }
+        String camelCase = toModelName(path);
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         CodegenKey pathKey = new CodegenKey(
                 usedPath,
                 false,  // false because paths have lots of invalid characters
                 toPathFilename(path),
-                toModelName(path)
+                camelCase,
+                anchorPiece
         );
         String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original) + "/" + httpMethod;
 
@@ -2809,12 +2815,14 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-
+        String camelCaseMethod = org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod);
+        String anchorPieceMethod = camelCase.toLowerCase(Locale.ROOT);
         CodegenKey httpMethodKey = new CodegenKey(
                 httpMethod,
                 true,
                 org.openapijsonschematools.codegen.utils.StringUtils.underscore(httpMethod),
-                org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod)
+                camelCaseMethod,
+                anchorPieceMethod
         );
 
         // move "required" parameters in front of "optional" parameters
@@ -4522,6 +4530,7 @@ public class DefaultCodegen implements CodegenConfig {
         boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
         String camelCaseName = null;
+        String anchorPiece = null;
         switch (expectedComponentType) {
             case "schemas":
                 snakeCaseName = toModelFilename(usedKey);
@@ -4544,22 +4553,29 @@ public class DefaultCodegen implements CodegenConfig {
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
         }
+        if (camelCaseName != null) {
+            anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
+        }
         return new CodegenKey(
                 usedKey,
                 isValid,
                 snakeCaseName,
-                camelCaseName
+                camelCaseName,
+                anchorPiece
         );
     }
 
     public CodegenKey getKey(String key) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
+        String camelCase = toModelName(usedKey);
+        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 usedKey,
                 isValid,
                 toModelFilename(usedKey),
-                toModelName(usedKey)
+                camelCase,
+                anchorPiece
         );
     }
 

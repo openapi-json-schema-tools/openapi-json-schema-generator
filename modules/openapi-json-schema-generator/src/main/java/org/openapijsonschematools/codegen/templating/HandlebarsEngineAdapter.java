@@ -32,6 +32,7 @@ import com.github.jknack.handlebars.io.TemplateLoader;
 import com.github.jknack.handlebars.io.TemplateSource;
 import org.openapijsonschematools.codegen.api.AbstractTemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.api.TemplatingExecutor;
+import org.openapijsonschematools.codegen.templating.handlebars.CustomHelpers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -87,7 +88,7 @@ public class HandlebarsEngineAdapter extends AbstractTemplatingEngineAdapter {
         StringHelpers.register(handlebars);
         handlebars.registerHelpers(ConditionalHelpers.class);
         handlebars.registerHelpers(org.openapijsonschematools.codegen.templating.handlebars.StringHelpers.class);
-        handlebars.registerHelpers(org.openapijsonschematools.codegen.templating.handlebars.ContainsHelper.class);
+        handlebars.registerHelpers(CustomHelpers.class);
         handlebars.setInfiniteLoops(infiniteLoops);
         handlebars.setPrettyPrint(prettyPrint);
         Template tmpl = handlebars.compile(templateFile);

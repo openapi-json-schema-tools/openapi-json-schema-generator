@@ -1,33 +1,42 @@
-<a name="top"></a>
-## petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
-# <a id="response_successful_xml_and_json_array_of_pet" >SuccessfulXmlAndJsonArrayOfPet</a>
-## <a id="response_successful_xml_and_json_array_of_petresponse_cls" >SuccessfulXmlAndJsonArrayOfPet.response_cls</a>
+petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
+# Response SuccessfulXmlAndJsonArrayOfPet
+
+## Description
+successful operation, multiple content types
+
+## response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema](#response_successful_xml_and_json_array_of_petcontentapplication_xmlschema), [SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema](#response_successful_xml_and_json_array_of_petcontentapplication_jsonschema), ] |  |
+[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
-# <a id="response_successful_xml_and_json_array_of_petcontentapplication_xmlschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_xml.schema</a>
+## Body
+Content-Type | Schema
+------------ | -------
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-## Schema Type Info
+## Body Details
+### content ApplicationXml Schema
+
+#### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+#### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) | [**Pet**](../../components/schema/pet.Pet.md) |  |
+### content ApplicationJson Schema
 
-# <a id="response_successful_xml_and_json_array_of_petcontentapplication_jsonschema" >SuccessfulXmlAndJsonArrayOfPet.content.application_json.schema</a>
-
-## Schema Type Info
+#### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+#### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**RefPet**](../../components/schema/ref_pet.RefPet.md) | [**RefPet**](../../components/schema/ref_pet.RefPet.md) | [**RefPet**](../../components/schema/ref_pet.RefPet.md) |  |

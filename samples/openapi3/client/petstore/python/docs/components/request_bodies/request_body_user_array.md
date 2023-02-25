@@ -1,13 +1,22 @@
-## petstore_api.components.request_bodies.request_body_user_array
-# UserArray
-# <a id="request_body_user_arraycontentapplication_jsonschema" >UserArray.content.application_json.schema</a>
+petstore_api.components.request_bodies.request_body_user_array
+# RequestBody UserArray
 
-## Schema Type Info
+## Description
+List of user object
+
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+
+## content ApplicationJson Schema
+
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  |

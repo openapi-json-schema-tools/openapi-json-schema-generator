@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.foo
-# Foo
+petstore_api.components.schema.foo
+# Schema Foo
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **bar** | [**Bar**](bar.Bar.md) | [**Bar**](bar.Bar.md) |  | [optional]

@@ -395,6 +395,7 @@ public class DefaultGenerator implements Generator {
             String docExtension = config.getDocExtension();
             String suffix = docExtension != null ? docExtension : config.modelDocTemplateFiles().get(templateName);
             String filename = config.modelDocFileFolder() + File.separator + config.toModelDocFilename(modelName) + suffix;
+            modelData.put("headerSize", "#");
 
             File written = processTemplateToFile(modelData, templateName, filename, generateModelDocumentation, CodegenConstants.MODEL_DOCS);
             if (written != null) {
@@ -572,16 +573,20 @@ public class DefaultGenerator implements Generator {
 
                     }
                 }
+                // operation docs
                 for (String templateFile: config.pathEndpointDocTemplateFiles()) {
                     for (Map.Entry<String, CodegenTag> entry: co.tags.entrySet()) {
                         CodegenTag tag = entry.getValue();
                         Map<String, Object> endpointInfo = new HashMap<>();
-                        List<CodegenOperation> operation = Arrays.asList(co);
-                        endpointInfo.put("operation", operation);
+                        endpointInfo.put("operation", co);
                         endpointInfo.put("packageName", packageName);
                         endpointInfo.put("apiPackage", config.apiPackage());
                         endpointInfo.put("basePath", basePath);
                         endpointInfo.put("tag", tag);
+                        endpointInfo.put("headerSize", "#");
+                        endpointInfo.put("complexTypePrefix", "../../../components/schema/");
+                        endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                        endpointInfo.put("identifierToHeadingQty", new HashMap<>());
                         outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, co.operationId.snakeCase + ".md"));
                         apiDocFiles.add(Arrays.asList(endpointInfo, templateFile, outputFilename));
                     }
@@ -800,6 +805,9 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("complexTypePrefix", "../../components/schema/");
+                templateData.put("headerSize", "#");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
                 templateData.put("response", response);
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
@@ -821,7 +829,6 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", config.packageName());
         templateData.put("requestBody", requestBody);
-        templateData.put("docRoot", "../../");
         Boolean generateRequestBodies = Boolean.TRUE;
         Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY);
         if (templateInfo != null && !templateInfo.isEmpty()) {
@@ -852,7 +859,10 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // doc generation
-        Boolean generateRequestBodyDocumentaion = Boolean.TRUE;
+        Boolean generateRequestBodyDocumentation = Boolean.TRUE;
+        templateData.put("headerSize", "#");
+        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+        templateData.put("identifierToHeadingQty", new HashMap<>());
         String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
         for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
             String templateName = entry.getKey();
@@ -862,7 +872,7 @@ public class DefaultGenerator implements Generator {
 
             templateData.put("complexTypePrefix", "../../components/schema/");
             try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentaion, CodegenConstants.REQUEST_BODY_DOCS);
+                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
                 if (written != null) {
                     files.add(written);
                     if (config.isEnablePostProcessFile() && !dryRun) {
@@ -962,6 +972,9 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
+                templateData.put("headerSize", "#");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
                 templateData.put("complexTypePrefix", "../../components/schema/");
 
                 try {
@@ -1066,6 +1079,7 @@ public class DefaultGenerator implements Generator {
 
             generateHeader(files, header, sourceJsonPath);
 
+            // documentation
             Boolean generateHeaderDocs = Boolean.TRUE;
             for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
                 String templateName = headerDocInfo.getKey();
@@ -1075,8 +1089,12 @@ public class DefaultGenerator implements Generator {
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("header", header);
+                templateData.put("headerSize", "#");
                 templateData.put("complexTypePrefix", "../../components/schema/");
                 templateData.put("docRoot", "../../");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
+
 
                 try {
                     File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);
@@ -1161,6 +1179,8 @@ public class DefaultGenerator implements Generator {
                 generateModelTests(files, schemaData, componentName);
 
                 // to generate model documentation files
+                schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                schemaData.put("identifierToHeadingQty", new HashMap<>());
                 generateModelDocumentation(files, schemaData, componentName);
 
             } catch (Exception e) {

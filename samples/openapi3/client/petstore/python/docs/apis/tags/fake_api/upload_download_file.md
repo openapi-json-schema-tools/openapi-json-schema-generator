@@ -1,10 +1,87 @@
-<a name="top"></a>
+<a name="uploaddownloadfile"></a>
 # **upload_download_file**
-<a name="upload_download_file"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Arguments](#arguments)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
+
+## Summary
 uploads a file and downloads a file using application/octet-stream
 
-### Example
+## Path
+"/fake/uploadDownloadFile"
+
+## HTTP Method
+post
+
+## Arguments
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+[body](#requestbody) | typing.Union[[RequestBody.content.application_octet_stream.schema](#request_body_request_bodycontentapplication_octet_streamschema)] | required |
+content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ("application/octet-stream", ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### RequestBody
+
+#### Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/octet-stream" | [content.application_octet_stream.Schema](#requestbody-content-applicationoctetstream-schema)
+
+#### RequestBody content ApplicationOctetStream Schema
+
+##### Description
+file to upload
+
+##### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
+
+## responses ResponseFor200
+
+### Description
+successful operation
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+[body](#body) | typing.Union[[content.application_octet_stream.schema](#responses-responsefor200-content-applicationoctetstream-schema), ] |  |
+headers | Unset | headers were not defined |
+
+### Body
+Content-Type | Schema
+------------ | -------
+"application/octet-stream" | [content.application_octet_stream.Schema](#responses-responsefor200-content-applicationoctetstream-schema)
+
+### Body Details
+#### responses ResponseFor200 content ApplicationOctetStream Schema
+
+##### Description
+file to download
+
+##### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -32,52 +109,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->upload_download_file: %s\n" % e)
 ```
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-[body](#request_body) | typing.Union[[RequestBody.content.application_octet_stream.schema](#request_bodycontentapplication_octet_streamschema)] | required |
-content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ("application/octet-stream", ) | Tells the server the content type(s) that are accepted by the client
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### <a id="request_body" >body</a>
-# <a id="request_body_request_bodycontentapplication_octet_streamschema" >RequestBody.content.application_octet_stream.schema</a>
-
-file to upload
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to upload |
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_octet_stream.schema](#response_200contentapplication_octet_streamschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_octet_streamschema" >ResponseFor200.content.application_octet_stream.schema</a>
-
-file to download
-
-## Schema Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

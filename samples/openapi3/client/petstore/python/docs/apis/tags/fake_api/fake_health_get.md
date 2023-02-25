@@ -1,10 +1,55 @@
-<a name="top"></a>
+<a name="fakehealthget"></a>
 # **fake_health_get**
-<a name="fake_health_get"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
+
+## Summary
 Health check endpoint
 
-### Example
+## Path
+"/fake/health"
+
+## HTTP Method
+get
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | The instance started successfully
+
+## responses ResponseFor200
+
+### Description
+The instance started successfully
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
+headers | Unset | headers were not defined |
+
+### Body
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+
+### Body Details
+#### responses ResponseFor200 content ApplicationJson Schema
+
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[HealthCheckResult](../../components/schemas/health_check_result.HealthCheckResult.md#health_check_result) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+
+## Code Sample
 
 ```python
 import petstore_api
@@ -29,31 +74,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
 ```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | The instance started successfully
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**HealthCheckResult**](../../../components/schema/health_check_result.HealthCheckResult.md) |  | 
-
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

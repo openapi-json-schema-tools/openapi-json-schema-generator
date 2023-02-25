@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.date_with_validations
-# DateWithValidations
+petstore_api.components.schema.date_with_validations
+# Schema DateWithValidations
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str, datetime.date,  | str,  |  | value must conform to RFC-3339 full-date YYYY-MM-DD

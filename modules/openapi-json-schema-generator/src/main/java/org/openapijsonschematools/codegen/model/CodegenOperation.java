@@ -26,7 +26,7 @@ import java.util.*;
 public class CodegenOperation {
     public final Boolean deprecated;
     public final boolean hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
-    public final String summary, unescapedNotes, notes;
+    public final String summary, unescapedDescription, description;
     public final CodegenKey httpMethod;
     public final CodegenKey path;
     public final LinkedHashSet<String> produces;
@@ -51,12 +51,12 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedNotes, String notes, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
-        this.unescapedNotes = unescapedNotes;
-        this.notes = notes;
+        this.unescapedDescription = unescapedDescription;
+        this.description = description;
         this.httpMethod = httpMethod;
         this.path = path;
         this.produces = produces;
@@ -131,8 +131,8 @@ public class CodegenOperation {
         sb.append(", operationId='").append(operationId).append('\'');
         sb.append(", httpMethod='").append(httpMethod).append('\'');
         sb.append(", summary='").append(summary).append('\'');
-        sb.append(", unescapedNotes='").append(unescapedNotes).append('\'');
-        sb.append(", notes='").append(notes).append('\'');
+        sb.append(", unescapedNotes='").append(unescapedDescription).append('\'');
+        sb.append(", notes='").append(description).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
@@ -167,8 +167,8 @@ public class CodegenOperation {
                 Objects.equals(operationId, that.operationId) &&
                 Objects.equals(httpMethod, that.httpMethod) &&
                 Objects.equals(summary, that.summary) &&
-                Objects.equals(unescapedNotes, that.unescapedNotes) &&
-                Objects.equals(notes, that.notes) &&
+                Objects.equals(unescapedDescription, that.unescapedDescription) &&
+                Objects.equals(description, that.description) &&
                 Objects.equals(defaultResponse, that.defaultResponse) &&
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(servers, that.servers) &&
@@ -195,7 +195,7 @@ public class CodegenOperation {
     public int hashCode() {
 
         return Objects.hash(deprecated, path, operationId, httpMethod,
-                summary, unescapedNotes, notes, defaultResponse,
+                summary, unescapedDescription, description, defaultResponse,
                 produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
                 authMethods, tags, responses, callbacks, externalDocs,

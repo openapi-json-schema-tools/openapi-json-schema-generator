@@ -1,10 +1,18 @@
-<a name="top"></a>
-## petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
-# ComponentRefSchemaStringWithValidation
-# <a id="parameter_component_ref_schema_string_with_validationcontentapplication_jsonschema" >ComponentRefSchemaStringWithValidation.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**StringWithValidation**](../../components/schema/string_with_validation.StringWithValidation.md) |  | 
+petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation
+# Parameter ComponentRefSchemaStringWithValidation
 
+## Description
+a path string with validation
+
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+## content ApplicationJson Schema
+
+### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[StringWithValidation](../../components/schemas/string_with_validation.StringWithValidation.md#string_with_validation) | str,  | str,  |
 
 [[Back to top]](#top) [[Back to Component Parameters]](../../../README.md#Component-Parameters) [[Back to README]](../../../README.md)

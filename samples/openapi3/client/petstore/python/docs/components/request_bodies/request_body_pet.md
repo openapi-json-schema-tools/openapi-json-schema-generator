@@ -1,14 +1,26 @@
-## petstore_api.components.request_bodies.request_body_pet
-# Pet
-# <a id="request_body_petcontentapplication_jsonschema" >Pet.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.Pet.md) |  | 
+petstore_api.components.request_bodies.request_body_pet
+# RequestBody Pet
 
-# <a id="request_body_petcontentapplication_xmlschema" >Pet.content.application_xml.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RefPet**](../../components/schema/ref_pet.RefPet.md) |  | 
+## Description
+Pet object that needs to be added to the store, multiple content types
 
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
+
+## content ApplicationJson Schema
+
+### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[Pet](../../components/schemas/pet.Pet.md#pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+## content ApplicationXml Schema
+
+### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[RefPet](../../components/schemas/ref_pet.RefPet.md#ref_pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

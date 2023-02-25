@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.apple
-# Apple
+petstore_api.components.schema.apple
+# Schema Apple
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str,  | str,  |  |

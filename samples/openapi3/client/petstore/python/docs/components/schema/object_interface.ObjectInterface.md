@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.object_interface
-# ObjectInterface
+petstore_api.components.schema.object_interface
+# Schema ObjectInterface
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |

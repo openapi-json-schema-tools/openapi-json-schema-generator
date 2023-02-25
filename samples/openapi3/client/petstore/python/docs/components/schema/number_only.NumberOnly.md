@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.number_only
-# NumberOnly
+petstore_api.components.schema.number_only
+# Schema NumberOnly
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **JustNumber** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional]

@@ -34,6 +34,7 @@ from petstore_api.paths.fake_health.get import FakeHealthGet
 from petstore_api.paths.fake_inline_composition.post import InlineComposition
 from petstore_api.paths.fake_json_patch.patch import JsonPatch
 from petstore_api.paths.fake_json_with_charset.post import JsonWithCharset
+from petstore_api.paths.fake_multiple_response_bodies.get import MultipleResponseBodies
 from petstore_api.paths.fake_obj_in_query.get import ObjectInQuery
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post import ParameterCollisions
 from petstore_api.paths.fake_query_param_with_json_content_type.get import QueryParamWithJsonContentType
@@ -70,6 +71,7 @@ class FakeApi(
     InlineComposition,
     JsonPatch,
     JsonWithCharset,
+    MultipleResponseBodies,
     ObjectInQuery,
     ParameterCollisions,
     QueryParamWithJsonContentType,

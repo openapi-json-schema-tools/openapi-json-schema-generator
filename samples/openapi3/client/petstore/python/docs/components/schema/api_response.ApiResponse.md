@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.api_response
-# ApiResponse
+petstore_api.components.schema.api_response
+# Schema ApiResponse
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **code** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer

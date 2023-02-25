@@ -1,12 +1,39 @@
-<a name="top"></a>
+<a name="getinventory"></a>
 # **get_inventory**
-<a name="get_inventory"></a>
 
+## Table of Contents
+- [Summary](#summary)
+- [Description](#description)
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Return Types](#return-types)
+- [Authorization](#authorization)
+- [Code Sample](#code-sample)
+
+## Summary
 Returns pet inventories by status
 
+## Description
 Returns a map of status codes to quantities
 
-### Example
+## Path
+"/store/inventory"
+
+## HTTP Method
+get
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [SuccessInlineContentAndHeader.response_cls](../../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
+
+## Authorization
+
+[api_key](../../../../README.md#api_key)
+
+## Code Sample
 
 * Api Key Authentication (api_key):
 ```python
@@ -42,18 +69,5 @@ with petstore_api.ApiClient(configuration) as api_client:
     except petstore_api.ApiException as e:
         print("Exception when calling StoreApi->get_inventory: %s\n" % e)
 ```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessInlineContentAndHeader.response_cls](../../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
-
-### Authorization
-
-[api_key](../../../../README.md#api_key)
 
 [[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

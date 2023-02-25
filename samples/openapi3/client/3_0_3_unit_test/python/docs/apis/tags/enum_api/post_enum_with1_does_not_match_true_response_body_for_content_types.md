@@ -1,9 +1,51 @@
-<a name="top"></a>
+<a name="postenumwith1doesnotmatchtrueresponsebodyforcontenttypes"></a>
 # **post_enum_with1_does_not_match_true_response_body_for_content_types**
-<a name="post_enum_with1_does_not_match_true_response_body_for_content_types"></a>
 
+## Table of Contents
+- [Path](#path)
+- [HTTP Method](#http-method)
+- [Return Types](#return-types)
+- [Code Sample](#code-sample)
 
-### Example
+## Path
+"/responseBody/postEnumWith1DoesNotMatchTrueResponseBodyForContentTypes"
+
+## HTTP Method
+post
+
+## Return Types
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ResponseFor200.response_cls](#response_200response_cls) | success
+
+## responses ResponseFor200
+
+### Description
+success
+
+### response_cls
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
+headers | Unset | headers were not defined |
+
+### Body
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+
+### Body Details
+#### responses ResponseFor200 content ApplicationJson Schema
+
+##### Type Info
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[EnumWith1DoesNotMatchTrue](../../components/schemas/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md#enum_with1_does_not_match_true) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+
+## Code Sample
 
 ```python
 import unit_test_api
@@ -27,31 +69,5 @@ with unit_test_api.ApiClient(configuration) as api_client:
     except unit_test_api.ApiException as e:
         print("Exception when calling EnumApi->post_enum_with1_does_not_match_true_response_body_for_content_types: %s\n" % e)
 ```
-### Parameters
-This endpoint does not need any parameter.
-
-### Return Types, Responses
-
-Code | Class | Description
-------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | success
-
-#### <a id="response_200response_cls" >ResponseFor200.response_cls</a>
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[[ResponseFor200.content.application_json.schema](#response_200contentapplication_jsonschema), ] |  |
-headers | Unset | headers were not defined |
-
-# <a id="response_200contentapplication_jsonschema" >ResponseFor200.content.application_json.schema</a>
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**EnumWith1DoesNotMatchTrue**](../../../components/schema/enum_with1_does_not_match_true.EnumWith1DoesNotMatchTrue.md) |  | 
-
-
-### Authorization
-
-No authorization required
 
 [[Back to top]](#top) [[Back to API]](../EnumApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

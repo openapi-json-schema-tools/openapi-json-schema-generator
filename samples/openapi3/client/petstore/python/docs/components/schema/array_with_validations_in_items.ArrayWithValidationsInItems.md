@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.array_with_validations_in_items
-# ArrayWithValidationsInItems
+petstore_api.components.schema.array_with_validations_in_items
+# Schema ArrayWithValidationsInItems
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer

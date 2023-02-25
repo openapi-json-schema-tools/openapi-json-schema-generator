@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.req_props_from_explicit_add_props
-# ReqPropsFromExplicitAddProps
+petstore_api.components.schema.req_props_from_explicit_add_props
+# Schema ReqPropsFromExplicitAddProps
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **invalid-name** | str,  | str,  |  |

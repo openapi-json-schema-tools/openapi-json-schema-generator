@@ -1,8 +1,7 @@
-<a name="top"></a>
-## unit_test_api.components.schema.boolean_type_matches_booleans
-# BooleanTypeMatchesBooleans
+unit_test_api.components.schema.boolean_type_matches_booleans
+# Schema BooleanTypeMatchesBooleans
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  |

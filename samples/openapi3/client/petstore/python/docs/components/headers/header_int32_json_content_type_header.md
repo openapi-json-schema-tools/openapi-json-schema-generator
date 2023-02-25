@@ -1,9 +1,17 @@
-## petstore_api.components.headers.header_int32_json_content_type_header
-# Int32JsonContentTypeHeader
+petstore_api.components.headers.header_int32_json_content_type_header
+# Header Int32JsonContentTypeHeader
 
-# <a id="header_int32_json_content_type_headercontentapplication_jsonschema" >Int32JsonContentTypeHeader.content.application_json.schema</a>
+## Description
+int32 JSON content-type header
 
-## Schema Type Info
+## Content Type To Schema
+Content-Type | Schema
+------------ | -------
+"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+
+## content ApplicationJson Schema
+
+### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer

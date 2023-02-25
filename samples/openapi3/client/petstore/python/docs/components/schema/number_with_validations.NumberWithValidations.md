@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.number_with_validations
-# NumberWithValidations
+petstore_api.components.schema.number_with_validations
+# Schema NumberWithValidations
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int, float,  | decimal.Decimal,  |  |

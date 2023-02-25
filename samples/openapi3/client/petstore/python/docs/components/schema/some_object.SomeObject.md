@@ -1,14 +1,13 @@
-<a name="top"></a>
-## petstore_api.components.schema.some_object
-# SomeObject
+petstore_api.components.schema.some_object
+# Schema SomeObject
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-### Composed Schemas (allOf/anyOf/oneOf/not)
-#### allOf
+## Composed Schemas (allOf/anyOf/oneOf/not)
+## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) | [**ObjectInterface**](object_interface.ObjectInterface.md) |  |

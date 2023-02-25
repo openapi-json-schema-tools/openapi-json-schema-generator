@@ -1,13 +1,12 @@
-<a name="top"></a>
-## petstore_api.components.schema.nullable_class
-# NullableClass
+petstore_api.components.schema.nullable_class
+# Schema NullableClass
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **integer_prop** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  |  | [optional]
@@ -16,131 +15,131 @@ Key | Input Type | Accessed Type | Description | Notes
 **string_prop** | None, str,  | NoneClass, str,  |  | [optional]
 **date_prop** | None, str, datetime.date,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **datetime_prop** | None, str, datetime.datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | [None, list, tuple, ](#array_nullable_prop) | [NoneClass, tuple, ](#array_nullable_prop) |  | [optional]
-**array_and_items_nullable_prop** | [None, list, tuple, ](#array_and_items_nullable_prop) | [NoneClass, tuple, ](#array_and_items_nullable_prop) |  | [optional]
-**array_items_nullable** | [list, tuple, ](#array_items_nullable) | [tuple, ](#array_items_nullable) |  | [optional]
-**object_nullable_prop** | [None, dict, frozendict.frozendict, ](#object_nullable_prop) | [NoneClass, frozendict.frozendict, ](#object_nullable_prop) |  | [optional]
-**object_and_items_nullable_prop** | [None, dict, frozendict.frozendict, ](#object_and_items_nullable_prop) | [NoneClass, frozendict.frozendict, ](#object_and_items_nullable_prop) |  | [optional]
-**object_items_nullable** | [dict, frozendict.frozendict, ](#object_items_nullable) | [frozendict.frozendict, ](#object_items_nullable) |  | [optional]
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**array_nullable_prop** | None, list, tuple,  | NoneClass, tuple, [properties.ArrayNullableProp](#properties-arraynullableprop) |  | [optional]
+**array_and_items_nullable_prop** | None, list, tuple,  | NoneClass, tuple, [properties.ArrayAndItemsNullableProp](#properties-arrayanditemsnullableprop) |  | [optional]
+**array_items_nullable** | list, tuple,  | tuple, [properties.ArrayItemsNullable](#properties-arrayitemsnullable) |  | [optional]
+**object_nullable_prop** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
+**object_and_items_nullable_prop** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
+**object_items_nullable** | dict, frozendict.frozendict,  | frozendict.frozendict, [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
-# array_nullable_prop
+# properties ArrayNullableProp
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, list, tuple,  | NoneClass, tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+[items](#properties-arraynullableprop-items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# items
+# properties ArrayNullableProp Items
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# array_and_items_nullable_prop
+# properties ArrayAndItemsNullableProp
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, list, tuple,  | NoneClass, tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
+[items](#properties-arrayanditemsnullableprop-items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# items
+# properties ArrayAndItemsNullableProp Items
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# array_items_nullable
+# properties ArrayItemsNullable
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple,  | tuple,  |  |
 
-### Tuple Items
+## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
+[items](#properties-arrayitemsnullable-items) | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# items
+# properties ArrayItemsNullable Items
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# object_nullable_prop
+# properties ObjectNullableProp
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict,  | frozendict.frozendict, [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
-# any_string_name
+# properties ObjectNullableProp AdditionalProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-# object_and_items_nullable_prop
+# properties ObjectAndItemsNullableProp
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#properties-objectanditemsnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
-# any_string_name
+# properties ObjectAndItemsNullableProp AdditionalProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# object_items_nullable
+# properties ObjectItemsNullable
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
-### Dictionary Keys
+## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict, [AdditionalProperties](#properties-objectitemsnullable-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
-# any_string_name
+# properties ObjectItemsNullable AdditionalProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |
 
-# any_string_name
+# AdditionalProperties
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict,  | NoneClass, frozendict.frozendict,  |  |

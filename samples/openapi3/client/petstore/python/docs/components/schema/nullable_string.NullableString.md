@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.nullable_string
-# NullableString
+petstore_api.components.schema.nullable_string
+# Schema NullableString
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, str,  | NoneClass, str,  |  |

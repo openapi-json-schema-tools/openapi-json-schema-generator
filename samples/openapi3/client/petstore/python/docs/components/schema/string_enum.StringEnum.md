@@ -1,8 +1,7 @@
-<a name="top"></a>
-## petstore_api.components.schema.string_enum
-# StringEnum
+petstore_api.components.schema.string_enum
+# Schema StringEnum
 
-## Schema Type Info
+## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, str,  | NoneClass, str,  |  | must be one of ["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline", None, ]

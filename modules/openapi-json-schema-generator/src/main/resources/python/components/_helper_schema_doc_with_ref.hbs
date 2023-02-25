@@ -1,9 +1,0 @@
-# {{#if schemaNamePrefix1}}{{#if anchorContainsPeriod}}<a id="{{> components/_helper_fancy_schema_name spacer="" }}" >{{/if}}{{> components/_helper_fancy_schema_name spacer="." }}{{#if anchorContainsPeriod}}</a>{{/if}}{{else}}{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}{{/if}}
-{{#if refInfo.refClass}}
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**{{refInfo.refClass}}**]({{complexTypePrefix}}{{> components/schemas/_helper_refclass_with_module }}.md) | {{#if description}}{{description}}{{/if}} | {{#if isReadOnly}}[readonly] {{/if}}
-
-{{else}}
-{{> components/schemas/schema_doc schema=this }}
-{{/if}}

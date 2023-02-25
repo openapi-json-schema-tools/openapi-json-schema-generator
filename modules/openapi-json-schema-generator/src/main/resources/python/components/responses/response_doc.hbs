@@ -1,40 +1,42 @@
 {{#with response}}
 {{#if componentModule}}
-<a name="top"></a>
-## {{packageName}}.components.responses.{{componentModule}}
-{{#if refInfo}}
-# {{jsonPathPiece.camelCase}} [ref](../../components/responses/{{refInfo.refModule}})<a id="{{jsonPathPiece.snakeCase}}" ></a>
-{{else}}
-# <a id="{{jsonPathPiece.snakeCase}}" >{{jsonPathPiece.camelCase}}</a>
+{{packageName}}.components.responses.{{componentModule}}
 {{/if}}
-## <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Response" jsonPathPiece) recordUsage=true }}
 {{else}}
-#### <a id="{{jsonPathPiece.snakeCase}}response_cls" >{{jsonPathPiece.camelCase}}.response_cls</a>
+{{> components/_helper_header_from_identifier_pieces recordUsage=false }}
+{{/eq}}
+{{#if description}}
+
+{{headerSize}}# Description
+{{description}}
 {{/if}}
+
+{{headerSize}}# response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 {{#if refInfo}}
     {{#with getDeepestRef}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{../jsonPathPiece.snakeCase}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+body | {{#unless content}}Unset{{else}}{{#if hasContentSchema}}typing.Union[{{#each content}}{{#if this.schema}}[{{../../refInfo.refClass}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }}){{else}}Unset{{/if}}, {{/each}}]{{else}}Unset{{/if}}{{/unless}} | {{#unless content}}body was not defined{{else}}{{#unless hasContentSchema}}body was not defined{{/unless}}{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-body | {{#unless content}}Unset{{else}}typing.Union[{{#each content}}{{#if this.schema}}[{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema){{else}}Unset{{/if}}, {{/each}}]{{/unless}} | {{#unless content}}body was not defined{{/unless}} |
-headers | {{#unless headers}}Unset{{else}}[{{jsonPathPiece.snakeCase}}.Headers](#{{jsonPathPiece.snakeCase}}Headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
-    {{#each content}}
-        {{#with this.schema}}
+{{#if content}}[body](#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "body") includeSuffix=true }}){{else}}body{{/if}} | {{#unless content}}Unset{{else}}{{#if hasContentSchema}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=true }}){{else}}Unset{{/if}}, {{/each}}]{{else}}Unset{{/if}}{{/unless}} | {{#unless content}}body was not defined{{else}}{{#unless hasContentSchema}}body was not defined{{/unless}}{{/unless}} |
+{{#if headers}}[headers](#headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#if content}}
 
-{{> components/_helper_schema_doc_with_ref anchorContainsPeriod=true schemaNamePrefix1=../../jsonPathPiece schemaNamePrefix2="content" schemaNamePrefix3=../@key.snakeCase }}
-        {{/with}}
-    {{/each}}
+{{headerSize}}# Body
+Content-Type | Schema
+------------ | -------
+        {{#each content}}
+"{{@key.original}}" | {{#if this.schema}}[content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }}){{else}}no schema defined{{/if}}
+        {{/each}}
+    {{/if}}
     {{#if headers}}
-        {{#if componentModule}}
-## Headers
-        {{else}}
-#### <a id="{{jsonPathPiece.snakeCase}}Headers" >{{jsonPathPiece.snakeCase}}.Headers</a>
-        {{/if}}
 
+{{headerSize}}# Headers
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
         {{#each headers}}
@@ -43,13 +45,13 @@ Key | Accessed Type | Description  | Notes
                     {{#with getDeepestRef}}
                         {{#if schema}}
                             {{#with schema}}
-{{../@key}} | [{{../../refInfo.refClass}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#{{../../refInfo.refModule}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [{{../../refInfo.refClass}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
                             {{/with}}
                         {{else}}
                             {{#each content}}
                                 {{#with this}}
                                     {{#with schema}}
-{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#content-{{../@key.anchorPiece}}-{{jsonPathPiece.anchorPiece}}) | | {{#unless required}}optional{{/unless}}
                                     {{/with}}
                                 {{/with}}
                             {{/each}}
@@ -58,13 +60,13 @@ Key | Accessed Type | Description  | Notes
                 {{else}}
                     {{#if schema}}
                         {{#with schema}}
-{{../@key}} | [{{../../jsonPathPiece.camelCase}}.headers.{{../jsonPathPiece.snakeCase}}.schema](#{{../../jsonPathPiece.snakeCase}}headers{{../jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../@key}} | [headers.{{../jsonPathPiece.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../jsonPathPiece jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
                         {{/with}}
                     {{else}}
                         {{#each content}}
                             {{#with this}}
                                 {{#with schema}}
-{{../../@key}} | [{{../../../jsonPathPiece.camelCase}}.headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{../../../jsonPathPiece.snakeCase}}headers{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}) | | {{#unless required}}optional{{/unless}}
+{{../../@key}} | [headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../../jsonPathPiece "content" ../@key jsonPathPiece) includeSuffix=true }}) | | {{#unless required}}optional{{/unless}}
                                 {{/with}}
                             {{/with}}
                         {{/each}}
@@ -72,12 +74,25 @@ Key | Accessed Type | Description  | Notes
                 {{/if}}
             {{/with}}
         {{/each}}
+    {{/if}}
+    {{#and content hasContentSchema}}
+
+{{headerSize}}# Body Details
+        {{#each content}}
+            {{#with this.schema}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) }}
+            {{/with}}
+        {{/each}}
+    {{/and}}
+    {{#and headers hasInlineHeader}}
+
+{{headerSize}}# Header Details
         {{#each headers}}
             {{#unless refInfo}}
-{{> components/headers/header_doc header=this }}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "headers" jsonPathPiece) }}
             {{/unless}}
         {{/each}}
-    {{/if}}
+    {{/and}}
 {{/if}}
 {{#if componentModule}}
 
