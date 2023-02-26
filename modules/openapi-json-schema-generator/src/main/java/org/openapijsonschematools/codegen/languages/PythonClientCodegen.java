@@ -321,12 +321,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
-                Collections.singletonMap("security_schemes.hbs", "security_schemes.py")
+                Collections.singletonMap("components/security_schemes/security_schemes.hbs", "security_schemes.py")
         );
-        jsonPathTemplateFiles.put(
-                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
-        );
+//        jsonPathTemplateFiles.put(
+//                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
+//                Collections.singletonMap("__init__.hbs", "__init__.py")
+//        );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
                 Collections.singletonMap("components/headers/header.hbs", "__init__.py")
@@ -499,6 +499,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("api_client.hbs", packagePath(), "api_client.py"));
         supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
         supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
+        supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
