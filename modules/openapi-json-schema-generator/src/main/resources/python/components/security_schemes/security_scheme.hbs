@@ -1,0 +1,18 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+{{#with securityScheme}}
+{{#if refInfo}}
+{{> _helper_imports }}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import typing
+import typing_extensions
+
+from {{packageName}} import security_schemes
+
+
+class {{jsonPathPiece.camelCase}}(security_schemes.RequestBody):
+    pass
+{{/with}}

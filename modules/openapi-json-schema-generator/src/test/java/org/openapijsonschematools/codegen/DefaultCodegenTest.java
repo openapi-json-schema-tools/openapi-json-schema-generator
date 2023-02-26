@@ -2102,7 +2102,7 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents().getSecuritySchemes();
-        final List<CodegenSecurityScheme> securities = codegen.fromSecurity(securitySchemes);
+        final List<CodegenSecurityScheme> securities = codegen.fromSecurityScheme(securitySchemes);
 
         assertEquals(securities.size(), 2);
         final List<String> flows = securities.stream().map(c -> c.flow).collect(Collectors.toList());

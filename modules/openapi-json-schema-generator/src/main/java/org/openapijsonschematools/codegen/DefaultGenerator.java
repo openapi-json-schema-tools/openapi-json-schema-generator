@@ -898,7 +898,7 @@ public class DefaultGenerator implements Generator {
 //            String componentName = entry.getKey();
 //            SecurityScheme specSecurityScheme = entry.getValue();
 //            String sourceJsonPath = jsonPath + "/" + componentName;
-//            CodegenSecurityScheme securityScheme = config.fromSecurity(specSecurityScheme, sourceJsonPath);
+//            CodegenSecurityScheme securityScheme = config.fromSecurityScheme(specSecurityScheme, sourceJsonPath);
 //            securitySchemes.put(componentName, securityScheme);
 //
 //            generateSecuritySchem(files, requestBody, sourceJsonPath);
@@ -1510,7 +1510,7 @@ public class DefaultGenerator implements Generator {
      */
     void addAuthenticationSwitches(Map<String, Object> bundle) {
         Map<String, SecurityScheme> securitySchemeMap = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
-        List<CodegenSecurityScheme> authMethods = config.fromSecurity(securitySchemeMap);
+        List<CodegenSecurityScheme> authMethods = config.fromSecurityScheme(securitySchemeMap);
         if (authMethods != null && !authMethods.isEmpty()) {
             bundle.put("authMethods", authMethods);
             bundle.put("hasAuthMethods", true);

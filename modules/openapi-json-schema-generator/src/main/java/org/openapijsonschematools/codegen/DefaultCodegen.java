@@ -46,6 +46,8 @@ import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenMediaType;
+import org.openapijsonschematools.codegen.model.CodegenOauthFlow;
+import org.openapijsonschematools.codegen.model.CodegenOauthFlows;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
@@ -1117,6 +1119,12 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(basename);
     }
 
+    @Override
+    public String toSecuritySchemeFilename(String basename) {
+        return toModuleFilename(basename);
+    }
+
+
     public String getCamelCaseParameter(String basename) {
         return toModelName(basename);
     }
@@ -1622,6 +1630,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
+    Map<String, CodegenSecurityScheme> codegenSecuritySchemCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
@@ -2426,6 +2435,7 @@ public class DefaultCodegen implements CodegenConfig {
         return property;
     }
 
+    @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         if (ref == null) {
             return null;
@@ -2843,13 +2853,13 @@ public class DefaultCodegen implements CodegenConfig {
             final List<SecurityRequirement> globalSecurities = openAPI.getSecurity();
             Map<String, SecurityScheme> theseAuthMethods = getAuthMethods(securities, securitySchemes);
             if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                List<CodegenSecurityScheme> fullAuthMethods = fromSecurity(theseAuthMethods);
+                List<CodegenSecurityScheme> fullAuthMethods = fromSecurityScheme(theseAuthMethods);
                 authMethods = filterAuthMethods(fullAuthMethods, securities);
             } else {
                 theseAuthMethods = getAuthMethods(globalSecurities, securitySchemes);
 
                 if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                    List<CodegenSecurityScheme> fullAuthMethods = fromSecurity(theseAuthMethods);
+                    List<CodegenSecurityScheme> fullAuthMethods = fromSecurityScheme(theseAuthMethods);
                     authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
                 }
             }
@@ -3188,12 +3198,138 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Convert map of OAS SecurityScheme objects to a list of Codegen Security objects
      *
+     * @param securityScheme the object being ingested
+     * @param jsonPath the json path location being handled
+     * @return a list of Codegen Security objects
+     */
+    @Override
+    @SuppressWarnings("static-method")
+    public CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath) {
+        if (securityScheme == null) {
+            String msg = "securityScheme in fromSecurityScheme cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
+        CodegenSecurityScheme codegenRequestBody = codegenSecuritySchemCache.getOrDefault(jsonPath, null);
+        if (codegenRequestBody != null) {
+            return codegenRequestBody;
+        }
+
+        String ref = securityScheme.get$ref();
+        String expectedComponentType = "securitySchemes";
+        CodegenRefInfo<CodegenSecurityScheme> refInfo = null;
+        TreeSet<String> imports = null;
+        if (ref != null) {
+            String refModule = toRefModule(ref, jsonPath, expectedComponentType);
+            String refClass = toRefClass(ref, jsonPath, expectedComponentType);
+            CodegenSecurityScheme refCs = fromSecurityScheme(ModelUtils.getReferencedSecurityScheme(openAPI, securityScheme), ref);
+            refInfo = new CodegenRefInfo<>(refCs, refClass, refModule);
+            imports = new TreeSet<>();
+            imports.add(getImport(refInfo));
+        }
+        CodegenOauthFlows flows = null;
+        OAuthFlows sourceFlows = securityScheme.getFlows();
+        if (sourceFlows != null) {
+            CodegenOauthFlow implicit = null;
+            CodegenOauthFlow password = null;
+            CodegenOauthFlow clientCredentials = null;
+            CodegenOauthFlow authorizationCode = null;
+            Map<String, Object> flowsVendorExtensions = null;
+            OAuthFlow sourceFlow = sourceFlows.getImplicit();
+            if (sourceFlow != null) {
+                implicit = new CodegenOauthFlow(
+                        sourceFlow.getAuthorizationUrl(),
+                        sourceFlow.getTokenUrl(),
+                        sourceFlow.getRefreshUrl(),
+                        sourceFlow.getScopes(),
+                        sourceFlow.getExtensions()
+                );
+            }
+            sourceFlow = sourceFlows.getPassword();
+            if (sourceFlow != null) {
+                password = new CodegenOauthFlow(
+                        sourceFlow.getAuthorizationUrl(),
+                        sourceFlow.getTokenUrl(),
+                        sourceFlow.getRefreshUrl(),
+                        sourceFlow.getScopes(),
+                        sourceFlow.getExtensions()
+                );
+            }
+            sourceFlow = sourceFlows.getClientCredentials();
+            if (sourceFlow != null) {
+                clientCredentials = new CodegenOauthFlow(
+                        sourceFlow.getAuthorizationUrl(),
+                        sourceFlow.getTokenUrl(),
+                        sourceFlow.getRefreshUrl(),
+                        sourceFlow.getScopes(),
+                        sourceFlow.getExtensions()
+                );
+            }
+            sourceFlow = sourceFlows.getAuthorizationCode();
+            if (sourceFlow != null) {
+                authorizationCode = new CodegenOauthFlow(
+                        sourceFlow.getAuthorizationUrl(),
+                        sourceFlow.getTokenUrl(),
+                        sourceFlow.getRefreshUrl(),
+                        sourceFlow.getScopes(),
+                        sourceFlow.getExtensions()
+                );
+            }
+            flows = new CodegenOauthFlows(
+                    implicit,
+                    password,
+                    clientCredentials,
+                    authorizationCode,
+                    flowsVendorExtensions
+            );
+        }
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, jsonPath);
+        String[] pathPieces = jsonPath.split("/");
+        // #/components/requestBodies/A
+        String componentModule = null;
+        if (pathPieces.length == 4 && jsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
+            componentModule = toComponentModule(pathPieces[3], expectedComponentType);
+        }
+
+        String type = securityScheme.getType().toString();
+        String description = securityScheme.getDescription();
+        String name = securityScheme.getName();
+        String in = securityScheme.getIn().toString();
+        String scheme = securityScheme.getScheme();
+        String bearerFormat = securityScheme.getBearerFormat();
+        String openIdConnectUrl = securityScheme.getOpenIdConnectUrl();
+        Map<String, Object> vendorExtensions = null;
+        if (securityScheme.getExtensions() != null) {
+            vendorExtensions = securityScheme.getExtensions();
+        }
+        final CodegenSecurityScheme cs = new CodegenSecurityScheme(
+                type,
+                description,
+                name,
+                in,
+                scheme,
+                bearerFormat,
+                flows,
+                openIdConnectUrl,
+                imports,
+                componentModule,
+                jsonPathPiece,
+                refInfo,
+                vendorExtensions
+        );
+        codegenSecuritySchemCache.put(jsonPath, cs);
+        return cs;
+    }
+
+    /**
+     * Convert map of OAS SecurityScheme objects to a list of Codegen Security objects
+     *
      * @param securitySchemeMap a map of OAS SecuritySchemeDefinition object
      * @return a list of Codegen Security objects
      */
     @Override
     @SuppressWarnings("static-method")
-    public List<CodegenSecurityScheme> fromSecurity(Map<String, SecurityScheme> securitySchemeMap) {
+    public List<CodegenSecurityScheme> fromSecurityScheme(Map<String, SecurityScheme> securitySchemeMap) {
         if (securitySchemeMap == null) {
             return Collections.emptyList();
         }
@@ -4437,6 +4573,8 @@ public class DefaultCodegen implements CodegenConfig {
                     return null;
                 }
                 return getKey(refPieces[3]).snakeCase;
+            case "securitySchemes":
+                return toSecuritySchemeFilename(refPieces[3]);
         }
         return null;
     }

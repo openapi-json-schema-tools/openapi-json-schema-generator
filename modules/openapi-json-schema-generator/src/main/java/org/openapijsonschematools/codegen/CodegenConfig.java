@@ -144,7 +144,9 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
-    List<CodegenSecurityScheme> fromSecurity(Map<String, SecurityScheme> schemas);
+    List<CodegenSecurityScheme> fromSecurityScheme(Map<String, SecurityScheme> schemas);
+
+    CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
     List<CodegenServer> fromServers(List<Server> servers);
 
@@ -229,6 +231,8 @@ public interface CodegenConfig {
     String toParameterFilename(String baseName);
 
     String toParameterDocFilename(String componentName);
+
+    String toSecuritySchemeFilename(String baseName);
 
     String toModelImport(String refClass);
 

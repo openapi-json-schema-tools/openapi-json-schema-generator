@@ -514,7 +514,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
-        List<CodegenSecurityScheme> authMethods = fromSecurity(securitySchemeMap);
+        List<CodegenSecurityScheme> authMethods = fromSecurityScheme(securitySchemeMap);
         if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
             supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
         }
@@ -1662,6 +1662,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
+    public String toSecuritySchemeFilename(String basename) {
+        return "security_scheme_" + toModuleFilename(basename);
+    }
+
+    @Override
     public String getCamelCaseParameter(String name) {
         try {
             Integer.parseInt(name);
@@ -1705,6 +1710,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return toHeaderFilename(componentName);
             case "parameters":
                 return toParameterFilename(componentName);
+            case "securitySchemes":
+                return toSecuritySchemeFilename(componentName);
         }
         return null;
     }
@@ -1778,6 +1785,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return null;
     }
 
+    private String toSecuritySchemesRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/securitySchemes/") && refPieces.length == 4) {
+            return toModelName(refPieces[3]);
+        }
+        return null;
+    }
+
     @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         if (ref == null) {
@@ -1794,6 +1809,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 return toHeaderRefClass(ref);
             case "parameters":
                 return toParameterRefClass(ref);
+            case "securitySchemes":
+                return toSecuritySchemesRefClass(ref);
         }
         return null;
     }
