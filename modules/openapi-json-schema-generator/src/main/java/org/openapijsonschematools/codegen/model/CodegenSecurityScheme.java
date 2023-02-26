@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class CodegenSecurity {
+public class CodegenSecurityScheme {
     public final String name;
     public final String type;
     public final String scheme;
@@ -42,7 +42,7 @@ public class CodegenSecurity {
     public final List<Map<String, Object>> scopes;
     public final Boolean isCode, isPassword, isApplication, isImplicit;
 
-    public CodegenSecurity(String name, String type, String scheme, Boolean isBasic, Boolean isOAuth, Boolean isApiKey, Boolean isBasicBasic, Boolean isBasicBearer, Boolean isHttpSignature, String bearerFormat, Map<String, Object> vendorExtensions, String keyParamName, Boolean isKeyInQuery, Boolean isKeyInHeader, Boolean isKeyInCookie, String flow, String authorizationUrl, String tokenUrl, String refreshUrl, List<Map<String, Object>> scopes, Boolean isCode, Boolean isPassword, Boolean isApplication, Boolean isImplicit) {
+    public CodegenSecurityScheme(String name, String type, String scheme, Boolean isBasic, Boolean isOAuth, Boolean isApiKey, Boolean isBasicBasic, Boolean isBasicBearer, Boolean isHttpSignature, String bearerFormat, Map<String, Object> vendorExtensions, String keyParamName, Boolean isKeyInQuery, Boolean isKeyInHeader, Boolean isKeyInCookie, String flow, String authorizationUrl, String tokenUrl, String refreshUrl, List<Map<String, Object>> scopes, Boolean isCode, Boolean isPassword, Boolean isApplication, Boolean isImplicit) {
         this.name = name;
         this.type = type;
         this.scheme = scheme;
@@ -70,7 +70,7 @@ public class CodegenSecurity {
     }
 
     // Return a copy of the security object, filtering out any scopes from the passed-in list.
-    public CodegenSecurity filterByScopeNames(List<String> filterScopes) {
+    public CodegenSecurityScheme filterByScopeNames(List<String> filterScopes) {
         List<Map<String, Object>> returnedScopes = new ArrayList<>();
         for (String filterScopeName : filterScopes) {
             for (Map<String, Object> scope : scopes) {
@@ -81,7 +81,7 @@ public class CodegenSecurity {
                 }
             }
         }
-        CodegenSecurity filteredSecurity = new CodegenSecurity(
+        CodegenSecurityScheme filteredSecurity = new CodegenSecurityScheme(
                 name,
                 type,
                 scheme,
@@ -115,7 +115,7 @@ public class CodegenSecurity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CodegenSecurity that = (CodegenSecurity) o;
+        CodegenSecurityScheme that = (CodegenSecurityScheme) o;
         return Objects.equals(name, that.name) &&
                 Objects.equals(type, that.type) &&
                 Objects.equals(scheme, that.scheme) &&
@@ -153,7 +153,7 @@ public class CodegenSecurity {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("CodegenSecurity{");
+        final StringBuffer sb = new StringBuffer("CodegenSecurityScheme{");
         sb.append("name='").append(name).append('\'');
         sb.append(", type='").append(type).append('\'');
         sb.append(", scheme='").append(scheme).append('\'');

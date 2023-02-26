@@ -3,7 +3,7 @@ package org.openapijsonschematools.codegen.utils;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +43,9 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return True if at least one operation has HTTP basic security scheme defined
      */
-    public static boolean hasHttpBasicMethods(List<CodegenSecurity> authMethods) {
+    public static boolean hasHttpBasicMethods(List<CodegenSecurityScheme> authMethods) {
         if (authMethods != null && !authMethods.isEmpty()) {
-            for (CodegenSecurity cs : authMethods) {
+            for (CodegenSecurityScheme cs : authMethods) {
                 if (Boolean.TRUE.equals(cs.isBasicBasic)) {
                     return true;
                 }
@@ -60,10 +60,10 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return A list of OAS Codegen security objects
      */
-    public static List<CodegenSecurity> getHttpBasicMethods(List<CodegenSecurity> authMethods) {
-        List<CodegenSecurity> httpBasicMethods = new ArrayList<>();
+    public static List<CodegenSecurityScheme> getHttpBasicMethods(List<CodegenSecurityScheme> authMethods) {
+        List<CodegenSecurityScheme> httpBasicMethods = new ArrayList<>();
 
-        for (CodegenSecurity cs : authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isBasicBasic)) {
                 httpBasicMethods.add(cs);
             }
@@ -78,9 +78,9 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return True if at least one operation has API key security scheme defined
      */
-    public static boolean hasApiKeyMethods(List<CodegenSecurity> authMethods) {
+    public static boolean hasApiKeyMethods(List<CodegenSecurityScheme> authMethods) {
         if (authMethods != null && !authMethods.isEmpty()) {
-            for (CodegenSecurity cs : authMethods) {
+            for (CodegenSecurityScheme cs : authMethods) {
                 if (Boolean.TRUE.equals(cs.isApiKey)) {
                     return true;
                 }
@@ -95,10 +95,10 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return A list of OAS Codegen security objects
      */
-    public static List<CodegenSecurity> getApiKeyMethods(List<CodegenSecurity> authMethods) {
-        List<CodegenSecurity> apiKeyMethods = new ArrayList<>();
+    public static List<CodegenSecurityScheme> getApiKeyMethods(List<CodegenSecurityScheme> authMethods) {
+        List<CodegenSecurityScheme> apiKeyMethods = new ArrayList<>();
 
-        for (CodegenSecurity cs : authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isApiKey)) {
                 apiKeyMethods.add(cs);
             }
@@ -115,9 +115,9 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return True if at least one operation has HTTP signature security scheme defined
      */
-    public static boolean hasHttpSignatureMethods(List<CodegenSecurity> authMethods) {
+    public static boolean hasHttpSignatureMethods(List<CodegenSecurityScheme> authMethods) {
         if (authMethods != null && !authMethods.isEmpty()) {
-            for (CodegenSecurity cs : authMethods) {
+            for (CodegenSecurityScheme cs : authMethods) {
                 if (Boolean.TRUE.equals(cs.isHttpSignature)) {
                     return true;
                 }
@@ -132,10 +132,10 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return A list of OAS Codegen security objects
      */
-    public static List<CodegenSecurity> getHttpSignatureMethods(List<CodegenSecurity> authMethods) {
-        List<CodegenSecurity> httpSignatureMethods = new ArrayList<>();
+    public static List<CodegenSecurityScheme> getHttpSignatureMethods(List<CodegenSecurityScheme> authMethods) {
+        List<CodegenSecurityScheme> httpSignatureMethods = new ArrayList<>();
 
-        for (CodegenSecurity cs : authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isHttpSignature)) {
                 httpSignatureMethods.add(cs);
             }
@@ -150,9 +150,9 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return True if at least one operation has HTTP bearer security scheme defined
      */
-    public static boolean hasHttpBearerMethods(List<CodegenSecurity> authMethods) {
+    public static boolean hasHttpBearerMethods(List<CodegenSecurityScheme> authMethods) {
         if (authMethods != null && !authMethods.isEmpty()) {
-            for (CodegenSecurity cs : authMethods) {
+            for (CodegenSecurityScheme cs : authMethods) {
                 if (Boolean.TRUE.equals(cs.isBasicBearer)) {
                     return true;
                 }
@@ -167,10 +167,10 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return A list of Bearer Codegen security objects
      */
-    public static List<CodegenSecurity> getHttpBearerMethods(List<CodegenSecurity> authMethods) {
-        List<CodegenSecurity> httpBearerMethods = new ArrayList<>();
+    public static List<CodegenSecurityScheme> getHttpBearerMethods(List<CodegenSecurityScheme> authMethods) {
+        List<CodegenSecurityScheme> httpBearerMethods = new ArrayList<>();
 
-        for (CodegenSecurity cs : authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isBasicBearer)) {
                 httpBearerMethods.add(cs);
             }
@@ -185,8 +185,8 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return True if at least one operation has OAuth security scheme defined
      */
-    public static boolean hasOAuthMethods(List<CodegenSecurity> authMethods) {
-        for (CodegenSecurity cs : authMethods) {
+    public static boolean hasOAuthMethods(List<CodegenSecurityScheme> authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isOAuth)) {
                 return true;
             }
@@ -200,10 +200,10 @@ public class ProcessUtils {
      * @param authMethods List of auth methods.
      * @return A list of OAuth Codegen security objects
      */
-    public static List<CodegenSecurity> getOAuthMethods(List<CodegenSecurity> authMethods) {
-        List<CodegenSecurity> oauthMethods = new ArrayList<>();
+    public static List<CodegenSecurityScheme> getOAuthMethods(List<CodegenSecurityScheme> authMethods) {
+        List<CodegenSecurityScheme> oauthMethods = new ArrayList<>();
 
-        for (CodegenSecurity cs : authMethods) {
+        for (CodegenSecurityScheme cs : authMethods) {
             if (Boolean.TRUE.equals(cs.isOAuth)) {
                 oauthMethods.add(cs);
             }

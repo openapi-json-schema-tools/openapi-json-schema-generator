@@ -47,7 +47,7 @@ import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.OperationMap;
@@ -885,6 +885,29 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+//    private TreeMap<String, CodegenSecurityScheme> generateSecuritySchemes(List<File> files) {
+//        final Map<String, SecurityScheme> specSecuritySchemes = this.openAPI.getComponents().getSecuritySchemes();
+//        if (specSecuritySchemes == null) {
+//            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
+//            return null;
+//        }
+//        TreeMap<String, CodegenSecurityScheme> securitySchemes = new TreeMap<>();
+//        String jsonPath = "#/components/requestBodies";
+//        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES, CodegenConstants.APIS, null);
+//        for (Map.Entry<String, SecurityScheme> entry: specSecuritySchemes.entrySet()) {
+//            String componentName = entry.getKey();
+//            SecurityScheme specSecurityScheme = entry.getValue();
+//            String sourceJsonPath = jsonPath + "/" + componentName;
+//            CodegenSecurityScheme securityScheme = config.fromSecurity(specSecurityScheme, sourceJsonPath);
+//            securitySchemes.put(componentName, securityScheme);
+//
+//            generateSecuritySchem(files, requestBody, sourceJsonPath);
+//        }
+//        // sort them
+//        securitySchemes = new TreeMap<>(securitySchemes);
+//        return securitySchemes;
+//    }
+
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
         if (specRequestBodies == null) {
@@ -1481,13 +1504,13 @@ public class DefaultGenerator implements Generator {
      * <p>
      *   boolean hasOAuthMethods
      * <p>
-     *   List&lt;CodegenSecurity&gt; oauthMethods
+     *   List&lt;CodegenSecurityScheme&gt; oauthMethods
      *
      * @param bundle the map which the booleans and collections will be added
      */
     void addAuthenticationSwitches(Map<String, Object> bundle) {
         Map<String, SecurityScheme> securitySchemeMap = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
-        List<CodegenSecurity> authMethods = config.fromSecurity(securitySchemeMap);
+        List<CodegenSecurityScheme> authMethods = config.fromSecurity(securitySchemeMap);
         if (authMethods != null && !authMethods.isEmpty()) {
             bundle.put("authMethods", authMethods);
             bundle.put("hasAuthMethods", true);

@@ -28,7 +28,7 @@ import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.TemplateManager;
@@ -320,6 +320,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 schemaTemplates
         );
         jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
+                Collections.singletonMap("security_schemes.hbs", "security_schemes.py")
+        );
+        jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
                 Collections.singletonMap("__init__.hbs", "__init__.py")
         );
@@ -509,7 +513,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
-        List<CodegenSecurity> authMethods = fromSecurity(securitySchemeMap);
+        List<CodegenSecurityScheme> authMethods = fromSecurity(securitySchemeMap);
         if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
             supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
         }

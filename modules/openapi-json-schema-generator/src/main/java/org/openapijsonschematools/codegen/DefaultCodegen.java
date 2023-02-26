@@ -53,7 +53,7 @@ import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
@@ -2513,14 +2513,14 @@ public class DefaultCodegen implements CodegenConfig {
                 .scopes(newScopes);
     }
 
-    private List<CodegenSecurity> filterAuthMethods(List<CodegenSecurity> authMethods, List<SecurityRequirement> securities) {
+    private List<CodegenSecurityScheme> filterAuthMethods(List<CodegenSecurityScheme> authMethods, List<SecurityRequirement> securities) {
         if (securities == null || securities.isEmpty() || authMethods == null) {
             return authMethods;
         }
 
-        List<CodegenSecurity> result = new ArrayList<>();
+        List<CodegenSecurityScheme> result = new ArrayList<>();
 
-        for (CodegenSecurity security : authMethods) {
+        for (CodegenSecurityScheme security : authMethods) {
             boolean filtered = false;
             if (security != null && security.scopes != null) {
                 for (SecurityRequirement requirement : securities) {
@@ -2530,7 +2530,7 @@ public class DefaultCodegen implements CodegenConfig {
                         // describe the operation auth method with only the scopes that it requires.
                         // We have to create a new auth method instance because the original object must
                         // not be modified.
-                        CodegenSecurity opSecurity = security.filterByScopeNames(opScopes);
+                        CodegenSecurityScheme opSecurity = security.filterByScopeNames(opScopes);
                         result.add(opSecurity);
                         filtered = true;
                         break;
@@ -2836,20 +2836,20 @@ public class DefaultCodegen implements CodegenConfig {
                     return 1;
             });
         }
-        List<CodegenSecurity> authMethods = null;
+        List<CodegenSecurityScheme> authMethods = null;
         List<SecurityRequirement> securities = operation.getSecurity();
         if (securities != null && !securities.isEmpty()) {
             final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
             final List<SecurityRequirement> globalSecurities = openAPI.getSecurity();
             Map<String, SecurityScheme> theseAuthMethods = getAuthMethods(securities, securitySchemes);
             if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                List<CodegenSecurity> fullAuthMethods = fromSecurity(theseAuthMethods);
+                List<CodegenSecurityScheme> fullAuthMethods = fromSecurity(theseAuthMethods);
                 authMethods = filterAuthMethods(fullAuthMethods, securities);
             } else {
                 theseAuthMethods = getAuthMethods(globalSecurities, securitySchemes);
 
                 if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                    List<CodegenSecurity> fullAuthMethods = fromSecurity(theseAuthMethods);
+                    List<CodegenSecurityScheme> fullAuthMethods = fromSecurity(theseAuthMethods);
                     authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
                 }
             }
@@ -3193,12 +3193,12 @@ public class DefaultCodegen implements CodegenConfig {
      */
     @Override
     @SuppressWarnings("static-method")
-    public List<CodegenSecurity> fromSecurity(Map<String, SecurityScheme> securitySchemeMap) {
+    public List<CodegenSecurityScheme> fromSecurity(Map<String, SecurityScheme> securitySchemeMap) {
         if (securitySchemeMap == null) {
             return Collections.emptyList();
         }
 
-        List<CodegenSecurity> codegenSecurities = new ArrayList<>(securitySchemeMap.size());
+        List<CodegenSecurityScheme> codegenSecurities = new ArrayList<>(securitySchemeMap.size());
         for (Entry<String, SecurityScheme> entry: securitySchemeMap.entrySet()) {
             String name = entry.getKey();
             final SecurityScheme securityScheme = entry.getValue();
@@ -3271,7 +3271,7 @@ public class DefaultCodegen implements CodegenConfig {
                     isPassword = true;
                     flow = "password";
                     isFlowEmpty = false;
-                    final CodegenSecurity cs = new CodegenSecurity(
+                    final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                             name,
                             type,
                             scheme,
@@ -3308,7 +3308,7 @@ public class DefaultCodegen implements CodegenConfig {
                     isImplicit = true;
                     flow = "implicit";
                     isFlowEmpty = false;
-                    final CodegenSecurity cs = new CodegenSecurity(
+                    final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                             name,
                             type,
                             scheme,
@@ -3345,7 +3345,7 @@ public class DefaultCodegen implements CodegenConfig {
                     isApplication = true;
                     flow = "application";
                     isFlowEmpty = false;
-                    final CodegenSecurity cs = new CodegenSecurity(
+                    final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                             name,
                             type,
                             scheme,
@@ -3381,7 +3381,7 @@ public class DefaultCodegen implements CodegenConfig {
                     scopes = getScopes(flows.getAuthorizationCode().getScopes());
                     flow = "accessCode";
                     isFlowEmpty = false;
-                    final CodegenSecurity cs = new CodegenSecurity(
+                    final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                             name,
                             type,
                             scheme,
@@ -3417,7 +3417,7 @@ public class DefaultCodegen implements CodegenConfig {
             } else {
                 OnceLogger.once(LOGGER).error("Unknown type `{}` found in the security definition `{}`.", securityScheme.getType(), securityScheme.getName());
             }
-            final CodegenSecurity cs = new CodegenSecurity(
+            final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                     name,
                     type,
                     scheme,

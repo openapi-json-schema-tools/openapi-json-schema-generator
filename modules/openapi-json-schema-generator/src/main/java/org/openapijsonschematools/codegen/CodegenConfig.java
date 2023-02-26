@@ -35,7 +35,7 @@ import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.OperationsMap;
@@ -144,7 +144,7 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
-    List<CodegenSecurity> fromSecurity(Map<String, SecurityScheme> schemas);
+    List<CodegenSecurityScheme> fromSecurity(Map<String, SecurityScheme> schemas);
 
     List<CodegenServer> fromServers(List<Server> servers);
 

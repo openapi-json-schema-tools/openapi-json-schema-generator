@@ -39,7 +39,7 @@ public class CodegenOperation {
     public final List<CodegenParameter> cookieParams;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
-    public final List<CodegenSecurity> authMethods;
+    public final List<CodegenSecurityScheme> authMethods;
     public final Map<String, CodegenTag> tags;
     public final TreeMap<String, CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
@@ -51,7 +51,7 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurity> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurityScheme> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
