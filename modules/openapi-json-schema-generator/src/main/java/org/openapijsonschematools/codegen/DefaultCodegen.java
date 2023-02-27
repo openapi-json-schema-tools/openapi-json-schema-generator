@@ -55,6 +55,7 @@ import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
+import org.openapijsonschematools.codegen.model.CodegenSecurityRequirement;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
@@ -1630,7 +1631,8 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
-    Map<String, CodegenSecurityScheme> codegenSecuritySchemCache = new HashMap<>();
+    Map<String, CodegenSecurityScheme> codegenSecuritySchemeCache = new HashMap<>();
+    Map<String, CodegenSecurityRequirement> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
@@ -3195,6 +3197,37 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenParameter;
     }
 
+    @Override
+    @SuppressWarnings("static-method")
+    public HashMap<String, CodegenSecurityRequirement> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
+        if (securityRequirement == null) {
+            String msg = "securityRequirement in fromSecurityRequirement cannot be null!";
+            LOGGER.error(msg);
+            throw new RuntimeException(msg);
+        }
+        HashMap<String, CodegenSecurityRequirement> securityRequirements = new HashMap<>();
+        for (Entry<String, List<String>> entry: securityRequirement.entrySet()) {
+            String securitySchemeComponentName = entry.getKey();
+            String jsonPath = sourceJsonPath + "/" + securitySchemeComponentName;
+            CodegenSecurityRequirement codegenSecurityRequirement = codegenSecurityRequirementCache.getOrDefault(jsonPath, null);
+            if (codegenSecurityRequirement != null) {
+                securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirement);
+                continue;
+            }
+            String ref = "components/securitySchemes/" + securityRequirement.;
+            String expectedComponentType = "securitySchemes";
+            String refModule = toRefModule(ref, jsonPath, expectedComponentType);
+            String refClass = toRefClass(ref, jsonPath, expectedComponentType);
+            SecurityScheme ss = new SecurityScheme();
+            ss.set$ref(ref);
+            CodegenSecurityScheme refCs = fromSecurityScheme(ModelUtils.getReferencedSecurityScheme(openAPI, ss), ref);
+            CodegenRefInfo<CodegenSecurityScheme> refInfo = new CodegenRefInfo<>(refCs, refClass, refModule);
+            TreeSet<String> imports = new TreeSet<>();
+            imports.add(getImport(refInfo));
+        }
+        return securityRequirements;
+    }
+
     /**
      * Convert map of OAS SecurityScheme objects to a list of Codegen Security objects
      *
@@ -3210,7 +3243,7 @@ public class DefaultCodegen implements CodegenConfig {
             LOGGER.error(msg);
             throw new RuntimeException(msg);
         }
-        CodegenSecurityScheme codegenRequestBody = codegenSecuritySchemCache.getOrDefault(jsonPath, null);
+        CodegenSecurityScheme codegenRequestBody = codegenSecuritySchemeCache.getOrDefault(jsonPath, null);
         if (codegenRequestBody != null) {
             return codegenRequestBody;
         }
@@ -3317,7 +3350,7 @@ public class DefaultCodegen implements CodegenConfig {
                 refInfo,
                 vendorExtensions
         );
-        codegenSecuritySchemCache.put(jsonPath, cs);
+        codegenSecuritySchemeCache.put(jsonPath, cs);
         return cs;
     }
 

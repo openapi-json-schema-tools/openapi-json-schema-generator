@@ -39,7 +39,7 @@ public class CodegenOperation {
     public final List<CodegenParameter> cookieParams;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
-    public final List<CodegenSecurityScheme> authMethods;
+    public final List<HashMap<String, CodegenSecurityRequirement>> security;
     public final Map<String, CodegenTag> tags;
     public final TreeMap<String, CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
@@ -51,7 +51,7 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<CodegenSecurityScheme> authMethods, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirement>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
@@ -69,7 +69,7 @@ public class CodegenOperation {
         this.cookieParams = cookieParams;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
-        this.authMethods = authMethods;
+        this.security = security;
         this.tags = tags;
         this.responses = responses;
         this.statusCodeResponses = statusCodeResponses;
@@ -144,7 +144,7 @@ public class CodegenOperation {
         sb.append(", cookieParams=").append(cookieParams);
         sb.append(", hasRequiredParamOrBody=").append(hasRequiredParamOrBody);
         sb.append(", hasOptionalParamOrBody=").append(hasOptionalParamOrBody);
-        sb.append(", authMethods=").append(authMethods);
+        sb.append(", security=").append(security);
         sb.append(", tags=").append(tags);
         sb.append(", responses=").append(responses);
         sb.append(", statusCodeResponses=").append(statusCodeResponses);
@@ -180,7 +180,7 @@ public class CodegenOperation {
                 Objects.equals(cookieParams, that.cookieParams) &&
                 Objects.equals(hasRequiredParamOrBody, that.hasRequiredParamOrBody) &&
                 Objects.equals(hasOptionalParamOrBody, that.hasOptionalParamOrBody) &&
-                Objects.equals(authMethods, that.authMethods) &&
+                Objects.equals(security, that.security) &&
                 Objects.equals(tags, that.tags) &&
                 Objects.equals(responses, that.responses) &&
                 Objects.equals(statusCodeResponses, that.statusCodeResponses) &&
@@ -198,7 +198,7 @@ public class CodegenOperation {
                 summary, unescapedDescription, description, defaultResponse,
                 produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
-                authMethods, tags, responses, callbacks, externalDocs,
+                security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses);
     }
