@@ -147,8 +147,6 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
-    List<CodegenSecurityScheme> fromSecurityScheme(Map<String, SecurityScheme> schemas);
-
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
     HashMap<String, CodegenSecurityRequirement> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
