@@ -31,11 +31,6 @@ from .responses import response_405
 from . import request_body
 
 
-_auth = [
-    'http_signature_test',
-    'petstore_auth',
-]
-
 _servers = (
     {
         'url': "https://petstore.swagger.io/v2",
@@ -166,7 +161,6 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
-            auth_settings=_auth,
             host=host,
             stream=stream,
             timeout=timeout,

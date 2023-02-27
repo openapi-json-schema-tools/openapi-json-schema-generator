@@ -89,10 +89,6 @@ class RequestHeaderParameters:
         parameter_1.Parameter1,
         parameter_4.Parameter4,
     ]
-_auth = [
-    'bearer_test',
-]
-
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -183,7 +179,6 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='delete',
             headers=_headers,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

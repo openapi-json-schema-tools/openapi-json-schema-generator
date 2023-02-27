@@ -18,7 +18,6 @@ from petstore_api.api_client import ApiClient
 
 # import Configuration
 from petstore_api.configuration import Configuration
-from petstore_api.signing import HttpSigningConfiguration
 
 # import exceptions
 from petstore_api.exceptions import OpenApiException

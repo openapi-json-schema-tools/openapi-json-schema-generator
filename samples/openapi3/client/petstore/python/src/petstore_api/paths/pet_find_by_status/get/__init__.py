@@ -54,11 +54,6 @@ class RequestQueryParameters:
     parameters = [
         parameter_0.Parameter0,
     ]
-_auth = [
-    'http_signature_test',
-    'petstore_auth',
-]
-
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -151,7 +146,6 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get',
             headers=_headers,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

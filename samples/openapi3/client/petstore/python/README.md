@@ -406,45 +406,7 @@ Class | Description
 
 ## Documentation For Authorization
 
-
-## api_key
-
-- **Type**: API key
-- **API key parameter name**: api_key
-- **Location**: HTTP header
-
-
-## api_key_query
-
-- **Type**: API key
-- **API key parameter name**: api_key_query
-- **Location**: URL query string
-
-
-## bearer_test
-
-- **Type**: Bearer authentication (JWT)
-
-
-## http_basic_test
-
-- **Type**: HTTP basic authentication
-
-
-## http_signature_test
-
-- **Type**: HTTP signature authentication
-
- Authentication schemes defined for the API:
-## petstore_auth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: http://petstore.swagger.io/api/oauth/dialog
-- **Scopes**: 
- - **write:pets**: modify pets in your account
- - **read:pets**: read your pets
-
+ All endpoints do not require authorization.
 
 ## Author
 

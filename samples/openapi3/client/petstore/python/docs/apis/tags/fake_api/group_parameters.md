@@ -8,7 +8,6 @@
 - [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -132,13 +131,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
-## Authorization
-
-[bearer_test](../../../../README.md#bearer_test)
-
 ## Code Sample
 
-* Bearer (JWT) Authentication (bearer_test):
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_api
@@ -149,15 +143,6 @@ configuration = petstore_api.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearer_test
-configuration = petstore_api.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class

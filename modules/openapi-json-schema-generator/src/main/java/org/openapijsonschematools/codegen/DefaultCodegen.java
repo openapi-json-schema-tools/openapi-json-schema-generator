@@ -3142,7 +3142,7 @@ public class DefaultCodegen implements CodegenConfig {
                 securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirement);
                 continue;
             }
-            String ref = "components/securitySchemes/" + securitySchemeComponentName;
+            String ref = "#/components/securitySchemes/" + securitySchemeComponentName;
             String expectedComponentType = "securitySchemes";
             String refModule = toRefModule(ref, jsonPath, expectedComponentType);
             String refClass = toRefClass(ref, jsonPath, expectedComponentType);
@@ -3264,7 +3264,10 @@ public class DefaultCodegen implements CodegenConfig {
         String type = securityScheme.getType().toString();
         String description = securityScheme.getDescription();
         String name = securityScheme.getName();
-        String in = securityScheme.getIn().toString();
+        String in = null;
+        if (securityScheme.getIn() != null) {
+            in = securityScheme.getIn().toString();
+        }
         String scheme = securityScheme.getScheme();
         String bearerFormat = securityScheme.getBearerFormat();
         String openIdConnectUrl = securityScheme.getOpenIdConnectUrl();

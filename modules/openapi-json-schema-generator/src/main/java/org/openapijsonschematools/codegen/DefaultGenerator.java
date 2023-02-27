@@ -47,7 +47,6 @@ import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.OperationMap;
@@ -1298,8 +1297,6 @@ public class DefaultGenerator implements Generator {
 
                 allOperations.add(operation);
 
-                addAuthenticationSwitches(operation);
-
                 for (String templateName : config.apiTemplateFiles().keySet()) {
                     String filename = config.apiFilename(templateName, tag);
                     File written = processTemplateToFile(operation, templateName, filename, generateApis, CodegenConstants.APIS);
@@ -1472,10 +1469,9 @@ public class DefaultGenerator implements Generator {
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());
+        // TODO add the security schemes
         bundle.put("generatorLanguageVersion", config.generatorLanguageVersion());
         // todo verify support and operation bundles have access to the common variables
-
-        addAuthenticationSwitches(bundle);
 
         List<CodegenServer> servers = config.fromServers(openAPI.getServers());
         if (servers != null && !servers.isEmpty()) {
@@ -1494,48 +1490,6 @@ public class DefaultGenerator implements Generator {
             Json.prettyPrint(bundle);
         }
         return bundle;
-    }
-
-    /**
-     * Add authentication methods to the given map
-     * This adds a boolean and a collection for each authentication type to the map.
-     * <p>
-     * Examples:
-     * <p>
-     *   boolean hasOAuthMethods
-     * <p>
-     *   List&lt;CodegenSecurityScheme&gt; oauthMethods
-     *
-     * @param bundle the map which the booleans and collections will be added
-     */
-    void addAuthenticationSwitches(Map<String, Object> bundle) {
-        Map<String, SecurityScheme> securitySchemeMap = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
-        List<CodegenSecurityScheme> authMethods = config.fromSecurityScheme(securitySchemeMap);
-        if (authMethods != null && !authMethods.isEmpty()) {
-            bundle.put("authMethods", authMethods);
-            bundle.put("hasAuthMethods", true);
-
-            if (ProcessUtils.hasOAuthMethods(authMethods)) {
-                bundle.put("hasOAuthMethods", true);
-                bundle.put("oauthMethods", ProcessUtils.getOAuthMethods(authMethods));
-            }
-            if (ProcessUtils.hasHttpBearerMethods(authMethods)) {
-                bundle.put("hasHttpBearerMethods", true);
-                bundle.put("httpBearerMethods", ProcessUtils.getHttpBearerMethods(authMethods));
-            }
-            if (ProcessUtils.hasHttpSignatureMethods(authMethods)) {
-                bundle.put("hasHttpSignatureMethods", true);
-                bundle.put("httpSignatureMethods", ProcessUtils.getHttpSignatureMethods(authMethods));
-            }
-            if (ProcessUtils.hasHttpBasicMethods(authMethods)) {
-                bundle.put("hasHttpBasicMethods", true);
-                bundle.put("httpBasicMethods", ProcessUtils.getHttpBasicMethods(authMethods));
-            }
-            if (ProcessUtils.hasApiKeyMethods(authMethods)) {
-                bundle.put("hasApiKeyMethods", true);
-                bundle.put("apiKeyMethods", ProcessUtils.getApiKeyMethods(authMethods));
-            }
-        }
     }
 
     @Override

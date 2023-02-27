@@ -1225,15 +1225,6 @@ class ApiClient:
             elif auth_setting['in'] == 'header':
                 if auth_setting['type'] != 'http-signature':
                     headers.add(auth_setting['key'], auth_setting['value'])
-                else:
-                    # The HTTP signature scheme requires multiple HTTP headers
-                    # that are calculated dynamically.
-                    signing_info = self.configuration.signing_info
-                    querys = tuple()
-                    auth_headers = signing_info.get_http_signature_headers(
-                                        resource_path, method, headers, body, querys)
-                    for key, value in auth_headers.items():
-                        headers.add(key, value)
             elif auth_setting['in'] == 'query':
                 """ TODO implement auth in query
                 need to pass in prefix_separator_iterator

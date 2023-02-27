@@ -54,10 +54,6 @@ class RequestPathParameters:
     parameters = [
         parameter_0.Parameter0,
     ]
-_auth = [
-    'petstore_auth',
-]
-
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -163,7 +159,6 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

@@ -657,7 +657,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
         // authentication related files
         // has OAuth defined
-        if (ProcessUtils.hasOAuthMethods(openAPI)) {
+        if (true) {
             // for okhttp-gson (default), check to see if OAuth is defined and included OAuth-related files accordingly
             if ((OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary()))) {
                 supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));

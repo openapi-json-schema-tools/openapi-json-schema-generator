@@ -455,7 +455,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         }
 
         if (usesRetrofit2Library()) {
-            boolean hasOAuthMethods = ProcessUtils.hasOAuthMethods(openAPI);
+            boolean hasOAuthMethods = true;
 
             if (hasOAuthMethods) {
                 supportingFiles.add(new SupportingFile("auth/OAuth.kt.mustache", authFolder, "OAuth.kt"));

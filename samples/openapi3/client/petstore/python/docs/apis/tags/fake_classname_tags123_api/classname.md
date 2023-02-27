@@ -8,7 +8,6 @@
 - [HTTP Method](#http-method)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
 - [Code Sample](#code-sample)
 
 ## Summary
@@ -66,13 +65,8 @@ Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Client](../../components/schemas/client.Client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## Authorization
-
-[api_key_query](../../../../README.md#api_key_query)
-
 ## Code Sample
 
-* Api Key Authentication (api_key_query):
 ```python
 import petstore_api
 from petstore_api.apis.tags import fake_classname_tags123_api
@@ -83,16 +77,6 @@ configuration = petstore_api.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: api_key_query
-configuration.api_key['api_key_query'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api_key_query'] = 'Bearer'
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class

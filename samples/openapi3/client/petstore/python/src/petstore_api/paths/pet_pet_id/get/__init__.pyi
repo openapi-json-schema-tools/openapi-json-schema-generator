@@ -133,7 +133,6 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get',
             headers=_headers,
-            auth_settings=_auth,
             stream=stream,
             timeout=timeout,
         )

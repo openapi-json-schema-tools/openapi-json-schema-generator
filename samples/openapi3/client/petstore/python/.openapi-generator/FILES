@@ -285,6 +285,7 @@ src/petstore_api/apis/tags/pet_api.py
 src/petstore_api/apis/tags/store_api.py
 src/petstore_api/apis/tags/user_api.py
 src/petstore_api/components/__init__.py
+src/petstore_api/components/headers/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/content/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/content/application_json/__init__.py
@@ -347,6 +348,7 @@ src/petstore_api/components/responses/response_success_inline_content_and_header
 src/petstore_api/components/responses/response_success_inline_content_and_header/content/application_json/__init__.py
 src/petstore_api/components/responses/response_success_inline_content_and_header/content/application_json/schema.py
 src/petstore_api/components/responses/response_success_inline_content_and_header/content/application_json/schema.pyi
+src/petstore_api/components/responses/response_success_inline_content_and_header/headers/__init__.py
 src/petstore_api/components/responses/response_success_inline_content_and_header/headers/header_some_header/__init__.py
 src/petstore_api/components/responses/response_success_inline_content_and_header/headers/header_some_header/schema.py
 src/petstore_api/components/responses/response_success_inline_content_and_header/headers/header_some_header/schema.pyi
@@ -355,6 +357,7 @@ src/petstore_api/components/responses/response_success_with_json_api_response/co
 src/petstore_api/components/responses/response_success_with_json_api_response/content/application_json/__init__.py
 src/petstore_api/components/responses/response_success_with_json_api_response/content/application_json/schema.py
 src/petstore_api/components/responses/response_success_with_json_api_response/content/application_json/schema.pyi
+src/petstore_api/components/responses/response_success_with_json_api_response/headers/__init__.py
 src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_int32/__init__.py
 src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_number_header/__init__.py
 src/petstore_api/components/responses/response_success_with_json_api_response/headers/header_ref_content_schema_header/__init__.py
@@ -1398,6 +1401,7 @@ src/petstore_api/paths/user_login/get/responses/response_200/content/application
 src/petstore_api/paths/user_login/get/responses/response_200/content/application_xml/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/content/application_xml/schema.py
 src/petstore_api/paths/user_login/get/responses/response_200/content/application_xml/schema.pyi
+src/petstore_api/paths/user_login/get/responses/response_200/headers/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_int32/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_number_header/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_ref_content_schema_header/__init__.py
