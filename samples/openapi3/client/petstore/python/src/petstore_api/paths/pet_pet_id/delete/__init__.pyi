@@ -25,6 +25,8 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
 from .responses import response_400
 from .parameters import parameter_0
 from .parameters import parameter_1

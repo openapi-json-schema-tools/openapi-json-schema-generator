@@ -15,6 +15,13 @@ from {{packageName}} import api_client, exceptions
 {{> _helper_imports_schema_types }}
 {{> _helper_imports }}
 {{#with operation}}
+{{#each security}}
+    {{#each this}}
+        {{#if imports}}
+{{> _helper_imports }}
+        {{/if}}
+    {{/each}}
+{{/each}}
 
 {{#unless isStub}}
 from .. import path
