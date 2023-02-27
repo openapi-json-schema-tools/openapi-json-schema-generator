@@ -2848,22 +2848,13 @@ public class DefaultCodegen implements CodegenConfig {
                     return 1;
             });
         }
-        List<CodegenSecurityScheme> authMethods = null;
+        List<HashMap<String, CodegenSecurityRequirement>> security = null;
         List<SecurityRequirement> securities = operation.getSecurity();
         if (securities != null && !securities.isEmpty()) {
-            final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null;
-            final List<SecurityRequirement> globalSecurities = openAPI.getSecurity();
-            Map<String, SecurityScheme> theseAuthMethods = getAuthMethods(securities, securitySchemes);
-            if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                List<CodegenSecurityScheme> fullAuthMethods = fromSecurityScheme(theseAuthMethods);
-                authMethods = filterAuthMethods(fullAuthMethods, securities);
-            } else {
-                theseAuthMethods = getAuthMethods(globalSecurities, securitySchemes);
-
-                if (theseAuthMethods != null && !theseAuthMethods.isEmpty()) {
-                    List<CodegenSecurityScheme> fullAuthMethods = fromSecurityScheme(theseAuthMethods);
-                    authMethods = filterAuthMethods(fullAuthMethods, globalSecurities);
-                }
+            security = new ArrayList<>();
+            for (SecurityRequirement originalSecurityRequirement: securities) {
+                HashMap<String, CodegenSecurityRequirement> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, sourceJsonPath + "/security");
+                security.add(securityRequirement);
             }
         }
 
@@ -2886,7 +2877,7 @@ public class DefaultCodegen implements CodegenConfig {
                 cookieParams,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
-                authMethods,
+                security,
                 tags,
                 responses,
                 statusCodeResponses,
