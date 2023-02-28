@@ -47,6 +47,7 @@ import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.OperationMap;
@@ -884,28 +885,80 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-//    private TreeMap<String, CodegenSecurityScheme> generateSecuritySchemes(List<File> files) {
-//        final Map<String, SecurityScheme> specSecuritySchemes = this.openAPI.getComponents().getSecuritySchemes();
-//        if (specSecuritySchemes == null) {
-//            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
-//            return null;
-//        }
-//        TreeMap<String, CodegenSecurityScheme> securitySchemes = new TreeMap<>();
-//        String jsonPath = "#/components/requestBodies";
-//        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES, CodegenConstants.APIS, null);
-//        for (Map.Entry<String, SecurityScheme> entry: specSecuritySchemes.entrySet()) {
-//            String componentName = entry.getKey();
-//            SecurityScheme specSecurityScheme = entry.getValue();
-//            String sourceJsonPath = jsonPath + "/" + componentName;
-//            CodegenSecurityScheme securityScheme = config.fromSecurityScheme(specSecurityScheme, sourceJsonPath);
-//            securitySchemes.put(componentName, securityScheme);
+    private void generateSecurityScheme(List<File> files, CodegenSecurityScheme securityScheme, String jsonPath) {
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", config.packageName());
+        templateData.put("securityScheme", securityScheme);
+        Boolean generateSecuritySchemes = Boolean.TRUE;
+        Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES);
+        if (templateInfo != null && !templateInfo.isEmpty()) {
+            for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
+                String templateFile = entry.getKey();
+                String outputFilename = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+
+                try {
+                    File written = processTemplateToFile(templateData, templateFile, filename, generateSecuritySchemes, CodegenConstants.APIS);
+                    if (written != null) {
+                        files.add(written);
+                        if (config.isEnablePostProcessFile() && !dryRun) {
+                            config.postProcessFile(written, "securityScheme");
+                        }
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
+                }
+            }
+        }
+//        // doc generation
+//        Boolean generateRequestBodyDocumentation = Boolean.TRUE;
+//        templateData.put("headerSize", "#");
+//        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+//        templateData.put("identifierToHeadingQty", new HashMap<>());
+//        String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
+//        for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
+//            String templateName = entry.getKey();
+//            String suffix = entry.getValue();
+//            String docFilename = config.toRequestBodyDocFilename(componentName);
+//            String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
 //
-//            generateSecuritySchem(files, requestBody, sourceJsonPath);
+//            templateData.put("complexTypePrefix", "../../components/schema/");
+//            try {
+//                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
+//                if (written != null) {
+//                    files.add(written);
+//                    if (config.isEnablePostProcessFile() && !dryRun) {
+//                        config.postProcessFile(written, "request-body-doc");
+//                    }
+//                }
+//            } catch (Exception e) {
+//                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+//            }
 //        }
-//        // sort them
-//        securitySchemes = new TreeMap<>(securitySchemes);
-//        return securitySchemes;
-//    }
+    }
+
+    private TreeMap<String, CodegenSecurityScheme> generateSecuritySchemes(List<File> files) {
+        final Map<String, SecurityScheme> specSecuritySchemes = this.openAPI.getComponents().getSecuritySchemes();
+        if (specSecuritySchemes == null) {
+            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
+            return null;
+        }
+        TreeMap<String, CodegenSecurityScheme> securitySchemes = new TreeMap<>();
+        String jsonPath = "#/components/securitySchemes";
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES, CodegenConstants.APIS, null);
+        for (Map.Entry<String, SecurityScheme> entry: specSecuritySchemes.entrySet()) {
+            String componentName = entry.getKey();
+            SecurityScheme specSecurityScheme = entry.getValue();
+            String sourceJsonPath = jsonPath + "/" + componentName;
+            CodegenSecurityScheme securityScheme = config.fromSecurityScheme(specSecurityScheme, sourceJsonPath);
+            securitySchemes.put(componentName, securityScheme);
+
+            generateSecurityScheme(files, securityScheme, sourceJsonPath);
+        }
+        // sort them
+        securitySchemes = new TreeMap<>(securitySchemes);
+        return securitySchemes;
+    }
 
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
         final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
@@ -1537,6 +1590,8 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenResponse> responses = generateResponses(files);
         // components.parameters, must be before processPaths, because those can $ref these
         TreeMap<String, CodegenParameter> parameters = generateParameters(files);
+        // components.securitySchemes
+        TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());
         boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());
