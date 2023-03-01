@@ -510,48 +510,49 @@ public class DefaultGenerator implements Generator {
                 endpointMap.put("operation", co);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, shouldGenerateApis);
 
-                if (shouldGenerateApis) {
-                    // paths.some_path.post.request_body.py, only written if there is no refModule
-                    if (co.requestBody != null) {
-                        String requestBodyJsonPath = operationJsonPath + "/requestBody";
-                        generateRequestBody(files, co.requestBody, requestBodyJsonPath);
-                    }
+                if (!shouldGenerateApis) {
+                    continue;
+                }
+                // paths.some_path.post.request_body.py, only written if there is no refModule
+                if (co.requestBody != null) {
+                    String requestBodyJsonPath = operationJsonPath + "/requestBody";
+                    generateRequestBody(files, co.requestBody, requestBodyJsonPath);
+                }
 
-                    // paths.some_path.post.parameters.parameter_0.py
-                    if (co.allParams != null && !co.allParams.isEmpty()) {
-                        String parametersJsonPath = operationJsonPath + "/parameters";
-                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, shouldGenerateApis);
-                        Integer i = 0;
-                        for (CodegenParameter cp: co.allParams) {
-                            String parameterJsonPath = parametersJsonPath + "/" + i.toString();
-                            generateParameter(files, cp, parameterJsonPath);
-                            i++;
-                        }
+                // paths.some_path.post.parameters.parameter_0.py
+                if (co.allParams != null && !co.allParams.isEmpty()) {
+                    String parametersJsonPath = operationJsonPath + "/parameters";
+                    generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, shouldGenerateApis);
+                    Integer i = 0;
+                    for (CodegenParameter cp: co.allParams) {
+                        String parameterJsonPath = parametersJsonPath + "/" + i.toString();
+                        generateParameter(files, cp, parameterJsonPath);
+                        i++;
                     }
+                }
 
-                    if (co.responses != null && !co.responses.isEmpty()) {
-                        String responsesJsonPath = operationJsonPath + "/responses";
-                        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, shouldGenerateApis);
-                        for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
-                            // paths.some_path.post.responses.response_200.__init__.py (file per response)
-                            // response is a package because responses have Headers which can be refed
-                            // so each inline header should be a module in the response package
-                            String code = responseEntry.getKey();
-                            CodegenResponse response = responseEntry.getValue();
-                            String responseJsonPath = responsesJsonPath + "/" + code;
-                            generateResponse(files, response, responseJsonPath);
-                        }
+                if (co.responses != null && !co.responses.isEmpty()) {
+                    String responsesJsonPath = operationJsonPath + "/responses";
+                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, shouldGenerateApis);
+                    for (Map.Entry<String, CodegenResponse> responseEntry: co.responses.entrySet()) {
+                        // paths.some_path.post.responses.response_200.__init__.py (file per response)
+                        // response is a package because responses have Headers which can be refed
+                        // so each inline header should be a module in the response package
+                        String code = responseEntry.getKey();
+                        CodegenResponse response = responseEntry.getValue();
+                        String responseJsonPath = responsesJsonPath + "/" + code;
+                        generateResponse(files, response, responseJsonPath);
                     }
-                    for (String templateFile: config.pathEndpointTestTemplateFiles()) {
-                        Map<String, Object> endpointTestMap = new HashMap<>();
-                        endpointTestMap.put("operation", co);
-                        endpointTestMap.put("packageName", packageName);
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod.original + ".py"));
-                        testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
-                        testFiles.add(Arrays.asList(new HashMap<>(), "__init__.hbs", outputFilename));
+                }
+                for (String templateFile: config.pathEndpointTestTemplateFiles()) {
+                    Map<String, Object> endpointTestMap = new HashMap<>();
+                    endpointTestMap.put("operation", co);
+                    endpointTestMap.put("packageName", packageName);
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "test_" + co.httpMethod.original + ".py"));
+                    testFiles.add(Arrays.asList(endpointTestMap, templateFile, outputFilename));
+                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathModuleName, "__init__.py"));
+                    testFiles.add(Arrays.asList(new HashMap<>(), "__init__.hbs", outputFilename));
 
-                    }
                 }
                 // operation docs
                 for (String templateFile: config.pathEndpointDocTemplateFiles()) {
