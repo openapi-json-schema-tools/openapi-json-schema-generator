@@ -98,3 +98,11 @@ class OAuth2SecurityScheme(__SecuritySchemeBase):
 class OpenIdConnectSecurityScheme(__SecuritySchemeBase):
     type = SecuritySchemeType.OPENID_CONNECT
     openid_connect_url: str
+
+
+class SecurityRequirementObject(dict[__SecuritySchemeBase, typing.List[str]]):
+    """
+    Key is the Security scheme class
+    Value is the list of scopes
+    """
+    pass
