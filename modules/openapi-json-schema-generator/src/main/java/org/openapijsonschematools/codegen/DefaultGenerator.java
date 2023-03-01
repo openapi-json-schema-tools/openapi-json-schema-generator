@@ -60,7 +60,6 @@ import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
 import org.openapijsonschematools.codegen.utils.ImplementationVersion;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.openapijsonschematools.codegen.utils.OnceLogger;
-import org.openapijsonschematools.codegen.utils.ProcessUtils;
 import org.openapijsonschematools.codegen.utils.URLPathUtils;
 import org.openapijsonschematools.codegen.api.TemplateDefinition;
 import org.openapijsonschematools.codegen.api.TemplatePathLocator;
@@ -744,8 +743,8 @@ public class DefaultGenerator implements Generator {
         if (templateInfo != null && !templateInfo.isEmpty()) {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
-                String outputFile = entry.getValue();
-                String responseFile = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
+                String suffix = entry.getValue();
+                String responseFile = config.getFilepath(jsonPath) + suffix;
 
                 try {
                     File written = processTemplateToFile(templateData, templateFile, responseFile, generateResponses, CodegenConstants.RESPONSES);
@@ -834,8 +833,8 @@ public class DefaultGenerator implements Generator {
         if (templateInfo != null && !templateInfo.isEmpty()) {
             for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
-                String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                String suffix = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + suffix;
 
                 try {
                     File written = processTemplateToFile(templateData, templateFile, filename, generateRequestBodies, CodegenConstants.REQUEST_BODIES);
@@ -990,8 +989,8 @@ public class DefaultGenerator implements Generator {
         if (templateInfo != null && !templateInfo.isEmpty()) {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
-                String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                String suffix = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + suffix;
                 Map<String, Object> templateData = new HashMap<>();
                 templateData.put("packageName", config.packageName());
                 templateData.put("parameter", parameter);
@@ -1079,8 +1078,8 @@ public class DefaultGenerator implements Generator {
         if (templateInfo != null && !templateInfo.isEmpty()) {
             for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
-                String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                String suffix = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + suffix;
                 try {
                     File written = processTemplateToFile(headertTemplateData, templateFile, filename, generateHeaders, CodegenConstants.HEADERS);
                     if (written != null) {
@@ -1113,8 +1112,8 @@ public class DefaultGenerator implements Generator {
         }
         for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
             String templateFile = entry.getKey();
-            String outputFile = entry.getValue();
-            String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFile;
+            String suffix = entry.getValue();
+            String filename = config.getFilepath(jsonPath) + suffix;
 
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", config.packageName());

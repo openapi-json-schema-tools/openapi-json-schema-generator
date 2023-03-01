@@ -324,55 +324,55 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("components/headers/header.hbs", "__init__.py")
+                Collections.singletonMap("components/headers/header.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                Collections.singletonMap("components/parameters/parameter.hbs", "__init__.py")
+                Collections.singletonMap("components/parameters/parameter.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("components/request_bodies/request_body.hbs", "__init__.py")
+                Collections.singletonMap("components/request_bodies/request_body.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                Collections.singletonMap("components/responses/response.hbs", "__init__.py")
+                Collections.singletonMap("components/responses/response.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                Collections.singletonMap("components/schemas/__init__schema.hbs", "__init__.py")
+                Collections.singletonMap("components/schemas/__init__schema.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("paths/__init__paths.hbs", "__init__.py")
+                Collections.singletonMap("paths/__init__paths.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
-                Collections.singletonMap("paths/path/__init__path.hbs", "__init__.py")
+                Collections.singletonMap("paths/path/__init__path.hbs", File.separatorChar + "__init__.py")
         );
         HashMap<String, String> operationTemplates = new HashMap<>();
-        operationTemplates.put("paths/path/verb/operation.hbs", "__init__.py");
-        operationTemplates.put("paths/path/verb/operation_stub.hbs", "__init__.pyi");
+        operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "__init__.py");
+        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "__init__.pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates
@@ -380,15 +380,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
-                Collections.singletonMap("__init__.hbs", "__init__.py")
+                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
         );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
