@@ -635,6 +635,13 @@ src/petstore_api/components/schema/whale.pyi
 src/petstore_api/components/schema/zebra.py
 src/petstore_api/components/schema/zebra.pyi
 src/petstore_api/components/schemas/__init__.py
+src/petstore_api/components/security_schemes/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_api_key/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_api_key_query/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_bearer_test/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_http_basic_test/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_http_signature_test/__init__.py
+src/petstore_api/components/security_schemes/security_scheme_petstore_auth/__init__.py
 src/petstore_api/configuration.py
 src/petstore_api/exceptions.py
 src/petstore_api/paths/__init__.py

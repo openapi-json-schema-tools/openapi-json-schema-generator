@@ -317,9 +317,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
         );
+        // there is no deeper info so the filenames can be individually generated
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                Collections.singletonMap("components/security_schemes/security_scheme.hbs", ".py")
+        );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
-                Collections.singletonMap("components/security_schemes/security_schemes.hbs", "security_schemes.py")
+                Collections.singletonMap("__init__.hbs", "__init__.py")
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,

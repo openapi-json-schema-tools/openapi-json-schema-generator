@@ -27,7 +27,6 @@ import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.security.OAuthFlow;
-import io.swagger.v3.oas.models.security.Scopes;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -3502,6 +3501,7 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         String requestBodiesIdentifier = "request_bodies";
+        String securitySchemesIdentifier = "security_schemes";
         // rename schemas + requestBodies
         if (pathPieces[2].equals("schemas")) {
             // modelPackage replaces pathPieces[1] + pathPieces[2]
@@ -3514,6 +3514,8 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         } else if (pathPieces[2].equals("requestBodies")) {
             pathPieces[2] = requestBodiesIdentifier;
+        } else if (pathPieces[2].equals("securitySchemes")) {
+            pathPieces[2] = securitySchemesIdentifier;
         }
         if (pathPieces.length < 4) {
             return;
@@ -3559,6 +3561,8 @@ public class DefaultCodegen implements CodegenConfig {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getKey(contentType).snakeCase;
             }
+        } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
+            pathPieces[3] = toSecuritySchemeFilename(pathPieces[3]);
         }
     }
 
