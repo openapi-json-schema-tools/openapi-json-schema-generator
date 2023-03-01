@@ -983,31 +983,11 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateParameter(List<File> files, CodegenParameter parameter, String jsonPath) {
-        Boolean generateParameters = Boolean.TRUE;
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", config.packageName());
+        templateData.put("parameter", parameter);
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER, CodegenConstants.PARAMETERS, templateData, true);
 
-        Map<String, String> templateInfo = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER);
-        if (templateInfo != null && !templateInfo.isEmpty()) {
-            for (Map.Entry<String, String> entry: templateInfo.entrySet()) {
-                String templateFile = entry.getKey();
-                String suffix = entry.getValue();
-                String filename = config.getFilepath(jsonPath) + suffix;
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("parameter", parameter);
-
-                try {
-                    File written = processTemplateToFile(templateData, templateFile, filename, generateParameters, CodegenConstants.PARAMETERS);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "parameter");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
-        }
         // schema
         CodegenSchema schema = parameter.schema;
         if (schema != null) {
