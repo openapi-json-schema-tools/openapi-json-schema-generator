@@ -890,12 +890,12 @@ public class DefaultGenerator implements Generator {
         templateData.put("packageName", config.packageName());
         templateData.put("securityScheme", securityScheme);
         Boolean generateSecuritySchemes = Boolean.TRUE;
-        Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES);
+        Map<String, String> templateInfo =  config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME);
         if (templateInfo != null && !templateInfo.isEmpty()) {
             for (Map.Entry<String, String> entry : templateInfo.entrySet()) {
                 String templateFile = entry.getKey();
-                String outputFilename = entry.getValue();
-                String filename = config.getFilepath(jsonPath) + File.separatorChar + outputFilename;
+                String suffix = entry.getValue();
+                String filename = config.getFilepath(jsonPath) + suffix;
 
                 try {
                     File written = processTemplateToFile(templateData, templateFile, filename, generateSecuritySchemes, CodegenConstants.APIS);
