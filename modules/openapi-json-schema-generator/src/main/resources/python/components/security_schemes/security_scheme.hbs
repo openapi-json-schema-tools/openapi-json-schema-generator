@@ -75,9 +75,64 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
     '''
     {{description}}
     '''
-                        {{else}}
-    pass
                         {{/if}}
+    flows = security_schemes.OAuthFlows(
+                        {{#with flows}}
+                            {{#with implicit}}
+        implicit=security_schemes.ImplicitOAuthFlow(
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}",
+                                {{/if}}
+            scopes={
+                                {{#each scopes}}
+                "{{@key}}": "{{this}}",
+                                {{/each}}
+            },
+            authorization_url="{{authorizationUrl}}"
+        )
+                            {{/with}}
+                            {{#with password}}
+        password=security_schemes.TokenUrlOauthFlow(
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}",
+                                {{/if}}
+            scopes={
+                                {{#each scopes}}
+                "{{@key}}": "{{this}}",
+                                {{/each}}
+            },
+            token_url="{{tokenUrl}}"
+        )
+                            {{/with}}
+                            {{#with clientCredentials}}
+        client_credentials=security_schemes.TokenUrlOauthFlow(
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}",
+                                {{/if}}
+            scopes={
+                                {{#each scopes}}
+                "{{@key}}": "{{this}}",
+                                {{/each}}
+            },
+            token_url="{{tokenUrl}}"
+        )
+                            {{/with}}
+                            {{#with authorizationCode}}
+        authorization_code=security_schemes.AuthorizationCodeOauthFlow(
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}",
+                                {{/if}}
+            scopes={
+                                {{#each scopes}}
+                "{{@key}}": "{{this}}",
+                                {{/each}}
+            },
+            authorization_url="{{authorizationUrl}}",
+            token_url="{{tokenUrl}}"
+        )
+                            {{/with}}
+                        {{/with}}
+    )
                     {{else}}
                         {{#eq type "openIdConnect"}}
 class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):

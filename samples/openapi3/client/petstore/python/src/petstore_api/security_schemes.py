@@ -56,7 +56,7 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
 
 @dataclasses.dataclass
 class OAuthFlowBase__:
-    refresh_url: str
+    refresh_url: typing.Optional[str] = None
     scopes: typing.Dict[str, str]
 
 

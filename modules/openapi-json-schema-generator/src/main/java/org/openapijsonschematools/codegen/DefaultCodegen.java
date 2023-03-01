@@ -53,7 +53,7 @@ import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurityRequirement;
+import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
@@ -1629,7 +1629,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
     Map<String, CodegenSecurityScheme> codegenSecuritySchemeCache = new HashMap<>();
-    Map<String, CodegenSecurityRequirement> codegenSecurityRequirementCache = new HashMap<>();
+    Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
@@ -2784,12 +2784,12 @@ public class DefaultCodegen implements CodegenConfig {
                     return 1;
             });
         }
-        List<HashMap<String, CodegenSecurityRequirement>> security = null;
+        List<HashMap<String, CodegenSecurityRequirementValue>> security = null;
         List<SecurityRequirement> securities = operation.getSecurity();
         if (securities != null && !securities.isEmpty()) {
             security = new ArrayList<>();
             for (SecurityRequirement originalSecurityRequirement: securities) {
-                HashMap<String, CodegenSecurityRequirement> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, sourceJsonPath + "/security");
+                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, sourceJsonPath + "/security");
                 security.add(securityRequirement);
             }
         }
@@ -3126,19 +3126,19 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     @SuppressWarnings("static-method")
-    public HashMap<String, CodegenSecurityRequirement> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
+    public HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
         if (securityRequirement == null) {
             String msg = "securityRequirement in fromSecurityRequirement cannot be null!";
             LOGGER.error(msg);
             throw new RuntimeException(msg);
         }
-        HashMap<String, CodegenSecurityRequirement> securityRequirements = new HashMap<>();
+        HashMap<String, CodegenSecurityRequirementValue> securityRequirements = new HashMap<>();
         for (Entry<String, List<String>> entry: securityRequirement.entrySet()) {
             String securitySchemeComponentName = entry.getKey();
             String jsonPath = sourceJsonPath + "/" + securitySchemeComponentName;
-            CodegenSecurityRequirement codegenSecurityRequirement = codegenSecurityRequirementCache.getOrDefault(jsonPath, null);
-            if (codegenSecurityRequirement != null) {
-                securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirement);
+            CodegenSecurityRequirementValue codegenSecurityRequirementValue = codegenSecurityRequirementCache.getOrDefault(jsonPath, null);
+            if (codegenSecurityRequirementValue != null) {
+                securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirementValue);
                 continue;
             }
             String ref = "#/components/securitySchemes/" + securitySchemeComponentName;
@@ -3153,13 +3153,13 @@ public class DefaultCodegen implements CodegenConfig {
             imports.add(getImport(refInfo));
             ArrayList<String> scopeNames = (ArrayList<String>) entry.getValue();
 
-            codegenSecurityRequirement = new CodegenSecurityRequirement(
+            codegenSecurityRequirementValue = new CodegenSecurityRequirementValue(
                     imports,
                     refInfo,
                     scopeNames
             );
-            codegenSecurityRequirementCache.put(jsonPath, codegenSecurityRequirement);
-            securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirement);
+            codegenSecurityRequirementCache.put(jsonPath, codegenSecurityRequirementValue);
+            securityRequirements.put(securitySchemeComponentName, codegenSecurityRequirementValue);
         }
         return securityRequirements;
     }

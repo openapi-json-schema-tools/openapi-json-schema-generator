@@ -36,7 +36,7 @@ import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurityRequirement;
+import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
@@ -149,7 +149,7 @@ public interface CodegenConfig {
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
-    HashMap<String, CodegenSecurityRequirement> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
+    HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
     List<CodegenServer> fromServers(List<Server> servers);
 
