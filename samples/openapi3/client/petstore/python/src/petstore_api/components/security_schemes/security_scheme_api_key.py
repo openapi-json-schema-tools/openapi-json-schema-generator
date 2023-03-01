@@ -11,6 +11,9 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-
-class (security_schemes.RequestBody):
-    pass
+class ApiKey(security_schemes.ApiKeySecurityScheme):
+    '''
+    apiKey in header
+    '''
+    name = "api_key"
+    in_location = security_schemes.ApiKeyInLocation.HEADER

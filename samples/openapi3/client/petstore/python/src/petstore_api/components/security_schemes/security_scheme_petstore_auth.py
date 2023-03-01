@@ -11,6 +11,7 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-
-class (security_schemes.RequestBody):
-    pass
+class PetstoreAuth(security_schemes.OAuth2SecurityScheme):
+    '''
+    oauth2 implicit flow with two scopes
+    '''

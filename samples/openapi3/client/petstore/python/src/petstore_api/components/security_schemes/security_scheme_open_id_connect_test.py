@@ -11,9 +11,8 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-class ApiKeyQuery(security_schemes.ApiKeySecurityScheme):
+class OpenIdConnectTest(security_schemes.OpenIdConnectSecurityScheme):
     '''
-    apiKey in query
+    openIdConnect
     '''
-    name = "api_key_query"
-    in_location = security_schemes.ApiKeyInLocation.QUERY
+    openid_connect_url = "https://somesite.com/.well-known/openid-configuration"

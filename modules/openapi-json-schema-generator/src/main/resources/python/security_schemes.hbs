@@ -25,19 +25,26 @@ class ApiKeyInLocation(enum.Enum):
 
 
 class ApiKeySecurityScheme(__SecuritySchemeBase):
+    type = SecuritySchemeType.API_KEY
     name: str
     in_location: ApiKeyInLocation
 
 
 class HTTPSchemeType(enum.Enum):
     BASIC = 'basic'
+    BEARER = 'bearer'
     DIGEST = 'digest'
     SIGNATURE = 'signature' # https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
 
 
 class HTTPSecurityScheme(__SecuritySchemeBase):
+    type = SecuritySchemeType.HTTP
     scheme: HTTPSchemeType
     bearer_format: str
+
+
+class MutualTLSSecurityScheme(__SecuritySchemeBase):
+    type = SecuritySchemeType.MUTUAL_TLS
 
 
 @dataclasses.dataclass
@@ -77,4 +84,10 @@ class OAuthFlows:
 
 
 class OAuth2SecurityScheme(__SecuritySchemeBase):
+    type = SecuritySchemeType.OAUTH_2
     flows: OAuthFlows
+
+
+class OpenIdConnectSecurityScheme(__SecuritySchemeBase):
+    type = SecuritySchemeType.OPENID_CONNECT
+    openid_connect_url: str

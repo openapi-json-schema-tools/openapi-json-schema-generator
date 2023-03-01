@@ -4400,6 +4400,9 @@ public class DefaultCodegen implements CodegenConfig {
                 snakeCaseName = toResponseModuleName(usedKey);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
+            case "securitySchemes":
+                snakeCaseName = toSecuritySchemeFilename(usedKey);
+                camelCaseName = toModelName(usedKey);
         }
         if (camelCaseName != null) {
             anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);

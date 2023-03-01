@@ -11,6 +11,8 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-
-class (security_schemes.RequestBody):
-    pass
+class HttpSignatureTest(security_schemes.HTTPSecurityScheme):
+    '''
+    http + signature
+    '''
+    scheme = security_schemes.HTTPSchemeType.SIGNATURE

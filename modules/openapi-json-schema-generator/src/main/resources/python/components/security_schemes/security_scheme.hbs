@@ -3,20 +3,94 @@
 {{> _helper_header }}
 
 {{#with securityScheme}}
-{{#if refInfo}}
-    {{#if imports}}
+    {{#if refInfo}}
+        {{#if imports}}
 
-    {{/if}}
+        {{/if}}
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
-{{else}}
+    {{else}}
 import typing
 import typing_extensions
 
 from {{packageName}} import security_schemes
 
-
-class {{jsonPathPiece.camelCase}}(security_schemes.RequestBody):
+        {{#eq type "apiKey"}}
+class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
+            {{#if description}}
+    '''
+    {{description}}
+    '''
+            {{/if}}
+    name = "{{name}}"
+            {{#eq in "query"}}
+    in_location = security_schemes.ApiKeyInLocation.QUERY
+            {{else}}
+                {{#eq in "header"}}
+    in_location = security_schemes.ApiKeyInLocation.HEADER
+                {{else}}
+                    {{#eq in "cookie"}}
+    in_location = security_schemes.ApiKeyInLocation.COOKIE
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+            {{#eq type "http"}}
+class {{jsonPathPiece.camelCase}}(security_schemes.HTTPSecurityScheme):
+                {{#if description}}
+    '''
+    {{description}}
+    '''
+                {{/if}}
+                {{#eq scheme "basic"}}
+    scheme = security_schemes.HTTPSchemeType.BASIC
+                {{else}}
+                    {{#eq scheme "bearer"}}
+    scheme = security_schemes.HTTPSchemeType.BEARER
+    bearer_format = "{{bearerFormat}}"
+                    {{else}}
+                        {{#eq scheme "digest"}}
+    scheme = security_schemes.HTTPSchemeType.DIGEST
+                        {{else}}
+                            {{#eq scheme "signature"}}
+    scheme = security_schemes.HTTPSchemeType.SIGNATURE
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{else}}
+                {{#eq type "mutualTLS"}}
+class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
+                    {{#if description}}
+    '''
+    {{description}}
+    '''
+                    {{else}}
     pass
-{{/if}}
+                    {{/if}}
+                {{else}}
+                    {{#eq type "oauth2"}}
+class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
+                        {{#if description}}
+    '''
+    {{description}}
+    '''
+                        {{else}}
+    pass
+                        {{/if}}
+                    {{else}}
+                        {{#eq type "openIdConnect"}}
+class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):
+                            {{#if description}}
+    '''
+    {{description}}
+    '''
+                            {{/if}}
+    openid_connect_url = "{{openIdConnectUrl}}"
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/if}}
 {{/with}}
