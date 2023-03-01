@@ -38,6 +38,8 @@ public class CodegenConstants {
 
     public static final String PARAMETERS = "parameters";
 
+    public static final String SECURITY_SCHEMES = "securitySchemes";
+
     public static final String PARAMETER_DOCS = "parameterDocs";
     public static final String SUPPORTING_FILES = "supportingFiles";
     public static final String MODEL_TESTS = "modelTests";
