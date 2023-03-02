@@ -737,18 +737,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String modelDocFileFolder() {
-        return (outputFolder + File.separator + modelDocPath).replace('/', File.separatorChar);
-    }
-
-    @Override
     public String toApiDocFilename(String name) {
         return toApiName(name);
-    }
-
-    @Override
-    public String toModelDocFilename(String name) {
-        return toModelName(name);
     }
 
     @Override

@@ -339,11 +339,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String modelDocFileFolder() {
-        return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);
-    }
-
-    @Override
     public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models) {
         for (CodegenSchema cm : models.values()) {
             if (cm.discriminator != null) {

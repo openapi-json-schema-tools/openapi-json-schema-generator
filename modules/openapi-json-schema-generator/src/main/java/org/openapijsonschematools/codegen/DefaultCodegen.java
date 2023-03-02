@@ -210,7 +210,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     // for writing code files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
-    protected Map<String, String> requestBodyDocTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
@@ -840,9 +839,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
-
-    @Override
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
 
     @Override
@@ -856,8 +852,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String getCamelCaseResponse(String componentName) { return toModelName(componentName); }
 
     public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
-
-    public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
 
@@ -880,14 +874,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String apiDocFileFolder() {
         return outputFolder;
     }
-
-    @Override
-    public String modelDocFileFolder() {
-        return outputFolder;
-    }
-
-    @Override
-    public String requestBodyDocFileFolder() { return outputFolder; }
 
     @Override
     public String responseDocFileFolder() { return outputFolder; }
@@ -1124,17 +1110,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public String toModelTestFilename(String name) {
         return org.openapijsonschematools.codegen.utils.StringUtils.camelize(name) + "Test";
-    }
-
-    /**
-     * Return the capitalized file name of the model documentation
-     *
-     * @param name the model name
-     * @return the file name of the model
-     */
-    @Override
-    public String toModelDocFilename(String name) {
-        return org.openapijsonschematools.codegen.utils.StringUtils.camelize(name);
     }
 
     /**

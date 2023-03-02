@@ -83,8 +83,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
+    // keep this in case the user has provided a custom model path
+    // todo connect that custom path in here
     protected String modelDocPath = "docs/components/schema/";
-    protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected String responseDocPath = "docs/components/responses/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
@@ -303,7 +304,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
-        requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
 
         jsonPathDocTemplateFiles.put(
@@ -1519,15 +1519,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String modelDocFileFolder() {
-        return (outputFolder + File.separator + modelDocPath);
-    }
-
-    @Override
-    public String toModelDocFilename(String schemaName) {
-        return toModelFilename(schemaName) + "." + toModelName(schemaName); }
-
-    @Override
     public String toApiDocFilename(String name) {
         return toApiName(name);
     }
@@ -1551,14 +1542,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename("request_body_" + componentName);
-    }
-
-    public String toRequestBodyDocFilename(String componentName) {
-        return toRequestBodyFilename(componentName);
-    }
-
-    public String requestBodyDocFileFolder() {
-        return outputFolder + File.separator + requestBodyDocPath;
     }
 
     public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
@@ -1705,7 +1688,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return toModelName(name);
         }
     }
-    
+
     @Override
     public String toParamName(String basename) {
         return toParameterFilename(basename);

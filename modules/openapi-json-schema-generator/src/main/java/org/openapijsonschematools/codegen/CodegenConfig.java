@@ -89,10 +89,6 @@ public interface CodegenConfig {
 
     String modelTestFileFolder();
 
-    String modelDocFileFolder();
-
-    String requestBodyDocFileFolder();
-
     String modelPackage();
 
     String modelPackagePathFragment();
@@ -171,8 +167,6 @@ public interface CodegenConfig {
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();
 
-    Map<String, String> requestBodyDocTemplateFiles();
-
     Set<String> pathEndpointTestTemplateFiles();
 
     Set<String> pathEndpointDocTemplateFiles();
@@ -209,11 +203,7 @@ public interface CodegenConfig {
 
     String toApiDocFilename(String name);
 
-    String toModelDocFilename(String name);
-
     String toRequestBodyFilename(String componentName);
-
-    String toRequestBodyDocFilename(String componentName);
 
     String toResponseDocFilename(String componentName);
 

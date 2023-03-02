@@ -786,34 +786,6 @@ public class DefaultGenerator implements Generator {
         if (content != null && !content.isEmpty()) {
             generateContent(files, content, jsonPath);
         }
-        if (requestBody.componentModule == null) {
-            return;
-        }
-        // doc generation
-        Boolean generateRequestBodyDocumentation = Boolean.TRUE;
-        templateData.put("headerSize", "#");
-        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-        templateData.put("identifierToHeadingQty", new HashMap<>());
-        String componentName = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
-        for (Map.Entry<String, String> entry: config.requestBodyDocTemplateFiles().entrySet()) {
-            String templateName = entry.getKey();
-            String suffix = entry.getValue();
-            String docFilename = config.toRequestBodyDocFilename(componentName);
-            String filename = config.requestBodyDocFileFolder() + File.separator + docFilename + suffix;
-
-            templateData.put("complexTypePrefix", "../../components/schema/");
-            try {
-                File written = processTemplateToFile(templateData, templateName, filename, generateRequestBodyDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
-                if (written != null) {
-                    files.add(written);
-                    if (config.isEnablePostProcessFile() && !dryRun) {
-                        config.postProcessFile(written, "request-body-doc");
-                    }
-                }
-            } catch (Exception e) {
-                throw new RuntimeException("Could not generate file '" + filename + "'", e);
-            }
-        }
     }
 
     private void generateSecurityScheme(List<File> files, CodegenSecurityScheme securityScheme, String jsonPath) {
@@ -863,6 +835,17 @@ public class DefaultGenerator implements Generator {
             requestBodies.put(componentName, requestBody);
 
             generateRequestBody(files, requestBody, sourceJsonPath);
+
+            // doc generation
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("requestBody", requestBody);
+            templateData.put("headerSize", "#");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("identifierToHeadingQty", new HashMap<>());
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            // todo add flag to turn this off
+            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
         }
         // sort them
         requestBodies = new TreeMap<>(requestBodies);
