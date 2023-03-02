@@ -86,7 +86,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     // keep this in case the user has provided a custom model path
     // todo connect that custom path in here
     protected String modelDocPath = "docs/components/schema/";
-    protected String responseDocPath = "docs/components/responses/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -298,13 +297,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
-
         pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
-
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
-
-        responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
@@ -1532,13 +1527,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return "response" + spacer + suffix;
 
     }
-
-    public String toResponseDocFilename(String componentName) { return toResponseModuleName(componentName); }
-
-    public String responseDocFileFolder() {
-        return outputFolder + File.separator + responseDocPath;
-    }
-
+    
     @Override
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename("request_body_" + componentName);

@@ -30,6 +30,7 @@ public class CodegenConstants {
     public static final String REQUEST_BODY_DOCS = "requestBodyDocs";
 
     public static final String RESPONSES = "responses";
+    public static final String RESPONSE_DOCS = "responseDocs";
 
     public static final String COMPONENTS = "components";
 

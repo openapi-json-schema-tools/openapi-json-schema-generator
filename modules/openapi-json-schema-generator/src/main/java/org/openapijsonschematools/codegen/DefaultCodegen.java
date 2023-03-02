@@ -210,7 +210,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     // for writing code files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
-    protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
@@ -839,9 +838,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
-
-    @Override
     public Set<String> pathEndpointDocTemplateFiles() { return pathEndpointDocTemplateFiles; }
 
     @Override
@@ -852,8 +848,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String getCamelCaseResponse(String componentName) { return toModelName(componentName); }
 
     public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
-
-    public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     @Override
     public String apiFileFolder() {
@@ -874,9 +868,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String apiDocFileFolder() {
         return outputFolder;
     }
-
-    @Override
-    public String responseDocFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {

@@ -744,33 +744,15 @@ public class DefaultGenerator implements Generator {
             responses.put(componentName, response);
             generateResponse(files, response, sourceJsonPath);
 
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            templateData.put("headerSize", "#");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("identifierToHeadingQty", new HashMap<>());
+            templateData.put("response", response);
             // TODO make this a property that can be turned off and on
-            Boolean generateResponseDocumentation = Boolean.TRUE;
-            for (String templateName : config.responseDocTemplateFiles().keySet()) {
-                String docExtension = config.getDocExtension();
-                String suffix = docExtension != null ? docExtension : config.responseDocTemplateFiles().get(templateName);
-                String docFilename = config.toResponseDocFilename(componentName);
-                String filename = config.responseDocFileFolder() + File.separator + docFilename + suffix;
-
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("complexTypePrefix", "../../components/schema/");
-                templateData.put("headerSize", "#");
-                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                templateData.put("identifierToHeadingQty", new HashMap<>());
-                templateData.put("response", response);
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateResponseDocumentation, CodegenConstants.REQUEST_BODY_DOCS);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "response-doc");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
+            generateXs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
         }
         return responses;
     }
