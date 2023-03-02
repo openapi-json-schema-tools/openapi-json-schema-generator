@@ -83,42 +83,19 @@ Class | Description
     {{/with}}
 {{/each}}
 {{/if}}
+{{#if securitySchemes}}
 
-## Documentation For Authorization
+## Component Security Schemes
 
-{{#unless authMethods}}
- All endpoints do not require authorization.
-{{/unless}}
-{{#each authMethods}}
-{{#if @last}} Authentication schemes defined for the API:{{/if}}
-## {{{name}}}
+Class | Description
+----- | ------------
+    {{#each securitySchemes}}
+        {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+        {{/with}}
+    {{/each}}
 
-{{#if isApiKey}}
-- **Type**: API key
-- **API key parameter name**: {{{keyParamName}}}
-- **Location**: {{#if isKeyInQuery}}URL query string{{/if}}{{#if isKeyInHeader}}HTTP header{{/if}}
 {{/if}}
-{{#if isBasic}}
-{{#if isBasicBasic}}
-- **Type**: HTTP basic authentication
-{{/if}}
-{{#if isBasicBearer}}
-- **Type**: Bearer authentication{{#if bearerFormat}} ({{{bearerFormat}}}){{/if}}
-{{/if}}
-{{#if isHttpSignature}}
-- **Type**: HTTP signature authentication
-{{/if}}
-{{/if}}
-{{#if isOAuth}}
-- **Type**: OAuth
-- **Flow**: {{{flow}}}
-- **Authorization URL**: {{{authorizationUrl}}}
-- **Scopes**: {{#unless scopes}}N/A{{/unless}}
-{{#each scopes}} - **{{{scope}}}**: {{{description}}}
-{{/each}}
-{{/if}}
-
-{{/each}}
 
 ## Author
 

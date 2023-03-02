@@ -404,9 +404,18 @@ Class | Description
 [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md) |
 [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md) | a path string with validation
 
-## Documentation For Authorization
+## Component Security Schemes
 
- All endpoints do not require authorization.
+Class | Description
+----- | ------------
+[ApiKey](docs/components/security_schemes/security_scheme_api_key.md) | apiKey in header
+[ApiKeyQuery](docs/components/security_schemes/security_scheme_api_key_query.md) | apiKey in query
+[BearerTest](docs/components/security_schemes/security_scheme_bearer_test.md) | http bearer with JWT bearer format
+[HttpBasicTest](docs/components/security_schemes/security_scheme_http_basic_test.md) | http basic
+[HttpSignatureTest](docs/components/security_schemes/security_scheme_http_signature_test.md) | http + signature
+[OpenIdConnectTest](docs/components/security_schemes/security_scheme_open_id_connect_test.md) | openIdConnect
+[PetstoreAuth](docs/components/security_schemes/security_scheme_petstore_auth.md) | oauth2 implicit flow with two scopes
+
 
 ## Author
 

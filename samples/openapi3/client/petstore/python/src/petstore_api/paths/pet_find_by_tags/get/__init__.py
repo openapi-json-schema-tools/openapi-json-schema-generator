@@ -55,6 +55,15 @@ class RequestQueryParameters:
     parameters = [
         parameter_0.Parameter0,
     ]
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_http_signature_test.HttpSignatureTest: [],
+    }),
+    security_schemes.SecurityRequirementObject({
+        security_scheme_petstore_auth.PetstoreAuth: ["write:pets", "read:pets", ],
+    }),
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -133,6 +142,7 @@ class BaseApi(api_client.Api):
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

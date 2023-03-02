@@ -115,6 +115,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

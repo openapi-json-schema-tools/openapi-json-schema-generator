@@ -1341,7 +1341,8 @@ public class DefaultGenerator implements Generator {
             TreeMap<String, CodegenRequestBody> requestBodies,
             TreeMap<String, CodegenResponse> responses,
             TreeMap<String, CodegenHeader> headers,
-            TreeMap<String, CodegenParameter> parameters) {
+            TreeMap<String, CodegenParameter> parameters,
+            TreeMap<String, CodegenSecurityScheme> securitySchemes) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1379,6 +1380,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("headers", headers);
         bundle.put("parameters", parameters);
         bundle.put("schemas", schemas);
+        bundle.put("securitySchemes", securitySchemes);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());
@@ -1471,7 +1473,7 @@ public class DefaultGenerator implements Generator {
         generatePaths(files, paths);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, schemas, requestBodies, responses, headers, parameters);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, schemas, requestBodies, responses, headers, parameters, securitySchemes);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

@@ -32,6 +32,12 @@ from .responses import response_404
 from . import request_body
 
 
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_http_basic_test.HttpBasicTest: [],
+    }),
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -129,6 +135,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

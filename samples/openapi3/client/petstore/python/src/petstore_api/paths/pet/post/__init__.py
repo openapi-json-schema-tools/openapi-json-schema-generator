@@ -33,6 +33,15 @@ from .responses import response_405
 from . import request_body
 
 
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_http_signature_test.HttpSignatureTest: [],
+    }),
+    security_schemes.SecurityRequirementObject({
+        security_scheme_petstore_auth.PetstoreAuth: ["write:pets", "read:pets", ],
+    }),
+]
+
 _servers = (
     {
         'url': "https://petstore.swagger.io/v2",
@@ -163,6 +172,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
+            security=_security,
             host=host,
             stream=stream,
             timeout=timeout,

@@ -56,6 +56,12 @@ class RequestPathParameters:
     parameters = [
         parameter_0.Parameter0,
     ]
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_api_key.ApiKey: [],
+    }),
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -150,6 +156,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get',
             headers=_headers,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

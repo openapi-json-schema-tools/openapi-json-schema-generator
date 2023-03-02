@@ -31,6 +31,12 @@ from .responses import response_200
 from . import request_body
 
 
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_api_key_query.ApiKeyQuery: [],
+    }),
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -139,6 +145,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

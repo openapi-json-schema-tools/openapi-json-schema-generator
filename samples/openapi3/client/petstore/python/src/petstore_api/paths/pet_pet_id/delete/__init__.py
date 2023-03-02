@@ -78,6 +78,12 @@ class RequestPathParameters:
     parameters = [
         parameter_1.Parameter1,
     ]
+_security = [
+    security_schemes.SecurityRequirementObject({
+        security_scheme_petstore_auth.PetstoreAuth: ["write:pets", "read:pets", ],
+    }),
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -164,6 +170,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='delete',
             headers=_headers,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

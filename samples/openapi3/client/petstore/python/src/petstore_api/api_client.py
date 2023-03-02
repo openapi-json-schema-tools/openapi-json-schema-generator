@@ -28,7 +28,7 @@ from urllib3 import _collections, fields
 
 import frozendict
 
-from petstore_api import exceptions, rest, schemas
+from petstore_api import exceptions, rest, schemas, security_schemes
 from petstore_api import configuration as configuration_module
 
 
@@ -1027,7 +1027,7 @@ class ApiClient:
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        auth_settings: typing.Optional[typing.List[str]] = None,
+        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         host: typing.Optional[str] = None,
@@ -1040,7 +1040,7 @@ class ApiClient:
 
         # auth setting
         self.update_params_for_auth(used_headers,
-                                    auth_settings, resource_path, method, body)
+                                    security, resource_path, method, body)
 
         # must happen after cookie setting and auth setting in case user is overriding those
         if headers:
@@ -1072,7 +1072,7 @@ class ApiClient:
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        auth_settings: typing.Optional[typing.List[str]] = None,
+        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -1089,7 +1089,7 @@ class ApiClient:
         :param body: Request body.
         :param fields: Request post form parameters,
             for `application/x-www-form-urlencoded`, `multipart/form-data`.
-        :param auth_settings: Auth Settings names for the request.
+        :param security: The security auth Settings names for the request.
         :param async_req: execute request asynchronously
         :type async_req: bool, optional TODO remove, unused
         :param stream: if True, the urllib3.HTTPResponse object will
@@ -1119,7 +1119,7 @@ class ApiClient:
                 headers,
                 body,
                 fields,
-                auth_settings,
+                security,
                 stream,
                 timeout,
                 host,
@@ -1134,7 +1134,7 @@ class ApiClient:
                 body,
                 json,
                 fields,
-                auth_settings,
+                security,
                 stream,
                 timeout,
                 host,
@@ -1202,21 +1202,48 @@ class ApiClient:
                 " `POST`, `PATCH`, `PUT` or `DELETE`."
             )
 
-    def update_params_for_auth(self, headers, auth_settings,
-                               resource_path, method, body):
+    def update_params_for_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]] = None
+    ):
         """Updates header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
-        :param auth_settings: Authentication setting identifiers list.
+        :param security: security authentication setting identifiers list
         :param resource_path: A string representation of the HTTP request resource path.
         :param method: A string representation of the HTTP request method.
         :param body: A object representing the body of the HTTP request.
             The object type is the return value of _encoder.default().
         """
-        if not auth_settings:
+        if not security:
             return
 
-        for auth in auth_settings:
+        possible_security_requirements = []
+        for security_requirement_object in security:
+            if not security_requirement:
+                # optional auth cause, use no auth
+                possible_security_requirements.append(security_requirement_object)
+                continue
+            for security_scheme_class, scope_names in security_requirement_object.items():
+                security_scheme_instance = self.configuration.security_scheme_info.get(security_scheme_class)
+                if not security_scheme_instance:
+                    break
+            else:
+                possible_security_requirements.append(security_requirement)
+        if len(possible_security_requirements) == 0:
+            raise exceptions.ApiValueError("Configuration instance is missing the required auth for this route")
+        elif len(possible_security_requirements) > 1:
+            # TODO add security_scheme_index
+            raise exceptions.ApiValueError("Security schemes may be used, select one of them with the security_scheme_index argument")
+
+        for security_requirement_object in possible_security_requirements:
+            if not security_requirement_object:
+                # optional auth cause, use no auth
+                return
             auth_setting = self.configuration.auth_settings().get(auth)
             if not auth_setting:
                 continue
