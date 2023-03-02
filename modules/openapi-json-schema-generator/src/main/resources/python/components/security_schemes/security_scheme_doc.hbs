@@ -15,6 +15,138 @@
 | --------- | ----------- |
 | [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description}}{{/if}}{{/with}}
     {{else}}
+
+{{headerSize}}# Type
+        {{#eq type "apiKey"}}
+security_schemes.SecuritySchemeType.API_KEY
+
+{{headerSize}}# Name
+"{{name}}"
+
+{{headerSize}}# In Location
+            {{#eq in "query"}}
+security_schemes.ApiKeyInLocation.QUERY
+            {{else}}
+                {{#eq in "header"}}
+security_schemes.ApiKeyInLocation.HEADER
+                {{else}}
+                    {{#eq in "cookie"}}
+security_schemes.ApiKeyInLocation.COOKIE
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+            {{#eq type "http"}}
+security_schemes.SecuritySchemeType.HTTP
+                {{#eq scheme "basic"}}
+
+{{headerSize}}# Schema
+security_schemes.HTTPSchemeType.BASIC
+                {{else}}
+                    {{#eq scheme "bearer"}}
+
+{{headerSize}}# Schema
+security_schemes.HTTPSchemeType.BEARER
+
+{{headerSize}}# Bearer Format
+"{{bearerFormat}}"
+                    {{else}}
+                        {{#eq scheme "digest"}}
+
+{{headerSize}}# Schema
+security_schemes.HTTPSchemeType.DIGEST
+                        {{else}}
+                            {{#eq scheme "signature"}}
+
+{{headerSize}}# Schema
+security_schemes.HTTPSchemeType.SIGNATURE
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{else}}
+                {{#eq type "mutualTLS"}}
+security_schemes.SecuritySchemeType.MUTUAL_TLS
+                {{else}}
+                    {{#eq type "oauth2"}}
+security_schemes.SecuritySchemeType.OAUTH_2
+
+{{headerSize}}# Flows
+                        {{#with flows}}
+                            {{#with implicit}}
+{{headerSize}}# Implicit Flow
+                                {{#if refreshUrl}}
+{{headerSize}}## Refresh Url
+"{{refreshUrl}}"
+                                {{/if}}
+{{headerSize}}## Scopes
+Scope Name | Scope Description
+| -------- | ---------------- |
+                                {{#each scopes}}
+"{{@key}}" | {{this}}
+                                {{/each}}
+{{headerSize}}## Authorization Url
+"{{authorizationUrl}}"
+                            {{/with}}
+                            {{#with password}}
+{{headerSize}}# Password Flow
+                                {{#if refreshUrl}}
+{{headerSize}}## Refresh Url
+"{{refreshUrl}}"
+                                {{/if}}
+{{headerSize}}## Scopes
+Scope Name | Scope Description
+| -------- | ---------------- |
+                                {{#each scopes}}
+"{{@key}}" | {{this}}
+                                {{/each}}
+{{headerSize}}## Token Url
+"{{tokenUrl}}"
+                            {{/with}}
+                            {{#with clientCredentials}}
+{{headerSize}}# ClientCredentials Flow
+                                {{#if refreshUrl}}
+{{headerSize}}## Refresh Url
+"{{refreshUrl}}"
+                                {{/if}}
+{{headerSize}}## Scopes
+Scope Name | Scope Description
+| -------- | ---------------- |
+                                {{#each scopes}}
+"{{@key}}" | {{this}}
+                                {{/each}}
+{{headerSize}}## Token Url
+"{{tokenUrl}}"
+                            {{/with}}
+                            {{#with authorizationCode}}
+{{headerSize}}# AuthorizationCode Flow
+                                {{#if refreshUrl}}
+{{headerSize}}## Refresh Url
+"{{refreshUrl}}"
+                                {{/if}}
+{{headerSize}}## Scopes
+Scope Name | Scope Description
+| -------- | ---------------- |
+                                {{#each scopes}}
+"{{@key}}" | {{this}}
+                                {{/each}}
+{{headerSize}}## Authorization Url
+"{{authorizationUrl}}"
+{{headerSize}}## Token Url
+"{{tokenUrl}}"
+                            {{/with}}
+                        {{/with}}
+                    {{else}}
+                        {{#eq type "openIdConnect"}}
+security_schemes.SecuritySchemeType.OPENID_CONNECT
+
+{{headerSize}}# OpenIdConnect Url
+"{{openIdConnectUrl}}"
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
         {{#if componentModule}}
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" securitySchemesLink=true}}
