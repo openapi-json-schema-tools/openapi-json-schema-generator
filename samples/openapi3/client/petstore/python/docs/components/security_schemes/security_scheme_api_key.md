@@ -13,4 +13,4 @@ security_schemes.SecuritySchemeType.API_KEY
 ## In Location
 security_schemes.ApiKeyInLocation.HEADER
 
-[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-Security-Schemes) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)

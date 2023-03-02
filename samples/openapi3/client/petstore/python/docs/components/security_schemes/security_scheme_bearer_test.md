@@ -13,4 +13,4 @@ security_schemes.HTTPSchemeType.BEARER
 ## Bearer Format
 "JWT"
 
-[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-Security-Schemes) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)

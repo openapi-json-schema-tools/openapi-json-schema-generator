@@ -10,4 +10,4 @@ security_schemes.SecuritySchemeType.HTTP
 ## Schema
 security_schemes.HTTPSchemeType.SIGNATURE
 
-[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-Security-Schemes) [[Back to README]](../../../README.md)
+[[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)
