@@ -303,8 +303,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
 
-        modelDocTemplateFiles.put("components/schemas/schema_doc.hbs", ".md");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
+
         requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
         parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");

@@ -955,7 +955,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateXDocs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
-        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(type);
+        Map<String, String> templateFileToOutputFile = config.jsonPathDocTemplateFiles().get(type);
         if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
             return;
         }
@@ -1595,13 +1595,15 @@ public class DefaultGenerator implements Generator {
                                 config.apiTemplateFiles().put(templateFile, templateExt);
                                 break;
                             case Model:
-                                config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(templateFile, templateExt);
+                                Map<String, String> schemaTemplateToSuffix = config.jsonPathTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());
+                                schemaTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case APIDocs:
                                 config.apiDocTemplateFiles().put(templateFile, templateExt);
                                 break;
                             case ModelDocs:
-                                config.modelDocTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> schemaDocTemplateToSuffix = config.jsonPathDocTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());
+                                schemaDocTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case APITests:
                                 config.apiTestTemplateFiles().put(templateFile, templateExt);

@@ -173,6 +173,8 @@ public interface CodegenConfig {
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
 
+    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();
+
     Map<String, String> requestBodyDocTemplateFiles();
 
     Map<String, String> headerDocTemplateFiles();
@@ -190,8 +192,6 @@ public interface CodegenConfig {
     Map<String, String> modelTestTemplateFiles();
 
     Map<String, String> apiDocTemplateFiles();
-
-    Map<String, String> modelDocTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
 
