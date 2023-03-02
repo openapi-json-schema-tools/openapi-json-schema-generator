@@ -24,7 +24,6 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.security_schemes import security_scheme_bearer_test
 
 from .. import path
 from .responses import response_200
@@ -90,10 +89,10 @@ class RequestHeaderParameters:
         parameter_1.Parameter1,
         parameter_4.Parameter4,
     ]
-_security = [
-    security_schemes.SecurityRequirementObject({
-        security_scheme_bearer_test.BearerTest: [],
-    }),
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {
+        "bearer_test": [],
+    },
 ]
 
 

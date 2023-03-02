@@ -18,13 +18,6 @@ from {{packageName}} import api_client, exceptions{{#if security}}, security_sch
 {{/if}}
 {{> _helper_imports }}
 {{#with operation}}
-{{#each security}}
-    {{#each this}}
-        {{#if imports}}
-{{> _helper_imports }}
-        {{/if}}
-    {{/each}}
-{{/each}}
 
 {{#unless isStub}}
 from .. import path
@@ -57,16 +50,16 @@ from .parameters import {{jsonPathPiece.snakeCase}}
 {{#each security}}
     {{#if @first}}
 
-_security = [
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
     {{/if}}
         {{#if this}}
-    security_schemes.SecurityRequirementObject({
+    {
             {{#each this}}
-        {{refInfo.refModule}}.{{refInfo.refClass}}: [{{#each scopeNames}}"{{.}}", {{/each}}],
+        "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
             {{/each}}
-    }),
+    },
         {{else}}
-    security_schemes.SecurityRequirementObject({}),
+    {},
         {{/if}}
     {{#if @last}}
 ]

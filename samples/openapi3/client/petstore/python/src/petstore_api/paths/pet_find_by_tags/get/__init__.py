@@ -23,8 +23,6 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.security_schemes import security_scheme_http_signature_test
-from petstore_api.components.security_schemes import security_scheme_petstore_auth
 
 from .. import path
 from .responses import response_200
@@ -55,13 +53,13 @@ class RequestQueryParameters:
     parameters = [
         parameter_0.Parameter0,
     ]
-_security = [
-    security_schemes.SecurityRequirementObject({
-        security_scheme_http_signature_test.HttpSignatureTest: [],
-    }),
-    security_schemes.SecurityRequirementObject({
-        security_scheme_petstore_auth.PetstoreAuth: ["write:pets", "read:pets", ],
-    }),
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {
+        "http_signature_test": [],
+    },
+    {
+        "petstore_auth": ["write:pets", "read:pets", ],
+    },
 ]
 
 

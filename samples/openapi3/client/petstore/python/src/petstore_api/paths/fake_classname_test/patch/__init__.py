@@ -24,17 +24,16 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
-from petstore_api.components.security_schemes import security_scheme_api_key_query
 
 from .. import path
 from .responses import response_200
 from . import request_body
 
 
-_security = [
-    security_schemes.SecurityRequirementObject({
-        security_scheme_api_key_query.ApiKeyQuery: [],
-    }),
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {
+        "api_key_query": [],
+    },
 ]
 
 

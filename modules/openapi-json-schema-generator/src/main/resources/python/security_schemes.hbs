@@ -4,6 +4,7 @@
 import dataclasses
 import enum
 import typing
+import typing_extensions
 
 class SecuritySchemeType(enum.Enum):
     API_KEY = 'apiKey'
@@ -93,9 +94,15 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase):
     openid_connect_url: str
 
 
-class SecurityRequirementObject(dict[__SecuritySchemeBase, typing.List[str]]):
-    """
-    Key is the Security scheme class
-    Value is the list of scopes
-    """
-    pass
+"""
+Key is the Security scheme class
+Value is the list of scopes
+"""
+SecurityRequirementObject = typing_extensions.TypedDict(
+    'SecurityRequirementObject',
+    {
+{{#each securitySchemes}}
+        '{{@key}}': typing.List[str],
+{{/each}}
+    }
+)

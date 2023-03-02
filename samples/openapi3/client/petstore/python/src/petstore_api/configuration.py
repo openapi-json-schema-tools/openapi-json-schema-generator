@@ -15,10 +15,31 @@ import logging
 import multiprocessing
 import sys
 import typing
+import typing_extensions
 
 import urllib3
 
-from petstore_api.exceptions import ApiValueError
+from petstore_api import exceptions
+from petstore_api.components.security_schemes import security_scheme_api_key
+from petstore_api.components.security_schemes import security_scheme_api_key_query
+from petstore_api.components.security_schemes import security_scheme_bearer_test
+from petstore_api.components.security_schemes import security_scheme_http_basic_test
+from petstore_api.components.security_schemes import security_scheme_http_signature_test
+from petstore_api.components.security_schemes import security_scheme_open_id_connect_test
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
+AuthInfo = typing_extensions.TypedDict(
+    'AuthInfo',
+    {
+        'api_key': security_scheme_api_key.ApiKey,
+        'api_key_query': security_scheme_api_key_query.ApiKeyQuery,
+        'bearer_test': security_scheme_bearer_test.BearerTest,
+        'http_basic_test': security_scheme_http_basic_test.HttpBasicTest,
+        'http_signature_test': security_scheme_http_signature_test.HttpSignatureTest,
+        'openIdConnect_test': security_scheme_open_id_connect_test.OpenIdConnectTest,
+        'petstore_auth': security_scheme_petstore_auth.PetstoreAuth,
+    }
+)
 
 
 PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
@@ -59,15 +80,7 @@ class Configuration(object):
     Do not edit the class manually.
 
     :param host: Base url
-    :param api_key: Dict to store API key(s).
-      Each entry in the dict specifies an API key.
-      The dict key is the name of the security scheme in the OAS specification.
-      The dict value is the API key secret.
-    :param api_key_prefix: Dict to store API prefix (e.g. Bearer)
-      The dict key is the name of the security scheme in the OAS specification.
-      The dict value is an API key prefix when generating the auth data.
-    :param username: Username for HTTP basic authentication
-    :param password: Password for HTTP basic authentication
+    :param auth_info: The security scheme auth info to use when calling endpoints
     :param disabled_json_schema_keywords (set): Set of
       JSON schema validation keywords to disable JSON schema structural validation
       rules. The following keywords may be specified: multipleOf, maximum,
@@ -91,18 +104,20 @@ class Configuration(object):
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
 
+    :Example:
     """
 
     _default = None
 
     def __init__(
         self,
-        host=None,
-        disabled_json_schema_keywords=frozenset(),
-        server_index=None,
-        server_variables=None,
-        server_operation_index=None,
-        server_operation_variables=None,
+        host = None,
+        auth_info: typing.Optional[AuthInfo] = None,
+        disabled_json_schema_keywords = frozenset(),
+        server_index = None,
+        server_variables = None,
+        server_operation_index = None,
+        server_operation_variables = None,
     ):
         """Constructor
         """
@@ -121,6 +136,7 @@ class Configuration(object):
         """Temp file folder for downloading files
         """
         # Authentication Settings
+        self.auth_into: AuthInfo = auth_info or {}
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
         """Logging Settings
@@ -216,7 +232,7 @@ class Configuration(object):
         for k in json_keywords:
             python_keywords = {key for key, val in PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD.items() if val == k}
             if not python_keywords:
-                raise ApiValueError(
+                raise exceptions.ApiValueError(
                     "Invalid keyword: '{0}''".format(k))
             disabled_json_schema_keywords.add(k)
             disabled_json_schema_python_keywords.update(python_keywords)
@@ -332,46 +348,6 @@ class Configuration(object):
         """
         self.__logger_format = value
         self.logger_formatter = logging.Formatter(self.__logger_format)
-
-    def get_api_key_with_prefix(self, identifier, alias=None):
-        """Gets API key (with prefix if set).
-
-        :param identifier: The identifier of apiKey.
-        :param alias: The alternative identifier of apiKey.
-        :return: The token for api key authentication.
-        """
-        if self.refresh_api_key_hook is not None:
-            self.refresh_api_key_hook(self)
-        key = self.api_key.get(identifier, self.api_key.get(alias) if alias is not None else None)
-        if key:
-            prefix = self.api_key_prefix.get(identifier)
-            if prefix:
-                return "%s %s" % (prefix, key)
-            else:
-                return key
-
-    def get_basic_auth_token(self):
-        """Gets HTTP basic authentication header (string).
-
-        :return: The token for basic HTTP authentication.
-        """
-        username = ""
-        if self.username is not None:
-            username = self.username
-        password = ""
-        if self.password is not None:
-            password = self.password
-        return urllib3.util.make_headers(
-            basic_auth=username + ':' + password
-        ).get('authorization')
-
-    def auth_settings(self):
-        """Gets Auth Settings dict for api client.
-
-        :return: The Auth Settings information dict.
-        """
-        auth = {}
-        return auth
 
     def to_debug_report(self):
         """Gets the essential information for debugging.

@@ -1205,7 +1205,7 @@ class ApiClient:
     def update_params_for_auth(
         self,
         headers: _collections.HTTPHeaderDict,
-        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
+        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]],
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]] = None
@@ -1222,18 +1222,18 @@ class ApiClient:
         if not security:
             return
 
-        possible_security_requirements = []
+        possible_security_requirements: typing.List[security_schemes.SecurityRequirementObject] = []
         for security_requirement_object in security:
-            if not security_requirement:
+            if not security_requirement_object:
                 # optional auth cause, use no auth
                 possible_security_requirements.append(security_requirement_object)
                 continue
-            for security_scheme_class, scope_names in security_requirement_object.items():
-                security_scheme_instance = self.configuration.security_scheme_info.get(security_scheme_class)
+            for security_scheme_component_name, scope_names in security_requirement_object.items():
+                security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
                 if not security_scheme_instance:
                     break
             else:
-                possible_security_requirements.append(security_requirement)
+                possible_security_requirements.append(security_requirement_object)
         if len(possible_security_requirements) == 0:
             raise exceptions.ApiValueError("Configuration instance is missing the required auth for this route")
         elif len(possible_security_requirements) > 1:
@@ -1244,6 +1244,10 @@ class ApiClient:
             if not security_requirement_object:
                 # optional auth cause, use no auth
                 return
+            for security_scheme_component_name, scope_names in security_requirement_object.items():
+                security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
+                # todo generalize this to pass an update headers
+
             auth_setting = self.configuration.auth_settings().get(auth)
             if not auth_setting:
                 continue

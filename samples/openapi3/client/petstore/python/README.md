@@ -404,7 +404,7 @@ Class | Description
 [RefPathUserName](docs/components/parameters/parameter_ref_path_user_name.md) |
 [RefSchemaStringWithValidation](docs/components/parameters/parameter_ref_schema_string_with_validation.md) | a path string with validation
 
-## Component Security Schemes
+## Component SecuritySchemes
 
 Class | Description
 ----- | ------------
