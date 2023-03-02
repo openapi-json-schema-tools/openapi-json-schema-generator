@@ -445,7 +445,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
         //TODO: add auto-generated doc to feign
         if (FEIGN.equals(getLibrary())) {
-            modelDocTemplateFiles.remove("model_doc.mustache");
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
+            ).remove("model_doc.mustache");
             apiDocTemplateFiles.remove("api_doc.mustache");
             //Templates to decode response headers
             supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));

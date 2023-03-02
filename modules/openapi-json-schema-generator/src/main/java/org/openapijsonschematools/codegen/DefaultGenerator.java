@@ -1033,34 +1033,16 @@ public class DefaultGenerator implements Generator {
             generateHeader(files, header, sourceJsonPath);
 
             // documentation
-            Boolean generateHeaderDocs = Boolean.TRUE;
-            for (Map.Entry<String, String> headerDocInfo : config.headerDocTemplateFiles().entrySet()) {
-                String templateName = headerDocInfo.getKey();
-                String suffix = headerDocInfo.getValue();
-                String fileFolder = config.headerDocFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toHeaderDocFilename(componentName) + suffix;
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("header", header);
-                templateData.put("headerSize", "#");
-                templateData.put("complexTypePrefix", "../../components/schema/");
-                templateData.put("docRoot", "../../");
-                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                templateData.put("identifierToHeadingQty", new HashMap<>());
-
-
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateHeaderDocs, CodegenConstants.HEADER_DOCS, fileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "header-doc");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("header", header);
+            templateData.put("headerSize", "#");
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            templateData.put("docRoot", "../../");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("identifierToHeadingQty", new HashMap<>());
+            // TODO add flag to turn this off
+            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER, CodegenConstants.HEADER_DOCS, templateData, true);
         }
         // sort them
         headers = new TreeMap<>(headers);

@@ -308,7 +308,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
         parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
-        headerDocTemplateFiles.put("components/headers/header_doc.hbs", ".md");
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
@@ -552,10 +551,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (!DEFAULT_LIBRARY.equals(getLibrary())) {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
-    }
-
-    public String headerDocFileFolder() {
-        return outputFolder + File.separator + headerDocPath;
     }
 
     public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
@@ -1572,8 +1567,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
-
-    public String toHeaderDocFilename(String componentName) { return toHeaderFilename(componentName); }
 
     @Override
     public String apiFileFolder() {

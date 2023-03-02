@@ -211,7 +211,6 @@ public class DefaultCodegen implements CodegenConfig {
     // for writing code files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap<>();
-    protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
     protected Map<String, String> responseDocTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
@@ -845,9 +844,6 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> requestBodyDocTemplateFiles() { return requestBodyDocTemplateFiles; }
 
     @Override
-    public Map<String, String> headerDocTemplateFiles() { return headerDocTemplateFiles; }
-
-    @Override
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
 
     @Override
@@ -868,8 +864,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String toRequestBodyDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     public String toResponseDocFilename(String componentName) { return toModuleFilename(componentName); }
-
-    public String toHeaderDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     @Override
     public String apiFileFolder() {
@@ -901,9 +895,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String responseDocFileFolder() { return outputFolder; }
-
-    @Override
-    public String headerDocFileFolder() { return outputFolder; }
 
     @Override
     public String parameterDocFileFolder() { return outputFolder; }

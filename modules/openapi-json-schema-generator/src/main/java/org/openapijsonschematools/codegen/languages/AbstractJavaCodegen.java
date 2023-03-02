@@ -167,7 +167,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         );
         apiTemplateFiles.put("api.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
-        modelDocTemplateFiles.put("model_doc.mustache", ".md");
+        HashMap<String, String> schemaDocs = new HashMap<>();
+        schemaDocs.put("model_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                schemaDocs
+        );
         apiDocTemplateFiles.put("api_doc.mustache", ".md");
 
         hideGenerationTimestamp = false;
