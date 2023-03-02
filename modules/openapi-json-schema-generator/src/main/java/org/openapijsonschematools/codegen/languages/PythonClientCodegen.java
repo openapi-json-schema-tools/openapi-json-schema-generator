@@ -310,6 +310,28 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
         headerDocTemplateFiles.put("components/headers/header_doc.hbs", ".md");
 
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                Collections.singletonMap("components/schemas/schema_doc.hbs", ".md")
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                Collections.singletonMap("components/request_bodies/request_body_doc.hbs", ".md")
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
+                Collections.singletonMap("components/parameters/parameter_doc.hbs", ".md")
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                Collections.singletonMap("components/responses/response_doc.hbs", ".md")
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                Collections.singletonMap("components/headers/header_doc.hbs", ".md")
+        );
+
+
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("components/schemas/schema.hbs", ".py");
         schemaTemplates.put("components/schemas/schema_stub.hbs", ".pyi");

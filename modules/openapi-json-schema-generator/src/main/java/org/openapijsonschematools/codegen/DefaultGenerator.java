@@ -361,7 +361,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateModelTests(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
+    private void generateSchemaTests(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
         // to generate model test files
         for (Map.Entry<String, String> configModelTestTemplateFilesEntry : config.modelTestTemplateFiles().entrySet()) {
             String templateName = configModelTestTemplateFilesEntry.getKey();
@@ -389,21 +389,9 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generateModelDocumentation(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
-        for (String templateName : config.modelDocTemplateFiles().keySet()) {
-            String docExtension = config.getDocExtension();
-            String suffix = docExtension != null ? docExtension : config.modelDocTemplateFiles().get(templateName);
-            String filename = config.modelDocFileFolder() + File.separator + config.toModelDocFilename(modelName) + suffix;
-            modelData.put("headerSize", "#");
-
-            File written = processTemplateToFile(modelData, templateName, filename, generateModelDocumentation, CodegenConstants.MODEL_DOCS);
-            if (written != null) {
-                files.add(written);
-                if (config.isEnablePostProcessFile() && !dryRun) {
-                    config.postProcessFile(written, "model-doc");
-                }
-            }
-        }
+    private void generateSchemaDocumentation(List<File> files, Map<String, Object> modelData, String jsonPath) throws IOException {
+        modelData.put("headerSize", "#");
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, modelData, generateModelDocumentation);
     }
 
     private void generateSchema(List<File> files, CodegenSchema schema, String jsonPath) {
@@ -966,6 +954,36 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private void generateXDocs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
+        Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(type);
+        if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String suffix = entry.getValue();
+            String filename = config.getDocsFilepath(jsonPath) + suffix;
+
+            HashMap<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("modelPackage", config.modelPackage());
+            if (templateInfo != null && !templateInfo.isEmpty()) {
+                templateData.putAll(templateInfo);
+            }
+            try {
+                File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
+                if (written != null) {
+                    files.add(written);
+                    if (config.isEnablePostProcessFile() && !dryRun) {
+                        config.postProcessFile(written, skippedByOption);
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
     private void generateXs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
         Map<String, String> templateFileToOutputFile = config.jsonPathTemplateFiles().get(type);
         if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
@@ -1111,12 +1129,12 @@ public class DefaultGenerator implements Generator {
                 schemaData.put("schema", schema);
                 schemaData.putAll(config.additionalProperties());
                 schemaData.put("complexTypePrefix", "");
-                generateModelTests(files, schemaData, componentName);
+                generateSchemaTests(files, schemaData, componentName);
 
                 // to generate model documentation files
                 schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                 schemaData.put("identifierToHeadingQty", new HashMap<>());
-                generateModelDocumentation(files, schemaData, componentName);
+                generateSchemaDocumentation(files, schemaData, jsonPath);
 
             } catch (Exception e) {
                 throw new RuntimeException("Could not generate model '" + componentName + "'", e);

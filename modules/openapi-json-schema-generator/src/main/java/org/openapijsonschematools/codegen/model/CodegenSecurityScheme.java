@@ -52,6 +52,17 @@ public class CodegenSecurityScheme {
         this.vendorExtensions = vendorExtensions;
     }
 
+    public CodegenSecurityScheme getDeepestRef() {
+        if (refInfo == null) {
+            return null;
+        }
+        CodegenSecurityScheme refObject = refInfo.ref;
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.ref;
+        }
+        return refObject;
+    }
+
 //    // Return a copy of the security object, filtering out any scopes from the passed-in list.
 //    public CodegenSecurityScheme filterByScopeNames(List<String> filterScopes) {
 //        List<Map<String, Object>> returnedScopes = new ArrayList<>();

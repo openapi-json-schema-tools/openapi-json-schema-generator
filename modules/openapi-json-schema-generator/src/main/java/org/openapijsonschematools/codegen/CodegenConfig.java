@@ -262,6 +262,8 @@ public interface CodegenConfig {
     // handles almost all files to be written
     String getFilepath(String jsonPath);
 
+    String getDocsFilepath(String jsonPath);
+
     String apiFilename(String templateName, String tag);
 
     String apiTestFilename(String templateName, String tag);

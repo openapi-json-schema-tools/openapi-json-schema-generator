@@ -198,12 +198,17 @@ public class DefaultCodegen implements CodegenConfig {
     protected String versionMetadataFilename = "VERSION";
 
     protected String packageName = "src.main.java";
+
+    protected String docsFolder = "docs";
     /*
     apiTemplateFiles are for API outputs only (controllers/handlers).
     API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
     */
     protected Map<String, String> apiTemplateFiles = new HashMap<>();
     protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
+    // for writing doc files
+    protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
+    // for writing code files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
     protected Map<String, String> requestBodyDocTemplateFiles = new HashMap<>();
     protected Map<String, String> headerDocTemplateFiles = new HashMap<>();
@@ -3633,6 +3638,21 @@ public class DefaultCodegen implements CodegenConfig {
     public String getFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
+        if (jsonPath.startsWith("#/components")) {
+            updateComponentsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/paths")) {
+            updatePathsFilepath(pathPieces);
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return String.join(File.separator, finalPathPieces);
+    }
+
+    @Override
+    public String getDocsFilepath(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = outputFolder + File.separatorChar + docsFolder;
         if (jsonPath.startsWith("#/components")) {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
