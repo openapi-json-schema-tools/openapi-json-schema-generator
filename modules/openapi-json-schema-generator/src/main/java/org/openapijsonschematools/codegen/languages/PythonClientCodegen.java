@@ -86,8 +86,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected String modelDocPath = "docs/components/schema/";
     protected String requestBodyDocPath = "docs/components/request_bodies/";
     protected String responseDocPath = "docs/components/responses/";
-    protected String headerDocPath = "docs/components/headers/";
-    protected String parameterDocPath = "docs/components/parameters/";
     protected boolean useNose = false;
     protected boolean useInlineModelResolver = false;
 
@@ -306,7 +304,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
         requestBodyDocTemplateFiles.put("components/request_bodies/request_body_doc.hbs", ".md");
-        parameterDocTemplateFiles.put("components/parameters/parameter_doc.hbs", ".md");
         responseDocTemplateFiles.put("components/responses/response_doc.hbs", ".md");
 
         jsonPathDocTemplateFiles.put(
@@ -552,8 +549,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
     }
-
-    public String parameterDocFileFolder() { return outputFolder + File.separator + parameterDocPath; }
 
     @Override
     public String apiFilename(String templateName, String tag) {
@@ -1710,10 +1705,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return toModelName(name);
         }
     }
-
-    @Override
-    public String toParameterDocFilename(String componentName) { return toParameterFilename(componentName); }
-
+    
     @Override
     public String toParamName(String basename) {
         return toParameterFilename(basename);

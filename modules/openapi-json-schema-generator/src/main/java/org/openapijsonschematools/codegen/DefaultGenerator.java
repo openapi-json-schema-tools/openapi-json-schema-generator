@@ -899,37 +899,20 @@ public class DefaultGenerator implements Generator {
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();
-            String sourceJsonPath = parametersJsonPath + "/" + componentName;
-            CodegenParameter parameter = config.fromParameter(specParameter, sourceJsonPath);
+            String parameterJsonPath = parametersJsonPath + "/" + componentName;
+            CodegenParameter parameter = config.fromParameter(specParameter, parameterJsonPath);
             parameters.put(componentName, parameter);
-            generateParameter(files, parameter, sourceJsonPath);
+            generateParameter(files, parameter, parameterJsonPath);
 
-            Boolean generateParameterDocs = Boolean.TRUE;
-            for (Map.Entry<String, String> entryInfo : config.parameterDocTemplateFiles().entrySet()) {
-                String templateName = entryInfo.getKey();
-                String suffix = entryInfo.getValue();
-                String fileFolder = config.parameterDocFileFolder();
-                String filename = fileFolder + File.separatorChar + config.toParameterDocFilename(componentName) + suffix;
-                Map<String, Object> templateData = new HashMap<>();
-                templateData.put("packageName", config.packageName());
-                templateData.put("parameter", parameter);
-                templateData.put("headerSize", "#");
-                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                templateData.put("identifierToHeadingQty", new HashMap<>());
-                templateData.put("complexTypePrefix", "../../components/schema/");
-
-                try {
-                    File written = processTemplateToFile(templateData, templateName, filename, generateParameterDocs, CodegenConstants.PARAMETER_DOCS, fileFolder);
-                    if (written != null) {
-                        files.add(written);
-                        if (config.isEnablePostProcessFile() && !dryRun) {
-                            config.postProcessFile(written, "parameter-doc");
-                        }
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not generate file '" + filename + "'", e);
-                }
-            }
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("parameter", parameter);
+            templateData.put("headerSize", "#");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("identifierToHeadingQty", new HashMap<>());
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            // todo add flag to turn this off
+            generateXDocs(files, parameterJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER, CodegenConstants.PARAMETER_DOCS, templateData, true);
         }
         return parameters;
     }

@@ -217,7 +217,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
-    protected Map<String, String> parameterDocTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -847,9 +846,6 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> responseDocTemplateFiles() { return responseDocTemplateFiles; }
 
     @Override
-    public Map<String, String> parameterDocTemplateFiles() { return parameterDocTemplateFiles; }
-
-    @Override
     public Set<String> pathEndpointDocTemplateFiles() { return pathEndpointDocTemplateFiles; }
 
     @Override
@@ -895,9 +891,6 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public String responseDocFileFolder() { return outputFolder; }
-
-    @Override
-    public String parameterDocFileFolder() { return outputFolder; }
 
     @Override
     public Map<String, Object> additionalProperties() {
@@ -1121,9 +1114,6 @@ public class DefaultCodegen implements CodegenConfig {
     public String getCamelCaseParameter(String basename) {
         return toModelName(basename);
     }
-
-    @Override
-    public String toParameterDocFilename(String componentName) { return toModuleFilename(componentName); }
 
     /**
      * Return the capitalized file name of the model test
