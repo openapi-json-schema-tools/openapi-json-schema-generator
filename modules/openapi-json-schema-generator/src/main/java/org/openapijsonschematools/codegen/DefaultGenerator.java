@@ -794,6 +794,17 @@ public class DefaultGenerator implements Generator {
             securitySchemes.put(componentName, securityScheme);
 
             generateSecurityScheme(files, securityScheme, sourceJsonPath);
+
+            // doc generation
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("securityScheme", securityScheme);
+            templateData.put("headerSize", "#");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("identifierToHeadingQty", new HashMap<>());
+            templateData.put("complexTypePrefix", "../../components/schema/");
+            // TODO add a flag to turn this off
+            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME, CodegenConstants.SECURITY_SCHEME_DOCS, templateData, true);
         }
         // sort them
         securitySchemes = new TreeMap<>(securitySchemes);

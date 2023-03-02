@@ -212,6 +212,13 @@ docs/components/schema/user.md
 docs/components/schema/uuid_string.md
 docs/components/schema/whale.md
 docs/components/schema/zebra.md
+docs/components/security_schemes/security_scheme_api_key.md
+docs/components/security_schemes/security_scheme_api_key_query.md
+docs/components/security_schemes/security_scheme_bearer_test.md
+docs/components/security_schemes/security_scheme_http_basic_test.md
+docs/components/security_schemes/security_scheme_http_signature_test.md
+docs/components/security_schemes/security_scheme_open_id_connect_test.md
+docs/components/security_schemes/security_scheme_petstore_auth.md
 git_push.sh
 pyproject.toml
 requirements.txt

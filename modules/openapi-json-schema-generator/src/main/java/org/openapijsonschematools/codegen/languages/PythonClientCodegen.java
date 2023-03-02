@@ -321,7 +321,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
                 Collections.singletonMap("components/headers/header_doc.hbs", ".md")
         );
-
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                Collections.singletonMap("components/security_schemes/security_scheme_doc.hbs", ".md")
+        );
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("components/schemas/schema.hbs", ".py");
@@ -1527,7 +1530,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return "response" + spacer + suffix;
 
     }
-    
+
     @Override
     public String toRequestBodyFilename(String componentName) {
         return toModuleFilename("request_body_" + componentName);

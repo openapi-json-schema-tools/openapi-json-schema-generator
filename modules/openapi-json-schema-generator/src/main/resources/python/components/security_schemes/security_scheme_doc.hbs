@@ -1,22 +1,23 @@
 {{#with securityScheme}}
-{{#if componentModule}}
+    {{#if componentModule}}
 {{packageName}}.components.security_schemes.{{componentModule}}
-{{/if}}
-{{#eq identifierPieces.size 0}}
+    {{/if}}
+    {{#eq identifierPieces.size 0}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "SecurityScheme" jsonPathPiece) recordUsage=true }}
-{{/eq}}
-{{#if description}}
+    {{/eq}}
+    {{#if description}}
 
 {{headerSize}}# Description
 {{description}}
-{{/if}}
-{{#if refInfo}}
+    {{/if}}
+    {{#if refInfo}}
 | Ref Class | Description |
 | --------- | ----------- |
 | [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description}}{{/if}}{{/with}}
-{{else}}
-{{#if componentModule}}
+    {{else}}
+        {{#if componentModule}}
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" securitySchemesLink=true}}
-{{/if}}
+        {{/if}}
+    {{/if}}
 {{/with}}
