@@ -9,11 +9,11 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**mainShape** | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  | [optional]
-**shapeOrNull** | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) | [**ShapeOrNull**](shape_or_null.ShapeOrNull.md) |  | [optional]
-**nullableShape** | [**NullableShape**](nullable_shape.NullableShape.md) | [**NullableShape**](nullable_shape.NullableShape.md) |  | [optional]
+**mainShape** | [**Shape**](shape.md) | [**Shape**](shape.md) |  | [optional]
+**shapeOrNull** | [**ShapeOrNull**](shape_or_null.md) | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
+**nullableShape** | [**NullableShape**](nullable_shape.md) | [**NullableShape**](nullable_shape.md) |  | [optional]
 **shapes** | list, tuple,  | tuple, [properties.Shapes](#properties-shapes) |  | [optional]
-**any_string_name** | [**Fruit**](fruit.Fruit.md) | [**Fruit**](fruit.Fruit.md) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [**Fruit**](fruit.md) | [**Fruit**](fruit.md) | any string name can be used but the value must be the correct type | [optional]
 
 # properties Shapes
 
@@ -25,6 +25,6 @@ list, tuple,  | tuple,  |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) | [**Shape**](shape.Shape.md) |  |
+[**Shape**](shape.md) | [**Shape**](shape.md) | [**Shape**](shape.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

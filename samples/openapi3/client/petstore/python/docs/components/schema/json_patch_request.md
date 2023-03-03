@@ -22,8 +22,8 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |  |
-[**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.JSONPatchRequestRemove.md) |  |
-[**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |  |
+[**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) |  |
+[**JSONPatchRequestRemove**](json_patch_request_remove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.md) |  |
+[**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -10,7 +10,7 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**SimpleQuadrilateral**](simple_quadrilateral.SimpleQuadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.SimpleQuadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.SimpleQuadrilateral.md) |  |
-[**ComplexQuadrilateral**](complex_quadrilateral.ComplexQuadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.ComplexQuadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.ComplexQuadrilateral.md) |  |
+[**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) |  |
+[**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

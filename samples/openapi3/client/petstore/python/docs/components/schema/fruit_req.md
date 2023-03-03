@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#oneof-_0) | None,  | NoneClass,  |  |
-[**AppleReq**](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) | [**AppleReq**](apple_req.AppleReq.md) |  |
-[**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) | [**BananaReq**](banana_req.BananaReq.md) |  |
+[**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) |  |
+[**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
 
 # oneof _0
 

@@ -14,8 +14,8 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#oneof-_0) | None,  | NoneClass,  |  |
-[**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) | [**Triangle**](triangle.Triangle.md) |  |
-[**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) | [**Quadrilateral**](quadrilateral.Quadrilateral.md) |  |
+[**Triangle**](triangle.md) | [**Triangle**](triangle.md) | [**Triangle**](triangle.md) |  |
+[**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 
 # oneof _0
 

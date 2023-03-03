@@ -10,8 +10,8 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Whale**](whale.Whale.md) | [**Whale**](whale.Whale.md) | [**Whale**](whale.Whale.md) |  |
-[**Zebra**](zebra.Zebra.md) | [**Zebra**](zebra.Zebra.md) | [**Zebra**](zebra.Zebra.md) |  |
-[**Pig**](pig.Pig.md) | [**Pig**](pig.Pig.md) | [**Pig**](pig.Pig.md) |  |
+[**Whale**](whale.md) | [**Whale**](whale.md) | [**Whale**](whale.md) |  |
+[**Zebra**](zebra.md) | [**Zebra**](zebra.md) | [**Zebra**](zebra.md) |  |
+[**Pig**](pig.md) | [**Pig**](pig.md) | [**Pig**](pig.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

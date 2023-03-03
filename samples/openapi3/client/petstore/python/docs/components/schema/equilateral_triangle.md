@@ -10,7 +10,7 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) | [**TriangleInterface**](triangle_interface.TriangleInterface.md) |  |
+[**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) |  |
 [_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # allof _1

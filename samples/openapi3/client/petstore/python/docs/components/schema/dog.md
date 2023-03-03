@@ -10,7 +10,7 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) | [**Animal**](animal.Animal.md) |  |
+[**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
 [_1](#allof-_1) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 
 # allof _1
