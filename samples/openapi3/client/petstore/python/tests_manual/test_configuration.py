@@ -16,6 +16,7 @@ import urllib3
 from urllib3._collections import HTTPHeaderDict
 
 import petstore_api
+from petstore_api import configuration
 from petstore_api.api_client import ApiClient
 from petstore_api.apis.tags import pet_api
 
@@ -33,7 +34,10 @@ class ConfigurationTests(unittest.TestCase):
         config.disabled_json_schema_keywords = set()
 
     def test_servers(self):
-        config = petstore_api.Configuration(server_index=1, server_variables={'version': 'v1'})
+        auth_info = configuration.AuthInfo(
+            api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
+        )
+        config = petstore_api.Configuration(server_index=1, server_variables={'version': 'v1'}, auth_info=auth_info)
         client = ApiClient(configuration=config)
         api = pet_api.PetApi(client)
 
@@ -45,7 +49,8 @@ class ConfigurationTests(unittest.TestCase):
                 'https://path-server-test.petstore.local/v2/pet',
                 headers=HTTPHeaderDict({
                     'Content-Type': 'application/json',
-                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
+                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
+                    'api_key': 'abcdefg'
                 }),
                 fields=None,
                 body=b'{"name":"pet","photoUrls":[]}',
@@ -59,7 +64,10 @@ class ConfigurationTests(unittest.TestCase):
             mock_request.assert_called_with(
                 'delete',
                 'https://localhost:8080/v1/pet/123456789',
-                headers={'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python'},
+                headers={
+                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
+                    'api_key': 'abcdefg'
+                },
                 fields=None,
                 body=None,
                 stream=False,

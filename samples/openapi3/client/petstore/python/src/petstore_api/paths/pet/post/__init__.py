@@ -33,6 +33,9 @@ from . import request_body
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     {
+        "api_key": [],
+    },
+    {
         "http_signature_test": [],
     },
     {

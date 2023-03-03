@@ -79,6 +79,9 @@ class RequestPathParameters:
     ]
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     {
+        "api_key": [],
+    },
+    {
         "petstore_auth": ["write:pets", "read:pets", ],
     },
 ]

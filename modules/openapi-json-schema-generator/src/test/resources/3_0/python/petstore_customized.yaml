@@ -45,6 +45,7 @@ paths:
         '405':
           description: Invalid input
       security:
+        - api_key: []
         - http_signature_test: []
         - petstore_auth:
             - 'write:pets'
@@ -223,6 +224,7 @@ paths:
         '400':
           description: Invalid pet value
       security:
+        - api_key: []
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
