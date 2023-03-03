@@ -11,8 +11,7 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-class HttpBasicTest(security_schemes.HTTPSecurityScheme):
+class HttpBasicTest(security_schemes.HTTPBasicSecurityScheme):
     '''
     http basic
     '''
-    scheme = security_schemes.HTTPSchemeType.BASIC

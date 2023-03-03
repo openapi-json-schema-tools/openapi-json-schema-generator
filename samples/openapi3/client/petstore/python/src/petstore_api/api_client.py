@@ -1246,25 +1246,11 @@ class ApiClient:
                 return
             for security_scheme_component_name, scope_names in security_requirement_object.items():
                 security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
-                # todo generalize this to pass an update headers
-
-            auth_setting = self.configuration.auth_settings().get(auth)
-            if not auth_setting:
-                continue
-            if auth_setting['in'] == 'cookie':
-                headers.add('Cookie', auth_setting['value'])
-            elif auth_setting['in'] == 'header':
-                if auth_setting['type'] != 'http-signature':
-                    headers.add(auth_setting['key'], auth_setting['value'])
-            elif auth_setting['in'] == 'query':
-                """ TODO implement auth in query
-                need to pass in prefix_separator_iterator
-                and need to output resource_path with query params added
-                """
-                raise exceptions.ApiValueError("Auth in query not yet implemented")
-            else:
-                raise exceptions.ApiValueError(
-                    'Authentication token must be in `query` or `header`'
+                security_scheme_instance.apply_auth(
+                    headers,
+                    resource_path,
+                    method,
+                    body
                 )
 
 

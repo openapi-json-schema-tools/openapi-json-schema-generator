@@ -36,27 +36,14 @@ class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
             {{/eq}}
         {{else}}
             {{#eq type "http"}}
-class {{jsonPathPiece.camelCase}}(security_schemes.HTTPSecurityScheme):
+class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
                 {{#if description}}
     '''
     {{description}}
     '''
                 {{/if}}
-                {{#eq scheme "basic"}}
-    scheme = security_schemes.HTTPSchemeType.BASIC
-                {{else}}
-                    {{#eq scheme "bearer"}}
-    scheme = security_schemes.HTTPSchemeType.BEARER
+                {{#eq scheme "bearer"}}
     bearer_format = "{{bearerFormat}}"
-                    {{else}}
-                        {{#eq scheme "digest"}}
-    scheme = security_schemes.HTTPSchemeType.DIGEST
-                        {{else}}
-                            {{#eq scheme "signature"}}
-    scheme = security_schemes.HTTPSchemeType.SIGNATURE
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
                 {{/eq}}
             {{else}}
                 {{#eq type "mutualTLS"}}

@@ -11,9 +11,8 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
-class BearerTest(security_schemes.HTTPSecurityScheme):
+class BearerTest(security_schemes.HTTPBearerSecurityScheme):
     '''
     http bearer with JWT bearer format
     '''
-    scheme = security_schemes.HTTPSchemeType.BEARER
     bearer_format = "JWT"
