@@ -152,17 +152,17 @@ conf = petstore_api.Configuration(
 
     def __init__(
         self,
-        host = None,
+        host: typing.Optional[str] = None,
         auth_info: typing.Optional[AuthInfo] = None,
         disabled_json_schema_keywords = frozenset(),
-        server_index = None,
+        server_index: typing.Optional[int] = None,
         server_variables = None,
         server_operation_index = None,
         server_operation_variables = None,
     ):
         """Constructor
         """
-        self._base_path = "http://petstore.swagger.io:80/v2" if host is None else host
+        self._base_path = host or "http://petstore.swagger.io:80/v2"
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -177,7 +177,7 @@ conf = petstore_api.Configuration(
         """Temp file folder for downloading files
         """
         # Authentication Settings
-        self.auth_into = auth_info or AuthInfo()
+        self.auth_info = auth_info or AuthInfo()
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
         """Logging Settings
@@ -447,7 +447,12 @@ conf = petstore_api.Configuration(
             }
         ]
 
-    def get_host_from_settings(self, index, variables=None, servers=None):
+    def get_host_from_settings(
+        self,
+        index: typing.Optional[int],
+        variables: typing.Optional[typing.Dict[str, dict]] = None,
+        servers: typing.Optional[typing.List[dict]] = None
+    ) -> str:
         """Gets host URL based on the index and variables
         :param index: array index of the host settings
         :param variables: hash of variable and the corresponding value
@@ -457,8 +462,8 @@ conf = petstore_api.Configuration(
         if index is None:
             return self._base_path
 
-        variables = {} if variables is None else variables
-        servers = self.get_host_settings() if servers is None else servers
+        variables = variables or {}
+        servers = servers or self.get_host_settings()
 
         try:
             server = servers[index]
@@ -487,7 +492,7 @@ conf = petstore_api.Configuration(
         return url
 
     @property
-    def host(self):
+    def host(self) -> str:
         """Return generated host."""
         return self.get_host_from_settings(self.server_index, variables=self.server_variables)
 

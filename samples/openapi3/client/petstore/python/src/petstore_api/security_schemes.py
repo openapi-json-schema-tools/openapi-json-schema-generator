@@ -84,8 +84,8 @@ class HTTPBasicSecurityScheme:
         body: typing.Optional[typing.Union[str, bytes]]
     ):
         user_pass = f"{self.user_id}:{self.password}"
-        b64_user_pass = base64.encode(user_pass.encode(encoding=self.encoding))
-        headers.add('Authorization', f"Bearer {b64_user_pass}")
+        b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
+        headers.add('Authorization', f"Basic {b64_user_pass}")
 
 
 @dataclasses.dataclass

@@ -222,7 +222,7 @@ conf = {{{packageName}}}.Configuration(
         """
         # Authentication Settings
 {{#if securitySchemes}}
-        self.auth_into = auth_info or AuthInfo()
+        self.auth_info = auth_info or AuthInfo()
 {{else}}
         self.auth_info = {}
 {{/if}}

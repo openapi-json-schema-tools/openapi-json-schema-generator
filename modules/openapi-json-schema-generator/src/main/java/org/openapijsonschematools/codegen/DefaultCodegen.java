@@ -4526,8 +4526,7 @@ public class DefaultCodegen implements CodegenConfig {
                     variableEntry.getKey(),
                     variable.getDefault(),
                     escapeText(variable.getDescription()),
-                    enums,
-                    value
+                    enums
             );
             codegenServerVariables.add(codegenServerVariable);
         }
