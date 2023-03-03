@@ -7,6 +7,12 @@ import enum
 import typing
 import typing_extensions
 
+from urllib3 import _collections
+{{#if hasHttpSignatureSecurityScheme}}
+
+from {{packageName}} import signing
+{{/if}}
+
 
 class SecuritySchemeType(enum.Enum):
     API_KEY = 'apiKey'
@@ -96,11 +102,12 @@ class HTTPBearerSecurityScheme(__HTTPSecurityScheme):
         body: typing.Optional[typing.Union[str, bytes]]
     ):
         headers.add('Authorization', f"Bearer {self.bearer_token}")
+{{#if hasHttpSignatureSecurityScheme}}
 
 
 class HTTPSignatureSecurityScheme(__HTTPSecurityScheme):
     scheme: HTTPSchemeType = HTTPSchemeType.SIGNATURE
-    signing_info: {{packageName}}.signing.HttpSigningConfiguration
+    signing_info: signing.HttpSigningConfiguration
 
     def apply_auth(
         self,
@@ -114,6 +121,7 @@ class HTTPSignatureSecurityScheme(__HTTPSecurityScheme):
                             resource_path, method, headers, body, query_params)
         for key, value in auth_headers.items():
             headers.add(key, value)
+{{/if}}
 
 
 class HTTPDigestSecurityScheme(__HTTPSecurityScheme):

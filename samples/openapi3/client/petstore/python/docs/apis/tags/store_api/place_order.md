@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../components/schemas/order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 
@@ -78,13 +78,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../components/schemas/order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 #### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schemas/order.Order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../components/schemas/order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## responses ResponseFor400
 

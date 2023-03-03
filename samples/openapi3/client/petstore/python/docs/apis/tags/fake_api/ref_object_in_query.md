@@ -45,7 +45,7 @@ mapBean
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Foo](../../components/schemas/foo.Foo.md#foo) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Foo](../../components/schemas/foo.md#foo) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[User](../../components/schemas/user.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ### path_params
 #### RequestPathParameters.Params

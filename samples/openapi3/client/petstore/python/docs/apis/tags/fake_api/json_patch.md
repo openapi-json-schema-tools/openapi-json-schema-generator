@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[JSONPatchRequest](../../components/schemas/json_patch_request.JSONPatchRequest.md#json_patch_request) | list, tuple,  | tuple,  |
+[JSONPatchRequest](../../components/schemas/json_patch_request.md#json_patch_request) | list, tuple,  | tuple,  |
 
 ## Return Types
 

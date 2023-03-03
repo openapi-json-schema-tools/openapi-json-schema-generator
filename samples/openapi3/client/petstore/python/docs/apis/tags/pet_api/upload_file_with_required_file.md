@@ -101,7 +101,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schemas/api_response.ApiResponse.md#api_response) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ApiResponse](../../components/schemas/api_response.md#api_response) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

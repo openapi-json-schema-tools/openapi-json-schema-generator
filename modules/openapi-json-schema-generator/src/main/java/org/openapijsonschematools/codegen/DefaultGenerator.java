@@ -1343,6 +1343,15 @@ public class DefaultGenerator implements Generator {
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());
+        if (securitySchemes == null) {
+            bundle.put("hasHttpSignatureSecurityScheme", false);
+        } else {
+            for (CodegenSecurityScheme ss: securitySchemes.values()) {
+                if (ss.type.equals("http") && ss.scheme.equals("signature")) {
+                    bundle.put("hasHttpSignatureSecurityScheme", true);
+                }
+            }
+        }
         // TODO add the security schemes
         bundle.put("generatorLanguageVersion", config.generatorLanguageVersion());
         // todo verify support and operation bundles have access to the common variables

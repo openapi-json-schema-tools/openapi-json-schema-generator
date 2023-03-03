@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AnimalFarm](../../components/schemas/animal_farm.AnimalFarm.md#animal_farm) | list, tuple,  | tuple,  |
+[AnimalFarm](../../components/schemas/animal_farm.md#animal_farm) | list, tuple,  | tuple,  |
 
 ## Return Types
 
@@ -76,7 +76,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AnimalFarm](../../components/schemas/animal_farm.AnimalFarm.md#animal_farm) | list, tuple,  | tuple,  |
+[AnimalFarm](../../components/schemas/animal_farm.md#animal_farm) | list, tuple,  | tuple,  |
 
 ## Code Sample
 

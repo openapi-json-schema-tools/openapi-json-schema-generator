@@ -14,6 +14,10 @@ import enum
 import typing
 import typing_extensions
 
+from urllib3 import _collections
+
+from petstore_api import signing
+
 
 class SecuritySchemeType(enum.Enum):
     API_KEY = 'apiKey'
@@ -107,7 +111,7 @@ class HTTPBearerSecurityScheme(__HTTPSecurityScheme):
 
 class HTTPSignatureSecurityScheme(__HTTPSecurityScheme):
     scheme: HTTPSchemeType = HTTPSchemeType.SIGNATURE
-    signing_info: petstore_api.signing.HttpSigningConfiguration
+    signing_info: signing.HttpSigningConfiguration
 
     def apply_auth(
         self,

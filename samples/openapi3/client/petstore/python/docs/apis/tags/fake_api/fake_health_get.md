@@ -47,7 +47,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../components/schemas/health_check_result.HealthCheckResult.md#health_check_result) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[HealthCheckResult](../../components/schemas/health_check_result.md#health_check_result) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

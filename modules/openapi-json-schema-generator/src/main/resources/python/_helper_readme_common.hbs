@@ -31,7 +31,7 @@ Class | Description
 ----- | ------------
 {{#each schemas}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.{{jsonPathPiece.camelCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}

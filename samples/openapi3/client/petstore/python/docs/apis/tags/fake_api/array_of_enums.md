@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ArrayOfEnums](../../components/schemas/array_of_enums.ArrayOfEnums.md#array_of_enums) | list, tuple,  | tuple,  |
+[ArrayOfEnums](../../components/schemas/array_of_enums.md#array_of_enums) | list, tuple,  | tuple,  |
 
 ## Return Types
 
@@ -76,7 +76,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ArrayOfEnums](../../components/schemas/array_of_enums.ArrayOfEnums.md#array_of_enums) | list, tuple,  | tuple,  |
+[ArrayOfEnums](../../components/schemas/array_of_enums.md#array_of_enums) | list, tuple,  | tuple,  |
 
 ## Code Sample
 

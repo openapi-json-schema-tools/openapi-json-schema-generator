@@ -7,7 +7,12 @@ http + signature
 ## Type
 security_schemes.SecuritySchemeType.HTTP
 
-## Schema
+## Scheme
 security_schemes.HTTPSchemeType.SIGNATURE
+
+## signing_info
+Type | Notes
+---- | ------
+petstore_api.signing.HttpSigningConfiguration  | Set by the developer
 
 [[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)

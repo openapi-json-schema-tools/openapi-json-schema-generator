@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../components/schemas/client.Client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Client](../../components/schemas/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

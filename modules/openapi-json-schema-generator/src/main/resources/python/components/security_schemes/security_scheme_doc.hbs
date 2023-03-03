@@ -23,6 +23,11 @@ security_schemes.SecuritySchemeType.API_KEY
 {{headerSize}}# Name
 "{{name}}"
 
+{{headerSize}}# api_key
+Type | Notes
+---- | ------
+str  | Set by the developer
+
 {{headerSize}}# In Location
             {{#eq in "query"}}
 security_schemes.ApiKeyInLocation.QUERY
@@ -40,26 +45,48 @@ security_schemes.ApiKeyInLocation.COOKIE
 security_schemes.SecuritySchemeType.HTTP
                 {{#eq scheme "basic"}}
 
-{{headerSize}}# Schema
+{{headerSize}}# Scheme
 security_schemes.HTTPSchemeType.BASIC
+
+{{headerSize}}# user_id
+Type | Notes
+---- | ------
+str  | Set by the developer
+
+{{headerSize}}# password
+Type | Notes
+---- | ------
+str  | Set by the developer
                 {{else}}
                     {{#eq scheme "bearer"}}
 
-{{headerSize}}# Schema
+{{headerSize}}# Scheme
 security_schemes.HTTPSchemeType.BEARER
+                        {{#if bearerFormat}}
 
 {{headerSize}}# Bearer Format
 "{{bearerFormat}}"
+                        {{/if}}
+
+{{headerSize}}# bearer_token
+Type | Notes
+---- | ------
+str  | Set by the developer
                     {{else}}
                         {{#eq scheme "digest"}}
 
-{{headerSize}}# Schema
+{{headerSize}}# Scheme
 security_schemes.HTTPSchemeType.DIGEST
                         {{else}}
                             {{#eq scheme "signature"}}
 
-{{headerSize}}# Schema
+{{headerSize}}# Scheme
 security_schemes.HTTPSchemeType.SIGNATURE
+
+{{headerSize}}# signing_info
+Type | Notes
+---- | ------
+{{packageName}}.signing.HttpSigningConfiguration  | Set by the developer
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}

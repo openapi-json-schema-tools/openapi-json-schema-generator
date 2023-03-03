@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[String](../../components/schemas/string.String.md#string) | str,  | str,  |
+[String](../../components/schemas/string.md#string) | str,  | str,  |
 
 ## Return Types
 
@@ -76,7 +76,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[String](../../components/schemas/string.String.md#string) | str,  | str,  |
+[String](../../components/schemas/string.md#string) | str,  | str,  |
 
 ## Code Sample
 

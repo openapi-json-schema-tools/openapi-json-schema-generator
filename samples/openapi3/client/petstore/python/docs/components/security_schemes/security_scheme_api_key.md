@@ -10,6 +10,11 @@ security_schemes.SecuritySchemeType.API_KEY
 ## Name
 "api_key"
 
+## api_key
+Type | Notes
+---- | ------
+str  | Set by the developer
+
 ## In Location
 security_schemes.ApiKeyInLocation.HEADER
 

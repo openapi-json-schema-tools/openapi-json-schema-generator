@@ -10,6 +10,11 @@ security_schemes.SecuritySchemeType.API_KEY
 ## Name
 "api_key_query"
 
+## api_key
+Type | Notes
+---- | ------
+str  | Set by the developer
+
 ## In Location
 security_schemes.ApiKeyInLocation.QUERY
 

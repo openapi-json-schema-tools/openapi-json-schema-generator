@@ -94,6 +94,8 @@ class Configuration(object):
       disabled. This can be useful to troubleshoot data validation problem, such as
       when the OpenAPI document validation rules do not match the actual API data
       received by the server.
+    :param signing_info: Configuration parameters for the HTTP signature security scheme.
+        Must be an instance of petstore_api.signing.HttpSigningConfiguration
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -105,6 +107,45 @@ class Configuration(object):
       The validation of enums is performed for variables with defined enum values before.
 
     :Example:
+
+    HTTP Signature Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          http_basic_auth:
+            type: http
+            scheme: signature
+
+    Configure API client with HTTP signature authentication. Use the 'hs2019' signature scheme,
+    sign the HTTP requests with the RSA-SSA-PSS signature algorithm, and set the expiration time
+    of the signature to 5 minutes after the signature has been created.
+    Note you can use the constants defined in the petstore_api.signing module, and you can
+    also specify arbitrary HTTP headers to be included in the HTTP signature, except for the
+    'Authorization' header, which is used to carry the signature.
+
+    One may be tempted to sign all headers by default, but in practice it rarely works.
+    This is beccause explicit proxies, transparent proxies, TLS termination endpoints or
+    load balancers may add/modify/remove headers. Include the HTTP headers that you know
+    are not going to be modified in transit.
+
+conf = petstore_api.Configuration(
+    signing_info = petstore_api.signing.HttpSigningConfiguration(
+        key_id =                 'my-key-id',
+        private_key_path =       'rsa.pem',
+        signing_scheme =         petstore_api.signing.SCHEME_HS2019,
+        signing_algorithm =      petstore_api.signing.ALGORITHM_RSASSA_PSS,
+        signed_headers =         [petstore_api.signing.HEADER_REQUEST_TARGET,
+                                    petstore_api.signing.HEADER_CREATED,
+                                    petstore_api.signing.HEADER_EXPIRES,
+                                    petstore_api.signing.HEADER_HOST,
+                                    petstore_api.signing.HEADER_DATE,
+                                    petstore_api.signing.HEADER_DIGEST,
+                                    'Content-Type',
+                                    'User-Agent'
+                                    ],
+        signature_max_validity = datetime.timedelta(minutes=5)
+    )
+)
     """
 
     _default = None

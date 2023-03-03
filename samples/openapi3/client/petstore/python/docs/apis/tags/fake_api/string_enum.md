@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringEnum](../../components/schemas/string_enum.StringEnum.md#string_enum) | None, str,  | NoneClass, str,  |
+[StringEnum](../../components/schemas/string_enum.md#string_enum) | None, str,  | NoneClass, str,  |
 
 ## Return Types
 
@@ -76,7 +76,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringEnum](../../components/schemas/string_enum.StringEnum.md#string_enum) | None, str,  | NoneClass, str,  |
+[StringEnum](../../components/schemas/string_enum.md#string_enum) | None, str,  | NoneClass, str,  |
 
 ## Code Sample
 

@@ -11,7 +11,7 @@ from {{packageName}}.api_client import ApiClient
 
 # import Configuration
 from {{packageName}}.configuration import Configuration
-{{#if hasHttpSignatureMethods}}
+{{#if hasHttpSignatureSecurityScheme}}
 from {{packageName}}.signing import HttpSigningConfiguration
 {{/if}}
 

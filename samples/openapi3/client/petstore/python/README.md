@@ -232,137 +232,137 @@ HTTP request | Method | Description
 
 Class | Description
 ----- | ------------
-[_200Response](docs/components/schema/_200_response._200Response.md) | model with an invalid class name for python, starts with a number
-[AbstractStepMessage](docs/components/schema/abstract_step_message.AbstractStepMessage.md) | Abstract Step
-[AdditionalPropertiesClass](docs/components/schema/additional_properties_class.AdditionalPropertiesClass.md) |
-[AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator.AdditionalPropertiesValidator.md) |
-[AdditionalPropertiesWithArrayOfEnums](docs/components/schema/additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.md) |
-[Address](docs/components/schema/address.Address.md) |
-[Animal](docs/components/schema/animal.Animal.md) |
-[AnimalFarm](docs/components/schema/animal_farm.AnimalFarm.md) |
-[AnyTypeAndFormat](docs/components/schema/any_type_and_format.AnyTypeAndFormat.md) |
-[AnyTypeNotString](docs/components/schema/any_type_not_string.AnyTypeNotString.md) |
-[ApiResponse](docs/components/schema/api_response.ApiResponse.md) |
-[ArrayHoldingAnyType](docs/components/schema/array_holding_any_type.ArrayHoldingAnyType.md) |
-[ArrayOfArrayOfNumberOnly](docs/components/schema/array_of_array_of_number_only.ArrayOfArrayOfNumberOnly.md) |
-[ArrayOfEnums](docs/components/schema/array_of_enums.ArrayOfEnums.md) |
-[ArrayOfNumberOnly](docs/components/schema/array_of_number_only.ArrayOfNumberOnly.md) |
-[ArrayTest](docs/components/schema/array_test.ArrayTest.md) |
-[ArrayWithValidationsInItems](docs/components/schema/array_with_validations_in_items.ArrayWithValidationsInItems.md) |
-[Bar](docs/components/schema/bar.Bar.md) |
-[BasquePig](docs/components/schema/basque_pig.BasquePig.md) |
-[Boolean](docs/components/schema/boolean.Boolean.md) |
-[BooleanEnum](docs/components/schema/boolean_enum.BooleanEnum.md) |
-[Capitalization](docs/components/schema/capitalization.Capitalization.md) |
-[Cat](docs/components/schema/cat.Cat.md) |
-[Category](docs/components/schema/category.Category.md) |
-[ChildCat](docs/components/schema/child_cat.ChildCat.md) |
-[ClassModel](docs/components/schema/class_model.ClassModel.md) | Model for testing model with \&quot;_class\&quot; property
-[Client](docs/components/schema/client.Client.md) |
-[ComplexQuadrilateral](docs/components/schema/complex_quadrilateral.ComplexQuadrilateral.md) |
-[ComposedAnyOfDifferentTypesNoValidations](docs/components/schema/composed_any_of_different_types_no_validations.ComposedAnyOfDifferentTypesNoValidations.md) |
-[ComposedArray](docs/components/schema/composed_array.ComposedArray.md) |
-[ComposedBool](docs/components/schema/composed_bool.ComposedBool.md) |
-[ComposedNone](docs/components/schema/composed_none.ComposedNone.md) |
-[ComposedNumber](docs/components/schema/composed_number.ComposedNumber.md) |
-[ComposedObject](docs/components/schema/composed_object.ComposedObject.md) |
-[ComposedOneOfDifferentTypes](docs/components/schema/composed_one_of_different_types.ComposedOneOfDifferentTypes.md) | this is a model that allows payloads of type object or number
-[ComposedString](docs/components/schema/composed_string.ComposedString.md) |
-[Currency](docs/components/schema/currency.Currency.md) |
-[DanishPig](docs/components/schema/danish_pig.DanishPig.md) |
-[DateTimeTest](docs/components/schema/date_time_test.DateTimeTest.md) |
-[DateTimeWithValidations](docs/components/schema/date_time_with_validations.DateTimeWithValidations.md) |
-[DateWithValidations](docs/components/schema/date_with_validations.DateWithValidations.md) |
-[DecimalPayload](docs/components/schema/decimal_payload.DecimalPayload.md) |
-[Dog](docs/components/schema/dog.Dog.md) |
-[Drawing](docs/components/schema/drawing.Drawing.md) |
-[EnumArrays](docs/components/schema/enum_arrays.EnumArrays.md) |
-[EnumClass](docs/components/schema/enum_class.EnumClass.md) |
-[EnumTest](docs/components/schema/enum_test.EnumTest.md) |
-[EquilateralTriangle](docs/components/schema/equilateral_triangle.EquilateralTriangle.md) |
-[File](docs/components/schema/file.File.md) | Must be named &#x60;File&#x60; for test.
-[FileSchemaTestClass](docs/components/schema/file_schema_test_class.FileSchemaTestClass.md) |
-[Foo](docs/components/schema/foo.Foo.md) |
-[FormatTest](docs/components/schema/format_test.FormatTest.md) |
-[FromSchema](docs/components/schema/from_schema.FromSchema.md) |
-[GrandparentAnimal](docs/components/schema/grandparent_animal.GrandparentAnimal.md) |
-[HealthCheckResult](docs/components/schema/health_check_result.HealthCheckResult.md) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
-[IntegerEnum](docs/components/schema/integer_enum.IntegerEnum.md) |
-[IntegerEnumBig](docs/components/schema/integer_enum_big.IntegerEnumBig.md) |
-[IntegerEnumOneValue](docs/components/schema/integer_enum_one_value.IntegerEnumOneValue.md) |
-[IntegerEnumWithDefaultValue](docs/components/schema/integer_enum_with_default_value.IntegerEnumWithDefaultValue.md) |
-[IntegerMax10](docs/components/schema/integer_max10.IntegerMax10.md) |
-[IntegerMin15](docs/components/schema/integer_min15.IntegerMin15.md) |
-[IsoscelesTriangle](docs/components/schema/isosceles_triangle.IsoscelesTriangle.md) |
-[Items](docs/components/schema/items.Items.md) | component&#x27;s name collides with the inner schema name
-[JSONPatchRequest](docs/components/schema/json_patch_request.JSONPatchRequest.md) |
-[JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.md) |
-[JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.JSONPatchRequestMoveCopy.md) |
-[JSONPatchRequestRemove](docs/components/schema/json_patch_request_remove.JSONPatchRequestRemove.md) |
-[MapTest](docs/components/schema/map_test.MapTest.md) |
-[MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class.MixedPropertiesAndAdditionalPropertiesClass.md) |
-[Money](docs/components/schema/money.Money.md) |
-[Name](docs/components/schema/name.Name.md) | Model for testing model name same as property name
-[NoAdditionalProperties](docs/components/schema/no_additional_properties.NoAdditionalProperties.md) |
-[NullableClass](docs/components/schema/nullable_class.NullableClass.md) |
-[NullableShape](docs/components/schema/nullable_shape.NullableShape.md) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0)
-[NullableString](docs/components/schema/nullable_string.NullableString.md) |
-[Number](docs/components/schema/number.Number.md) |
-[NumberOnly](docs/components/schema/number_only.NumberOnly.md) |
-[NumberWithValidations](docs/components/schema/number_with_validations.NumberWithValidations.md) |
-[ObjectInterface](docs/components/schema/object_interface.ObjectInterface.md) |
-[ObjectModelWithArgAndArgsProperties](docs/components/schema/object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties.md) |
-[ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props.ObjectModelWithRefProps.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
-[ObjectWithAllOfWithReqTestPropFromUnsetAddProp](docs/components/schema/object_with_all_of_with_req_test_prop_from_unset_add_prop.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.md) |
-[ObjectWithCollidingProperties](docs/components/schema/object_with_colliding_properties.ObjectWithCollidingProperties.md) | component with properties that have name collisions
-[ObjectWithDecimalProperties](docs/components/schema/object_with_decimal_properties.ObjectWithDecimalProperties.md) |
-[ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.ObjectWithDifficultlyNamedProps.md) | model with properties that have invalid names for python
-[ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.ObjectWithInlineCompositionProperty.md) |
-[ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties.ObjectWithInvalidNamedRefedProperties.md) |
-[ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.ObjectWithOptionalTestProp.md) |
-[ObjectWithValidations](docs/components/schema/object_with_validations.ObjectWithValidations.md) |
-[Order](docs/components/schema/order.Order.md) |
-[ParentPet](docs/components/schema/parent_pet.ParentPet.md) |
-[Pet](docs/components/schema/pet.Pet.md) | Pet object that needs to be added to the store
-[Pig](docs/components/schema/pig.Pig.md) |
-[Player](docs/components/schema/player.Player.md) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
-[Quadrilateral](docs/components/schema/quadrilateral.Quadrilateral.md) |
-[QuadrilateralInterface](docs/components/schema/quadrilateral_interface.QuadrilateralInterface.md) |
-[ReadOnlyFirst](docs/components/schema/read_only_first.ReadOnlyFirst.md) |
-[RefPet](docs/components/schema/ref_pet.RefPet.md) |
-[ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.ReqPropsFromExplicitAddProps.md) |
-[ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.ReqPropsFromTrueAddProps.md) |
-[ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.ReqPropsFromUnsetAddProps.md) |
-[_Return](docs/components/schema/_return._Return.md) | Model for testing reserved words
-[ScaleneTriangle](docs/components/schema/scalene_triangle.ScaleneTriangle.md) |
-[SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.SelfReferencingArrayModel.md) |
-[SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.SelfReferencingObjectModel.md) |
-[Shape](docs/components/schema/shape.Shape.md) |
-[ShapeOrNull](docs/components/schema/shape_or_null.ShapeOrNull.md) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
-[SimpleQuadrilateral](docs/components/schema/simple_quadrilateral.SimpleQuadrilateral.md) |
-[SomeObject](docs/components/schema/some_object.SomeObject.md) |
-[String](docs/components/schema/string.String.md) |
-[StringBooleanMap](docs/components/schema/string_boolean_map.StringBooleanMap.md) |
-[StringEnum](docs/components/schema/string_enum.StringEnum.md) |
-[StringEnumWithDefaultValue](docs/components/schema/string_enum_with_default_value.StringEnumWithDefaultValue.md) |
-[StringWithValidation](docs/components/schema/string_with_validation.StringWithValidation.md) |
-[Tag](docs/components/schema/tag.Tag.md) |
-[Triangle](docs/components/schema/triangle.Triangle.md) |
-[TriangleInterface](docs/components/schema/triangle_interface.TriangleInterface.md) |
-[UUIDString](docs/components/schema/uuid_string.UUIDString.md) |
-[User](docs/components/schema/user.User.md) |
-[SpecialModelName](docs/components/schema/special_model_name.SpecialModelName.md) | model with an invalid class name for python
-[Apple](docs/components/schema/apple.Apple.md) |
-[AppleReq](docs/components/schema/apple_req.AppleReq.md) |
-[Banana](docs/components/schema/banana.Banana.md) |
-[BananaReq](docs/components/schema/banana_req.BananaReq.md) |
-[Fruit](docs/components/schema/fruit.Fruit.md) |
-[FruitReq](docs/components/schema/fruit_req.FruitReq.md) |
-[GmFruit](docs/components/schema/gm_fruit.GmFruit.md) |
-[HasOnlyReadOnly](docs/components/schema/has_only_read_only.HasOnlyReadOnly.md) |
-[Mammal](docs/components/schema/mammal.Mammal.md) |
-[Whale](docs/components/schema/whale.Whale.md) |
-[Zebra](docs/components/schema/zebra.Zebra.md) |
+[_200Response](docs/components/schema/_200_response.md) | model with an invalid class name for python, starts with a number
+[AbstractStepMessage](docs/components/schema/abstract_step_message.md) | Abstract Step
+[AdditionalPropertiesClass](docs/components/schema/additional_properties_class.md) |
+[AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator.md) |
+[AdditionalPropertiesWithArrayOfEnums](docs/components/schema/additional_properties_with_array_of_enums.md) |
+[Address](docs/components/schema/address.md) |
+[Animal](docs/components/schema/animal.md) |
+[AnimalFarm](docs/components/schema/animal_farm.md) |
+[AnyTypeAndFormat](docs/components/schema/any_type_and_format.md) |
+[AnyTypeNotString](docs/components/schema/any_type_not_string.md) |
+[ApiResponse](docs/components/schema/api_response.md) |
+[ArrayHoldingAnyType](docs/components/schema/array_holding_any_type.md) |
+[ArrayOfArrayOfNumberOnly](docs/components/schema/array_of_array_of_number_only.md) |
+[ArrayOfEnums](docs/components/schema/array_of_enums.md) |
+[ArrayOfNumberOnly](docs/components/schema/array_of_number_only.md) |
+[ArrayTest](docs/components/schema/array_test.md) |
+[ArrayWithValidationsInItems](docs/components/schema/array_with_validations_in_items.md) |
+[Bar](docs/components/schema/bar.md) |
+[BasquePig](docs/components/schema/basque_pig.md) |
+[Boolean](docs/components/schema/boolean.md) |
+[BooleanEnum](docs/components/schema/boolean_enum.md) |
+[Capitalization](docs/components/schema/capitalization.md) |
+[Cat](docs/components/schema/cat.md) |
+[Category](docs/components/schema/category.md) |
+[ChildCat](docs/components/schema/child_cat.md) |
+[ClassModel](docs/components/schema/class_model.md) | Model for testing model with \&quot;_class\&quot; property
+[Client](docs/components/schema/client.md) |
+[ComplexQuadrilateral](docs/components/schema/complex_quadrilateral.md) |
+[ComposedAnyOfDifferentTypesNoValidations](docs/components/schema/composed_any_of_different_types_no_validations.md) |
+[ComposedArray](docs/components/schema/composed_array.md) |
+[ComposedBool](docs/components/schema/composed_bool.md) |
+[ComposedNone](docs/components/schema/composed_none.md) |
+[ComposedNumber](docs/components/schema/composed_number.md) |
+[ComposedObject](docs/components/schema/composed_object.md) |
+[ComposedOneOfDifferentTypes](docs/components/schema/composed_one_of_different_types.md) | this is a model that allows payloads of type object or number
+[ComposedString](docs/components/schema/composed_string.md) |
+[Currency](docs/components/schema/currency.md) |
+[DanishPig](docs/components/schema/danish_pig.md) |
+[DateTimeTest](docs/components/schema/date_time_test.md) |
+[DateTimeWithValidations](docs/components/schema/date_time_with_validations.md) |
+[DateWithValidations](docs/components/schema/date_with_validations.md) |
+[DecimalPayload](docs/components/schema/decimal_payload.md) |
+[Dog](docs/components/schema/dog.md) |
+[Drawing](docs/components/schema/drawing.md) |
+[EnumArrays](docs/components/schema/enum_arrays.md) |
+[EnumClass](docs/components/schema/enum_class.md) |
+[EnumTest](docs/components/schema/enum_test.md) |
+[EquilateralTriangle](docs/components/schema/equilateral_triangle.md) |
+[File](docs/components/schema/file.md) | Must be named &#x60;File&#x60; for test.
+[FileSchemaTestClass](docs/components/schema/file_schema_test_class.md) |
+[Foo](docs/components/schema/foo.md) |
+[FormatTest](docs/components/schema/format_test.md) |
+[FromSchema](docs/components/schema/from_schema.md) |
+[GrandparentAnimal](docs/components/schema/grandparent_animal.md) |
+[HealthCheckResult](docs/components/schema/health_check_result.md) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
+[IntegerEnum](docs/components/schema/integer_enum.md) |
+[IntegerEnumBig](docs/components/schema/integer_enum_big.md) |
+[IntegerEnumOneValue](docs/components/schema/integer_enum_one_value.md) |
+[IntegerEnumWithDefaultValue](docs/components/schema/integer_enum_with_default_value.md) |
+[IntegerMax10](docs/components/schema/integer_max10.md) |
+[IntegerMin15](docs/components/schema/integer_min15.md) |
+[IsoscelesTriangle](docs/components/schema/isosceles_triangle.md) |
+[Items](docs/components/schema/items.md) | component&#x27;s name collides with the inner schema name
+[JSONPatchRequest](docs/components/schema/json_patch_request.md) |
+[JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.md) |
+[JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.md) |
+[JSONPatchRequestRemove](docs/components/schema/json_patch_request_remove.md) |
+[MapTest](docs/components/schema/map_test.md) |
+[MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class.md) |
+[Money](docs/components/schema/money.md) |
+[Name](docs/components/schema/name.md) | Model for testing model name same as property name
+[NoAdditionalProperties](docs/components/schema/no_additional_properties.md) |
+[NullableClass](docs/components/schema/nullable_class.md) |
+[NullableShape](docs/components/schema/nullable_shape.md) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0)
+[NullableString](docs/components/schema/nullable_string.md) |
+[Number](docs/components/schema/number.md) |
+[NumberOnly](docs/components/schema/number_only.md) |
+[NumberWithValidations](docs/components/schema/number_with_validations.md) |
+[ObjectInterface](docs/components/schema/object_interface.md) |
+[ObjectModelWithArgAndArgsProperties](docs/components/schema/object_model_with_arg_and_args_properties.md) |
+[ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp](docs/components/schema/object_with_all_of_with_req_test_prop_from_unset_add_prop.md) |
+[ObjectWithCollidingProperties](docs/components/schema/object_with_colliding_properties.md) | component with properties that have name collisions
+[ObjectWithDecimalProperties](docs/components/schema/object_with_decimal_properties.md) |
+[ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.md) | model with properties that have invalid names for python
+[ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.md) |
+[ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties.md) |
+[ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.md) |
+[ObjectWithValidations](docs/components/schema/object_with_validations.md) |
+[Order](docs/components/schema/order.md) |
+[ParentPet](docs/components/schema/parent_pet.md) |
+[Pet](docs/components/schema/pet.md) | Pet object that needs to be added to the store
+[Pig](docs/components/schema/pig.md) |
+[Player](docs/components/schema/player.md) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
+[Quadrilateral](docs/components/schema/quadrilateral.md) |
+[QuadrilateralInterface](docs/components/schema/quadrilateral_interface.md) |
+[ReadOnlyFirst](docs/components/schema/read_only_first.md) |
+[RefPet](docs/components/schema/ref_pet.md) |
+[ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.md) |
+[ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.md) |
+[ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.md) |
+[_Return](docs/components/schema/_return.md) | Model for testing reserved words
+[ScaleneTriangle](docs/components/schema/scalene_triangle.md) |
+[SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.md) |
+[SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.md) |
+[Shape](docs/components/schema/shape.md) |
+[ShapeOrNull](docs/components/schema/shape_or_null.md) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
+[SimpleQuadrilateral](docs/components/schema/simple_quadrilateral.md) |
+[SomeObject](docs/components/schema/some_object.md) |
+[String](docs/components/schema/string.md) |
+[StringBooleanMap](docs/components/schema/string_boolean_map.md) |
+[StringEnum](docs/components/schema/string_enum.md) |
+[StringEnumWithDefaultValue](docs/components/schema/string_enum_with_default_value.md) |
+[StringWithValidation](docs/components/schema/string_with_validation.md) |
+[Tag](docs/components/schema/tag.md) |
+[Triangle](docs/components/schema/triangle.md) |
+[TriangleInterface](docs/components/schema/triangle_interface.md) |
+[UUIDString](docs/components/schema/uuid_string.md) |
+[User](docs/components/schema/user.md) |
+[SpecialModelName](docs/components/schema/special_model_name.md) | model with an invalid class name for python
+[Apple](docs/components/schema/apple.md) |
+[AppleReq](docs/components/schema/apple_req.md) |
+[Banana](docs/components/schema/banana.md) |
+[BananaReq](docs/components/schema/banana_req.md) |
+[Fruit](docs/components/schema/fruit.md) |
+[FruitReq](docs/components/schema/fruit_req.md) |
+[GmFruit](docs/components/schema/gm_fruit.md) |
+[HasOnlyReadOnly](docs/components/schema/has_only_read_only.md) |
+[Mammal](docs/components/schema/mammal.md) |
+[Whale](docs/components/schema/whale.md) |
+[Zebra](docs/components/schema/zebra.md) |
 
 ## Component RequestBodies
 
