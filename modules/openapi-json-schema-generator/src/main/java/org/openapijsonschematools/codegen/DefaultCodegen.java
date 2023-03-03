@@ -2396,56 +2396,6 @@ public class DefaultCodegen implements CodegenConfig {
         return toModelName(refPieces[refPieces.length-1]);
     }
 
-//    private static OAuthFlow cloneOAuthFlow(OAuthFlow originFlow, List<String> operationScopes) {
-//        Scopes newScopes = new Scopes();
-//        for (String operationScope : operationScopes) {
-//            if (originFlow.getScopes().containsKey(operationScope)) {
-//                newScopes.put(operationScope, originFlow.getScopes().get(operationScope));
-//            }
-//        }
-//
-//        return new OAuthFlow()
-//                .authorizationUrl(originFlow.getAuthorizationUrl())
-//                .tokenUrl(originFlow.getTokenUrl())
-//                .refreshUrl(originFlow.getRefreshUrl())
-//                .extensions(originFlow.getExtensions())
-//                .scopes(newScopes);
-//    }
-
-//    private List<CodegenSecurityScheme> filterAuthMethods(List<CodegenSecurityScheme> authMethods, List<SecurityRequirement> securities) {
-//        if (securities == null || securities.isEmpty() || authMethods == null) {
-//            return authMethods;
-//        }
-//
-//        List<CodegenSecurityScheme> result = new ArrayList<>();
-//
-//        for (CodegenSecurityScheme security : authMethods) {
-//            boolean filtered = false;
-//            if (security != null && security.scopes != null) {
-//                for (SecurityRequirement requirement : securities) {
-//                    List<String> opScopes = requirement.get(security.name);
-//                    if (opScopes != null) {
-//                        // We have operation-level scopes for this method, so filter the auth method to
-//                        // describe the operation auth method with only the scopes that it requires.
-//                        // We have to create a new auth method instance because the original object must
-//                        // not be modified.
-//                        CodegenSecurityScheme opSecurity = security.filterByScopeNames(opScopes);
-//                        result.add(opSecurity);
-//                        filtered = true;
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            // If we didn't get a filtered version, then we can keep the original auth method.
-//            if (!filtered) {
-//                result.add(security);
-//            }
-//        }
-//
-//        return result;
-//    }
-
     protected String getOperationIdSnakeCase(String operationId) {
         if (StringUtils.isEmpty(operationId)) {
             throw new RuntimeException("Empty method name (operationId) not allowed");

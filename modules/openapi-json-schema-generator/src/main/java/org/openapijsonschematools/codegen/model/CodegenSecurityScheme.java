@@ -63,30 +63,6 @@ public class CodegenSecurityScheme {
         return refObject;
     }
 
-//    // Return a copy of the security object, filtering out any scopes from the passed-in list.
-//    public CodegenSecurityScheme filterByScopeNames(List<String> filterScopes) {
-//        List<Map<String, Object>> returnedScopes = new ArrayList<>();
-//        for (String filterScopeName : filterScopes) {
-//            for (Map<String, Object> scope : scopes) {
-//                String name = (String) scope.get("scope");
-//                if (filterScopeName.equals(name)) {
-//                    returnedScopes.add(scope);
-//                    break;
-//                }
-//            }
-//        }
-//        CodegenSecurityScheme filteredSecurity = new CodegenSecurityScheme(
-//                name,
-//                type,
-//                scheme,
-//                bearerFormat,
-//                vendorExtensions,
-//                returnedScopes,
-//        );
-//
-//        return filteredSecurity;
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
