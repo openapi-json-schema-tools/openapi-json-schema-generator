@@ -971,12 +971,9 @@ class ApiClient:
         cookie: typing.Optional[str] = None,
         pool_threads: int = 1
     ):
-        if configuration is None:
-            configuration = configuration_module.Configuration()
-        self.configuration = configuration
+        self.configuration = configuration or configuration_module.Configuration()
         self.pool_threads = pool_threads
-
-        self.rest_client = rest.RESTClientObject(configuration)
+        self.rest_client = rest.RESTClientObject(self.configuration)
         self.default_headers = _collections.HTTPHeaderDict()
         if header_name is not None:
             self.default_headers[header_name] = header_value

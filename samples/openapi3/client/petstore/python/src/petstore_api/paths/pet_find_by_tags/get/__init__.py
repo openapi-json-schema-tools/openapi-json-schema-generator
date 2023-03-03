@@ -10,7 +10,7 @@ from dataclasses import dataclass
 import typing_extensions
 import urllib3
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client, exceptions, security_schemes
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401

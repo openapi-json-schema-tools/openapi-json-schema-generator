@@ -10,32 +10,35 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
     {{else}}
+import dataclasses
 import typing
 import typing_extensions
 
 from {{packageName}} import security_schemes
 
         {{#eq type "apiKey"}}
+@dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
             {{#if description}}
     '''
     {{description}}
     '''
             {{/if}}
-    name = "{{name}}"
+    name: str = "{{name}}"
             {{#eq in "query"}}
-    in_location = security_schemes.ApiKeyInLocation.QUERY
+    in_location: security_schemes.ApiKeyInLocation = security_schemes.ApiKeyInLocation.QUERY
             {{else}}
                 {{#eq in "header"}}
-    in_location = security_schemes.ApiKeyInLocation.HEADER
+    in_location: security_schemes.ApiKeyInLocation = security_schemes.ApiKeyInLocation.HEADER
                 {{else}}
                     {{#eq in "cookie"}}
-    in_location = security_schemes.ApiKeyInLocation.COOKIE
+    in_location: security_schemes.ApiKeyInLocation = security_schemes.ApiKeyInLocation.COOKIE
                     {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{else}}
             {{#eq type "http"}}
+@dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
                 {{#if description}}
     '''
@@ -47,6 +50,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Bas
                 {{/eq}}
             {{else}}
                 {{#eq type "mutualTLS"}}
+@dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{#if description}}
     '''
@@ -57,6 +61,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{/if}}
                 {{else}}
                     {{#eq type "oauth2"}}
+@dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
                         {{#if description}}
     '''
@@ -67,61 +72,62 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
                         {{#with flows}}
                             {{#with implicit}}
         implicit=security_schemes.ImplicitOAuthFlow(
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
+            authorization_url="{{authorizationUrl}}",
             scopes={
                                 {{#each scopes}}
                 "{{@key}}": "{{this}}",
                                 {{/each}}
             },
-            authorization_url="{{authorizationUrl}}"
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}"
+                                {{/if}}
         )
                             {{/with}}
                             {{#with password}}
         password=security_schemes.TokenUrlOauthFlow(
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
+            token_url="{{tokenUrl}}",
             scopes={
                                 {{#each scopes}}
                 "{{@key}}": "{{this}}",
                                 {{/each}}
             },
-            token_url="{{tokenUrl}}"
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}"
+                                {{/if}}
         )
                             {{/with}}
                             {{#with clientCredentials}}
         client_credentials=security_schemes.TokenUrlOauthFlow(
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
+            token_url="{{tokenUrl}}",
             scopes={
                                 {{#each scopes}}
                 "{{@key}}": "{{this}}",
                                 {{/each}}
             },
-            token_url="{{tokenUrl}}"
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}",
+                                {{/if}}
         )
                             {{/with}}
                             {{#with authorizationCode}}
         authorization_code=security_schemes.AuthorizationCodeOauthFlow(
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
+            authorization_url="{{authorizationUrl}}",
+            token_url="{{tokenUrl}}",
             scopes={
                                 {{#each scopes}}
                 "{{@key}}": "{{this}}",
                                 {{/each}}
             },
-            authorization_url="{{authorizationUrl}}",
-            token_url="{{tokenUrl}}"
+                                {{#if refreshUrl}}
+            refresh_url="{{refreshUrl}}"
+                                {{/if}}
         )
                             {{/with}}
                         {{/with}}
     )
                     {{else}}
                         {{#eq type "openIdConnect"}}
+@dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):
                             {{#if description}}
     '''

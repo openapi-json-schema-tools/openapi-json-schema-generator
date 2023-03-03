@@ -177,7 +177,7 @@ conf = petstore_api.Configuration(
         """Temp file folder for downloading files
         """
         # Authentication Settings
-        self.auth_into: AuthInfo = auth_info or {}
+        self.auth_into = auth_info or AuthInfo()
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
         """Logging Settings

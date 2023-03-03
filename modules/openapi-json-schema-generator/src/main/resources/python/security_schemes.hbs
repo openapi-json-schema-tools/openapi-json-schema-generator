@@ -22,22 +22,19 @@ class SecuritySchemeType(enum.Enum):
     OPENID_CONNECT = 'openIdConnect'
 
 
-@dataclasses.dataclass
-class __SecuritySchemeBase:
-    type: SecuritySchemeType
-
-
 class ApiKeyInLocation(enum.Enum):
+    UNSET = 'unset'  # sentinel value, overridden in implementations
     QUERY = 'query'
     HEADER = 'header'
     COOKIE = 'cookie'
 
 
-class ApiKeySecurityScheme(__SecuritySchemeBase):
-    type = SecuritySchemeType.API_KEY
-    name: str
-    in_location: ApiKeyInLocation
+@dataclasses.dataclass
+class ApiKeySecurityScheme:
     api_key: str  # this must be set by the developer
+    name: str = 'unset'
+    in_location: ApiKeyInLocation = ApiKeyInLocation.UNSET
+    type: SecuritySchemeType = SecuritySchemeType.API_KEY
 
     def apply_auth(
         self,
@@ -63,17 +60,13 @@ class HTTPSchemeType(enum.Enum):
     SIGNATURE = 'signature' # https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
 
 
-class __HTTPSecurityScheme(__SecuritySchemeBase):
-    type: SecuritySchemeType = SecuritySchemeType.HTTP
-    scheme: HTTPSchemeType
-    bearer_format: typing.Optional[str] = None
-
-
-class HTTPBasicSecurityScheme(__HTTPSecurityScheme):
-    scheme: HTTPSchemeType = HTTPSchemeType.BASIC
+@dataclasses.dataclass
+class HTTPBasicSecurityScheme:
     user_id: str  # user name
     password: str
+    scheme: HTTPSchemeType = HTTPSchemeType.BASIC
     encoding: str = 'utf-8'
+    type: SecuritySchemeType = SecuritySchemeType.HTTP
     """
     https://www.rfc-editor.org/rfc/rfc7617.html
     """
@@ -90,9 +83,12 @@ class HTTPBasicSecurityScheme(__HTTPSecurityScheme):
         headers.add('Authorization', f"Bearer {b64_user_pass}")
 
 
-class HTTPBearerSecurityScheme(__HTTPSecurityScheme):
-    scheme: HTTPSchemeType = HTTPSchemeType.BEARER
+@dataclasses.dataclass
+class HTTPBearerSecurityScheme:
     bearer_token: str
+    bearer_format: typing.Optional[str] = None
+    scheme: HTTPSchemeType = HTTPSchemeType.BEARER
+    type: SecuritySchemeType = SecuritySchemeType.HTTP
 
     def apply_auth(
         self,
@@ -105,9 +101,11 @@ class HTTPBearerSecurityScheme(__HTTPSecurityScheme):
 {{#if hasHttpSignatureSecurityScheme}}
 
 
-class HTTPSignatureSecurityScheme(__HTTPSecurityScheme):
-    scheme: HTTPSchemeType = HTTPSchemeType.SIGNATURE
+@dataclasses.dataclass
+class HTTPSignatureSecurityScheme:
     signing_info: signing.HttpSigningConfiguration
+    scheme: HTTPSchemeType = HTTPSchemeType.SIGNATURE
+    type: SecuritySchemeType = SecuritySchemeType.HTTP
 
     def apply_auth(
         self,
@@ -124,8 +122,10 @@ class HTTPSignatureSecurityScheme(__HTTPSecurityScheme):
 {{/if}}
 
 
-class HTTPDigestSecurityScheme(__HTTPSecurityScheme):
+@dataclasses.dataclass
+class HTTPDigestSecurityScheme:
     scheme: HTTPSchemeType = HTTPSchemeType.DIGEST
+    type: SecuritySchemeType = SecuritySchemeType.HTTP
 
     def apply_auth(
         self,
@@ -137,8 +137,9 @@ class HTTPDigestSecurityScheme(__HTTPSecurityScheme):
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
 
-class MutualTLSSecurityScheme(__SecuritySchemeBase):
-    type = SecuritySchemeType.MUTUAL_TLS
+@dataclasses.dataclass
+class MutualTLSSecurityScheme:
+    type: SecuritySchemeType = SecuritySchemeType.MUTUAL_TLS
 
     def apply_auth(
         self,
@@ -151,31 +152,25 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
 
 
 @dataclasses.dataclass
-class __OAuthFlowBase:
+class ImplicitOAuthFlow:
+    authorization_url: str
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
 
 
 @dataclasses.dataclass
-class __AuthorizationUrlBase:
-    authorization_url: str
-
-
-class ImplicitOAuthFlow(__OAuthFlowBase, __AuthorizationUrlBase):
-    pass
+class TokenUrlOauthFlow:
+    token_url: str
+    scopes: typing.Dict[str, str]
+    refresh_url: typing.Optional[str] = None
 
 
 @dataclasses.dataclass
-class __TokenUrlBase:
+class AuthorizationCodeOauthFlow:
+    authorization_url: str
     token_url: str
-
-
-class TokenUrlOauthFlow(__OAuthFlowBase, __TokenUrlBase):
-    pass
-
-
-class AuthorizationCodeOauthFlow(__OAuthFlowBase, __AuthorizationUrlBase, __TokenUrlBase):
-    pass
+    scopes: typing.Dict[str, str]
+    refresh_url: typing.Optional[str] = None
 
 
 @dataclasses.dataclass
@@ -186,9 +181,9 @@ class OAuthFlows:
     authorization_code: typing.Optional[AuthorizationCodeOauthFlow] = None
 
 
-class OAuth2SecurityScheme(__SecuritySchemeBase):
-    type = SecuritySchemeType.OAUTH_2
+class OAuth2SecurityScheme:
     flows: OAuthFlows
+    type: SecuritySchemeType = SecuritySchemeType.OAUTH_2
 
     def apply_auth(
         self,
@@ -200,9 +195,9 @@ class OAuth2SecurityScheme(__SecuritySchemeBase):
         raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
 
 
-class OpenIdConnectSecurityScheme(__SecuritySchemeBase):
-    type = SecuritySchemeType.OPENID_CONNECT
+class OpenIdConnectSecurityScheme:
     openid_connect_url: str
+    type: SecuritySchemeType = SecuritySchemeType.OPENID_CONNECT
 
     def apply_auth(
         self,

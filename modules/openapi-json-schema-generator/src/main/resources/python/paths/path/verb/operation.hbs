@@ -11,7 +11,7 @@ from urllib3._collections import HTTPHeaderDict
 {{/or}}
 {{/with}}
 
-from {{packageName}} import api_client, exceptions{{#if security}}, security_schemes{{/if}}
+from {{packageName}} import api_client, exceptions{{#if operation.security}}, security_schemes{{/if}}
 {{> _helper_imports_schema_types }}
 {{#if imports}}
 

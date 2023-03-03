@@ -194,19 +194,19 @@ conf = {{{packageName}}}.Configuration(
 
     def __init__(
         self,
-        host = None,
+        host: typing.Optional[str] = None,
 {{#if securitySchemes}}
         auth_info: typing.Optional[AuthInfo] = None,
 {{/if}}
         disabled_json_schema_keywords = frozenset(),
-        server_index = None,
+        server_index: typing.Optional[int] = None,
         server_variables = None,
         server_operation_index = None,
         server_operation_variables = None,
     ):
         """Constructor
         """
-        self._base_path = "{{{basePath}}}" if host is None else host
+        self._base_path = host or "{{{basePath}}}"
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -222,7 +222,7 @@ conf = {{{packageName}}}.Configuration(
         """
         # Authentication Settings
 {{#if securitySchemes}}
-        self.auth_into: AuthInfo = auth_info or {}
+        self.auth_into = auth_info or AuthInfo()
 {{else}}
         self.auth_info = {}
 {{/if}}
@@ -493,7 +493,12 @@ conf = {{{packageName}}}.Configuration(
             {{/each}}
         ]
 
-    def get_host_from_settings(self, index, variables=None, servers=None):
+    def get_host_from_settings(
+        self,
+        index: typing.Optional[int],
+        variables: typing.Optional[typing.Dict[str, dict]] = None,
+        servers: typing.Optional[typing.List[dict]] = None
+    ) -> str:
         """Gets host URL based on the index and variables
         :param index: array index of the host settings
         :param variables: hash of variable and the corresponding value
@@ -503,8 +508,8 @@ conf = {{{packageName}}}.Configuration(
         if index is None:
             return self._base_path
 
-        variables = {} if variables is None else variables
-        servers = self.get_host_settings() if servers is None else servers
+        variables = variables or {}
+        servers = servers or self.get_host_settings()
 
         try:
             server = servers[index]
@@ -533,7 +538,7 @@ conf = {{{packageName}}}.Configuration(
         return url
 
     @property
-    def host(self):
+    def host(self) -> str:
         """Return generated host."""
         return self.get_host_from_settings(self.server_index, variables=self.server_variables)
 
