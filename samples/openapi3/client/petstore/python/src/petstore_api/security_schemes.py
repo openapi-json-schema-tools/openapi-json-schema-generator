@@ -34,8 +34,20 @@ class ApiKeyInLocation(enum.Enum):
     COOKIE = 'cookie'
 
 
+class __SecuritySchemeBase(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]]
+    ) -> None:
+        pass
+
+
 @dataclasses.dataclass
-class ApiKeySecurityScheme(abc.ABC):
+class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
     api_key: str  # this must be set by the developer
     name: str = ''
     in_location: ApiKeyInLocation = ApiKeyInLocation.QUERY
@@ -47,7 +59,7 @@ class ApiKeySecurityScheme(abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
             headers.add('Cookie', self.api_key)
         elif self.in_location is ApiKeyInLocation.HEADER:
@@ -66,7 +78,7 @@ class HTTPSchemeType(enum.Enum):
 
 
 @dataclasses.dataclass
-class HTTPBasicSecurityScheme:
+class HTTPBasicSecurityScheme(__SecuritySchemeBase):
     user_id: str  # user name
     password: str
     scheme: HTTPSchemeType = HTTPSchemeType.BASIC
@@ -82,14 +94,14 @@ class HTTPBasicSecurityScheme:
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
         headers.add('Authorization', f"Basic {b64_user_pass.decode()}")
 
 
 @dataclasses.dataclass
-class HTTPBearerSecurityScheme:
+class HTTPBearerSecurityScheme(__SecuritySchemeBase):
     bearer_token: str
     bearer_format: typing.Optional[str] = None
     scheme: HTTPSchemeType = HTTPSchemeType.BEARER
@@ -101,12 +113,12 @@ class HTTPBearerSecurityScheme:
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         headers.add('Authorization', f"Bearer {self.bearer_token}")
 
 
 @dataclasses.dataclass
-class HTTPSignatureSecurityScheme:
+class HTTPSignatureSecurityScheme(__SecuritySchemeBase):
     signing_info: signing.HttpSigningConfiguration
     scheme: HTTPSchemeType = HTTPSchemeType.SIGNATURE
     type: SecuritySchemeType = SecuritySchemeType.HTTP
@@ -117,7 +129,7 @@ class HTTPSignatureSecurityScheme:
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         query_params = tuple()
         auth_headers = self.signing_info.get_http_signature_headers(
                             resource_path, method, headers, body, query_params)
@@ -126,7 +138,7 @@ class HTTPSignatureSecurityScheme:
 
 
 @dataclasses.dataclass
-class HTTPDigestSecurityScheme:
+class HTTPDigestSecurityScheme(__SecuritySchemeBase):
     scheme: HTTPSchemeType = HTTPSchemeType.DIGEST
     type: SecuritySchemeType = SecuritySchemeType.HTTP
 
@@ -136,12 +148,12 @@ class HTTPDigestSecurityScheme:
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
 
 @dataclasses.dataclass
-class MutualTLSSecurityScheme:
+class MutualTLSSecurityScheme(__SecuritySchemeBase):
     type: SecuritySchemeType = SecuritySchemeType.MUTUAL_TLS
 
     def apply_auth(
@@ -150,7 +162,7 @@ class MutualTLSSecurityScheme:
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
 
@@ -184,7 +196,7 @@ class OAuthFlows:
     authorization_code: typing.Optional[AuthorizationCodeOauthFlow] = None
 
 
-class OAuth2SecurityScheme(abc.ABC):
+class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
     flows: OAuthFlows
     type: SecuritySchemeType = SecuritySchemeType.OAUTH_2
 
@@ -194,11 +206,11 @@ class OAuth2SecurityScheme(abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
 
 
-class OpenIdConnectSecurityScheme(abc.ABC):
+class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
     openid_connect_url: str
     type: SecuritySchemeType = SecuritySchemeType.OPENID_CONNECT
 
@@ -208,7 +220,7 @@ class OpenIdConnectSecurityScheme(abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
-    ):
+    ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
 
 """
