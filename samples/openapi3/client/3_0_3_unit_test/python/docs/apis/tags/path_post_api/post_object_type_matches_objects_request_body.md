@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectTypeMatchesObjects](../../components/schemas/object_type_matches_objects.ObjectTypeMatchesObjects.md#object_type_matches_objects) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ObjectTypeMatchesObjects](../../components/schemas/object_type_matches_objects.md#object_type_matches_objects) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

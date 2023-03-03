@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[OneofWithRequired](../../components/schemas/oneof_with_required.OneofWithRequired.md#oneof_with_required) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[OneofWithRequired](../../components/schemas/oneof_with_required.md#oneof_with_required) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

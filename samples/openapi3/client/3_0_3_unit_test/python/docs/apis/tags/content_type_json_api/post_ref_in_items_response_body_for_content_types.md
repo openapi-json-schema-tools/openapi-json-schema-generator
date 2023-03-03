@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefInItems](../../components/schemas/ref_in_items.RefInItems.md#ref_in_items) | list, tuple,  | tuple,  |
+[RefInItems](../../components/schemas/ref_in_items.md#ref_in_items) | list, tuple,  | tuple,  |
 
 ## Code Sample
 

@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[PropertyNamedRefThatIsNotAReference](../../components/schemas/property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.md#property_named_ref_that_is_not_a_reference) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |
+[PropertyNamedRefThatIsNotAReference](../../components/schemas/property_named_ref_that_is_not_a_reference.md#property_named_ref_that_is_not_a_reference) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |
 
 ## Code Sample
 

@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[OneofWithBaseSchema](../../components/schemas/oneof_with_base_schema.OneofWithBaseSchema.md#oneof_with_base_schema) | str,  | str,  |
+[OneofWithBaseSchema](../../components/schemas/oneof_with_base_schema.md#oneof_with_base_schema) | str,  | str,  |
 
 ## Code Sample
 

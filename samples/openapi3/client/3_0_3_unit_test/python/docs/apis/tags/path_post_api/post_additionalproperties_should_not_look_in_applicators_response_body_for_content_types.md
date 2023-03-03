@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesShouldNotLookInApplicators](../../components/schemas/additionalproperties_should_not_look_in_applicators.AdditionalpropertiesShouldNotLookInApplicators.md#additionalproperties_should_not_look_in_applicators) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |
+[AdditionalpropertiesShouldNotLookInApplicators](../../components/schemas/additionalproperties_should_not_look_in_applicators.md#additionalproperties_should_not_look_in_applicators) | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |
 
 ## Code Sample
 

@@ -176,13 +176,9 @@ HTTP request | Method | Description
 
 Class | Description
 ----- | ------------
-[AdditionOperator](docs/components/schema/addition_operator.AdditionOperator.md) |
-[Operator](docs/components/schema/operator.Operator.md) |
-[SubtractionOperator](docs/components/schema/subtraction_operator.SubtractionOperator.md) |
-
-## Documentation For Authorization
-
- All endpoints do not require authorization.
+[AdditionOperator](docs/components/schema/addition_operator.md) |
+[Operator](docs/components/schema/operator.md) |
+[SubtractionOperator](docs/components/schema/subtraction_operator.md) |
 
 ## Author
 

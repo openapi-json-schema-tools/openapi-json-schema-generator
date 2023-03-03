@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWithEscapedCharacters](../../components/schemas/enum_with_escaped_characters.EnumWithEscapedCharacters.md#enum_with_escaped_characters) | str,  | str,  |
+[EnumWithEscapedCharacters](../../components/schemas/enum_with_escaped_characters.md#enum_with_escaped_characters) | str,  | str,  |
 
 ## Code Sample
 

@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWith0DoesNotMatchFalse](../../components/schemas/enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse.md#enum_with0_does_not_match_false) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+[EnumWith0DoesNotMatchFalse](../../components/schemas/enum_with0_does_not_match_false.md#enum_with0_does_not_match_false) | decimal.Decimal, int, float,  | decimal.Decimal,  |
 
 ## Return Types
 

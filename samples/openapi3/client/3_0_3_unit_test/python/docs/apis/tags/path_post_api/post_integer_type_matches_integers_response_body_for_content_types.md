@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[IntegerTypeMatchesIntegers](../../components/schemas/integer_type_matches_integers.IntegerTypeMatchesIntegers.md#integer_type_matches_integers) | decimal.Decimal, int,  | decimal.Decimal,  |
+[IntegerTypeMatchesIntegers](../../components/schemas/integer_type_matches_integers.md#integer_type_matches_integers) | decimal.Decimal, int,  | decimal.Decimal,  |
 
 ## Code Sample
 

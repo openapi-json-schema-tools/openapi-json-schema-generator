@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schemas/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md#invalid_instance_should_not_raise_error_when_float_division_inf) | decimal.Decimal, int,  | decimal.Decimal,  |
+[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schemas/invalid_instance_should_not_raise_error_when_float_division_inf.md#invalid_instance_should_not_raise_error_when_float_division_inf) | decimal.Decimal, int,  | decimal.Decimal,  |
 
 ## Code Sample
 

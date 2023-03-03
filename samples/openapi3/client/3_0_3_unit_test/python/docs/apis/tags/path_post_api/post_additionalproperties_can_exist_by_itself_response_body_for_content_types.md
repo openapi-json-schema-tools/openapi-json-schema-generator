@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesCanExistByItself](../../components/schemas/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md#additionalproperties_can_exist_by_itself) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[AdditionalpropertiesCanExistByItself](../../components/schemas/additionalproperties_can_exist_by_itself.md#additionalproperties_can_exist_by_itself) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

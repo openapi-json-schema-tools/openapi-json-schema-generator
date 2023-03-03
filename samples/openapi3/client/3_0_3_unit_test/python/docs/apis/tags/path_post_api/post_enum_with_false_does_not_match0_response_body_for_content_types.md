@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWithFalseDoesNotMatch0](../../components/schemas/enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0.md#enum_with_false_does_not_match0) | bool,  | BoolClass,  |
+[EnumWithFalseDoesNotMatch0](../../components/schemas/enum_with_false_does_not_match0.md#enum_with_false_does_not_match0) | bool,  | BoolClass,  |
 
 ## Code Sample
 

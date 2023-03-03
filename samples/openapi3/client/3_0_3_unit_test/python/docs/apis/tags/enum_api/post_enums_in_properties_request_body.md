@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumsInProperties](../../components/schemas/enums_in_properties.EnumsInProperties.md#enums_in_properties) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[EnumsInProperties](../../components/schemas/enums_in_properties.md#enums_in_properties) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

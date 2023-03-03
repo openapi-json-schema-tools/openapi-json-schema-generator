@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NulCharactersInStrings](../../components/schemas/nul_characters_in_strings.NulCharactersInStrings.md#nul_characters_in_strings) | str,  | str,  |
+[NulCharactersInStrings](../../components/schemas/nul_characters_in_strings.md#nul_characters_in_strings) | str,  | str,  |
 
 ## Code Sample
 

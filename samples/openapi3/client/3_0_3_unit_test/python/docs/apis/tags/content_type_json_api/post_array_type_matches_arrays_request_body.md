@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ArrayTypeMatchesArrays](../../components/schemas/array_type_matches_arrays.ArrayTypeMatchesArrays.md#array_type_matches_arrays) | list, tuple,  | tuple,  |
+[ArrayTypeMatchesArrays](../../components/schemas/array_type_matches_arrays.md#array_type_matches_arrays) | list, tuple,  | tuple,  |
 
 ## Return Types
 

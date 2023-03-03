@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](../../components/schemas/the_default_keyword_does_not_do_anything_if_the_property_is_missing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.md#the_default_keyword_does_not_do_anything_if_the_property_is_missing) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](../../components/schemas/the_default_keyword_does_not_do_anything_if_the_property_is_missing.md#the_default_keyword_does_not_do_anything_if_the_property_is_missing) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

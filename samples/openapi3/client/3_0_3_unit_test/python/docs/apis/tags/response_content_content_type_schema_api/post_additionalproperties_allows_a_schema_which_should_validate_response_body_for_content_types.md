@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schemas/additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate.md#additionalproperties_allows_a_schema_which_should_validate) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schemas/additionalproperties_allows_a_schema_which_should_validate.md#additionalproperties_allows_a_schema_which_should_validate) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

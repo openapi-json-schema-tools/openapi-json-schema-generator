@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[SimpleEnumValidation](../../components/schemas/simple_enum_validation.SimpleEnumValidation.md#simple_enum_validation) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+[SimpleEnumValidation](../../components/schemas/simple_enum_validation.md#simple_enum_validation) | decimal.Decimal, int, float,  | decimal.Decimal,  |
 
 ## Code Sample
 

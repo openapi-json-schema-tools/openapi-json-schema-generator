@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefInAdditionalproperties](../../components/schemas/ref_in_additionalproperties.RefInAdditionalproperties.md#ref_in_additionalproperties) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[RefInAdditionalproperties](../../components/schemas/ref_in_additionalproperties.md#ref_in_additionalproperties) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 

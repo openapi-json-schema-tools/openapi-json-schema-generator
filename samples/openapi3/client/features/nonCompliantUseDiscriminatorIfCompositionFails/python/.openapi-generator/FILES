@@ -4,9 +4,9 @@
 README.md
 docs/apis/tags/DefaultApi.md
 docs/apis/tags/default_api/post_operators.md
-docs/components/schema/addition_operator.AdditionOperator.md
-docs/components/schema/operator.Operator.md
-docs/components/schema/subtraction_operator.SubtractionOperator.md
+docs/components/schema/addition_operator.md
+docs/components/schema/operator.md
+docs/components/schema/subtraction_operator.md
 git_push.sh
 pyproject.toml
 requirements.txt
@@ -43,6 +43,7 @@ src/this_package/paths/operators/post/responses/__init__.py
 src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/rest.py
 src/this_package/schemas.py
+src/this_package/security_schemes.py
 test-requirements.txt
 test/__init__.py
 test/components/__init__.py

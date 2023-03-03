@@ -36,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringTypeMatchesStrings](../../components/schemas/string_type_matches_strings.StringTypeMatchesStrings.md#string_type_matches_strings) | str,  | str,  |
+[StringTypeMatchesStrings](../../components/schemas/string_type_matches_strings.md#string_type_matches_strings) | str,  | str,  |
 
 ## Return Types
 

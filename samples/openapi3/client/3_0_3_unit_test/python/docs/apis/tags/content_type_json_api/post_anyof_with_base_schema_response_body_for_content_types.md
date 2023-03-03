@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AnyofWithBaseSchema](../../components/schemas/anyof_with_base_schema.AnyofWithBaseSchema.md#anyof_with_base_schema) | str,  | str,  |
+[AnyofWithBaseSchema](../../components/schemas/anyof_with_base_schema.md#anyof_with_base_schema) | str,  | str,  |
 
 ## Code Sample
 

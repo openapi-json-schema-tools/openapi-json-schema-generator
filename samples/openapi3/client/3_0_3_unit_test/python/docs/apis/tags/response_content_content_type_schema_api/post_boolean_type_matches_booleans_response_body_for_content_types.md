@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[BooleanTypeMatchesBooleans](../../components/schemas/boolean_type_matches_booleans.BooleanTypeMatchesBooleans.md#boolean_type_matches_booleans) | bool,  | BoolClass,  |
+[BooleanTypeMatchesBooleans](../../components/schemas/boolean_type_matches_booleans.md#boolean_type_matches_booleans) | bool,  | BoolClass,  |
 
 ## Code Sample
 

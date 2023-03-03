@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NullTypeMatchesOnlyTheNullObject](../../components/schemas/null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject.md#null_type_matches_only_the_null_object) | None,  | NoneClass,  |
+[NullTypeMatchesOnlyTheNullObject](../../components/schemas/null_type_matches_only_the_null_object.md#null_type_matches_only_the_null_object) | None,  | NoneClass,  |
 
 ## Code Sample
 

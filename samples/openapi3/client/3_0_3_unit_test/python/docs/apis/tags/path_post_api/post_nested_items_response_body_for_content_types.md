@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NestedItems](../../components/schemas/nested_items.NestedItems.md#nested_items) | list, tuple,  | tuple,  |
+[NestedItems](../../components/schemas/nested_items.md#nested_items) | list, tuple,  | tuple,  |
 
 ## Code Sample
 
