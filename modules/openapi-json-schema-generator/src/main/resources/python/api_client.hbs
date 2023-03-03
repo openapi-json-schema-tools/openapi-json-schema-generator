@@ -1231,7 +1231,8 @@ class ApiClient:
             else:
                 possible_security_requirements.append(security_requirement_object)
         if len(possible_security_requirements) == 0:
-            raise exceptions.ApiValueError("Configuration instance is missing the required auth for this route")
+            missing_auths = [set(security_requirement_object) for security_requirement_object in security]
+            raise exceptions.ApiValueError(f"Configuration instance is missing the required auth for this route. Set one of {missing_auths} in Configuration.auth_info")
         elif len(possible_security_requirements) > 1:
             # TODO add security_scheme_index
             raise exceptions.ApiValueError("Security schemes may be used, select one of them with the security_scheme_index argument")

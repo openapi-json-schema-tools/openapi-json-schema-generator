@@ -184,6 +184,7 @@ paths:
         '405':
           description: Invalid input
       security:
+        - api_key: []
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'

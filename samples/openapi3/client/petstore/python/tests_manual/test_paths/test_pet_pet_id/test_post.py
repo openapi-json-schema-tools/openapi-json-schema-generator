@@ -25,7 +25,12 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     """
 
     def test_post(self):
-        used_api_client = api_client.ApiClient()
+        auth_info = configuration.AuthInfo(
+            api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
+        )
+        used_api_client = api_client.ApiClient(
+            configuration=configuration.Configuration(auth_info=auth_info)
+        )
         api = post.ApiForPost(api_client=used_api_client)
 
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
@@ -46,7 +51,8 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
                 timeout=None,
                 headers={
                     'User-Agent': self.user_agent,
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'api_key': 'abcdefg'
                 }
             )
             assert isinstance(api_response.response, urllib3.HTTPResponse)
