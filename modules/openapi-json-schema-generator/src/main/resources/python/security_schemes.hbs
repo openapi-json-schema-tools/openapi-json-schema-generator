@@ -80,7 +80,7 @@ class HTTPBasicSecurityScheme:
     ):
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
-        headers.add('Authorization', f"Basic {b64_user_pass}")
+        headers.add('Authorization', f"Basic {b64_user_pass.decode()}")
 
 
 @dataclasses.dataclass
