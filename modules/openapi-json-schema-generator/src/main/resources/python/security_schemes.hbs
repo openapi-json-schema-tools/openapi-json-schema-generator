@@ -151,30 +151,30 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
 
 
 @dataclasses.dataclass
-class OAuthFlowBase__:
-    refresh_url: typing.Optional[str] = None
+class __OAuthFlowBase:
     scopes: typing.Dict[str, str]
+    refresh_url: typing.Optional[str] = None
 
 
 @dataclasses.dataclass
-class AuthorizationUrlBase__:
+class __AuthorizationUrlBase:
     authorization_url: str
 
 
-class ImplicitOAuthFlow(OAuthFlowBase__, AuthorizationUrlBase__):
+class ImplicitOAuthFlow(__OAuthFlowBase, __AuthorizationUrlBase):
     pass
 
 
 @dataclasses.dataclass
-class TokenUrlBase__:
+class __TokenUrlBase:
     token_url: str
 
 
-class TokenUrlOauthFlow(OAuthFlowBase__, TokenUrlBase__):
+class TokenUrlOauthFlow(__OAuthFlowBase, __TokenUrlBase):
     pass
 
 
-class AuthorizationCodeOauthFlow(OAuthFlowBase__, AuthorizationUrlBase__, TokenUrlBase__):
+class AuthorizationCodeOauthFlow(__OAuthFlowBase, __AuthorizationUrlBase, __TokenUrlBase):
     pass
 
 
