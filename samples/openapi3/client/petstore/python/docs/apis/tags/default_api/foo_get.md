@@ -2,16 +2,15 @@
 # **foo_get**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/foo"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/foo" |
+| HTTP Method | get |
 
 ## Return Types
 

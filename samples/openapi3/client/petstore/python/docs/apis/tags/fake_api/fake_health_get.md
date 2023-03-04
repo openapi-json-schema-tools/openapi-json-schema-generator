@@ -2,20 +2,16 @@
 # **fake_health_get**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Health check endpoint
-
-## Path
-"/fake/health"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Health check endpoint |
+| Path | "/fake/health" |
+| HTTP Method | get |
 
 ## Return Types
 

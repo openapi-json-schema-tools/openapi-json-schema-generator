@@ -2,21 +2,17 @@
 # **query_param_with_json_content_type**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-query param with json content-type
-
-## Path
-"/fake/queryParamWithJsonContentType"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | query param with json content-type |
+| Path | "/fake/queryParamWithJsonContentType" |
+| HTTP Method | get |
 
 ## Arguments
 

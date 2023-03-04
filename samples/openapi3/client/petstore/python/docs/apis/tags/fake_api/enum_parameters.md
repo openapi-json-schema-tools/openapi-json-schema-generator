@@ -2,25 +2,18 @@
 # **enum_parameters**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-To test enum parameters
-
-## Description
-To test enum parameters
-
-## Path
-"/fake"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | To test enum parameters |
+| Description | To test enum parameters |
+| Path | "/fake" |
+| HTTP Method | get |
 
 ## Arguments
 

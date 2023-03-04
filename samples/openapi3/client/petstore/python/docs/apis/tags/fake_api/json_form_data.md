@@ -2,21 +2,17 @@
 # **json_form_data**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-test json serialization of form data
-
-## Path
-"/fake/jsonFormData"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | test json serialization of form data |
+| Path | "/fake/jsonFormData" |
+| HTTP Method | get |
 
 ## Arguments
 

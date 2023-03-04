@@ -2,25 +2,19 @@
 # **find_pets_by_tags**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Finds Pets by tags
-
-## Description
-Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
-
-## Path
-"/pet/findByTags"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Finds Pets by tags |
+| Description | Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. |
+| Path | "/pet/findByTags" |
+| HTTP Method | get |
 
 ## Arguments
 
@@ -75,6 +69,17 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Code Sample
 

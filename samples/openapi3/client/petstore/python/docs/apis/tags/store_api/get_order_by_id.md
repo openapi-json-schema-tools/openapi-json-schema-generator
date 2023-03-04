@@ -2,25 +2,18 @@
 # **get_order_by_id**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Find purchase order by ID
-
-## Description
-For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
-
-## Path
-"/store/order/{order_id}"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Find purchase order by ID |
+| Description | For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions |
+| Path | "/store/order/{order_id}" |
+| HTTP Method | get |
 
 ## Arguments
 

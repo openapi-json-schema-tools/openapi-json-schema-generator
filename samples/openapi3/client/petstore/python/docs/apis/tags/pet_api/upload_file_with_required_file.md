@@ -2,21 +2,18 @@
 # **upload_file_with_required_file**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-uploads an image (required)
-
-## Path
-"/fake/{petId}/uploadImageWithRequiredFile"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | uploads an image (required) |
+| Path | "/fake/{petId}/uploadImageWithRequiredFile" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -102,6 +99,16 @@ Content-Type | Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [ApiResponse](../../components/schemas/api_response.md#api_response) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Code Sample
 

@@ -2,21 +2,17 @@
 # **upload_download_file**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-uploads a file and downloads a file using application/octet-stream
-
-## Path
-"/fake/uploadDownloadFile"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | uploads a file and downloads a file using application/octet-stream |
+| Path | "/fake/uploadDownloadFile" |
+| HTTP Method | post |
 
 ## Arguments
 

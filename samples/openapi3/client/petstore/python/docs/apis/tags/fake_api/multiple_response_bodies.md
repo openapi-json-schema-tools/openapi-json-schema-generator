@@ -2,20 +2,16 @@
 # **multiple_response_bodies**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-multiple responses have response bodies
-
-## Path
-"/fake/multipleResponseBodies"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | multiple responses have response bodies |
+| Path | "/fake/multipleResponseBodies" |
+| HTTP Method | get |
 
 ## Return Types
 

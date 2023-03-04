@@ -2,21 +2,17 @@
 # **boolean**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Test serialization of outer boolean types
-
-## Path
-"/fake/refs/boolean"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Test serialization of outer boolean types |
+| Path | "/fake/refs/boolean" |
+| HTTP Method | post |
 
 ## Arguments
 

@@ -32,6 +32,7 @@ docs/apis/tags/fake_api/json_patch.md
 docs/apis/tags/fake_api/json_with_charset.md
 docs/apis/tags/fake_api/mammal.md
 docs/apis/tags/fake_api/multiple_response_bodies.md
+docs/apis/tags/fake_api/multiple_securities.md
 docs/apis/tags/fake_api/number_with_validations.md
 docs/apis/tags/fake_api/object_in_query.md
 docs/apis/tags/fake_api/object_model_with_ref_props.md
@@ -242,6 +243,7 @@ src/petstore_api/apis/paths/fake_json_form_data.py
 src/petstore_api/apis/paths/fake_json_patch.py
 src/petstore_api/apis/paths/fake_json_with_charset.py
 src/petstore_api/apis/paths/fake_multiple_response_bodies.py
+src/petstore_api/apis/paths/fake_multiple_securities.py
 src/petstore_api/apis/paths/fake_obj_in_query.py
 src/petstore_api/apis/paths/fake_parameter_collisions1_abab_self_ab.py
 src/petstore_api/apis/paths/fake_pet_id_upload_image_with_required_file.py
@@ -906,6 +908,15 @@ src/petstore_api/paths/fake_multiple_response_bodies/get/responses/response_202/
 src/petstore_api/paths/fake_multiple_response_bodies/get/responses/response_202/content/application_json/__init__.py
 src/petstore_api/paths/fake_multiple_response_bodies/get/responses/response_202/content/application_json/schema.py
 src/petstore_api/paths/fake_multiple_response_bodies/get/responses/response_202/content/application_json/schema.pyi
+src/petstore_api/paths/fake_multiple_securities/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/__init__.pyi
+src/petstore_api/paths/fake_multiple_securities/get/responses/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/responses/response_200/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/responses/response_200/content/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/responses/response_200/content/application_json/__init__.py
+src/petstore_api/paths/fake_multiple_securities/get/responses/response_200/content/application_json/schema.py
+src/petstore_api/paths/fake_multiple_securities/get/responses/response_200/content/application_json/schema.pyi
 src/petstore_api/paths/fake_obj_in_query/__init__.py
 src/petstore_api/paths/fake_obj_in_query/get/__init__.py
 src/petstore_api/paths/fake_obj_in_query/get/__init__.pyi
@@ -1516,6 +1527,8 @@ test/test_paths/test_fake_json_with_charset/__init__.py
 test/test_paths/test_fake_json_with_charset/test_post.py
 test/test_paths/test_fake_multiple_response_bodies/__init__.py
 test/test_paths/test_fake_multiple_response_bodies/test_get.py
+test/test_paths/test_fake_multiple_securities/__init__.py
+test/test_paths/test_fake_multiple_securities/test_get.py
 test/test_paths/test_fake_obj_in_query/__init__.py
 test/test_paths/test_fake_obj_in_query/test_get.py
 test/test_paths/test_fake_parameter_collisions1_abab_self_ab/__init__.py

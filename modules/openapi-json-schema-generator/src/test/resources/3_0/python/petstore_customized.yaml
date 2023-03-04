@@ -1608,6 +1608,25 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/multipleSecurities:
+    get:
+      operationId: multipleSecurities
+      summary: multiple security requirements
+      tags:
+        - fake
+      security:
+        - {}
+        - api_key: []
+          http_basic_test: []
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema: {}
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

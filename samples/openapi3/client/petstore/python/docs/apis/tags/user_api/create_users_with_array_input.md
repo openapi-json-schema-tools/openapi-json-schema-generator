@@ -2,21 +2,17 @@
 # **create_users_with_array_input**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Creates list of users with given input array
-
-## Path
-"/user/createWithArray"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Creates list of users with given input array |
+| Path | "/user/createWithArray" |
+| HTTP Method | post |
 
 ## Arguments
 

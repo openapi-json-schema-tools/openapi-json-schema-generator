@@ -2,21 +2,17 @@
 # **object_model_with_ref_props**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Test serialization of object with $refed properties
-
-## Path
-"/fake/refs/object_model_with_ref_props"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Test serialization of object with $refed properties |
+| Path | "/fake/refs/object_model_with_ref_props" |
+| HTTP Method | post |
 
 ## Arguments
 

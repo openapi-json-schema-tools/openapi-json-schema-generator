@@ -2,24 +2,18 @@
 # **get_inventory**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Returns pet inventories by status
-
-## Description
-Returns a map of status codes to quantities
-
-## Path
-"/store/inventory"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Returns pet inventories by status |
+| Description | Returns a map of status codes to quantities |
+| Path | "/store/inventory" |
+| HTTP Method | get |
 
 ## Return Types
 
@@ -27,6 +21,16 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessInlineContentAndHeader.response_cls](../../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
 
 ## Code Sample
 

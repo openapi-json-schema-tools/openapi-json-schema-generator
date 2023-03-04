@@ -2,20 +2,16 @@
 # **response_without_schema**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-receives a response without schema
-
-## Path
-"/fake/responseWithoutSchema"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | receives a response without schema |
+| Path | "/fake/responseWithoutSchema" |
+| HTTP Method | get |
 
 ## Return Types
 

@@ -2,17 +2,16 @@
 # **body_with_query_params**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/fake/body-with-query-params"
-
-## HTTP Method
-put
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/fake/body-with-query-params" |
+| HTTP Method | put |
 
 ## Arguments
 

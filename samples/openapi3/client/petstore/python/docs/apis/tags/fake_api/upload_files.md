@@ -2,21 +2,17 @@
 # **upload_files**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-uploads files using multipart/form-data
-
-## Path
-"/fake/uploadFiles"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | uploads files using multipart/form-data |
+| Path | "/fake/uploadFiles" |
+| HTTP Method | post |
 
 ## Arguments
 

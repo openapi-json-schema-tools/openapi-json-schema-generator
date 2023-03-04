@@ -2,21 +2,17 @@
 # **ref_object_in_query**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-user list
-
-## Path
-"/fake/refObjInQuery"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | user list |
+| Path | "/fake/refObjInQuery" |
+| HTTP Method | get |
 
 ## Arguments
 

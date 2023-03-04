@@ -2,25 +2,19 @@
 # **group_parameters**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Fake endpoint to test group parameters (optional)
-
-## Description
-Fake endpoint to test group parameters (optional)
-
-## Path
-"/fake"
-
-## HTTP Method
-delete
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Fake endpoint to test group parameters (optional) |
+| Description | Fake endpoint to test group parameters (optional) |
+| Path | "/fake" |
+| HTTP Method | delete |
 
 ## Arguments
 
@@ -130,6 +124,16 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["bearer_test"](../../../components/security_schemes/security_scheme_bearer_test.md) []<br> |
 
 ## Code Sample
 

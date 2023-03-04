@@ -2,21 +2,17 @@
 # **query_parameter_collection_format**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-To test the collection format in query parameters
-
-## Path
-"/fake/test-query-paramters"
-
-## HTTP Method
-put
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | To test the collection format in query parameters |
+| Path | "/fake/test-query-paramters" |
+| HTTP Method | put |
 
 ## Arguments
 

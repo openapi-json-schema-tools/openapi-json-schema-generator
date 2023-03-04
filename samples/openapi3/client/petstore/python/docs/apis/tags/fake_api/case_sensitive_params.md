@@ -2,21 +2,17 @@
 # **case_sensitive_params**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Ensures that original naming is used in endpoint params, that way we on't have collisions
-
-## Path
-"/fake/case-sensitive-params"
-
-## HTTP Method
-put
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Ensures that original naming is used in endpoint params, that way we on't have collisions |
+| Path | "/fake/case-sensitive-params" |
+| HTTP Method | put |
 
 ## Arguments
 

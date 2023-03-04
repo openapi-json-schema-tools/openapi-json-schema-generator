@@ -2,21 +2,17 @@
 # **composed_one_of_different_types**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Test serialization of object with $refed properties
-
-## Path
-"/fake/refs/composed_one_of_number_with_validations"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Test serialization of object with $refed properties |
+| Path | "/fake/refs/composed_one_of_number_with_validations" |
+| HTTP Method | post |
 
 ## Arguments
 

@@ -2,21 +2,17 @@
 # **place_order**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Place an order for a pet
-
-## Path
-"/store/order"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Place an order for a pet |
+| Path | "/store/order" |
+| HTTP Method | post |
 
 ## Arguments
 

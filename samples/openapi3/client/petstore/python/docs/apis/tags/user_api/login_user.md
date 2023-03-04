@@ -2,21 +2,17 @@
 # **login_user**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Logs user into the system
-
-## Path
-"/user/login"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Logs user into the system |
+| Path | "/user/login" |
+| HTTP Method | get |
 
 ## Arguments
 

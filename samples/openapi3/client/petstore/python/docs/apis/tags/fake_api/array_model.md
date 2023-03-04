@@ -2,21 +2,17 @@
 # **array_model**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Test serialization of ArrayModel
-
-## Path
-"/fake/refs/arraymodel"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Test serialization of ArrayModel |
+| Path | "/fake/refs/arraymodel" |
+| HTTP Method | post |
 
 ## Arguments
 

@@ -2,21 +2,17 @@
 # **additional_properties_with_array_of_enums**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Additional Properties with Array of Enums
-
-## Path
-"/fake/additional-properties-with-array-of-enums"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Additional Properties with Array of Enums |
+| Path | "/fake/additional-properties-with-array-of-enums" |
+| HTTP Method | get |
 
 ## Arguments
 

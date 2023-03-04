@@ -2,21 +2,17 @@
 # **inline_additional_properties**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-test inline additionalProperties
-
-## Path
-"/fake/inline-additionalProperties"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | test inline additionalProperties |
+| Path | "/fake/inline-additionalProperties" |
+| HTTP Method | post |
 
 ## Arguments
 

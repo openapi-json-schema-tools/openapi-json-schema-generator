@@ -2,25 +2,18 @@
 # **create_user**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Create user
-
-## Description
-This can only be done by the logged in user.
-
-## Path
-"/user"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Create user |
+| Description | This can only be done by the logged in user. |
+| Path | "/user" |
+| HTTP Method | post |
 
 ## Arguments
 

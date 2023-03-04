@@ -2,25 +2,18 @@
 # **call_123_test__special_tags**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-To test special tags
-
-## Description
-To test special tags and operation ID starting with number
-
-## Path
-"/another-fake/dummy"
-
-## HTTP Method
-patch
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | To test special tags |
+| Description | To test special tags and operation ID starting with number |
+| Path | "/another-fake/dummy" |
+| HTTP Method | patch |
 
 ## Arguments
 

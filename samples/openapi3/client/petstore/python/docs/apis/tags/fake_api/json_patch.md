@@ -2,25 +2,18 @@
 # **json_patch**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-json patch
-
-## Description
-json patch route with a requestBody
-
-## Path
-"/fake/jsonPatch"
-
-## HTTP Method
-patch
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | json patch |
+| Description | json patch route with a requestBody |
+| Path | "/fake/jsonPatch" |
+| HTTP Method | patch |
 
 ## Arguments
 

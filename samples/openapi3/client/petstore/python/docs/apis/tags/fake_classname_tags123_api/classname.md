@@ -2,25 +2,19 @@
 # **classname**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-To test class name in snake case
-
-## Description
-To test class name in snake case
-
-## Path
-"/fake_classname_test"
-
-## HTTP Method
-patch
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | To test class name in snake case |
+| Description | To test class name in snake case |
+| Path | "/fake_classname_test" |
+| HTTP Method | patch |
 
 ## Arguments
 
@@ -64,6 +58,16 @@ Content-Type | Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Client](../../components/schemas/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key_query"](../../../components/security_schemes/security_scheme_api_key_query.md) []<br> |
 
 ## Code Sample
 

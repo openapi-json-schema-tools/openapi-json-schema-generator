@@ -2,21 +2,17 @@
 # **body_with_file_schema**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-For this test, the body for this request much reference a schema named `File`.
-
-## Path
-"/fake/body-with-file-schema"
-
-## HTTP Method
-put
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | For this test, the body for this request much reference a schema named `File`. |
+| Path | "/fake/body-with-file-schema" |
+| HTTP Method | put |
 
 ## Arguments
 

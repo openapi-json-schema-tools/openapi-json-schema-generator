@@ -2,21 +2,17 @@
 # **get_user_by_name**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Get user by user name
-
-## Path
-"/user/{username}"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Get user by user name |
+| Path | "/user/{username}" |
+| HTTP Method | get |
 
 ## Arguments
 

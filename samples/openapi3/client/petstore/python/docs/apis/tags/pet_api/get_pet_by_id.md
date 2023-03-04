@@ -2,25 +2,19 @@
 # **get_pet_by_id**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Find pet by ID
-
-## Description
-Returns a single pet
-
-## Path
-"/pet/{petId}"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Find pet by ID |
+| Description | Returns a single pet |
+| Path | "/pet/{petId}" |
+| HTTP Method | get |
 
 ## Arguments
 
@@ -116,6 +110,16 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
 
 ## Code Sample
 

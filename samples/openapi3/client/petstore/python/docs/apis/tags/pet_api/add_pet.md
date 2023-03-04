@@ -2,25 +2,19 @@
 # **add_pet**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Add a new pet to the store
-
-## Description
-Add a new pet to the store
-
-## Path
-"/pet"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Add a new pet to the store |
+| Description | Add a new pet to the store |
+| Path | "/pet" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -52,6 +46,18 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 2       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Code Sample
 

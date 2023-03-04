@@ -2,21 +2,17 @@
 # **array_of_enums**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Array of Enums
-
-## Path
-"/fake/refs/array-of-enums"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Array of Enums |
+| Path | "/fake/refs/array-of-enums" |
+| HTTP Method | post |
 
 ## Arguments
 

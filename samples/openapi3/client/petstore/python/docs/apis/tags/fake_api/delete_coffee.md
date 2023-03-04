@@ -2,25 +2,18 @@
 # **delete_coffee**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Delete coffee
-
-## Description
-Delete the coffee identified by the given id, (delete without request body)
-
-## Path
-"/fake/deleteCoffee/{id}"
-
-## HTTP Method
-delete
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Delete coffee |
+| Description | Delete the coffee identified by the given id, (delete without request body) |
+| Path | "/fake/deleteCoffee/{id}" |
+| HTTP Method | delete |
 
 ## Arguments
 

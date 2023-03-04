@@ -2,25 +2,19 @@
 # **endpoint_parameters**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-
-## Description
-Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-
-## Path
-"/fake"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트  |
+| Description | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트  |
+| Path | "/fake" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -84,6 +78,16 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Security
+
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 
 ## Code Sample
 

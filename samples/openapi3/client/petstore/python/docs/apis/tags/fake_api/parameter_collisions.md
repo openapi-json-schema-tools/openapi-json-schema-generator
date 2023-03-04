@@ -2,21 +2,17 @@
 # **parameter_collisions**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-parameter collision case
-
-## Path
-"/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | parameter collision case |
+| Path | "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/" |
+| HTTP Method | post |
 
 ## Arguments
 

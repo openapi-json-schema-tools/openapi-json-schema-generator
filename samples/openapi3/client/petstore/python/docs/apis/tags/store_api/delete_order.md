@@ -2,25 +2,18 @@
 # **delete_order**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Delete purchase order by ID
-
-## Description
-For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
-
-## Path
-"/store/order/{order_id}"
-
-## HTTP Method
-delete
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Delete purchase order by ID |
+| Description | For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors |
+| Path | "/store/order/{order_id}" |
+| HTTP Method | delete |
 
 ## Arguments
 
