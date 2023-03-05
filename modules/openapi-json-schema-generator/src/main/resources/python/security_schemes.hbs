@@ -230,5 +230,6 @@ SecurityRequirementObject = typing_extensions.TypedDict(
 {{#each securitySchemes}}
         '{{@key}}': typing.List[str],
 {{/each}}
-    }
+    },
+    total=False
 )

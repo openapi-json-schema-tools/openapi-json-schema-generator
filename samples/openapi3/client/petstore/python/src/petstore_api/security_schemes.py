@@ -237,5 +237,6 @@ SecurityRequirementObject = typing_extensions.TypedDict(
         'http_signature_test': typing.List[str],
         'openIdConnect_test': typing.List[str],
         'petstore_auth': typing.List[str],
-    }
+    },
+    total=False
 )
