@@ -73,6 +73,9 @@ class Configuration(object):
     :param host: Base url
 {{#if securitySchemes}}
     :param auth_info: The security scheme auth info to use when calling endpoints
+      The key is a string that identifies the component security scheme that one is adding auth info for
+      The value is an instance of the component security scheme class for that security scheme.
+      See the AuthInfo TypedDict definition
 {{/if}}
     :param disabled_json_schema_keywords (set): Set of
       JSON schema validation keywords to disable JSON schema structural validation
@@ -87,10 +90,6 @@ class Configuration(object):
       disabled. This can be useful to troubleshoot data validation problem, such as
       when the OpenAPI document validation rules do not match the actual API data
       received by the server.
-{{#if hasHttpSignatureSecurityScheme}}
-    :param signing_info: Configuration parameters for the HTTP signature security scheme.
-        Must be an instance of {{{packageName}}}.signing.HttpSigningConfiguration
-{{/if}}
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -100,94 +99,6 @@ class Configuration(object):
     :param server_operation_variables: Mapping from operation ID to a mapping with
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
-
-{{#if securitySchemes}}
-    :Example:
-{{#if hasApiKeyMethods}}
-
-    API Key Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          cookieAuth:         # name for the security scheme
-            type: apiKey
-            in: cookie
-            name: JSESSIONID  # cookie name
-
-    You can programmatically set the cookie:
-
-conf = {{{packageName}}}.Configuration(
-    api_key={'cookieAuth': 'abc123'}
-    api_key_prefix={'cookieAuth': 'JSESSIONID'}
-)
-
-    The following cookie will be added to the HTTP request:
-       Cookie: JSESSIONID abc123
-{{/if}}
-{{#if hasHttpBasicMethods}}
-
-    HTTP Basic Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          http_basic_auth:
-            type: http
-            scheme: basic
-
-    Configure API client with HTTP basic authentication:
-
-conf = {{packageName}}.Configuration(
-    auth_info={
-        'http_basic_auth': {{packageName}}.components.security_schemes.security_scheme_http_basic_auth.HttpBasicAuth(
-            'username': 'the-user',
-            'password': 'the-password',
-        )
-    },
-)
-
-{{/if}}
-{{#if hasHttpSignatureSecurityScheme}}
-
-    HTTP Signature Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          http_basic_auth:
-            type: http
-            scheme: signature
-
-    Configure API client with HTTP signature authentication. Use the 'hs2019' signature scheme,
-    sign the HTTP requests with the RSA-SSA-PSS signature algorithm, and set the expiration time
-    of the signature to 5 minutes after the signature has been created.
-    Note you can use the constants defined in the {{{packageName}}}.signing module, and you can
-    also specify arbitrary HTTP headers to be included in the HTTP signature, except for the
-    'Authorization' header, which is used to carry the signature.
-
-    One may be tempted to sign all headers by default, but in practice it rarely works.
-    This is beccause explicit proxies, transparent proxies, TLS termination endpoints or
-    load balancers may add/modify/remove headers. Include the HTTP headers that you know
-    are not going to be modified in transit.
-
-conf = {{{packageName}}}.Configuration(
-    signing_info = {{{packageName}}}.signing.HttpSigningConfiguration(
-        key_id =                 'my-key-id',
-        private_key_path =       'rsa.pem',
-        signing_scheme =         {{{packageName}}}.signing.SCHEME_HS2019,
-        signing_algorithm =      {{{packageName}}}.signing.ALGORITHM_RSASSA_PSS,
-        signed_headers =         [{{{packageName}}}.signing.HEADER_REQUEST_TARGET,
-                                    {{{packageName}}}.signing.HEADER_CREATED,
-                                    {{{packageName}}}.signing.HEADER_EXPIRES,
-                                    {{{packageName}}}.signing.HEADER_HOST,
-                                    {{{packageName}}}.signing.HEADER_DATE,
-                                    {{{packageName}}}.signing.HEADER_DIGEST,
-                                    'Content-Type',
-                                    'User-Agent'
-                                    ],
-        signature_max_validity = datetime.timedelta(minutes=5)
-    )
-)
-{{/if}}
-{{/if}}
     """
 
     _default = None
