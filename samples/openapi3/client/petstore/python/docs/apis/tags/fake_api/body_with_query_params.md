@@ -2,17 +2,16 @@
 # **body_with_query_params**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/fake/body-with-query-params"
-
-## HTTP Method
-put
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/fake/body-with-query-params" |
+| HTTP Method | put |
 
 ## Arguments
 
@@ -37,7 +36,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schemas/user.User.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[User](../../components/schemas/user.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -67,16 +66,16 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 

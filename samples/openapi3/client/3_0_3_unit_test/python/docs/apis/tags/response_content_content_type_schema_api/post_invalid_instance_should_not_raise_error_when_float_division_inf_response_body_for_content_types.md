@@ -2,16 +2,15 @@
 # **post_invalid_instance_should_not_raise_error_when_float_division_inf_response_body_for_content_types**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/responseBody/postInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfResponseBodyForContentTypes"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/responseBody/postInvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfResponseBodyForContentTypes" |
+| HTTP Method | post |
 
 ## Return Types
 
@@ -43,22 +42,22 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schemas/invalid_instance_should_not_raise_error_when_float_division_inf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.md#invalid_instance_should_not_raise_error_when_float_division_inf) | decimal.Decimal, int,  | decimal.Decimal,  |
+[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schemas/invalid_instance_should_not_raise_error_when_float_division_inf.md#invalid_instance_should_not_raise_error_when_float_division_inf) | decimal.Decimal, int,  | decimal.Decimal,  |
 
 ## Code Sample
 
 ```python
 import unit_test_api
+from unit_test_api import configuration
 from unit_test_api.apis.tags import response_content_content_type_schema_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = unit_test_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "https://someserver.com/v1"
 )
-
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(configuration) as api_client:
+with unit_test_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = response_content_content_type_schema_api.ResponseContentContentTypeSchemaApi(api_client)
 

@@ -45,6 +45,7 @@ paths:
         '405':
           description: Invalid input
       security:
+        - api_key: []
         - http_signature_test: []
         - petstore_auth:
             - 'write:pets'
@@ -184,6 +185,7 @@ paths:
         '405':
           description: Invalid input
       security:
+        - api_key: []
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
@@ -222,6 +224,7 @@ paths:
         '400':
           description: Invalid pet value
       security:
+        - api_key: []
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
@@ -1605,6 +1608,25 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/multipleSecurities:
+    get:
+      operationId: multipleSecurities
+      summary: multiple security requirements
+      tags:
+        - fake
+      security:
+        - {}
+        - api_key: []
+          http_basic_test: []
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema: {}
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server
@@ -1769,6 +1791,7 @@ components:
             $ref: '#/components/schemas/StringWithValidation'
   securitySchemes:
     petstore_auth:
+      description: oauth2 implicit flow with two scopes
       type: oauth2
       flows:
         implicit:
@@ -1777,26 +1800,35 @@ components:
             'write:pets': modify pets in your account
             'read:pets': read your pets
     api_key:
+      description: apiKey in header
       type: apiKey
       name: api_key
       in: header
     api_key_query:
+      description: apiKey in query
       type: apiKey
       name: api_key_query
       in: query
     http_basic_test:
+      description: http basic
       type: http
       scheme: basic
     bearer_test:
+      description: http bearer with JWT bearer format
       type: http
       scheme: bearer
       bearerFormat: JWT
     http_signature_test:
+      description: http + signature
       # Test the 'HTTP signature' security scheme.
       # Each HTTP request is cryptographically signed as specified
       # in https://datatracker.ietf.org/doc/draft-cavage-http-signatures/
       type: http
       scheme: signature
+    openIdConnect_test:
+      description: openIdConnect
+      type: openIdConnect
+      openIdConnectUrl: "https://somesite.com/.well-known/openid-configuration"
   schemas:
     Items:
       description: component's name collides with the inner schema name

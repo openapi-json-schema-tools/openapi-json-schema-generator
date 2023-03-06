@@ -11,7 +11,7 @@ import typing_extensions
 import urllib3
 from urllib3._collections import HTTPHeaderDict
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client, exceptions, security_schemes
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
@@ -77,8 +77,13 @@ class RequestPathParameters:
     parameters = [
         parameter_1.Parameter1,
     ]
-_auth = [
-    'petstore_auth',
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {
+        "api_key": [],
+    },
+    {
+        "petstore_auth": ["write:pets", "read:pets", ],
+    },
 ]
 
 
@@ -167,7 +172,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='delete',
             headers=_headers,
-            auth_settings=_auth,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

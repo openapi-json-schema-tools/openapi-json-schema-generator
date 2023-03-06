@@ -2,16 +2,15 @@
 # **post_additionalproperties_can_exist_by_itself_response_body_for_content_types**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/responseBody/postAdditionalpropertiesCanExistByItselfResponseBodyForContentTypes"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/responseBody/postAdditionalpropertiesCanExistByItselfResponseBodyForContentTypes" |
+| HTTP Method | post |
 
 ## Return Types
 
@@ -43,22 +42,22 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesCanExistByItself](../../components/schemas/additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself.md#additionalproperties_can_exist_by_itself) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[AdditionalpropertiesCanExistByItself](../../components/schemas/additionalproperties_can_exist_by_itself.md#additionalproperties_can_exist_by_itself) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 
 ```python
 import unit_test_api
+from unit_test_api import configuration
 from unit_test_api.apis.tags import response_content_content_type_schema_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = unit_test_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "https://someserver.com/v1"
 )
-
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(configuration) as api_client:
+with unit_test_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = response_content_content_type_schema_api.ResponseContentContentTypeSchemaApi(api_client)
 

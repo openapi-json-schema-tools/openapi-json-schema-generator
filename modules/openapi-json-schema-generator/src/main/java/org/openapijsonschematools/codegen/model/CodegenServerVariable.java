@@ -8,14 +8,12 @@ public class CodegenServerVariable {
     public final String defaultValue;
     public final String description;
     public final List<String> enumValues;
-    public final String value;
 
-    public CodegenServerVariable(String name, String defaultValue, String description, List<String> enumValues, String value) {
+    public CodegenServerVariable(String name, String defaultValue, String description, List<String> enumValues) {
         this.name = name;
         this.defaultValue = defaultValue;
         this.description = description;
         this.enumValues = enumValues;
-        this.value = value;
     }
 
     @Override
@@ -26,14 +24,13 @@ public class CodegenServerVariable {
         return Objects.equals(name, that.name) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(enumValues, that.enumValues) &&
-                Objects.equals(value, that.value);
+                Objects.equals(enumValues, that.enumValues);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(name, defaultValue, description, enumValues, value);
+        return Objects.hash(name, defaultValue, description, enumValues);
     }
 
     @Override
@@ -43,7 +40,6 @@ public class CodegenServerVariable {
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", enumValues=").append(enumValues);
-        sb.append(", value='").append(value).append('\'');
         sb.append('}');
         return sb.toString();
     }

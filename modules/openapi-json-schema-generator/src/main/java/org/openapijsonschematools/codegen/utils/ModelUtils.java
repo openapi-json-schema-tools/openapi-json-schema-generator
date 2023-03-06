@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.parser.core.models.AuthorizationValue;
 import io.swagger.v3.parser.util.ClasspathHelper;
 import io.swagger.v3.parser.ObjectMapperFactory;
@@ -780,6 +781,24 @@ public class ModelUtils {
             }
         }
         return requestBody;
+    }
+
+    /**
+     * If a SecurityScheme contains a reference to an other SecurityScheme with '$ref', returns the referenced SecurityScheme if it is found or the actual SecurityScheme in the other cases.
+     *
+     * @param openAPI     specification being checked
+     * @param securityScheme potentially containing a '$ref'
+     * @return securityScheme without '$ref'
+     */
+    public static SecurityScheme getReferencedSecurityScheme(OpenAPI openAPI, SecurityScheme securityScheme) {
+        if (securityScheme != null && StringUtils.isNotEmpty(securityScheme.get$ref())) {
+            String name = getSimpleRef(securityScheme.get$ref());
+            SecurityScheme refSecurityScheme = openAPI.getComponents().getSecuritySchemes().get(name);
+            if (refSecurityScheme != null) {
+                return refSecurityScheme;
+            }
+        }
+        return securityScheme;
     }
 
     public static RequestBody getRequestBody(OpenAPI openAPI, String name) {

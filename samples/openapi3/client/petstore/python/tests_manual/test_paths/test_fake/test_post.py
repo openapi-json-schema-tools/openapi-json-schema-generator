@@ -18,10 +18,13 @@ from ... import ApiTestMixin
 
 
 class TestFake(ApiTestMixin, unittest.TestCase):
-    used_configuration = configuration.Configuration(
-        username='demo',
-        password='p@55w0rd'
+    auth_info = configuration.AuthInfo(
+        http_basic_test = configuration.security_scheme_http_basic_test.HttpBasicTest(
+            user_id='demo',
+            password='p@55w0rd'
+        )
     )
+    used_configuration = configuration.Configuration(auth_info=auth_info)
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )

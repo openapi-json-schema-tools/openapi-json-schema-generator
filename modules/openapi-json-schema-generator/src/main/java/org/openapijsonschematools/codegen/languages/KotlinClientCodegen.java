@@ -186,7 +186,10 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
             );
         }
         apiTemplateFiles.put("api.mustache", ".kt");
-        modelDocTemplateFiles.put("model_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                Collections.singletonMap("model_doc.mustache", ".md")
+        );
         apiDocTemplateFiles.put("api_doc.mustache", ".md");
         embeddedTemplateDir = templateDir = "kotlin-client";
         apiPackage = packageName + ".apis";
@@ -455,7 +458,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         }
 
         if (usesRetrofit2Library()) {
-            boolean hasOAuthMethods = ProcessUtils.hasOAuthMethods(openAPI);
+            boolean hasOAuthMethods = true;
 
             if (hasOAuthMethods) {
                 supportingFiles.add(new SupportingFile("auth/OAuth.kt.mustache", authFolder, "OAuth.kt"));

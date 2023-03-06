@@ -18,9 +18,12 @@ from ... import ApiTestMixin
 
 
 class TestFake(ApiTestMixin, unittest.TestCase):
-    used_configuration = configuration.Configuration(
-        access_token='someBearerToken'
+    auth_info = configuration.AuthInfo(
+        bearer_test=configuration.security_scheme_bearer_test.BearerTest(
+            access_token='someAccessToken'
+        )
     )
+    used_configuration = configuration.Configuration(auth_info=auth_info)
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )
@@ -46,7 +49,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
             content_type=None,
             accept_content_type=None,
             headers={
-                'Authorization': 'Bearer someBearerToken',
+                'Authorization': 'Bearer someAccessToken',
                 'required_boolean_group': 'true'
             }
         )

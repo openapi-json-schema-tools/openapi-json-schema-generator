@@ -622,7 +622,7 @@ public class DefaultGeneratorTest {
         generator.generateApis(files, allOperations, schemas, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null);
+                allOperations, schemas, null, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "");
         Assert.assertEquals(servers.get(1).url, "http://trailingshlash.io:80/v1");
@@ -648,7 +648,7 @@ public class DefaultGeneratorTest {
         generator.generateApis(files, allOperations, schemas, paths);
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null);
+                allOperations, schemas, null, null, null, null, null);
         LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(servers.get(0).url, "/relative/url");
     }

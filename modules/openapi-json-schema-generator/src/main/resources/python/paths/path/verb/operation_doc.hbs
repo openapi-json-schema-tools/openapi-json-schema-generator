@@ -3,38 +3,27 @@
 {{headerSize}} **{{{operationId.snakeCase}}}**
 
 {{headerSize}}# Table of Contents
-{{#if summary}}
-- [Summary](#summary)
-{{/if}}
-{{#if description}}
-- [Description](#description)
-{{/if}}
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#arguments)
 {{/or}}
 - [Return Types](#return-types)
-{{#if authMethods}}
-- [Authorization](#authorization)
+{{#if security}}
+- [Security](#security)
 {{/if}}
 - [Code Sample](#code-sample)
-{{#if summary}}
 
-{{headerSize}}# Summary
-{{{summary}}}
+{{headerSize}}# General Info
+| Field | Value |
+| ----- | ----- |
+{{#if summary}}
+| Summary | {{{summary}}} |
 {{/if}}
 {{#if description}}
-
-{{headerSize}}# Description
-{{{description}}}
+| Description | {{{description}}} |
 {{/if}}
-
-{{headerSize}}# Path
-"{{{path.original}}}"
-
-{{headerSize}}# HTTP Method
-{{{httpMethod.original}}}
+| Path | "{{{path.original}}}" |
+| HTTP Method | {{{httpMethod.original}}} |
 {{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 {{headerSize}}# Arguments
@@ -102,54 +91,44 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
-{{#with defaultResponse}}
-{{#if refInfo}}
+    {{#with defaultResponse}}
+        {{#if refInfo}}
 default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
-{{else}}
+        {{else}}
 default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
-{{/if}}
-{{/with}}
+        {{/if}}
+    {{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
-{{#if refInfo}}
+    {{#if refInfo}}
 {{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
-{{else}}
+    {{else}}
 {{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
-{{/if}}
+    {{/if}}
 {{/each}}
 {{#each responses}}
-{{#unless refInfo.refModule}}
+    {{#unless refInfo.refModule}}
 
 {{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "responses" jsonPathPiece) }}
-{{/unless}}
+    {{/unless}}
 {{/each}}
-{{#if authMethods}}
+{{#if security}}
 
-{{headerSize}}# Authorization
+{{headerSize}}# Security
 
-{{#each authMethods}}[{{{name}}}](../../../../README.md#{{{name}}}){{#unless @last}}, {{/unless}}{{/each}}
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+    {{#each security}}
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+    {{/each}}
 {{/if}}
 
 {{headerSize}}# Code Sample
 
-{{#if authMethods}}
-{{#each authMethods}}
-{{#if isBasic}}
-{{#if isBasicBasic}}
-* Basic Authentication ({{name}}):
-{{/if}}
-{{#if isBasicBearer}}
-* Bearer{{#if bearerFormat}} ({{{bearerFormat}}}){{/if}} Authentication ({{name}}):
-{{/if}}
-{{/if}}
-{{#if isApiKey}}
-* Api Key Authentication ({{name}}):
-{{/if}}
-{{#if isOAuth}}
-* OAuth Authentication ({{name}}):
-{{/if}}
-{{/each}}
-{{/if}}
 {{> paths/path/verb/_helper_operation_doc_example }}
 
 [[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}

@@ -2,21 +2,17 @@
 # **create_users_with_list_input**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-Creates list of users with given input array
-
-## Path
-"/user/createWithList"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Creates list of users with given input array |
+| Path | "/user/createWithList" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -51,16 +47,16 @@ headers | Unset | headers were not defined |
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import user_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 

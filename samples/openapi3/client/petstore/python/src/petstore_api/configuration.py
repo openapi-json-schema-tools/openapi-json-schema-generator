@@ -15,10 +15,31 @@ import logging
 import multiprocessing
 import sys
 import typing
+import typing_extensions
 
 import urllib3
 
-from petstore_api.exceptions import ApiValueError
+from petstore_api import exceptions
+from petstore_api.components.security_schemes import security_scheme_api_key
+from petstore_api.components.security_schemes import security_scheme_api_key_query
+from petstore_api.components.security_schemes import security_scheme_bearer_test
+from petstore_api.components.security_schemes import security_scheme_http_basic_test
+from petstore_api.components.security_schemes import security_scheme_http_signature_test
+from petstore_api.components.security_schemes import security_scheme_open_id_connect_test
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
+AuthInfo = typing_extensions.TypedDict(
+    'AuthInfo',
+    {
+        'api_key': security_scheme_api_key.ApiKey,
+        'api_key_query': security_scheme_api_key_query.ApiKeyQuery,
+        'bearer_test': security_scheme_bearer_test.BearerTest,
+        'http_basic_test': security_scheme_http_basic_test.HttpBasicTest,
+        'http_signature_test': security_scheme_http_signature_test.HttpSignatureTest,
+        'openIdConnect_test': security_scheme_open_id_connect_test.OpenIdConnectTest,
+        'petstore_auth': security_scheme_petstore_auth.PetstoreAuth,
+    }
+)
 
 
 PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
@@ -59,15 +80,10 @@ class Configuration(object):
     Do not edit the class manually.
 
     :param host: Base url
-    :param api_key: Dict to store API key(s).
-      Each entry in the dict specifies an API key.
-      The dict key is the name of the security scheme in the OAS specification.
-      The dict value is the API key secret.
-    :param api_key_prefix: Dict to store API prefix (e.g. Bearer)
-      The dict key is the name of the security scheme in the OAS specification.
-      The dict value is an API key prefix when generating the auth data.
-    :param username: Username for HTTP basic authentication
-    :param password: Password for HTTP basic authentication
+    :param auth_info: The security scheme auth info to use when calling endpoints
+      The key is a string that identifies the component security scheme that one is adding auth info for
+      The value is an instance of the component security scheme class for that security scheme.
+      See the AuthInfo TypedDict definition
     :param disabled_json_schema_keywords (set): Set of
       JSON schema validation keywords to disable JSON schema structural validation
       rules. The following keywords may be specified: multipleOf, maximum,
@@ -81,8 +97,6 @@ class Configuration(object):
       disabled. This can be useful to troubleshoot data validation problem, such as
       when the OpenAPI document validation rules do not match the actual API data
       received by the server.
-    :param signing_info: Configuration parameters for the HTTP signature security scheme.
-        Must be an instance of petstore_api.signing.HttpSigningConfiguration
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -92,104 +106,23 @@ class Configuration(object):
     :param server_operation_variables: Mapping from operation ID to a mapping with
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
-
-    :Example:
-
-    API Key Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          cookieAuth:         # name for the security scheme
-            type: apiKey
-            in: cookie
-            name: JSESSIONID  # cookie name
-
-    You can programmatically set the cookie:
-
-conf = petstore_api.Configuration(
-    api_key={'cookieAuth': 'abc123'}
-    api_key_prefix={'cookieAuth': 'JSESSIONID'}
-)
-
-    The following cookie will be added to the HTTP request:
-       Cookie: JSESSIONID abc123
-
-    HTTP Basic Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          http_basic_auth:
-            type: http
-            scheme: basic
-
-    Configure API client with HTTP basic authentication:
-
-conf = petstore_api.Configuration(
-    username='the-user',
-    password='the-password',
-)
-
-
-    HTTP Signature Authentication Example.
-    Given the following security scheme in the OpenAPI specification:
-      components:
-        securitySchemes:
-          http_basic_auth:
-            type: http
-            scheme: signature
-
-    Configure API client with HTTP signature authentication. Use the 'hs2019' signature scheme,
-    sign the HTTP requests with the RSA-SSA-PSS signature algorithm, and set the expiration time
-    of the signature to 5 minutes after the signature has been created.
-    Note you can use the constants defined in the petstore_api.signing module, and you can
-    also specify arbitrary HTTP headers to be included in the HTTP signature, except for the
-    'Authorization' header, which is used to carry the signature.
-
-    One may be tempted to sign all headers by default, but in practice it rarely works.
-    This is beccause explicit proxies, transparent proxies, TLS termination endpoints or
-    load balancers may add/modify/remove headers. Include the HTTP headers that you know
-    are not going to be modified in transit.
-
-conf = petstore_api.Configuration(
-    signing_info = petstore_api.signing.HttpSigningConfiguration(
-        key_id =                 'my-key-id',
-        private_key_path =       'rsa.pem',
-        signing_scheme =         petstore_api.signing.SCHEME_HS2019,
-        signing_algorithm =      petstore_api.signing.ALGORITHM_RSASSA_PSS,
-        signed_headers =         [petstore_api.signing.HEADER_REQUEST_TARGET,
-                                    petstore_api.signing.HEADER_CREATED,
-                                    petstore_api.signing.HEADER_EXPIRES,
-                                    petstore_api.signing.HEADER_HOST,
-                                    petstore_api.signing.HEADER_DATE,
-                                    petstore_api.signing.HEADER_DIGEST,
-                                    'Content-Type',
-                                    'User-Agent'
-                                    ],
-        signature_max_validity = datetime.timedelta(minutes=5)
-    )
-)
     """
 
     _default = None
 
     def __init__(
         self,
-        host=None,
-        api_key=None,
-        api_key_prefix=None,
-        username=None,
-        password=None,
-        disabled_json_schema_keywords=frozenset(),
-        signing_info=None,
-        server_index=None,
-        server_variables=None,
-        server_operation_index=None,
-        server_operation_variables=None,
-        access_token=None,
+        host: typing.Optional[str] = None,
+        auth_info: typing.Optional[AuthInfo] = None,
+        disabled_json_schema_keywords = frozenset(),
+        server_index: typing.Optional[int] = None,
+        server_variables = None,
+        server_operation_index = None,
+        server_operation_variables = None,
     ):
         """Constructor
         """
-        self._base_path = "http://petstore.swagger.io:80/v2" if host is None else host
+        self._base_path = host or "http://petstore.swagger.io:80/v2"
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -204,32 +137,8 @@ conf = petstore_api.Configuration(
         """Temp file folder for downloading files
         """
         # Authentication Settings
-        self.api_key = {}
-        if api_key:
-            self.api_key = api_key
-        """dict to store API key(s)
-        """
-        self.api_key_prefix = {}
-        if api_key_prefix:
-            self.api_key_prefix = api_key_prefix
-        """dict to store API prefix (e.g. Bearer)
-        """
-        self.refresh_api_key_hook = None
-        """function hook to refresh API key if expired
-        """
-        self.username = username
-        """Username for HTTP basic authentication
-        """
-        self.password = password
-        """Password for HTTP basic authentication
-        """
+        self.auth_info = auth_info or AuthInfo()
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
-        self.signing_info = signing_info
-        """The HTTP signing configuration
-        """
-        self.access_token = access_token
-        """access token for OAuth/Bearer
-        """
         self.logger = {}
         """Logging Settings
         """
@@ -324,24 +233,12 @@ conf = petstore_api.Configuration(
         for k in json_keywords:
             python_keywords = {key for key, val in PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD.items() if val == k}
             if not python_keywords:
-                raise ApiValueError(
+                raise exceptions.ApiValueError(
                     "Invalid keyword: '{0}''".format(k))
             disabled_json_schema_keywords.add(k)
             disabled_json_schema_python_keywords.update(python_keywords)
         self.__disabled_json_schema_keywords = disabled_json_schema_keywords
         self.__disabled_json_schema_python_keywords = disabled_json_schema_python_keywords
-
-    @property
-    def signing_info(self) -> typing.Optional['HttpSigningConfiguration']:
-        return self.__signing_info
-
-    @signing_info.setter
-    def signing_info(self, value: typing.Optional['HttpSigningConfiguration']):
-        if value is not None:
-            # Ensure the host paramater from signing info is the same as
-            # Configuration.host.
-            value.host = self.host
-        self.__signing_info = value
 
     @classmethod
     def set_default(cls, default):
@@ -453,93 +350,6 @@ conf = petstore_api.Configuration(
         self.__logger_format = value
         self.logger_formatter = logging.Formatter(self.__logger_format)
 
-    def get_api_key_with_prefix(self, identifier, alias=None):
-        """Gets API key (with prefix if set).
-
-        :param identifier: The identifier of apiKey.
-        :param alias: The alternative identifier of apiKey.
-        :return: The token for api key authentication.
-        """
-        if self.refresh_api_key_hook is not None:
-            self.refresh_api_key_hook(self)
-        key = self.api_key.get(identifier, self.api_key.get(alias) if alias is not None else None)
-        if key:
-            prefix = self.api_key_prefix.get(identifier)
-            if prefix:
-                return "%s %s" % (prefix, key)
-            else:
-                return key
-
-    def get_basic_auth_token(self):
-        """Gets HTTP basic authentication header (string).
-
-        :return: The token for basic HTTP authentication.
-        """
-        username = ""
-        if self.username is not None:
-            username = self.username
-        password = ""
-        if self.password is not None:
-            password = self.password
-        return urllib3.util.make_headers(
-            basic_auth=username + ':' + password
-        ).get('authorization')
-
-    def auth_settings(self):
-        """Gets Auth Settings dict for api client.
-
-        :return: The Auth Settings information dict.
-        """
-        auth = {}
-        if 'api_key' in self.api_key:
-            auth['api_key'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'api_key',
-                'value': self.get_api_key_with_prefix(
-                    'api_key',
-                ),
-            }
-        if 'api_key_query' in self.api_key:
-            auth['api_key_query'] = {
-                'type': 'api_key',
-                'in': 'query',
-                'key': 'api_key_query',
-                'value': self.get_api_key_with_prefix(
-                    'api_key_query',
-                ),
-            }
-        if self.access_token is not None:
-            auth['bearer_test'] = {
-                'type': 'bearer',
-                'in': 'header',
-                'format': 'JWT',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
-        if self.username is not None and self.password is not None:
-            auth['http_basic_test'] = {
-                'type': 'basic',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': self.get_basic_auth_token()
-            }
-        if self.signing_info is not None:
-            auth['http_signature_test'] = {
-                'type': 'http-signature',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': None  # Signature headers are calculated for every HTTP request
-            }
-        if self.access_token is not None:
-            auth['petstore_auth'] = {
-                'type': 'oauth2',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
-        return auth
-
     def to_debug_report(self):
         """Gets the essential information for debugging.
 
@@ -597,7 +407,12 @@ conf = petstore_api.Configuration(
             }
         ]
 
-    def get_host_from_settings(self, index, variables=None, servers=None):
+    def get_host_from_settings(
+        self,
+        index: typing.Optional[int],
+        variables: typing.Optional[typing.Dict[str, dict]] = None,
+        servers: typing.Optional[typing.List[dict]] = None
+    ) -> str:
         """Gets host URL based on the index and variables
         :param index: array index of the host settings
         :param variables: hash of variable and the corresponding value
@@ -607,8 +422,8 @@ conf = petstore_api.Configuration(
         if index is None:
             return self._base_path
 
-        variables = {} if variables is None else variables
-        servers = self.get_host_settings() if servers is None else servers
+        variables = variables or {}
+        servers = servers or self.get_host_settings()
 
         try:
             server = servers[index]
@@ -637,7 +452,7 @@ conf = petstore_api.Configuration(
         return url
 
     @property
-    def host(self):
+    def host(self) -> str:
         """Return generated host."""
         return self.get_host_from_settings(self.server_index, variables=self.server_variables)
 

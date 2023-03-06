@@ -2,21 +2,17 @@
 # **object_model_with_ref_props**
 
 ## Table of Contents
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Description
-Test serialization of object with $refed properties
-
-## Path
-"/fake/refs/object_model_with_ref_props"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Description | Test serialization of object with $refed properties |
+| Path | "/fake/refs/object_model_with_ref_props" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -44,7 +40,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.ObjectModelWithRefProps.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 
@@ -76,22 +72,22 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.ObjectModelWithRefProps.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ObjectModelWithRefProps](../../components/schemas/object_model_with_ref_props.md#object_model_with_ref_props) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 

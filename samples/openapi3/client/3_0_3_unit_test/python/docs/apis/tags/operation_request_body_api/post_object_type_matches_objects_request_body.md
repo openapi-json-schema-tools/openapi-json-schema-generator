@@ -2,17 +2,16 @@
 # **post_object_type_matches_objects_request_body**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/requestBody/postObjectTypeMatchesObjectsRequestBody"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/requestBody/postObjectTypeMatchesObjectsRequestBody" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -36,7 +35,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectTypeMatchesObjects](../../components/schemas/object_type_matches_objects.ObjectTypeMatchesObjects.md#object_type_matches_objects) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ObjectTypeMatchesObjects](../../components/schemas/object_type_matches_objects.md#object_type_matches_objects) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Return Types
 
@@ -61,16 +60,16 @@ headers | Unset | headers were not defined |
 
 ```python
 import unit_test_api
+from unit_test_api import configuration
 from unit_test_api.apis.tags import operation_request_body_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = unit_test_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "https://someserver.com/v1"
 )
-
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(configuration) as api_client:
+with unit_test_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 

@@ -49,6 +49,7 @@ from petstore_api.apis.paths.fake_json_patch import FakeJsonPatch
 from petstore_api.apis.paths.fake_delete_coffee_id import FakeDeleteCoffeeId
 from petstore_api.apis.paths.fake_query_param_with_json_content_type import FakeQueryParamWithJsonContentType
 from petstore_api.apis.paths.fake_multiple_response_bodies import FakeMultipleResponseBodies
+from petstore_api.apis.paths.fake_multiple_securities import FakeMultipleSecurities
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
@@ -102,6 +103,7 @@ PathToApi = typing_extensions.TypedDict(
         "/fake/deleteCoffee/{id}": FakeDeleteCoffeeId,
         "/fake/queryParamWithJsonContentType": FakeQueryParamWithJsonContentType,
         "/fake/multipleResponseBodies": FakeMultipleResponseBodies,
+        "/fake/multipleSecurities": FakeMultipleSecurities,
     }
 )
 
@@ -156,5 +158,6 @@ path_to_api = PathToApi(
         "/fake/deleteCoffee/{id}": FakeDeleteCoffeeId,
         "/fake/queryParamWithJsonContentType": FakeQueryParamWithJsonContentType,
         "/fake/multipleResponseBodies": FakeMultipleResponseBodies,
+        "/fake/multipleSecurities": FakeMultipleSecurities,
     }
 )

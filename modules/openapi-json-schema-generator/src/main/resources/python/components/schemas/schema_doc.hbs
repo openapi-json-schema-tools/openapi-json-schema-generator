@@ -17,7 +17,7 @@
 {{#if refInfo}}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.{{refInfo.refClass}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
+[{{refInfo.refClass}}](../../components/schemas/{{refInfo.refModule}}.md#{{refInfo.refModule}}) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
 {{else}}
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

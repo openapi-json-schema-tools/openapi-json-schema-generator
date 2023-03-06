@@ -49,7 +49,7 @@ import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
@@ -2102,11 +2102,15 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents().getSecuritySchemes();
-        final List<CodegenSecurity> securities = codegen.fromSecurity(securitySchemes);
-
-        assertEquals(securities.size(), 2);
-        final List<String> flows = securities.stream().map(c -> c.flow).collect(Collectors.toList());
-        assertTrue(flows.containsAll(Arrays.asList("password", "application")));
+        HashMap<String, CodegenSecurityScheme> securities = new HashMap<>();
+        for (Map.Entry<String, SecurityScheme> entry: securitySchemes.entrySet()) {
+            String componentName = entry.getKey();
+            CodegenSecurityScheme cs = codegen.fromSecurityScheme(entry.getValue(), "#/components/securitySchemes/" + componentName);
+            securities.put(componentName, cs);
+            assertNotNull(cs.flows.password);
+            assertNotNull(cs.flows.clientCredentials);
+        }
+        assertEquals(securities.size(), 1);
     }
 
     @Test

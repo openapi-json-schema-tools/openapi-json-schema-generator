@@ -4,6 +4,9 @@
 
 {{#with response}}
 {{#if refInfo}}
+    {{#if imports}}
+
+    {{/if}}
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}

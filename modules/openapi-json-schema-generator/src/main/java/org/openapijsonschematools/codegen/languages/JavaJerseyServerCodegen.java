@@ -24,6 +24,8 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 
+import java.util.Map;
+
 public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
 
     protected static final String LIBRARY_JERSEY1 = "jersey1";
@@ -49,9 +51,13 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         // clear model and api doc template as this codegen
         // does not support auto-generated markdown doc at the moment
         //TODO: add doc templates
-        modelDocTemplateFiles.remove("model_doc.mustache");
+        Map<String, String> modelDocTemplates = jsonPathDocTemplateFiles.get(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
+        );
+        if (modelDocTemplates != null) {
+            modelDocTemplates.remove("model_doc.mustache");
+        }
         apiDocTemplateFiles.remove("api_doc.mustache");
-
         embeddedTemplateDir = templateDir = JAXRS_TEMPLATE_DIRECTORY_NAME;
 
         CliOption library = new CliOption(CodegenConstants.LIBRARY, CodegenConstants.LIBRARY_DESC).defaultValue(DEFAULT_JERSEY_LIBRARY);

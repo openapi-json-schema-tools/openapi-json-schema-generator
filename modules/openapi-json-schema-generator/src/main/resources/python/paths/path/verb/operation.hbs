@@ -11,8 +11,11 @@ from urllib3._collections import HTTPHeaderDict
 {{/or}}
 {{/with}}
 
-from {{packageName}} import api_client, exceptions
+from {{packageName}} import api_client, exceptions{{#if operation.security}}, security_schemes{{/if}}
 {{> _helper_imports_schema_types }}
+{{#if imports}}
+
+{{/if}}
 {{> _helper_imports }}
 {{#with operation}}
 
@@ -44,15 +47,23 @@ from .parameters import {{jsonPathPiece.snakeCase}}
     {{/if}}
 {{/or}}
 {{#unless isStub}}
-{{#each authMethods}}
-{{#if @first}}
+{{#each security}}
+    {{#if @first}}
 
-_auth = [
-{{/if}}
-    '{{name}}',
-{{#if @last}}
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {{/if}}
+        {{#if this}}
+    {
+            {{#each this}}
+        "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
+            {{/each}}
+    },
+        {{else}}
+    {},
+        {{/if}}
+    {{#if @last}}
 ]
-{{/if}}
+    {{/if}}
 {{/each}}
 {{#each servers}}
 {{#if @first}}
@@ -262,8 +273,8 @@ class BaseApi(api_client.Api):
             fields=_fields,
             body=_body,
     {{/if}}
-    {{#if authMethods}}
-            auth_settings=_auth,
+    {{#if security}}
+            security=_security,
     {{/if}}
     {{#if servers}}
             host=host,

@@ -2,16 +2,15 @@
 # **foo_get**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/foo"
-
-## HTTP Method
-get
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/foo" |
+| HTTP Method | get |
 
 ## Return Types
 
@@ -48,23 +47,23 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**string** | [**Foo**](../../../components/schema/foo.Foo.md) | [**Foo**](../../../components/schema/foo.Foo.md) |  | [optional]
+**string** | [**Foo**](../../../components/schema/foo.md) | [**Foo**](../../../components/schema/foo.md) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Code Sample
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import default_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
 

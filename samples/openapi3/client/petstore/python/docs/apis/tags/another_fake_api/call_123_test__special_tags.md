@@ -2,25 +2,18 @@
 # **call_123_test__special_tags**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Summary
-To test special tags
-
-## Description
-To test special tags and operation ID starting with number
-
-## Path
-"/another-fake/dummy"
-
-## HTTP Method
-patch
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | To test special tags |
+| Description | To test special tags and operation ID starting with number |
+| Path | "/another-fake/dummy" |
+| HTTP Method | patch |
 
 ## Arguments
 
@@ -63,22 +56,22 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../components/schemas/client.Client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Client](../../components/schemas/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import another_fake_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = another_fake_api.AnotherFakeApi(api_client)
 

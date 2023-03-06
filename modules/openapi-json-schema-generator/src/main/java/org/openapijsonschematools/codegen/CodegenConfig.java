@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
@@ -35,7 +36,8 @@ import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.model.CodegenSecurity;
+import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
+import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.OperationsMap;
@@ -44,6 +46,7 @@ import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -86,21 +89,11 @@ public interface CodegenConfig {
 
     String modelTestFileFolder();
 
-    String modelDocFileFolder();
-
-    String requestBodyDocFileFolder();
-
-    String headerDocFileFolder();
-
-    String parameterDocFileFolder();
-
     String modelPackage();
 
     String modelPackagePathFragment();
 
     String packageName();
-
-    String responseDocFileFolder();
 
     String toApiName(String name);
 
@@ -144,7 +137,9 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
 
-    List<CodegenSecurity> fromSecurity(Map<String, SecurityScheme> schemas);
+    CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
+
+    HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
     List<CodegenServer> fromServers(List<Server> servers);
 
@@ -168,25 +163,17 @@ public interface CodegenConfig {
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
 
-    Map<String, String> requestBodyDocTemplateFiles();
-
-    Map<String, String> headerDocTemplateFiles();
-
-    Map<String, String> parameterDocTemplateFiles();
+    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
 
     Set<String> pathEndpointDocTemplateFiles();
-
-    Map<String, String> responseDocTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
 
     Map<String, String> apiDocTemplateFiles();
-
-    Map<String, String> modelDocTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
 
@@ -212,15 +199,7 @@ public interface CodegenConfig {
 
     String toApiDocFilename(String name);
 
-    String toModelDocFilename(String name);
-
     String toRequestBodyFilename(String componentName);
-
-    String toRequestBodyDocFilename(String componentName);
-
-    String toResponseDocFilename(String componentName);
-
-    String toHeaderDocFilename(String componentName);
 
     String toHeaderFilename(String componentName);
 
@@ -228,7 +207,7 @@ public interface CodegenConfig {
 
     String toParameterFilename(String baseName);
 
-    String toParameterDocFilename(String componentName);
+    String toSecuritySchemeFilename(String baseName);
 
     String toModelImport(String refClass);
 
@@ -254,6 +233,8 @@ public interface CodegenConfig {
 
     // handles almost all files to be written
     String getFilepath(String jsonPath);
+
+    String getDocsFilepath(String jsonPath);
 
     String apiFilename(String templateName, String tag);
 

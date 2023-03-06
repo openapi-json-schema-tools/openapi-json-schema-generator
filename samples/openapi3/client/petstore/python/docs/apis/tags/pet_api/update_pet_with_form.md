@@ -2,22 +2,18 @@
 # **update_pet_with_form**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-Updates a pet in the store with form data
-
-## Path
-"/pet/{petId}"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | Updates a pet in the store with form data |
+| Path | "/pet/{petId}" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -90,35 +86,51 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## Authorization
+## Security
 
-[petstore_auth](../../../../README.md#petstore_auth)
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Code Sample
 
-* OAuth Authentication (petstore_auth):
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import pet_api
 from pprint import pprint
+# security_index 0
+from petstore_api.components.security_schemes import security_scheme_api_key
+# security_index 1
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
+
+# auth_info for security_index 0
+auth_info: configuration.AuthInfo = {
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
+# auth_info for security_index 1
+auth_info: configuration.AuthInfo = {
+    "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
+    ),
+}
+
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: petstore_auth
-configuration = petstore_api.Configuration(
-    host = "http://petstore.swagger.io:80/v2",
-    access_token = 'YOUR_ACCESS_TOKEN'
+    auth_info = auth_info
 )
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 

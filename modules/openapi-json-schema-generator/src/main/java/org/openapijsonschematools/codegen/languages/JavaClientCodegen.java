@@ -445,7 +445,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
         //TODO: add auto-generated doc to feign
         if (FEIGN.equals(getLibrary())) {
-            modelDocTemplateFiles.remove("model_doc.mustache");
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
+            ).remove("model_doc.mustache");
             apiDocTemplateFiles.remove("api_doc.mustache");
             //Templates to decode response headers
             supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));
@@ -657,7 +659,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
         // authentication related files
         // has OAuth defined
-        if (ProcessUtils.hasOAuthMethods(openAPI)) {
+        if (true) {
             // for okhttp-gson (default), check to see if OAuth is defined and included OAuth-related files accordingly
             if ((OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary()))) {
                 supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));

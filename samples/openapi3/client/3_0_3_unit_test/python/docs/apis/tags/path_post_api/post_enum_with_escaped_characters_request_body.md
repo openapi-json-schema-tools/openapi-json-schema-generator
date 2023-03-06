@@ -2,17 +2,16 @@
 # **post_enum_with_escaped_characters_request_body**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/requestBody/postEnumWithEscapedCharactersRequestBody"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/requestBody/postEnumWithEscapedCharactersRequestBody" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -36,7 +35,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWithEscapedCharacters](../../components/schemas/enum_with_escaped_characters.EnumWithEscapedCharacters.md#enum_with_escaped_characters) | str,  | str,  |
+[EnumWithEscapedCharacters](../../components/schemas/enum_with_escaped_characters.md#enum_with_escaped_characters) | str,  | str,  |
 
 ## Return Types
 
@@ -61,16 +60,16 @@ headers | Unset | headers were not defined |
 
 ```python
 import unit_test_api
+from unit_test_api import configuration
 from unit_test_api.apis.tags import path_post_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://someserver.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = unit_test_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "https://someserver.com/v1"
 )
-
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(configuration) as api_client:
+with unit_test_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = path_post_api.PathPostApi(api_client)
 

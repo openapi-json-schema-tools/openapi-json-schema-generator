@@ -2,26 +2,19 @@
 # **classname**
 
 ## Table of Contents
-- [Summary](#summary)
-- [Description](#description)
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-- [Authorization](#authorization)
+- [Security](#security)
 - [Code Sample](#code-sample)
 
-## Summary
-To test class name in snake case
-
-## Description
-To test class name in snake case
-
-## Path
-"/fake_classname_test"
-
-## HTTP Method
-patch
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Summary | To test class name in snake case |
+| Description | To test class name in snake case |
+| Path | "/fake_classname_test" |
+| HTTP Method | patch |
 
 ## Arguments
 
@@ -64,37 +57,44 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../components/schemas/client.Client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Client](../../components/schemas/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
-## Authorization
+## Security
 
-[api_key_query](../../../../README.md#api_key_query)
+Set auth info by setting Configuration.auth_info to a dict where the
+key is the below security schema quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key_query"](../../../components/security_schemes/security_scheme_api_key_query.md) []<br> |
 
 ## Code Sample
 
-* Api Key Authentication (api_key_query):
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import fake_classname_tags123_api
 from pprint import pprint
+# security_index 0
+from petstore_api.components.security_schemes import security_scheme_api_key_query
+
+
+# auth_info for security_index 0
+auth_info: configuration.AuthInfo = {
+    "api_key_query": security_scheme_api_key_query.ApiKeyQuery(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
+    auth_info = auth_info
 )
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: api_key_query
-configuration.api_key['api_key_query'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api_key_query'] = 'Bearer'
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 

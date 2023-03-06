@@ -11,7 +11,7 @@ import typing_extensions
 import urllib3
 from urllib3._collections import HTTPHeaderDict
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client, exceptions, security_schemes
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
@@ -31,9 +31,16 @@ from .responses import response_405
 from . import request_body
 
 
-_auth = [
-    'http_signature_test',
-    'petstore_auth',
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    {
+        "api_key": [],
+    },
+    {
+        "http_signature_test": [],
+    },
+    {
+        "petstore_auth": ["write:pets", "read:pets", ],
+    },
 ]
 
 _servers = (
@@ -166,7 +173,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
-            auth_settings=_auth,
+            security=_security,
             host=host,
             stream=stream,
             timeout=timeout,

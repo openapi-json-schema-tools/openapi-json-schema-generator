@@ -10,7 +10,7 @@ from dataclasses import dataclass
 import typing_extensions
 import urllib3
 
-from petstore_api import api_client, exceptions
+from petstore_api import api_client, exceptions, security_schemes
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
@@ -117,7 +117,7 @@ class BaseApi(api_client.Api):
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
-            auth_settings=_auth,
+            security=_security,
             stream=stream,
             timeout=timeout,
         )

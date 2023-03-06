@@ -19,6 +19,6 @@ list, tuple,  | tuple,  |  |
 ### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) | [**User**](../../components/schema/user.User.md) |  |
+[**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)
