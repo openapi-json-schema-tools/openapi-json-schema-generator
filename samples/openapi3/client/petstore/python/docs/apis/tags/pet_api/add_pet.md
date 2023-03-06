@@ -63,16 +63,61 @@ component security scheme class. See how to do this in the code sample.
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import pet_api
 from pprint import pprint
+# security_index 0
+from petstore_api.components.security_schemes import security_scheme_api_key
+# security_index 1
+from petstore_api.components.security_schemes import security_scheme_http_signature_test
+# security_index 2
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
+
+# auth_info for security_index 0
+auth_info: configuration.AuthInfo = {
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
+# auth_info for security_index 1
+auth_info: configuration.AuthInfo = {
+    "http_signature_test": security_scheme_http_signature_test.HttpSignatureTest(
+        signing_info=petstore_api.signing.HttpSigningConfiguration(
+            key_id =                 'my-key-id',
+            private_key_path =       'rsa.pem',
+            signing_scheme =         petstore_api.signing.SCHEME_HS2019,
+            signing_algorithm =      petstore_api.signing.ALGORITHM_RSASSA_PSS,
+            signed_headers =         [petstore_api.signing.HEADER_REQUEST_TARGET,
+                                        petstore_api.signing.HEADER_CREATED,
+                                        petstore_api.signing.HEADER_EXPIRES,
+                                        petstore_api.signing.HEADER_HOST,
+                                        petstore_api.signing.HEADER_DATE,
+                                        petstore_api.signing.HEADER_DIGEST,
+                                        'Content-Type',
+                                        'User-Agent'
+                                        ],
+            signature_max_validity = datetime.timedelta(minutes=5)
+        )
+
+    ),
+}
+
+# auth_info for security_index 2
+auth_info: configuration.AuthInfo = {
+    "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
+    ),
+}
+
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
+    auth_info = auth_info
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 

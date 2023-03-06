@@ -1,5 +1,6 @@
 ```python
 import {{{packageName}}}
+from {{packageName}} import configuration
 {{#if tag}}
 from {{packageName}}.{{apiPackage}}.tags import {{tag.moduleName}}
 {{else}}
@@ -13,9 +14,9 @@ from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
 {{{.}}}
 {{/each}}
 from pprint import pprint
-{{> paths/path/verb/_helper_doc_auth_partial }}
+{{> paths/path/verb/_helper_operation_doc_auth_partial }}
 # Enter a context with an instance of the API client
-with {{{packageName}}}.ApiClient(configuration) as api_client:
+with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
 {{#if tag}}
     api_instance = {{tag.moduleName}}.{{tag.className}}(api_client)

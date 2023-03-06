@@ -62,16 +62,45 @@ component security scheme class. See how to do this in the code sample.
 
 ```python
 import petstore_api
+from petstore_api import configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
+# security_index 1
+from petstore_api.components.security_schemes import security_scheme_http_basic_test
+from petstore_api.components.security_schemes import security_scheme_api_key
+# security_index 2
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
+
+
+# auth_info for security_index 0
+# no auth required for this security_index
+auth_info: configuration.AuthInfo = {}
+
+# auth_info for security_index 1
+auth_info: configuration.AuthInfo = {
+    "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
+        user_id='someUserIdOrName',
+        password='somePassword',
+    ),
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
+# auth_info for security_index 2
+auth_info: configuration.AuthInfo = {
+    "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
+    ),
+}
+
 # Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = petstore_api.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://petstore.swagger.io:80/v2"
+    auth_info = auth_info
 )
-
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
