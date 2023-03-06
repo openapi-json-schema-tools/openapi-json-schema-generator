@@ -2,17 +2,16 @@
 # **post_operators**
 
 ## Table of Contents
-- [Path](#path)
-- [HTTP Method](#http-method)
+- [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Code Sample](#code-sample)
 
-## Path
-"/operators"
-
-## HTTP Method
-post
+## General Info
+| Field | Value |
+| ----- | ----- |
+| Path | "/operators" |
+| HTTP Method | post |
 
 ## Arguments
 
@@ -61,16 +60,16 @@ headers | Unset | headers were not defined |
 
 ```python
 import this_package
+from this_package import configuration
 from this_package.apis.tags import default_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:3000
 # See configuration.py for a list of all supported configuration parameters.
-configuration = this_package.Configuration(
+used_configuration = configuration.Configuration(
     host = "http://localhost:3000"
 )
-
 # Enter a context with an instance of the API client
-with this_package.ApiClient(configuration) as api_client:
+with this_package.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
 
