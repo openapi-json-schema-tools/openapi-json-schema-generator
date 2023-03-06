@@ -13,7 +13,7 @@ security_schemes.HTTPSchemeType.BEARER
 ## Bearer Format
 "JWT"
 
-## bearer_token
+## access_token
 Type | Notes
 ---- | ------
 str  | Set by the developer

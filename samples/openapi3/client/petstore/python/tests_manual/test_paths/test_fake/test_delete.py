@@ -20,7 +20,7 @@ from ... import ApiTestMixin
 class TestFake(ApiTestMixin, unittest.TestCase):
     auth_info = configuration.AuthInfo(
         bearer_test=configuration.security_scheme_bearer_test.BearerTest(
-            bearer_token='someBearerToken'
+            access_token='someAccessToken'
         )
     )
     used_configuration = configuration.Configuration(auth_info=auth_info)
@@ -49,7 +49,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
             content_type=None,
             accept_content_type=None,
             headers={
-                'Authorization': 'Bearer someBearerToken',
+                'Authorization': 'Bearer someAccessToken',
                 'required_boolean_group': 'true'
             }
         )

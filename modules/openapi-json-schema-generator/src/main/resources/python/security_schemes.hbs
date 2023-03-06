@@ -97,7 +97,7 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
 
 @dataclasses.dataclass
 class HTTPBearerSecurityScheme(__SecuritySchemeBase):
-    bearer_token: str
+    access_token: str
     bearer_format: typing.Optional[str] = None
     scheme: HTTPSchemeType = HTTPSchemeType.BEARER
     type: SecuritySchemeType = SecuritySchemeType.HTTP
@@ -109,7 +109,7 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]]
     ) -> None:
-        headers.add('Authorization', f"Bearer {self.bearer_token}")
+        headers.add('Authorization', f"Bearer {self.access_token}")
 {{#if hasHttpSignatureSecurityScheme}}
 
 
