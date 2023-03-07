@@ -1,14 +1,14 @@
 package org.openapijsonschematools.codegen.model;
 
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class CodegenServer {
     public final String url;
     public final String description;
-    public final List<CodegenServerVariable> variables;
+    public final LinkedHashMap<CodegenKey, CodegenSchema> variables;
 
-    public CodegenServer(String url, String description, List<CodegenServerVariable> variables) {
+    public CodegenServer(String url, String description, LinkedHashMap<CodegenKey, CodegenSchema> variables) {
         this.url = url;
         this.description = description;
         this.variables = variables;
@@ -26,7 +26,6 @@ public class CodegenServer {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(url, description, variables);
     }
 

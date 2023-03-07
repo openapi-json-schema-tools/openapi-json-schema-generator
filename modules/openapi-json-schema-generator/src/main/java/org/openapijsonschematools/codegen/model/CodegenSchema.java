@@ -55,7 +55,7 @@ public class CodegenSchema {
     public CodegenSchema additionalProperties;
     public String description;
     public String format;
-    public String defaultValue;
+    public EnumValue defaultValue;
     public CodegenRefInfo<CodegenSchema> refInfo;  // $ref
 
     // openapi 3.0.0

@@ -56,7 +56,6 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
@@ -1457,12 +1456,12 @@ public class DefaultCodegen implements CodegenConfig {
      * @return string presentation of the default value of the property
      */
     @SuppressWarnings("static-method")
-    public String toDefaultValue(Schema schema) {
+    public EnumValue toDefaultValue(Schema schema) {
         if (schema.getDefault() != null) {
-            return schema.getDefault().toString();
+            return getEnumValue(schema.getDefault(), null);
         }
 
-        return getPropertyDefaultValue(schema);
+        return null;
     }
 
     /**
@@ -2453,16 +2452,6 @@ public class DefaultCodegen implements CodegenConfig {
             vendorExtensions = new HashMap<>(operation.getExtensions());
         }
 
-        // servers setting
-        List<CodegenServer> codegenServers = null;
-        if (operation.getServers() != null && !operation.getServers().isEmpty()) {
-            // use operation-level servers first if defined
-            codegenServers = fromServers(operation.getServers());
-        } else if (servers != null && !servers.isEmpty()) {
-            // use path-level servers
-            codegenServers = fromServers(servers);
-        }
-
         // tags
         List<String> operationTagNames = operation.getTags();
         Map<String, CodegenTag> tags = new HashMap<>();
@@ -2496,6 +2485,18 @@ public class DefaultCodegen implements CodegenConfig {
                 anchorPiece
         );
         String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original) + "/" + httpMethod;
+
+        // servers setting
+        List<CodegenServer> codegenServers = null;
+        if (operation.getServers() != null && !operation.getServers().isEmpty()) {
+            // use operation-level servers first if defined
+            codegenServers = fromServers(operation.getServers(), sourceJsonPath + "/servers");
+        } else if (servers != null && !servers.isEmpty()) {
+            // TODO generate these and auto inherit from them
+            // use path-level servers
+            codegenServers = fromServers(servers, "#/");
+        }
+
 
         String summary = escapeText(operation.getSummary());
         String unescapedNotes = operation.getDescription();
@@ -4429,58 +4430,49 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public List<CodegenServer> fromServers(List<Server> servers) {
+    public List<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
             return Collections.emptyList();
         }
         List<CodegenServer> codegenServers = new LinkedList<>();
+        int i = 0;
         for (Server server : servers) {
+            String usedJsonPath = jsonPath + "/" + i + "/variables";
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 escapeText(server.getDescription()),
-                fromServerVariables(server.getVariables())
+                fromServerVariables(server.getVariables(), usedJsonPath)
             );
             codegenServers.add(cs);
+            i ++;
         }
         return codegenServers;
     }
 
     @Override
-    public List<CodegenServerVariable> fromServerVariables(Map<String, ServerVariable> variables) {
-        if (variables == null) {
-            return Collections.emptyList();
+    public LinkedHashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
+        if (serverVariables == null) {
+            return null;
         }
 
-        Map<String, String> variableOverrides = serverVariableOverrides();
-
-        List<CodegenServerVariable> codegenServerVariables = new LinkedList<>();
-        for (Entry<String, ServerVariable> variableEntry : variables.entrySet()) {
-            ServerVariable variable = variableEntry.getValue();
-            List<String> enums = variable.getEnum();
-            // Sets the override value for a server variable pattern.
-            // NOTE: OpenAPI Specification doesn't prevent multiple server URLs with variables. If multiple objects have the same
-            //       variables pattern, user overrides will apply to _all_ of these patterns. We may want to consider indexed overrides.
-            String value;
-            if (variableOverrides != null && !variableOverrides.isEmpty()) {
-                value = variableOverrides.getOrDefault(variableEntry.getKey(), variable.getDefault());
-
-                if (enums != null && !enums.isEmpty() && !enums.contains(value)) {
-                    if (LOGGER.isWarnEnabled()) { // prevents calculating StringUtils.join when debug isn't enabled
-                        LOGGER.warn("Variable override of '{}' is not listed in the enum of allowed values ({}).", value, StringUtils.join(enums, ","));
-                    }
-                }
-            } else {
-                value = variable.getDefault();
+        LinkedHashMap<CodegenKey, CodegenSchema> variables = new LinkedHashMap<>();
+        for (Entry<String, ServerVariable> entry: serverVariables.entrySet()) {
+            String variableName = entry.getKey();
+            ServerVariable variable = entry.getValue();
+            StringSchema schema = new StringSchema();
+            if (variable.getDescription() != null) {
+                schema.setDescription(variable.getDescription());
             }
-            CodegenServerVariable codegenServerVariable = new CodegenServerVariable(
-                    variableEntry.getKey(),
-                    variable.getDefault(),
-                    escapeText(variable.getDescription()),
-                    enums
-            );
-            codegenServerVariables.add(codegenServerVariable);
+            schema.setDefault(variable.getDefault());
+            if (variable.getEnum() != null) {
+                schema.setEnum(variable.getEnum());
+            }
+            String schemaJsonPath = jsonPath + "/" + variableName;
+            CodegenSchema codegenSchema = fromSchema(schema, schemaJsonPath, schemaJsonPath);
+            CodegenKey key = getKey(variableName);
+            variables.put(key, codegenSchema);
         }
-        return codegenServerVariables;
+        return variables;
     }
 
     /**

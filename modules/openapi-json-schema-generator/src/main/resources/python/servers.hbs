@@ -1,0 +1,13 @@
+# coding: utf-8
+{{> _helper_header }}
+
+import dataclasses
+import typing
+
+from {{packageName}}.schemas import Schema
+
+
+@dataclasses.dataclass
+class Server:
+    url: str
+    variables: typing.Dict[str, Schema]
