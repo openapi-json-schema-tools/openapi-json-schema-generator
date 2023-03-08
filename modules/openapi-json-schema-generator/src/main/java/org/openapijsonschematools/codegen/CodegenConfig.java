@@ -209,6 +209,10 @@ public interface CodegenConfig {
 
     String toSecuritySchemeFilename(String baseName);
 
+    String toServerFilename(String baseName);
+
+    String getCamelCaseServer(String baseName);
+
     String toModelImport(String refClass);
 
     Map<String, String> toModelImportMap(String name);

@@ -41,6 +41,7 @@ class BaseApi(api_client.Api):
     def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -53,6 +54,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -61,6 +63,7 @@ class BaseApi(api_client.Api):
     def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -72,6 +75,7 @@ class BaseApi(api_client.Api):
     def _foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -88,11 +92,16 @@ class BaseApi(api_client.Api):
         if accept_content_types:
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
             headers=_headers,
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -119,6 +128,7 @@ class FooGet(BaseApi):
     def foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -131,6 +141,7 @@ class FooGet(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -139,6 +150,7 @@ class FooGet(BaseApi):
     def foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -150,6 +162,7 @@ class FooGet(BaseApi):
     def foo_get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -169,6 +182,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -181,6 +195,7 @@ class ApiForGet(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -189,6 +204,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -200,6 +216,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

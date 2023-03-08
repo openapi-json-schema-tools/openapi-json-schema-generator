@@ -41,6 +41,7 @@ class Schema(
                 types = {
                     str,
                 }
+                default = "$"
                 enum_value_to_name = {
                     ">": "GREATER_THAN_SIGN",
                     "$": "DOLLAR_SIGN",

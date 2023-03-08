@@ -50,7 +50,18 @@ class Animal(
         
         class Properties:
             ClassName = schemas.StrSchema
-            Color = schemas.StrSchema
+            
+            
+            class Color(
+                schemas.StrSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        str,
+                    }
+                    default = "red"
             __annotations__ = {
                 "className": ClassName,
                 "color": Color,

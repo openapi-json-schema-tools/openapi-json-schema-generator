@@ -58,6 +58,7 @@ class BaseApi(api_client.Api):
     def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -67,6 +68,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -75,6 +77,7 @@ class BaseApi(api_client.Api):
     def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -85,6 +88,7 @@ class BaseApi(api_client.Api):
     def _delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -109,10 +113,15 @@ class BaseApi(api_client.Api):
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='delete',
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -147,6 +156,7 @@ class DeleteOrder(BaseApi):
     def delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -156,6 +166,7 @@ class DeleteOrder(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -164,6 +175,7 @@ class DeleteOrder(BaseApi):
     def delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -174,6 +186,7 @@ class DeleteOrder(BaseApi):
     def delete_order(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -193,6 +206,7 @@ class ApiForDelete(BaseApi):
     def delete(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -202,6 +216,7 @@ class ApiForDelete(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -210,6 +225,7 @@ class ApiForDelete(BaseApi):
     def delete(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -220,6 +236,7 @@ class ApiForDelete(BaseApi):
     def delete(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

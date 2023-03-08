@@ -41,17 +41,6 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
     },
 ]
 
-_servers = (
-    {
-        'url': "https://petstore.swagger.io/v2",
-        'description': "No description provided",
-    },
-    {
-        'url': "https://path-server-test.petstore.local/v2",
-        'description': "No description provided",
-    },
-)
-
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
@@ -74,7 +63,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -84,7 +73,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/xml"],
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -94,7 +83,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -106,7 +95,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -116,7 +105,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -128,7 +117,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -155,7 +144,9 @@ class BaseApi(api_client.Api):
             _fields = serialized_data['fields']
         elif 'body' in serialized_data:
             _body = serialized_data['body']
-        host = self._get_host('update_pet', _servers, host_index)
+        host = self.api_client.configuration.get_server_url(
+            ('paths', path, 'put'), server_index
+        )
 
         response = self.api_client.call_api(
             resource_path=used_path,
@@ -201,7 +192,7 @@ class UpdatePet(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -211,7 +202,7 @@ class UpdatePet(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/xml"],
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -221,7 +212,7 @@ class UpdatePet(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -233,7 +224,7 @@ class UpdatePet(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -243,7 +234,7 @@ class UpdatePet(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -255,7 +246,7 @@ class UpdatePet(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -278,7 +269,7 @@ class ApiForPut(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -288,7 +279,7 @@ class ApiForPut(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/xml"],
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -298,7 +289,7 @@ class ApiForPut(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -310,7 +301,7 @@ class ApiForPut(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -320,7 +311,7 @@ class ApiForPut(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -332,7 +323,7 @@ class ApiForPut(BaseApi):
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
-        host_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

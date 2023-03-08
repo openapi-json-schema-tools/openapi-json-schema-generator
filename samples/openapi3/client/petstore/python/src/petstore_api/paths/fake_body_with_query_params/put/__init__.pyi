@@ -61,6 +61,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -74,6 +75,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -89,6 +91,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -99,6 +102,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -112,6 +116,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -149,12 +154,18 @@ class BaseApi(api_client.Api):
             _fields = serialized_data['fields']
         elif 'body' in serialized_data:
             _body = serialized_data['body']
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
+
         response = self.api_client.call_api(
             resource_path=used_path,
             method='put',
             headers=_headers,
             fields=_fields,
             body=_body,
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -190,6 +201,7 @@ class BodyWithQueryParams(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -203,6 +215,7 @@ class BodyWithQueryParams(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -218,6 +231,7 @@ class BodyWithQueryParams(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -228,6 +242,7 @@ class BodyWithQueryParams(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -241,6 +256,7 @@ class BodyWithQueryParams(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -264,6 +280,7 @@ class ApiForPut(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -277,6 +294,7 @@ class ApiForPut(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -292,6 +310,7 @@ class ApiForPut(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -302,6 +321,7 @@ class ApiForPut(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -315,6 +335,7 @@ class ApiForPut(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

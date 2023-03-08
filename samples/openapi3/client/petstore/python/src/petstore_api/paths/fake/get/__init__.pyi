@@ -103,6 +103,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -118,6 +119,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -135,6 +137,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -147,6 +150,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -162,6 +166,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -208,12 +213,18 @@ class BaseApi(api_client.Api):
                 _fields = serialized_data['fields']
             elif 'body' in serialized_data:
                 _body = serialized_data['body']
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
+
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
             headers=_headers,
             fields=_fields,
             body=_body,
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -252,6 +263,7 @@ class EnumParameters(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -267,6 +279,7 @@ class EnumParameters(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -284,6 +297,7 @@ class EnumParameters(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -296,6 +310,7 @@ class EnumParameters(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -311,6 +326,7 @@ class EnumParameters(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -338,6 +354,7 @@ class ApiForGet(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -353,6 +370,7 @@ class ApiForGet(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -370,6 +388,7 @@ class ApiForGet(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -382,6 +401,7 @@ class ApiForGet(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -397,6 +417,7 @@ class ApiForGet(BaseApi):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

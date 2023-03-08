@@ -139,7 +139,18 @@ class Schema(
             Byte = schemas.StrSchema
             Binary = schemas.BinarySchema
             Date = schemas.DateSchema
-            DateTime = schemas.DateTimeSchema
+            
+            
+            class DateTime(
+                schemas.DateTimeSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        str,
+                    }
+                    format = 'date-time'
             
             
             class Password(

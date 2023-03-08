@@ -41,7 +41,18 @@ class Category(
         
         class Properties:
             Id = schemas.Int64Schema
-            Name = schemas.StrSchema
+            
+            
+            class Name(
+                schemas.StrSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        str,
+                    }
+                    default = "default-name"
             __annotations__ = {
                 "id": Id,
                 "name": Name,

@@ -19,7 +19,7 @@ class {{jsonPathPiece.camelCase}}(
     """
 {{/if}}
 {{#unless isStub}}
-{{#or hasValidation enumValueToName format}}
+{{#or hasValidation enumValueToName format defaultValue}}
 
 
     class Schema_:
@@ -31,6 +31,29 @@ class {{jsonPathPiece.camelCase}}(
         format = '{{format}}'
 {{/if}}
         {{> components/schemas/_helper_validations }}
+{{#if defaultValue}}
+    {{#with defaultValue}}
+        {{#eq type "string"}}
+        default = "{{{value}}}"
+        {{/eq}}
+        {{#eq type "number"}}
+        default = {{{value}}}
+        {{/eq}}
+        {{#eq type "integer"}}
+        default = {{{value}}}
+        {{/eq}}
+        {{#eq type "boolean"}}
+            {{#if value}}
+        default = schemas.BoolClass.TRUE
+            {{else}}
+        default = schemas.BoolClass.FALSE
+            {{/if}}
+        {{/eq}}
+        {{#eq type "null"}}
+        default = schemas.NoneClass.NONE
+        {{/eq}}
+    {{/with}}
+{{/if}}
 {{#if enumValueToName}}
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}

@@ -38,6 +38,7 @@ class IntegerEnumWithDefaultValue(
             decimal.Decimal,
         }
         format = 'int'
+        default = 0
         enum_value_to_name = {
             0: "POSITIVE_0",
             1: "POSITIVE_1",

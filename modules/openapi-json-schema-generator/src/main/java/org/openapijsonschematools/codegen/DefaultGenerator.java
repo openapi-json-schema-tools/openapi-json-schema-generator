@@ -1377,6 +1377,17 @@ public class DefaultGenerator implements Generator {
         }
         List<CodegenServer> codegenServers = config.fromServers(openAPI.getServers(), jsonPath);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, null, true);
+
+        int i = 0;
+        for (CodegenServer server: codegenServers) {
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("server", server);
+            String serverJsonPath = jsonPath + "/" + i;
+            generateXs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
+            i++;
+
+        }
         return codegenServers;
     }
 

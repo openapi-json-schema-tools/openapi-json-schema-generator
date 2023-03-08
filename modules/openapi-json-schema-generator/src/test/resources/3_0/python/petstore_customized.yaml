@@ -1650,6 +1650,8 @@ servers:
           - 'v1'
           - 'v2'
         default: 'v2'
+  - url: https://localhost:8080
+    description: staging server with no variables
 components:
   parameters:
     PathUserName:

@@ -32,7 +32,7 @@
                 {{/eq}}
                 {{#neq this "object"}}
                     {{#neq this "array"}}
-                        {{#or enumValueToName hasValidation}}
+                        {{#or enumValueToName hasValidation defaultValue}}
 {{> components/schemas/_helper_schema_simple }}
                         {{else}}
 {{> components/schemas/_helper_var_equals_cls }}

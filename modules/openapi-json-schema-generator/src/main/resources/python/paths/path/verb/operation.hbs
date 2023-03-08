@@ -65,40 +65,6 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 ]
     {{/if}}
 {{/each}}
-{{#each servers}}
-{{#if @first}}
-
-_servers = (
-{{/if}}
-    {
-        'url': "{{{url}}}",
-        'description': "{{#unless description}}No description provided{{else}}{{{description}}}{{/unless}}",
-        {{#each variables}}
-        {{#if @first}}
-        'variables': {
-        {{/if}}
-            '{{{name}}}': {
-                'description': "{{#unless description}}No description provided{{else}}{{{description}}}{{/unless}}",
-                'default_value': "{{{defaultValue}}}",
-                {{#each enumValues}}
-                {{#if @first}}
-                'enum_values': [
-                {{/if}}
-                    "{{{.}}}"{{#unless @last}},{{/unless}}
-                {{#if @last}}
-                ]
-                {{/if}}
-                {{/each}}
-                }{{#unless @last}},{{/unless}}
-        {{#if @last}}
-            }
-        {{/if}}
-        {{/each}}
-    },
-{{#if @last}}
-)
-{{/if}}
-{{/each}}
 {{/unless}}
 {{#unless isStub}}
 
@@ -259,8 +225,14 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{/with}}
     {{#if servers}}
-
-        host = self._get_host('{{operationId.snakeCase}}', _servers, host_index)
+        host = self.api_client.configuration.get_server_url(
+            ('paths', path, '{{httpMethod.original}}'), server_index
+        )
+    {{else}}
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
     {{/if}}
 
         response = self.api_client.call_api(
@@ -276,9 +248,7 @@ class BaseApi(api_client.Api):
     {{#if security}}
             security=_security,
     {{/if}}
-    {{#if servers}}
             host=host,
-    {{/if}}
             stream=stream,
             timeout=timeout,
         )

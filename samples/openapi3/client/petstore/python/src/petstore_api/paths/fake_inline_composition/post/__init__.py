@@ -81,6 +81,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -95,6 +96,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -109,6 +111,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -125,6 +128,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -136,6 +140,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -150,6 +155,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -189,12 +195,18 @@ class BaseApi(api_client.Api):
                 _fields = serialized_data['fields']
             elif 'body' in serialized_data:
                 _body = serialized_data['body']
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
+
         response = self.api_client.call_api(
             resource_path=used_path,
             method='post',
             headers=_headers,
             fields=_fields,
             body=_body,
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -231,6 +243,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -245,6 +258,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -259,6 +273,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -275,6 +290,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -286,6 +302,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -300,6 +317,7 @@ class InlineComposition(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -325,6 +343,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -339,6 +358,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -353,6 +373,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -369,6 +390,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -380,6 +402,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -394,6 +417,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

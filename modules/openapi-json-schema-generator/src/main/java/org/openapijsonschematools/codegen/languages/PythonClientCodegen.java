@@ -379,6 +379,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
                     Collections.singletonMap("servers/__init__.hbs", File.separatorChar + "__init__.py")
             );
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                    Collections.singletonMap("servers/server.hbs", ".py")
+            );
+
         }
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
@@ -1628,6 +1633,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String toSecuritySchemeFilename(String basename) {
         return "security_scheme_" + toModuleFilename(basename);
+    }
+
+    @Override
+    public String toServerFilename(String basename) {
+        return "server_" + basename;
+    }
+
+    @Override
+    public String getCamelCaseServer(String basename) {
+        return "Server" + basename;
     }
 
     @Override

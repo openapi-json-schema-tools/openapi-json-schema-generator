@@ -1021,13 +1021,13 @@ class ApiClient:
         self,
         resource_path: str,
         method: str,
+        host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        host: typing.Optional[str] = None,
     ) -> urllib3.HTTPResponse:
 
         # header parameters
@@ -1044,11 +1044,7 @@ class ApiClient:
             used_headers.update(headers)
 
         # request url
-        if host is None:
-            url = self.configuration.host + resource_path
-        else:
-            # use server/host defined in path or operation instead
-            url = host + resource_path
+        url = host + resource_path
 
         # perform request and return response
         response = self.request(

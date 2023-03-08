@@ -27,6 +27,9 @@ from petstore_api.components.security_schemes import security_scheme_http_basic_
 from petstore_api.components.security_schemes import security_scheme_http_signature_test
 from petstore_api.components.security_schemes import security_scheme_open_id_connect_test
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
+from petstore_api.servers import server_0
+from petstore_api.servers import server_1
+from petstore_api.servers import server_2
 
 AuthInfo = typing_extensions.TypedDict(
     'AuthInfo',
@@ -38,8 +41,21 @@ AuthInfo = typing_extensions.TypedDict(
         'http_signature_test': security_scheme_http_signature_test.HttpSignatureTest,
         'openIdConnect_test': security_scheme_open_id_connect_test.OpenIdConnectTest,
         'petstore_auth': security_scheme_petstore_auth.PetstoreAuth,
-    }
+    },
+    total=False
 )
+
+ServerInfo = typing_extensions.TypedDict(
+    'ServerInfo',
+    {
+        ('servers', 0): server_0.Server0,
+        ('servers', 1): server_1.Server1,
+        ('servers', 2): server_2.Server2,
+    },
+    total=False
+)
+# TODO add PathServersInfo
+# TODO add PathOperationServersInfo
 
 
 PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
@@ -98,46 +114,27 @@ class Configuration(object):
       when the OpenAPI document validation rules do not match the actual API data
       received by the server.
     :param server_index: Index to servers configuration.
-    :param server_variables: Mapping with string values to replace variables in
-      templated server configuration. The validation of enums is performed for
-      variables with defined enum values before.
-    :param server_operation_index: Mapping from operation ID to an index to server
-      configuration.
-    :param server_operation_variables: Mapping from operation ID to a mapping with
-      string values to replace variables in templated server configuration.
-      The validation of enums is performed for variables with defined enum values before.
     """
 
     _default = None
 
     def __init__(
         self,
-        host: typing.Optional[str] = None,
         auth_info: typing.Optional[AuthInfo] = None,
         disabled_json_schema_keywords = frozenset(),
-        server_index: typing.Optional[int] = None,
-        server_variables = None,
-        server_operation_index = None,
-        server_operation_variables = None,
+        server_info: typing.Optional[ServerInfo] = None,
+        server_index: int = 0,
     ):
         """Constructor
-        """
-        self._base_path = host or "http://petstore.swagger.io:80/v2"
-        """Default Base url
-        """
-        self.server_index = 0 if server_index is None and host is None else server_index
-        self.server_operation_index = server_operation_index or {}
-        """Default server index
-        """
-        self.server_variables = server_variables or {}
-        self.server_operation_variables = server_operation_variables or {}
-        """Default server variables
         """
         self.temp_folder_path = None
         """Temp file folder for downloading files
         """
         # Authentication Settings
         self.auth_info = auth_info or AuthInfo()
+        # Server Info
+        self.server_info = server_info or ServerInfo()
+        self.server_index = server_index
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
         """Logging Settings
@@ -362,89 +359,16 @@ class Configuration(object):
                "SDK Package Version: 1.0.0".\
                format(env=sys.platform, pyversion=sys.version)
 
-    def get_host_settings(self):
-        """Gets an array of host settings
-
-        :return: An array of host settings
-        """
-        return [
-            {
-                'url': "http://{server}.swagger.io:{port}/v2",
-                'description': "petstore server",
-                'variables': {
-                    '': {
-                        'description': "No description provided",
-                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@90b0f910",
-                        },
-                    '': {
-                        'description': "No description provided",
-                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@8ff13f66",
-                        }
-                    }
-            },
-            {
-                'url': "https://localhost:8080/{version}",
-                'description': "The local server",
-                'variables': {
-                    '': {
-                        'description': "No description provided",
-                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@900d75ea",
-                        }
-                    }
-            }
-        ]
-
-    def get_host_from_settings(
+    def get_server_url(
         self,
+        key_prefix: typing.Tuple[str, ...],
         index: typing.Optional[int],
-        variables: typing.Optional[typing.Dict[str, dict]] = None,
-        servers: typing.Optional[typing.List[dict]] = None
     ) -> str:
-        """Gets host URL based on the index and variables
+        """Gets host URL based on the index
         :param index: array index of the host settings
-        :param variables: hash of variable and the corresponding value
-        :param servers: an array of host settings or None
         :return: URL based on host settings
         """
-        if index is None:
-            return self._base_path
-
-        variables = variables or {}
-        servers = servers or self.get_host_settings()
-
-        try:
-            server = servers[index]
-        except IndexError:
-            raise ValueError(
-                "Invalid index {0} when selecting the host settings. "
-                "Must be less than {1}".format(index, len(servers)))
-
-        url = server['url']
-
-        # go through variables and replace placeholders
-        for variable_name, variable in server.get('variables', {}).items():
-            used_value = variables.get(
-                variable_name, variable['default_value'])
-
-            if 'enum_values' in variable \
-                    and used_value not in variable['enum_values']:
-                raise ValueError(
-                    "The variable `{0}` in the host URL has invalid value "
-                    "{1}. Must be {2}.".format(
-                        variable_name, variables[variable_name],
-                        variable['enum_values']))
-
-            url = url.replace("{" + variable_name + "}", used_value)
-
-        return url
-
-    @property
-    def host(self) -> str:
-        """Return generated host."""
-        return self.get_host_from_settings(self.server_index, variables=self.server_variables)
-
-    @host.setter
-    def host(self, value):
-        """Fix base path."""
-        self._base_path = value
-        self.server_index = None
+        used_index = index or self.server_index
+        used_key = key_prefix + (used_index,)
+        server = self.server_info[used_key]
+        return server.url

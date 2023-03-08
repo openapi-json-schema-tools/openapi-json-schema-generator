@@ -52,6 +52,7 @@ class Schema(
                             types = {
                                 str,
                             }
+                            default = "$"
                             enum_value_to_name = {
                                 ">": "GREATER_THAN_SIGN",
                                 "$": "DOLLAR_SIGN",
@@ -96,6 +97,7 @@ class Schema(
                     types = {
                         str,
                     }
+                    default = "-efg"
                     enum_value_to_name = {
                         "_abc": "_ABC",
                         "-efg": "HYPHEN_MINUS_EFG",

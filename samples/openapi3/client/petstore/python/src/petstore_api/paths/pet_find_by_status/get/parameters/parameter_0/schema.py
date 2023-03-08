@@ -41,6 +41,7 @@ class Schema(
                 types = {
                     str,
                 }
+                default = "available"
                 enum_value_to_name = {
                     "available": "AVAILABLE",
                     "pending": "PENDING",

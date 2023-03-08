@@ -31,6 +31,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.mozilla.javascript.optimizer.Codegen;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
@@ -1086,6 +1087,15 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(basename);
     }
 
+    @Override
+    public String toServerFilename(String basename) {
+        return toModuleFilename(basename);
+    }
+
+    @Override
+    public String getCamelCaseServer(String basename) {
+        return toModelName(basename);
+    }
 
     public String getCamelCaseParameter(String basename) {
         return toModelName(basename);
@@ -3535,6 +3545,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length < 3) {
             return;
         }
+        pathPieces[2] = toServerFilename(pathPieces[2]);
     }
 
         @Override
@@ -4328,6 +4339,11 @@ public class DefaultCodegen implements CodegenConfig {
             case "securitySchemes":
                 snakeCaseName = toSecuritySchemeFilename(usedKey);
                 camelCaseName = toModelName(usedKey);
+                break;
+            case "servers":
+                snakeCaseName = toServerFilename(usedKey);
+                camelCaseName = getCamelCaseServer(usedKey);
+                break;
         }
         if (camelCaseName != null) {
             anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
@@ -4445,11 +4461,13 @@ public class DefaultCodegen implements CodegenConfig {
         List<CodegenServer> codegenServers = new LinkedList<>();
         int i = 0;
         for (Server server : servers) {
-            String usedJsonPath = jsonPath + "/" + i + "/variables";
+            String serverJsonPath = jsonPath + "/" + i;
+            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 escapeText(server.getDescription()),
-                fromServerVariables(server.getVariables(), usedJsonPath)
+                fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
+                jsonPathPiece
             );
             codegenServers.add(cs);
             i ++;
@@ -4476,7 +4494,7 @@ public class DefaultCodegen implements CodegenConfig {
                 schema.setEnum(variable.getEnum());
             }
             String schemaJsonPath = jsonPath + "/" + variableName;
-            CodegenSchema codegenSchema = fromSchema(schema, schemaJsonPath, schemaJsonPath);
+            CodegenSchema codegenSchema = fromSchema(schema, jsonPath, schemaJsonPath);
             CodegenKey key = getKey(variableName);
             variables.put(key, codegenSchema);
         }

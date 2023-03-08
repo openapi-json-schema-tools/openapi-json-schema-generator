@@ -32,6 +32,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -43,6 +44,7 @@ class BaseApi(api_client.Api):
     def _logout_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -50,6 +52,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -60,6 +63,7 @@ class BaseApi(api_client.Api):
 
     def _logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -72,10 +76,15 @@ class BaseApi(api_client.Api):
         """
         used_path = path
         # TODO add cookie handling
+        # TODO detect and use path servers if they exist
+        host = self.api_client.configuration.get_server_url(
+            ('servers',), server_index
+        )
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
+            host=host,
             stream=stream,
             timeout=timeout,
         )
@@ -101,6 +110,7 @@ class LogoutUser(BaseApi):
     @typing.overload
     def logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -112,6 +122,7 @@ class LogoutUser(BaseApi):
     def logout_user(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -119,6 +130,7 @@ class LogoutUser(BaseApi):
     @typing.overload
     def logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -129,6 +141,7 @@ class LogoutUser(BaseApi):
 
     def logout_user(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -146,6 +159,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -157,6 +171,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -164,6 +179,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -174,6 +190,7 @@ class ApiForGet(BaseApi):
 
     def get(
         self,
+        server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,

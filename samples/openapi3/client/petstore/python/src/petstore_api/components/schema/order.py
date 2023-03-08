@@ -69,7 +69,18 @@ class Order(
                 @schemas.classproperty
                 def DELIVERED(cls):
                     return cls("delivered")
-            Complete = schemas.BoolSchema
+            
+            
+            class Complete(
+                schemas.BoolSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        schemas.BoolClass,
+                    }
+                    default = schemas.BoolClass.FALSE
             __annotations__ = {
                 "id": Id,
                 "petId": PetId,

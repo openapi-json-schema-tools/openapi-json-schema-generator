@@ -32,6 +32,7 @@ class Schema(
         types = {
             str,
         }
+        default = "-efg"
         enum_value_to_name = {
             "_abc": "_ABC",
             "-efg": "HYPHEN_MINUS_EFG",

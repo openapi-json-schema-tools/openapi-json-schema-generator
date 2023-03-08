@@ -40,7 +40,11 @@ class Category(
         
         class Properties:
             Id = schemas.Int64Schema
-            Name = schemas.StrSchema
+            
+            
+            class Name(
+                schemas.StrSchema
+            ):
             __annotations__ = {
                 "id": Id,
                 "name": Name,

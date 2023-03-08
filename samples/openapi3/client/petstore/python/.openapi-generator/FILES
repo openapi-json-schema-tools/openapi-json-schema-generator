@@ -1486,6 +1486,9 @@ src/petstore_api/rest.py
 src/petstore_api/schemas.py
 src/petstore_api/security_schemes.py
 src/petstore_api/servers/__init__.py
+src/petstore_api/servers/server_0.py
+src/petstore_api/servers/server_1.py
+src/petstore_api/servers/server_2.py
 src/petstore_api/signing.py
 test-requirements.txt
 test/__init__.py
