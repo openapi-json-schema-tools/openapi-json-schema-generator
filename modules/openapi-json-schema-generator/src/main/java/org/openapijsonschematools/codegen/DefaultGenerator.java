@@ -31,6 +31,7 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.*;
+import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.comparator.PathFileComparator;
@@ -1301,7 +1302,8 @@ public class DefaultGenerator implements Generator {
             TreeMap<String, CodegenResponse> responses,
             TreeMap<String, CodegenHeader> headers,
             TreeMap<String, CodegenParameter> parameters,
-            TreeMap<String, CodegenSecurityScheme> securitySchemes) {
+            TreeMap<String, CodegenSecurityScheme> securitySchemes,
+            List<CodegenServer> servers) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1340,6 +1342,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("parameters", parameters);
         bundle.put("schemas", schemas);
         bundle.put("securitySchemes", securitySchemes);
+        bundle.put("servers", servers);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());
@@ -1352,15 +1355,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        // TODO add the security schemes
         bundle.put("generatorLanguageVersion", config.generatorLanguageVersion());
         // todo verify support and operation bundles have access to the common variables
-
-        List<CodegenServer> servers = config.fromServers(openAPI.getServers());
-        if (servers != null && !servers.isEmpty()) {
-            bundle.put("servers", servers);
-            bundle.put("hasServers", true);
-        }
 
         if (openAPI.getExternalDocs() != null) {
             bundle.put("externalDocs", openAPI.getExternalDocs());
@@ -1373,6 +1369,15 @@ public class DefaultGenerator implements Generator {
             Json.prettyPrint(bundle);
         }
         return bundle;
+    }
+
+    private List<CodegenServer> generateServers(List<File> files, List<Server> servers, String jsonPath) {
+        if (servers == null && servers.isEmpty()) {
+            return null;
+        }
+        List<CodegenServer> codegenServers = config.fromServers(openAPI.getServers(), jsonPath);
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, null, true);
+        return codegenServers;
     }
 
     @Override
@@ -1439,9 +1444,11 @@ public class DefaultGenerator implements Generator {
         generateApis(files, allOperations, schemas, paths);
         // paths
         generatePaths(files, paths);
+        // servers
+        List<CodegenServer> servers = generateServers(files, openAPI.getServers(), "#/servers");
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(allOperations, schemas, requestBodies, responses, headers, parameters, securitySchemes);
+        Map<String, Object> bundle = buildSupportFileBundle(allOperations, schemas, requestBodies, responses, headers, parameters, securitySchemes, servers);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

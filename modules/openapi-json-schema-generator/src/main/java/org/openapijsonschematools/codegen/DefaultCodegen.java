@@ -3531,7 +3531,13 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    @Override
+    private void updateServersFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+    }
+
+        @Override
     public String getFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
@@ -3539,6 +3545,8 @@ public class DefaultCodegen implements CodegenConfig {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)

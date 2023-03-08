@@ -372,22 +372,13 @@ class Configuration(object):
                 'url': "http://{server}.swagger.io:{port}/v2",
                 'description': "petstore server",
                 'variables': {
-                    'server': {
+                    '': {
                         'description': "No description provided",
-                        'default_value': "petstore",
-                        'enum_values': [
-                            "petstore",
-                            "qa-petstore",
-                            "dev-petstore"
-                        ]
+                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@90b0f910",
                         },
-                    'port': {
+                    '': {
                         'description': "No description provided",
-                        'default_value': "80",
-                        'enum_values': [
-                            "80",
-                            "8080"
-                        ]
+                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@8ff13f66",
                         }
                     }
             },
@@ -395,13 +386,9 @@ class Configuration(object):
                 'url': "https://localhost:8080/{version}",
                 'description': "The local server",
                 'variables': {
-                    'version': {
+                    '': {
                         'description': "No description provided",
-                        'default_value': "v2",
-                        'enum_values': [
-                            "v1",
-                            "v2"
-                        ]
+                        'default_value': "org.openapijsonschematools.codegen.model.EnumValue@900d75ea",
                         }
                     }
             }

@@ -23,6 +23,7 @@ package org.openapijsonschematools.codegen;
 public class CodegenConstants {
     /* System Properties */
     // NOTE: We may want to move these to a separate class to avoid confusion or modification.
+    public static final String SERVERS = "servers";
     public static final String APIS = "apis";
     public static final String MODELS = "models";
     public static final String CONTENT = "content";
@@ -242,7 +243,7 @@ public class CodegenConstants {
 
     public static enum PARAM_NAMING_TYPE {camelCase, PascalCase, snake_case, original}
 
-    public static enum JSON_PATH_LOCATION_TYPE {SCHEMA, REQUEST_BODY, PARAMETER, RESPONSE, HEADER, CONTENT, CONTENT_TYPE, HEADERS, PARAMETERS, RESPONSES, REQUEST_BODIES, SCHEMAS, PATHS, PATH, COMPONENTS, OPERATION, SECURITY_SCHEMES, SECURITY_SCHEME}
+    public static enum JSON_PATH_LOCATION_TYPE {SCHEMA, REQUEST_BODY, PARAMETER, RESPONSE, HEADER, CONTENT, CONTENT_TYPE, HEADERS, PARAMETERS, RESPONSES, REQUEST_BODIES, SCHEMAS, PATHS, PATH, COMPONENTS, OPERATION, SECURITY_SCHEMES, SECURITY_SCHEME, SERVERS, SERVER}
 
     public static enum MODEL_PROPERTY_NAMING_TYPE {camelCase, PascalCase, snake_case, original}
 

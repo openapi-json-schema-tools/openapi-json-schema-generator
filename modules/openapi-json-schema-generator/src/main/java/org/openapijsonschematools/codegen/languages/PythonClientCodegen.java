@@ -374,6 +374,12 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
                 Collections.singletonMap("components/responses/response.hbs", File.separatorChar + "__init__.py")
         );
+        if (openAPI.getServers() != null) {
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                    Collections.singletonMap("servers/__init__.hbs", File.separatorChar + "__init__.py")
+            );
+        }
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
                 Collections.singletonMap("components/schemas/__init__schema.hbs", File.separatorChar + "__init__.py")
@@ -627,40 +633,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             strValue = dateTimeValue.toString();
         }
         return strValue;
-    }
-
-    /**
-     * Return the default value of the property
-     *
-     * @param p OpenAPI property object
-     * @return string presentation of the default value of the property
-     */
-    @Override
-    public String toDefaultValue(Schema p) {
-        Object defaultObject = null;
-        if (p.getDefault() != null) {
-            defaultObject = p.getDefault();
-        }
-
-        if (defaultObject == null) {
-            return null;
-        }
-
-        String defaultValue = defaultObject.toString();
-        if (ModelUtils.isDateSchema(p)) {
-            defaultValue = pythonDate(defaultObject);
-        } else if (ModelUtils.isDateTimeSchema(p)) {
-            defaultValue = pythonDateTime(defaultObject);
-        } else if (ModelUtils.isStringSchema(p) && !ModelUtils.isByteArraySchema(p) && !ModelUtils.isBinarySchema(p) && !ModelUtils.isFileSchema(p) && !ModelUtils.isUUIDSchema(p) && !ModelUtils.isEmailSchema(p)) {
-            defaultValue = ensureQuotes(defaultValue);
-        } else if (ModelUtils.isBooleanSchema(p)) {
-            if (!Boolean.parseBoolean(defaultValue)) {
-                defaultValue = "False";
-            } else {
-                defaultValue = "True";
-            }
-        }
-        return defaultValue;
     }
 
     @Override

@@ -874,66 +874,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toDefaultValue(Schema schema) {
-        Schema p = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        if (ModelUtils.isBooleanSchema(p)) {
-            if (p.getDefault() != null) {
-                return p.getDefault().toString();
-            }
-        } else if (ModelUtils.isDateSchema(p)) {
-            // TODO
-        } else if (ModelUtils.isDateTimeSchema(p)) {
-            // TODO
-        } else if (ModelUtils.isNumberSchema(p)) {
-            if (p.getDefault() != null) {
-                return fixNumberValue(p.getDefault().toString(), p);
-            }
-        } else if (ModelUtils.isIntegerSchema(p)) {
-            if (p.getDefault() != null) {
-                return fixNumberValue(p.getDefault().toString(), p);
-            }
-        } else if (ModelUtils.isURISchema(p)) {
-            if (p.getDefault() != null) {
-                return importMapping.get("URI") + ".create(\"" + p.getDefault() + "\")";
-            }
-        } else if (ModelUtils.isArraySchema(p)) {
-            if (p.getDefault() != null) {
-                String arrInstantiationType = ModelUtils.isSet(p) ? "set" : "arrayList";
-
-                if (!(p.getDefault() instanceof ArrayNode)) {
-                    return null;
-                }
-                ArrayNode _default = (ArrayNode) p.getDefault();
-                if (_default.isEmpty()) {
-                    return arrInstantiationType + "Of()";
-                }
-
-                StringBuilder defaultContent = new StringBuilder();
-                Schema<?> itemsSchema = getSchemaItems((ArraySchema) schema);
-                _default.elements().forEachRemaining((element) -> {
-                    itemsSchema.setDefault(element.asText());
-                    defaultContent.append(toDefaultValue(itemsSchema)).append(",");
-                });
-                defaultContent.deleteCharAt(defaultContent.length() - 1); // remove trailing comma
-                return arrInstantiationType + "Of(" + defaultContent + ")";
-            }
-        } else if (ModelUtils.isStringSchema(p)) {
-            if (p.getDefault() != null) {
-                String _default = (String) p.getDefault();
-                if (p.getEnum() == null) {
-                    return "\"" + escapeText(_default) + "\"";
-                } else {
-                    // convert to enum var name later in postProcessModels
-                    return _default;
-                }
-            }
-            return null;
-        }
-
-        return null;
-    }
-
-    @Override
     public GeneratorLanguage generatorLanguage() {
         return GeneratorLanguage.KOTLIN;
     }
