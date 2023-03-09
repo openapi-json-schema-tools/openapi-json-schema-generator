@@ -12,7 +12,7 @@ import typing_extensions
 from petstore_api import servers, schemas
 
 
-class __Variables:
+class _Variables:
     
     
     class Version(
@@ -38,10 +38,10 @@ class __Variables:
         def V2(cls):
             return cls("v2")
 
-__VariablesSchemas = typing_extensions.TypedDict(
-    '__VariablesSchemas',
+_VariablesSchemas = typing_extensions.TypedDict(
+    '_VariablesSchemas',
     {
-        "version": typing.Type[__Variables.Version],
+        "version": typing.Type[_Variables.Version],
     },
     total=False
 )
@@ -57,6 +57,12 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
+def _default_variable_schemas():
+    return {
+        "version": _Variables.Version,
+    }
+
+
 @dataclasses.dataclass
 class Server1(servers.Server):
     '''
@@ -64,6 +70,4 @@ class Server1(servers.Server):
     '''
     _url: str = "https://localhost:8080/{version}"
     variables: Variables
-    variable_schemas: __VariablesSchemas = {
-        "version": __Variables.Version,
-    }
+    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)

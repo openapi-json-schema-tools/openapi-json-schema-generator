@@ -22,11 +22,6 @@ from {{packageName}} import exceptions
 from {{packageName}}.components.security_schemes import {{jsonPathPiece.snakeCase}}
     {{/each}}
 {{/if}}
-{{#if servers}}
-    {{#each servers}}
-from {{packageName}}.servers import {{jsonPathPiece.snakeCase}}
-    {{/each}}
-{{/if}}
 {{#if securitySchemes}}
 
 AuthInfo = typing_extensions.TypedDict(
@@ -45,7 +40,7 @@ ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
 {{#each servers}}
-        ('servers', {{@key}}): {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        'servers/{{@key}}': '{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
 {{/each}}
     },
     total=False
@@ -381,7 +376,7 @@ class Configuration(object):
 
     def get_server_url(
         self,
-        key_prefix: typing.Tuple[str, ...],
+        key_prefix: str,
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -389,6 +384,12 @@ class Configuration(object):
         :return: URL based on host settings
         """
         used_index = index or self.server_index
-        used_key = key_prefix + (used_index,)
+        used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
+
+{{#if servers}}
+    {{#each servers}}
+from {{packageName}}.servers import {{jsonPathPiece.snakeCase}}
+    {{/each}}
+{{/if}}

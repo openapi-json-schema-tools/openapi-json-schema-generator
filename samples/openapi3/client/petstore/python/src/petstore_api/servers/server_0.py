@@ -12,7 +12,7 @@ import typing_extensions
 from petstore_api import servers, schemas
 
 
-class __Variables:
+class _Variables:
     
     
     class Server(
@@ -67,11 +67,11 @@ class __Variables:
         def POSITIVE_8080(cls):
             return cls("8080")
 
-__VariablesSchemas = typing_extensions.TypedDict(
-    '__VariablesSchemas',
+_VariablesSchemas = typing_extensions.TypedDict(
+    '_VariablesSchemas',
     {
-        "server": typing.Type[__Variables.Server],
-        "port": typing.Type[__Variables.Port],
+        "server": typing.Type[_Variables.Server],
+        "port": typing.Type[_Variables.Port],
     },
     total=False
 )
@@ -92,6 +92,13 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
+def _default_variable_schemas():
+    return {
+        "server": _Variables.Server,
+        "port": _Variables.Port,
+    }
+
+
 @dataclasses.dataclass
 class Server0(servers.Server):
     '''
@@ -99,7 +106,4 @@ class Server0(servers.Server):
     '''
     _url: str = "http://{server}.swagger.io:{port}/v2"
     variables: Variables
-    variable_schemas: __VariablesSchemas = {
-        "server": __Variables.Server,
-        "port": __Variables.Port,
-    }
+    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)

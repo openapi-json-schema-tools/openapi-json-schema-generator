@@ -27,9 +27,6 @@ from petstore_api.components.security_schemes import security_scheme_http_basic_
 from petstore_api.components.security_schemes import security_scheme_http_signature_test
 from petstore_api.components.security_schemes import security_scheme_open_id_connect_test
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
-from petstore_api.servers import server_0
-from petstore_api.servers import server_1
-from petstore_api.servers import server_2
 
 AuthInfo = typing_extensions.TypedDict(
     'AuthInfo',
@@ -48,9 +45,9 @@ AuthInfo = typing_extensions.TypedDict(
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
-        ('servers', 0): server_0.Server0,
-        ('servers', 1): server_1.Server1,
-        ('servers', 2): server_2.Server2,
+        'servers/0': 'server_0.Server0',
+        'servers/1': 'server_1.Server1',
+        'servers/2': 'server_2.Server2',
     },
     total=False
 )
@@ -361,7 +358,7 @@ class Configuration(object):
 
     def get_server_url(
         self,
-        key_prefix: typing.Tuple[str, ...],
+        key_prefix: str,
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -369,6 +366,10 @@ class Configuration(object):
         :return: URL based on host settings
         """
         used_index = index or self.server_index
-        used_key = key_prefix + (used_index,)
+        used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
+
+from petstore_api.servers import server_0
+from petstore_api.servers import server_1
+from petstore_api.servers import server_2

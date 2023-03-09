@@ -120,7 +120,7 @@ class BaseApi(api_client.Api):
         elif 'body' in serialized_data:
             _body = serialized_data['body']
         host = self.api_client.configuration.get_server_url(
-            ('paths', path, 'put'), server_index
+            'paths/' + path + '/' + 'put' + '/servers/', server_index
         )
 
         response = self.api_client.call_api(

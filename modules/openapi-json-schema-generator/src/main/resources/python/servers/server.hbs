@@ -12,16 +12,16 @@ from {{packageName}} import servers{{#if variables}}, schemas{{/if}}
 
 
     {{#if variables}}
-class __Variables:
+class _Variables:
         {{#each variables}}
     {{> components/schemas/_helper_schema_switch_case }}
         {{/each}}
 
-__VariablesSchemas = typing_extensions.TypedDict(
-    '__VariablesSchemas',
+_VariablesSchemas = typing_extensions.TypedDict(
+    '_VariablesSchemas',
     {
         {{#each variables}}
-        "{{{@key.original}}}": typing.Type[__Variables.{{jsonPathPiece.camelCase}}],
+        "{{{@key.original}}}": typing.Type[_Variables.{{jsonPathPiece.camelCase}}],
         {{/each}}
     },
     total=False
@@ -41,6 +41,16 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
     {{/if}}
+    {{#if variables}}
+
+def _default_variable_schemas():
+    return {
+        {{#each variables}}
+        "{{{@key.original}}}": _Variables.{{jsonPathPiece.camelCase}},
+        {{/each}}
+    }
+    {{/if}}
+
 
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(servers.Server):
@@ -52,10 +62,6 @@ class {{jsonPathPiece.camelCase}}(servers.Server):
     _url: str = "{{url}}"
     {{#if variables}}
     variables: Variables
-    variable_schemas: __VariablesSchemas = {
-        {{#each variables}}
-        "{{{@key.original}}}": __Variables.{{jsonPathPiece.camelCase}},
-        {{/each}}
-    }
+    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     {{/if}}
 {{/with}}

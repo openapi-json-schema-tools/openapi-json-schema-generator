@@ -24,7 +24,6 @@ from dateutil.parser.isoparser import _takes_ascii
 import frozendict
 
 from petstore_api import exceptions
-from petstore_api import configuration as configuration_module
 
 
 class Unset(object):
@@ -81,7 +80,7 @@ class ValidationMetadata(frozendict.frozendict):
     def __new__(
         cls,
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        configuration: configuration_module.Configuration,
+        configuration: 'configuration_module.Configuration',
         seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
         validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
     ):
@@ -90,8 +89,8 @@ class ValidationMetadata(frozendict.frozendict):
             path_to_item: the path to the current data being instantiated.
                 For {'a': [1]} if the code is handling, 1, then the path is ('args[0]', 'a', 0)
                 This changes from location to location
-            configuration: the configuration_module.Configuration instance to use
-                This is needed because in configuration_module.Configuration:
+            configuration: the 'configuration_module.Configuration' instance to use
+                This is needed because in 'configuration_module.Configuration':
                 - one can disable validation checking
                 This does not change from location to location
             seen_classes: when deserializing data that matches multiple schemas, this is used to store
@@ -122,7 +121,7 @@ class ValidationMetadata(frozendict.frozendict):
         return self['path_to_item']
 
     @property
-    def configuration(self) -> configuration_module.Configuration:
+    def configuration(self) -> 'configuration_module.Configuration':
         return self['configuration']
 
     @property
@@ -1117,6 +1116,7 @@ class Schema:
         '__dict__',
         '__weakref__',
         '__doc__',
+        'default',  # excluded because it has no impact on validation
     }
 
     @classmethod
@@ -1301,7 +1301,7 @@ class Schema:
             io.BufferedReader,
             bytes
         ],
-        configuration_: typing.Optional[configuration_module.Configuration] = None
+        configuration_: typing.Optional['configuration_module.Configuration'] = None
     ):
         """
         Schema from_openapi_data_
@@ -1357,7 +1357,7 @@ class Schema:
             io.FileIO,
             io.BufferedReader,
             'Schema',        ],
-        configuration_: typing.Optional[configuration_module.Configuration] = None,
+        configuration_: typing.Optional['configuration_module.Configuration'] = None,
         **kwargs: typing.Union[
             dict,
             frozendict.frozendict,
@@ -1384,7 +1384,7 @@ class Schema:
         Args:
             args_ (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
             kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
-            configuration_: contains the configuration_module.Configuration that enables json schema validation keywords
+            configuration_: contains the 'configuration_module.Configuration' that enables json schema validation keywords
                 like minItems, minLength etc
 
         Note: double underscores are used here because pycharm thinks that these variables
@@ -2073,10 +2073,10 @@ class ListSchema(
         types = {tuple}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2089,10 +2089,10 @@ class NoneSchema(
         types = {NoneClass}
 
     @classmethod
-    def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: None, configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: None, **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: None, **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2109,10 +2109,10 @@ class NumberSchema(
         types = {decimal.Decimal}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2132,10 +2132,10 @@ class IntSchema(IntBase, NumberSchema):
         format = 'int'
 
     @classmethod
-    def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: int, configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2163,7 +2163,7 @@ class Float32Schema(
         format = 'float'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
 
@@ -2175,7 +2175,7 @@ class Float64Schema(
         format = 'double'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
 
@@ -2194,10 +2194,10 @@ class StrSchema(
         types = {str}
 
     @classmethod
-    def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[configuration_module.Configuration] = None) -> 'StrSchema':
+    def from_openapi_data_(cls, arg: str, configuration_: typing.Optional['configuration_module.Configuration'] = None) -> 'StrSchema':
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2206,7 +2206,7 @@ class UUIDSchema(UUIDBase, StrSchema):
         types = {str}
         format = 'uuid'
 
-    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2215,7 +2215,7 @@ class DateSchema(DateBase, StrSchema):
         types = {str}
         format = 'date'
 
-    def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2224,7 +2224,7 @@ class DateTimeSchema(DateTimeBase, StrSchema):
         types = {str}
         format = 'date-time'
 
-    def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_, **kwargs)
 
 
@@ -2233,7 +2233,7 @@ class DecimalSchema(DecimalBase, StrSchema):
         types = {str}
         format = 'number'
 
-    def __new__(cls, arg_: str, **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: str, **kwargs: 'configuration_module.Configuration'):
         """
         Note: Decimals may not be passed in because cast_to_allowed_types is only invoked once for payloads
         which can be simple (str) or complex (dicts or lists with nested values)
@@ -2255,7 +2255,7 @@ class BytesSchema(
     class Schema_:
         types = {bytes}
 
-    def __new__(cls, arg_: bytes, **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: bytes, **kwargs: 'configuration_module.Configuration'):
         return super(Schema, cls).__new__(cls, arg_)
 
 
@@ -2282,7 +2282,7 @@ class FileSchema(
     class Schema_:
         types = {FileIO}
 
-    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: 'configuration_module.Configuration'):
         return super(Schema, cls).__new__(cls, arg_)
 
 
@@ -2300,7 +2300,7 @@ class BinarySchema(
                 FileSchema,
             ]
 
-    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: configuration_module.Configuration):
+    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: 'configuration_module.Configuration'):
         return super().__new__(cls, arg_)
 
 
@@ -2313,7 +2313,7 @@ class BoolSchema(
         types = {BoolClass}
 
     @classmethod
-    def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, arg_: bool, **kwargs: ValidationMetadata):
@@ -2353,7 +2353,7 @@ class NotAnyTypeSchema(AnyTypeSchema):
     def __new__(
         cls,
         *args_,
-        configuration_: typing.Optional[configuration_module.Configuration] = None,
+        configuration_: typing.Optional['configuration_module.Configuration'] = None,
     ) -> 'NotAnyTypeSchema':
         return super().__new__(
             cls,
@@ -2371,7 +2371,7 @@ class DictSchema(
         types = {frozendict.frozendict}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[configuration_module.Configuration] = None):
+    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional['configuration_module.Configuration'] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, *args_: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]):
@@ -2399,3 +2399,6 @@ LOG_CACHE_USAGE = False
 def log_cache_usage(cache_fn):
     if LOG_CACHE_USAGE:
         print(cache_fn.__name__, cache_fn.cache_info())
+
+
+from petstore_api import configuration as configuration_module

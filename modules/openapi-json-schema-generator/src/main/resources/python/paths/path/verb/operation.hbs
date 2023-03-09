@@ -226,12 +226,12 @@ class BaseApi(api_client.Api):
     {{/with}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
-            ('paths', path, '{{httpMethod.original}}'), server_index
+            'paths/' + path + '/' + '{{httpMethod.original}}' + '/servers/', server_index
         )
     {{else}}
         # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
-            ('servers',), server_index
+            'servers/', server_index
         )
     {{/if}}
 

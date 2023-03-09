@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
         # TODO add cookie handling
         # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
-            ('servers',), server_index
+            'servers/', server_index
         )
 
         response = self.api_client.call_api(

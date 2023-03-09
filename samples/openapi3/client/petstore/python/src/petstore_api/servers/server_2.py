@@ -12,6 +12,7 @@ from petstore_api import servers
 
 
 
+
 @dataclasses.dataclass
 class Server2(servers.Server):
     '''
