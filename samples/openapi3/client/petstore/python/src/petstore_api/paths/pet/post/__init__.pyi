@@ -128,13 +128,14 @@ class BaseApi(api_client.Api):
             _fields = serialized_data['fields']
         elif 'body' in serialized_data:
             _body = serialized_data['body']
+        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/' + 'post' + '/servers/', server_index
+            'servers/', server_index
         )
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post',
+            method='',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -247,18 +248,17 @@ class AddPet(BaseApi):
         return self._add_pet(
             body=body,
             content_type=content_type,
-            host_index=host_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
         )
 
 
-class ApiForPost(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -271,7 +271,7 @@ class ApiForPost(BaseApi):
     ]: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/xml"],
@@ -284,7 +284,7 @@ class ApiForPost(BaseApi):
     ]: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -298,7 +298,7 @@ class ApiForPost(BaseApi):
 
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -309,7 +309,7 @@ class ApiForPost(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -322,7 +322,7 @@ class ApiForPost(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
@@ -334,7 +334,6 @@ class ApiForPost(BaseApi):
         return self._add_pet(
             body=body,
             content_type=content_type,
-            host_index=host_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

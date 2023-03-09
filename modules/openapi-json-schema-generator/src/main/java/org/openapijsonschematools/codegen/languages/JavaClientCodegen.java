@@ -723,10 +723,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             }
         }
 
-        if (MICROPROFILE.equals(getLibrary())) {
-            objs = AbstractJavaJAXRSServerCodegen.jaxrsPostProcessOperations(objs);
-        }
-
         return objs;
     }
 

@@ -157,7 +157,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='delete',
+            method='',
             headers=_headers,
             security=_security,
             host=host,
@@ -242,11 +242,11 @@ class DeletePet(BaseApi):
         )
 
 
-class ApiForDelete(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def delete(
+    def (
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -256,7 +256,7 @@ class ApiForDelete(BaseApi):
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def delete(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -267,7 +267,7 @@ class ApiForDelete(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def delete(
+    def (
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -279,7 +279,7 @@ class ApiForDelete(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def delete(
+    def (
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),

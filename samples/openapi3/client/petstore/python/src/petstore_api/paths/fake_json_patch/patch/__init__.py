@@ -131,7 +131,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='patch',
+            method='',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -235,11 +235,11 @@ class JsonPatch(BaseApi):
         )
 
 
-class ApiForPatch(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def patch(
+    def (
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
         body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
@@ -252,7 +252,7 @@ class ApiForPatch(BaseApi):
     ]: ...
 
     @typing.overload
-    def patch(
+    def (
         self,
         content_type: str = ...,
         body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
@@ -266,7 +266,7 @@ class ApiForPatch(BaseApi):
 
 
     @typing.overload
-    def patch(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -277,7 +277,7 @@ class ApiForPatch(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def patch(
+    def (
         self,
         content_type: str = ...,
         body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
@@ -290,7 +290,7 @@ class ApiForPatch(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def patch(
+    def (
         self,
         content_type: str = 'application/json-patch+json',
         body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,

@@ -12,28 +12,28 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab import post  # noqa: E501
+from petstore_api.paths. import   # noqa: E501
 from petstore_api import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class TestPost(ApiTestMixin, unittest.TestCase):
+class Test(ApiTestMixin, unittest.TestCase):
     """
-    Post unit test stubs
+     unit test stubs
         parameter collision case  # noqa: E501
     """
     configuration_ = configuration.Configuration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
+        self.api = .ApiFor(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
 
     response_status = 200
-    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
+    response_body_schema = .response_200.ResponseFor200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

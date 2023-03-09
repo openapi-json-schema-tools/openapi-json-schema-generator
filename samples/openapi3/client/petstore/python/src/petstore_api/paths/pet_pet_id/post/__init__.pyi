@@ -153,7 +153,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post',
+            method='',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -257,11 +257,11 @@ class UpdatePetWithForm(BaseApi):
         )
 
 
-class ApiForPost(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def post(
+    def (
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
         body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -272,7 +272,7 @@ class ApiForPost(BaseApi):
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
     @typing.overload
-    def post(
+    def (
         self,
         content_type: str = ...,
         body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -284,7 +284,7 @@ class ApiForPost(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -296,7 +296,7 @@ class ApiForPost(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         content_type: str = ...,
         body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
@@ -309,7 +309,7 @@ class ApiForPost(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def post(
+    def (
         self,
         content_type: str = 'application/x-www-form-urlencoded',
         body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,

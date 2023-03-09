@@ -125,7 +125,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='post',
+            method='',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -222,11 +222,11 @@ class CreateUser(BaseApi):
         )
 
 
-class ApiForPost(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -239,7 +239,7 @@ class ApiForPost(BaseApi):
     ]: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -253,7 +253,7 @@ class ApiForPost(BaseApi):
 
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -264,7 +264,7 @@ class ApiForPost(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -277,7 +277,7 @@ class ApiForPost(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def post(
+    def (
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',

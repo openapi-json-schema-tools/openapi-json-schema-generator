@@ -163,30 +163,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
     }
 
     @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        OperationsMap updatedObjs = jaxrsPostProcessOperations(objs);
-        OperationMap operations = updatedObjs.getOperations();
-        return updatedObjs;
-    }
-
-    static OperationsMap jaxrsPostProcessOperations(OperationsMap objs) {
-        OperationMap operations = objs.getOperations();
-        String commonPath = null;
-        if (operations != null) {
-            List<CodegenOperation> ops = operations.getOperation();
-            for (CodegenOperation operation : ops) {
-                if (commonPath == null) {
-                    commonPath = operation.path.original;
-                } else {
-                    commonPath = getCommonPath(commonPath, operation.path.original);
-                }
-            }
-            objs.put("commonPath", "/".equals(commonPath) ? StringUtils.EMPTY : commonPath);
-        }
-        return objs;
-    }
-
-    @Override
     public String toApiName(final String name) {
         String computed = name;
         if (computed.length() > 0) {

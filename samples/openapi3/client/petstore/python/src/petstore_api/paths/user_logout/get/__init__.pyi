@@ -83,7 +83,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='get',
+            method='',
             host=host,
             stream=stream,
             timeout=timeout,
@@ -153,11 +153,11 @@ class LogoutUser(BaseApi):
         )
 
 
-class ApiForGet(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def get(
+    def (
         self,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -168,7 +168,7 @@ class ApiForGet(BaseApi):
     ]: ...
 
     @typing.overload
-    def get(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
@@ -177,7 +177,7 @@ class ApiForGet(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def get(
+    def (
         self,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -188,7 +188,7 @@ class ApiForGet(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def get(
+    def (
         self,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

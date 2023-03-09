@@ -124,7 +124,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='delete',
+            method='',
             host=host,
             stream=stream,
             timeout=timeout,
@@ -207,11 +207,11 @@ class DeleteUser(BaseApi):
         )
 
 
-class ApiForDelete(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def delete(
+    def (
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -223,7 +223,7 @@ class ApiForDelete(BaseApi):
     ]: ...
 
     @typing.overload
-    def delete(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -233,7 +233,7 @@ class ApiForDelete(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def delete(
+    def (
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -245,7 +245,7 @@ class ApiForDelete(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def delete(
+    def (
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,

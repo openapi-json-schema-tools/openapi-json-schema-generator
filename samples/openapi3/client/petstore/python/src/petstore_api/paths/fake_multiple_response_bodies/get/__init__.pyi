@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='get',
+            method='',
             headers=_headers,
             host=host,
             stream=stream,
@@ -185,11 +185,11 @@ class MultipleResponseBodies(BaseApi):
         )
 
 
-class ApiForGet(BaseApi):
+class ApiFor(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def get(
+    def (
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -202,7 +202,7 @@ class ApiForGet(BaseApi):
     ]: ...
 
     @typing.overload
-    def get(
+    def (
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -212,7 +212,7 @@ class ApiForGet(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def get(
+    def (
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -225,7 +225,7 @@ class ApiForGet(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def get(
+    def (
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
