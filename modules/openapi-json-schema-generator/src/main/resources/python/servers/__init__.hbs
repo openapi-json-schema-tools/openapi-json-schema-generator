@@ -19,7 +19,7 @@ class Server(abc.ABC):
             return
         url = self._url
         for (key, schema) in self.variable_schemas.items():
-            if key in self.variables:
+            if self.variables and key in self.variables:
                 value = self.variables[key]
                 cast_value = schema(value)
             else:

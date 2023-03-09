@@ -26,12 +26,12 @@ import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
-import org.mozilla.javascript.optimizer.Codegen;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
@@ -49,6 +49,7 @@ import org.openapijsonschematools.codegen.model.CodegenOauthFlow;
 import org.openapijsonschematools.codegen.model.CodegenOauthFlows;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
@@ -1504,16 +1505,6 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    protected Schema<?> getSchemaItems(ArraySchema schema) {
-        Schema<?> items = schema.getItems();
-        if (items == null) {
-            LOGGER.error("Undefined array inner type for `{}`. Default to String.", schema.getName());
-            items = new StringSchema().description("TODO default missing array inner type to string");
-            schema.setItems(items);
-        }
-        return items;
-    }
-
     /**
      * Return the lowerCamelCase of the string
      *
@@ -2441,17 +2432,12 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
-     * @param httpMethod HTTP method
      * @param operation  OAS operation object
-     * @param path       the path of the operation
-     * @param servers    list of servers
+     * @param jsonPath   the json path of the operation
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(String path,
-                                          String httpMethod,
-                                          Operation operation,
-                                          List<Server> servers) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2476,41 +2462,21 @@ public class DefaultCodegen implements CodegenConfig {
             tags.put(tagName, codegenTag);
         }
 
+        String[] pathPieces = jsonPath.split("/");
+        String httpMethod = pathPieces[pathPieces.length-1];
+        String path = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
-
-        String usedPath;
-        if (isStrictSpecBehavior() && !path.startsWith("/")) {
-            // modifies an operation.path to strictly conform to OpenAPI Spec
-            usedPath = "/" + path;
-        } else {
-            usedPath = path;
-        }
-        String camelCase = toModelName(path);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
-        CodegenKey pathKey = new CodegenKey(
-                usedPath,
-                false,  // false because paths have lots of invalid characters
-                toPathFilename(path),
-                camelCase,
-                anchorPiece
-        );
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original) + "/" + httpMethod;
 
         // servers setting
         List<CodegenServer> codegenServers = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            codegenServers = fromServers(operation.getServers(), sourceJsonPath + "/servers");
-        } else if (servers != null && !servers.isEmpty()) {
-            // TODO generate these and auto inherit from them
-            // use path-level servers
-            codegenServers = fromServers(servers, "#/");
+            codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
-
         String summary = escapeText(operation.getSummary());
-        String unescapedNotes = operation.getDescription();
-        String notes = escapeText(operation.getDescription());
+        String unescapedDescription = operation.getDescription();
+        String description = escapeText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
@@ -2532,7 +2498,7 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     produces.addAll(responseProduces);
                 }
-                String usedSourceJsonPath = sourceJsonPath + "/responses/" + key;
+                String usedSourceJsonPath = jsonPath + "/responses/" + key;
                 CodegenResponse r = fromResponse(response, usedSourceJsonPath);
 
                 responses.put(key, r);
@@ -2589,14 +2555,14 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         List<CodegenCallback> callbacks = null;
-        if (operation.getCallbacks() != null && !operation.getCallbacks().isEmpty()) {
-            List<CodegenCallback> foundCallbacks = new ArrayList<>();
-            operation.getCallbacks().forEach((name, callback) -> {
-                CodegenCallback c = fromCallback(name, callback, servers);
-                foundCallbacks.add(c);
-            });
-            callbacks = foundCallbacks;
-        }
+//        if (operation.getCallbacks() != null && !operation.getCallbacks().isEmpty()) {
+//            List<CodegenCallback> foundCallbacks = new ArrayList<>();
+//            operation.getCallbacks().forEach((name, callback) -> {
+//                CodegenCallback c = fromCallback(name, callback, servers);
+//                foundCallbacks.add(c);
+//            });
+//            callbacks = foundCallbacks;
+//        }
 
         List<Parameter> parameters = operation.getParameters();
         List<CodegenParameter> allParams = new ArrayList<>();
@@ -2610,7 +2576,7 @@ public class DefaultCodegen implements CodegenConfig {
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
         if (opRequestBody != null) {
-            requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
+            requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
             if (requestBody.refInfo != null) {
                 if (Boolean.TRUE.equals(requestBody.getDeepestRef().required)) {
                     hasRequiredParamOrBody = true;
@@ -2629,7 +2595,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (parameters != null) {
             int i = 0;
             for (Parameter param : parameters) {
-                String usedSourceJsonPath = sourceJsonPath + "/parameters/" + i;
+                String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
                 allParams.add(p);
                 i++;
@@ -2675,16 +2641,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        String camelCaseMethod = org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod);
-        String anchorPieceMethod = camelCase.toLowerCase(Locale.ROOT);
-        CodegenKey httpMethodKey = new CodegenKey(
-                httpMethod,
-                true,
-                org.openapijsonschematools.codegen.utils.StringUtils.underscore(httpMethod),
-                camelCaseMethod,
-                anchorPieceMethod
-        );
-
         // move "required" parameters in front of "optional" parameters
         if (sortParamsByRequiredFlag) {
             allParams.sort((one, another) -> {
@@ -2701,7 +2657,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (securities != null && !securities.isEmpty()) {
             security = new ArrayList<>();
             for (SecurityRequirement originalSecurityRequirement: securities) {
-                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, sourceJsonPath + "/security");
+                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, jsonPath + "/security");
                 security.add(securityRequirement);
             }
         }
@@ -2711,10 +2667,8 @@ public class DefaultCodegen implements CodegenConfig {
                 deprecated,
                 hasErrorResponseObject,
                 summary,
-                unescapedNotes,
-                notes,
-                httpMethodKey,
-                pathKey,
+                unescapedDescription,
+                description,
                 produces,
                 codegenServers,
                 requestBody,
@@ -2853,7 +2807,8 @@ public class DefaultCodegen implements CodegenConfig {
                         // distinguish between normal operations and callback requests
                         op.getExtensions().put("x-callback-request", true);
 
-                        CodegenOperation co = fromOperation(expression, method, op, servers);
+                        // CodegenOperation co = fromOperation(expression, method, op, servers);
+                        CodegenOperation co = null;
                         u.requests.add(co);
                     });
 
@@ -4357,6 +4312,7 @@ public class DefaultCodegen implements CodegenConfig {
         );
     }
 
+    @Override
     public CodegenKey getKey(String key) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
@@ -4454,9 +4410,66 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
+        String summary = pathItem.getSummary();
+        String description = pathItem.getDescription();
+        LinkedHashMap<CodegenKey, CodegenOperation> operations = new LinkedHashMap<>();
+        Operation specOperation = pathItem.getGet();
+        String httpMethod = "get";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPut();
+        httpMethod = "put";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPost();
+        httpMethod = "post";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getDelete();
+        httpMethod = "delete";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getOptions();
+        httpMethod = "options";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getHead();
+        httpMethod = "head";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPatch();
+        httpMethod = "patch";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getTrace();
+        httpMethod = "trace";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        List<Server> specServers = pathItem.getServers();
+        List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
+
+        return new CodegenPathItem(
+                summary,
+                description,
+                operations,
+                servers,
+                null
+        );
+    }
+
+    @Override
     public List<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
-            return Collections.emptyList();
+            return null;
         }
         List<CodegenServer> codegenServers = new LinkedList<>();
         int i = 0;

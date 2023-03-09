@@ -113,8 +113,6 @@ class Configuration(object):
     :param server_index: Index to servers configuration.
     """
 
-    _default = None
-
     def __init__(
         self,
         auth_info: typing.Optional[AuthInfo] = None,
@@ -130,7 +128,11 @@ class Configuration(object):
         # Authentication Settings
         self.auth_info = auth_info or AuthInfo()
         # Server Info
-        self.server_info = server_info or ServerInfo()
+        self.server_info = server_info or ServerInfo({
+            'servers/0': server_0.Server0(),
+            'servers/1': server_1.Server1(),
+            'servers/2': server_2.Server2(),
+        })
         self.server_index = server_index
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
         self.logger = {}
@@ -233,31 +235,6 @@ class Configuration(object):
             disabled_json_schema_python_keywords.update(python_keywords)
         self.__disabled_json_schema_keywords = disabled_json_schema_keywords
         self.__disabled_json_schema_python_keywords = disabled_json_schema_python_keywords
-
-    @classmethod
-    def set_default(cls, default):
-        """Set default instance of configuration.
-
-        It stores default configuration, which can be
-        returned by get_default_copy method.
-
-        :param default: object of Configuration
-        """
-        cls._default = copy.deepcopy(default)
-
-    @classmethod
-    def get_default_copy(cls):
-        """Return new instance of configuration.
-
-        This method returns newly created, based on default constructor,
-        object of Configuration class or returns a copy of default
-        configuration passed by the set_default method.
-
-        :return: The configuration object.
-        """
-        if cls._default is not None:
-            return copy.deepcopy(cls._default)
-        return Configuration()
 
     @property
     def logger_file(self):

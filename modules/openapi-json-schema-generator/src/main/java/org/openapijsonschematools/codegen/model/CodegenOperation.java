@@ -27,8 +27,6 @@ public class CodegenOperation {
     public final Boolean deprecated;
     public final boolean hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
     public final String summary, unescapedDescription, description;
-    public final CodegenKey httpMethod;
-    public final CodegenKey path;
     public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
@@ -51,14 +49,12 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, CodegenKey httpMethod, CodegenKey path, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
         this.unescapedDescription = unescapedDescription;
         this.description = description;
-        this.httpMethod = httpMethod;
-        this.path = path;
         this.produces = produces;
         this.servers = servers;
         this.requestBody = requestBody;
@@ -127,9 +123,7 @@ public class CodegenOperation {
     public String toString() {
         final StringBuffer sb = new StringBuffer("CodegenOperation{");
         sb.append(", deprecated=").append(deprecated);
-        sb.append(", path='").append(path).append('\'');
         sb.append(", operationId='").append(operationId).append('\'');
-        sb.append(", httpMethod='").append(httpMethod).append('\'');
         sb.append(", summary='").append(summary).append('\'');
         sb.append(", unescapedNotes='").append(unescapedDescription).append('\'');
         sb.append(", notes='").append(description).append('\'');
@@ -163,9 +157,7 @@ public class CodegenOperation {
         if (o == null || getClass() != o.getClass()) return false;
         CodegenOperation that = (CodegenOperation) o;
         return deprecated == that.deprecated &&
-                Objects.equals(path, that.path) &&
                 Objects.equals(operationId, that.operationId) &&
-                Objects.equals(httpMethod, that.httpMethod) &&
                 Objects.equals(summary, that.summary) &&
                 Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(description, that.description) &&
@@ -194,7 +186,7 @@ public class CodegenOperation {
     @Override
     public int hashCode() {
 
-        return Objects.hash(deprecated, path, operationId, httpMethod,
+        return Objects.hash(deprecated, operationId,
                 summary, unescapedDescription, description, defaultResponse,
                 produces, servers, requestBody, allParams,
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,

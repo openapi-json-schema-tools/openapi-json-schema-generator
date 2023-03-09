@@ -20,6 +20,7 @@ package org.openapijsonschematools.codegen;
 import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -33,6 +34,7 @@ import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
@@ -135,11 +137,15 @@ public interface CodegenConfig {
 
     CodegenSchema fromSchema(Schema<?> schema, String sourceJsonPath, String currentJsonPath);
 
-    CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
+    CodegenOperation fromOperation(Operation operation, String jsonPath);
+
+    CodegenKey getKey(String key);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
+
+    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
 
     List<CodegenServer> fromServers(List<Server> servers, String jsonPath);
 
