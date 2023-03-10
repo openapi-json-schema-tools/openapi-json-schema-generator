@@ -132,7 +132,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='',
+            method='put',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -236,11 +236,11 @@ class BodyWithFileSchema(BaseApi):
         )
 
 
-class ApiFor(BaseApi):
+class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def (
+    def put(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -253,7 +253,7 @@ class ApiFor(BaseApi):
     ]: ...
 
     @typing.overload
-    def (
+    def put(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -267,7 +267,7 @@ class ApiFor(BaseApi):
 
 
     @typing.overload
-    def (
+    def put(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -278,7 +278,7 @@ class ApiFor(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def (
+    def put(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -291,7 +291,7 @@ class ApiFor(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def (
+    def put(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
         content_type: str = 'application/json',

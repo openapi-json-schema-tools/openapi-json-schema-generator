@@ -465,6 +465,7 @@ public class DefaultGenerator implements Generator {
 
                 Map<String, Object> endpointMap = new HashMap<>();
                 endpointMap.put("operation", operation);
+                endpointMap.put("httpMethod", httpMethod);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
 
                 // paths.some_path.post.request_body.py, only written if there is no refModule
@@ -509,6 +510,8 @@ public class DefaultGenerator implements Generator {
                 for (String templateFile: config.pathEndpointTestTemplateFiles()) {
                     Map<String, Object> endpointTestMap = new HashMap<>();
                     endpointTestMap.put("operation", operation);
+                    endpointTestMap.put("httpMethod", httpMethod);
+                    endpointTestMap.put("path", pathKey);
                     endpointTestMap.put("packageName", config.packageName());
                     outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
                     generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);

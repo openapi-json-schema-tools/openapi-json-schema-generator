@@ -8,13 +8,13 @@
 import dataclasses
 import typing
 
-from petstore_api import servers
+from petstore_api import server
 
 
 
 
 @dataclasses.dataclass
-class Server2(servers.Server):
+class Server2(server.Server):
     '''
     staging server with no variables
     '''

@@ -9,7 +9,7 @@ import dataclasses
 import typing
 import typing_extensions
 
-from petstore_api import servers, schemas
+from petstore_api import server, schemas
 
 
 class _Variables:
@@ -64,7 +64,7 @@ def _default_variable_schemas():
 
 
 @dataclasses.dataclass
-class Server1(servers.Server):
+class Server1(server.Server):
     '''
     The local server
     '''

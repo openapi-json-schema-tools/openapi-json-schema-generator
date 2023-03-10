@@ -8,7 +8,7 @@ import typing_extensions
 {{/if}}
 
 {{#with server}}
-from {{packageName}} import servers{{#if variables}}, schemas{{/if}}
+from {{packageName}} import server{{#if variables}}, schemas{{/if}}
 
 
     {{#if variables}}
@@ -53,7 +53,7 @@ def _default_variable_schemas():
 
 
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(servers.Server):
+class {{jsonPathPiece.camelCase}}(server.Server):
     {{#if description}}
     '''
     {{description}}

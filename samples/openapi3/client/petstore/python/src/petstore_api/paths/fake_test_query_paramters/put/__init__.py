@@ -149,7 +149,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='',
+            method='put',
             host=host,
             stream=stream,
             timeout=timeout,
@@ -231,11 +231,11 @@ class QueryParameterCollectionFormat(BaseApi):
         )
 
 
-class ApiFor(BaseApi):
+class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def (
+    def put(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -247,7 +247,7 @@ class ApiFor(BaseApi):
     ]: ...
 
     @typing.overload
-    def (
+    def put(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -257,7 +257,7 @@ class ApiFor(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def (
+    def put(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -269,7 +269,7 @@ class ApiFor(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def (
+    def put(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,

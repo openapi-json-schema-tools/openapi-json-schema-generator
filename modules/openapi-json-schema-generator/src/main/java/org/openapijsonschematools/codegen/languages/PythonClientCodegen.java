@@ -377,7 +377,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (openAPI.getServers() != null) {
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
-                    Collections.singletonMap("servers/__init__.hbs", File.separatorChar + "__init__.py")
+                    Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
             );
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
@@ -530,6 +530,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
         supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
+        supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";

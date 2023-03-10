@@ -143,7 +143,7 @@ class BaseApi(api_client.Api):
 
         response = self.api_client.call_api(
             resource_path=used_path,
-            method='',
+            method='post',
             headers=_headers,
             fields=_fields,
             body=_body,
@@ -253,11 +253,11 @@ class Mammal(BaseApi):
         )
 
 
-class ApiFor(BaseApi):
+class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
     @typing.overload
-    def (
+    def post(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -271,7 +271,7 @@ class ApiFor(BaseApi):
     ]: ...
 
     @typing.overload
-    def (
+    def post(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
@@ -286,7 +286,7 @@ class ApiFor(BaseApi):
 
 
     @typing.overload
-    def (
+    def post(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -298,7 +298,7 @@ class ApiFor(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def (
+    def post(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = ...,
@@ -312,7 +312,7 @@ class ApiFor(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def (
+    def post(
         self,
         body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         content_type: str = 'application/json',
