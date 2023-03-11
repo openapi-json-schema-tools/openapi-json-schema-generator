@@ -63,9 +63,9 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/_helper_enums }}
 {{/if}}
 {{#if isStub}}
-{{#if hasValidation}}
+{{#or hasValidation defaultValue}}
 {{#unless enumValueToName}}
     pass
 {{/unless}}
-{{/if}}
+{{/or}}
 {{/if}}

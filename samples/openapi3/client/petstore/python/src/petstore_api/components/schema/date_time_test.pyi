@@ -31,3 +31,4 @@ class DateTimeTest(
 
     Do not edit the class manually.
     """
+    pass

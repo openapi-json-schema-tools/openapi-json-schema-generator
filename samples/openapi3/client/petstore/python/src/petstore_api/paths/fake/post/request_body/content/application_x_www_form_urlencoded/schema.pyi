@@ -88,6 +88,7 @@ class Schema(
             class DateTime(
                 schemas.DateTimeSchema
             ):
+                pass
             
             
             class Password(

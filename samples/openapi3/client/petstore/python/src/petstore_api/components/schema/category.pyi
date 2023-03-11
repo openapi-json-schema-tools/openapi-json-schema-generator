@@ -45,6 +45,7 @@ class Category(
             class Name(
                 schemas.StrSchema
             ):
+                pass
             __annotations__ = {
                 "id": Id,
                 "name": Name,

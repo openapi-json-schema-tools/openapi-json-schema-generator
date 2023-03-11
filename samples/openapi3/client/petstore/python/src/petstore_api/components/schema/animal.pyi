@@ -54,6 +54,7 @@ class Animal(
             class Color(
                 schemas.StrSchema
             ):
+                pass
             __annotations__ = {
                 "className": ClassName,
                 "color": Color,

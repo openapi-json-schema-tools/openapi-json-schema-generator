@@ -62,6 +62,7 @@ class Order(
             class Complete(
                 schemas.BoolSchema
             ):
+                pass
             __annotations__ = {
                 "id": Id,
                 "petId": PetId,
