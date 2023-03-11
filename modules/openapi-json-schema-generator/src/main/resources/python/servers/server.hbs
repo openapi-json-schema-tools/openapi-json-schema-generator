@@ -6,12 +6,12 @@ import typing
 {{#if server.variables}}
 import typing_extensions
 {{/if}}
-
 {{#with server}}
+
 from {{packageName}} import server{{#if variables}}, schemas{{/if}}
-
-
     {{#if variables}}
+
+
 class _Variables:
         {{#each variables}}
     {{> components/schemas/_helper_schema_switch_case }}
@@ -40,8 +40,6 @@ Variables = typing_extensions.TypedDict(
     },
     total=False
 )
-    {{/if}}
-    {{#if variables}}
 
 def _default_variable_schemas():
     return {

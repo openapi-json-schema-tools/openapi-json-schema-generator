@@ -11,8 +11,6 @@ import typing
 from petstore_api import server
 
 
-
-
 @dataclasses.dataclass
 class Server1(server.Server):
     _url: str = "https://path-server-test.petstore.local/v2"

@@ -11,8 +11,6 @@ import typing
 from petstore_api import server
 
 
-
-
 @dataclasses.dataclass
 class Server0(server.Server):
     _url: str = "https://petstore.swagger.io/v2"

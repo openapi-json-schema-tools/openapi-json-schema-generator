@@ -11,8 +11,6 @@ import typing
 from petstore_api import server
 
 
-
-
 @dataclasses.dataclass
 class Server2(server.Server):
     '''
