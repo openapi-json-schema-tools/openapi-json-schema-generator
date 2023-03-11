@@ -238,6 +238,7 @@ class BaseApi(api_client.Api):
         response = self.api_client.call_api(
             resource_path=used_path,
             method='{{httpMethod.original}}',
+            host=host,
     {{#or headerParams requestBody produces}}
             headers=_headers,
     {{/or}}
@@ -248,7 +249,6 @@ class BaseApi(api_client.Api):
     {{#if security}}
             security=_security,
     {{/if}}
-            host=host,
             stream=stream,
             timeout=timeout,
         )

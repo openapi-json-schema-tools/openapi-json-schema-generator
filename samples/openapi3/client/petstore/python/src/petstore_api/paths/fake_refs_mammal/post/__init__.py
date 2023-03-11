@@ -144,10 +144,10 @@ class BaseApi(api_client.Api):
         response = self.api_client.call_api(
             resource_path=used_path,
             method='post',
+            host=host,
             headers=_headers,
             fields=_fields,
             body=_body,
-            host=host,
             stream=stream,
             timeout=timeout,
         )

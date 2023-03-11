@@ -25,7 +25,6 @@ class ConfigurationTests(unittest.TestCase):
 
     def test_configuration(self):
         config = petstore_api.Configuration()
-        config.host = 'https://localhost/'
 
         config.disabled_json_schema_keywords = set(("multipleOf,maximum,exclusiveMaximum,minimum,exclusiveMinimum,"
             "maxLength,minLength,pattern,maxItems,minItems").split(','))
@@ -33,20 +32,24 @@ class ConfigurationTests(unittest.TestCase):
             config.disabled_json_schema_keywords = {'foo'}
         config.disabled_json_schema_keywords = set()
 
-    def test_servers(self):
+    def test_spec_root_servers(self):
         auth_info = configuration.AuthInfo(
             api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
-        config = petstore_api.Configuration(server_index=1, server_variables={'version': 'v1'}, auth_info=auth_info)
+        server_info: configuration.ServerInfo = {
+            'servers/1': configuration.server_1.Server1(variables={'version': 'v2'})
+        }
+        config = petstore_api.Configuration(auth_info=auth_info, server_info=server_info, server_index=1)
         client = ApiClient(configuration=config)
         api = pet_api.PetApi(client)
 
         with patch.object(ApiClient, 'request') as mock_request:
             mock_request.return_value = urllib3.HTTPResponse(status=200)
-            api.add_pet({'name': 'pet', 'photoUrls': []})
+            body = {'name': 'pet', 'photoUrls': []}
+            api.add_pet(body)
             mock_request.assert_called_with(
                 'post',
-                'https://path-server-test.petstore.local/v2/pet',
+                'https://localhost:8080/v2/pet',
                 headers=HTTPHeaderDict({
                     'Content-Type': 'application/json',
                     'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
@@ -63,7 +66,7 @@ class ConfigurationTests(unittest.TestCase):
             api.delete_pet(path_params=dict(petId=123456789))
             mock_request.assert_called_with(
                 'delete',
-                'https://localhost:8080/v1/pet/123456789',
+                'https://localhost:8080/v2/pet/123456789',
                 headers={
                     'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
                     'api_key': 'abcdefg'

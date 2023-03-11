@@ -1062,6 +1062,7 @@ class ApiClient:
         self,
         resource_path: str,
         method: str,
+        host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
@@ -1069,7 +1070,6 @@ class ApiClient:
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        host: typing.Optional[str] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
@@ -1109,13 +1109,13 @@ class ApiClient:
             return self.__call_api(
                 resource_path,
                 method,
+                host,
                 headers,
                 body,
                 fields,
                 security,
                 stream,
                 timeout,
-                host,
             )
 
         return self.pool.apply_async(
@@ -1123,6 +1123,7 @@ class ApiClient:
             (
                 resource_path,
                 method,
+                host,
                 headers,
                 body,
                 json,
@@ -1130,7 +1131,6 @@ class ApiClient:
                 security,
                 stream,
                 timeout,
-                host,
             )
         )
 
