@@ -90,7 +90,7 @@ class TestValidateResults(unittest.TestCase):
         )
         assert path_to_schemas == {
             ("args[0]",): {Foo, frozendict.frozendict},
-            ("args[0]", "bar"): {StrSchema, str},
+            ("args[0]", "bar"): {Bar, str},
         }
 
     def test_discriminated_dict_validate(self):
@@ -103,7 +103,7 @@ class TestValidateResults(unittest.TestCase):
         assert path_to_schemas == {
             ("args[0]",): {Animal, Dog, Dog.Schema_.AllOf.classes[1], frozendict.frozendict},
             ("args[0]", "className"): {StrSchema, str},
-            ("args[0]", "color"): {StrSchema, str},
+            ("args[0]", "color"): {Animal.Schema_.Properties.Color, str},
         }
 
     def test_bool_enum_validate(self):
@@ -261,7 +261,8 @@ class TestValidateCalls(unittest.TestCase):
                 )
 
     def test_dict_validate_direct_instantiation_cast_item(self):
-        bar = StrSchema("a")
+        bar = Bar("a")
+        used_configuration = configuration.Configuration()
         # only the Foo dict is validated because the bar property value was already validated
         with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
@@ -269,14 +270,13 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
                 Foo(bar=bar, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
                         path_to_item=('args[0]',),
                         configuration=used_configuration,
-                        validated_path_to_schemas={('args[0]', 'bar'): {str, StrSchema}}
+                        validated_path_to_schemas={('args[0]', 'bar'): {str, Bar}}
                     )
                 )
                 mock_inner_validate.assert_not_called()
