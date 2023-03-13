@@ -3457,7 +3457,10 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length < 6) {
             return;
         }
-        if (pathPieces[4].equals("responses")) {
+        if (pathPieces[4].equals("servers")) {
+            // #/paths/somePath/get/servers/someServer
+            pathPieces[5] = toServerFilename(pathPieces[5]);
+        } else if (pathPieces[4].equals("responses")) {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             pathPieces[5] = toResponseModuleName(pathPieces[5]);
 

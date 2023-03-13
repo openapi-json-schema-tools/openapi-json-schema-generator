@@ -1119,9 +1119,9 @@ src/petstore_api/paths/foo/get/responses/response_default/content/__init__.py
 src/petstore_api/paths/foo/get/responses/response_default/content/application_json/__init__.py
 src/petstore_api/paths/foo/get/responses/response_default/content/application_json/schema.py
 src/petstore_api/paths/foo/get/responses/response_default/content/application_json/schema.pyi
-src/petstore_api/paths/foo/get/servers/0.py
-src/petstore_api/paths/foo/get/servers/1.py
 src/petstore_api/paths/foo/get/servers/__init__.py
+src/petstore_api/paths/foo/get/servers/server_0.py
+src/petstore_api/paths/foo/get/servers/server_1.py
 src/petstore_api/paths/pet/__init__.py
 src/petstore_api/paths/pet/post/__init__.py
 src/petstore_api/paths/pet/post/__init__.pyi
