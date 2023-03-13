@@ -76,7 +76,6 @@ class BaseApi(api_client.Api):
         """
         used_path = path
         # TODO add cookie handling
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -147,6 +146,7 @@ class LogoutUser(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._logout_user(
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -196,6 +196,7 @@ class ApiForGet(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._logout_user(
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

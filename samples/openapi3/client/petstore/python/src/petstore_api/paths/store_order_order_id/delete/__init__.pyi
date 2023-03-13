@@ -113,7 +113,6 @@ class BaseApi(api_client.Api):
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -193,6 +192,7 @@ class DeleteOrder(BaseApi):
     ):
         return self._delete_order(
             path_params=path_params,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -243,6 +243,7 @@ class ApiForDelete(BaseApi):
     ):
         return self._delete_order(
             path_params=path_params,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

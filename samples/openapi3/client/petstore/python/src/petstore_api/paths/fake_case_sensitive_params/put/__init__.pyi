@@ -121,7 +121,6 @@ class BaseApi(api_client.Api):
             for serialized_value in serialized_data.values():
                 used_path += serialized_value
         # TODO add cookie handling
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -204,6 +203,7 @@ class CaseSensitiveParams(BaseApi):
     ):
         return self._case_sensitive_params(
             query_params=query_params,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -258,6 +258,7 @@ class ApiForPut(BaseApi):
     ):
         return self._case_sensitive_params(
             query_params=query_params,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

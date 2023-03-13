@@ -213,7 +213,6 @@ class BaseApi(api_client.Api):
                 _fields = serialized_data['fields']
             elif 'body' in serialized_data:
                 _body = serialized_data['body']
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -337,6 +336,7 @@ class EnumParameters(BaseApi):
             header_params=header_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -428,6 +428,7 @@ class ApiForGet(BaseApi):
             header_params=header_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

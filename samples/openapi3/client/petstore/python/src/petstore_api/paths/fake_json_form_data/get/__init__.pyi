@@ -112,7 +112,6 @@ class BaseApi(api_client.Api):
                 _fields = serialized_data['fields']
             elif 'body' in serialized_data:
                 _body = serialized_data['body']
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -217,6 +216,7 @@ class JsonFormData(BaseApi):
         return self._json_form_data(
             body=body,
             content_type=content_type,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -290,6 +290,7 @@ class ApiForGet(BaseApi):
         return self._json_form_data(
             body=body,
             content_type=content_type,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

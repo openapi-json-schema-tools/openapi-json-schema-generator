@@ -89,7 +89,6 @@ class BaseApi(api_client.Api):
         if accept_content_types:
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
-        # TODO detect and use path servers if they exist
         host = self.api_client.configuration.get_server_url(
             'servers/', server_index
         )
@@ -173,6 +172,7 @@ class FakeHealthGet(BaseApi):
     ):
         return self._fake_health_get(
             accept_content_types=accept_content_types,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -227,6 +227,7 @@ class ApiForGet(BaseApi):
     ):
         return self._fake_health_get(
             accept_content_types=accept_content_types,
+            server_index=server_index,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

@@ -1255,38 +1255,7 @@ class Api(TypedDictInputVerifier):
     """
 
     def __init__(self, api_client: typing.Optional[ApiClient] = None):
-        if api_client is None:
-            api_client = ApiClient()
-        self.api_client = api_client
-
-    def _get_host(
-        self,
-        operation_id: str,
-        servers: typing.Tuple[typing.Dict[str, str], ...] = tuple(),
-        host_index: typing.Optional[int] = None
-    ) -> typing.Optional[str]:
-        configuration = self.api_client.configuration
-        try:
-            if host_index is None:
-                index = configuration.server_operation_index.get(
-                    operation_id, configuration.server_index
-                )
-            else:
-                index = host_index
-            server_variables = configuration.server_operation_variables.get(
-                operation_id, configuration.server_variables
-            )
-            host = configuration.get_host_from_settings(
-                index, variables=server_variables, servers=servers
-            )
-        except IndexError:
-            if servers:
-                raise exceptions.ApiValueError(
-                    "Invalid host index. Must be 0 <= index < %s" %
-                    len(servers)
-                )
-            host = None
-        return host
+        self.api_client: ApiClient = api_client or ApiClient()
 
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
