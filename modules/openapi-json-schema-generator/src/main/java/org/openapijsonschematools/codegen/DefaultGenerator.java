@@ -1226,6 +1226,28 @@ public class DefaultGenerator implements Generator {
         pathAndHttpMethodToOperation = new TreeMap<>(pathAndHttpMethodToOperation);
 
         URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
+        boolean hasServers = false;
+        if (servers != null) {
+            hasServers = true;
+        } else if (paths != null) {
+            for (CodegenPathItem pathItem: paths.values()) {
+                if (pathItem.servers != null) {
+                    hasServers = true;
+                    break;
+                }
+                if (pathItem.operations != null) {
+                    for (CodegenOperation operation: pathItem.operations.values()) {
+                        if (operation.servers != null) {
+                            hasServers = true;
+                            break;
+                        }
+                    }
+                    if (hasServers) {
+                        break;
+                    }
+                }
+            }
+        }
 
         bundle.put("openAPI", openAPI);
         bundle.put("basePath", basePath);
@@ -1244,6 +1266,8 @@ public class DefaultGenerator implements Generator {
         bundle.put("schemas", schemas);
         bundle.put("securitySchemes", securitySchemes);
         bundle.put("servers", servers);
+        bundle.put("hasServers", hasServers);
+        bundle.put("paths", paths);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());

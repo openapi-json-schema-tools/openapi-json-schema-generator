@@ -13,4 +13,4 @@ from petstore_api import server
 
 @dataclasses.dataclass
 class Server0(server.Server):
-    _url: str = "https://petstore.swagger.io/v2"
+    _url: str = "https://path-server-test.petstore.local/v2"

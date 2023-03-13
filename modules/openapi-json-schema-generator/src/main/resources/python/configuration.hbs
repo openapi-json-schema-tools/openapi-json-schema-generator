@@ -34,13 +34,20 @@ AuthInfo = typing_extensions.TypedDict(
     total=False
 )
 {{/if}}
-{{#if servers}}
+{{#if hasServers}}
 
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
 {{#each servers}}
         'servers/{{@key}}': '{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
+{{/each}}
+{{#each paths}}
+    {{#if servers}}
+        {{#each servers}}
+        "paths/{{../@key.original}}/servers/{{@key}}": '{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
+        {{/each}}
+    {{/if}}
 {{/each}}
     },
     total=False
@@ -116,7 +123,7 @@ class Configuration(object):
         auth_info: typing.Optional[AuthInfo] = None,
 {{/if}}
         disabled_json_schema_keywords = frozenset(),
-{{#if servers}}
+{{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
         server_index: int = 0,
 {{/if}}
@@ -133,7 +140,7 @@ class Configuration(object):
         self.auth_info = {}
 {{/if}}
         # Server Info
-{{#if servers}}
+{{#if hasServers}}
         self.server_info = server_info or ServerInfo({
 {{#each servers}}
             'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
@@ -365,8 +372,15 @@ class Configuration(object):
         server = self.server_info[used_key]
         return server.url
 
-{{#if servers}}
+{{#if hasServers}}
     {{#each servers}}
 from {{packageName}}.servers import {{jsonPathPiece.snakeCase}}
+    {{/each}}
+    {{#each paths}}
+        {{#if servers}}
+            {{#each servers}}
+from {{packageName}}.paths.{{../@key.snakeCase}}.servers import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+            {{/each}}
+        {{/if}}
     {{/each}}
 {{/if}}

@@ -2,13 +2,6 @@
 
 # flake8: noqa
 
-"""
-Run the tests.
-$ pip install nose (optional)
-$ cd OpenAPIetstore-python
-$ nosetests -v
-"""
-
 import unittest
 
 from unittest.mock import patch
@@ -20,8 +13,9 @@ from petstore_api import configuration
 from petstore_api.api_client import ApiClient
 from petstore_api.apis.tags import pet_api
 
+from . import ApiTestMixin
 
-class ConfigurationTests(unittest.TestCase):
+class ConfigurationTests(ApiTestMixin, unittest.TestCase):
 
     def test_configuration(self):
         config = petstore_api.Configuration()
@@ -71,6 +65,48 @@ class ConfigurationTests(unittest.TestCase):
                     'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
                     'api_key': 'abcdefg'
                 },
+                fields=None,
+                body=None,
+                stream=False,
+                timeout=None,
+            )
+
+    def test_path_servers(self):
+        auth_info = configuration.AuthInfo(
+            api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
+        )
+        server_info: configuration.ServerInfo = {
+            "paths//pet/findByStatus//servers/1": configuration.pet_find_by_status_server_1.Server1(
+                variables={'version': 'v2'}
+            )
+        }
+        config = petstore_api.Configuration(auth_info=auth_info, server_info=server_info)
+        client = ApiClient(configuration=config)
+        api = pet_api.PetApi(client)
+
+        with patch.object(ApiClient, 'request') as mock_request:
+            pet_json = {
+                "name": "pet",
+                "photoUrls":[]
+            }
+            body = self.json_bytes(
+                [
+                    pet_json
+                ]
+            )
+            mock_request.return_value = self.response(body)
+            _pets = api.find_pets_by_status(
+                query_params={'status': ['available']},
+                server_index=1
+            )
+            mock_request.assert_called_with(
+                'get',
+                'https://petstore.swagger.io/v2/pet/findByStatus?status=available',
+                headers=HTTPHeaderDict({
+                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
+                    'api_key': 'abcdefg',
+                    'Accept': 'application/xml, application/json'
+                }),
                 fields=None,
                 body=None,
                 stream=False,
