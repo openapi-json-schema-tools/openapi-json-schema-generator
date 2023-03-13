@@ -1146,9 +1146,9 @@ src/petstore_api/paths/pet_find_by_status/get/parameters/parameter_0/schema.pyi
 src/petstore_api/paths/pet_find_by_status/get/responses/__init__.py
 src/petstore_api/paths/pet_find_by_status/get/responses/response_200/__init__.py
 src/petstore_api/paths/pet_find_by_status/get/responses/response_400/__init__.py
-src/petstore_api/paths/pet_find_by_status/servers/0.py
-src/petstore_api/paths/pet_find_by_status/servers/1.py
 src/petstore_api/paths/pet_find_by_status/servers/__init__.py
+src/petstore_api/paths/pet_find_by_status/servers/server_0.py
+src/petstore_api/paths/pet_find_by_status/servers/server_1.py
 src/petstore_api/paths/pet_find_by_tags/__init__.py
 src/petstore_api/paths/pet_find_by_tags/get/__init__.py
 src/petstore_api/paths/pet_find_by_tags/get/__init__.pyi

@@ -3442,17 +3442,17 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length < 4) {
             return;
         }
-        Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
         String requestBodyIdentifier = "request_body";
-        if (!httpVerbs.contains(pathPieces[3])) {
-            return;
-        }
         if (pathPieces.length < 5) {
             return;
         }
         if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
+        }
+        if (pathPieces[3].equals("servers")) {
+            // #/paths/somePath/servers/someServer
+            pathPieces[4] = toServerFilename(pathPieces[4]);
         }
         if (pathPieces.length < 6) {
             return;
