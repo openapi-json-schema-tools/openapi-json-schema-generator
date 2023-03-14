@@ -207,6 +207,8 @@ public class DefaultCodegen implements CodegenConfig {
     */
     protected Map<String, String> apiTemplateFiles = new HashMap<>();
     protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
+    // for writing api files
+    protected Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles = new HashMap<>();
     // for writing doc files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     // for writing code files
@@ -827,6 +829,11 @@ public class DefaultCodegen implements CodegenConfig {
 
     @Override
     public Map<String, String> apiXToApiTemplateFiles() { return apiXToApiTemplateFiles; }
+
+    @Override
+    public Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles() {
+        return apiLocationTemplateFiles;
+    }
 
     @Override
     public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles() {

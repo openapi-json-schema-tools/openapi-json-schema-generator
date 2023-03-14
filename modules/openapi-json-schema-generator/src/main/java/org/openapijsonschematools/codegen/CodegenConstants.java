@@ -245,6 +245,8 @@ public class CodegenConstants {
 
     public static enum JSON_PATH_LOCATION_TYPE {SCHEMA, REQUEST_BODY, PARAMETER, RESPONSE, HEADER, CONTENT, CONTENT_TYPE, HEADERS, PARAMETERS, RESPONSES, REQUEST_BODIES, SCHEMAS, PATHS, PATH, COMPONENTS, OPERATION, SECURITY_SCHEMES, SECURITY_SCHEME, SERVERS, SERVER}
 
+    public static enum API_LOCATION_TYPE {ROOT_FOLDER, PATH, TAG, PATHS, TAGS}
+
     public static enum MODEL_PROPERTY_NAMING_TYPE {camelCase, PascalCase, snake_case, original}
 
     public static enum ENUM_PROPERTY_NAMING_TYPE {camelCase, PascalCase, snake_case, original, UPPERCASE}

@@ -297,9 +297,30 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
-        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
+
+        HashMap<String, String> apiRootTemplates = new HashMap<>();
+        apiRootTemplates.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
+        apiRootTemplates.put("apis/apis_path_to_api.hbs", "path_to_api.py");
+        apiRootTemplates.put("apis/apis_path_to_api.hbs", "path_to_api.py");
+        apiRootTemplates.put("apis/__init__.hbs", "__init__.py");
+
+        apiLocationTemplateFiles.put(
+                CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER,
+                apiRootTemplates
+        );
+        apiLocationTemplateFiles.put(
+                CodegenConstants.API_LOCATION_TYPE.PATH,
+                Collections.singletonMap("apis/paths/api.hbs", ".py")
+        );
+        apiLocationTemplateFiles.put(
+                CodegenConstants.API_LOCATION_TYPE.PATHS,
+                Collections.singletonMap("apis/paths/__init__.hbs", "__init__.py")
+        );
+
+        // todo move to jsonPathDocTemplateFiles
+        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
@@ -543,9 +564,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
-        if (generateApis) {
-            supportingFiles.add(new SupportingFile("apis/__init__apis.hbs", packagePath() + File.separatorChar + apiPackage, "__init__.py"));
-        }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;

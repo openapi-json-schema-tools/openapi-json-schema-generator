@@ -167,6 +167,8 @@ public interface CodegenConfig {
 
     Map<String, String> apiXToApiTemplateFiles();
 
+    Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles();
+
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();

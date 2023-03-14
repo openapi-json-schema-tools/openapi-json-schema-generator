@@ -1,0 +1,11 @@
+{{#each pathItem.operations}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{@key.original}}.operation import ApiFor{{@key.camelCase}}
+{{/each}}
+
+
+class {{path.camelCase}}(
+{{#each pathItem.operations}}
+    ApiFor{{@key.camelCase}},
+{{/each}}
+):
+    pass

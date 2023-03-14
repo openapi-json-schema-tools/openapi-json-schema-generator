@@ -1011,10 +1011,40 @@ public class DefaultGenerator implements Generator {
         if (apiNames != null && !apiNames.isEmpty()) {
             allowListedTags = new HashSet<>(Arrays.asList(apiNames.split(",")));
         }
+        Map<String, String> apiPathsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATHS);
+        String apiPackage = config.apiPackage();
+        for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
+            String templateFile = apiPathEntry.getKey();
+            String apiFileName = apiPathEntry.getValue();
+            // todo add a function to get the filename like the json path ones
+            Map<String, Object> apiData = new HashMap<>();
+            String packageName = config.packageName();
+            apiData.put("packageName", packageName);
+            String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
+            generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+        }
+
         HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
+        Map<String, String> apiPathTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATH);
         for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey path = entry.getKey();
             CodegenPathItem pathItem = entry.getValue();
+
+            for (Map.Entry<String, String> apiPathEntry: apiPathTemplates.entrySet()) {
+                String templateFile = apiPathEntry.getKey();
+                String suffix = apiPathEntry.getValue();
+                // todo add a function to get the filename like the json path ones
+                String apiFileName = path.snakeCase + suffix;
+                Map<String, Object> apiData = new HashMap<>();
+                String packageName = config.packageName();
+                apiData.put("packageName", packageName);
+                apiData.put("path", path);
+                apiData.put("pathItem", pathItem);
+                String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
+                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+            }
+
+            // store operations by tag + path
             for(CodegenOperation op: pathItem.operations.values()) {
                 for(CodegenTag tag: op.tags.values()) {
                     if (allowListedTags != null && !allowListedTags.contains(tag.name)) {
@@ -1032,11 +1062,9 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        // Note: __init__apis.handlebars is generated as a supporting file
-        // apis.tag_to_api.py
-        // apis.path_to_api.py
-        String apiPackage = config.apiPackage();
-        for (Map.Entry<String, String> entry: config.apiXToApiTemplateFiles().entrySet()) {
+        // files in the apiPackage root folder
+        Map<String, String> apiRootTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER);
+        for (Map.Entry<String, String> entry: apiRootTemplates.entrySet()) {
             String templateFile = entry.getKey();
             String renderedOutputFilename = entry.getValue();
             Map<String, Object> apiData = new HashMap<>();
@@ -1044,14 +1072,10 @@ public class DefaultGenerator implements Generator {
             apiData.put("packageName", packageName);
             apiData.put("apiClassname", "Api");
             apiData.put("tagToPathToOperations", tagToPathToOperations);
-//            xToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
-//            xToApiMap.put("tagToApiClassname", tagToApiClassname);
             apiData.put("paths", paths);
             String outputFile = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
             generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
         }
-        // TODO add jsonPathPiece to codegenOperation. That way httpMethod will be accessible
-        String a = "a";
 //        if (tagApisToGenerate != null && !tagApisToGenerate.isEmpty()) {
 //            Map<String, List<CodegenOperation>> updatedPaths = new TreeMap<>();
 //            for (CodegenKey path : paths.keySet()) {
