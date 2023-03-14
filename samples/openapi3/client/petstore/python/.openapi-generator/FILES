@@ -161,6 +161,7 @@ src/petstore_api/__init__.py
 src/petstore_api/api_client.py
 src/petstore_api/apis/__init__.py
 src/petstore_api/apis/path_to_api.py
+src/petstore_api/apis/tag_to_api.py
 src/petstore_api/components/__init__.py
 src/petstore_api/components/headers/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/__init__.py

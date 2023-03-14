@@ -30,7 +30,6 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.*;
-import io.swagger.v3.oas.models.servers.Server;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.comparator.PathFileComparator;
 import org.apache.commons.lang3.StringUtils;
@@ -1022,11 +1021,11 @@ public class DefaultGenerator implements Generator {
                         continue;
                     }
                     if (!tagToPathToOperations.containsKey(tag)) {
-                        tagToPathToOperations.put(tag, new HashMap<CodegenKey, ArrayList<CodegenOperation>>());
+                        tagToPathToOperations.put(tag, new HashMap<>());
                     }
                     HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
                     if (!pathToOperations.containsKey(path)) {
-                        pathToOperations.put(path, new ArrayList<CodegenOperation>());
+                        pathToOperations.put(path, new ArrayList<>());
                     }
                     pathToOperations.get(path).add(op);
                 }
@@ -1044,6 +1043,7 @@ public class DefaultGenerator implements Generator {
             String packageName = config.packageName();
             apiData.put("packageName", packageName);
             apiData.put("apiClassname", "Api");
+            apiData.put("tagToPathToOperations", tagToPathToOperations);
 //            xToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
 //            xToApiMap.put("tagToApiClassname", tagToApiClassname);
             apiData.put("paths", paths);

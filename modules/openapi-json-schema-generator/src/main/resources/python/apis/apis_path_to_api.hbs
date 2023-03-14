@@ -9,7 +9,7 @@ PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
 {{#each paths}}
-    "{{@key.original}}": typing.Type[{{@key.camelCase}}],
+    "{{{@key.original}}}": typing.Type[{{@key.camelCase}}],
 {{/each}}
     }
 )
@@ -17,7 +17,7 @@ PathToApi = typing_extensions.TypedDict(
 path_to_api = PathToApi(
     {
 {{#each paths}}
-    "{{@key.original}}": {{@key.camelCase}},
+    "{{{@key.original}}}": {{@key.camelCase}},
 {{/each}}
     }
 )

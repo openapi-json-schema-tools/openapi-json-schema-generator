@@ -295,7 +295,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
          */
         apiTemplateFiles.put("apis/api_tag.hbs", ".py");
         apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
-//        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
+        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
         pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
