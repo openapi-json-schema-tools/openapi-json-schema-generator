@@ -4,7 +4,7 @@
 
 {{#with operations}}
 {{#each operation}}
-from {{packageName}}.paths.{{path.snakeCase}}.{{httpMethod.original}} import {{operationId.camelCase}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{httpMethod.original}}.operation import {{operationId.camelCase}}
 {{/each}}
 {{/with}}
 

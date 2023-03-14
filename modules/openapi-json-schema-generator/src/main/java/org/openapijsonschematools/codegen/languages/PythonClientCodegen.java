@@ -295,7 +295,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
          */
         apiTemplateFiles.put("apis/api_tag.hbs", ".py");
         apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
-        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
+//        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
         pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
@@ -398,8 +398,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Collections.singletonMap("paths/path/__init__path.hbs", File.separatorChar + "__init__.py")
         );
         HashMap<String, String> operationTemplates = new HashMap<>();
-        operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "__init__.py");
-        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "__init__.pyi");
+        operationTemplates.put("__init__.hbs", File.separatorChar + "__init__.py");
+        operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "operation.py");
+        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "operation.pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates

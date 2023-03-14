@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.some_object import SomeObject
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestSomeObject(unittest.TestCase):
     """SomeObject unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

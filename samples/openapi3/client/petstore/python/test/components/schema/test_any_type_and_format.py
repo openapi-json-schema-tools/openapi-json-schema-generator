@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.any_type_and_format import AnyTypeAndFormat
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestAnyTypeAndFormat(unittest.TestCase):
     """AnyTypeAndFormat unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

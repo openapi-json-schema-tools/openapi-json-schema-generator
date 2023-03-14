@@ -12,7 +12,7 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.fake_inline_additional_properties import post  # noqa: E501
+from petstore_api.paths.fake_inline_additional_properties.post import operation as post  # noqa: E501
 from petstore_api import schemas, api_client
 from petstore_api.configurations import api_configuration, schema_configuration
 

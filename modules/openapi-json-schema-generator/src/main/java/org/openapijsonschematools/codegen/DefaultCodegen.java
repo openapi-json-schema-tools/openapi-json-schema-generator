@@ -2663,6 +2663,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
         return new CodegenOperation(
                 deprecated,
                 hasErrorResponseObject,
@@ -2689,7 +2690,8 @@ public class DefaultCodegen implements CodegenConfig {
                 callbacks,
                 externalDocs,
                 vendorExtensions,
-                operationId);
+                operationId,
+                jsonPathPiece);
     }
 
     /**

@@ -12,7 +12,7 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.fake_additional_properties_with_array_of_enums import get  # noqa: E501
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client
 from petstore_api.configurations import api_configuration, schema_configuration
 

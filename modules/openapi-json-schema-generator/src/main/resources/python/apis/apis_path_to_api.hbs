@@ -1,22 +1,23 @@
+import typing
 import typing_extensions
 
-{{#each pathModuleToApiClassname}}
-from {{packageName}}.apis.paths.{{@key}} import {{this}}
+{{#each paths}}
+from {{packageName}}.apis.paths.{{@key.snakeCase}} import {{@key.camelCase}}
 {{/each}}
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
-{{#each pathToApiClassname}}
-        "{{{@key}}}": {{this}},
+{{#each paths}}
+    "{{@key.original}}": typing.Type[{{@key.camelCase}}],
 {{/each}}
     }
 )
 
 path_to_api = PathToApi(
     {
-{{#each pathToApiClassname}}
-        "{{{@key}}}": {{this}},
+{{#each paths}}
+    "{{@key.original}}": {{@key.camelCase}},
 {{/each}}
     }
 )

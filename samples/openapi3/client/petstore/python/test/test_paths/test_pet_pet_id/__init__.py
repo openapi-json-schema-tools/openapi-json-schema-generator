@@ -12,7 +12,7 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.pet_pet_id import delete  # noqa: E501
+from petstore_api.paths.pet_pet_id.delete import operation as delete  # noqa: E501
 from petstore_api import schemas, api_client
 from petstore_api.configurations import api_configuration, schema_configuration
 

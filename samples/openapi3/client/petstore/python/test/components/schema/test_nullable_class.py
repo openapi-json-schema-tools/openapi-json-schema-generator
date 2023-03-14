@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.nullable_class import NullableClass
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestNullableClass(unittest.TestCase):
     """NullableClass unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

@@ -48,8 +48,9 @@ public class CodegenOperation {
     public final ExternalDocumentation externalDocs;
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
+    public final CodegenKey jsonPathPiece;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
@@ -76,6 +77,7 @@ public class CodegenOperation {
         this.externalDocs = externalDocs;
         this.vendorExtensions = vendorExtensions;
         this.operationId = operationId;
+        this.jsonPathPiece = jsonPathPiece;
     }
 
     public boolean getAllResponsesAreErrors() {
@@ -147,6 +149,7 @@ public class CodegenOperation {
         sb.append(", callbacks=").append(callbacks);
         sb.append(", externalDocs=").append(externalDocs);
         sb.append(", vendorExtensions=").append(vendorExtensions);
+        sb.append(", jsonPathPiece=").append(jsonPathPiece);
         sb.append('}');
         return sb.toString();
     }
@@ -180,6 +183,7 @@ public class CodegenOperation {
                 Objects.equals(nonDefaultResponses, that.nonDefaultResponses) &&
                 Objects.equals(callbacks, that.callbacks) &&
                 Objects.equals(externalDocs, that.externalDocs) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions);
     }
 
@@ -192,6 +196,6 @@ public class CodegenOperation {
                 pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
                 security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
-                nonDefaultResponses);
+                nonDefaultResponses, jsonPathPiece);
     }
 }

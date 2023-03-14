@@ -47,6 +47,7 @@ import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
+import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
@@ -1005,15 +1006,56 @@ public class DefaultGenerator implements Generator {
             LOGGER.info("Skipping generation of APIs.");
             return;
         }
-//        Set<String> apisToGenerate = null;
-//        String apiNames = GlobalSettings.getProperty("apis");
-//        if (apiNames != null && !apiNames.isEmpty()) {
-//            apisToGenerate = new HashSet<>(Arrays.asList(apiNames.split(",")));
-//        }
-//        if (apisToGenerate != null && !apisToGenerate.isEmpty()) {
+        // accumulate tag to operations
+        Set<String> allowListedTags = null;
+        String apiNames = GlobalSettings.getProperty("apis");
+        if (apiNames != null && !apiNames.isEmpty()) {
+            allowListedTags = new HashSet<>(Arrays.asList(apiNames.split(",")));
+        }
+        HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
+        for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
+            CodegenKey path = entry.getKey();
+            CodegenPathItem pathItem = entry.getValue();
+            for(CodegenOperation op: pathItem.operations.values()) {
+                for(CodegenTag tag: op.tags.values()) {
+                    if (allowListedTags != null && !allowListedTags.contains(tag.name)) {
+                        continue;
+                    }
+                    if (!tagToPathToOperations.containsKey(tag)) {
+                        tagToPathToOperations.put(tag, new HashMap<CodegenKey, ArrayList<CodegenOperation>>());
+                    }
+                    HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
+                    if (!pathToOperations.containsKey(path)) {
+                        pathToOperations.put(path, new ArrayList<CodegenOperation>());
+                    }
+                    pathToOperations.get(path).add(op);
+                }
+            }
+        }
+
+        // Note: __init__apis.handlebars is generated as a supporting file
+        // apis.tag_to_api.py
+        // apis.path_to_api.py
+        String apiPackage = config.apiPackage();
+        for (Map.Entry<String, String> entry: config.apiXToApiTemplateFiles().entrySet()) {
+            String templateFile = entry.getKey();
+            String renderedOutputFilename = entry.getValue();
+            Map<String, Object> apiData = new HashMap<>();
+            String packageName = config.packageName();
+            apiData.put("packageName", packageName);
+            apiData.put("apiClassname", "Api");
+//            xToApiMap.put("tagModuleNameToApiClassname", tagModuleNameToApiClassname);
+//            xToApiMap.put("tagToApiClassname", tagToApiClassname);
+            apiData.put("paths", paths);
+            String outputFile = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
+            generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+        }
+        // TODO add jsonPathPiece to codegenOperation. That way httpMethod will be accessible
+        String a = "a";
+//        if (tagApisToGenerate != null && !tagApisToGenerate.isEmpty()) {
 //            Map<String, List<CodegenOperation>> updatedPaths = new TreeMap<>();
-//            for (String m : paths.keySet()) {
-//                if (apisToGenerate.contains(m)) {
+//            for (CodegenKey path : paths.keySet()) {
+//                if (apisToGenerate.contains(path.)) {
 //                    updatedPaths.put(m, paths.get(m));
 //                }
 //            }
