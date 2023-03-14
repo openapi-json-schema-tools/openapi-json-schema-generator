@@ -58,7 +58,7 @@ class ArrayTest(
                             typing.Union[Schema_.Items, str, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayOfString':
                     return super().__new__(
                         cls,
@@ -98,7 +98,7 @@ class ArrayTest(
                                     typing.Union[Schema_.Items, decimal.Decimal, int, ]
                                 ],
                             ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> 'Items':
                             return super().__new__(
                                 cls,
@@ -119,7 +119,7 @@ class ArrayTest(
                             typing.Union[Schema_.Items, list, tuple, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayArrayOfInteger':
                     return super().__new__(
                         cls,
@@ -162,7 +162,7 @@ class ArrayTest(
                                     'read_only_first.ReadOnlyFirst'
                                 ],
                             ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> 'Items':
                             return super().__new__(
                                 cls,
@@ -183,7 +183,7 @@ class ArrayTest(
                             typing.Union[Schema_.Items, list, tuple, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayArrayOfModel':
                     return super().__new__(
                         cls,
@@ -252,7 +252,7 @@ class ArrayTest(
         array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ArrayTest':
         return super().__new__(

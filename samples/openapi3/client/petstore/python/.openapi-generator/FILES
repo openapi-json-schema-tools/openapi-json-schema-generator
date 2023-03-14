@@ -525,7 +525,9 @@ src/petstore_api/components/security_schemes/security_scheme_http_basic_test.py
 src/petstore_api/components/security_schemes/security_scheme_http_signature_test.py
 src/petstore_api/components/security_schemes/security_scheme_open_id_connect_test.py
 src/petstore_api/components/security_schemes/security_scheme_petstore_auth.py
-src/petstore_api/configuration.py
+src/petstore_api/configurations/__init__.py
+src/petstore_api/configurations/api_configuration.py
+src/petstore_api/configurations/schema_configuration.py
 src/petstore_api/exceptions.py
 src/petstore_api/paths/__init__.py
 src/petstore_api/paths/another_fake_dummy/__init__.py

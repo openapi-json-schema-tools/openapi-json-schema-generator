@@ -53,7 +53,7 @@ class ArrayWithValidationsInItems(
                 typing.Union[Schema_.Items, decimal.Decimal, int, ]
             ],
         ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'ArrayWithValidationsInItems':
         return super().__new__(
             cls,

@@ -108,7 +108,7 @@ class BaseApi(api_client.Api):
         if skip_deserialization:
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
-            api_response = default_response.deserialize(response, self.api_client.configuration)
+            api_response = default_response.deserialize(response, self.api_client.schema_configuration)
 
         if not 200 <= response.status <= 299:
             raise exceptions.ApiException(

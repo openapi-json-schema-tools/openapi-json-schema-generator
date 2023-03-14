@@ -105,7 +105,7 @@ class JSONPatchRequestRemove(
         *args_: typing.Union[dict, frozendict.frozendict, ],
         op: typing.Union[Schema_.Properties.Op, str, ],
         path: typing.Union[Schema_.Properties.Path, str, ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'JSONPatchRequestRemove':
         return super().__new__(
             cls,

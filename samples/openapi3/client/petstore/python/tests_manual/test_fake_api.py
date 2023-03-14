@@ -22,6 +22,7 @@ import petstore_api
 from petstore_api import api_client, schemas, exceptions
 from petstore_api.apis.tags.fake_api import FakeApi  # noqa: E501
 from petstore_api.rest import RESTClientObject
+from petstore_api.configurations import api_configuration
 
 from . import ApiTestMixin
 
@@ -35,7 +36,7 @@ class MIMEFormdata(nonmultipart.MIMENonMultipart):
 
 class TestFakeApi(ApiTestMixin):
     """FakeApi unit test stubs"""
-    configuration = petstore_api.Configuration()
+    configuration = api_configuration.ApiConfiguration()
     api = FakeApi(api_client=api_client.ApiClient(configuration=configuration))
 
     def test_array_model(self):

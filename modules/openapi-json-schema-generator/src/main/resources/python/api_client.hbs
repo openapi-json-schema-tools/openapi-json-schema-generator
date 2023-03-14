@@ -25,7 +25,7 @@ import tornado.gen
 import frozendict
 
 from {{packageName}} import exceptions, rest, schemas, security_schemes
-from {{packageName}} import configuration as configuration_module
+from {{packageName}}.configurations import schema_configuration, api_configuration
 
 
 class RequestField(fields.RequestField):
@@ -883,7 +883,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         }
 
     @classmethod
-    def deserialize(cls, response: urllib3.HTTPResponse, configuration: configuration_module.Configuration) -> T:
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: schema_configuration.SchemaConfiguration) -> T:
         content_type = response.headers.get('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
@@ -947,7 +947,8 @@ class ApiClient:
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param configuration: configuration_module.Configuration object for this client
+    :param configuration: api_configuration.ApiConfiguration object for this client
+    :param schema_configuration: schema_configuration.SchemaConfiguration object for this client
     :param header_name: a header to pass when making calls to the API.
     :param header_value: a header value to pass when making calls to
         the API.
@@ -961,13 +962,15 @@ class ApiClient:
 
     def __init__(
         self,
-        configuration: typing.Optional[configuration_module.Configuration] = None,
+        configuration: typing.Optional[api_configuration.ApiConfiguration] = None,
+        schema_config: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         header_name: typing.Optional[str] = None,
         header_value: typing.Optional[str] = None,
         cookie: typing.Optional[str] = None,
         pool_threads: int = 1
     ):
-        self.configuration = configuration or configuration_module.Configuration()
+        self.configuration: api_configuration.ApiConfiguration = configuration or api_configuration.ApiConfiguration()
+        self.schema_configuration: schema_configuration.SchemaConfiguration = schema_config or schema_configuration.SchemaConfiguration()
         self.pool_threads = pool_threads
         self.rest_client = rest.RESTClientObject(self.configuration)
         self.default_headers = _collections.HTTPHeaderDict()

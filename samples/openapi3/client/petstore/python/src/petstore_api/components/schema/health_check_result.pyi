@@ -58,7 +58,7 @@ class HealthCheckResult(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, str, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'NullableMessage':
                     return super().__new__(
                         cls,
@@ -104,7 +104,7 @@ class HealthCheckResult(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
         NullableMessage: typing.Union[Schema_.Properties.NullableMessage, None, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'HealthCheckResult':
         return super().__new__(

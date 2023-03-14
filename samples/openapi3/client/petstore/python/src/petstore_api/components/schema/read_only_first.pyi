@@ -87,7 +87,7 @@ class ReadOnlyFirst(
         *args_: typing.Union[dict, frozendict.frozendict, ],
         bar: typing.Union[Schema_.Properties.Bar, str, schemas.Unset] = schemas.unset,
         baz: typing.Union[Schema_.Properties.Baz, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ReadOnlyFirst':
         return super().__new__(

@@ -9,7 +9,8 @@ import urllib3
 
 import {{packageName}}
 from {{packageName}}.paths.{{path.snakeCase}} import {{httpMethod.original}}  # noqa: E501
-from {{packageName}} import configuration, schemas, api_client
+from {{packageName}} import schemas, api_client
+from {{packageName}}.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -22,7 +23,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
         {{{summary}}}  # noqa: E501
 {{/if}}
     """
-    configuration_ = configuration.Configuration()
+    configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)

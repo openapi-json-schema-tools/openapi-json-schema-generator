@@ -48,6 +48,8 @@ ServerInfo = typing_extensions.TypedDict(
         'servers/0': 'server_0.Server0',
         'servers/1': 'server_1.Server1',
         'servers/2': 'server_2.Server2',
+        # "paths//foo/get/servers/0": 'foo_get_server_0.Server0',
+        # "paths//foo/get/servers/1": 'foo_get_server_1.Server1',
         "paths//pet/findByStatus/servers/0": 'pet_find_by_status_server_0.Server0',
         "paths//pet/findByStatus/servers/1": 'pet_find_by_status_server_1.Server1',
     },
@@ -352,5 +354,7 @@ class Configuration(object):
 from petstore_api.servers import server_0
 from petstore_api.servers import server_1
 from petstore_api.servers import server_2
+# from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
+# from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
 from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1

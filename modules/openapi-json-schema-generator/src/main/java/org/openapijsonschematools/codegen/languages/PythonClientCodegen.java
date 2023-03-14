@@ -492,6 +492,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             readmeTemplate = "README_onlypackage.hbs";
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
+        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
 
         if (!generateSourceCodeOnly) {
             supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
@@ -504,8 +505,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("gitlab-ci.hbs", "", ".gitlab-ci.yml"));
             supportingFiles.add(new SupportingFile("pyproject.hbs", "", "pyproject.toml"));
         }
-        supportingFiles.add(new SupportingFile("configuration.hbs", packagePath(), "configuration.py"));
-        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
+        // configurations package
+        supportingFiles.add(new SupportingFile("__init__.hbs", packagePath() + File.separatorChar + "configurations", "__init__.py"));
+        supportingFiles.add(new SupportingFile("configurations" + File.separatorChar + "schema_configuration.hbs", packagePath() + File.separatorChar + "configurations", "schema_configuration.py"));
+        supportingFiles.add(new SupportingFile("configurations" + File.separatorChar + "api_configuration.hbs", packagePath() + File.separatorChar + "configurations", "api_configuration.py"));
 
         // If the package name consists of dots(openapi.client), then we need to create the directory structure like openapi/client with __init__ files.
         String[] packageNameSplits = packageName.split("\\.");

@@ -10,7 +10,7 @@ __version__ = "{{packageVersion}}"
 from {{packageName}}.api_client import ApiClient
 
 # import Configuration
-from {{packageName}}.configuration import Configuration
+from {{packageName}}.configurations.api_configuration import ApiConfiguration
 {{#if hasHttpSignatureSecurityScheme}}
 from {{packageName}}.signing import HttpSigningConfiguration
 {{/if}}

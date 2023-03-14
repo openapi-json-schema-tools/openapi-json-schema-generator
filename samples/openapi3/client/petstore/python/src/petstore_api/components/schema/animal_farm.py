@@ -50,7 +50,7 @@ class AnimalFarm(
                 'animal.Animal'
             ],
         ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'AnimalFarm':
         return super().__new__(
             cls,

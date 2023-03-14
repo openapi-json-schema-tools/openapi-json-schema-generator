@@ -13,7 +13,8 @@ import urllib3
 
 import petstore_api
 from petstore_api.paths.fake_additional_properties_with_array_of_enums import get  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -23,7 +24,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
     Get unit test stubs
         Additional Properties with Array of Enums  # noqa: E501
     """
-    configuration_ = configuration.Configuration()
+    configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)

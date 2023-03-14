@@ -48,7 +48,7 @@ class ComposedString(
     def __new__(
         cls,
         arg_: str, 
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'ComposedString':
         return super().__new__(
             cls,

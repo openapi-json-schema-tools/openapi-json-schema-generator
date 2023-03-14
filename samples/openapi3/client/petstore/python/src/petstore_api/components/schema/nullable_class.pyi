@@ -57,7 +57,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, decimal.Decimal, int, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'IntegerProp':
                     return super().__new__(
                         cls,
@@ -84,7 +84,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, decimal.Decimal, int, float, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'NumberProp':
                     return super().__new__(
                         cls,
@@ -111,7 +111,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, bool, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'BooleanProp':
                     return super().__new__(
                         cls,
@@ -138,7 +138,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, str, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'StringProp':
                     return super().__new__(
                         cls,
@@ -167,7 +167,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, str, datetime.date, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'DateProp':
                     return super().__new__(
                         cls,
@@ -196,7 +196,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, str, datetime.datetime, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'DatetimeProp':
                     return super().__new__(
                         cls,
@@ -224,7 +224,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, list, tuple, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayNullableProp':
                     return super().__new__(
                         cls,
@@ -266,7 +266,7 @@ class NullableClass(
                         def __new__(
                             cls,
                             *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'Items':
                             return super().__new__(
@@ -280,7 +280,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     arg_: typing.Union[None, list, tuple, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayAndItemsNullableProp':
                     return super().__new__(
                         cls,
@@ -316,7 +316,7 @@ class NullableClass(
                         def __new__(
                             cls,
                             *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'Items':
                             return super().__new__(
@@ -336,7 +336,7 @@ class NullableClass(
                             typing.Union[Schema_.Items, None, dict, frozendict.frozendict, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayItemsNullable':
                     return super().__new__(
                         cls,
@@ -374,7 +374,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, ],
                 ) -> 'ObjectNullableProp':
                     return super().__new__(
@@ -418,7 +418,7 @@ class NullableClass(
                         def __new__(
                             cls,
                             *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
@@ -439,7 +439,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict, ],
                 ) -> 'ObjectAndItemsNullableProp':
                     return super().__new__(
@@ -476,7 +476,7 @@ class NullableClass(
                         def __new__(
                             cls,
                             *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                            configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
@@ -496,7 +496,7 @@ class NullableClass(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict, ],
                 ) -> 'ObjectItemsNullable':
                     return super().__new__(
@@ -539,7 +539,7 @@ class NullableClass(
             def __new__(
                 cls,
                 *args_: typing.Union[None, dict, frozendict.frozendict, ],
-                configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
             ) -> 'AdditionalProperties':
                 return super().__new__(
@@ -683,7 +683,7 @@ class NullableClass(
         object_nullable_prop: typing.Union[Schema_.Properties.ObjectNullableProp, None, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         object_and_items_nullable_prop: typing.Union[Schema_.Properties.ObjectAndItemsNullableProp, None, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         object_items_nullable: typing.Union[Schema_.Properties.ObjectItemsNullable, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict, ],
     ) -> 'NullableClass':
         return super().__new__(

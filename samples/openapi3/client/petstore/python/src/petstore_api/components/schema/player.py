@@ -93,7 +93,7 @@ class Player(
         *args_: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
         enemyPlayer: typing.Union['Player', schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Player':
         return super().__new__(

@@ -41,7 +41,7 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
     ) -> 'Schema':
         return super().__new__(

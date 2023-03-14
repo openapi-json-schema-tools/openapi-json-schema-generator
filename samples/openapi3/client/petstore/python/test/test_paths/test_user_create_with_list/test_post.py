@@ -13,7 +13,8 @@ import urllib3
 
 import petstore_api
 from petstore_api.paths.user_create_with_list import post  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -23,7 +24,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     Post unit test stubs
         Creates list of users with given input array  # noqa: E501
     """
-    configuration_ = configuration.Configuration()
+    configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)

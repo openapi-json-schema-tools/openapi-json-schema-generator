@@ -13,7 +13,8 @@ import urllib3
 
 import petstore_api
 from petstore_api.paths.fake import patch  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -23,7 +24,7 @@ class TestPatch(ApiTestMixin, unittest.TestCase):
     Patch unit test stubs
         To test \"client\" model  # noqa: E501
     """
-    configuration_ = configuration.Configuration()
+    configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)

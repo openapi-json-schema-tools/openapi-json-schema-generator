@@ -49,7 +49,7 @@ class Items(
                 typing.Union[Schema_.Items, dict, frozendict.frozendict, ]
             ],
         ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'Items':
         return super().__new__(
             cls,

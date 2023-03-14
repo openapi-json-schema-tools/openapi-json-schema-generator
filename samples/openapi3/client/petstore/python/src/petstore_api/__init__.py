@@ -17,7 +17,7 @@ __version__ = "1.0.0"
 from petstore_api.api_client import ApiClient
 
 # import Configuration
-from petstore_api.configuration import Configuration
+from petstore_api.configurations.api_configuration import ApiConfiguration
 from petstore_api.signing import HttpSigningConfiguration
 
 # import exceptions
