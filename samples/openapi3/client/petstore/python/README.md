@@ -134,6 +134,32 @@ import petstore_api
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
+```python
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import another_fake_api
+from pprint import pprint
+# See api_configuration.py for a list of all supported api configuration parameters
+used_configuration = api_configuration.ApiConfiguration(
+)
+# Enter a context with an instance of the API client
+with petstore_api.ApiClient(used_configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = another_fake_api.AnotherFakeApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = client.Client(
+        client="client_example",
+    )
+    try:
+        # To test special tags
+        api_response = api_instance.call_123_test__special_tags(
+            body=body,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
+```
 
 ## Servers
 server_index | Class | Description

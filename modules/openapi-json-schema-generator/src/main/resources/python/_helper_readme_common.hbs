@@ -1,16 +1,12 @@
-{{#with apiInfo}}
-{{#each apis}}
-{{#if @first}}
-{{#with operations}}
-{{#each operation}}
-{{#if @first}}
+{{#each paths}}
+    {{#if @first}}
+        {{#each operations}}
+            {{#if @first}}
 {{> paths/path/verb/_helper_operation_doc_example }}
-{{/if}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
 {{/each}}
-{{/with}}
-{{/if}}
-{{/each}}
-{{/with}}
 {{#if servers}}
 
 ## Servers
