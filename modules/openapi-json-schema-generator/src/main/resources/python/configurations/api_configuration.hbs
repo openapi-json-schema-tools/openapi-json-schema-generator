@@ -22,13 +22,34 @@ from {{packageName}} import exceptions
 from {{packageName}}.components.security_schemes import {{jsonPathPiece.snakeCase}}
     {{/each}}
 {{/if}}
+{{#if hasServers}}
+    {{#each servers}}
+from {{packageName}}.servers import {{jsonPathPiece.snakeCase}}
+    {{/each}}
+    {{#each paths}}
+        {{#if servers}}
+            {{#each servers}}
+from {{packageName}}.paths.{{../@key.snakeCase}}.servers import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+            {{/each}}
+        {{/if}}
+        {{#if operations}}
+            {{#each operations}}
+                {{#if servers}}
+                    {{#each servers}}
+from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers import {{jsonPathPiece.snakeCase}} as {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+{{/if}}
 {{#if securitySchemes}}
 
 AuthInfo = typing_extensions.TypedDict(
     'AuthInfo',
     {
 {{#each securitySchemes}}
-        '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        "{{{@key}}}": {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
     },
     total=False
@@ -40,19 +61,19 @@ ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
 {{#each servers}}
-        'servers/{{@key}}': '{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
+        'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 {{#each paths}}
     {{#if servers}}
         {{#each servers}}
-        "paths/{{../@key.original}}/servers/{{@key}}": '{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
+        "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
         {{/each}}
     {{/if}}
     {{#if operations}}
         {{#each operations}}
             {{#if servers}}
                 {{#each servers}}
-        # "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": '{{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}',
+        "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
                 {{/each}}
             {{/if}}
         {{/each}}
@@ -309,25 +330,3 @@ class ApiConfiguration(object):
         used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
-
-{{#if hasServers}}
-    {{#each servers}}
-from {{packageName}}.servers import {{jsonPathPiece.snakeCase}}
-    {{/each}}
-    {{#each paths}}
-        {{#if servers}}
-            {{#each servers}}
-from {{packageName}}.paths.{{../@key.snakeCase}}.servers import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
-            {{/each}}
-        {{/if}}
-        {{#if operations}}
-            {{#each operations}}
-                {{#if servers}}
-                    {{#each servers}}
-# from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers import {{jsonPathPiece.snakeCase}} as {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}
-                    {{/each}}
-                {{/if}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-{{/if}}

@@ -27,17 +27,24 @@ from petstore_api.components.security_schemes import security_scheme_http_basic_
 from petstore_api.components.security_schemes import security_scheme_http_signature_test
 from petstore_api.components.security_schemes import security_scheme_open_id_connect_test
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
+from petstore_api.servers import server_0
+from petstore_api.servers import server_1
+from petstore_api.servers import server_2
+from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
+from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
+from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
+from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
 
 AuthInfo = typing_extensions.TypedDict(
     'AuthInfo',
     {
-        'api_key': security_scheme_api_key.ApiKey,
-        'api_key_query': security_scheme_api_key_query.ApiKeyQuery,
-        'bearer_test': security_scheme_bearer_test.BearerTest,
-        'http_basic_test': security_scheme_http_basic_test.HttpBasicTest,
-        'http_signature_test': security_scheme_http_signature_test.HttpSignatureTest,
-        'openIdConnect_test': security_scheme_open_id_connect_test.OpenIdConnectTest,
-        'petstore_auth': security_scheme_petstore_auth.PetstoreAuth,
+        "api_key": security_scheme_api_key.ApiKey,
+        "api_key_query": security_scheme_api_key_query.ApiKeyQuery,
+        "bearer_test": security_scheme_bearer_test.BearerTest,
+        "http_basic_test": security_scheme_http_basic_test.HttpBasicTest,
+        "http_signature_test": security_scheme_http_signature_test.HttpSignatureTest,
+        "openIdConnect_test": security_scheme_open_id_connect_test.OpenIdConnectTest,
+        "petstore_auth": security_scheme_petstore_auth.PetstoreAuth,
     },
     total=False
 )
@@ -45,13 +52,13 @@ AuthInfo = typing_extensions.TypedDict(
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
-        'servers/0': 'server_0.Server0',
-        'servers/1': 'server_1.Server1',
-        'servers/2': 'server_2.Server2',
-        # "paths//foo/get/servers/0": 'foo_get_server_0.Server0',
-        # "paths//foo/get/servers/1": 'foo_get_server_1.Server1',
-        "paths//pet/findByStatus/servers/0": 'pet_find_by_status_server_0.Server0',
-        "paths//pet/findByStatus/servers/1": 'pet_find_by_status_server_1.Server1',
+        'servers/0': server_0.Server0,
+        'servers/1': server_1.Server1,
+        'servers/2': server_2.Server2,
+        "paths//foo/get/servers/0": foo_get_server_0.Server0,
+        "paths//foo/get/servers/1": foo_get_server_1.Server1,
+        "paths//pet/findByStatus/servers/0": pet_find_by_status_server_0.Server0,
+        "paths//pet/findByStatus/servers/1": pet_find_by_status_server_1.Server1,
     },
     total=False
 )
@@ -277,11 +284,3 @@ class ApiConfiguration(object):
         used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
-
-from petstore_api.servers import server_0
-from petstore_api.servers import server_1
-from petstore_api.servers import server_2
-# from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
-# from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
-from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
-from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
