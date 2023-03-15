@@ -213,6 +213,14 @@ src/petstore_api/apis/paths/user_login.py
 src/petstore_api/apis/paths/user_logout.py
 src/petstore_api/apis/paths/user_username.py
 src/petstore_api/apis/tag_to_api.py
+src/petstore_api/apis/tags/__init__.py
+src/petstore_api/apis/tags/another_fake_api.py
+src/petstore_api/apis/tags/default_api.py
+src/petstore_api/apis/tags/fake_api.py
+src/petstore_api/apis/tags/fake_classname_tags123_api.py
+src/petstore_api/apis/tags/pet_api.py
+src/petstore_api/apis/tags/store_api.py
+src/petstore_api/apis/tags/user_api.py
 src/petstore_api/components/__init__.py
 src/petstore_api/components/headers/__init__.py
 src/petstore_api/components/headers/header_int32_json_content_type_header/__init__.py

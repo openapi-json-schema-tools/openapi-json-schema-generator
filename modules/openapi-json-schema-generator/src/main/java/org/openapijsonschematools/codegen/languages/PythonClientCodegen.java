@@ -294,15 +294,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
         apiTemplateFiles.put("apis/api_tag.hbs", ".py");
-        apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
         apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
+
+        apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
         HashMap<String, String> apiRootTemplates = new HashMap<>();
         apiRootTemplates.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
-        apiRootTemplates.put("apis/apis_path_to_api.hbs", "path_to_api.py");
         apiRootTemplates.put("apis/apis_path_to_api.hbs", "path_to_api.py");
         apiRootTemplates.put("apis/__init__.hbs", "__init__.py");
 
@@ -317,6 +317,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         apiLocationTemplateFiles.put(
                 CodegenConstants.API_LOCATION_TYPE.PATHS,
                 Collections.singletonMap("apis/paths/__init__.hbs", "__init__.py")
+        );
+        apiLocationTemplateFiles.put(
+                CodegenConstants.API_LOCATION_TYPE.TAG,
+                Collections.singletonMap("apis/tags/api.hbs", ".py")
+        );
+        apiLocationTemplateFiles.put(
+                CodegenConstants.API_LOCATION_TYPE.TAGS,
+                Collections.singletonMap("apis/tags/__init__.hbs", "__init__.py")
         );
 
         // todo move to jsonPathDocTemplateFiles

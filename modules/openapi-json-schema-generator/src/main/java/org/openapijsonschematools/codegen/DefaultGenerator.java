@@ -999,7 +999,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @SuppressWarnings("unchecked")
-    void generateApis(List<File> files,TreeMap<String, CodegenSchema> schemas, LinkedHashMap<CodegenKey, CodegenPathItem> paths) {
+    void generateApis(List<File> files, LinkedHashMap<CodegenKey, CodegenPathItem> paths) {
         if (!generateApis) {
             // TODO: Process these anyway and present info via dryRun?
             LOGGER.info("Skipping generation of APIs.");
@@ -1011,8 +1011,8 @@ public class DefaultGenerator implements Generator {
         if (apiNames != null && !apiNames.isEmpty()) {
             allowListedTags = new HashSet<>(Arrays.asList(apiNames.split(",")));
         }
-        Map<String, String> apiPathsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATHS);
         String apiPackage = config.apiPackage();
+        Map<String, String> apiPathsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATHS);
         for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
             String templateFile = apiPathEntry.getKey();
             String apiFileName = apiPathEntry.getValue();
@@ -1076,118 +1076,40 @@ public class DefaultGenerator implements Generator {
             String outputFile = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
             generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
         }
-//        if (tagApisToGenerate != null && !tagApisToGenerate.isEmpty()) {
-//            Map<String, List<CodegenOperation>> updatedPaths = new TreeMap<>();
-//            for (CodegenKey path : paths.keySet()) {
-//                if (apisToGenerate.contains(path.)) {
-//                    updatedPaths.put(m, paths.get(m));
-//                }
-//            }
-//            paths = updatedPaths;
-//        }
-//        for (String tag : paths.keySet()) {
-//            try {
-//                List<CodegenOperation> ops = paths.get(tag);
-//                ops.sort((one, another) -> ObjectUtils.compare(one.operationId.original, another.operationId.original));
-//                OperationsMap operation = processOperations(config, tag, ops, schemas);
-//                URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
-//                operation.put("basePath", basePath);
-//                operation.put("basePathWithoutHost", removeTrailingSlash(config.encodePath(url.getPath())));
-//                operation.put("contextPath", contextPath);
-//                operation.put("baseName", tag);
-//                operation.put("apiPackage", config.apiPackage());
-//                operation.put("modelPackage", config.modelPackage());
-//                operation.putAll(config.additionalProperties());
-//                CodegenTag codegenTag = operation.getOperations().getOperation().get(0).tags.get(tag);
-//                operation.put("tag", codegenTag);
-//                operation.put("classname", config.toApiName(tag));
-//                operation.put("classVarName", config.toApiVarName(tag));
-//                operation.put("importPath", config.toApiImport(tag));
-//                operation.put("classFilename", config.toApiFilename(tag));
-//                operation.put("strictSpecBehavior", config.isStrictSpecBehavior());
-//
-//                if (schemas == null || schemas.isEmpty()) {
-//                    operation.put("hasModel", false);
-//                } else {
-//                    operation.put("hasModel", true);
-//                }
-//
-//                if (!config.vendorExtensions().isEmpty()) {
-//                    operation.put("vendorExtensions", config.vendorExtensions());
-//                }
-//
-//                // process top-level x-group-parameters
-//                if (config.vendorExtensions().containsKey("x-group-parameters")) {
-//                    boolean isGroupParameters = Boolean.parseBoolean(config.vendorExtensions().get("x-group-parameters").toString());
-//
-//                    OperationMap objectMap = operation.getOperations();
-//                    List<CodegenOperation> operations = objectMap.getOperation();
-//                    for (CodegenOperation op : operations) {
-//                        if (isGroupParameters && !op.vendorExtensions.containsKey("x-group-parameters")) {
-//                            op.vendorExtensions.put("x-group-parameters", Boolean.TRUE);
-//                        }
-//                    }
-//                }
-//
-//                // Pass sortParamsByRequiredFlag through to the Mustache template...
-//                boolean sortParamsByRequiredFlag = true;
-//                if (this.config.additionalProperties().containsKey(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG)) {
-//                    sortParamsByRequiredFlag = Boolean.parseBoolean(this.config.additionalProperties().get(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG).toString());
-//                }
-//                operation.put("sortParamsByRequiredFlag", sortParamsByRequiredFlag);
-//
-//                /* consumes, produces are no longer defined in OAS3.0
-//                processMimeTypes(swagger.getConsumes(), operation, "consumes");
-//                processMimeTypes(swagger.getProduces(), operation, "produces");
-//                */
-//
-//                allOperations.add(operation);
-//
-//                for (String templateName : config.apiTemplateFiles().keySet()) {
-//                    String filename = config.apiFilename(templateName, tag);
-//                    File written = processTemplateToFile(operation, templateName, filename, generateApis, CodegenConstants.APIS);
-//                    if (written != null) {
-//                        files.add(written);
-//                        if (config.isEnablePostProcessFile() && !dryRun) {
-//                            config.postProcessFile(written, "api");
-//                        }
-//                    }
-//                }
-//
-//                // to generate api test files
-//                for (String templateName : config.apiTestTemplateFiles().keySet()) {
-//                    String filename = config.apiTestFilename(templateName, tag);
-//                    File apiTestFile = new File(filename);
-//                    // do not overwrite test file that already exists
-//                    if (apiTestFile.exists()) {
-//                        this.templateProcessor.skip(apiTestFile.toPath(), "Test files never overwrite an existing file of the same name.");
-//                    } else {
-//                        File written = processTemplateToFile(operation, templateName, filename, generateApiTests, CodegenConstants.API_TESTS, config.apiTestFileFolder());
-//                        if (written != null) {
-//                            files.add(written);
-//                            if (config.isEnablePostProcessFile() && !dryRun) {
-//                                config.postProcessFile(written, "api-test");
-//                            }
-//                        }
-//                    }
-//                }
-//
-//                // to generate api documentation files
-//                for (String templateName : config.apiDocTemplateFiles().keySet()) {
-//                    String filename = config.apiDocFilename(templateName, tag);
-//                    File written = processTemplateToFile(operation, templateName, filename, generateApiDocumentation, CodegenConstants.API_DOCS);
-//                    if (written != null) {
-//                        files.add(written);
-//                        if (config.isEnablePostProcessFile() && !dryRun) {
-//                            config.postProcessFile(written, "api-doc");
-//                        }
-//                    }
-//                }
-//
-//            } catch (Exception e) {
-//                throw new RuntimeException("Could not generate api file for '" + tag + "'", e);
-//            }
-//        }
+
+        Map<String, String> apiTagsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAGS);
+        if (apiTagsTemplates != null) {
+            for (Map.Entry<String, String> apiPathEntry: apiTagsTemplates.entrySet()) {
+                String templateFile = apiPathEntry.getKey();
+                String apiFileName = apiPathEntry.getValue();
+                // todo add a function to get the filename like the json path ones
+                Map<String, Object> apiData = new HashMap<>();
+                String packageName = config.packageName();
+                apiData.put("packageName", packageName);
+                String outputFile = packageFilename(Arrays.asList(apiPackage, "tags", apiFileName));
+                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+            }
+        }
+
+        Map<String, String> apiTagTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAG);
+        for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
+            CodegenTag tag = entry.getKey();
+            HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
+
+            for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {
+                String templateFile = apiPathEntry.getKey();
+                String suffix = apiPathEntry.getValue();
+                // todo add a function to get the filename like the json path ones
+                String apiFileName = tag.moduleName + suffix;
+                Map<String, Object> apiData = new HashMap<>();
+                String packageName = config.packageName();
+                apiData.put("packageName", packageName);
+                apiData.put("tag", tag);
+                apiData.put("pathToOperations", pathToOperations);
+                String outputFile = packageFilename(Arrays.asList(apiPackage, "tags", apiFileName));
+                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+            }
+        }
     }
 
     private void generateSupportingFiles(List<File> files, Map<String, Object> bundle) {
@@ -1444,7 +1366,7 @@ public class DefaultGenerator implements Generator {
         List<CodegenServer> servers = config.fromServers(openAPI.getServers(), serversJsonPath);
         generateServers(files, servers, serversJsonPath);
         // apis
-        generateApis(files, schemas, paths);
+        generateApis(files, paths);
 
         // supporting files
         Map<String, Object> bundle = buildSupportFileBundle(schemas, requestBodies, responses, headers, parameters, securitySchemes, servers, paths);
@@ -1548,7 +1470,8 @@ public class DefaultGenerator implements Generator {
 
                         switch (userDefinedTemplate.getTemplateType()) {
                             case API:
-                                config.apiTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> apiTemplateFiles = config.apiLocationTemplateFiles().getOrDefault(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER, new HashMap<>());
+                                apiTemplateFiles.put(templateFile, templateExt);
                                 break;
                             case Model:
                                 Map<String, String> schemaTemplateToSuffix = config.jsonPathTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());
