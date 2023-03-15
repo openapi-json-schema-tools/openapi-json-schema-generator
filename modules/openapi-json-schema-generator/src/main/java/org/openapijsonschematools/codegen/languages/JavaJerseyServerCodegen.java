@@ -43,9 +43,6 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
 
         outputFolder = "generated-code/JavaJaxRS-Jersey";
 
-        apiTemplateFiles.put("apiService.mustache", ".java");
-        apiTemplateFiles.put("apiServiceImpl.mustache", ".java");
-        apiTemplateFiles.put("apiServiceFactory.mustache", ".java");
         apiTestTemplateFiles.clear(); // TODO: add test template
 
         // clear model and api doc template as this codegen

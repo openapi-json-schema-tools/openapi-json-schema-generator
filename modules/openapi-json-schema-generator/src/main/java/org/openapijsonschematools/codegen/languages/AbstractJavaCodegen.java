@@ -165,7 +165,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 Collections.singletonMap("model.mustache", ".java")
         );
-        apiTemplateFiles.put("api.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
         HashMap<String, String> schemaDocs = new HashMap<>();
         schemaDocs.put("model_doc.mustache", ".md");

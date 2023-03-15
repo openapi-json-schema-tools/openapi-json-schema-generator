@@ -185,7 +185,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                 "model_room.mustache", ".kt"
             );
         }
-        apiTemplateFiles.put("api.mustache", ".kt");
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 Collections.singletonMap("model_doc.mustache", ".md")

@@ -63,8 +63,7 @@ auth_info: configuration.AuthInfo = {
 
     {{/each}}
 {{/if}}
-# Defining the host is optional and defaults to {{{basePath}}}
-# See configuration.py for a list of all supported configuration parameters.
+# See api_configuration.py for a list of all supported api configuration parameters
 used_configuration = api_configuration.ApiConfiguration(
 {{#if security}}
     auth_info = auth_info

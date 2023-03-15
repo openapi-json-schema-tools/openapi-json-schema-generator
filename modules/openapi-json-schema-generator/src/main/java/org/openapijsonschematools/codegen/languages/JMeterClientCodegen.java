@@ -111,11 +111,6 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
          * as with models, add multiple entries with different extensions for multiple files per
          * class
          */
-        apiTemplateFiles.put(
-                "api.mustache",   // the template to use
-                ".jmx");       // the extension for each file to write
-
-        apiTemplateFiles.put("testdata-localhost.mustache", ".csv");
 
         /*
          * Template Location.  This is the location which templates will be read from.  The generator

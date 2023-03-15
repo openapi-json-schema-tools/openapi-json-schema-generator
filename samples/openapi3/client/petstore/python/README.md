@@ -137,7 +137,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ## Endpoints
 
-All URIs are relative to *http://petstore.swagger.io:80/v2*
+All URIs are relative to the selected server
+- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
+- Code samples in endpoints documents show how to do this
+- server_index can also be passed in to endpoint calls, see endpoint documentation
 
 HTTP request | Method | Description
 ------------ | ------ | -------------

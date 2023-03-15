@@ -2,7 +2,10 @@
 # {{packageName}}.{{apiPackage}}.tags.{{tag.moduleName}}.{{tag.className}}{{#if description}}
 {{description}}{{/if}}
 
-All URIs are relative to *{{basePath}}*
+All URIs are relative to the selected server
+- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
+- Code samples in endpoints documents show how to do this
+- server_index can also be passed in to endpoint calls, see endpoint documentation
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

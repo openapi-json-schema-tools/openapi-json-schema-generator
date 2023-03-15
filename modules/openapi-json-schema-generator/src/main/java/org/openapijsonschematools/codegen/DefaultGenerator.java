@@ -94,8 +94,6 @@ public class DefaultGenerator implements Generator {
     private Boolean generateModelTests = null;
     private Boolean generateModelDocumentation = null;
     private Boolean generateMetadata = true;
-    private String basePath;
-    private String basePathWithoutHost;
     private String contextPath;
     private Map<String, String> generatorPropertyDefaults = new HashMap<>();
     protected TemplateProcessor templateProcessor = null;
@@ -285,12 +283,6 @@ public class DefaultGenerator implements Generator {
         // Configures contextPath/basePath according to api document's servers
         URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
         contextPath = removeTrailingSlash(config.escapeText(url.getPath())); // for backward compatibility
-        basePathWithoutHost = contextPath;
-        if (URLPathUtils.isRelativeUrl(openAPI.getServers())) {
-            basePath = removeTrailingSlash(basePathWithoutHost);
-        } else {
-            basePath = removeTrailingSlash(config.escapeText(URLPathUtils.getHost(openAPI, config.serverVariableOverrides())));
-        }
     }
 
     private void configureOpenAPIInfo() {
@@ -1238,13 +1230,7 @@ public class DefaultGenerator implements Generator {
         }
 
         bundle.put("openAPI", openAPI);
-        bundle.put("basePath", basePath);
-        bundle.put("basePathWithoutHost", basePathWithoutHost);
         bundle.put("scheme", URLPathUtils.getScheme(url, config));
-        bundle.put("host", url.getHost());
-        if (url.getPort() != 80 && url.getPort() != 443 && url.getPort() != -1) {
-            bundle.put("port", url.getPort());
-        }
         bundle.put("contextPath", contextPath);
         bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
         bundle.put("requestBodies", requestBodies);
@@ -1254,7 +1240,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("schemas", schemas);
         bundle.put("securitySchemes", securitySchemes);
         bundle.put("servers", servers);
-        bundle.put("hasServers", hasServers);
+        bundle.put("hasServers", hasServers);  // also true if there are no root servers but there are pathItem/operation servers
         bundle.put("paths", paths);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
