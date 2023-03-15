@@ -11,6 +11,7 @@
 {{/if}}
 {{/each}}
 {{/with}}
+{{#if paths}}
 
 ## Endpoints
 
@@ -21,11 +22,12 @@ All URIs are relative to the selected server
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-{{#each pathAndHttpMethodToOperation}}
-{{#with this}}
-**{{httpMethod.original}}** {{path.original}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
-{{/with}}
+{{#each paths}}
+{{#each operations}}
+**{{../@key.original}}** {{@key.original}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/each}}
+{{/each}}
+{{/if}}
 {{#if schemas}}
 
 ## Component Schemas

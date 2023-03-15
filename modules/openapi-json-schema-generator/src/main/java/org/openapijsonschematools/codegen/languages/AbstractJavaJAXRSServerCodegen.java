@@ -28,8 +28,6 @@ import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.languages.features.BeanValidationFeatures;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.URLPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

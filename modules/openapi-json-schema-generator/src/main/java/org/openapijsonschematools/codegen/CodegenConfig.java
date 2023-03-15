@@ -42,7 +42,6 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
@@ -232,8 +231,6 @@ public interface CodegenConfig {
     TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
     TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
-
-    OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas);
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 

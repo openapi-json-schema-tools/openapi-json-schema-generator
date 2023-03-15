@@ -61,7 +61,6 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -599,13 +598,6 @@ public class DefaultCodegen implements CodegenConfig {
         System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
         System.out.println("# https://github.com/sponsors/spacether                                        #");
         System.out.println("################################################################################");
-    }
-
-    // override with any special post-processing
-    @Override
-    @SuppressWarnings("static-method")
-    public OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas) {
-        return operations;
     }
 
     // override with any special post-processing
@@ -4404,7 +4396,7 @@ public class DefaultCodegen implements CodegenConfig {
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
         String summary = pathItem.getSummary();
         String description = pathItem.getDescription();
-        LinkedHashMap<CodegenKey, CodegenOperation> operations = new LinkedHashMap<>();
+        TreeMap<CodegenKey, CodegenOperation> operations = new TreeMap<>();
         Operation specOperation = pathItem.getGet();
         String httpMethod = "get";
         if (specOperation != null) {
@@ -4445,6 +4437,9 @@ public class DefaultCodegen implements CodegenConfig {
         if (specOperation != null) {
             operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
+        if (operations != null)
+            // sort them
+            operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
         List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
 

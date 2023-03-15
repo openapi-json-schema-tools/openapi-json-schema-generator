@@ -516,7 +516,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private LinkedHashMap<CodegenKey, CodegenPathItem> generatePaths(List<File> files, Paths paths) {
+    private TreeMap<CodegenKey, CodegenPathItem> generatePaths(List<File> files, Paths paths) {
         if (paths == null || paths.isEmpty()) {
             LOGGER.warn("Skipping generation of paths because the specification document lacks them.");
             return null;
@@ -528,7 +528,7 @@ public class DefaultGenerator implements Generator {
         String pathsJsonPath = "#/paths";
         generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, shouldGenerateApis);
 
-        LinkedHashMap<CodegenKey, CodegenPathItem> codegenPaths = new LinkedHashMap<>();
+        TreeMap<CodegenKey, CodegenPathItem> codegenPaths = new TreeMap<>();
         for (Map.Entry<String, PathItem> entry: paths.entrySet()) {
             String path = entry.getKey();
             PathItem pathItem = entry.getValue();
@@ -539,6 +539,8 @@ public class DefaultGenerator implements Generator {
 
             generatePathItem(files, pathKey, codegenPathItem, jsonPath);
         }
+        // sort them
+        codegenPaths = new TreeMap<>(codegenPaths);
         return codegenPaths;
     }
 
@@ -991,7 +993,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @SuppressWarnings("unchecked")
-    void generateApis(List<File> files, LinkedHashMap<CodegenKey, CodegenPathItem> paths) {
+    void generateApis(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths) {
         if (!generateApis) {
             // TODO: Process these anyway and present info via dryRun?
             LOGGER.info("Skipping generation of APIs.");
@@ -1185,25 +1187,10 @@ public class DefaultGenerator implements Generator {
             TreeMap<String, CodegenParameter> parameters,
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
             List<CodegenServer> servers,
-            LinkedHashMap<CodegenKey, CodegenPathItem> paths) {
+            TreeMap<CodegenKey, CodegenPathItem> paths) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
-
-        TreeMap<String, CodegenOperation> pathAndHttpMethodToOperation = new TreeMap<>();
-        for (Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
-            CodegenKey pathKey = entry.getKey();
-            CodegenPathItem pathItem = entry.getValue();
-            for (Map.Entry<CodegenKey, CodegenOperation> operationEntry: pathItem.operations.entrySet()) {
-                CodegenKey httpMethod = operationEntry.getKey();
-                CodegenOperation operation = operationEntry.getValue();
-                String pathAndHttpMethod = pathKey.original + " " + httpMethod.original;
-                if (!pathAndHttpMethodToOperation.containsKey(pathAndHttpMethod)) {
-                    pathAndHttpMethodToOperation.put(pathAndHttpMethod, operation);
-                }
-            }
-        }
-        pathAndHttpMethodToOperation = new TreeMap<>(pathAndHttpMethodToOperation);
 
         URL url = URLPathUtils.getServerURL(openAPI, config.serverVariableOverrides());
         boolean hasServers = false;
@@ -1346,7 +1333,7 @@ public class DefaultGenerator implements Generator {
         }
 
         // paths
-        LinkedHashMap<CodegenKey, CodegenPathItem> paths = generatePaths(files, openAPI.getPaths());
+        TreeMap<CodegenKey, CodegenPathItem> paths = generatePaths(files, openAPI.getPaths());
         // servers
         String serversJsonPath = "#/servers";
         List<CodegenServer> servers = config.fromServers(openAPI.getServers(), serversJsonPath);

@@ -12,29 +12,30 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.store_order_order_id.delete import operation as delete  # noqa: E501
+from petstore_api.paths.store_order_order_id.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client
 from petstore_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
 
-class TestDelete(ApiTestMixin, unittest.TestCase):
+class TestGet(ApiTestMixin, unittest.TestCase):
     """
-    Delete unit test stubs
-        Delete purchase order by ID  # noqa: E501
+    Get unit test stubs
+        Find purchase order by ID  # noqa: E501
     """
     configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = delete.ApiForDelete(api_client=used_api_client)  # noqa: E501
+        self.api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
 
-    response_status = 400
-    response_body = ''
+    response_status = 200
+    response_body_schema = get.response_200.ResponseFor200.content["application/xml"].schema
+    response_body_schema = get.response_200.ResponseFor200.content["application/json"].schema
 
 if __name__ == '__main__':
     unittest.main()

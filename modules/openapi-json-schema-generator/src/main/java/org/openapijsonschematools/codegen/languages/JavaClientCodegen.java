@@ -32,8 +32,6 @@ import org.openapijsonschematools.codegen.languages.features.PerformBeanValidati
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -674,50 +672,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                 supportingFiles.add(new SupportingFile("auth/ApiErrorDecoder.mustache", authFolder, "ApiErrorDecoder.java"));
             }
         }
-    }
-
-    @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        super.postProcessOperationsWithModels(objs, allModels);
-
-        if (useSingleRequestParameter && (JERSEY2.equals(getLibrary()) || JERSEY3.equals(getLibrary()) || OKHTTP_GSON.equals(getLibrary()))) {
-            // loop through operations to set x-group-parameters extenion to true if useSingleRequestParameter option is enabled
-            OperationMap operations = objs.getOperations();
-            if (operations != null) {
-                List<CodegenOperation> ops = operations.getOperation();
-                for (CodegenOperation operation : ops) {
-                    if (!operation.vendorExtensions.containsKey("x-group-parameters")) {
-                        operation.vendorExtensions.put("x-group-parameters", true);
-                    }
-                }
-            }
-        }
-
-        if (RETROFIT_2.equals(getLibrary())) {
-            OperationMap operations = objs.getOperations();
-            if (operations != null) {
-                List<CodegenOperation> ops = operations.getOperation();
-                for (CodegenOperation operation : ops) {
-                    // sorting operation parameters to make sure path params are parsed before query params
-                    if (operation.allParams != null) {
-                        sort(operation.allParams, new Comparator<CodegenParameter>() {
-                            @Override
-                            public int compare(CodegenParameter one, CodegenParameter another) {
-                                if (one.in.equals("path") && another.in.equals("query")) {
-                                    return -1;
-                                }
-                                if (one.in.equals("query") && another.in.equals("path")) {
-                                    return 1;
-                                }
-                                return 0;
-                            }
-                        });
-                    }
-                }
-            }
-        }
-
-        return objs;
     }
 
     /**

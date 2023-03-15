@@ -12,28 +12,28 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.pet_pet_id.delete import operation as delete  # noqa: E501
+from petstore_api.paths.pet_pet_id.post import operation as post  # noqa: E501
 from petstore_api import schemas, api_client
 from petstore_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
 
-class TestDelete(ApiTestMixin, unittest.TestCase):
+class TestPost(ApiTestMixin, unittest.TestCase):
     """
-    Delete unit test stubs
-        Deletes a pet  # noqa: E501
+    Post unit test stubs
+        Updates a pet in the store with form data  # noqa: E501
     """
     configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = delete.ApiForDelete(api_client=used_api_client)  # noqa: E501
+        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     def tearDown(self):
         pass
 
-    response_status = 400
+    response_status = 405
     response_body = ''
 
 if __name__ == '__main__':

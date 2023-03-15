@@ -45,8 +45,6 @@ import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1070,31 +1068,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         if (property.readOnly) {
             model.vendorExtensions.put("x-has-readonly-properties", true);
         }
-    }
-
-    @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        // Remove imports of List, ArrayList, Map and HashMap as they are
-        // imported in the template already.
-        List<Map<String, String>> imports = objs.getImports();
-        Pattern pattern = Pattern.compile("java\\.util\\.(List|ArrayList|Map|HashMap)");
-        for (Iterator<Map<String, String>> itr = imports.iterator(); itr.hasNext(); ) {
-            String itrImport = itr.next().get("import");
-            if (pattern.matcher(itrImport).matches()) {
-                itr.remove();
-            }
-        }
-
-        OperationMap operations = objs.getOperations();
-        List<CodegenOperation> operationList = operations.getOperation();
-        for (CodegenOperation op : operationList) {
-            Collection<String> operationImports = new ConcurrentSkipListSet<>();
-            for (CodegenParameter p : op.allParams) {
-                CodegenSchema cp = p.getSetSchema();
-            }
-            op.vendorExtensions.put("x-java-import", operationImports);
-        }
-        return objs;
     }
 
     @Override

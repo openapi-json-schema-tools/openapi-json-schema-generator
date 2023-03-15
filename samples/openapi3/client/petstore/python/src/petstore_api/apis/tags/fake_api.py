@@ -21,23 +21,23 @@ from petstore_api.paths.fake_response_without_schema.get.operation import Respon
 from petstore_api.paths.fake_refs_object_model_with_ref_props.post.operation import ObjectModelWithRefProps
 from petstore_api.paths.fake_obj_in_query.get.operation import ObjectInQuery
 from petstore_api.paths.fake_case_sensitive_params.put.operation import CaseSensitiveParams
-from petstore_api.paths.fake_refs_arraymodel.post.operation import ArrayModel
 from petstore_api.paths.fake_inline_additional_properties.post.operation import InlineAdditionalProperties
-from petstore_api.paths.fake.get.operation import EnumParameters
-from petstore_api.paths.fake.post.operation import EndpointParameters
+from petstore_api.paths.fake_refs_arraymodel.post.operation import ArrayModel
 from petstore_api.paths.fake.delete.operation import GroupParameters
+from petstore_api.paths.fake.get.operation import EnumParameters
 from petstore_api.paths.fake.patch.operation import ClientModel
+from petstore_api.paths.fake.post.operation import EndpointParameters
 from petstore_api.paths.fake_inline_composition.post.operation import InlineComposition
 from petstore_api.paths.fake_health.get.operation import FakeHealthGet
-from petstore_api.paths.fake_refs_mammal.post.operation import Mammal
 from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post.operation import ComposedOneOfDifferentTypes
-from petstore_api.paths.fake_test_query_paramters.put.operation import QueryParameterCollectionFormat
+from petstore_api.paths.fake_refs_mammal.post.operation import Mammal
 from petstore_api.paths.fake_ref_obj_in_query.get.operation import RefObjectInQuery
+from petstore_api.paths.fake_test_query_paramters.put.operation import QueryParameterCollectionFormat
 from petstore_api.paths.fake_body_with_query_params.put.operation import BodyWithQueryParams
 from petstore_api.paths.fake_refs_boolean.post.operation import Boolean
-from petstore_api.paths.fake_refs_number.post.operation import NumberWithValidations
-from petstore_api.paths.fake_refs_enum.post.operation import StringEnum
 from petstore_api.paths.fake_delete_coffee_id.delete.operation import DeleteCoffee
+from petstore_api.paths.fake_refs_enum.post.operation import StringEnum
+from petstore_api.paths.fake_refs_number.post.operation import NumberWithValidations
 from petstore_api.paths.fake_upload_file.post.operation import UploadFile
 from petstore_api.paths.fake_body_with_file_schema.put.operation import BodyWithFileSchema
 from petstore_api.paths.fake_upload_download_file.post.operation import UploadDownloadFile
@@ -59,23 +59,23 @@ class FakeApi(
     ObjectModelWithRefProps,
     ObjectInQuery,
     CaseSensitiveParams,
-    ArrayModel,
     InlineAdditionalProperties,
-    EnumParameters,
-    EndpointParameters,
+    ArrayModel,
     GroupParameters,
+    EnumParameters,
     ClientModel,
+    EndpointParameters,
     InlineComposition,
     FakeHealthGet,
-    Mammal,
     ComposedOneOfDifferentTypes,
-    QueryParameterCollectionFormat,
+    Mammal,
     RefObjectInQuery,
+    QueryParameterCollectionFormat,
     BodyWithQueryParams,
     Boolean,
-    NumberWithValidations,
-    StringEnum,
     DeleteCoffee,
+    StringEnum,
+    NumberWithValidations,
     UploadFile,
     BodyWithFileSchema,
     UploadDownloadFile,

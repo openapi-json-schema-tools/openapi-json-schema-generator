@@ -19,7 +19,6 @@ import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -615,18 +614,14 @@ public class DefaultGeneratorTest {
         generator.opts(opts);
         generator.configureGeneratorProperties();
 
-        List<File> files = new ArrayList<>();
-        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
-        List<OperationsMap> allOperations = new ArrayList<>();
-        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, schemas, paths);
+        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null, null, null);
-        LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
-        Assert.assertEquals(servers.get(0).url, "");
-        Assert.assertEquals(servers.get(1).url, "http://trailingshlash.io:80/v1");
-        Assert.assertEquals(servers.get(2).url, "http://notrailingslash.io:80/v2");
+                null, null, null, null, null, null, servers, null);
+        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        Assert.assertEquals(bundleServers.get(0).url, "");
+        Assert.assertEquals(bundleServers.get(1).url, "http://trailingshlash.io:80/v1");
+        Assert.assertEquals(bundleServers.get(2).url, "http://notrailingslash.io:80/v2");
     }
     
     @Test
@@ -642,15 +637,13 @@ public class DefaultGeneratorTest {
         generator.configureGeneratorProperties();
 
         List<File> files = new ArrayList<>();
-        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
-        List<OperationsMap> allOperations = new ArrayList<>();
-        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, schemas, paths);
 
+        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null, null, null);
-        LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
-        Assert.assertEquals(servers.get(0).url, "/relative/url");
+                null, null, null, null, null, null, servers, null);
+
+        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        Assert.assertEquals(bundleServers.get(0).url, "/relative/url");
     }
 
     @Test

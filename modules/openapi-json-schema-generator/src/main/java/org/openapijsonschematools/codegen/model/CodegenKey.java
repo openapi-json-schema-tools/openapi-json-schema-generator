@@ -2,7 +2,7 @@ package org.openapijsonschematools.codegen.model;
 
 import java.util.Objects;
 
-public class CodegenKey {
+public class CodegenKey implements Comparable<CodegenKey> {
     public final String original;
     public final boolean isValid;
     public final String snakeCase;
@@ -32,5 +32,10 @@ public class CodegenKey {
     @Override
     public int hashCode() {
         return Objects.hash(original, isValid, snakeCase, camelCase, anchorPiece);
+    }
+
+    @Override
+    public int compareTo(CodegenKey other) {
+        return original.compareTo(other.original);
     }
 }
