@@ -114,41 +114,37 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
                 timeout=None,
             )
 
-    # def test_operation_servers(self):
-    #     auth_info = configuration.AuthInfo(
-    #         api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
-    #     )
-    #     server_info: configuration.ServerInfo = {
-    #         "paths//foo/get/servers/1": configuration.foo_get_server_1.Server1(
-    #             variables={'version': 'v2'}
-    #         )
-    #     }
-    #     config = petstore_api.Configuration(auth_info=auth_info, server_info=server_info)
-    #     client = ApiClient(configuration=config)
-    #     api = default_api.DefaultApi(client)
+    def test_operation_servers(self):
+        server_info: api_configuration.ServerInfo = {
+            "paths//foo/get/servers/1": api_configuration.foo_get_server_1.Server1(
+                variables={'version': 'v2'}
+            )
+        }
+        config = api_configuration.ApiConfiguration(server_info=server_info)
+        client = ApiClient(configuration=config)
+        api = default_api.DefaultApi(client)
 
-    #     with patch.object(ApiClient, 'request') as mock_request:
-    #         body = self.json_bytes(
-    #             {
-    #                 'string': {
-    #                     'bar': 'some bar'
-    #                 }
-    #             }
-    #         )
-    #         mock_request.return_value = self.response(body)
-    #         _api_response = api.foo_get(
-    #             server_index=1
-    #         )
-    #         mock_request.assert_called_with(
-    #             'get',
-    #             'https://petstore.swagger.io/v2/foo',
-    #             headers=HTTPHeaderDict({
-    #                 'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
-    #                 'api_key': 'abcdefg',
-    #                 'Accept': 'application/json'
-    #             }),
-    #             fields=None,
-    #             body=None,
-    #             stream=False,
-    #             timeout=None,
-    #         )
+        with patch.object(ApiClient, 'request') as mock_request:
+            body = self.json_bytes(
+                {
+                    'string': {
+                        'bar': 'some bar'
+                    }
+                }
+            )
+            mock_request.return_value = self.response(body)
+            _api_response = api.foo_get(
+                server_index=1
+            )
+            mock_request.assert_called_with(
+                'get',
+                'https://petstore.swagger.io/v2/foo',
+                headers=HTTPHeaderDict({
+                    'User-Agent': 'OpenAPI-JSON-Schema-Generator/1.0.0/python',
+                    'Accept': 'application/json'
+                }),
+                fields=None,
+                body=None,
+                stream=False,
+                timeout=None,
+            )
