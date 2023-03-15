@@ -13,6 +13,6 @@ Content-Type | Schema
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../components/schemas/string_with_validation.md#string_with_validation) | str,  | str,  |
+[StringWithValidation](../../components/schema/string_with_validation.md#string_with_validation) | str,  | str,  |
 
 [[Back to top]](#top) [[Back to Component Parameters]](../../../README.md#Component-Parameters) [[Back to README]](../../../README.md)
