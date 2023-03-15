@@ -11,6 +11,15 @@
 {{/if}}
 {{/each}}
 {{/with}}
+{{#if servers}}
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
+{{#each servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+{{/each}}
+{{/if}}
 {{#if paths}}
 
 ## Endpoints
@@ -24,7 +33,7 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 {{#each paths}}
 {{#each operations}}
-**{{../@key.original}}** {{@key.original}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/each}}
 {{/each}}
 {{/if}}
@@ -101,11 +110,12 @@ Class | Description
     {{/each}}
 
 {{/if}}
+{{#if infoEmail}}
 
 ## Author
 
-{{#with apiInfo}}{{#each apis}}{{#unless hasMore}}{{#if infoEmail}}{{infoEmail}}{{/if}}
-{{/unless}}{{/each}}{{/with}}
+{{infoEmail}}
+{{/if}}
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in {{{packageName}}}.{{apiPackage}}.tags.tag_to_api and {{{packageName}}}.{{modelPackage}}s may fail with a
