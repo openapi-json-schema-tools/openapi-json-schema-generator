@@ -171,25 +171,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
         return super.toApiName(computed);
     }
 
-    @Override
-    public String apiFilename(String templateName, String tag) {
-        String result = super.apiFilename(templateName, tag);
-
-        if (templateName.endsWith("Impl.mustache")) {
-            int ix = result.lastIndexOf(File.separator);
-            result = result.substring(0, ix) + "/impl" + result.substring(ix, result.length() - 5) + "ServiceImpl.java";
-            result = result.replace(apiFileFolder(), implFileFolder(implFolder));
-        } else if (templateName.endsWith("Factory.mustache")) {
-            int ix = result.lastIndexOf(File.separator);
-            result = result.substring(0, ix) + "/factories" + result.substring(ix, result.length() - 5) + "ServiceFactory.java";
-            result = result.replace(apiFileFolder(), implFileFolder(implFolder));
-        } else if (templateName.endsWith("Service.mustache")) {
-            int ix = result.lastIndexOf('.');
-            result = result.substring(0, ix) + "Service.java";
-        }
-        return result;
-    }
-
     private static String getCommonPath(String path1, String path2) {
         final String[] parts1 = StringUtils.split(path1, "/");
         final String[] parts2 = StringUtils.split(path2, "/");

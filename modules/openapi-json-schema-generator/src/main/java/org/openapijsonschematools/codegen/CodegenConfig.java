@@ -163,10 +163,6 @@ public interface CodegenConfig {
 
     Map<String, String> inlineSchemaNameDefault();
 
-    Map<String, String> apiTemplateFiles();
-
-    Map<String, String> apiXToApiTemplateFiles();
-
     Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles();
 
     Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
@@ -247,8 +243,6 @@ public interface CodegenConfig {
     String getFilepath(String jsonPath);
 
     String getDocsFilepath(String jsonPath);
-
-    String apiFilename(String templateName, String tag);
 
     String apiTestFilename(String templateName, String tag);
 

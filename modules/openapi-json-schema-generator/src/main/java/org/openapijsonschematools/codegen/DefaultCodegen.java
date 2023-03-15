@@ -201,12 +201,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected String packageName = "src.main.java";
 
     protected String docsFolder = "docs";
-    /*
-    apiTemplateFiles are for API outputs only (controllers/handlers).
-    API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
-    */
-    protected Map<String, String> apiTemplateFiles = new HashMap<>();
-    protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
     // for writing api files
     protected Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles = new HashMap<>();
     // for writing doc files
@@ -227,7 +221,6 @@ public class DefaultCodegen implements CodegenConfig {
     /*
     Supporting files are those which aren't models, APIs, or docs.
     These get a different map of data bound to the templates. Supporting files are written once.
-    See also 'apiTemplateFiles'.
     */
     protected List<SupportingFile> supportingFiles = new ArrayList<>();
     protected List<CliOption> cliOptions = new ArrayList<>();
@@ -821,14 +814,6 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<String, String> modelTestTemplateFiles() {
         return modelTestTemplateFiles;
     }
-
-    @Override
-    public Map<String, String> apiTemplateFiles() {
-        return apiTemplateFiles;
-    }
-
-    @Override
-    public Map<String, String> apiXToApiTemplateFiles() { return apiXToApiTemplateFiles; }
 
     @Override
     public Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles() {
@@ -3359,12 +3344,6 @@ public class DefaultCodegen implements CodegenConfig {
             result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
         }
         return result;
-    }
-
-    @Override
-    public String apiFilename(String templateName, String tag) {
-        String suffix = apiTemplateFiles().get(templateName);
-        return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
     }
 
     @Override
