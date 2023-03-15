@@ -1219,7 +1219,6 @@ public class DefaultGenerator implements Generator {
         bundle.put("openAPI", openAPI);
         bundle.put("scheme", URLPathUtils.getScheme(url, config));
         bundle.put("contextPath", contextPath);
-        bundle.put("pathAndHttpMethodToOperation", pathAndHttpMethodToOperation);
         bundle.put("requestBodies", requestBodies);
         bundle.put("responses", responses);
         bundle.put("headers", headers);
