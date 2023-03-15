@@ -11,20 +11,21 @@ from unittest.mock import patch
 
 import urllib3
 
-from petstore_api.paths.fake import post
-from petstore_api import configuration, schemas, api_client
+from petstore_api.paths.fake.post import operation as post
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration
 
 from ... import ApiTestMixin
 
 
 class TestFake(ApiTestMixin, unittest.TestCase):
-    auth_info = configuration.AuthInfo(
-        http_basic_test = configuration.security_scheme_http_basic_test.HttpBasicTest(
+    auth_info = api_configuration.AuthInfo(
+        http_basic_test = api_configuration.security_scheme_http_basic_test.HttpBasicTest(
             user_id='demo',
             password='p@55w0rd'
         )
     )
-    used_configuration = configuration.Configuration(auth_info=auth_info)
+    used_configuration = api_configuration.ApiConfiguration(auth_info=auth_info)
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )

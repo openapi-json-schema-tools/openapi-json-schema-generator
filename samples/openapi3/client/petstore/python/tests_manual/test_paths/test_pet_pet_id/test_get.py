@@ -12,8 +12,9 @@ from unittest.mock import patch
 
 import urllib3
 
-from petstore_api.paths.pet_pet_id import get  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api.paths.pet_pet_id.get import operation as get
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration
 from petstore_api.components.schema.pet import Pet
 
 from ... import ApiTestMixin
@@ -25,12 +26,12 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
         Find pet by ID  # noqa: E501
     """
     def test_get(self):
-        auth_info = configuration.AuthInfo(
-            api_key=configuration.security_scheme_api_key.ApiKey(
+        auth_info = api_configuration.AuthInfo(
+            api_key=api_configuration.security_scheme_api_key.ApiKey(
                 api_key='someKey'
             )
         )
-        config_with_auth = configuration.Configuration(auth_info=auth_info)
+        config_with_auth = api_configuration.ApiConfiguration(auth_info=auth_info)
         used_api_client = api_client.ApiClient(configuration=config_with_auth)
         api = get.ApiForGet(api_client=used_api_client)
 

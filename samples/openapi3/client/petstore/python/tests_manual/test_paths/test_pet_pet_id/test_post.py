@@ -12,8 +12,9 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.pet_pet_id import post
-from petstore_api import configuration, schemas, api_client
+from petstore_api.paths.pet_pet_id.post import operation as post
+from petstore_api import schemas, api_client
+from petstore_api.configurations import api_configuration
 
 from ... import ApiTestMixin
 
@@ -25,11 +26,11 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     """
 
     def test_post(self):
-        auth_info = configuration.AuthInfo(
-            api_key=configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
+        auth_info = api_configuration.AuthInfo(
+            api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         used_api_client = api_client.ApiClient(
-            configuration=configuration.Configuration(auth_info=auth_info)
+            configuration=api_configuration.ApiConfiguration(auth_info=auth_info)
         )
         api = post.ApiForPost(api_client=used_api_client)
 

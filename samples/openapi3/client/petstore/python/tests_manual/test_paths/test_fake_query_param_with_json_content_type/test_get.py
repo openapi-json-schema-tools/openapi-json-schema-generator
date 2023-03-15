@@ -13,8 +13,8 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.fake_query_param_with_json_content_type import get  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api.paths.fake_query_param_with_json_content_type.get import operation as get
+from petstore_api import schemas, api_client
 
 from ... import ApiTestMixin, ParamTestCase
 
