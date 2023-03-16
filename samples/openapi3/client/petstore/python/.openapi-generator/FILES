@@ -154,6 +154,9 @@ docs/components/security_schemes/security_scheme_http_basic_test.md
 docs/components/security_schemes/security_scheme_http_signature_test.md
 docs/components/security_schemes/security_scheme_open_id_connect_test.md
 docs/components/security_schemes/security_scheme_petstore_auth.md
+docs/servers/server_0.md
+docs/servers/server_1.md
+docs/servers/server_2.md
 git_push.sh
 pyproject.toml
 requirements.txt

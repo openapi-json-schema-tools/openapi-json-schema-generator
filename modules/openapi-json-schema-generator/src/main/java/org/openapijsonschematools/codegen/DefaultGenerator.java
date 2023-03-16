@@ -1269,8 +1269,15 @@ public class DefaultGenerator implements Generator {
             templateData.put("server", server);
             String serverJsonPath = jsonPath + "/" + i;
             generateXs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
-            i++;
 
+            // doc generation
+            if (server.rootServer) {
+                templateData.put("headerSize", "#");
+                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                templateData.put("identifierToHeadingQty", new HashMap<>());
+                generateXDocs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
+            }
+            i++;
         }
     }
 

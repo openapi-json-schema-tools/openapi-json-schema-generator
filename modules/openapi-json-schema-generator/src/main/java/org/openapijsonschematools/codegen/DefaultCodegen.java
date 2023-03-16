@@ -3511,6 +3511,8 @@ public class DefaultCodegen implements CodegenConfig {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)
@@ -4459,6 +4461,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         List<CodegenServer> codegenServers = new LinkedList<>();
         int i = 0;
+        boolean rootServer = jsonPath.equals("#/servers");
         for (Server server : servers) {
             String serverJsonPath = jsonPath + "/" + i;
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
@@ -4466,7 +4469,8 @@ public class DefaultCodegen implements CodegenConfig {
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 escapeText(server.getDescription()),
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
-                jsonPathPiece
+                jsonPathPiece,
+                rootServer
             );
             codegenServers.add(cs);
             i ++;

@@ -8,12 +8,14 @@ public class CodegenServer {
     public final String description;
     public final LinkedHashMap<CodegenKey, CodegenSchema> variables;
     public final CodegenKey jsonPathPiece;
+    public final boolean rootServer;
 
-    public CodegenServer(String url, String description, LinkedHashMap<CodegenKey, CodegenSchema> variables, CodegenKey jsonPathPiece) {
+    public CodegenServer(String url, String description, LinkedHashMap<CodegenKey, CodegenSchema> variables, CodegenKey jsonPathPiece, boolean rootServer) {
         this.url = url;
         this.description = description;
         this.variables = variables;
         this.jsonPathPiece = jsonPathPiece;
+        this.rootServer = rootServer;
     }
 
     @Override
@@ -24,12 +26,13 @@ public class CodegenServer {
         return Objects.equals(url, that.url) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(variables, that.variables) &&
-                Objects.equals(jsonPathPiece, that.jsonPathPiece);
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
+                Objects.equals(rootServer, that.rootServer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(url, description, variables, jsonPathPiece);
+        return Objects.hash(url, description, variables, jsonPathPiece, rootServer);
     }
 
     @Override
@@ -39,6 +42,7 @@ public class CodegenServer {
         sb.append(", description='").append(description).append('\'');
         sb.append(", variables=").append(variables);
         sb.append(", jsonPathPiece=").append(jsonPathPiece);
+        sb.append(", rootServer=").append(rootServer);
         sb.append('}');
         return sb.toString();
     }

@@ -1648,12 +1648,14 @@ servers:
     description: petstore server
     variables:
       server:
+        description: server host prefix
         enum:
           - 'petstore'
           - 'qa-petstore'
           - 'dev-petstore'
         default: 'petstore'
       port:
+        description: the port
         enum:
           - 80
           - 8080

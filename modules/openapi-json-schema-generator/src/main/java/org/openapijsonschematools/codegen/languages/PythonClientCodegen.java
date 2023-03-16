@@ -350,6 +350,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
                 Collections.singletonMap("components/security_schemes/security_scheme_doc.hbs", ".md")
         );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                Collections.singletonMap("servers/server_doc.hbs", ".md")
+        );
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("components/schemas/schema.hbs", ".py");
