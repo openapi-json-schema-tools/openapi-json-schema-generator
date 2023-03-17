@@ -79,13 +79,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 #### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md#order) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## responses ResponseFor400
 

@@ -80,13 +80,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md#pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Pet](../../../components/schema/pet.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 #### responses ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md#ref_pet) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[RefPet](../../../components/schema/ref_pet.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## responses ResponseFor400
 

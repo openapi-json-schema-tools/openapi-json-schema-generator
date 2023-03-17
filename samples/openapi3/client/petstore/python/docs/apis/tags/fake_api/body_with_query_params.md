@@ -37,7 +37,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md#user) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[User](../../../components/schema/user.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ### query_params
 #### RequestQueryParameters.Params

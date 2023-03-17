@@ -41,7 +41,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md#number_with_validations) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+[NumberWithValidations](../../../components/schema/number_with_validations.md) | decimal.Decimal, int, float,  | decimal.Decimal,  |
 
 ## Return Types
 
@@ -73,7 +73,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md#number_with_validations) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+[NumberWithValidations](../../../components/schema/number_with_validations.md) | decimal.Decimal, int, float,  | decimal.Decimal,  |
 
 ## Code Sample
 

@@ -77,7 +77,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md#api_response) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ApiResponse](../../../components/schema/api_response.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Code Sample
 

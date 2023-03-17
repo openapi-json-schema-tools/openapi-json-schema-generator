@@ -114,7 +114,7 @@ items | str,  | str,  |  |
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../components/schema/string_with_validation.md#string_with_validation) | str,  | str,  |
+[StringWithValidation](../../../components/schema/string_with_validation.md) | str,  | str,  |
 
 ## Return Types
 
