@@ -31,15 +31,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | [Parameter0.schema](#parameter_0schema) | | 
+tags | [Parameter0.schema](#parameter0-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 Tags to filter by
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

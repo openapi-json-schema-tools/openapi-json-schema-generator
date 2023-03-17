@@ -70,18 +70,18 @@ items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_query_string_array | [Parameter2.schema](#parameter_2schema) | | optional
-enum_query_string | [Parameter3.schema](#parameter_3schema) | | optional
-enum_query_integer | [Parameter4.schema](#parameter_4schema) | | optional
-enum_query_double | [Parameter5.schema](#parameter_5schema) | | optional
+enum_query_string_array | [Parameter2.schema](#parameter2-schema) | | optional
+enum_query_string | [Parameter3.schema](#parameter3-schema) | | optional
+enum_query_integer | [Parameter4.schema](#parameter4-schema) | | optional
+enum_query_double | [Parameter5.schema](#parameter5-schema) | | optional
 
 
-#### Parameter Parameter2
+#### Parameter2
 
 ##### Description
 Query parameter enum test (string array)
 
-##### Schema
+##### Parameter2 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -93,36 +93,36 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of $
 
-#### Parameter Parameter3
+#### Parameter3
 
 ##### Description
 Query parameter enum test (string)
 
-##### Schema
+##### Parameter3 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of -efg
 
-#### Parameter Parameter4
+#### Parameter4
 
 ##### Description
 Query parameter enum test (double)
 
-##### Schema
+##### Parameter4 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | must be one of [1, -2, ] value must be a 32 bit integer
 
-#### Parameter Parameter5
+#### Parameter5
 
 ##### Description
 Query parameter enum test (double)
 
-##### Schema
+##### Parameter5 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -134,16 +134,16 @@ decimal.Decimal, int, float,  | decimal.Decimal,  |  | must be one of [1.1, -1.2
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-enum_header_string_array | [Parameter0.schema](#parameter_0schema) | | optional
-enum_header_string | [Parameter1.schema](#parameter_1schema) | | optional
+enum_header_string_array | [Parameter0.schema](#parameter0-schema) | | optional
+enum_header_string | [Parameter1.schema](#parameter1-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 Header parameter enum test (string array)
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -155,12 +155,12 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  |  | must be one of [">", "$", ] if omitted the server will use the default value of $
 
-#### Parameter Parameter1
+#### Parameter1
 
 ##### Description
 Header parameter enum test (string)
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

@@ -54,15 +54,15 @@ Key | Input Type | Accessed Type | Description | Notes
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter0.schema](#parameter_0schema) | | 
+petId | [Parameter0.schema](#parameter0-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 ID of pet to update
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

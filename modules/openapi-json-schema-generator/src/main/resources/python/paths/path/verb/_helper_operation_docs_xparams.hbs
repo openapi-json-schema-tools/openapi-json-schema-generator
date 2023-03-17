@@ -10,10 +10,10 @@ Key | Input Type | Description  | Notes
 {{getDeepestRef.name}} | [{{refInfo.refClass}}](../../../components/parameters/{{refInfo.refModule}}.md) | | {{#unless getDeepestRef.required}}optional{{/unless}}
         {{else}}
             {{#if schema}}
-{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{jsonPathPiece.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece schema.jsonPathPiece) includeSuffix=false }}) | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{../jsonPathPiece.snakeCase}}content{{@key.snakeCase}}schema) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../jsonPathPiece "content" @key this.schema.jsonPathPiece) includeSuffix=false }}) | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -22,7 +22,7 @@ Key | Input Type | Description  | Notes
     {{#each parameters as | parameter |}}
     {{#unless parameter.refInfo}}
 
-{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") }}
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/unless}}
     {{/each}}
 {{/if}}

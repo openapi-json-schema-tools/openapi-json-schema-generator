@@ -32,15 +32,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter_0schema) | | 
+status | [Parameter0.schema](#parameter0-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 Status values that need to be considered for filter
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

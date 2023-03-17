@@ -30,10 +30,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam | [Parameter0.content.application_json.schema](#parameter_0contentapplication_jsonschema) | | 
+someParam | [Parameter0.content.application_json.schema](#parameter0-content-applicationjson-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 The internal object id
@@ -41,8 +41,8 @@ The internal object id
 ##### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#content-applicationjson-schema)
-##### content ApplicationJson Schema
+"application/json" | [content.application_json.Schema](#parameter0-content-applicationjson-schema)
+##### Parameter0 content ApplicationJson Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

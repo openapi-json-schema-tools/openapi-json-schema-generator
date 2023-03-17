@@ -44,12 +44,12 @@ Ref Class | Input Type | Accessed Type | Description
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [Parameter0.schema](#parameter_0schema) | | 
+query | [Parameter0.schema](#parameter0-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

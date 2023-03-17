@@ -31,12 +31,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [Parameter0.schema](#parameter_0schema) | | optional
+api_key | [Parameter0.schema](#parameter0-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -48,15 +48,15 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter1.schema](#parameter_1schema) | | 
+petId | [Parameter1.schema](#parameter1-schema) | | 
 
 
-#### Parameter Parameter1
+#### Parameter1
 
 ##### Description
 Pet id to delete
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

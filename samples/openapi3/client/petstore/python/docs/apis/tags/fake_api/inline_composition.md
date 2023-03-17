@@ -95,13 +95,13 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [Parameter0.schema](#parameter_0schema) | | optional
-compositionInProperty | [Parameter1.schema](#parameter_1schema) | | optional
+compositionAtRoot | [Parameter0.schema](#parameter0-schema) | | optional
+compositionInProperty | [Parameter1.schema](#parameter1-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -112,18 +112,18 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#schema-allof-_0) | str,  | str,  |  |
+[_0](#parameter0-schema-allof-_0) | str,  | str,  |  |
 
-##### Schema allof _0
+##### Parameter0 Schema allof _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter1
+#### Parameter1
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -133,10 +133,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO, [properties.SomeProp](#schema-properties-someprop) |  | [optional]
+**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO, [properties.SomeProp](#parameter1-schema-properties-someprop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Schema properties SomeProp
+##### Parameter1 Schema properties SomeProp
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -147,9 +147,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#schema-properties-someprop-allof-_0) | str,  | str,  |  |
+[_0](#parameter1-schema-properties-someprop-allof-_0) | str,  | str,  |  |
 
-##### Schema properties SomeProp allof _0
+##### Parameter1 Schema properties SomeProp allof _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

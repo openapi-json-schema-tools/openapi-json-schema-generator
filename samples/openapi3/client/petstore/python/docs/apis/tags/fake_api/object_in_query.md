@@ -29,15 +29,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [Parameter0.schema](#parameter_0schema) | | optional
+mapBean | [Parameter0.schema](#parameter0-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 mapBean
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

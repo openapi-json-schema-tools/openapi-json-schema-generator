@@ -32,54 +32,54 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter_0schema) | | 
-required_int64_group | [Parameter2.schema](#parameter_2schema) | | 
-string_group | [Parameter3.schema](#parameter_3schema) | | optional
-int64_group | [Parameter5.schema](#parameter_5schema) | | optional
+required_string_group | [Parameter0.schema](#parameter0-schema) | | 
+required_int64_group | [Parameter2.schema](#parameter2-schema) | | 
+string_group | [Parameter3.schema](#parameter3-schema) | | optional
+int64_group | [Parameter5.schema](#parameter5-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 Required String in group parameters
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter2
+#### Parameter2
 
 ##### Description
 Required Integer in group parameters
 
-##### Schema
+##### Parameter2 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-#### Parameter Parameter3
+#### Parameter3
 
 ##### Description
 String in group parameters
 
-##### Schema
+##### Parameter3 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter5
+#### Parameter5
 
 ##### Description
 Integer in group parameters
 
-##### Schema
+##### Parameter5 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -91,28 +91,28 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
-boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
+required_boolean_group | [Parameter1.schema](#parameter1-schema) | | 
+boolean_group | [Parameter4.schema](#parameter4-schema) | | optional
 
 
-#### Parameter Parameter1
+#### Parameter1
 
 ##### Description
 Required Boolean in group parameters
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-#### Parameter Parameter4
+#### Parameter4
 
 ##### Description
 Boolean in group parameters
 
-##### Schema
+##### Parameter4 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

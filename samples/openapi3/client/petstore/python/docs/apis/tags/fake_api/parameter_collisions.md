@@ -49,52 +49,52 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter0.schema](#parameter_0schema) | | optional
-aB | [Parameter1.schema](#parameter_1schema) | | optional
-Ab | [Parameter2.schema](#parameter_2schema) | | optional
-self | [Parameter3.schema](#parameter_3schema) | | optional
-A-B | [Parameter4.schema](#parameter_4schema) | | optional
+1 | [Parameter0.schema](#parameter0-schema) | | optional
+aB | [Parameter1.schema](#parameter1-schema) | | optional
+Ab | [Parameter2.schema](#parameter2-schema) | | optional
+self | [Parameter3.schema](#parameter3-schema) | | optional
+A-B | [Parameter4.schema](#parameter4-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter1
-
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter2
+#### Parameter1
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter3
-
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter4
+#### Parameter2
 
-##### Schema
+##### Parameter2 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter3
+
+##### Parameter3 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter4
+
+##### Parameter4 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -106,42 +106,42 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter5.schema](#parameter_5schema) | | optional
-aB | [Parameter6.schema](#parameter_6schema) | | optional
-self | [Parameter7.schema](#parameter_7schema) | | optional
-A-B | [Parameter8.schema](#parameter_8schema) | | optional
+1 | [Parameter5.schema](#parameter5-schema) | | optional
+aB | [Parameter6.schema](#parameter6-schema) | | optional
+self | [Parameter7.schema](#parameter7-schema) | | optional
+A-B | [Parameter8.schema](#parameter8-schema) | | optional
 
 
-#### Parameter Parameter5
+#### Parameter5
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter6
-
-##### Schema
+##### Parameter5 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter7
+#### Parameter6
 
-##### Schema
+##### Parameter6 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter8
+#### Parameter7
 
-##### Schema
+##### Parameter7 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter8
+
+##### Parameter8 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -153,52 +153,52 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter9.schema](#parameter_9schema) | | 
-aB | [Parameter10.schema](#parameter_10schema) | | 
-Ab | [Parameter11.schema](#parameter_11schema) | | 
-self | [Parameter12.schema](#parameter_12schema) | | 
-A-B | [Parameter13.schema](#parameter_13schema) | | 
+1 | [Parameter9.schema](#parameter9-schema) | | 
+aB | [Parameter10.schema](#parameter10-schema) | | 
+Ab | [Parameter11.schema](#parameter11-schema) | | 
+self | [Parameter12.schema](#parameter12-schema) | | 
+A-B | [Parameter13.schema](#parameter13-schema) | | 
 
 
-#### Parameter Parameter9
+#### Parameter9
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter10
-
-##### Schema
+##### Parameter9 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter11
+#### Parameter10
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter12
-
-##### Schema
+##### Parameter10 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter13
+#### Parameter11
 
-##### Schema
+##### Parameter11 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter12
+
+##### Parameter12 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter13
+
+##### Parameter13 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -210,52 +210,52 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter14.schema](#parameter_14schema) | | optional
-aB | [Parameter15.schema](#parameter_15schema) | | optional
-Ab | [Parameter16.schema](#parameter_16schema) | | optional
-self | [Parameter17.schema](#parameter_17schema) | | optional
-A-B | [Parameter18.schema](#parameter_18schema) | | optional
+1 | [Parameter14.schema](#parameter14-schema) | | optional
+aB | [Parameter15.schema](#parameter15-schema) | | optional
+Ab | [Parameter16.schema](#parameter16-schema) | | optional
+self | [Parameter17.schema](#parameter17-schema) | | optional
+A-B | [Parameter18.schema](#parameter18-schema) | | optional
 
 
-#### Parameter Parameter14
+#### Parameter14
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter15
-
-##### Schema
+##### Parameter14 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter16
+#### Parameter15
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter17
-
-##### Schema
+##### Parameter15 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter18
+#### Parameter16
 
-##### Schema
+##### Parameter16 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter17
+
+##### Parameter17 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter18
+
+##### Parameter18 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes

@@ -30,28 +30,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [Parameter0.schema](#parameter_0schema) | | 
-password | [Parameter1.schema](#parameter_1schema) | | 
+username | [Parameter0.schema](#parameter0-schema) | | 
+password | [Parameter1.schema](#parameter1-schema) | | 
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 The user name for login
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter1
+#### Parameter1
 
 ##### Description
 The password for login in clear text
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
