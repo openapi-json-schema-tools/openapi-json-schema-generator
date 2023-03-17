@@ -206,7 +206,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     // for writing code files
     protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
-    protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
@@ -821,9 +820,6 @@ public class DefaultCodegen implements CodegenConfig {
     public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles() {
         return jsonPathDocTemplateFiles;
     }
-
-    @Override
-    public Set<String> pathEndpointDocTemplateFiles() { return pathEndpointDocTemplateFiles; }
 
     @Override
     public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }

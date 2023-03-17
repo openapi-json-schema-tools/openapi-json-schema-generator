@@ -323,8 +323,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 Collections.singletonMap("apis/tags/__init__.hbs", "__init__.py")
         );
 
-        // todo move to jsonPathDocTemplateFiles
-        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+                Collections.singletonMap("paths/path/verb/operation_doc.hbs", ".md")
+        );
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,

@@ -461,6 +461,31 @@ public class DefaultGenerator implements Generator {
                 endpointMap.put("httpMethod", httpMethod);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
 
+                // operation docs
+                Map<String, String> templateToSuffix = config.jsonPathDocTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION);
+                if (templateToSuffix != null) {
+                    for (Map.Entry<String, String> templateToSuffixEntry: templateToSuffix.entrySet()) {
+                        String templateFile = templateToSuffixEntry.getKey();
+                        String suffix = templateToSuffixEntry.getValue();
+                        for (Map.Entry<String, CodegenTag> tagEntry: operation.tags.entrySet()) {
+                            CodegenTag tag = tagEntry.getValue();
+                            Map<String, Object> endpointInfo = new HashMap<>();
+                            endpointInfo.put("operation", operation);
+                            endpointInfo.put("httpMethod", httpMethod);
+                            endpointInfo.put("path", pathKey);
+                            endpointInfo.put("packageName", config.packageName());
+                            endpointInfo.put("apiPackage", config.apiPackage());
+                            endpointInfo.put("tag", tag);
+                            endpointInfo.put("headerSize", "#");
+                            endpointInfo.put("complexTypePrefix", "../../../components/schema/");
+                            endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                            endpointInfo.put("identifierToHeadingQty", new HashMap<>());
+                            String outputFilename = filenameFromRoot(Arrays.asList("docs", config.apiPackage(), "tags", tag.moduleName, operation.operationId.snakeCase + suffix));
+                            generateFile(endpointInfo, templateFile, outputFilename, files, true, CodegenConstants.APIS);
+                        }
+                    }
+                }
+
                 // paths.some_path.post.request_body.py, only written if there is no refModule
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";

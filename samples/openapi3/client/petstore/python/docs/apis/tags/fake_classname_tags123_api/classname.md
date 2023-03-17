@@ -23,6 +23,7 @@ Name | Type | Description  | Notes
 [**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#request_body_clientcontentapplication_jsonschema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -57,7 +58,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../components/schemas/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Client](../../components/schema/client.md#client) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
 
 ## Security
 
@@ -73,7 +74,7 @@ component security scheme class. See how to do this in the code sample.
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_classname_tags123_api
 from pprint import pprint
 # security_index 0
@@ -87,10 +88,8 @@ auth_info: configuration.AuthInfo = {
     ),
 }
 
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
+# See api_configuration.py for a list of all supported api configuration parameters
+used_configuration = api_configuration.ApiConfiguration(
     auth_info = auth_info
 )
 # Enter a context with an instance of the API client

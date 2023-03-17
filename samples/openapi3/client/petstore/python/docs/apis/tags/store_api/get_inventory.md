@@ -36,7 +36,7 @@ component security scheme class. See how to do this in the code sample.
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import store_api
 from pprint import pprint
 # security_index 0
@@ -50,10 +50,8 @@ auth_info: configuration.AuthInfo = {
     ),
 }
 
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
+# See api_configuration.py for a list of all supported api configuration parameters
+used_configuration = api_configuration.ApiConfiguration(
     auth_info = auth_info
 )
 # Enter a context with an instance of the API client

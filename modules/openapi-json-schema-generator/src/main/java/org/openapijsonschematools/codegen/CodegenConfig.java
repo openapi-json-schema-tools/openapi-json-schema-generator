@@ -170,8 +170,6 @@ public interface CodegenConfig {
 
     Set<String> pathEndpointTestTemplateFiles();
 
-    Set<String> pathEndpointDocTemplateFiles();
-
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();

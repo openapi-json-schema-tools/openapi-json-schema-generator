@@ -22,6 +22,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -79,23 +80,33 @@ component security scheme class. See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
-| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 2       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Code Sample
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import pet_api
 from pprint import pprint
 # security_index 0
-from petstore_api.components.security_schemes import security_scheme_http_signature_test
+from petstore_api.components.security_schemes import security_scheme_api_key
 # security_index 1
+from petstore_api.components.security_schemes import security_scheme_http_signature_test
+# security_index 2
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
 
 
 # auth_info for security_index 0
+auth_info: configuration.AuthInfo = {
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
+# auth_info for security_index 1
 auth_info: configuration.AuthInfo = {
     "http_signature_test": security_scheme_http_signature_test.HttpSignatureTest(
         signing_info=petstore_api.signing.HttpSigningConfiguration(
@@ -118,16 +129,14 @@ auth_info: configuration.AuthInfo = {
     ),
 }
 
-# auth_info for security_index 1
+# auth_info for security_index 2
 auth_info: configuration.AuthInfo = {
     "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
     ),
 }
 
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
+# See api_configuration.py for a list of all supported api configuration parameters
+used_configuration = api_configuration.ApiConfiguration(
     auth_info = auth_info
 )
 # Enter a context with an instance of the API client
