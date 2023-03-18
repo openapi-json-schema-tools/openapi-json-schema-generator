@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -53,6 +54,10 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

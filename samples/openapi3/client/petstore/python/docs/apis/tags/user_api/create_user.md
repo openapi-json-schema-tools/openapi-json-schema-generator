@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -61,6 +62,10 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -233,6 +234,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

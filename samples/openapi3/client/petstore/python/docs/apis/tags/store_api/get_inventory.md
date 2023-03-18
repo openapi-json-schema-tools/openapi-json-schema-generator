@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -31,6 +32,10 @@ component security scheme class. See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
 | 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

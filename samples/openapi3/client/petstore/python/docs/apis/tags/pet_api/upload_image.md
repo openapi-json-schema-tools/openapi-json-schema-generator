@@ -6,6 +6,7 @@
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -85,6 +86,10 @@ component security scheme class. See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
 | 0       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

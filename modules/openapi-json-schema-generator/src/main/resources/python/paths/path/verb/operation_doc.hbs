@@ -11,6 +11,7 @@
 {{#if security}}
 - [Security](#security)
 {{/if}}
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 {{headerSize}}# General Info
@@ -124,6 +125,17 @@ component security scheme class. See how to do this in the code sample.
 | {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
     {{/each}}
 {{/if}}
+
+{{headerSize}}# Servers
+server_index | Class | Description
+------------ | ----- | ------------
+{{#each servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+{{/each}}
+{{#each servers}}
+
+{{> servers/server_doc server=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{/each}}
 
 {{headerSize}}# Code Sample
 

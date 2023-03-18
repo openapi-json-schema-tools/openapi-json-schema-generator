@@ -6,6 +6,7 @@
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -89,6 +90,10 @@ component security scheme class. See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
 | 0       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

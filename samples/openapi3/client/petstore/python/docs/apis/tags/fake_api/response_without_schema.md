@@ -4,6 +4,7 @@
 ## Table of Contents
 - [General Info](#general-info)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -37,6 +38,10 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | no schema defined
 "application/xml" | no schema defined
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

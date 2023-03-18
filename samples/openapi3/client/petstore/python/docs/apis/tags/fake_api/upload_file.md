@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -78,6 +79,10 @@ Content-Type | Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [ApiResponse](../../../components/schema/api_response.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

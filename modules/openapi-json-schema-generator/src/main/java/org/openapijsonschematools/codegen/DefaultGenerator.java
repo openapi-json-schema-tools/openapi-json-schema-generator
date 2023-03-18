@@ -473,6 +473,7 @@ public class DefaultGenerator implements Generator {
                             endpointInfo.put("operation", operation);
                             endpointInfo.put("httpMethod", httpMethod);
                             endpointInfo.put("path", pathKey);
+                            endpointInfo.put("pathItem", pathItem);
                             endpointInfo.put("packageName", config.packageName());
                             endpointInfo.put("apiPackage", config.apiPackage());
                             endpointInfo.put("tag", tag);

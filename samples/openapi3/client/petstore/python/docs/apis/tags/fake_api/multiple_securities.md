@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -57,6 +58,10 @@ component security scheme class. See how to do this in the code sample.
 | 0       | no security |
 | 1       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
 | 2       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 

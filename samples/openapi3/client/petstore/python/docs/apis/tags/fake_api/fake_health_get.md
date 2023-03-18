@@ -4,6 +4,7 @@
 ## Table of Contents
 - [General Info](#general-info)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -44,6 +45,10 @@ Content-Type | Schema
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [HealthCheckResult](../../../components/schema/health_check_result.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
 
 ## Code Sample
 
