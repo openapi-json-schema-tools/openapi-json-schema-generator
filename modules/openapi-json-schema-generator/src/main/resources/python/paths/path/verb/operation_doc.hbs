@@ -4,9 +4,7 @@
 
 {{headerSize}}# Table of Contents
 - [General Info](#general-info)
-{{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#arguments)
-{{/or}}
 - [Return Types](#return-types)
 {{#if security}}
 - [Security](#security)
@@ -25,7 +23,6 @@
 {{/if}}
 | Path | "{{{path.original}}}" |
 | HTTP Method | {{{httpMethod.original}}} |
-{{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 {{headerSize}}# Arguments
 
@@ -78,11 +75,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 {{> components/request_bodies/request_body_doc requestBody=requestBody headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces requestBody.jsonPathPiece) }}
         {{/unless}}
     {{/if}}
+    {{#if queryParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="query" paramType="Query" parameters=queryParams }}
+    {{/if}}
+    {{#if headerParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="header" paramType="Header" parameters=headerParams }}
+    {{/if}}
+    {{#if pathParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="path" paramType="Path" parameters=pathParams }}
+    {{/if}}
+    {{#if cookieParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="cookie" paramType="Cookie" parameters=cookieParams }}
-{{/or}}
+    {{/if}}
 
 {{headerSize}}# Return Types
 
@@ -137,6 +141,10 @@ server_index | Class | Description
     {{#if pathItem.servers}}
         {{#each pathItem.servers}}
 {{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+        {{/each}}
+    {{else}}
+        {{#each ../servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](../../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
         {{/each}}
     {{/if}}
 {{/if}}

@@ -82,6 +82,9 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | file to download |
 ## Servers
 server_index | Class | Description
 ------------ | ----- | ------------
+0 | [Server0](../../../servers/server_0.md) | petstore server
+1 | [Server1](../../../servers/server_1.md) | The local server
+2 | [Server2](../../../servers/server_2.md) | staging server with no variables
 
 ## Code Sample
 
