@@ -88,6 +88,22 @@ component security scheme class. See how to do this in the code sample.
 ## Servers
 server_index | Class | Description
 ------------ | ----- | ------------
+0 | [Server0](#server0) |
+1 | [Server1](#server1) |
+
+### Server0
+
+#### Url
+https://path-server-test.petstore.local/v2
+### Server1
+
+#### Url
+https://petstore.swagger.io/{version}
+
+#### Variables
+Key | Type | Description | Notes
+--- | ---- | ----------- | ------
+**version** | str,  |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
 
 ## Code Sample
 

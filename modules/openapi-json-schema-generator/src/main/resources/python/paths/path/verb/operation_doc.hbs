@@ -129,13 +129,30 @@ component security scheme class. See how to do this in the code sample.
 {{headerSize}}# Servers
 server_index | Class | Description
 ------------ | ----- | ------------
-{{#each servers}}
+{{#if servers}}
+    {{#each servers}}
 {{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
-{{/each}}
-{{#each servers}}
+    {{/each}}
+{{else}}
+    {{#if pathItem.servers}}
+        {{#each pathItem.servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+{{#if servers}}
+    {{#each servers}}
 
-{{> servers/server_doc server=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/each}}
+{{> servers/server_doc server=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/each}}
+{{else}}
+    {{#if pathItem.servers}}
+
+        {{#each pathItem.servers}}
+{{> servers/server_doc server=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+        {{/each}}
+    {{/if}}
+{{/if}}
 
 {{headerSize}}# Code Sample
 
