@@ -33,7 +33,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ResponseFor200.response_cls](#response_200response_cls) | success
 202 | [ResponseFor202.response_cls](#response_202response_cls) | success
 
-## responses ResponseFor200
+## ResponseFor200
 
 ### Description
 success
@@ -42,23 +42,23 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### responses ResponseFor200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
-## responses ResponseFor202
+## ResponseFor202
 
 ### Description
 success
@@ -67,16 +67,16 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body-1) | typing.Union[[content.application_json.schema](#responses-responsefor202-content-applicationjson-schema), ] |  |
+[body](#body-1) | typing.Union[[content.application_json.schema](#responsefor202-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responses-responsefor202-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor202-content-applicationjson-schema)
 
 ### Body Details
-#### responses ResponseFor202 content ApplicationJson Schema
+#### ResponseFor202 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

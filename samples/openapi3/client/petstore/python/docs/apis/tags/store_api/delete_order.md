@@ -54,7 +54,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid ID supplied
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Order not found
 
-## responses ResponseFor400
+## ResponseFor400
 
 ### Description
 Invalid ID supplied
@@ -66,7 +66,7 @@ response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## responses ResponseFor404
+## ResponseFor404
 
 ### Description
 Order not found

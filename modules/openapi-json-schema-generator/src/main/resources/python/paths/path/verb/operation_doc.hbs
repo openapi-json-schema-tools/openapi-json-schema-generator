@@ -112,7 +112,7 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 {{#each responses}}
     {{#unless refInfo.refModule}}
 
-{{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "responses" jsonPathPiece) }}
+{{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/unless}}
 {{/each}}
 {{#if security}}

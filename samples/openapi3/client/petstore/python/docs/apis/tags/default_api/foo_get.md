@@ -31,7 +31,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#response_defaultresponse_cls) | response
 
-## responses Default
+## Default
 
 ### Description
 response
@@ -40,16 +40,16 @@ response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responses-default-content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#default-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responses-default-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#default-content-applicationjson-schema)
 
 ### Body Details
-#### responses Default content ApplicationJson Schema
+#### Default content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes

@@ -33,7 +33,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
 
-## responses Default
+## Default
 
 ### Description
 successful operation

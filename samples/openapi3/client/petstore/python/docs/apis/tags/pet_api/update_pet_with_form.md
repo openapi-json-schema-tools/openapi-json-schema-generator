@@ -76,7 +76,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 405 | [ResponseFor405.response_cls](#response_405response_cls) | Invalid input
 
-## responses ResponseFor405
+## ResponseFor405
 
 ### Description
 Invalid input

@@ -176,7 +176,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#response_404response_cls) | Not found
 
-## responses ResponseFor404
+## ResponseFor404
 
 ### Description
 Not found
@@ -185,16 +185,16 @@ Not found
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor404-content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#responsefor404-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responses-responsefor404-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor404-content-applicationjson-schema)
 
 ### Body Details
-#### responses ResponseFor404 content ApplicationJson Schema
+#### ResponseFor404 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
