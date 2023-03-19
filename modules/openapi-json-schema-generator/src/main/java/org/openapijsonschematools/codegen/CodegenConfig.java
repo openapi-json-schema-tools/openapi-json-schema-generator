@@ -21,6 +21,7 @@ import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -143,6 +144,8 @@ public interface CodegenConfig {
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
+
+    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths);
 
     CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
 

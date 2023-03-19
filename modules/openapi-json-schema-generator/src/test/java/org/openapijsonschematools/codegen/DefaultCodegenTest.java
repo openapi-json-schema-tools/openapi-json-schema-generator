@@ -84,6 +84,9 @@ import static org.testng.Assert.fail;
 
 
 public class DefaultCodegenTest {
+    private String getOperationPath(String operationPath, String httpMethod) {
+        return "#/paths/" + ModelUtils.encodeSlashes(operationPath) + "/" + httpMethod;
+    }
 
     @Test
     public void testDeeplyNestedAdditionalPropertiesImports() {
@@ -91,7 +94,7 @@ public class DefaultCodegenTest {
         final OpenAPI openApi = TestUtils.parseFlattenSpec("src/test/resources/3_0/additional-properties-deeply-nested.yaml");
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
-        CodegenOperation operation = codegen.fromOperation("/ping", "post", path.getPost(), path.getServers());
+        CodegenOperation operation = codegen.fromOperation(path.getPost(), getOperationPath("/ping", "post"));
         Assert.assertEquals(operation.responses.get("default").imports, null);
     }
 
@@ -107,7 +110,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/PetByType",
                 "#/components/schemas/PetByType"
         );
-        CodegenOperation operation = codegen.fromOperation("/pets/petType/{type}", "get", path.getGet(), path.getServers());
+        CodegenOperation operation = codegen.fromOperation(path.getGet(), getOperationPath("/pets/petType/{type}", "get"));
         assertEquals(operation.pathParams.get(0).imports, null);
         assertEquals(operation.pathParams.get(0).schema.imports.size(), 1);
         Assert.assertTrue(operation.pathParams.get(0).schema.refInfo.ref.enumValueToName != null);
@@ -175,7 +178,7 @@ public class DefaultCodegenTest {
         Assert.assertEquals(createProducesInfo.size(), 0);
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
-        CodegenOperation coCreate = codegen.fromOperation("somepath", "post", createOperation, null);
+        CodegenOperation coCreate = codegen.fromOperation(createOperation, getOperationPath("somepath", "post"));
         Assert.assertTrue(!coCreate.requestBody.content.isEmpty());
         Assert.assertEquals(coCreate.requestBody.content.size(), 2);
         Assert.assertNull(coCreate.produces);
@@ -190,7 +193,7 @@ public class DefaultCodegenTest {
         Assert.assertEquals(updateProducesInfo.size(), 1);
         Assert.assertTrue(updateProducesInfo.contains("application/xml"), "contains 'application/xml'");
 
-        CodegenOperation coUpdate = codegen.fromOperation("somepath", "post", updateOperationWithRef, null);
+        CodegenOperation coUpdate = codegen.fromOperation(updateOperationWithRef, getOperationPath("somepath", "post"));
         Assert.assertTrue(!coUpdate.requestBody.content.isEmpty());
         Assert.assertEquals(coUpdate.requestBody.content.size(), 2);
         CodegenKey ck = codegen.getKey("application/json");
@@ -207,19 +210,19 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         Operation textOperation = openAPI.getPaths().get("/ping/text").getGet();
-        CodegenOperation coText = codegen.fromOperation("/ping/text", "get", textOperation, null);
+        CodegenOperation coText = codegen.fromOperation(textOperation, getOperationPath("/ping/text", "get"));
         Assert.assertTrue(!coText.produces.isEmpty());
         Assert.assertEquals(coText.produces.size(), 1);
         Assert.assertTrue(coText.produces.contains("text/plain"));
 
         Operation jsonOperation = openAPI.getPaths().get("/ping/json").getGet();
-        CodegenOperation coJson = codegen.fromOperation("/ping/json", "get", jsonOperation, null);
+        CodegenOperation coJson = codegen.fromOperation(jsonOperation, getOperationPath("/ping/json", "get"));
         Assert.assertTrue(!coJson.produces.isEmpty());
         Assert.assertEquals(coJson.produces.size(), 1);
         Assert.assertTrue(coJson.produces.contains("application/json"));
 
         Operation issue443Operation = openAPI.getPaths().get("/other/issue443").getGet();
-        CodegenOperation coIssue443 = codegen.fromOperation("/other/issue443", "get", issue443Operation, null);
+        CodegenOperation coIssue443 = codegen.fromOperation(issue443Operation, getOperationPath("/other/issue443", "get"));
         Assert.assertTrue(!coIssue443.produces.isEmpty());
         Assert.assertEquals(coIssue443.produces.size(), 2);
         Assert.assertTrue(coIssue443.produces.contains("application/json"));

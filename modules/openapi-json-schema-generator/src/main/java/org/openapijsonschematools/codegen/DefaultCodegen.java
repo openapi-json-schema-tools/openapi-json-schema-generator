@@ -27,6 +27,7 @@ import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
@@ -4388,6 +4389,26 @@ public class DefaultCodegen implements CodegenConfig {
 
     private String removeTrailingSlash(String value) {
         return StringUtils.removeEnd(value, "/");
+    }
+
+    @Override
+    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths){
+        if (paths == null) {
+            return null;
+        }
+        String jsonPath = "#/paths/";
+        TreeMap<CodegenKey, CodegenPathItem> codegenPaths = new TreeMap<>();
+        for (Map.Entry<String, PathItem> entry: paths.entrySet()) {
+            String path = entry.getKey();
+            PathItem pathItem = entry.getValue();
+            String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
+            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
+            CodegenKey pathKey = getKey(path);
+            codegenPaths.put(pathKey, codegenPathItem);
+        }
+        // sort them
+        codegenPaths = new TreeMap<>(codegenPaths);
+        return codegenPaths;
     }
 
     @Override
