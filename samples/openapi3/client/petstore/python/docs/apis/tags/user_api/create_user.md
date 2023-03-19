@@ -49,14 +49,14 @@ Ref Class | Input Type | Accessed Type | Description
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
+default | [Default.response_cls](#default-response_cls) | successful operation
 
 ## Default
 
 ### Description
 successful operation
 
-### response_cls
+### Default response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

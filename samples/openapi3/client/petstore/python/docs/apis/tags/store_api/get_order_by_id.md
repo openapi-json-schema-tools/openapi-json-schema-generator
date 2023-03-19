@@ -52,16 +52,16 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid ID supplied
-404 | [ResponseFor404.response_cls](#response_404response_cls) | Order not found
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
+400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid ID supplied
+404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | Order not found
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -93,7 +93,7 @@ Ref Class | Input Type | Accessed Type | Description
 ### Description
 Invalid ID supplied
 
-### response_cls
+### ResponseFor400 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -105,7 +105,7 @@ headers | Unset | headers were not defined |
 ### Description
 Order not found
 
-### response_cls
+### ResponseFor404 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

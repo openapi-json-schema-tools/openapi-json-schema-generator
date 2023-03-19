@@ -174,14 +174,14 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-404 | [ResponseFor404.response_cls](#response_404response_cls) | Not found
+404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | Not found
 
 ## ResponseFor404
 
 ### Description
 Not found
 
-### response_cls
+### ResponseFor404 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

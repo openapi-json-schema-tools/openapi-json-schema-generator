@@ -49,14 +49,14 @@ Ref Class | Input Type | Accessed Type | Description
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | Output model
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | Output model
 
 ## ResponseFor200
 
 ### Description
 Output model
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

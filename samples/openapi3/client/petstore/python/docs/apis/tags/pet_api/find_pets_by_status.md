@@ -59,14 +59,14 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid status value
+400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid status value
 
 ## ResponseFor400
 
 ### Description
 Invalid status value
 
-### response_cls
+### ResponseFor400 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

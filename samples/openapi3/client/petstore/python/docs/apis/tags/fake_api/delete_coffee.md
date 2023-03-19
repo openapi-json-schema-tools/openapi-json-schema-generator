@@ -51,7 +51,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected error
+default | [Default.response_cls](#default-response_cls) | Unexpected error
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Default
@@ -59,7 +59,7 @@ default | [Default.response_cls](#response_defaultresponse_cls) | Unexpected err
 ### Description
 Unexpected error
 
-### response_cls
+### Default response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

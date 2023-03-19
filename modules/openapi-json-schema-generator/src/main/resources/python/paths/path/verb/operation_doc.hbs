@@ -98,7 +98,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
         {{#if refInfo}}
 default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
         {{else}}
-default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
+default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
         {{/if}}
     {{/with}}
 {{/if}}
@@ -106,7 +106,7 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
     {{#if refInfo}}
 {{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
     {{else}}
-{{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
+{{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
     {{/if}}
 {{/each}}
 {{#each responses}}

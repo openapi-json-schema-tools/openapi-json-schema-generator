@@ -162,14 +162,14 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | success, multiple content types
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success, multiple content types
 
 ## ResponseFor200
 
 ### Description
 success, multiple content types
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

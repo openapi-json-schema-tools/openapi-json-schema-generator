@@ -39,16 +39,16 @@ username | [PathUserName](../../../components/parameters/parameter_path_user_nam
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid username supplied
-404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
+400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid username supplied
+404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -80,7 +80,7 @@ Ref Class | Input Type | Accessed Type | Description
 ### Description
 Invalid username supplied
 
-### response_cls
+### ResponseFor400 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -92,7 +92,7 @@ headers | Unset | headers were not defined |
 ### Description
 User not found
 
-### response_cls
+### ResponseFor404 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

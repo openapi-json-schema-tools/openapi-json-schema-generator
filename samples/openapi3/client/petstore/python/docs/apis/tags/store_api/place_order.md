@@ -49,15 +49,15 @@ Ref Class | Input Type | Accessed Type | Description
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | successful operation
-400 | [ResponseFor400.response_cls](#response_400response_cls) | Invalid Order
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
+400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid Order
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -89,7 +89,7 @@ Ref Class | Input Type | Accessed Type | Description
 ### Description
 Invalid Order
 
-### response_cls
+### ResponseFor400 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
