@@ -83,7 +83,7 @@ headers | Unset | headers were not defined |
 
 ## Security
 
-Set auth info by setting Configuration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
 key is the below security schema quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 
@@ -92,6 +92,13 @@ component security scheme class. See how to do this in the code sample.
 | 0       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 
 ## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
 server_index | Class | Description
 ------------ | ----- | ------------
 0 | [Server0](../../../servers/server_0.md) | petstore server
@@ -110,16 +117,15 @@ from petstore_api.components.security_schemes import security_scheme_http_basic_
 
 
 # auth_info for security_index 0
-auth_info: configuration.AuthInfo = {
+auth_info: api_configuration.AuthInfo = {
     "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
         user_id='someUserIdOrName',
         password='somePassword',
     ),
 }
 
-# See api_configuration.py for a list of all supported api configuration parameters
 used_configuration = api_configuration.ApiConfiguration(
-    auth_info = auth_info
+    auth_info=auth_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

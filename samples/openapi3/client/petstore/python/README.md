@@ -139,7 +139,6 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import another_fake_api
 from pprint import pprint
-# See api_configuration.py for a list of all supported api configuration parameters
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client

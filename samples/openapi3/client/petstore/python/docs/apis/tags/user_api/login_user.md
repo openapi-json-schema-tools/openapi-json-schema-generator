@@ -152,6 +152,13 @@ body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
 ## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
 server_index | Class | Description
 ------------ | ----- | ------------
 0 | [Server0](../../../servers/server_0.md) | petstore server
@@ -165,7 +172,6 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import user_api
 from pprint import pprint
-# See api_configuration.py for a list of all supported api configuration parameters
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client

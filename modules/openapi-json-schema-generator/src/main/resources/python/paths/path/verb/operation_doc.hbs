@@ -119,7 +119,7 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
 
 {{headerSize}}# Security
 
-Set auth info by setting Configuration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
 key is the below security schema quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 
@@ -131,6 +131,31 @@ component security scheme class. See how to do this in the code sample.
 {{/if}}
 
 {{headerSize}}# Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+{{#if servers}}
+- these servers are specific to this endpoint
+    {{#with servers.0}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+    {{/with}}
+{{else}}
+    {{#if pathItem.servers}}
+- these servers are specific to this "{{{path.original}}}" path
+        {{#with pathItem.servers.0}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+        {{/with}}
+    {{else}}
+- these servers are the general api servers
+        {{#each ../servers}}
+            {{#if @first}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
 server_index | Class | Description
 ------------ | ----- | ------------
 {{#if servers}}

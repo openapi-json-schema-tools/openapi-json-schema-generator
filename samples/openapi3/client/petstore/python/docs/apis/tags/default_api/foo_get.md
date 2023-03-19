@@ -63,6 +63,13 @@ Key | Input Type | Accessed Type | Description | Notes
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are specific to this endpoint
+- defaults to server_index=0, server.url = https://path-server-test.petstore.local/v2
+
 server_index | Class | Description
 ------------ | ----- | ------------
 0 | [Server0](#server0) |
@@ -90,7 +97,6 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import default_api
 from pprint import pprint
-# See api_configuration.py for a list of all supported api configuration parameters
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client

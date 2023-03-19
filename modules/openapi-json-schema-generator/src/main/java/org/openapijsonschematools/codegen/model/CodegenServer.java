@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class CodegenServer {
     public final String url;
+    public final String defaultUrl;
     public final String description;
     public final LinkedHashMap<CodegenKey, CodegenSchema> variables;
     public final CodegenKey jsonPathPiece;
@@ -16,6 +17,15 @@ public class CodegenServer {
         this.variables = variables;
         this.jsonPathPiece = jsonPathPiece;
         this.rootServer = rootServer;
+        if (this.variables == null) {
+            this.defaultUrl = url;
+        } else {
+            String defaultUrl = url;
+            for (CodegenSchema variable: variables.values()) {
+                defaultUrl = defaultUrl.replace("{" + variable.jsonPathPiece.original + "}", (String) variable.defaultValue.value);
+            }
+            this.defaultUrl = defaultUrl;
+        }
     }
 
     @Override
@@ -27,12 +37,13 @@ public class CodegenServer {
                 Objects.equals(description, that.description) &&
                 Objects.equals(variables, that.variables) &&
                 Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
-                Objects.equals(rootServer, that.rootServer);
+                Objects.equals(rootServer, that.rootServer) &&
+                Objects.equals(defaultUrl, that.defaultUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(url, description, variables, jsonPathPiece, rootServer);
+        return Objects.hash(url, description, variables, jsonPathPiece, rootServer, defaultUrl);
     }
 
     @Override
@@ -43,6 +54,7 @@ public class CodegenServer {
         sb.append(", variables=").append(variables);
         sb.append(", jsonPathPiece=").append(jsonPathPiece);
         sb.append(", rootServer=").append(rootServer);
+        sb.append(", defaultUrl=").append(defaultUrl);
         sb.append('}');
         return sb.toString();
     }
