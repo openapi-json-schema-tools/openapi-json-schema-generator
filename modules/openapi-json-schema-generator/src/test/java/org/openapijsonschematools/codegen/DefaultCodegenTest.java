@@ -3532,43 +3532,43 @@ public class DefaultCodegenTest {
         CodegenResponse cr;
 
         path = "/ComposedObject";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         CodegenKey ck = codegen.getKey("application/json");
         assertTrue(cr.content.get(ck).schema.types.contains("object"));
 
         path = "/ComposedNumber";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("number"));
 
         path = "/ComposedInteger";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("integer"));
 
         path = "/ComposedString";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("string"));
 
         path = "/ComposedBool";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("boolean"));
 
         path = "/ComposedArray";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("array"));
 
         path = "/ComposedNone";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types.contains("null"));
 
         path = "/ComposedAnyType";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
         assertTrue(cr.content.get(ck).schema.types == null);
     }
@@ -3583,43 +3583,43 @@ public class DefaultCodegenTest {
         CodegenRequestBody crb;
 
         path = "/ComposedObject";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         CodegenKey ck = codegen.getKey("application/json");
         assertTrue(crb.content.get(ck).schema.types.contains("object"));
 
         path = "/ComposedNumber";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("number"));
 
         path = "/ComposedInteger";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("integer"));
 
         path = "/ComposedString";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("string"));
 
         path = "/ComposedBool";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("boolean"));
 
         path = "/ComposedArray";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("array"));
 
         path = "/ComposedNone";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types.contains("null"));
 
         path = "/ComposedAnyType";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
         assertTrue(crb.content.get(ck).schema.types == null);
     }
@@ -3634,42 +3634,42 @@ public class DefaultCodegenTest {
         CodegenParameter cp;
 
         path = "/ComposedObject";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("object"));
 
         path = "/ComposedNumber";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("number"));
 
         path = "/ComposedInteger";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("integer"));
 
         path = "/ComposedString";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("string"));
 
         path = "/ComposedBool";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("boolean"));
 
         path = "/ComposedArray";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("array"));
 
         path = "/ComposedNone";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types.contains("null"));
 
         path = "/ComposedAnyType";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cp = co.queryParams.get(0);
         assertTrue(cp.schema.types == null);
     }
@@ -3684,7 +3684,7 @@ public class DefaultCodegenTest {
         CodegenRequestBody crb;
 
         path = "/TxRxByteArray";
-        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         crb = co.requestBody;
         CodegenKey ck = codegen.getKey("application/json");
         assertTrue(crb.content.get(ck).schema.types.contains("string"));
@@ -3730,7 +3730,7 @@ public class DefaultCodegenTest {
 
         path = "/pet";
         operation = openAPI.getPaths().get(path).getPut();
-        co = codegen.fromOperation(path, "PUT", operation, null);
+        co = codegen.fromOperation(operation, getOperationPath(path, "put"));
         assertTrue(co.hasErrorResponseObject);
 
         cr = co.responses.get("200");
@@ -3791,7 +3791,7 @@ public class DefaultCodegenTest {
         CodegenOperation co;
 
         path = "/inlineRequestBodySchemasDifferingByContentType";
-        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         CodegenRequestBody bodyParameter = co.requestBody;
         LinkedHashMap<CodegenKey, CodegenMediaType> content = bodyParameter.content;
         assertNotNull(content);
@@ -3813,7 +3813,7 @@ public class DefaultCodegenTest {
         // but the schema it references is not string type
 
         path = "/refRequestBodySchemasDifferingByContentType";
-        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         bodyParameter = co.requestBody;
         content = bodyParameter.content;
         assertNotNull(content);
@@ -3845,7 +3845,7 @@ public class DefaultCodegenTest {
         );
 
         path = "/requestBodyWithEncodingTypes";
-        co = codegen.fromOperation(path, "POST", openAPI.getPaths().get(path).getPost(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         CodegenKey applicationXWwwFormUrlencoded = codegen.getKey("application/x-www-form-urlencoded");
         CodegenSchema formSchema = co.requestBody.content.get(applicationXWwwFormUrlencoded).schema;
         assertEquals(formSchema.refInfo.ref.properties.size(), 6);
@@ -3867,7 +3867,7 @@ public class DefaultCodegenTest {
         codegen.fromSchema(openAPI.getComponents().getSchemas().get("coordinates"), jsonPath, jsonPath);
 
         path = "/jsonQueryParams";
-        co = codegen.fromOperation(path, "GET", openAPI.getPaths().get(path).getGet(), null);
+        co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         CodegenParameter coordinatesInlineSchema = co.queryParams.get(0);
         LinkedHashMap<CodegenKey, CodegenMediaType> content = coordinatesInlineSchema.content;
         assertNotNull(content);
