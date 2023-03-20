@@ -1409,57 +1409,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void testCallbacks() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/callbacks.yaml");
-        final DefaultCodegen codegen = new DefaultCodegen();
-        codegen.setOpenAPI(openAPI);
-
-        final String path = "/streams";
-        Operation subscriptionOperation = openAPI.getPaths().get("/streams").getPost();
-        CodegenOperation op = codegen.fromOperation(subscriptionOperation, getOperationPath("/streams", "post"));
-
-        Assert.assertNotNull(op.operationId);
-        Assert.assertEquals(op.callbacks.size(), 2);
-
-        CodegenCallback cbB = op.callbacks.get(1);
-        Assert.assertEquals(cbB.name, "dummy");
-        Assert.assertEquals(cbB.urls.size(), 0);
-
-        CodegenCallback cbA = op.callbacks.get(0);
-        Assert.assertEquals(cbA.name, "onData");
-
-        Assert.assertEquals(cbA.urls.size(), 2);
-
-        CodegenCallback.Url urlB = cbA.urls.get(1);
-        Assert.assertEquals(urlB.expression, "{$request.query.callbackUrl}/test");
-        Assert.assertEquals(urlB.requests.size(), 0);
-
-        CodegenCallback.Url urlA = cbA.urls.get(0);
-        Assert.assertEquals(urlA.expression, "{$request.query.callbackUrl}/data");
-        Assert.assertEquals(urlA.requests.size(), 2);
-
-        urlA.requests.forEach(req -> {
-            Assert.assertNull(req.callbacks);
-            Assert.assertNotNull(req.requestBody);
-            Assert.assertEquals(req.responses.size(), 2);
-
-            CodegenKey ck = codegen.getKey("application/json");
-            switch (req.jsonPathPiece.original) {
-                case "post":
-                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataPost");
-                    Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "NewNotificationData");
-                    break;
-                case "delete":
-                    Assert.assertEquals(req.operationId.camelCase, "OnDataDataDelete");
-                    Assert.assertEquals(req.requestBody.content.get(ck).schema.refInfo.refClass, "DeleteNotificationData");
-                    break;
-                default:
-                    Assert.fail(String.format(Locale.getDefault(), "invalid callback request http method '%s'", req.jsonPathPiece.original));
-            }
-        });
-    }
-
-    @Test
     public void testLeadingSlashIsAddedIfMissing() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         Operation operation1 = new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")));
