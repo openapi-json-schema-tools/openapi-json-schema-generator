@@ -524,20 +524,23 @@ public class DefaultGenerator implements Generator {
                     }
                 }
 
-                String outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
-                generateFile(new HashMap<>(), "__init__test_paths.hbs", outputFilename, files, true, CodegenConstants.API_TESTS);
+                Set<String> endpointTestTemplateFiles = config.pathEndpointTestTemplateFiles();
+                if (endpointTestTemplateFiles != null) {
+                    String outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
+                    generateFile(new HashMap<>(), "__init__test_paths.hbs", outputFilename, files, true, CodegenConstants.API_TESTS);
 
-                for (String templateFile: config.pathEndpointTestTemplateFiles()) {
-                    Map<String, Object> endpointTestMap = new HashMap<>();
-                    endpointTestMap.put("operation", operation);
-                    endpointTestMap.put("httpMethod", httpMethod);
-                    endpointTestMap.put("path", pathKey);
-                    endpointTestMap.put("packageName", config.packageName());
-                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
-                    generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
+                    for (String templateFile: config.pathEndpointTestTemplateFiles()) {
+                        Map<String, Object> endpointTestMap = new HashMap<>();
+                        endpointTestMap.put("operation", operation);
+                        endpointTestMap.put("httpMethod", httpMethod);
+                        endpointTestMap.put("path", pathKey);
+                        endpointTestMap.put("packageName", config.packageName());
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
+                        generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
 
-                    outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
-                    generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
+                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
+                        generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
+                    }
                 }
             }
         }
@@ -1028,68 +1031,74 @@ public class DefaultGenerator implements Generator {
         }
         String apiPackage = config.apiPackage();
         Map<String, String> apiPathsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATHS);
-        for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
-            String templateFile = apiPathEntry.getKey();
-            String apiFileName = apiPathEntry.getValue();
-            // todo add a function to get the filename like the json path ones
-            Map<String, Object> apiData = new HashMap<>();
-            String packageName = config.packageName();
-            apiData.put("packageName", packageName);
-            String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
-            generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+        if (apiPathsTemplates != null) {
+            for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
+                String templateFile = apiPathEntry.getKey();
+                String apiFileName = apiPathEntry.getValue();
+                // todo add a function to get the filename like the json path ones
+                Map<String, Object> apiData = new HashMap<>();
+                String packageName = config.packageName();
+                apiData.put("packageName", packageName);
+                String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
+                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+            }
         }
 
         HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
         Map<String, String> apiPathTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATH);
-        for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
-            CodegenKey path = entry.getKey();
-            CodegenPathItem pathItem = entry.getValue();
+        if (apiPathTemplates != null) {
+            for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
+                CodegenKey path = entry.getKey();
+                CodegenPathItem pathItem = entry.getValue();
 
-            for (Map.Entry<String, String> apiPathEntry: apiPathTemplates.entrySet()) {
-                String templateFile = apiPathEntry.getKey();
-                String suffix = apiPathEntry.getValue();
-                // todo add a function to get the filename like the json path ones
-                String apiFileName = path.snakeCase + suffix;
-                Map<String, Object> apiData = new HashMap<>();
-                String packageName = config.packageName();
-                apiData.put("packageName", packageName);
-                apiData.put("path", path);
-                apiData.put("pathItem", pathItem);
-                String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
-                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
-            }
+                for (Map.Entry<String, String> apiPathEntry: apiPathTemplates.entrySet()) {
+                    String templateFile = apiPathEntry.getKey();
+                    String suffix = apiPathEntry.getValue();
+                    // todo add a function to get the filename like the json path ones
+                    String apiFileName = path.snakeCase + suffix;
+                    Map<String, Object> apiData = new HashMap<>();
+                    String packageName = config.packageName();
+                    apiData.put("packageName", packageName);
+                    apiData.put("path", path);
+                    apiData.put("pathItem", pathItem);
+                    String outputFile = packageFilename(Arrays.asList(apiPackage, "paths", apiFileName));
+                    generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+                }
 
-            // store operations by tag + path
-            for(CodegenOperation op: pathItem.operations.values()) {
-                for(CodegenTag tag: op.tags.values()) {
-                    if (allowListedTags != null && !allowListedTags.contains(tag.name)) {
-                        continue;
+                // store operations by tag + path
+                for(CodegenOperation op: pathItem.operations.values()) {
+                    for(CodegenTag tag: op.tags.values()) {
+                        if (allowListedTags != null && !allowListedTags.contains(tag.name)) {
+                            continue;
+                        }
+                        if (!tagToPathToOperations.containsKey(tag)) {
+                            tagToPathToOperations.put(tag, new HashMap<>());
+                        }
+                        HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
+                        if (!pathToOperations.containsKey(path)) {
+                            pathToOperations.put(path, new ArrayList<>());
+                        }
+                        pathToOperations.get(path).add(op);
                     }
-                    if (!tagToPathToOperations.containsKey(tag)) {
-                        tagToPathToOperations.put(tag, new HashMap<>());
-                    }
-                    HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
-                    if (!pathToOperations.containsKey(path)) {
-                        pathToOperations.put(path, new ArrayList<>());
-                    }
-                    pathToOperations.get(path).add(op);
                 }
             }
         }
 
         // files in the apiPackage root folder
         Map<String, String> apiRootTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER);
-        for (Map.Entry<String, String> entry: apiRootTemplates.entrySet()) {
-            String templateFile = entry.getKey();
-            String renderedOutputFilename = entry.getValue();
-            Map<String, Object> apiData = new HashMap<>();
-            String packageName = config.packageName();
-            apiData.put("packageName", packageName);
-            apiData.put("apiClassname", "Api");
-            apiData.put("tagToPathToOperations", tagToPathToOperations);
-            apiData.put("paths", paths);
-            String outputFile = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
-            generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+        if (apiRootTemplates != null) {
+            for (Map.Entry<String, String> entry: apiRootTemplates.entrySet()) {
+                String templateFile = entry.getKey();
+                String renderedOutputFilename = entry.getValue();
+                Map<String, Object> apiData = new HashMap<>();
+                String packageName = config.packageName();
+                apiData.put("packageName", packageName);
+                apiData.put("apiClassname", "Api");
+                apiData.put("tagToPathToOperations", tagToPathToOperations);
+                apiData.put("paths", paths);
+                String outputFile = packageFilename(Arrays.asList(apiPackage, renderedOutputFilename));
+                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+            }
         }
 
         Map<String, String> apiTagsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAGS);
@@ -1107,22 +1116,24 @@ public class DefaultGenerator implements Generator {
         }
 
         Map<String, String> apiTagTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAG);
-        for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
-            CodegenTag tag = entry.getKey();
-            HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
+        if (apiTagTemplates != null) {
+            for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
+                CodegenTag tag = entry.getKey();
+                HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
 
-            for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {
-                String templateFile = apiPathEntry.getKey();
-                String suffix = apiPathEntry.getValue();
-                // todo add a function to get the filename like the json path ones
-                String apiFileName = tag.moduleName + suffix;
-                Map<String, Object> apiData = new HashMap<>();
-                String packageName = config.packageName();
-                apiData.put("packageName", packageName);
-                apiData.put("tag", tag);
-                apiData.put("pathToOperations", pathToOperations);
-                String outputFile = packageFilename(Arrays.asList(apiPackage, "tags", apiFileName));
-                generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+                for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {
+                    String templateFile = apiPathEntry.getKey();
+                    String suffix = apiPathEntry.getValue();
+                    // todo add a function to get the filename like the json path ones
+                    String apiFileName = tag.moduleName + suffix;
+                    Map<String, Object> apiData = new HashMap<>();
+                    String packageName = config.packageName();
+                    apiData.put("packageName", packageName);
+                    apiData.put("tag", tag);
+                    apiData.put("pathToOperations", pathToOperations);
+                    String outputFile = packageFilename(Arrays.asList(apiPackage, "tags", apiFileName));
+                    generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+                }
             }
         }
     }

@@ -572,6 +572,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             }
             supportingFiles.add(new SupportingFile("Oper.mustache", apiFolder, "Oper.java"));
             additionalProperties.put("convert", new CaseFormatLambda(LOWER_CAMEL, UPPER_UNDERSCORE));
+            apiLocationTemplateFiles.put(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER, Collections.singletonMap("api.mustache", ".java"));
             supportingFiles.add(new SupportingFile("ResponseSpecBuilders.mustache", invokerFolder, "ResponseSpecBuilders.java"));
         } else if (MICROPROFILE.equals(getLibrary())) {
             supportingFiles.clear(); // Don't need extra files provided by Java Codegen
