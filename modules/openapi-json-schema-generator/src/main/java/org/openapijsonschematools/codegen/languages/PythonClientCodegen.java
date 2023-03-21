@@ -298,9 +298,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
         HashMap<String, String> apiRootTemplates = new HashMap<>();
-        apiRootTemplates.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
-        apiRootTemplates.put("apis/apis_path_to_api.hbs", "path_to_api.py");
-        apiRootTemplates.put("apis/__init__.hbs", "__init__.py");
+        apiRootTemplates.put("apis/apis_tag_to_api.hbs", File.separatorChar + "tag_to_api.py");
+        apiRootTemplates.put("apis/apis_path_to_api.hbs", File.separatorChar + "path_to_api.py");
+        apiRootTemplates.put("apis/__init__.hbs", File.separatorChar + "__init__.py");
 
         apiLocationTemplateFiles.put(
                 CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER,
@@ -312,7 +312,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         apiLocationTemplateFiles.put(
                 CodegenConstants.API_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("apis/paths/__init__.hbs", "__init__.py")
+                Collections.singletonMap("apis/paths/__init__.hbs", File.separatorChar + "__init__.py")
         );
         apiLocationTemplateFiles.put(
                 CodegenConstants.API_LOCATION_TYPE.TAG,
@@ -320,7 +320,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         );
         apiLocationTemplateFiles.put(
                 CodegenConstants.API_LOCATION_TYPE.TAGS,
-                Collections.singletonMap("apis/tags/__init__.hbs", "__init__.py")
+                Collections.singletonMap("apis/tags/__init__.hbs", File.separatorChar + "__init__.py")
         );
 
         jsonPathDocTemplateFiles.put(

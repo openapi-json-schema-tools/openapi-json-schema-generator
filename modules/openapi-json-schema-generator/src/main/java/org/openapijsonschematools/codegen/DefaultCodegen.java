@@ -3483,7 +3483,24 @@ public class DefaultCodegen implements CodegenConfig {
         pathPieces[2] = toServerFilename(pathPieces[2]);
     }
 
-        @Override
+    private void updateApisFilepath(String[] pathPieces) {
+        // #/apis
+        // #/apis/tags
+        // #/apis/tags/someTag
+        // #/apis/paths
+        // #/apis/paths/somePath
+        pathPieces[1] = apiPackage;
+        if (pathPieces.length < 4) {
+            return;
+        }
+        if (pathPieces[2].equals("tags")) {
+            pathPieces[3] = toApiFilename(pathPieces[3]);
+        } else if (pathPieces[2].equals("paths")) {
+            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]));
+        }
+    }
+
+    @Override
     public String getFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + packagePath();
@@ -3493,6 +3510,9 @@ public class DefaultCodegen implements CodegenConfig {
             updatePathsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/servers")) {
             updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)
