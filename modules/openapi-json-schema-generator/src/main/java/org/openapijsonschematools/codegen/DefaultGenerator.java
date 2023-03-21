@@ -1135,7 +1135,16 @@ public class DefaultGenerator implements Generator {
             apiData.put("tag", tag);
             apiData.put("pathToOperations", pathToOperations);
             apiData.put("apiPackage", config.apiPackage());
-            TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = new TreeMap<>(tagToOperationIdToOperation.get(tag));
+
+            class OperationIdComparator implements Comparator<CodegenKey>{
+                @Override
+                public int compare(CodegenKey e1, CodegenKey e2) {
+                    return e1.snakeCase.compareTo(e2.snakeCase);
+                }
+            }
+
+            TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = new TreeMap<>(new OperationIdComparator());
+            operationIdToOperation.putAll(tagToOperationIdToOperation.get(tag));
             apiData.put("operationIdToOperation", operationIdToOperation);
 
             if (apiTagTemplates != null) {
