@@ -29,7 +29,7 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 {{#each paths}}
 {{#each operations}}
-{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/each}}
 {{/each}}
 {{/if}}

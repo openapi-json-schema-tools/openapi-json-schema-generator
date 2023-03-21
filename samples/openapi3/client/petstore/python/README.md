@@ -176,65 +176,65 @@ All URIs are relative to the selected server
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-/another-fake/dummy **patch** | [AnotherFakeApi](docs/apis/tags/AnotherFakeApi.md).[call_123_test__special_tags](docs/apis/tags/another_fake_api/call_123_test__special_tags.md)  | To test special tags
-/fake **delete** | [FakeApi](docs/apis/tags/FakeApi.md).[group_parameters](docs/apis/tags/fake_api/group_parameters.md)  | Fake endpoint to test group parameters (optional)
-/fake **get** | [FakeApi](docs/apis/tags/FakeApi.md).[enum_parameters](docs/apis/tags/fake_api/enum_parameters.md)  | To test enum parameters
-/fake **patch** | [FakeApi](docs/apis/tags/FakeApi.md).[client_model](docs/apis/tags/fake_api/client_model.md)  | To test \&quot;client\&quot; model
-/fake **post** | [FakeApi](docs/apis/tags/FakeApi.md).[endpoint_parameters](docs/apis/tags/fake_api/endpoint_parameters.md)  | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-/fake/additional-properties-with-array-of-enums **get** | [FakeApi](docs/apis/tags/FakeApi.md).[additional_properties_with_array_of_enums](docs/apis/tags/fake_api/additional_properties_with_array_of_enums.md)  | Additional Properties with Array of Enums
-/fake/body-with-file-schema **put** | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_file_schema](docs/apis/tags/fake_api/body_with_file_schema.md)  | 
-/fake/body-with-query-params **put** | [FakeApi](docs/apis/tags/FakeApi.md).[body_with_query_params](docs/apis/tags/fake_api/body_with_query_params.md)  | 
-/fake/case-sensitive-params **put** | [FakeApi](docs/apis/tags/FakeApi.md).[case_sensitive_params](docs/apis/tags/fake_api/case_sensitive_params.md)  | 
-/fake/deleteCoffee/{id} **delete** | [FakeApi](docs/apis/tags/FakeApi.md).[delete_coffee](docs/apis/tags/fake_api/delete_coffee.md)  | Delete coffee
-/fake/health **get** | [FakeApi](docs/apis/tags/FakeApi.md).[fake_health_get](docs/apis/tags/fake_api/fake_health_get.md)  | Health check endpoint
-/fake/inline-additionalProperties **post** | [FakeApi](docs/apis/tags/FakeApi.md).[inline_additional_properties](docs/apis/tags/fake_api/inline_additional_properties.md)  | test inline additionalProperties
-/fake/inlineComposition/ **post** | [FakeApi](docs/apis/tags/FakeApi.md).[inline_composition](docs/apis/tags/fake_api/inline_composition.md)  | testing composed schemas at inline locations
-/fake/jsonFormData **get** | [FakeApi](docs/apis/tags/FakeApi.md).[json_form_data](docs/apis/tags/fake_api/json_form_data.md)  | test json serialization of form data
-/fake/jsonPatch **patch** | [FakeApi](docs/apis/tags/FakeApi.md).[json_patch](docs/apis/tags/fake_api/json_patch.md)  | json patch
-/fake/jsonWithCharset **post** | [FakeApi](docs/apis/tags/FakeApi.md).[json_with_charset](docs/apis/tags/fake_api/json_with_charset.md)  | json with charset tx and rx
-/fake/multipleResponseBodies **get** | [FakeApi](docs/apis/tags/FakeApi.md).[multiple_response_bodies](docs/apis/tags/fake_api/multiple_response_bodies.md)  | multiple responses have response bodies
-/fake/multipleSecurities **get** | [FakeApi](docs/apis/tags/FakeApi.md).[multiple_securities](docs/apis/tags/fake_api/multiple_securities.md)  | multiple security requirements
-/fake/objInQuery **get** | [FakeApi](docs/apis/tags/FakeApi.md).[object_in_query](docs/apis/tags/fake_api/object_in_query.md)  | user list
-/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/apis/tags/FakeApi.md).[parameter_collisions](docs/apis/tags/fake_api/parameter_collisions.md)  | parameter collision case
-/fake/queryParamWithJsonContentType **get** | [FakeApi](docs/apis/tags/FakeApi.md).[query_param_with_json_content_type](docs/apis/tags/fake_api/query_param_with_json_content_type.md)  | query param with json content-type
-/fake/refObjInQuery **get** | [FakeApi](docs/apis/tags/FakeApi.md).[ref_object_in_query](docs/apis/tags/fake_api/ref_object_in_query.md)  | user list
-/fake/refs/array-of-enums **post** | [FakeApi](docs/apis/tags/FakeApi.md).[array_of_enums](docs/apis/tags/fake_api/array_of_enums.md)  | Array of Enums
-/fake/refs/arraymodel **post** | [FakeApi](docs/apis/tags/FakeApi.md).[array_model](docs/apis/tags/fake_api/array_model.md)  | 
-/fake/refs/boolean **post** | [FakeApi](docs/apis/tags/FakeApi.md).[boolean](docs/apis/tags/fake_api/boolean.md)  | 
-/fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/apis/tags/FakeApi.md).[composed_one_of_different_types](docs/apis/tags/fake_api/composed_one_of_different_types.md)  | 
-/fake/refs/enum **post** | [FakeApi](docs/apis/tags/FakeApi.md).[string_enum](docs/apis/tags/fake_api/string_enum.md)  | 
-/fake/refs/mammal **post** | [FakeApi](docs/apis/tags/FakeApi.md).[mammal](docs/apis/tags/fake_api/mammal.md)  | 
-/fake/refs/number **post** | [FakeApi](docs/apis/tags/FakeApi.md).[number_with_validations](docs/apis/tags/fake_api/number_with_validations.md)  | 
-/fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/apis/tags/FakeApi.md).[object_model_with_ref_props](docs/apis/tags/fake_api/object_model_with_ref_props.md)  | 
-/fake/refs/string **post** | [FakeApi](docs/apis/tags/FakeApi.md).[string](docs/apis/tags/fake_api/string.md)  | 
-/fake/responseWithoutSchema **get** | [FakeApi](docs/apis/tags/FakeApi.md).[response_without_schema](docs/apis/tags/fake_api/response_without_schema.md)  | receives a response without schema
-/fake/test-query-paramters **put** | [FakeApi](docs/apis/tags/FakeApi.md).[query_parameter_collection_format](docs/apis/tags/fake_api/query_parameter_collection_format.md)  | 
-/fake/uploadDownloadFile **post** | [FakeApi](docs/apis/tags/FakeApi.md).[upload_download_file](docs/apis/tags/fake_api/upload_download_file.md)  | uploads a file and downloads a file using application/octet-stream
-/fake/uploadFile **post** | [FakeApi](docs/apis/tags/FakeApi.md).[upload_file](docs/apis/tags/fake_api/upload_file.md)  | uploads a file using multipart/form-data
-/fake/uploadFiles **post** | [FakeApi](docs/apis/tags/FakeApi.md).[upload_files](docs/apis/tags/fake_api/upload_files.md)  | uploads files using multipart/form-data
-/fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/apis/tags/PetApi.md).[upload_file_with_required_file](docs/apis/tags/pet_api/upload_file_with_required_file.md)  | uploads an image (required)
-/fake_classname_test **patch** | [FakeClassnameTags123Api](docs/apis/tags/FakeClassnameTags123Api.md).[classname](docs/apis/tags/fake_classname_tags123_api/classname.md)  | To test class name in snake case
-/foo **get** | [DefaultApi](docs/apis/tags/DefaultApi.md).[foo_get](docs/apis/tags/default_api/foo_get.md)  | 
-/pet **post** | [PetApi](docs/apis/tags/PetApi.md).[add_pet](docs/apis/tags/pet_api/add_pet.md)  | Add a new pet to the store
-/pet **put** | [PetApi](docs/apis/tags/PetApi.md).[update_pet](docs/apis/tags/pet_api/update_pet.md)  | Update an existing pet
-/pet/findByStatus **get** | [PetApi](docs/apis/tags/PetApi.md).[find_pets_by_status](docs/apis/tags/pet_api/find_pets_by_status.md)  | Finds Pets by status
-/pet/findByTags **get** | [PetApi](docs/apis/tags/PetApi.md).[find_pets_by_tags](docs/apis/tags/pet_api/find_pets_by_tags.md)  | Finds Pets by tags
-/pet/{petId} **delete** | [PetApi](docs/apis/tags/PetApi.md).[delete_pet](docs/apis/tags/pet_api/delete_pet.md)  | Deletes a pet
-/pet/{petId} **get** | [PetApi](docs/apis/tags/PetApi.md).[get_pet_by_id](docs/apis/tags/pet_api/get_pet_by_id.md)  | Find pet by ID
-/pet/{petId} **post** | [PetApi](docs/apis/tags/PetApi.md).[update_pet_with_form](docs/apis/tags/pet_api/update_pet_with_form.md)  | Updates a pet in the store with form data
-/pet/{petId}/uploadImage **post** | [PetApi](docs/apis/tags/PetApi.md).[upload_image](docs/apis/tags/pet_api/upload_image.md)  | uploads an image
-/store/inventory **get** | [StoreApi](docs/apis/tags/StoreApi.md).[get_inventory](docs/apis/tags/store_api/get_inventory.md)  | Returns pet inventories by status
-/store/order **post** | [StoreApi](docs/apis/tags/StoreApi.md).[place_order](docs/apis/tags/store_api/place_order.md)  | Place an order for a pet
-/store/order/{order_id} **delete** | [StoreApi](docs/apis/tags/StoreApi.md).[delete_order](docs/apis/tags/store_api/delete_order.md)  | Delete purchase order by ID
-/store/order/{order_id} **get** | [StoreApi](docs/apis/tags/StoreApi.md).[get_order_by_id](docs/apis/tags/store_api/get_order_by_id.md)  | Find purchase order by ID
-/user **post** | [UserApi](docs/apis/tags/UserApi.md).[create_user](docs/apis/tags/user_api/create_user.md)  | Create user
-/user/createWithArray **post** | [UserApi](docs/apis/tags/UserApi.md).[create_users_with_array_input](docs/apis/tags/user_api/create_users_with_array_input.md)  | Creates list of users with given input array
-/user/createWithList **post** | [UserApi](docs/apis/tags/UserApi.md).[create_users_with_list_input](docs/apis/tags/user_api/create_users_with_list_input.md)  | Creates list of users with given input array
-/user/login **get** | [UserApi](docs/apis/tags/UserApi.md).[login_user](docs/apis/tags/user_api/login_user.md)  | Logs user into the system
-/user/logout **get** | [UserApi](docs/apis/tags/UserApi.md).[logout_user](docs/apis/tags/user_api/logout_user.md)  | Logs out current logged in user session
-/user/{username} **delete** | [UserApi](docs/apis/tags/UserApi.md).[delete_user](docs/apis/tags/user_api/delete_user.md)  | Delete user
-/user/{username} **get** | [UserApi](docs/apis/tags/UserApi.md).[get_user_by_name](docs/apis/tags/user_api/get_user_by_name.md)  | Get user by user name
-/user/{username} **put** | [UserApi](docs/apis/tags/UserApi.md).[update_user](docs/apis/tags/user_api/update_user.md)  | Updated user
+/another-fake/dummy **patch** | [AnotherFakeApi](docs/apis/tags/another_fake_api.md).[call_123_test__special_tags](docs/apis/tags/another_fake_api/call_123_test__special_tags.md)  | To test special tags
+/fake **delete** | [FakeApi](docs/apis/tags/fake_api.md).[group_parameters](docs/apis/tags/fake_api/group_parameters.md)  | Fake endpoint to test group parameters (optional)
+/fake **get** | [FakeApi](docs/apis/tags/fake_api.md).[enum_parameters](docs/apis/tags/fake_api/enum_parameters.md)  | To test enum parameters
+/fake **patch** | [FakeApi](docs/apis/tags/fake_api.md).[client_model](docs/apis/tags/fake_api/client_model.md)  | To test \&quot;client\&quot; model
+/fake **post** | [FakeApi](docs/apis/tags/fake_api.md).[endpoint_parameters](docs/apis/tags/fake_api/endpoint_parameters.md)  | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+/fake/additional-properties-with-array-of-enums **get** | [FakeApi](docs/apis/tags/fake_api.md).[additional_properties_with_array_of_enums](docs/apis/tags/fake_api/additional_properties_with_array_of_enums.md)  | Additional Properties with Array of Enums
+/fake/body-with-file-schema **put** | [FakeApi](docs/apis/tags/fake_api.md).[body_with_file_schema](docs/apis/tags/fake_api/body_with_file_schema.md)  | 
+/fake/body-with-query-params **put** | [FakeApi](docs/apis/tags/fake_api.md).[body_with_query_params](docs/apis/tags/fake_api/body_with_query_params.md)  | 
+/fake/case-sensitive-params **put** | [FakeApi](docs/apis/tags/fake_api.md).[case_sensitive_params](docs/apis/tags/fake_api/case_sensitive_params.md)  | 
+/fake/deleteCoffee/{id} **delete** | [FakeApi](docs/apis/tags/fake_api.md).[delete_coffee](docs/apis/tags/fake_api/delete_coffee.md)  | Delete coffee
+/fake/health **get** | [FakeApi](docs/apis/tags/fake_api.md).[fake_health_get](docs/apis/tags/fake_api/fake_health_get.md)  | Health check endpoint
+/fake/inline-additionalProperties **post** | [FakeApi](docs/apis/tags/fake_api.md).[inline_additional_properties](docs/apis/tags/fake_api/inline_additional_properties.md)  | test inline additionalProperties
+/fake/inlineComposition/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[inline_composition](docs/apis/tags/fake_api/inline_composition.md)  | testing composed schemas at inline locations
+/fake/jsonFormData **get** | [FakeApi](docs/apis/tags/fake_api.md).[json_form_data](docs/apis/tags/fake_api/json_form_data.md)  | test json serialization of form data
+/fake/jsonPatch **patch** | [FakeApi](docs/apis/tags/fake_api.md).[json_patch](docs/apis/tags/fake_api/json_patch.md)  | json patch
+/fake/jsonWithCharset **post** | [FakeApi](docs/apis/tags/fake_api.md).[json_with_charset](docs/apis/tags/fake_api/json_with_charset.md)  | json with charset tx and rx
+/fake/multipleResponseBodies **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_response_bodies](docs/apis/tags/fake_api/multiple_response_bodies.md)  | multiple responses have response bodies
+/fake/multipleSecurities **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_securities](docs/apis/tags/fake_api/multiple_securities.md)  | multiple security requirements
+/fake/objInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[object_in_query](docs/apis/tags/fake_api/object_in_query.md)  | user list
+/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[parameter_collisions](docs/apis/tags/fake_api/parameter_collisions.md)  | parameter collision case
+/fake/queryParamWithJsonContentType **get** | [FakeApi](docs/apis/tags/fake_api.md).[query_param_with_json_content_type](docs/apis/tags/fake_api/query_param_with_json_content_type.md)  | query param with json content-type
+/fake/refObjInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[ref_object_in_query](docs/apis/tags/fake_api/ref_object_in_query.md)  | user list
+/fake/refs/array-of-enums **post** | [FakeApi](docs/apis/tags/fake_api.md).[array_of_enums](docs/apis/tags/fake_api/array_of_enums.md)  | Array of Enums
+/fake/refs/arraymodel **post** | [FakeApi](docs/apis/tags/fake_api.md).[array_model](docs/apis/tags/fake_api/array_model.md)  | 
+/fake/refs/boolean **post** | [FakeApi](docs/apis/tags/fake_api.md).[boolean](docs/apis/tags/fake_api/boolean.md)  | 
+/fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/apis/tags/fake_api.md).[composed_one_of_different_types](docs/apis/tags/fake_api/composed_one_of_different_types.md)  | 
+/fake/refs/enum **post** | [FakeApi](docs/apis/tags/fake_api.md).[string_enum](docs/apis/tags/fake_api/string_enum.md)  | 
+/fake/refs/mammal **post** | [FakeApi](docs/apis/tags/fake_api.md).[mammal](docs/apis/tags/fake_api/mammal.md)  | 
+/fake/refs/number **post** | [FakeApi](docs/apis/tags/fake_api.md).[number_with_validations](docs/apis/tags/fake_api/number_with_validations.md)  | 
+/fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/apis/tags/fake_api.md).[object_model_with_ref_props](docs/apis/tags/fake_api/object_model_with_ref_props.md)  | 
+/fake/refs/string **post** | [FakeApi](docs/apis/tags/fake_api.md).[string](docs/apis/tags/fake_api/string.md)  | 
+/fake/responseWithoutSchema **get** | [FakeApi](docs/apis/tags/fake_api.md).[response_without_schema](docs/apis/tags/fake_api/response_without_schema.md)  | receives a response without schema
+/fake/test-query-paramters **put** | [FakeApi](docs/apis/tags/fake_api.md).[query_parameter_collection_format](docs/apis/tags/fake_api/query_parameter_collection_format.md)  | 
+/fake/uploadDownloadFile **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_download_file](docs/apis/tags/fake_api/upload_download_file.md)  | uploads a file and downloads a file using application/octet-stream
+/fake/uploadFile **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_file](docs/apis/tags/fake_api/upload_file.md)  | uploads a file using multipart/form-data
+/fake/uploadFiles **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_files](docs/apis/tags/fake_api/upload_files.md)  | uploads files using multipart/form-data
+/fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/apis/tags/pet_api.md).[upload_file_with_required_file](docs/apis/tags/pet_api/upload_file_with_required_file.md)  | uploads an image (required)
+/fake_classname_test **patch** | [FakeClassnameTags123Api](docs/apis/tags/fake_classname_tags123_api.md).[classname](docs/apis/tags/fake_classname_tags123_api/classname.md)  | To test class name in snake case
+/foo **get** | [DefaultApi](docs/apis/tags/default_api.md).[foo_get](docs/apis/tags/default_api/foo_get.md)  | 
+/pet **post** | [PetApi](docs/apis/tags/pet_api.md).[add_pet](docs/apis/tags/pet_api/add_pet.md)  | Add a new pet to the store
+/pet **put** | [PetApi](docs/apis/tags/pet_api.md).[update_pet](docs/apis/tags/pet_api/update_pet.md)  | Update an existing pet
+/pet/findByStatus **get** | [PetApi](docs/apis/tags/pet_api.md).[find_pets_by_status](docs/apis/tags/pet_api/find_pets_by_status.md)  | Finds Pets by status
+/pet/findByTags **get** | [PetApi](docs/apis/tags/pet_api.md).[find_pets_by_tags](docs/apis/tags/pet_api/find_pets_by_tags.md)  | Finds Pets by tags
+/pet/{petId} **delete** | [PetApi](docs/apis/tags/pet_api.md).[delete_pet](docs/apis/tags/pet_api/delete_pet.md)  | Deletes a pet
+/pet/{petId} **get** | [PetApi](docs/apis/tags/pet_api.md).[get_pet_by_id](docs/apis/tags/pet_api/get_pet_by_id.md)  | Find pet by ID
+/pet/{petId} **post** | [PetApi](docs/apis/tags/pet_api.md).[update_pet_with_form](docs/apis/tags/pet_api/update_pet_with_form.md)  | Updates a pet in the store with form data
+/pet/{petId}/uploadImage **post** | [PetApi](docs/apis/tags/pet_api.md).[upload_image](docs/apis/tags/pet_api/upload_image.md)  | uploads an image
+/store/inventory **get** | [StoreApi](docs/apis/tags/store_api.md).[get_inventory](docs/apis/tags/store_api/get_inventory.md)  | Returns pet inventories by status
+/store/order **post** | [StoreApi](docs/apis/tags/store_api.md).[place_order](docs/apis/tags/store_api/place_order.md)  | Place an order for a pet
+/store/order/{order_id} **delete** | [StoreApi](docs/apis/tags/store_api.md).[delete_order](docs/apis/tags/store_api/delete_order.md)  | Delete purchase order by ID
+/store/order/{order_id} **get** | [StoreApi](docs/apis/tags/store_api.md).[get_order_by_id](docs/apis/tags/store_api/get_order_by_id.md)  | Find purchase order by ID
+/user **post** | [UserApi](docs/apis/tags/user_api.md).[create_user](docs/apis/tags/user_api/create_user.md)  | Create user
+/user/createWithArray **post** | [UserApi](docs/apis/tags/user_api.md).[create_users_with_array_input](docs/apis/tags/user_api/create_users_with_array_input.md)  | Creates list of users with given input array
+/user/createWithList **post** | [UserApi](docs/apis/tags/user_api.md).[create_users_with_list_input](docs/apis/tags/user_api/create_users_with_list_input.md)  | Creates list of users with given input array
+/user/login **get** | [UserApi](docs/apis/tags/user_api.md).[login_user](docs/apis/tags/user_api/login_user.md)  | Logs user into the system
+/user/logout **get** | [UserApi](docs/apis/tags/user_api.md).[logout_user](docs/apis/tags/user_api/logout_user.md)  | Logs out current logged in user session
+/user/{username} **delete** | [UserApi](docs/apis/tags/user_api.md).[delete_user](docs/apis/tags/user_api/delete_user.md)  | Delete user
+/user/{username} **get** | [UserApi](docs/apis/tags/user_api.md).[get_user_by_name](docs/apis/tags/user_api/get_user_by_name.md)  | Get user by user name
+/user/{username} **put** | [UserApi](docs/apis/tags/user_api.md).[update_user](docs/apis/tags/user_api/update_user.md)  | Updated user
 
 ## Component Schemas
 
