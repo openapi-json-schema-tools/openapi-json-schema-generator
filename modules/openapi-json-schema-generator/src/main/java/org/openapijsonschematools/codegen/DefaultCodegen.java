@@ -202,15 +202,12 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected String docsFolder = "docs";
     // for writing api files
-    protected Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles = new HashMap<>();
+    protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles = new HashMap<>();
     // for writing doc files
-    protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
-    // for writing code files
-    protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
+    protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
-    protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -788,11 +785,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<String, String> apiDocTemplateFiles() {
-        return apiDocTemplateFiles;
-    }
-
-    @Override
     public Map<String, String> reservedWordsMappings() {
         return reservedWordsMappings;
     }
@@ -808,17 +800,12 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles() {
-        return apiLocationTemplateFiles;
-    }
-
-    @Override
-    public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles() {
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
         return jsonPathTemplateFiles;
     }
 
     @Override
-    public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles() {
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles() {
         return jsonPathDocTemplateFiles;
     }
 
@@ -3530,25 +3517,14 @@ public class DefaultCodegen implements CodegenConfig {
             updatePathsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/servers")) {
             updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
-    }
-
-    /**
-     * Return the full path and API documentation file
-     *
-     * @param templateName template name
-     * @param tag          tag
-     * @return the API documentation file name with full path
-     */
-    @Override
-    public String apiDocFilename(String templateName, String tag) {
-        String docExtension = getDocExtension();
-        String suffix = docExtension != null ? docExtension : apiDocTemplateFiles().get(templateName);
-        return apiDocFileFolder() + File.separator + toApiDocFilename(tag) + suffix;
     }
 
     /**

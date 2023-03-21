@@ -19,8 +19,6 @@ package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.PathItem;
-import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -548,15 +546,16 @@ public class DefaultGenerator implements Generator {
 
     private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, List<CodegenServer> servers) {
         if (paths == null || paths.isEmpty()) {
-            LOGGER.warn("Skipping generation of paths because the specification document lacks them.");
+            LOGGER.info("Skipping generation of paths because the specification document lacks them.");
+            return;
+        }
+        if (!generateApis) {
+            LOGGER.info("Skipping generation of paths because generateApis is set to false.");
             return;
         }
 
-        // TODO add on off flag for path generation
-        boolean shouldGenerateApis = (boolean) config.additionalProperties().get(CodegenConstants.GENERATE_APIS);
-
         String pathsJsonPath = "#/paths";
-        generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, shouldGenerateApis);
+        generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, true);
 
         TreeMap<CodegenKey, CodegenPathItem> codegenPaths = new TreeMap<>();
         for (Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
@@ -996,12 +995,16 @@ public class DefaultGenerator implements Generator {
                 schemaData.put("schema", schema);
                 schemaData.putAll(config.additionalProperties());
                 schemaData.put("complexTypePrefix", "");
-                generateSchemaTests(files, schemaData, componentName);
+                if (generateModelTests) {
+                    generateSchemaTests(files, schemaData, componentName);
+                }
 
                 // to generate model documentation files
-                schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                schemaData.put("identifierToHeadingQty", new HashMap<>());
-                generateSchemaDocumentation(files, schemaData, jsonPath);
+                if (generateModelDocumentation) {
+                    schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                    schemaData.put("identifierToHeadingQty", new HashMap<>());
+                    generateSchemaDocumentation(files, schemaData, jsonPath);
+                }
 
             } catch (Exception e) {
                 throw new RuntimeException("Could not generate model '" + componentName + "'", e);
@@ -1019,7 +1022,6 @@ public class DefaultGenerator implements Generator {
     @SuppressWarnings("unchecked")
     void generateApis(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths) {
         if (!generateApis) {
-            // TODO: Process these anyway and present info via dryRun?
             LOGGER.info("Skipping generation of APIs.");
             return;
         }
@@ -1029,9 +1031,8 @@ public class DefaultGenerator implements Generator {
         if (apiNames != null && !apiNames.isEmpty()) {
             allowListedTags = new HashSet<>(Arrays.asList(apiNames.split(",")));
         }
-        String apiPackage = config.apiPackage();
         String jsonPath = "#/apis";
-        Map<String, String> apiPathsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATHS);
+        Map<String, String> apiPathsTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATHS);
         if (apiPathsTemplates != null) {
             for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
                 String templateFile = apiPathEntry.getKey();
@@ -1046,7 +1047,8 @@ public class DefaultGenerator implements Generator {
         }
 
         HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
-        Map<String, String> apiPathTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.PATH);
+        HashMap<CodegenTag, TreeMap<CodegenKey, CodegenOperation>> tagToOperationIdToOperation = new HashMap<>();
+        Map<String, String> apiPathTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH);
         for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey path = entry.getKey();
             CodegenPathItem pathItem = entry.getValue();
@@ -1055,7 +1057,6 @@ public class DefaultGenerator implements Generator {
                 for (Map.Entry<String, String> apiPathEntry: apiPathTemplates.entrySet()) {
                     String templateFile = apiPathEntry.getKey();
                     String suffix = apiPathEntry.getValue();
-                    String apiFileName = path.snakeCase + suffix;
                     Map<String, Object> apiData = new HashMap<>();
                     String packageName = config.packageName();
                     apiData.put("packageName", packageName);
@@ -1075,18 +1076,23 @@ public class DefaultGenerator implements Generator {
                     }
                     if (!tagToPathToOperations.containsKey(tag)) {
                         tagToPathToOperations.put(tag, new HashMap<>());
+                        tagToOperationIdToOperation.put(tag, new TreeMap<>());
                     }
                     HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
                     if (!pathToOperations.containsKey(path)) {
                         pathToOperations.put(path, new ArrayList<>());
                     }
                     pathToOperations.get(path).add(op);
+                    TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = tagToOperationIdToOperation.get(tag);
+                    if (!operationIdToOperation.containsKey(op.operationId)) {
+                        operationIdToOperation.put(op.operationId, op);
+                    }
                 }
             }
         }
 
         // files in the apiPackage root folder
-        Map<String, String> apiRootTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER);
+        Map<String, String> apiRootTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER);
         if (apiRootTemplates != null) {
             for (Map.Entry<String, String> entry: apiRootTemplates.entrySet()) {
                 String templateFile = entry.getKey();
@@ -1103,7 +1109,7 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        Map<String, String> apiTagsTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAGS);
+        Map<String, String> apiTagsTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAGS);
         if (apiTagsTemplates != null) {
             for (Map.Entry<String, String> apiPathEntry: apiTagsTemplates.entrySet()) {
                 String templateFile = apiPathEntry.getKey();
@@ -1117,22 +1123,36 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        Map<String, String> apiTagTemplates = config.apiLocationTemplateFiles().get(CodegenConstants.API_LOCATION_TYPE.TAG);
-        if (apiTagTemplates != null) {
-            for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
-                CodegenTag tag = entry.getKey();
-                HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
+        Map<String, String> apiTagTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG);
+        Map<String, String> apiDocTagTemplates = config.jsonPathDocTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG);
+        for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
+            CodegenTag tag = entry.getKey();
+            HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
 
+            Map<String, Object> apiData = new HashMap<>();
+            String packageName = config.packageName();
+            apiData.put("packageName", packageName);
+            apiData.put("tag", tag);
+            apiData.put("pathToOperations", pathToOperations);
+            apiData.put("apiPackage", config.apiPackage());
+            TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = new TreeMap<>(tagToOperationIdToOperation.get(tag));
+            apiData.put("operationIdToOperation", operationIdToOperation);
+
+            if (apiTagTemplates != null) {
                 for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {
                     String templateFile = apiPathEntry.getKey();
                     String fileName = apiPathEntry.getValue();
-                    Map<String, Object> apiData = new HashMap<>();
-                    String packageName = config.packageName();
-                    apiData.put("packageName", packageName);
-                    apiData.put("tag", tag);
-                    apiData.put("pathToOperations", pathToOperations);
                     String thisJsonPath = jsonPath + "/tags/" + tag.name;
                     String outputFile = config.getFilepath(thisJsonPath) + fileName;
+                    generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+                }
+            }
+            if (apiDocTagTemplates != null) {
+                for (Map.Entry<String, String> apiPathEntry: apiDocTagTemplates.entrySet()) {
+                    String templateFile = apiPathEntry.getKey();
+                    String fileName = apiPathEntry.getValue();
+                    String thisJsonPath = jsonPath + "/tags/" + tag.name;
+                    String outputFile = config.getDocsFilepath(thisJsonPath) + fileName;
                     generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
                 }
             }
@@ -1483,7 +1503,7 @@ public class DefaultGenerator implements Generator {
 
                         switch (userDefinedTemplate.getTemplateType()) {
                             case API:
-                                Map<String, String> apiTemplateFiles = config.apiLocationTemplateFiles().getOrDefault(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER, new HashMap<>());
+                                Map<String, String> apiTemplateFiles = config.jsonPathTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER, new HashMap<>());
                                 apiTemplateFiles.put(templateFile, templateExt);
                                 break;
                             case Model:
@@ -1491,7 +1511,8 @@ public class DefaultGenerator implements Generator {
                                 schemaTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case APIDocs:
-                                config.apiDocTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> apiDocTemplateToSuffix = config.jsonPathDocTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER, new HashMap<>());
+                                apiDocTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case ModelDocs:
                                 Map<String, String> schemaDocTemplateToSuffix = config.jsonPathDocTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());

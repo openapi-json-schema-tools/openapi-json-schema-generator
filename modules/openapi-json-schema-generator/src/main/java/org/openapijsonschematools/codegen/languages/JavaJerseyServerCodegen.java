@@ -24,6 +24,8 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
@@ -54,7 +56,10 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         if (modelDocTemplates != null) {
             modelDocTemplates.remove("model_doc.mustache");
         }
-        apiDocTemplateFiles.remove("api_doc.mustache");
+        HashMap<String, String> temp = (HashMap<String, String>) jsonPathDocTemplateFiles.get(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
+        );
+        temp.remove("api_doc.mustache");
         embeddedTemplateDir = templateDir = JAXRS_TEMPLATE_DIRECTORY_NAME;
 
         CliOption library = new CliOption(CodegenConstants.LIBRARY, CodegenConstants.LIBRARY_DESC).defaultValue(DEFAULT_JERSEY_LIBRARY);

@@ -25,15 +25,11 @@ import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
-import io.swagger.v3.oas.models.servers.Server;
-import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
@@ -45,16 +41,12 @@ import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
-import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -161,9 +153,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         supportsInheritance = true;
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model.mustache", ".java")
+                new HashMap<String, String>() {{
+                    put("model.mustache", ".java");
+                }}
         );
-        apiLocationTemplateFiles.put(CodegenConstants.API_LOCATION_TYPE.TAG, Collections.singletonMap("api.mustache", ".java"));
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api.mustache", ".java");
+                }}
+        );
         apiTestTemplateFiles.put("api_test.mustache", ".java");
         HashMap<String, String> schemaDocs = new HashMap<>();
         schemaDocs.put("model_doc.mustache", ".md");
@@ -171,7 +170,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaDocs
         );
-        apiDocTemplateFiles.put("api_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api_doc.mustache", ".java");
+                }}
+        );
 
         hideGenerationTimestamp = false;
 

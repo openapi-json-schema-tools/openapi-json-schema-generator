@@ -176,7 +176,9 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         outputFolder = "generated-code" + File.separator + "kotlin-client";
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model.mustache", ".kt")
+                new HashMap<String, String>() {{
+                    put("model.mustache", ".kt");
+                }}
         );
         if (generateRoomModels) {
             jsonPathTemplateFiles.get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(
@@ -185,9 +187,16 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         }
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model_doc.mustache", ".md")
+                new HashMap<String, String>() {{
+                    put("model_doc.mustache", ".md");
+                }}
         );
-        apiDocTemplateFiles.put("api_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api_doc.mustache", ".md");
+                }}
+        );
         embeddedTemplateDir = templateDir = "kotlin-client";
         apiPackage = packageName + ".apis";
         modelPackage = packageName + ".models";

@@ -2,8 +2,11 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/apis/tags/another_fake_api.md
 docs/apis/tags/another_fake_api/call_123_test__special_tags.md
+docs/apis/tags/default_api.md
 docs/apis/tags/default_api/foo_get.md
+docs/apis/tags/fake_api.md
 docs/apis/tags/fake_api/additional_properties_with_array_of_enums.md
 docs/apis/tags/fake_api/array_model.md
 docs/apis/tags/fake_api/array_of_enums.md
@@ -39,7 +42,9 @@ docs/apis/tags/fake_api/string_enum.md
 docs/apis/tags/fake_api/upload_download_file.md
 docs/apis/tags/fake_api/upload_file.md
 docs/apis/tags/fake_api/upload_files.md
+docs/apis/tags/fake_classname_tags123_api.md
 docs/apis/tags/fake_classname_tags123_api/classname.md
+docs/apis/tags/pet_api.md
 docs/apis/tags/pet_api/add_pet.md
 docs/apis/tags/pet_api/delete_pet.md
 docs/apis/tags/pet_api/find_pets_by_status.md
@@ -49,10 +54,12 @@ docs/apis/tags/pet_api/update_pet.md
 docs/apis/tags/pet_api/update_pet_with_form.md
 docs/apis/tags/pet_api/upload_file_with_required_file.md
 docs/apis/tags/pet_api/upload_image.md
+docs/apis/tags/store_api.md
 docs/apis/tags/store_api/delete_order.md
 docs/apis/tags/store_api/get_inventory.md
 docs/apis/tags/store_api/get_order_by_id.md
 docs/apis/tags/store_api/place_order.md
+docs/apis/tags/user_api.md
 docs/apis/tags/user_api/create_user.md
 docs/apis/tags/user_api/create_users_with_array_input.md
 docs/apis/tags/user_api/create_users_with_list_input.md

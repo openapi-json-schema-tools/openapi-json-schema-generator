@@ -20,8 +20,6 @@ package org.openapijsonschematools.codegen.languages;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
@@ -446,7 +444,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             jsonPathDocTemplateFiles.get(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
             ).remove("model_doc.mustache");
-            apiDocTemplateFiles.remove("api_doc.mustache");
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
+            ).remove("api_doc.mustache");
             //Templates to decode response headers
             supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));
             supportingFiles.add(new SupportingFile("ApiResponseDecoder.mustache", invokerFolder, "ApiResponseDecoder.java"));
@@ -572,7 +572,12 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             }
             supportingFiles.add(new SupportingFile("Oper.mustache", apiFolder, "Oper.java"));
             additionalProperties.put("convert", new CaseFormatLambda(LOWER_CAMEL, UPPER_UNDERSCORE));
-            apiLocationTemplateFiles.put(CodegenConstants.API_LOCATION_TYPE.ROOT_FOLDER, Collections.singletonMap("api.mustache", ".java"));
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER,
+                    new HashMap<String, String>() {{
+                        put("api.mustache", ".java");
+                    }}
+            );
             supportingFiles.add(new SupportingFile("ResponseSpecBuilders.mustache", invokerFolder, "ResponseSpecBuilders.java"));
         } else if (MICROPROFILE.equals(getLibrary())) {
             supportingFiles.clear(); // Don't need extra files provided by Java Codegen

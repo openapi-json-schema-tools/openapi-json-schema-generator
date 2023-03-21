@@ -165,19 +165,15 @@ public interface CodegenConfig {
 
     Map<String, String> inlineSchemaNameDefault();
 
-    Map<CodegenConstants.API_LOCATION_TYPE, Map<String, String>> apiLocationTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
 
-    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
-
-    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
-
-    Map<String, String> apiDocTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
 
@@ -243,8 +239,6 @@ public interface CodegenConfig {
     String getDocsFilepath(String jsonPath);
 
     String apiTestFilename(String templateName, String tag);
-
-    String apiDocFilename(String templateName, String tag);
 
     boolean isSkipOverwrite();
 
