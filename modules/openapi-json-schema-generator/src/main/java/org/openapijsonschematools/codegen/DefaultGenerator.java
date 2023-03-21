@@ -28,6 +28,7 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.security.*;
+import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.comparator.PathFileComparator;
 import org.apache.commons.lang3.StringUtils;
@@ -1343,6 +1344,21 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private TreeMap<String, CodegenTag> generateTags() {
+        List<Tag> specTags = openAPI.getTags();
+        if (specTags == null) {
+            return null;
+        }
+
+        TreeMap<String, CodegenTag> tags = new TreeMap<>();
+        for(Tag specTag: specTags) {
+            String name = specTag.getName();
+            CodegenTag tag = config.fromTag(name, specTag.getDescription());
+            tags.put(name, tag);
+        }
+        return tags;
+    }
+
     @Override
     public List<File> generate() {
         if (openAPI == null) {
@@ -1378,6 +1394,8 @@ public class DefaultGenerator implements Generator {
         processUserDefinedTemplates();
 
         List<File> files = new ArrayList<>();
+        // tags
+        TreeMap<String, CodegenTag> tags = generateTags();
         // components.schemas / models
         TreeMap<String, CodegenSchema> schemas = generateSchemas(files);
         // components.requestBodies

@@ -1,9 +1,13 @@
 <a name="top"></a>
 {{packageName}}.{{apiPackage}}.tags.{{tag.moduleName}}
-# {{tag.className}}
-{{#if description}}
+{{#with tag}}
+# {{className}}
+    {{#if description}}
+
+## Description
 {{description}}
-{{/if}}
+    {{/if}}
+{{/with}}
 
 All URIs are relative to the selected server
 - The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration

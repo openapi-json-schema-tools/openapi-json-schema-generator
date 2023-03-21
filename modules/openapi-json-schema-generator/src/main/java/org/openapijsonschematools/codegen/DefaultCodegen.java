@@ -1551,6 +1551,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
@@ -2421,12 +2422,12 @@ public class DefaultCodegen implements CodegenConfig {
         Map<String, CodegenTag> tags = new HashMap<>();
         if (operationTagNames != null) {
             for (String tagName: operationTagNames) {
-                CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
+                CodegenTag codegenTag = fromTag(tagName, null);
                 tags.put(tagName, codegenTag);
             }
         } else {
             String tagName = "default";
-            CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
+            CodegenTag codegenTag = fromTag(tagName, "operations that lack tags are assigned this default tag");
             tags.put(tagName, codegenTag);
         }
 
@@ -2786,6 +2787,16 @@ public class DefaultCodegen implements CodegenConfig {
         });
 
         return c;
+    }
+
+    public CodegenTag fromTag(String name, String description) {
+        CodegenTag tag = codegenTagCache.getOrDefault(name, null);
+        if (tag != null) {
+            return tag;
+        }
+        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), description);
+        codegenTagCache.put(name, tag);
+        return tag;
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {

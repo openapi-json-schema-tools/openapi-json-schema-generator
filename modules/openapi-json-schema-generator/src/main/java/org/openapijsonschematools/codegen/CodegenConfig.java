@@ -46,6 +46,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
+import org.openapijsonschematools.codegen.model.CodegenTag;
 
 import java.io.File;
 import java.util.HashMap;
@@ -136,6 +137,8 @@ public interface CodegenConfig {
     void setOutputDir(String dir);
 
     CodegenSchema fromSchema(Schema<?> schema, String sourceJsonPath, String currentJsonPath);
+
+    CodegenTag fromTag(String name, String description);
 
     CodegenOperation fromOperation(Operation operation, String jsonPath);
 

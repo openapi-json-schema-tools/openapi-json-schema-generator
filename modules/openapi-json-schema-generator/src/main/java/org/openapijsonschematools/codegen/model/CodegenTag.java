@@ -6,12 +6,13 @@ public class CodegenTag {
     public final String name;
     public final String moduleName;
     public final String className;
-    // TODO add description and other tag fields
+    public final String description;
 
-    public CodegenTag(String name, String moduleName, String className) {
+    public CodegenTag(String name, String moduleName, String className, String description) {
         this.name = name;
         this.moduleName = moduleName;
         this.className = className;
+        this.description = description;
     }
 
     @Override
@@ -21,11 +22,12 @@ public class CodegenTag {
         CodegenTag that = (CodegenTag) o;
         return Objects.equals(name, that.name) &&
                 Objects.equals(moduleName, that.moduleName) &&
-                Objects.equals(className, that.className);
+                Objects.equals(className, that.className) &&
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, moduleName, className);
+        return Objects.hash(name, moduleName, className, description);
     }
 }

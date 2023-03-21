@@ -2,6 +2,9 @@
 petstore_api.apis.tags.store_api
 # StoreApi
 
+## Description
+Access to Petstore orders
+
 All URIs are relative to the selected server
 - The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
 - Code samples in endpoints documents show how to do this

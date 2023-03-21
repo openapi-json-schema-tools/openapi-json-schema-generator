@@ -2,6 +2,9 @@
 petstore_api.apis.tags.default_api
 # DefaultApi
 
+## Description
+operations that lack tags are assigned this default tag
+
 All URIs are relative to the selected server
 - The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
 - Code samples in endpoints documents show how to do this
