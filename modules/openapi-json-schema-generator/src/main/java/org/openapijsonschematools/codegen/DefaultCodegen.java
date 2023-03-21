@@ -3489,7 +3489,7 @@ public class DefaultCodegen implements CodegenConfig {
         // #/apis/tags/someTag
         // #/apis/paths
         // #/apis/paths/somePath
-        pathPieces[1] = apiPackage;
+        pathPieces[1] = apiPackage.replace('.', File.separatorChar);
         if (pathPieces.length < 4) {
             return;
         }
