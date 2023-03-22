@@ -1416,6 +1416,7 @@ public class DefaultCodegenTest {
         Operation operation2 = new Operation().operationId("op2").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")));
         openAPI.path("some/path", new PathItem().get(operation2));
         final DefaultCodegen codegen = new DefaultCodegen();
+        codegen.preprocessOpenAPI(openAPI);
         codegen.setOpenAPI(openAPI);
 
         TreeMap<CodegenKey, CodegenPathItem> paths = codegen.fromPaths(openAPI.getPaths());

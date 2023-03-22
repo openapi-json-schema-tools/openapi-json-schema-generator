@@ -610,10 +610,28 @@ public class DefaultCodegen implements CodegenConfig {
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
     }
 
+    private void preprocessOpenAPIPaths(Paths paths) {
+        if (paths == null) {
+            return;
+        }
+        Set<String> pathsToFix = new HashSet<>();
+        for (String path: paths.keySet()) {
+            if (!path.startsWith("/")) {
+                pathsToFix.add(path);
+            }
+        }
+        for(String path: pathsToFix) {
+            LOGGER.warn("Per the openapi spec, paths must begin with a slash; adding a slash onto " + path);
+            PathItem pathItem = paths.remove(path);
+            paths.put("/" + path, pathItem);
+        }
+    }
+
     //override with any special handling of the entire OpenAPI spec document
     @Override
     @SuppressWarnings("unused")
     public void preprocessOpenAPI(OpenAPI openAPI) {
+        preprocessOpenAPIPaths(openAPI.getPaths());
     }
 
     // override with any special handling of the entire OpenAPI spec document
