@@ -128,7 +128,7 @@ public class DefaultGeneratorTest {
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
-            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/PetApiTest.java";
+            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/tags/PetApiTest.java";
             String modelTestRelativePath = "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java";
 
             File apiTestFile = new File(output, apiTestRelativePath);
@@ -156,11 +156,11 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 65);
+            Assert.assertEquals(files.size(), 63);
 
             // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, apiTestRelativePath);
             Assert.assertTrue(apiTestFile.exists());
