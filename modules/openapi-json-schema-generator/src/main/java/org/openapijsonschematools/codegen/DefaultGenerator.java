@@ -43,6 +43,7 @@ import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
+import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
@@ -1251,7 +1252,8 @@ public class DefaultGenerator implements Generator {
             TreeMap<String, CodegenParameter> parameters,
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
             List<CodegenServer> servers,
-            TreeMap<CodegenKey, CodegenPathItem> paths) {
+            TreeMap<CodegenKey, CodegenPathItem> paths,
+            List<HashMap<String, CodegenSecurityRequirementValue>> security) {
 
         Map<String, Object> bundle = new HashMap<>(config.additionalProperties());
         bundle.put("apiPackage", config.apiPackage());
@@ -1292,6 +1294,7 @@ public class DefaultGenerator implements Generator {
         bundle.put("servers", servers);
         bundle.put("hasServers", hasServers);  // also true if there are no root servers but there are pathItem/operation servers
         bundle.put("paths", paths);
+        bundle.put("security", security);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
         bundle.put("library", config.getLibrary());
@@ -1409,6 +1412,8 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenParameter> parameters = generateParameters(files);
         // components.securitySchemes
         TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
+        // security
+        List<HashMap<String, CodegenSecurityRequirementValue>> security = config.fromSecurity(openAPI.getSecurity(), "#/security");
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());
         boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());
@@ -1430,7 +1435,7 @@ public class DefaultGenerator implements Generator {
         generateApis(files, paths);
 
         // supporting files
-        Map<String, Object> bundle = buildSupportFileBundle(schemas, requestBodies, responses, headers, parameters, securitySchemes, servers, paths);
+        Map<String, Object> bundle = buildSupportFileBundle(schemas, requestBodies, responses, headers, parameters, securitySchemes, servers, paths, security);
         generateSupportingFiles(files, bundle);
 
         if (dryRun) {

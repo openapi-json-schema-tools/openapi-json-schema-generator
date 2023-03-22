@@ -2639,15 +2639,7 @@ public class DefaultCodegen implements CodegenConfig {
                     return 1;
             });
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> security = null;
-        List<SecurityRequirement> securities = operation.getSecurity();
-        if (securities != null && !securities.isEmpty()) {
-            security = new ArrayList<>();
-            for (SecurityRequirement originalSecurityRequirement: securities) {
-                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, jsonPath + "/security");
-                security.add(securityRequirement);
-            }
-        }
+        List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
@@ -2681,12 +2673,28 @@ public class DefaultCodegen implements CodegenConfig {
                 jsonPathPiece);
     }
 
+    @Override
+    public List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
+        if (security == null) {
+            return null;
+        }
+        List securityRequiremnts = new ArrayList<>();
+        int i = 0;
+        for (SecurityRequirement specSecurityRequirement: security) {
+            HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
+            securityRequiremnts.add(securityRequirement);
+            i++;
+        }
+        return securityRequiremnts;
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
      * @param response     OAS Response object
      * @return Codegen Response object
      */
+    @Override
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
         if (response == null) {
             String msg = "response in fromResponse cannot be null!";

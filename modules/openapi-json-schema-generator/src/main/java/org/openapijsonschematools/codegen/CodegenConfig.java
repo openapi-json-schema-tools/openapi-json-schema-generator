@@ -140,6 +140,8 @@ public interface CodegenConfig {
 
     CodegenTag fromTag(String name, String description);
 
+    List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath);
+
     CodegenOperation fromOperation(Operation operation, String jsonPath);
 
     CodegenKey getKey(String key);
