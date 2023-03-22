@@ -15,6 +15,7 @@ import logging
 import multiprocessing
 import sys
 import typing
+import typing_extensions
 
 import urllib3
 

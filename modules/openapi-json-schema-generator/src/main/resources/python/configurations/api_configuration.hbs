@@ -10,9 +10,9 @@ import multiprocessing
 {{/unless}}
 import sys
 import typing
-{{#if securitySchemes}}
+{{#or securitySchemes hasServers}}
 import typing_extensions
-{{/if}}
+{{/or}}
 
 import urllib3
 
