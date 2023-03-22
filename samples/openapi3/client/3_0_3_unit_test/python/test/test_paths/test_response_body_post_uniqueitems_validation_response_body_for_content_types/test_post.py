@@ -23,14 +23,10 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     """
     Post unit test stubs
     """
-    configuration_ = api_configuration.ApiConfiguration()
-
-    def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
-
-    def tearDown(self):
-        pass
+    api_config = api_configuration.ApiConfiguration()
+    schema_config = schema_configuration.SchemaConfiguration()
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
     response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
@@ -61,7 +57,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -70,7 +66,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -100,7 +96,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -109,7 +105,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -142,7 +138,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -178,7 +174,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -187,7 +183,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -217,7 +213,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -226,7 +222,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -252,7 +248,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -278,7 +274,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -287,7 +283,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -315,7 +311,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -324,7 +320,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -352,7 +348,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -361,7 +357,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -404,7 +400,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -432,7 +428,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -458,7 +454,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -467,7 +463,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -502,7 +498,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -529,7 +525,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -538,7 +534,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -566,7 +562,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -575,7 +571,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -609,7 +605,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -618,7 +614,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -642,7 +638,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -651,7 +647,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -683,7 +679,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -716,7 +712,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -760,7 +756,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -769,7 +765,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -798,7 +794,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -826,7 +822,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
@@ -862,7 +858,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -871,7 +867,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -902,7 +898,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )
@@ -911,7 +907,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -936,7 +932,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers/', None) + "/responseBody/postUniqueitemsValidationResponseBodyForContentTypes",
                 method='post'.upper(),
                 content_type=None,
                 accept_content_type=accept_content_type,
