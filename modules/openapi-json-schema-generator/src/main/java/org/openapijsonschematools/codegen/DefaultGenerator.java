@@ -1157,7 +1157,8 @@ public class DefaultGenerator implements Generator {
                     generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
                 }
             }
-            if (apiDocTagTemplates != null) {
+            // api docs
+            if (generateApiDocumentation && apiDocTagTemplates != null) {
                 for (Map.Entry<String, String> apiPathEntry: apiDocTagTemplates.entrySet()) {
                     String templateFile = apiPathEntry.getKey();
                     String fileName = apiPathEntry.getValue();
