@@ -45,7 +45,7 @@ public class DefaultGeneratorTest {
                     "src/main/AndroidManifest.xml",
                     "pom.xml",
                     "src/test/**",
-                    "src/main/java/org/openapijsonschematools/client/api/UserApi.java"
+                    "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java"
             );
             File ignorePath = new File(output, ".openapi-generator-ignore");
             Files.write(ignorePath.toPath(),
@@ -75,8 +75,8 @@ public class DefaultGeneratorTest {
 
             // Check expected generated files
             // api sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
 
             // model sanity check
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
@@ -108,8 +108,8 @@ public class DefaultGeneratorTest {
             TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java");
             Assert.assertFalse(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java");
-            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java").exists());
+            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java");
+            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java").exists());
         } finally {
             output.delete();
         }
@@ -291,6 +291,7 @@ public class DefaultGeneratorTest {
     public void testNonStrictFromPaths() throws Exception {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         openAPI.setPaths(new Paths());
+        PathItem pathItem1 = new PathItem();
         openAPI.getPaths().addPathItem("path1/", new PathItem().get(new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("path2/", new PathItem().get(new Operation().operationId("op2").addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
@@ -305,11 +306,12 @@ public class DefaultGeneratorTest {
         TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
         Assert.assertEquals(paths.size(), 2);
         CodegenKey firstPathKey = config.getKey("path1/");
+        CodegenKey getKey = config.getKey("get");
         Assert.assertEquals(firstPathKey.original, "path1/");
-        Assert.assertEquals(paths.get(firstPathKey).parameters.size(), 0);
+        Assert.assertEquals(paths.get(firstPathKey).operations.get(getKey).allParams.size(), 0);
         CodegenKey secondPathKey = config.getKey("path2/");
         Assert.assertEquals(secondPathKey.original, "path2/");
-        Assert.assertEquals(paths.get(secondPathKey).parameters.size(), 1);
+        Assert.assertEquals(paths.get(secondPathKey).operations.get(getKey).allParams.size(), 1);
     }
 
     @Test
