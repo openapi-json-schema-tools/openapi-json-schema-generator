@@ -278,7 +278,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/updatePetWithForm_request"
         );
         ck = codegen.getKey("visitDate");
-        assertEquals(model.properties.get(ck).defaultValue, "1971-12-19T03:39:57-08:00");
+        assertEquals(model.properties.get(ck).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
     }
 
     @Test
