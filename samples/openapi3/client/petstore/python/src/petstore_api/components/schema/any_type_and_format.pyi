@@ -52,7 +52,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Uuid':
                     return super().__new__(
@@ -77,7 +77,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Date':
                     return super().__new__(
@@ -102,7 +102,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'DateTime':
                     return super().__new__(
@@ -127,7 +127,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Number':
                     return super().__new__(
@@ -151,7 +151,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Binary':
                     return super().__new__(
@@ -175,7 +175,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Int32':
                     return super().__new__(
@@ -199,7 +199,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Int64':
                     return super().__new__(
@@ -223,7 +223,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'Double':
                     return super().__new__(
@@ -247,7 +247,7 @@ class AnyTypeAndFormat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> '_Float':
                     return super().__new__(
@@ -373,7 +373,7 @@ class AnyTypeAndFormat(
         int32: typing.Union[Schema_.Properties.Int32, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         int64: typing.Union[Schema_.Properties.Int64, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         double: typing.Union[Schema_.Properties.Double, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'AnyTypeAndFormat':
         return super().__new__(

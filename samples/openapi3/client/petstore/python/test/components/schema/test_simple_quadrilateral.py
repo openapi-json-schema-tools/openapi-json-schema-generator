@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.simple_quadrilateral import SimpleQuadrilateral
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestSimpleQuadrilateral(unittest.TestCase):
     """SimpleQuadrilateral unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

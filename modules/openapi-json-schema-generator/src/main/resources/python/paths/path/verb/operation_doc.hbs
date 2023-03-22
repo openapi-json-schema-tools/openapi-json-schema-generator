@@ -4,13 +4,12 @@
 
 {{headerSize}}# Table of Contents
 - [General Info](#general-info)
-{{#or requestBody queryParams headerParams pathParams cookieParams}}
 - [Arguments](#arguments)
-{{/or}}
 - [Return Types](#return-types)
 {{#if security}}
 - [Security](#security)
 {{/if}}
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 {{headerSize}}# General Info
@@ -24,18 +23,17 @@
 {{/if}}
 | Path | "{{{path.original}}}" |
 | HTTP Method | {{{httpMethod.original}}} |
-{{#or requestBody queryParams headerParams pathParams cookieParams}}
 
 {{headerSize}}# Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
-    {{#if refInfo}}
+        {{#if refInfo}}
 [**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
-    {{else}}
+        {{else}}
 [body](#requestbody) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
-    {{/if}}
+        {{/if}}
     {{/with}}
     {{#if queryParams}}
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
@@ -67,9 +65,7 @@ content_type | str | optional, default is '{{@key.original}}' | Selects the sche
     {{#if produces}}
 accept_content_types | typing.Tuple[str] | default is ({{#each produces}}"{{{.}}}", {{/each}}) | Tells the server the content type(s) that are accepted by the client
     {{/if}}
-    {{#if servers}}
-host_index | typing.Optional[int] | default is None | Allows one to select a different host
-    {{/if}}
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -79,11 +75,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 {{> components/request_bodies/request_body_doc requestBody=requestBody headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces requestBody.jsonPathPiece) }}
         {{/unless}}
     {{/if}}
+    {{#if queryParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="query" paramType="Query" parameters=queryParams }}
+    {{/if}}
+    {{#if headerParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="header" paramType="Header" parameters=headerParams }}
+    {{/if}}
+    {{#if pathParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="path" paramType="Path" parameters=pathParams }}
+    {{/if}}
+    {{#if cookieParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="cookie" paramType="Cookie" parameters=cookieParams }}
-{{/or}}
+    {{/if}}
 
 {{headerSize}}# Return Types
 
@@ -95,7 +98,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
         {{#if refInfo}}
 default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
         {{else}}
-default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
+default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
         {{/if}}
     {{/with}}
 {{/if}}
@@ -103,20 +106,20 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}
     {{#if refInfo}}
 {{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
     {{else}}
-{{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.snakeCase}}response_cls) | {{description}}
+{{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
     {{/if}}
 {{/each}}
 {{#each responses}}
     {{#unless refInfo.refModule}}
 
-{{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "responses" jsonPathPiece) }}
+{{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/unless}}
 {{/each}}
 {{#if security}}
 
 {{headerSize}}# Security
 
-Set auth info by setting Configuration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
 key is the below security schema quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 
@@ -125,6 +128,63 @@ component security scheme class. See how to do this in the code sample.
     {{#each security}}
 | {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
     {{/each}}
+{{/if}}
+
+{{headerSize}}# Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+{{#if servers}}
+- these servers are specific to this endpoint
+    {{#with servers.0}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+    {{/with}}
+{{else}}
+    {{#if pathItem.servers}}
+- these servers are specific to this "{{{path.original}}}" path
+        {{#with pathItem.servers.0}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+        {{/with}}
+    {{else}}
+- these servers are the general api servers
+        {{#each ../servers}}
+            {{#if @first}}
+- defaults to server_index=0, server.url = {{defaultUrl}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
+server_index | Class | Description
+------------ | ----- | ------------
+{{#if servers}}
+    {{#each servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+    {{/each}}
+{{else}}
+    {{#if pathItem.servers}}
+        {{#each pathItem.servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+        {{/each}}
+    {{else}}
+        {{#each ../servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](../../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+{{#if servers}}
+    {{#each servers}}
+
+{{> servers/server_doc server=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/each}}
+{{else}}
+    {{#if pathItem.servers}}
+
+        {{#each pathItem.servers}}
+{{> servers/server_doc server=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+        {{/each}}
+    {{/if}}
 {{/if}}
 
 {{headerSize}}# Code Sample

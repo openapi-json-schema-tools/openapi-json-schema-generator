@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -20,6 +21,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [**body**](../../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[[RefUserArray.content.application_json.schema](../../../components/request_bodies/request_body_ref_user_array.md#request_body_ref_user_arraycontentapplication_jsonschema)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -29,31 +31,42 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#response_defaultresponse_cls) | successful operation
+default | [Default.response_cls](#default-response_cls) | successful operation
 
-## responses Default
+## Default
 
 ### Description
 successful operation
 
-### response_cls
+### Default response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
+## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
+server_index | Class | Description
+------------ | ----- | ------------
+0 | [Server0](../../../servers/server_0.md) | petstore server
+1 | [Server1](../../../servers/server_1.md) | The local server
+2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+
 ## Code Sample
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import user_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
+used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

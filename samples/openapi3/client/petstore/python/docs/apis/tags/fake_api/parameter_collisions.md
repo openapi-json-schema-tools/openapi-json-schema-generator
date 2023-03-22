@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -25,6 +26,7 @@ Name | Type | Description  | Notes
 [cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -48,52 +50,52 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter0.schema](#parameter_0schema) | | optional
-aB | [Parameter1.schema](#parameter_1schema) | | optional
-Ab | [Parameter2.schema](#parameter_2schema) | | optional
-self | [Parameter3.schema](#parameter_3schema) | | optional
-A-B | [Parameter4.schema](#parameter_4schema) | | optional
+1 | [Parameter0.schema](#parameter0-schema) | | optional
+aB | [Parameter1.schema](#parameter1-schema) | | optional
+Ab | [Parameter2.schema](#parameter2-schema) | | optional
+self | [Parameter3.schema](#parameter3-schema) | | optional
+A-B | [Parameter4.schema](#parameter4-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter1
-
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter2
+#### Parameter1
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter3
-
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter4
+#### Parameter2
 
-##### Schema
+##### Parameter2 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter3
+
+##### Parameter3 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter4
+
+##### Parameter4 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -105,42 +107,42 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter5.schema](#parameter_5schema) | | optional
-aB | [Parameter6.schema](#parameter_6schema) | | optional
-self | [Parameter7.schema](#parameter_7schema) | | optional
-A-B | [Parameter8.schema](#parameter_8schema) | | optional
+1 | [Parameter5.schema](#parameter5-schema) | | optional
+aB | [Parameter6.schema](#parameter6-schema) | | optional
+self | [Parameter7.schema](#parameter7-schema) | | optional
+A-B | [Parameter8.schema](#parameter8-schema) | | optional
 
 
-#### Parameter Parameter5
+#### Parameter5
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter6
-
-##### Schema
+##### Parameter5 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter7
+#### Parameter6
 
-##### Schema
+##### Parameter6 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter8
+#### Parameter7
 
-##### Schema
+##### Parameter7 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter8
+
+##### Parameter8 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -152,52 +154,52 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter9.schema](#parameter_9schema) | | 
-aB | [Parameter10.schema](#parameter_10schema) | | 
-Ab | [Parameter11.schema](#parameter_11schema) | | 
-self | [Parameter12.schema](#parameter_12schema) | | 
-A-B | [Parameter13.schema](#parameter_13schema) | | 
+1 | [Parameter9.schema](#parameter9-schema) | | 
+aB | [Parameter10.schema](#parameter10-schema) | | 
+Ab | [Parameter11.schema](#parameter11-schema) | | 
+self | [Parameter12.schema](#parameter12-schema) | | 
+A-B | [Parameter13.schema](#parameter13-schema) | | 
 
 
-#### Parameter Parameter9
+#### Parameter9
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter10
-
-##### Schema
+##### Parameter9 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter11
+#### Parameter10
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter12
-
-##### Schema
+##### Parameter10 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter13
+#### Parameter11
 
-##### Schema
+##### Parameter11 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter12
+
+##### Parameter12 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter13
+
+##### Parameter13 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -209,52 +211,52 @@ str,  | str,  |  |
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter14.schema](#parameter_14schema) | | optional
-aB | [Parameter15.schema](#parameter_15schema) | | optional
-Ab | [Parameter16.schema](#parameter_16schema) | | optional
-self | [Parameter17.schema](#parameter_17schema) | | optional
-A-B | [Parameter18.schema](#parameter_18schema) | | optional
+1 | [Parameter14.schema](#parameter14-schema) | | optional
+aB | [Parameter15.schema](#parameter15-schema) | | optional
+Ab | [Parameter16.schema](#parameter16-schema) | | optional
+self | [Parameter17.schema](#parameter17-schema) | | optional
+A-B | [Parameter18.schema](#parameter18-schema) | | optional
 
 
-#### Parameter Parameter14
+#### Parameter14
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter15
-
-##### Schema
+##### Parameter14 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter16
+#### Parameter15
 
-##### Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  |
-
-#### Parameter Parameter17
-
-##### Schema
+##### Parameter15 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter18
+#### Parameter16
 
-##### Schema
+##### Parameter16 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter17
+
+##### Parameter17 Schema
+
+###### Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  |
+
+#### Parameter18
+
+##### Parameter18 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -266,44 +268,55 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#response_200response_cls) | success
+200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
 
-## responses ResponseFor200
+## ResponseFor200
 
 ### Description
 success
 
-### response_cls
+### ResponseFor200 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responses-responsefor200-content-applicationjson-schema), ] |  |
+[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
 ### Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responses-responsefor200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### responses ResponseFor200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
+## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
+server_index | Class | Description
+------------ | ----- | ------------
+0 | [Server0](../../../servers/server_0.md) | petstore server
+1 | [Server1](../../../servers/server_1.md) | The local server
+2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+
 ## Code Sample
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
+used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

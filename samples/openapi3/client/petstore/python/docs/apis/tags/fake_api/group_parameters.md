@@ -6,6 +6,7 @@
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -22,6 +23,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -31,54 +33,54 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter_0schema) | | 
-required_int64_group | [Parameter2.schema](#parameter_2schema) | | 
-string_group | [Parameter3.schema](#parameter_3schema) | | optional
-int64_group | [Parameter5.schema](#parameter_5schema) | | optional
+required_string_group | [Parameter0.schema](#parameter0-schema) | | 
+required_int64_group | [Parameter2.schema](#parameter2-schema) | | 
+string_group | [Parameter3.schema](#parameter3-schema) | | optional
+int64_group | [Parameter5.schema](#parameter5-schema) | | optional
 
 
-#### Parameter Parameter0
+#### Parameter0
 
 ##### Description
 Required String in group parameters
 
-##### Schema
+##### Parameter0 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter2
+#### Parameter2
 
 ##### Description
 Required Integer in group parameters
 
-##### Schema
+##### Parameter2 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
-#### Parameter Parameter3
+#### Parameter3
 
 ##### Description
 String in group parameters
 
-##### Schema
+##### Parameter3 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  |
 
-#### Parameter Parameter5
+#### Parameter5
 
 ##### Description
 Integer in group parameters
 
-##### Schema
+##### Parameter5 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -90,28 +92,28 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter_1schema) | | 
-boolean_group | [Parameter4.schema](#parameter_4schema) | | optional
+required_boolean_group | [Parameter1.schema](#parameter1-schema) | | 
+boolean_group | [Parameter4.schema](#parameter4-schema) | | optional
 
 
-#### Parameter Parameter1
+#### Parameter1
 
 ##### Description
 Required Boolean in group parameters
 
-##### Schema
+##### Parameter1 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["true", "false", ]
 
-#### Parameter Parameter4
+#### Parameter4
 
 ##### Description
 Boolean in group parameters
 
-##### Schema
+##### Parameter4 Schema
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
@@ -127,7 +129,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 ## Security
 
-Set auth info by setting Configuration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
 key is the below security schema quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 
@@ -135,11 +137,25 @@ component security scheme class. See how to do this in the code sample.
 | -------------- | ------------------------------ |
 | 0       | ["bearer_test"](../../../components/security_schemes/security_scheme_bearer_test.md) []<br> |
 
+## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
+server_index | Class | Description
+------------ | ----- | ------------
+0 | [Server0](../../../servers/server_0.md) | petstore server
+1 | [Server1](../../../servers/server_1.md) | The local server
+2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+
 ## Code Sample
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
 # security_index 0
@@ -147,17 +163,14 @@ from petstore_api.components.security_schemes import security_scheme_bearer_test
 
 
 # auth_info for security_index 0
-auth_info: configuration.AuthInfo = {
+auth_info: api_configuration.AuthInfo = {
     "bearer_test": security_scheme_bearer_test.BearerTest(
         access_token='someAccessToken'
     ),
 }
 
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-    auth_info = auth_info
+used_configuration = api_configuration.ApiConfiguration(
+    auth_info=auth_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

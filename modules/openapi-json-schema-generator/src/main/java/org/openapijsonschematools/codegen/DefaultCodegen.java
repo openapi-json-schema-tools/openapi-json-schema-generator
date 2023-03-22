@@ -26,6 +26,8 @@ import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
@@ -48,6 +50,7 @@ import org.openapijsonschematools.codegen.model.CodegenOauthFlow;
 import org.openapijsonschematools.codegen.model.CodegenOauthFlows;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRefInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
@@ -56,11 +59,9 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.CodegenServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -200,21 +201,13 @@ public class DefaultCodegen implements CodegenConfig {
     protected String packageName = "src.main.java";
 
     protected String docsFolder = "docs";
-    /*
-    apiTemplateFiles are for API outputs only (controllers/handlers).
-    API templates may be written multiple times; APIs are grouped by tag and the file is written once per tag group.
-    */
-    protected Map<String, String> apiTemplateFiles = new HashMap<>();
-    protected Map<String, String> apiXToApiTemplateFiles = new HashMap<>();
+    // for writing api files
+    protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles = new HashMap<>();
     // for writing doc files
-    protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
-    // for writing code files
-    protected Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles = new HashMap<>();
-    protected Set<String> pathEndpointDocTemplateFiles = new HashSet<>();
+    protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
-    protected Map<String, String> apiDocTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -224,7 +217,6 @@ public class DefaultCodegen implements CodegenConfig {
     /*
     Supporting files are those which aren't models, APIs, or docs.
     These get a different map of data bound to the templates. Supporting files are written once.
-    See also 'apiTemplateFiles'.
     */
     protected List<SupportingFile> supportingFiles = new ArrayList<>();
     protected List<CliOption> cliOptions = new ArrayList<>();
@@ -608,13 +600,6 @@ public class DefaultCodegen implements CodegenConfig {
     // override with any special post-processing
     @Override
     @SuppressWarnings("static-method")
-    public OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas) {
-        return operations;
-    }
-
-    // override with any special post-processing
-    @Override
-    @SuppressWarnings("static-method")
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
         return data;
     }
@@ -625,10 +610,28 @@ public class DefaultCodegen implements CodegenConfig {
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
     }
 
+    private void preprocessOpenAPIPaths(Paths paths) {
+        if (paths == null) {
+            return;
+        }
+        Set<String> pathsToFix = new HashSet<>();
+        for (String path: paths.keySet()) {
+            if (!path.startsWith("/")) {
+                pathsToFix.add(path);
+            }
+        }
+        for(String path: pathsToFix) {
+            LOGGER.warn("Per the openapi spec, paths must begin with a slash; adding a slash onto " + path);
+            PathItem pathItem = paths.remove(path);
+            paths.put("/" + path, pathItem);
+        }
+    }
+
     //override with any special handling of the entire OpenAPI spec document
     @Override
     @SuppressWarnings("unused")
     public void preprocessOpenAPI(OpenAPI openAPI) {
+        preprocessOpenAPIPaths(openAPI.getPaths());
     }
 
     // override with any special handling of the entire OpenAPI spec document
@@ -800,11 +803,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<String, String> apiDocTemplateFiles() {
-        return apiDocTemplateFiles;
-    }
-
-    @Override
     public Map<String, String> reservedWordsMappings() {
         return reservedWordsMappings;
     }
@@ -820,25 +818,14 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public Map<String, String> apiTemplateFiles() {
-        return apiTemplateFiles;
-    }
-
-    @Override
-    public Map<String, String> apiXToApiTemplateFiles() { return apiXToApiTemplateFiles; }
-
-    @Override
-    public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles() {
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
         return jsonPathTemplateFiles;
     }
 
     @Override
-    public Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles() {
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles() {
         return jsonPathDocTemplateFiles;
     }
-
-    @Override
-    public Set<String> pathEndpointDocTemplateFiles() { return pathEndpointDocTemplateFiles; }
 
     @Override
     public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
@@ -1087,6 +1074,15 @@ public class DefaultCodegen implements CodegenConfig {
         return toModuleFilename(basename);
     }
 
+    @Override
+    public String toServerFilename(String basename) {
+        return toModuleFilename(basename);
+    }
+
+    @Override
+    public String getCamelCaseServer(String basename) {
+        return toModelName(basename);
+    }
 
     public String getCamelCaseParameter(String basename) {
         return toModelName(basename);
@@ -1457,12 +1453,12 @@ public class DefaultCodegen implements CodegenConfig {
      * @return string presentation of the default value of the property
      */
     @SuppressWarnings("static-method")
-    public String toDefaultValue(Schema schema) {
+    public EnumValue toDefaultValue(Schema schema) {
         if (schema.getDefault() != null) {
-            return schema.getDefault().toString();
+            return getEnumValue(schema.getDefault(), null);
         }
 
-        return getPropertyDefaultValue(schema);
+        return null;
     }
 
     /**
@@ -1493,16 +1489,6 @@ public class DefaultCodegen implements CodegenConfig {
         } else {
             return "null";
         }
-    }
-
-    protected Schema<?> getSchemaItems(ArraySchema schema) {
-        Schema<?> items = schema.getItems();
-        if (items == null) {
-            LOGGER.error("Undefined array inner type for `{}`. Default to String.", schema.getName());
-            items = new StringSchema().description("TODO default missing array inner type to string");
-            schema.setItems(items);
-        }
-        return items;
     }
 
     /**
@@ -1583,6 +1569,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
@@ -2432,17 +2419,12 @@ public class DefaultCodegen implements CodegenConfig {
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
-     * @param httpMethod HTTP method
      * @param operation  OAS operation object
-     * @param path       the path of the operation
-     * @param servers    list of servers
+     * @param jsonPath   the json path of the operation
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(String path,
-                                          String httpMethod,
-                                          Operation operation,
-                                          List<Server> servers) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2453,53 +2435,35 @@ public class DefaultCodegen implements CodegenConfig {
             vendorExtensions = new HashMap<>(operation.getExtensions());
         }
 
-        // servers setting
-        List<CodegenServer> codegenServers = null;
-        if (operation.getServers() != null && !operation.getServers().isEmpty()) {
-            // use operation-level servers first if defined
-            codegenServers = fromServers(operation.getServers());
-        } else if (servers != null && !servers.isEmpty()) {
-            // use path-level servers
-            codegenServers = fromServers(servers);
-        }
-
         // tags
         List<String> operationTagNames = operation.getTags();
         Map<String, CodegenTag> tags = new HashMap<>();
         if (operationTagNames != null) {
             for (String tagName: operationTagNames) {
-                CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
+                CodegenTag codegenTag = fromTag(tagName, null);
                 tags.put(tagName, codegenTag);
             }
         } else {
             String tagName = "default";
-            CodegenTag codegenTag = new CodegenTag(tagName, toApiFilename(tagName), toApiName(tagName));
+            CodegenTag codegenTag = fromTag(tagName, "operations that lack tags are assigned this default tag");
             tags.put(tagName, codegenTag);
         }
 
+        String[] pathPieces = jsonPath.split("/");
+        String httpMethod = pathPieces[pathPieces.length-1];
+        String path = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
-        String usedPath;
-        if (isStrictSpecBehavior() && !path.startsWith("/")) {
-            // modifies an operation.path to strictly conform to OpenAPI Spec
-            usedPath = "/" + path;
-        } else {
-            usedPath = path;
+        // servers setting
+        List<CodegenServer> codegenServers = null;
+        if (operation.getServers() != null && !operation.getServers().isEmpty()) {
+            // use operation-level servers first if defined
+            codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
-        String camelCase = toModelName(path);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
-        CodegenKey pathKey = new CodegenKey(
-                usedPath,
-                false,  // false because paths have lots of invalid characters
-                toPathFilename(path),
-                camelCase,
-                anchorPiece
-        );
-        String sourceJsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original) + "/" + httpMethod;
 
         String summary = escapeText(operation.getSummary());
-        String unescapedNotes = operation.getDescription();
-        String notes = escapeText(operation.getDescription());
+        String unescapedDescription = operation.getDescription();
+        String description = escapeText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
@@ -2521,7 +2485,7 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     produces.addAll(responseProduces);
                 }
-                String usedSourceJsonPath = sourceJsonPath + "/responses/" + key;
+                String usedSourceJsonPath = jsonPath + "/responses/" + key;
                 CodegenResponse r = fromResponse(response, usedSourceJsonPath);
 
                 responses.put(key, r);
@@ -2578,14 +2542,14 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         List<CodegenCallback> callbacks = null;
-        if (operation.getCallbacks() != null && !operation.getCallbacks().isEmpty()) {
-            List<CodegenCallback> foundCallbacks = new ArrayList<>();
-            operation.getCallbacks().forEach((name, callback) -> {
-                CodegenCallback c = fromCallback(name, callback, servers);
-                foundCallbacks.add(c);
-            });
-            callbacks = foundCallbacks;
-        }
+//        if (operation.getCallbacks() != null && !operation.getCallbacks().isEmpty()) {
+//            List<CodegenCallback> foundCallbacks = new ArrayList<>();
+//            operation.getCallbacks().forEach((name, callback) -> {
+//                CodegenCallback c = fromCallback(name, callback, servers);
+//                foundCallbacks.add(c);
+//            });
+//            callbacks = foundCallbacks;
+//        }
 
         List<Parameter> parameters = operation.getParameters();
         List<CodegenParameter> allParams = new ArrayList<>();
@@ -2599,7 +2563,7 @@ public class DefaultCodegen implements CodegenConfig {
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
         if (opRequestBody != null) {
-            requestBody = fromRequestBody(opRequestBody, sourceJsonPath + "/requestBody");
+            requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
             if (requestBody.refInfo != null) {
                 if (Boolean.TRUE.equals(requestBody.getDeepestRef().required)) {
                     hasRequiredParamOrBody = true;
@@ -2618,7 +2582,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (parameters != null) {
             int i = 0;
             for (Parameter param : parameters) {
-                String usedSourceJsonPath = sourceJsonPath + "/parameters/" + i;
+                String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
                 allParams.add(p);
                 i++;
@@ -2664,16 +2628,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        String camelCaseMethod = org.openapijsonschematools.codegen.utils.StringUtils.camelize(httpMethod);
-        String anchorPieceMethod = camelCase.toLowerCase(Locale.ROOT);
-        CodegenKey httpMethodKey = new CodegenKey(
-                httpMethod,
-                true,
-                org.openapijsonschematools.codegen.utils.StringUtils.underscore(httpMethod),
-                camelCaseMethod,
-                anchorPieceMethod
-        );
-
         // move "required" parameters in front of "optional" parameters
         if (sortParamsByRequiredFlag) {
             allParams.sort((one, another) -> {
@@ -2690,20 +2644,19 @@ public class DefaultCodegen implements CodegenConfig {
         if (securities != null && !securities.isEmpty()) {
             security = new ArrayList<>();
             for (SecurityRequirement originalSecurityRequirement: securities) {
-                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, sourceJsonPath + "/security");
+                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, jsonPath + "/security");
                 security.add(securityRequirement);
             }
         }
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
         return new CodegenOperation(
                 deprecated,
                 hasErrorResponseObject,
                 summary,
-                unescapedNotes,
-                notes,
-                httpMethodKey,
-                pathKey,
+                unescapedDescription,
+                description,
                 produces,
                 codegenServers,
                 requestBody,
@@ -2724,7 +2677,8 @@ public class DefaultCodegen implements CodegenConfig {
                 callbacks,
                 externalDocs,
                 vendorExtensions,
-                operationId);
+                operationId,
+                jsonPathPiece);
     }
 
     /**
@@ -2842,7 +2796,8 @@ public class DefaultCodegen implements CodegenConfig {
                         // distinguish between normal operations and callback requests
                         op.getExtensions().put("x-callback-request", true);
 
-                        CodegenOperation co = fromOperation(expression, method, op, servers);
+                        // CodegenOperation co = fromOperation(expression, method, op, servers);
+                        CodegenOperation co = null;
                         u.requests.add(co);
                     });
 
@@ -2850,6 +2805,16 @@ public class DefaultCodegen implements CodegenConfig {
         });
 
         return c;
+    }
+
+    public CodegenTag fromTag(String name, String description) {
+        CodegenTag tag = codegenTagCache.getOrDefault(name, null);
+        if (tag != null) {
+            return tag;
+        }
+        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), description);
+        codegenTagCache.put(name, tag);
+        return tag;
     }
 
     public CodegenHeader fromHeader(Header header, String sourceJsonPath) {
@@ -3387,12 +3352,6 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String apiFilename(String templateName, String tag) {
-        String suffix = apiTemplateFiles().get(templateName);
-        return apiFileFolder() + File.separatorChar + toApiFilename(tag) + suffix;
-    }
-
-    @Override
     public String modelPackagePathFragment() {
         return modelPackage.replace('.', File.separatorChar);
     }
@@ -3476,11 +3435,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length < 4) {
             return;
         }
-        Set<String> httpVerbs = new HashSet<>(Arrays.asList("get", "put", "post", "delete", "options", "head", "patch", "trace"));
         String requestBodyIdentifier = "request_body";
-        if (!httpVerbs.contains(pathPieces[3])) {
-            return;
-        }
         if (pathPieces.length < 5) {
             return;
         }
@@ -3488,10 +3443,17 @@ public class DefaultCodegen implements CodegenConfig {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
         }
+        if (pathPieces[3].equals("servers")) {
+            // #/paths/somePath/servers/someServer
+            pathPieces[4] = toServerFilename(pathPieces[4]);
+        }
         if (pathPieces.length < 6) {
             return;
         }
-        if (pathPieces[4].equals("responses")) {
+        if (pathPieces[4].equals("servers")) {
+            // #/paths/somePath/get/servers/someServer
+            pathPieces[5] = toServerFilename(pathPieces[5]);
+        } else if (pathPieces[4].equals("responses")) {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             pathPieces[5] = toResponseModuleName(pathPieces[5]);
 
@@ -3530,6 +3492,30 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
+    private void updateServersFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+        pathPieces[2] = toServerFilename(pathPieces[2]);
+    }
+
+    private void updateApisFilepath(String[] pathPieces) {
+        // #/apis
+        // #/apis/tags
+        // #/apis/tags/someTag
+        // #/apis/paths
+        // #/apis/paths/somePath
+        pathPieces[1] = apiPackage.replace('.', File.separatorChar);
+        if (pathPieces.length < 4) {
+            return;
+        }
+        if (pathPieces[2].equals("tags")) {
+            pathPieces[3] = toApiFilename(pathPieces[3]);
+        } else if (pathPieces[2].equals("paths")) {
+            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]));
+        }
+    }
+
     @Override
     public String getFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
@@ -3538,6 +3524,11 @@ public class DefaultCodegen implements CodegenConfig {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)
@@ -3553,25 +3544,16 @@ public class DefaultCodegen implements CodegenConfig {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
-    }
-
-    /**
-     * Return the full path and API documentation file
-     *
-     * @param templateName template name
-     * @param tag          tag
-     * @return the API documentation file name with full path
-     */
-    @Override
-    public String apiDocFilename(String templateName, String tag) {
-        String docExtension = getDocExtension();
-        String suffix = docExtension != null ? docExtension : apiDocTemplateFiles().get(templateName);
-        return apiDocFileFolder() + File.separator + toApiDocFilename(tag) + suffix;
     }
 
     /**
@@ -4319,6 +4301,11 @@ public class DefaultCodegen implements CodegenConfig {
             case "securitySchemes":
                 snakeCaseName = toSecuritySchemeFilename(usedKey);
                 camelCaseName = toModelName(usedKey);
+                break;
+            case "servers":
+                snakeCaseName = toServerFilename(usedKey);
+                camelCaseName = getCamelCaseServer(usedKey);
+                break;
         }
         if (camelCaseName != null) {
             anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
@@ -4332,6 +4319,7 @@ public class DefaultCodegen implements CodegenConfig {
         );
     }
 
+    @Override
     public CodegenKey getKey(String key) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
@@ -4429,58 +4417,133 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public List<CodegenServer> fromServers(List<Server> servers) {
+    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths){
+        if (paths == null) {
+            return null;
+        }
+        String jsonPath = "#/paths/";
+        TreeMap<CodegenKey, CodegenPathItem> codegenPaths = new TreeMap<>();
+        for (Map.Entry<String, PathItem> entry: paths.entrySet()) {
+            String path = entry.getKey();
+            PathItem pathItem = entry.getValue();
+            String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
+            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
+            CodegenKey pathKey = getKey(path);
+            codegenPaths.put(pathKey, codegenPathItem);
+        }
+        // sort them
+        codegenPaths = new TreeMap<>(codegenPaths);
+        return codegenPaths;
+    }
+
+    @Override
+    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
+        String summary = pathItem.getSummary();
+        String description = pathItem.getDescription();
+        TreeMap<CodegenKey, CodegenOperation> operations = new TreeMap<>();
+        Operation specOperation = pathItem.getGet();
+        String httpMethod = "get";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPut();
+        httpMethod = "put";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPost();
+        httpMethod = "post";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getDelete();
+        httpMethod = "delete";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getOptions();
+        httpMethod = "options";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getHead();
+        httpMethod = "head";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getPatch();
+        httpMethod = "patch";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        specOperation = pathItem.getTrace();
+        httpMethod = "trace";
+        if (specOperation != null) {
+            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+        }
+        if (operations != null)
+            // sort them
+            operations = new TreeMap<>(operations);
+        List<Server> specServers = pathItem.getServers();
+        List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
+
+        return new CodegenPathItem(
+                summary,
+                description,
+                operations,
+                servers,
+                null
+        );
+    }
+
+    @Override
+    public List<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
-            return Collections.emptyList();
+            return null;
         }
         List<CodegenServer> codegenServers = new LinkedList<>();
+        int i = 0;
+        boolean rootServer = jsonPath.equals("#/servers");
         for (Server server : servers) {
+            String serverJsonPath = jsonPath + "/" + i;
+            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 escapeText(server.getDescription()),
-                fromServerVariables(server.getVariables())
+                fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
+                jsonPathPiece,
+                rootServer
             );
             codegenServers.add(cs);
+            i ++;
         }
         return codegenServers;
     }
 
     @Override
-    public List<CodegenServerVariable> fromServerVariables(Map<String, ServerVariable> variables) {
-        if (variables == null) {
-            return Collections.emptyList();
+    public LinkedHashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
+        if (serverVariables == null) {
+            return null;
         }
 
-        Map<String, String> variableOverrides = serverVariableOverrides();
-
-        List<CodegenServerVariable> codegenServerVariables = new LinkedList<>();
-        for (Entry<String, ServerVariable> variableEntry : variables.entrySet()) {
-            ServerVariable variable = variableEntry.getValue();
-            List<String> enums = variable.getEnum();
-            // Sets the override value for a server variable pattern.
-            // NOTE: OpenAPI Specification doesn't prevent multiple server URLs with variables. If multiple objects have the same
-            //       variables pattern, user overrides will apply to _all_ of these patterns. We may want to consider indexed overrides.
-            String value;
-            if (variableOverrides != null && !variableOverrides.isEmpty()) {
-                value = variableOverrides.getOrDefault(variableEntry.getKey(), variable.getDefault());
-
-                if (enums != null && !enums.isEmpty() && !enums.contains(value)) {
-                    if (LOGGER.isWarnEnabled()) { // prevents calculating StringUtils.join when debug isn't enabled
-                        LOGGER.warn("Variable override of '{}' is not listed in the enum of allowed values ({}).", value, StringUtils.join(enums, ","));
-                    }
-                }
-            } else {
-                value = variable.getDefault();
+        LinkedHashMap<CodegenKey, CodegenSchema> variables = new LinkedHashMap<>();
+        for (Entry<String, ServerVariable> entry: serverVariables.entrySet()) {
+            String variableName = entry.getKey();
+            ServerVariable variable = entry.getValue();
+            StringSchema schema = new StringSchema();
+            if (variable.getDescription() != null) {
+                schema.setDescription(variable.getDescription());
             }
-            CodegenServerVariable codegenServerVariable = new CodegenServerVariable(
-                    variableEntry.getKey(),
-                    variable.getDefault(),
-                    escapeText(variable.getDescription()),
-                    enums
-            );
-            codegenServerVariables.add(codegenServerVariable);
+            schema.setDefault(variable.getDefault());
+            if (variable.getEnum() != null) {
+                schema.setEnum(variable.getEnum());
+            }
+            String schemaJsonPath = jsonPath + "/" + variableName;
+            CodegenSchema codegenSchema = fromSchema(schema, jsonPath, schemaJsonPath);
+            CodegenKey key = getKey(variableName);
+            variables.put(key, codegenSchema);
         }
-        return codegenServerVariables;
+        return variables;
     }
 
     /**

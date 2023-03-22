@@ -20,8 +20,6 @@ package org.openapijsonschematools.codegen.languages;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
@@ -32,8 +30,6 @@ import org.openapijsonschematools.codegen.languages.features.PerformBeanValidati
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -448,7 +444,9 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             jsonPathDocTemplateFiles.get(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
             ).remove("model_doc.mustache");
-            apiDocTemplateFiles.remove("api_doc.mustache");
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
+            ).remove("api_doc.mustache");
             //Templates to decode response headers
             supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));
             supportingFiles.add(new SupportingFile("ApiResponseDecoder.mustache", invokerFolder, "ApiResponseDecoder.java"));
@@ -557,8 +555,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             typeMapping.put("file", "AsyncFile");
             importMapping.put("AsyncFile", "io.vertx.core.file.AsyncFile");
             forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-            apiTemplateFiles.put("apiImpl.mustache", "Impl.java");
-            apiTemplateFiles.put("rxApiImpl.mustache", ".java");
             supportingFiles.remove(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml"));
         } else if (GOOGLE_API_CLIENT.equals(getLibrary())) {
             forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
@@ -576,7 +572,12 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             }
             supportingFiles.add(new SupportingFile("Oper.mustache", apiFolder, "Oper.java"));
             additionalProperties.put("convert", new CaseFormatLambda(LOWER_CAMEL, UPPER_UNDERSCORE));
-            apiTemplateFiles.put("api.mustache", ".java");
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER,
+                    new HashMap<String, String>() {{
+                        put("api.mustache", ".java");
+                    }}
+            );
             supportingFiles.add(new SupportingFile("ResponseSpecBuilders.mustache", invokerFolder, "ResponseSpecBuilders.java"));
         } else if (MICROPROFILE.equals(getLibrary())) {
             supportingFiles.clear(); // Don't need extra files provided by Java Codegen
@@ -613,9 +614,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                     iter.remove();
                 }
             }
-
-            apiTemplateFiles.remove("api.mustache");
-            apiTemplateFiles.put("play26/api.mustache", ".java");
 
             supportingFiles.add(new SupportingFile("play26/ApiClient.mustache", invokerFolder, "ApiClient.java"));
             supportingFiles.add(new SupportingFile("play26/Play26CallFactory.mustache", invokerFolder, "Play26CallFactory.java"));
@@ -679,68 +677,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                 supportingFiles.add(new SupportingFile("auth/OauthClientCredentialsGrant.mustache", authFolder, "OauthClientCredentialsGrant.java"));
                 supportingFiles.add(new SupportingFile("auth/ApiErrorDecoder.mustache", authFolder, "ApiErrorDecoder.java"));
             }
-        }
-    }
-
-    @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        super.postProcessOperationsWithModels(objs, allModels);
-
-        if (useSingleRequestParameter && (JERSEY2.equals(getLibrary()) || JERSEY3.equals(getLibrary()) || OKHTTP_GSON.equals(getLibrary()))) {
-            // loop through operations to set x-group-parameters extenion to true if useSingleRequestParameter option is enabled
-            OperationMap operations = objs.getOperations();
-            if (operations != null) {
-                List<CodegenOperation> ops = operations.getOperation();
-                for (CodegenOperation operation : ops) {
-                    if (!operation.vendorExtensions.containsKey("x-group-parameters")) {
-                        operation.vendorExtensions.put("x-group-parameters", true);
-                    }
-                }
-            }
-        }
-
-        if (RETROFIT_2.equals(getLibrary())) {
-            OperationMap operations = objs.getOperations();
-            if (operations != null) {
-                List<CodegenOperation> ops = operations.getOperation();
-                for (CodegenOperation operation : ops) {
-                    // sorting operation parameters to make sure path params are parsed before query params
-                    if (operation.allParams != null) {
-                        sort(operation.allParams, new Comparator<CodegenParameter>() {
-                            @Override
-                            public int compare(CodegenParameter one, CodegenParameter another) {
-                                if (one.in.equals("path") && another.in.equals("query")) {
-                                    return -1;
-                                }
-                                if (one.in.equals("query") && another.in.equals("path")) {
-                                    return 1;
-                                }
-                                return 0;
-                            }
-                        });
-                    }
-                }
-            }
-        }
-
-        if (MICROPROFILE.equals(getLibrary())) {
-            objs = AbstractJavaJAXRSServerCodegen.jaxrsPostProcessOperations(objs);
-        }
-
-        return objs;
-    }
-
-    @Override
-    public String apiFilename(String templateName, String tag) {
-        if (VERTX.equals(getLibrary())) {
-            String suffix = apiTemplateFiles().get(templateName);
-            String subFolder = "";
-            if (templateName.startsWith("rx")) {
-                subFolder = "/rxjava";
-            }
-            return apiFileFolder() + subFolder + '/' + toApiFilename(tag) + suffix;
-        } else {
-            return super.apiFilename(templateName, tag);
         }
     }
 

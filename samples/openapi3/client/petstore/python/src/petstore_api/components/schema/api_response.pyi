@@ -98,7 +98,7 @@ class ApiResponse(
         code: typing.Union[Schema_.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
         message: typing.Union[Schema_.Properties.Message, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'ApiResponse':
         return super().__new__(

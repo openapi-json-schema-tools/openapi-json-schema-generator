@@ -1,17 +1,31 @@
 package org.openapijsonschematools.codegen.model;
 
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class CodegenServer {
     public final String url;
+    public final String defaultUrl;
     public final String description;
-    public final List<CodegenServerVariable> variables;
+    public final LinkedHashMap<CodegenKey, CodegenSchema> variables;
+    public final CodegenKey jsonPathPiece;
+    public final boolean rootServer;
 
-    public CodegenServer(String url, String description, List<CodegenServerVariable> variables) {
+    public CodegenServer(String url, String description, LinkedHashMap<CodegenKey, CodegenSchema> variables, CodegenKey jsonPathPiece, boolean rootServer) {
         this.url = url;
         this.description = description;
         this.variables = variables;
+        this.jsonPathPiece = jsonPathPiece;
+        this.rootServer = rootServer;
+        if (this.variables == null) {
+            this.defaultUrl = url;
+        } else {
+            String defaultUrl = url;
+            for (CodegenSchema variable: variables.values()) {
+                defaultUrl = defaultUrl.replace("{" + variable.jsonPathPiece.original + "}", (String) variable.defaultValue.value);
+            }
+            this.defaultUrl = defaultUrl;
+        }
     }
 
     @Override
@@ -21,13 +35,15 @@ public class CodegenServer {
         CodegenServer that = (CodegenServer) o;
         return Objects.equals(url, that.url) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(variables, that.variables);
+                Objects.equals(variables, that.variables) &&
+                Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
+                Objects.equals(rootServer, that.rootServer) &&
+                Objects.equals(defaultUrl, that.defaultUrl);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(url, description, variables);
+        return Objects.hash(url, description, variables, jsonPathPiece, rootServer, defaultUrl);
     }
 
     @Override
@@ -36,6 +52,9 @@ public class CodegenServer {
         sb.append("url='").append(url).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", variables=").append(variables);
+        sb.append(", jsonPathPiece=").append(jsonPathPiece);
+        sb.append(", rootServer=").append(rootServer);
+        sb.append(", defaultUrl=").append(defaultUrl);
         sb.append('}');
         return sb.toString();
     }

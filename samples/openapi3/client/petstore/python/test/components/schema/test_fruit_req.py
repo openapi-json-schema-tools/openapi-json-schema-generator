@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.fruit_req import FruitReq
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestFruitReq(unittest.TestCase):
     """FruitReq unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

@@ -74,7 +74,7 @@ def __new__(
         {{/if}}
     {{/if}}
 {{/each}}
-    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
 {{#with additionalProperties}}
     {{#unless isBooleanSchemaFalse}}
         {{#if refInfo.refClass}}

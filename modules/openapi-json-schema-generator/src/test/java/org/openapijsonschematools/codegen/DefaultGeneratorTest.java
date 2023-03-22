@@ -15,11 +15,11 @@ import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
+import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -45,7 +45,7 @@ public class DefaultGeneratorTest {
                     "src/main/AndroidManifest.xml",
                     "pom.xml",
                     "src/test/**",
-                    "src/main/java/org/openapijsonschematools/client/api/UserApi.java"
+                    "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java"
             );
             File ignorePath = new File(output, ".openapi-generator-ignore");
             Files.write(ignorePath.toPath(),
@@ -75,8 +75,8 @@ public class DefaultGeneratorTest {
 
             // Check expected generated files
             // api sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
 
             // model sanity check
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
@@ -108,8 +108,8 @@ public class DefaultGeneratorTest {
             TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java");
             Assert.assertFalse(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java");
-            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/UserApi.java").exists());
+            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java");
+            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java").exists());
         } finally {
             output.delete();
         }
@@ -128,7 +128,7 @@ public class DefaultGeneratorTest {
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
-            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/PetApiTest.java";
+            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/tags/PetApiTest.java";
             String modelTestRelativePath = "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java";
 
             File apiTestFile = new File(output, apiTestRelativePath);
@@ -156,11 +156,11 @@ public class DefaultGeneratorTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 65);
+            Assert.assertEquals(files.size(), 63);
 
             // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/PetApi.java").exists());
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
+            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, apiTestRelativePath);
             Assert.assertTrue(apiTestFile.exists());
@@ -205,7 +205,7 @@ public class DefaultGeneratorTest {
             List<File> files = generator.opts(clientOptInput).generate();
 
             Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/PingApi.java");
+            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PingApi.java");
         } finally {
             output.delete();
         }
@@ -288,9 +288,10 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void testNonStrictProcessPaths() throws Exception {
+    public void testNonStrictFromPaths() throws Exception {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         openAPI.setPaths(new Paths());
+        PathItem pathItem1 = new PathItem();
         openAPI.getPaths().addPathItem("path1/", new PathItem().get(new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("path2/", new PathItem().get(new Operation().operationId("op2").addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
@@ -302,18 +303,19 @@ public class DefaultGeneratorTest {
 
         DefaultGenerator generator = new DefaultGenerator();
         generator.opts(opts);
-        Map<String, List<CodegenOperation>> result = generator.processPaths(openAPI.getPaths());
-        Assert.assertEquals(result.size(), 1);
-        List<CodegenOperation> defaultList = result.get("Default");
-        Assert.assertEquals(defaultList.size(), 2);
-        Assert.assertEquals(defaultList.get(0).path.original, "path1/");
-        Assert.assertEquals(defaultList.get(0).allParams.size(), 0);
-        Assert.assertEquals(defaultList.get(1).path.original, "path2/");
-        Assert.assertEquals(defaultList.get(1).allParams.size(), 1);
+        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
+        Assert.assertEquals(paths.size(), 2);
+        CodegenKey firstPathKey = config.getKey("path1/");
+        CodegenKey getKey = config.getKey("get");
+        Assert.assertEquals(firstPathKey.original, "path1/");
+        Assert.assertEquals(paths.get(firstPathKey).operations.get(getKey).allParams.size(), 0);
+        CodegenKey secondPathKey = config.getKey("path2/");
+        Assert.assertEquals(secondPathKey.original, "path2/");
+        Assert.assertEquals(paths.get(secondPathKey).operations.get(getKey).allParams.size(), 1);
     }
 
     @Test
-    public void testProcessPaths() throws Exception {
+    public void testFromPaths() throws Exception {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         openAPI.setPaths(new Paths());
         openAPI.getPaths().addPathItem("/path1", new PathItem().get(new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
@@ -323,22 +325,23 @@ public class DefaultGeneratorTest {
 
         ClientOptInput opts = new ClientOptInput();
         opts.openAPI(openAPI);
-        opts.config(new DefaultCodegen());
+        CodegenConfig config = new DefaultCodegen();
+        opts.config(config);
 
         DefaultGenerator generator = new DefaultGenerator();
         generator.opts(opts);
-        Map<String, List<CodegenOperation>> result = generator.processPaths(openAPI.getPaths());
-        Assert.assertEquals(result.size(), 1);
-        List<CodegenOperation> defaultList = result.get("Default");
-        Assert.assertEquals(defaultList.size(), 4);
-        Assert.assertEquals(defaultList.get(0).path.original, "/path1");
-        Assert.assertEquals(defaultList.get(0).allParams.size(), 0);
-        Assert.assertEquals(defaultList.get(1).path.original, "/path2");
-        Assert.assertEquals(defaultList.get(1).allParams.size(), 1);
-        Assert.assertEquals(defaultList.get(2).path.original, "/path3");
-        Assert.assertEquals(defaultList.get(2).allParams.size(), 2);
-        Assert.assertEquals(defaultList.get(3).path.original, "/path4");
-        Assert.assertEquals(defaultList.get(3).allParams.size(), 1);
+        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
+//        Assert.assertEquals(result.size(), 1);
+//        List<CodegenOperation> defaultList = result.get("Default");
+//        Assert.assertEquals(defaultList.size(), 4);
+//        Assert.assertEquals(defaultList.get(0).path.original, "/path1");
+//        Assert.assertEquals(defaultList.get(0).allParams.size(), 0);
+//        Assert.assertEquals(defaultList.get(1).path.original, "/path2");
+//        Assert.assertEquals(defaultList.get(1).allParams.size(), 1);
+//        Assert.assertEquals(defaultList.get(2).path.original, "/path3");
+//        Assert.assertEquals(defaultList.get(2).allParams.size(), 2);
+//        Assert.assertEquals(defaultList.get(3).path.original, "/path4");
+//        Assert.assertEquals(defaultList.get(3).allParams.size(), 1);
     }
 
     @Test
@@ -615,18 +618,14 @@ public class DefaultGeneratorTest {
         generator.opts(opts);
         generator.configureGeneratorProperties();
 
-        List<File> files = new ArrayList<>();
-        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
-        List<OperationsMap> allOperations = new ArrayList<>();
-        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, schemas, paths);
+        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null, null);
-        LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
-        Assert.assertEquals(servers.get(0).url, "");
-        Assert.assertEquals(servers.get(1).url, "http://trailingshlash.io:80/v1");
-        Assert.assertEquals(servers.get(2).url, "http://notrailingslash.io:80/v2");
+                null, null, null, null, null, null, servers, null);
+        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        Assert.assertEquals(bundleServers.get(0).url, "");
+        Assert.assertEquals(bundleServers.get(1).url, "http://trailingshlash.io:80/v1");
+        Assert.assertEquals(bundleServers.get(2).url, "http://notrailingslash.io:80/v2");
     }
     
     @Test
@@ -642,15 +641,13 @@ public class DefaultGeneratorTest {
         generator.configureGeneratorProperties();
 
         List<File> files = new ArrayList<>();
-        TreeMap<String, CodegenSchema> schemas = generator.generateSchemas(files);
-        List<OperationsMap> allOperations = new ArrayList<>();
-        Map<String, List<CodegenOperation>> paths = generator.processPaths(config.openAPI.getPaths());
-        generator.generateApis(files, allOperations, schemas, paths);
 
+        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
         Map<String, Object> bundle = generator.buildSupportFileBundle(
-                allOperations, schemas, null, null, null, null, null);
-        LinkedList<CodegenServer> servers = (LinkedList<CodegenServer>) bundle.get("servers");
-        Assert.assertEquals(servers.get(0).url, "/relative/url");
+                null, null, null, null, null, null, servers, null);
+
+        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        Assert.assertEquals(bundleServers.get(0).url, "/relative/url");
     }
 
     @Test

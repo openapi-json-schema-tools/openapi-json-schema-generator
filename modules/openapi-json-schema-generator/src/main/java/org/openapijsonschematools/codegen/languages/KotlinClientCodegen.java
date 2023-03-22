@@ -40,8 +40,6 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -178,19 +176,27 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         outputFolder = "generated-code" + File.separator + "kotlin-client";
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model.mustache", ".kt")
+                new HashMap<String, String>() {{
+                    put("model.mustache", ".kt");
+                }}
         );
         if (generateRoomModels) {
             jsonPathTemplateFiles.get(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA).put(
                 "model_room.mustache", ".kt"
             );
         }
-        apiTemplateFiles.put("api.mustache", ".kt");
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model_doc.mustache", ".md")
+                new HashMap<String, String>() {{
+                    put("model_doc.mustache", ".md");
+                }}
         );
-        apiDocTemplateFiles.put("api_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api_doc.mustache", ".md");
+                }}
+        );
         embeddedTemplateDir = templateDir = "kotlin-client";
         apiPackage = packageName + ".apis";
         modelPackage = packageName + ".models";
@@ -795,51 +801,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
     private boolean usesRetrofit2Library() {
         return getLibrary() != null && getLibrary().contains(JVM_RETROFIT2);
-    }
-
-    @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        super.postProcessOperationsWithModels(objs, allModels);
-        OperationMap operations = objs.getOperations();
-        if (operations != null) {
-            List<CodegenOperation> ops = operations.getOperation();
-            for (CodegenOperation operation : ops) {
-
-                if (JVM_OKHTTP.equals(getLibrary()) || JVM_OKHTTP3.equals(getLibrary()) || JVM_OKHTTP4.equals(getLibrary())) {
-                    // Ideally we would do content negotiation to choose the best mediatype, but that would be a next step.
-                    // For now we take the first mediatype we can parse and send that.
-                    Predicate<Map<String, String>> isSerializable = typeMapping -> {
-                        String mediaTypeValue = typeMapping.get("mediaType");
-                        if (mediaTypeValue == null)
-                            return false;
-                        // match on first part in mediaTypes like 'application/json; charset=utf-8'
-                        int endIndex = mediaTypeValue.indexOf(';');
-                        String mediaType = (endIndex == -1
-                            ? mediaTypeValue
-                            : mediaTypeValue.substring(0, endIndex)
-                        ).trim();
-                        return "multipart/form-data".equals(mediaType)
-                            || "application/x-www-form-urlencoded".equals(mediaType)
-                            || (mediaType.startsWith("application/") && mediaType.endsWith("json"));
-                    };
-                }
-
-                // sorting operation parameters to make sure path params are parsed before query params
-                if (operation.allParams != null) {
-                    sort(operation.allParams, (one, another) -> {
-                        if (one.in.equals("path") && another.in.equals("query")) {
-                            return -1;
-                        }
-                        if (one.in.equals("query") && another.in.equals("path")) {
-                            return 1;
-                        }
-
-                        return 0;
-                    });
-                }
-            }
-        }
-        return objs;
     }
 
     private static boolean isMultipartType(List<Map<String, String>> consumes) {

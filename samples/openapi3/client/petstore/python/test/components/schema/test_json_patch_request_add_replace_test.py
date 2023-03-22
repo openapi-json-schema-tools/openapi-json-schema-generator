@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestJSONPatchRequestAddReplaceTest(unittest.TestCase):
     """JSONPatchRequestAddReplaceTest unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

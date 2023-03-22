@@ -23,7 +23,8 @@ from petstore_api.components.schema.danish_pig import DanishPig
 from petstore_api.components.schema.gm_fruit import GmFruit
 from petstore_api.components.schema.apple import Apple
 from petstore_api.components.schema.banana import Banana
-from petstore_api import schemas, configuration
+from petstore_api import schemas
+from petstore_api.configurations import schema_configuration
 
 from petstore_api.schemas import (
     AnyTypeSchema,
@@ -38,36 +39,36 @@ from petstore_api.schemas import (
 
 class TestValidateResults(unittest.TestCase):
     def test_str_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = StringWithValidation._validate(
             "abcdefg", validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {StringWithValidation, str}}
 
     def test_number_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = NumberWithValidations._validate(
             Decimal(11), validation_metadata=vm
         )
         assert path_to_schemas == {("args[0]",): {NumberWithValidations, Decimal}}
 
     def test_str_enum_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = StringEnum._validate("placed", validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {str, StringEnum}}
 
     def test_nullable_enum_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = StringEnum._validate(NoneClass.NONE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {NoneClass, StringEnum}}
 
     def test_empty_list_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = ArrayHoldingAnyType._validate((), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {ArrayHoldingAnyType, tuple}}
 
     def test_list_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = ArrayHoldingAnyType._validate(
             (Decimal(1), "a"), validation_metadata=vm
         )
@@ -78,23 +79,23 @@ class TestValidateResults(unittest.TestCase):
         }
 
     def test_empty_dict_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = Foo._validate(frozendict.frozendict({}), validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {Foo, frozendict.frozendict}}
 
     def test_dict_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = Foo._validate(
             frozendict.frozendict({"bar": "a", "additional": Decimal(0)}),
             validation_metadata=vm,
         )
         assert path_to_schemas == {
             ("args[0]",): {Foo, frozendict.frozendict},
-            ("args[0]", "bar"): {StrSchema, str},
+            ("args[0]", "bar"): {Bar, str},
         }
 
     def test_discriminated_dict_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = Animal._validate(
             frozendict.frozendict(className="Dog", color="black"), validation_metadata=vm
         )
@@ -103,16 +104,16 @@ class TestValidateResults(unittest.TestCase):
         assert path_to_schemas == {
             ("args[0]",): {Animal, Dog, Dog.Schema_.AllOf.classes[1], frozendict.frozendict},
             ("args[0]", "className"): {StrSchema, str},
-            ("args[0]", "color"): {StrSchema, str},
+            ("args[0]", "color"): {Animal.Schema_.Properties.Color, str},
         }
 
     def test_bool_enum_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = BooleanEnum._validate(BoolClass.TRUE, validation_metadata=vm)
         assert path_to_schemas == {("args[0]",): {BoolClass, BooleanEnum}}
 
     def test_oneof_composition_pig_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = Pig._validate(
             frozendict.frozendict(className="DanishPig"), validation_metadata=vm
         )
@@ -124,7 +125,7 @@ class TestValidateResults(unittest.TestCase):
         }
 
     def test_anyof_composition_gm_fruit_validate(self):
-        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=configuration.Configuration())
+        vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = GmFruit._validate(
             frozendict.frozendict(cultivar="GoldenDelicious", lengthCm=Decimal(10)),
             validation_metadata=vm,
@@ -178,7 +179,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
+                used_configuration = schema_configuration.SchemaConfiguration()
                 ArrayWithValidationsInItems([7], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
@@ -202,7 +203,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
+                used_configuration = schema_configuration.SchemaConfiguration()
                 ArrayWithValidationsInItems([item], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     tuple([Decimal('7')]),
@@ -225,7 +226,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=ArrayWithValidationsInItems.Schema_.Items._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
+                used_configuration = schema_configuration.SchemaConfiguration()
                 ArrayWithValidationsInItems.from_openapi_data_([7], configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
@@ -243,7 +244,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
+                used_configuration = schema_configuration.SchemaConfiguration()
                 Foo(bar="a", configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
@@ -261,7 +262,8 @@ class TestValidateCalls(unittest.TestCase):
                 )
 
     def test_dict_validate_direct_instantiation_cast_item(self):
-        bar = StrSchema("a")
+        bar = Bar("a")
+        used_configuration = schema_configuration.SchemaConfiguration()
         # only the Foo dict is validated because the bar property value was already validated
         with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
@@ -269,14 +271,13 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
                 Foo(bar=bar, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
                         path_to_item=('args[0]',),
                         configuration=used_configuration,
-                        validated_path_to_schemas={('args[0]', 'bar'): {str, StrSchema}}
+                        validated_path_to_schemas={('args[0]', 'bar'): {str, Bar}}
                     )
                 )
                 mock_inner_validate.assert_not_called()
@@ -288,7 +289,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                used_configuration = configuration.Configuration()
+                used_configuration = schema_configuration.SchemaConfiguration()
                 Foo.from_openapi_data_({"bar": "a"}, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),

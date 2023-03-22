@@ -23,9 +23,7 @@
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,
 {{/if}}
-{{#if servers}}
-    host_index: typing.Optional[int] = None,
-{{/if}}
+    server_index: typing.Optional[int] = None,
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     {{#if isOverload}}

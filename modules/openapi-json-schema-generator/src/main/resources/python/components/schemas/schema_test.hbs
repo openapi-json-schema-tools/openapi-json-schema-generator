@@ -7,12 +7,12 @@ import unittest
 import {{packageName}}
 {{#with schema}}
 from {{packageName}}.components.schema.{{componentModule}} import {{jsonPathPiece.camelCase}}
-from {{packageName}} import configuration
+from {{packageName}}.configurations import schema_configuration
 
 
 class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
     """{{jsonPathPiece.camelCase}} unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 {{#each testCases}}
 {{#with this }}

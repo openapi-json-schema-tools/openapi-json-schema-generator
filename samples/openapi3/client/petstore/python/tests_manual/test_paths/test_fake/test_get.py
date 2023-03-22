@@ -12,8 +12,8 @@ from unittest.mock import patch
 import urllib3
 
 import petstore_api
-from petstore_api.paths.fake import get  # noqa: E501
-from petstore_api import configuration, schemas, api_client
+from petstore_api.paths.fake.get import operation as get  # noqa: E501
+from petstore_api import schemas, api_client
 
 from ... import ApiTestMixin
 

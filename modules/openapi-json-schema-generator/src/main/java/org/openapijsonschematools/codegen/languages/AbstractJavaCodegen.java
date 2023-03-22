@@ -25,15 +25,11 @@ import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
-import io.swagger.v3.oas.models.servers.Server;
-import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
@@ -45,18 +41,12 @@ import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.model.OperationMap;
-import org.openapijsonschematools.codegen.model.OperationsMap;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
-import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -163,9 +153,16 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         supportsInheritance = true;
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("model.mustache", ".java")
+                new HashMap<String, String>() {{
+                    put("model.mustache", ".java");
+                }}
         );
-        apiTemplateFiles.put("api.mustache", ".java");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api.mustache", ".java");
+                }}
+        );
         apiTestTemplateFiles.put("api_test.mustache", ".java");
         HashMap<String, String> schemaDocs = new HashMap<>();
         schemaDocs.put("model_doc.mustache", ".md");
@@ -173,7 +170,12 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaDocs
         );
-        apiDocTemplateFiles.put("api_doc.mustache", ".md");
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api_doc.mustache", ".java");
+                }}
+        );
 
         hideGenerationTimestamp = false;
 
@@ -880,112 +882,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         // should be the same as the model name
         return toModelName(name);
     }
-    @Override
-    public String toDefaultValue(Schema schema) {
-        schema = ModelUtils.getReferencedSchema(this.openAPI, schema);
-        if (ModelUtils.isArraySchema(schema)) {
-            final String pattern;
-            if (ModelUtils.isSet(schema)) {
-                String mapInstantiationType = instantiationTypes().getOrDefault("set", "LinkedHashSet");
-                pattern = "new " + mapInstantiationType + "<%s>()";
-            } else {
-                String arrInstantiationType = instantiationTypes().getOrDefault("array", "ArrayList");
-                pattern = "new " + arrInstantiationType + "<%s>()";
-            }
-
-            return String.format(Locale.ROOT, pattern, "");
-        } else if (ModelUtils.isMapSchema(schema) && !(schema instanceof ComposedSchema)) {
-            if (schema.getProperties() != null && schema.getProperties().size() > 0) {
-                // object is complex object with free-form additional properties
-                if (schema.getDefault() != null) {
-                    return super.toDefaultValue(schema);
-                }
-                return null;
-            }
-
-            String mapInstantiationType = instantiationTypes().getOrDefault("map", "HashMap");
-            final String pattern = "new " + mapInstantiationType + "<%s>()";
-
-            if (getAdditionalProperties(schema) == null) {
-                return null;
-            }
-
-            return String.format(Locale.ROOT, pattern, "");
-        } else if (ModelUtils.isIntegerSchema(schema)) {
-            if (schema.getDefault() != null) {
-                if (SchemaTypeUtil.INTEGER64_FORMAT.equals(schema.getFormat())) {
-                    return schema.getDefault().toString() + "l";
-                } else {
-                    return schema.getDefault().toString();
-                }
-            }
-            return null;
-        } else if (ModelUtils.isNumberSchema(schema)) {
-            if (schema.getDefault() != null) {
-                if (SchemaTypeUtil.FLOAT_FORMAT.equals(schema.getFormat())) {
-                    return schema.getDefault().toString() + "f";
-                } else if (SchemaTypeUtil.DOUBLE_FORMAT.equals(schema.getFormat())) {
-                    return schema.getDefault().toString() + "d";
-                } else {
-                    return "new BigDecimal(\"" + schema.getDefault().toString() + "\")";
-                }
-            }
-            return null;
-        } else if (ModelUtils.isBooleanSchema(schema)) {
-            if (schema.getDefault() != null) {
-                return schema.getDefault().toString();
-            }
-            return null;
-        } else if (ModelUtils.isURISchema(schema)) {
-            if (schema.getDefault() != null) {
-                return "URI.create(\"" + escapeText((String) schema.getDefault()) + "\")";
-            }
-            return null;
-        } else if (ModelUtils.isStringSchema(schema)) {
-            if (schema.getDefault() != null) {
-                String _default;
-                if (schema.getDefault() instanceof Date) {
-                    if ("java8".equals(getDateLibrary())) {
-                        Date date = (Date) schema.getDefault();
-                        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                        return String.format(Locale.ROOT, "LocalDate.parse(\"%s\")", localDate.toString());
-                    } else {
-                        return null;
-                    }
-                } else if (schema.getDefault() instanceof java.time.OffsetDateTime) {
-                    if ("java8".equals(getDateLibrary())) {
-                        return String.format(Locale.ROOT, "OffsetDateTime.parse(\"%s\", %s)",
-                                ((java.time.OffsetDateTime) schema.getDefault()).atZoneSameInstant(ZoneId.systemDefault()),
-                                "java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME.withZone(java.time.ZoneId.systemDefault())");
-                    } else {
-                        return null;
-                    }
-                } else {
-                    _default = (String) schema.getDefault();
-                }
-
-                if (schema.getEnum() == null) {
-                    return "\"" + escapeText(_default) + "\"";
-                } else {
-                    // convert to enum var name later in postProcessModels
-                    return _default;
-                }
-            }
-            return null;
-        } else if (ModelUtils.isObjectSchema(schema)) {
-            if (schema.getDefault() != null) {
-                return super.toDefaultValue(schema);
-            }
-            return null;
-        } else if (ModelUtils.isComposedSchema(schema)) {
-            if (schema.getDefault() != null) {
-                return super.toDefaultValue(schema);
-            }
-            return null;
-        }
-
-        return super.toDefaultValue(schema);
-    }
 
     /**
      * Return the example value of the parameter. Overrides the
@@ -1180,31 +1076,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public OperationsMap postProcessOperationsWithModels(OperationsMap objs, TreeMap<String, CodegenSchema> allModels) {
-        // Remove imports of List, ArrayList, Map and HashMap as they are
-        // imported in the template already.
-        List<Map<String, String>> imports = objs.getImports();
-        Pattern pattern = Pattern.compile("java\\.util\\.(List|ArrayList|Map|HashMap)");
-        for (Iterator<Map<String, String>> itr = imports.iterator(); itr.hasNext(); ) {
-            String itrImport = itr.next().get("import");
-            if (pattern.matcher(itrImport).matches()) {
-                itr.remove();
-            }
-        }
-
-        OperationMap operations = objs.getOperations();
-        List<CodegenOperation> operationList = operations.getOperation();
-        for (CodegenOperation op : operationList) {
-            Collection<String> operationImports = new ConcurrentSkipListSet<>();
-            for (CodegenParameter p : op.allParams) {
-                CodegenSchema cp = p.getSetSchema();
-            }
-            op.vendorExtensions.put("x-java-import", operationImports);
-        }
-        return objs;
-    }
-
-    @Override
     public void preprocessOpenAPI(OpenAPI openAPI) {
         super.preprocessOpenAPI(openAPI);
         if (openAPI == null) {
@@ -1340,13 +1211,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         } else {
             return var;
         }
-    }
-
-    @Override
-    public CodegenOperation fromOperation(String path, String httpMethod, Operation operation, List<Server> servers) {
-        path = sanitizePath(path);
-        CodegenOperation op = super.fromOperation(path, httpMethod, operation, servers);
-        return op;
     }
 
     private static String sanitizePackageName(String packageName) {

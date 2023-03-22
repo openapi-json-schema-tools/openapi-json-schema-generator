@@ -81,7 +81,7 @@ class RefInProperty(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
         a: typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'RefInProperty':
         return super().__new__(

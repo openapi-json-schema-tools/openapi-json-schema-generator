@@ -1,20 +1,20 @@
 ```python
 import {{{packageName}}}
-from {{packageName}} import configuration
+from {{packageName}}.configurations import api_configuration
 {{#if tag}}
 from {{packageName}}.{{apiPackage}}.tags import {{tag.moduleName}}
 {{else}}
-{{#each tags}}
-{{#if @first}}
+    {{#each tags}}
+        {{#if @first}}
 from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
-{{/if}}
-{{/each}}
+        {{/if}}
+    {{/each}}
 {{/if}}
 {{#each imports}}
 {{{.}}}
 {{/each}}
 from pprint import pprint
-{{> paths/path/verb/_helper_operation_doc_auth_partial }}
+{{> paths/path/verb/_helper_operation_doc_configuration_partial }}
 # Enter a context with an instance of the API client
 with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class

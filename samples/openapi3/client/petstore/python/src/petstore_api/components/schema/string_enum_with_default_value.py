@@ -37,6 +37,7 @@ class StringEnumWithDefaultValue(
         types = {
             str,
         }
+        default = "placed"
         enum_value_to_name = {
             "placed": "PLACED",
             "approved": "APPROVED",

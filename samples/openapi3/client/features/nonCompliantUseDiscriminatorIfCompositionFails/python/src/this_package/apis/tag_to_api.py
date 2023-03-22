@@ -1,3 +1,4 @@
+import typing
 import typing_extensions
 
 from this_package.apis.tags.default_api import DefaultApi
@@ -5,7 +6,7 @@ from this_package.apis.tags.default_api import DefaultApi
 TagToApi = typing_extensions.TypedDict(
     'TagToApi',
     {
-        "default": DefaultApi,
+        "default": typing.Type[DefaultApi],
     }
 )
 

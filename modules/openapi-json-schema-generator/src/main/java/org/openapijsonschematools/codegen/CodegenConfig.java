@@ -20,6 +20,8 @@ package org.openapijsonschematools.codegen;
 import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
+import io.swagger.v3.oas.models.PathItem;
+import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -30,8 +32,10 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
+import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.model.CodegenPathItem;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenRequestBody;
 import org.openapijsonschematools.codegen.model.CodegenResponse;
@@ -39,11 +43,10 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.model.CodegenServerVariable;
-import org.openapijsonschematools.codegen.model.OperationsMap;
 import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
+import org.openapijsonschematools.codegen.model.CodegenTag;
 
 import java.io.File;
 import java.util.HashMap;
@@ -135,15 +138,23 @@ public interface CodegenConfig {
 
     CodegenSchema fromSchema(Schema<?> schema, String sourceJsonPath, String currentJsonPath);
 
-    CodegenOperation fromOperation(String resourcePath, String httpMethod, Operation operation, List<Server> servers);
+    CodegenTag fromTag(String name, String description);
+
+    CodegenOperation fromOperation(Operation operation, String jsonPath);
+
+    CodegenKey getKey(String key);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
-    List<CodegenServer> fromServers(List<Server> servers);
+    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths);
 
-    List<CodegenServerVariable> fromServerVariables(Map<String, ServerVariable> variables);
+    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
+
+    List<CodegenServer> fromServers(List<Server> servers, String jsonPath);
+
+    HashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
 
     Map<String, String> typeMapping();
 
@@ -157,23 +168,15 @@ public interface CodegenConfig {
 
     Map<String, String> inlineSchemaNameDefault();
 
-    Map<String, String> apiTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
 
-    Map<String, String> apiXToApiTemplateFiles();
-
-    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathTemplateFiles();
-
-    Map<CodegenConstants.JSON_PATH_LOCATION_TYPE, Map<String, String>> jsonPathDocTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
 
     Set<String> pathEndpointTestTemplateFiles();
-
-    Set<String> pathEndpointDocTemplateFiles();
 
     Map<String, String> apiTestTemplateFiles();
 
     Map<String, String> modelTestTemplateFiles();
-
-    Map<String, String> apiDocTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
 
@@ -209,6 +212,10 @@ public interface CodegenConfig {
 
     String toSecuritySchemeFilename(String baseName);
 
+    String toServerFilename(String baseName);
+
+    String getCamelCaseServer(String baseName);
+
     String toModelImport(String refClass);
 
     Map<String, String> toModelImportMap(String name);
@@ -225,8 +232,6 @@ public interface CodegenConfig {
 
     TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
 
-    OperationsMap postProcessOperationsWithModels(OperationsMap operations, TreeMap<String, CodegenSchema> schemas);
-
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
@@ -236,11 +241,7 @@ public interface CodegenConfig {
 
     String getDocsFilepath(String jsonPath);
 
-    String apiFilename(String templateName, String tag);
-
     String apiTestFilename(String templateName, String tag);
-
-    String apiDocFilename(String templateName, String tag);
 
     boolean isSkipOverwrite();
 

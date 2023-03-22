@@ -293,37 +293,97 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        apiTemplateFiles.put("apis/api_tag.hbs", ".py");
-        apiDocTemplateFiles.put("apis/api_doc.hbs", ".md");
-        apiXToApiTemplateFiles.put("apis/apis_tag_to_api.hbs", "tag_to_api.py");
-        apiXToApiTemplateFiles.put("apis/apis_path_to_api.hbs", "path_to_api.py");
-        pathEndpointDocTemplateFiles.add("paths/path/verb/operation_doc.hbs");
         pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
         jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("apis/tags/api_doc.hbs", ".md");
+                }}
+        );
+
+        HashMap<String, String> apiRootTemplates = new HashMap<>();
+        apiRootTemplates.put("apis/apis_tag_to_api.hbs", File.separatorChar + "tag_to_api.py");
+        apiRootTemplates.put("apis/apis_path_to_api.hbs", File.separatorChar + "path_to_api.py");
+        apiRootTemplates.put("apis/__init__.hbs", File.separatorChar + "__init__.py");
+
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER,
+                apiRootTemplates
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH,
+                new HashMap<String, String>() {{
+                    put("apis/paths/api.hbs", ".py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATHS,
+                new HashMap<String, String>() {{
+                    put("apis/paths/__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("apis/tags/api.hbs", ".py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAGS,
+                new HashMap<String, String>() {{
+                    put("apis/tags/__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+                new HashMap<String, String>() {{
+                    put("paths/path/verb/operation_doc.hbs", ".md");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                Collections.singletonMap("components/schemas/schema_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/schemas/schema_doc.hbs", ".md");
+                }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("components/request_bodies/request_body_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/request_bodies/request_body_doc.hbs", ".md");
+                }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                Collections.singletonMap("components/parameters/parameter_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/parameters/parameter_doc.hbs", ".md");
+                }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                Collections.singletonMap("components/responses/response_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/responses/response_doc.hbs", ".md");
+                }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("components/headers/header_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/headers/header_doc.hbs", ".md");
+                }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
-                Collections.singletonMap("components/security_schemes/security_scheme_doc.hbs", ".md")
+                new HashMap<String, String>() {{
+                    put("components/security_schemes/security_scheme_doc.hbs", ".md");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                new HashMap<String, String>() {{
+                    put("servers/server_doc.hbs", ".md");
+                }}
         );
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
@@ -336,59 +396,101 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // there is no deeper info so the filenames can be individually generated
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
-                Collections.singletonMap("components/security_schemes/security_scheme.hbs", ".py")
+                new HashMap<String, String>() {{
+                    put("components/security_schemes/security_scheme.hbs", ".py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                Collections.singletonMap("components/headers/header.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("components/headers/header.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                Collections.singletonMap("components/parameters/parameter.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("components/parameters/parameter.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                Collections.singletonMap("components/request_bodies/request_body.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("components/request_bodies/request_body.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                Collections.singletonMap("components/responses/response.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("components/responses/response.hbs", File.separatorChar + "__init__.py");
+                }}
         );
+        if (openAPI.getServers() != null) {
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                    new HashMap<String, String>() {{
+                        put("__init__.hbs", File.separatorChar + "__init__.py");
+                    }}
+            );
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                    new HashMap<String, String>() {{
+                        put("servers/server.hbs", ".py");
+                    }}
+            );
+
+        }
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                Collections.singletonMap("components/schemas/__init__schema.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("components/schemas/__init__schema.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                Collections.singletonMap("paths/__init__paths.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("paths/__init__paths.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
-                Collections.singletonMap("paths/path/__init__path.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("paths/path/__init__path.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         HashMap<String, String> operationTemplates = new HashMap<>();
-        operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "__init__.py");
-        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "__init__.pyi");
+        operationTemplates.put("__init__.hbs", File.separatorChar + "__init__.py");
+        operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "operation.py");
+        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "operation.pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates
@@ -396,15 +498,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
-                Collections.singletonMap("__init__.hbs", File.separatorChar + "__init__.py")
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
         );
 
         if (StringUtils.isEmpty(System.getenv("PYTHON_POST_PROCESS_FILE"))) {
@@ -481,6 +589,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             readmeTemplate = "README_onlypackage.hbs";
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
+        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
 
         if (!generateSourceCodeOnly) {
             supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
@@ -493,8 +602,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("gitlab-ci.hbs", "", ".gitlab-ci.yml"));
             supportingFiles.add(new SupportingFile("pyproject.hbs", "", "pyproject.toml"));
         }
-        supportingFiles.add(new SupportingFile("configuration.hbs", packagePath(), "configuration.py"));
-        supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
+        // configurations package
+        supportingFiles.add(new SupportingFile("__init__.hbs", packagePath() + File.separatorChar + "configurations", "__init__.py"));
+        supportingFiles.add(new SupportingFile("configurations" + File.separatorChar + "schema_configuration.hbs", packagePath() + File.separatorChar + "configurations", "schema_configuration.py"));
+        supportingFiles.add(new SupportingFile("configurations" + File.separatorChar + "api_configuration.hbs", packagePath() + File.separatorChar + "configurations", "api_configuration.py"));
 
         // If the package name consists of dots(openapi.client), then we need to create the directory structure like openapi/client with __init__ files.
         String[] packageNameSplits = packageName.split("\\.");
@@ -519,6 +630,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
         supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
+        supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
@@ -527,9 +639,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
-        if (generateApis) {
-            supportingFiles.add(new SupportingFile("apis/__init__apis.hbs", packagePath() + File.separatorChar + apiPackage, "__init__.py"));
-        }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
@@ -546,12 +655,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (!DEFAULT_LIBRARY.equals(getLibrary())) {
             throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
-    }
-
-    @Override
-    public String apiFilename(String templateName, String tag) {
-        String suffix = apiTemplateFiles().get(templateName);
-        return apiFileFolder() + File.separator + toApiFilename(tag) + suffix;
     }
 
     @Override
@@ -627,40 +730,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             strValue = dateTimeValue.toString();
         }
         return strValue;
-    }
-
-    /**
-     * Return the default value of the property
-     *
-     * @param p OpenAPI property object
-     * @return string presentation of the default value of the property
-     */
-    @Override
-    public String toDefaultValue(Schema p) {
-        Object defaultObject = null;
-        if (p.getDefault() != null) {
-            defaultObject = p.getDefault();
-        }
-
-        if (defaultObject == null) {
-            return null;
-        }
-
-        String defaultValue = defaultObject.toString();
-        if (ModelUtils.isDateSchema(p)) {
-            defaultValue = pythonDate(defaultObject);
-        } else if (ModelUtils.isDateTimeSchema(p)) {
-            defaultValue = pythonDateTime(defaultObject);
-        } else if (ModelUtils.isStringSchema(p) && !ModelUtils.isByteArraySchema(p) && !ModelUtils.isBinarySchema(p) && !ModelUtils.isFileSchema(p) && !ModelUtils.isUUIDSchema(p) && !ModelUtils.isEmailSchema(p)) {
-            defaultValue = ensureQuotes(defaultValue);
-        } else if (ModelUtils.isBooleanSchema(p)) {
-            if (!Boolean.parseBoolean(defaultValue)) {
-                defaultValue = "False";
-            } else {
-                defaultValue = "True";
-            }
-        }
-        return defaultValue;
     }
 
     @Override
@@ -1656,6 +1725,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String toSecuritySchemeFilename(String basename) {
         return "security_scheme_" + toModuleFilename(basename);
+    }
+
+    @Override
+    public String toServerFilename(String basename) {
+        return "server_" + basename;
+    }
+
+    @Override
+    public String getCamelCaseServer(String basename) {
+        return "Server" + basename;
     }
 
     @Override

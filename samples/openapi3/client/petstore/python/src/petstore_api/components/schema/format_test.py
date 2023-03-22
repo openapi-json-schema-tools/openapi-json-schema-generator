@@ -140,7 +140,7 @@ class FormatTest(
                             typing.Union[Schema_.Items, decimal.Decimal, int, float, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'ArrayWithUniqueItems':
                     return super().__new__(
                         cls,
@@ -458,7 +458,7 @@ class FormatTest(
         pattern_with_digits: typing.Union[Schema_.Properties.PatternWithDigits, str, schemas.Unset] = schemas.unset,
         pattern_with_digits_and_delimiter: typing.Union[Schema_.Properties.PatternWithDigitsAndDelimiter, str, schemas.Unset] = schemas.unset,
         noneProp: typing.Union[Schema_.Properties.NoneProp, None, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'FormatTest':
         return super().__new__(

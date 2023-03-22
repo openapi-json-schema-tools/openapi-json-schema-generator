@@ -139,7 +139,18 @@ class Schema(
             Byte = schemas.StrSchema
             Binary = schemas.BinarySchema
             Date = schemas.DateSchema
-            DateTime = schemas.DateTimeSchema
+            
+            
+            class DateTime(
+                schemas.DateTimeSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        str,
+                    }
+                    format = 'date-time'
             
             
             class Password(
@@ -328,7 +339,7 @@ class Schema(
         dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
         password: typing.Union[Schema_.Properties.Password, str, schemas.Unset] = schemas.unset,
         callback: typing.Union[Schema_.Properties.Callback, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Schema':
         return super().__new__(

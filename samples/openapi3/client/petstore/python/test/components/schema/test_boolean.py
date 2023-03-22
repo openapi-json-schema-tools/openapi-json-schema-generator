@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.boolean import Boolean
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestBoolean(unittest.TestCase):
     """Boolean unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

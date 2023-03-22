@@ -15,13 +15,14 @@ import petstore_api
 from petstore_api import api_client
 from petstore_api.apis.tags.user_api import UserApi
 from petstore_api.rest import RESTClientObject
+from petstore_api.configurations import api_configuration
 
 from . import ApiTestMixin
 
 
 class TestUserApi(ApiTestMixin):
     """UserApi unit test stubs"""
-    configuration = petstore_api.Configuration()
+    configuration = api_configuration.ApiConfiguration()
     api = UserApi(api_client=api_client.ApiClient(configuration=configuration))
 
     def test_create_user(self):

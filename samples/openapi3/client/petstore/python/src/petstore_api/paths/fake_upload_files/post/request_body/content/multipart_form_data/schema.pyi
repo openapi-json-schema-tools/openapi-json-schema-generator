@@ -52,7 +52,7 @@ class Schema(
                             typing.Union[Schema_.Items, bytes, io.FileIO, io.BufferedReader, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'Files':
                     return super().__new__(
                         cls,
@@ -101,7 +101,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
         files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Schema':
         return super().__new__(

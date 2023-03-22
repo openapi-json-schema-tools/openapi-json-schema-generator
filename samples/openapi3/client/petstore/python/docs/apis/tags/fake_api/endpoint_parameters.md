@@ -6,6 +6,7 @@
 - [Arguments](#arguments)
 - [Return Types](#return-types)
 - [Security](#security)
+- [Servers](#servers)
 - [Code Sample](#code-sample)
 
 ## General Info
@@ -22,6 +23,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
+server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -54,7 +56,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **string** | str,  | str,  | None | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader,  | bytes, io.FileIO,  | None | [optional]
 **date** | str, datetime.date,  | str,  | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | str, datetime.datetime,  | str,  | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.11111+01:00 value must conform to RFC-3339 date-time
+**dateTime** | str, datetime.datetime,  | str,  | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
 **password** | str,  | str,  | None | [optional]
 **callback** | str,  | str,  | None | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
@@ -65,14 +67,14 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-404 | [ResponseFor404.response_cls](#response_404response_cls) | User not found
+404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
 
-## responses ResponseFor404
+## ResponseFor404
 
 ### Description
 User not found
 
-### response_cls
+### ResponseFor404 response_cls
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -81,7 +83,7 @@ headers | Unset | headers were not defined |
 
 ## Security
 
-Set auth info by setting Configuration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
 key is the below security schema quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 
@@ -89,11 +91,25 @@ component security scheme class. See how to do this in the code sample.
 | -------------- | ------------------------------ |
 | 0       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 
+## Servers
+
+Set the available servers by defining your used servers in ApiConfiguration.server_info
+Then select your server by setting a server_index in ApiConfiguration.server_index or by
+passing server_index in to the endpoint function.
+- these servers are the general api servers
+- defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
+
+server_index | Class | Description
+------------ | ----- | ------------
+0 | [Server0](../../../servers/server_0.md) | petstore server
+1 | [Server1](../../../servers/server_1.md) | The local server
+2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+
 ## Code Sample
 
 ```python
 import petstore_api
-from petstore_api import configuration
+from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
 from pprint import pprint
 # security_index 0
@@ -101,18 +117,15 @@ from petstore_api.components.security_schemes import security_scheme_http_basic_
 
 
 # auth_info for security_index 0
-auth_info: configuration.AuthInfo = {
+auth_info: api_configuration.AuthInfo = {
     "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
         user_id='someUserIdOrName',
         password='somePassword',
     ),
 }
 
-# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://petstore.swagger.io:80/v2"
-    auth_info = auth_info
+used_configuration = api_configuration.ApiConfiguration(
+    auth_info=auth_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

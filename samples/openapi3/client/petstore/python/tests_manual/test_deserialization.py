@@ -18,7 +18,7 @@ import urllib3
 
 import petstore_api
 from petstore_api import api_client, schemas
-from petstore_api.schemas import NoneClass
+from petstore_api.configurations import schema_configuration
 
 
 MockResponse = namedtuple('MockResponse', 'data')
@@ -27,7 +27,7 @@ MockResponse = namedtuple('MockResponse', 'data')
 class DeserializationTests(unittest.TestCase):
     json_content_type = 'application/json'
     json_content_type_headers = {'content-type': json_content_type}
-    configuration = petstore_api.Configuration()
+    configuration = schema_configuration.SchemaConfiguration()
 
     @classmethod
     def __response(cls, data: typing.Any) -> urllib3.HTTPResponse:
@@ -266,7 +266,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         self.assertTrue(isinstance(deserialized.body, fruit_req.FruitReq))
-        self.assertTrue(isinstance(deserialized.body, NoneClass))
+        self.assertTrue(isinstance(deserialized.body, schemas.NoneClass))
 
     def test_deserialize_with_additional_properties(self):
         """
@@ -410,7 +410,7 @@ class DeserializationTests(unittest.TestCase):
 
     def test_deserialize_NumberWithValidations(self):
         from petstore_api.components.schema.number_with_validations import NumberWithValidations
-        from petstore_api.paths.fake_refs_number.post import response_200
+        from petstore_api.paths.fake_refs_number.post.responses import response_200
 
         # make sure that an exception is thrown on an invalid type value
         with self.assertRaises(petstore_api.ApiTypeError):
@@ -431,7 +431,7 @@ class DeserializationTests(unittest.TestCase):
 
     def test_array_of_enums(self):
         from petstore_api.components.schema.array_of_enums import ArrayOfEnums
-        from petstore_api.paths.fake_refs_array_of_enums.post import response_200
+        from petstore_api.paths.fake_refs_array_of_enums.post.responses import response_200
         from petstore_api.components.schema import string_enum
         data = ["placed", None]
         response = self.__response(data)
@@ -481,8 +481,9 @@ class DeserializationTests(unittest.TestCase):
             ResponseFor200.deserialize(response, self.configuration)
 
         # Disable JSON schema validation. No error should be raised during deserialization.
-        configuration = petstore_api.Configuration()
-        configuration.disabled_json_schema_keywords = {"multipleOf"}
+        configuration = schema_configuration.SchemaConfiguration(
+            disabled_json_schema_keywords={"multipleOf"}
+        )
 
         data = {
             'byte': '3',
@@ -498,8 +499,9 @@ class DeserializationTests(unittest.TestCase):
 
         # Disable JSON schema validation but for a different keyword.
         # An error should be raised during deserialization.
-        configuration = petstore_api.Configuration()
-        configuration.disabled_json_schema_keywords = {"maxItems"}
+        configuration = schema_configuration.SchemaConfiguration(
+            disabled_json_schema_keywords={"maxItems"}
+        )
 
         with self.assertRaisesRegex(
             petstore_api.exceptions.ApiValueError,

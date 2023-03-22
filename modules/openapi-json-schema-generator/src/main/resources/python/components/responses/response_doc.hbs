@@ -13,7 +13,7 @@
 {{description}}
 {{/if}}
 
-{{headerSize}}# response_cls
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "response_cls") recordUsage=false }}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

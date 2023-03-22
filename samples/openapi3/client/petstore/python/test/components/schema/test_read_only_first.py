@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.read_only_first import ReadOnlyFirst
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestReadOnlyFirst(unittest.TestCase):
     """ReadOnlyFirst unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.triangle import Triangle
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestTriangle(unittest.TestCase):
     """Triangle unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

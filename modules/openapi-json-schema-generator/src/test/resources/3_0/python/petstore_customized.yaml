@@ -19,6 +19,15 @@ tags:
 paths:
   /foo:
     get:
+      servers:
+        - url: 'https://path-server-test.petstore.local/v2'
+        - url: 'https://petstore.swagger.io/{version}'
+          variables:
+            version:
+              enum:
+                - 'v1'
+                - 'v2'
+              default: 'v1'
       responses:
         default:
           description: response
@@ -30,9 +39,6 @@ paths:
                   string:
                     $ref: '#/components/schemas/Foo'
   /pet:
-    servers:
-      - url: 'https://petstore.swagger.io/v2'
-      - url: 'https://path-server-test.petstore.local/v2'
     post:
       tags:
         - pet
@@ -73,6 +79,15 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Pet'
   /pet/findByStatus:
+    servers:
+      - url: 'https://path-server-test.petstore.local/v2'
+      - url: 'https://petstore.swagger.io/{version}'
+        variables:
+          version:
+            enum:
+              - 'v1'
+              - 'v2'
+            default: 'v1'
     get:
       tags:
         - pet
@@ -101,6 +116,7 @@ paths:
         '400':
           description: Invalid status value
       security:
+        - api_key: []
         - http_signature_test: []
         - petstore_auth:
             - 'write:pets'
@@ -1632,12 +1648,14 @@ servers:
     description: petstore server
     variables:
       server:
+        description: server host prefix
         enum:
           - 'petstore'
           - 'qa-petstore'
           - 'dev-petstore'
         default: 'petstore'
       port:
+        description: the port
         enum:
           - 80
           - 8080
@@ -1650,6 +1668,8 @@ servers:
           - 'v1'
           - 'v2'
         default: 'v2'
+  - url: https://localhost:8080
+    description: staging server with no variables
 components:
   parameters:
     PathUserName:

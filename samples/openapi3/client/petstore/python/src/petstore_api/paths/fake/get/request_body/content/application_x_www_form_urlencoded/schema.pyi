@@ -64,7 +64,7 @@ class Schema(
                             typing.Union[Schema_.Items, str, ]
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'EnumFormStringArray':
                     return super().__new__(
                         cls,
@@ -140,7 +140,7 @@ class Schema(
         *args_: typing.Union[dict, frozendict.frozendict, ],
         enum_form_string_array: typing.Union[Schema_.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
         enum_form_string: typing.Union[Schema_.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Schema':
         return super().__new__(

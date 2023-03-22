@@ -73,7 +73,7 @@ class Drawing(
                             'shape.Shape'
                         ],
                     ],
-                    configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'Shapes':
                     return super().__new__(
                         cls,
@@ -156,7 +156,7 @@ class Drawing(
         shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
         nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
         shapes: typing.Union[Schema_.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: 'fruit.Fruit',
     ) -> 'Drawing':
         return super().__new__(

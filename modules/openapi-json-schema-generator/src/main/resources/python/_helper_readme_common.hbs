@@ -1,28 +1,38 @@
-{{#with apiInfo}}
-{{#each apis}}
-{{#if @first}}
-{{#with operations}}
-{{#each operation}}
-{{#if @first}}
+{{#each paths}}
+    {{#if @first}}
+        {{#each operations}}
+            {{#if @first}}
 {{> paths/path/verb/_helper_operation_doc_example }}
-{{/if}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
 {{/each}}
-{{/with}}
-{{/if}}
+{{#if servers}}
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
+{{#each servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
 {{/each}}
-{{/with}}
+{{/if}}
+{{#if paths}}
 
 ## Endpoints
 
-All URIs are relative to *{{basePath}}*
+All URIs are relative to the selected server
+- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
+- Code samples in endpoints documents show how to do this
+- server_index can also be passed in to endpoint calls, see endpoint documentation
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-{{#each pathAndHttpMethodToOperation}}
-{{#with this}}
-**{{httpMethod.original}}** {{path.original}} | {{#each tags}}[{{className}}]({{apiDocPath}}{{className}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
-{{/with}}
+{{#each paths}}
+{{#each operations}}
+{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}]({{apiDocPath}}{{moduleName}}/{{operationId.snakeCase}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
 {{/each}}
+{{/each}}
+{{/if}}
 {{#if schemas}}
 
 ## Component Schemas
@@ -96,11 +106,12 @@ Class | Description
     {{/each}}
 
 {{/if}}
+{{#if infoEmail}}
 
 ## Author
 
-{{#with apiInfo}}{{#each apis}}{{#unless hasMore}}{{#if infoEmail}}{{infoEmail}}{{/if}}
-{{/unless}}{{/each}}{{/with}}
+{{infoEmail}}
+{{/if}}
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in {{{packageName}}}.{{apiPackage}}.tags.tag_to_api and {{{packageName}}}.{{modelPackage}}s may fail with a

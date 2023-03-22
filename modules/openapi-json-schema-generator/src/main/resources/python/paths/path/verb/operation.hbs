@@ -65,40 +65,6 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 ]
     {{/if}}
 {{/each}}
-{{#each servers}}
-{{#if @first}}
-
-_servers = (
-{{/if}}
-    {
-        'url': "{{{url}}}",
-        'description': "{{#unless description}}No description provided{{else}}{{{description}}}{{/unless}}",
-        {{#each variables}}
-        {{#if @first}}
-        'variables': {
-        {{/if}}
-            '{{{name}}}': {
-                'description': "{{#unless description}}No description provided{{else}}{{{description}}}{{/unless}}",
-                'default_value': "{{{defaultValue}}}",
-                {{#each enumValues}}
-                {{#if @first}}
-                'enum_values': [
-                {{/if}}
-                    "{{{.}}}"{{#unless @last}},{{/unless}}
-                {{#if @last}}
-                ]
-                {{/if}}
-                {{/each}}
-                }{{#unless @last}},{{/unless}}
-        {{#if @last}}
-            }
-        {{/if}}
-        {{/each}}
-    },
-{{#if @last}}
-)
-{{/if}}
-{{/each}}
 {{/unless}}
 {{#unless isStub}}
 
@@ -259,13 +225,25 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{/with}}
     {{#if servers}}
-
-        host = self._get_host('{{operationId.snakeCase}}', _servers, host_index)
+        host = self.api_client.configuration.get_server_url(
+            'paths/' + path + '/{{httpMethod.original}}/servers/', server_index
+        )
+    {{else}}
+        {{#if pathItem.servers}}
+        host = self.api_client.configuration.get_server_url(
+            'paths/' + path + '/' + '/servers/', server_index
+        )
+        {{else}}
+        host = self.api_client.configuration.get_server_url(
+            'servers/', server_index
+        )
+        {{/if}}
     {{/if}}
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='{{httpMethod.original}}',
+            host=host,
     {{#or headerParams requestBody produces}}
             headers=_headers,
     {{/or}}
@@ -275,9 +253,6 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if security}}
             security=_security,
-    {{/if}}
-    {{#if servers}}
-            host=host,
     {{/if}}
             stream=stream,
             timeout=timeout,
@@ -294,16 +269,16 @@ class BaseApi(api_client.Api):
                     '{{@key}}',
 {{/each}}
                 ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.configuration)
+                api_response = _status_code_to_response[status].deserialize(response, self.api_client.schema_configuration)
             else:
                 {{#if defaultResponse}}
-                api_response = default_response.deserialize(response, self.api_client.configuration)
+                api_response = default_response.deserialize(response, self.api_client.schema_configuration)
                 {{else}}
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
                 {{/if}}
 {{else}}
             {{#if defaultResponse}}
-            api_response = default_response.deserialize(response, self.api_client.configuration)
+            api_response = default_response.deserialize(response, self.api_client.schema_configuration)
             {{else}}
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
             {{/if}}

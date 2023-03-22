@@ -13,12 +13,12 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.integer_enum_big import IntegerEnumBig
-from petstore_api import configuration
+from petstore_api.configurations import schema_configuration
 
 
 class TestIntegerEnumBig(unittest.TestCase):
     """IntegerEnumBig unit test stubs"""
-    configuration_ = configuration.Configuration()
+    configuration_ = schema_configuration.SchemaConfiguration()
 
 
 if __name__ == '__main__':

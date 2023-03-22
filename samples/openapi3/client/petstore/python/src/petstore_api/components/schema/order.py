@@ -69,7 +69,18 @@ class Order(
                 @schemas.classproperty
                 def DELIVERED(cls):
                     return cls("delivered")
-            Complete = schemas.BoolSchema
+            
+            
+            class Complete(
+                schemas.BoolSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        schemas.BoolClass,
+                    }
+                    default = schemas.BoolClass.FALSE
             __annotations__ = {
                 "id": Id,
                 "petId": PetId,
@@ -159,7 +170,7 @@ class Order(
         shipDate: typing.Union[Schema_.Properties.ShipDate, str, datetime.datetime, schemas.Unset] = schemas.unset,
         status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
         complete: typing.Union[Schema_.Properties.Complete, bool, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Order':
         return super().__new__(

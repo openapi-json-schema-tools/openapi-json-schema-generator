@@ -12,8 +12,9 @@ from unittest.mock import patch
 import urllib3
 
 import unit_test_api
-from unit_test_api.paths.request_body_post_allof_simple_types_request_body import post  # noqa: E501
-from unit_test_api import configuration, schemas, api_client
+from unit_test_api.paths.request_body_post_allof_simple_types_request_body.post import operation as post  # noqa: E501
+from unit_test_api import schemas, api_client
+from unit_test_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -22,14 +23,10 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     """
     Post unit test stubs
     """
-    configuration_ = configuration.Configuration()
-
-    def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
-
-    def tearDown(self):
-        pass
+    api_config = api_configuration.ApiConfiguration()
+    schema_config = schema_configuration.SchemaConfiguration()
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
     response_body = ''
@@ -43,7 +40,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -55,7 +52,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.configuration_.host + "/requestBody/postAllofSimpleTypesRequestBody",
+                self.api_config.get_server_url('servers/', None) + "/requestBody/postAllofSimpleTypesRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -74,7 +71,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
                 body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
                     payload,
-                    configuration_=self.configuration_
+                    configuration_=self.schema_config
                 )
                 self.api.post(body=body)
 

@@ -8,8 +8,9 @@ from unittest.mock import patch
 import urllib3
 
 import {{packageName}}
-from {{packageName}}.paths.{{operation.path.snakeCase}} import {{operation.httpMethod.original}}  # noqa: E501
-from {{packageName}} import configuration, schemas, api_client
+from {{packageName}}.paths.{{path.snakeCase}}.{{httpMethod.original}} import operation as {{httpMethod.original}}  # noqa: E501
+from {{packageName}} import schemas, api_client
+from {{packageName}}.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -22,14 +23,10 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
         {{{summary}}}  # noqa: E501
 {{/if}}
     """
-    configuration_ = configuration.Configuration()
-
-    def setUp(self):
-        used_api_client = api_client.ApiClient(configuration=self.configuration_)
-        self.api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
-
-    def tearDown(self):
-        pass
+    api_config = api_configuration.ApiConfiguration()
+    schema_config = schema_configuration.SchemaConfiguration()
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
 
 {{#each responses}}
     {{#if @first}}
@@ -63,7 +60,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
 {{#if valid}}
             body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
                 payload,
-                configuration_=self.configuration_
+                configuration_=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -77,7 +74,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
             with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
                 body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
                     payload,
-                    configuration_=self.configuration_
+                    configuration_=self.schema_config
                 )
                 self.api.{{httpMethod.original}}(body=body)
 {{/if}}
