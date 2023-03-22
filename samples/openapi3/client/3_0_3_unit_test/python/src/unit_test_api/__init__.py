@@ -17,7 +17,7 @@ __version__ = "1.0.0"
 from unit_test_api.api_client import ApiClient
 
 # import Configuration
-from unit_test_api.configuration import Configuration
+from unit_test_api.configurations.api_configuration import ApiConfiguration
 
 # import exceptions
 from unit_test_api.exceptions import OpenApiException

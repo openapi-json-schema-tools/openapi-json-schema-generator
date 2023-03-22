@@ -29,7 +29,7 @@ from urllib3 import _collections, fields
 import frozendict
 
 from this_package import exceptions, rest, schemas, security_schemes
-from this_package import configuration as configuration_module
+from this_package.configurations import schema_configuration, api_configuration
 
 
 class RequestField(fields.RequestField):
@@ -887,7 +887,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         }
 
     @classmethod
-    def deserialize(cls, response: urllib3.HTTPResponse, configuration: configuration_module.Configuration) -> T:
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: schema_configuration.SchemaConfiguration) -> T:
         content_type = response.headers.get('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
@@ -951,7 +951,8 @@ class ApiClient:
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param configuration: configuration_module.Configuration object for this client
+    :param configuration: api_configuration.ApiConfiguration object for this client
+    :param schema_configuration: schema_configuration.SchemaConfiguration object for this client
     :param header_name: a header to pass when making calls to the API.
     :param header_value: a header value to pass when making calls to
         the API.
@@ -965,13 +966,15 @@ class ApiClient:
 
     def __init__(
         self,
-        configuration: typing.Optional[configuration_module.Configuration] = None,
+        configuration: typing.Optional[api_configuration.ApiConfiguration] = None,
+        schema_config: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         header_name: typing.Optional[str] = None,
         header_value: typing.Optional[str] = None,
         cookie: typing.Optional[str] = None,
         pool_threads: int = 1
     ):
-        self.configuration = configuration or configuration_module.Configuration()
+        self.configuration: api_configuration.ApiConfiguration = configuration or api_configuration.ApiConfiguration()
+        self.schema_configuration: schema_configuration.SchemaConfiguration = schema_config or schema_configuration.SchemaConfiguration()
         self.pool_threads = pool_threads
         self.rest_client = rest.RESTClientObject(self.configuration)
         self.default_headers = _collections.HTTPHeaderDict()
@@ -1021,13 +1024,13 @@ class ApiClient:
         self,
         resource_path: str,
         method: str,
+        host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        host: typing.Optional[str] = None,
     ) -> urllib3.HTTPResponse:
 
         # header parameters
@@ -1044,11 +1047,7 @@ class ApiClient:
             used_headers.update(headers)
 
         # request url
-        if host is None:
-            url = self.configuration.host + resource_path
-        else:
-            # use server/host defined in path or operation instead
-            url = host + resource_path
+        url = host + resource_path
 
         # perform request and return response
         response = self.request(
@@ -1066,6 +1065,7 @@ class ApiClient:
         self,
         resource_path: str,
         method: str,
+        host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
@@ -1073,7 +1073,6 @@ class ApiClient:
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        host: typing.Optional[str] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
@@ -1113,13 +1112,13 @@ class ApiClient:
             return self.__call_api(
                 resource_path,
                 method,
+                host,
                 headers,
                 body,
                 fields,
                 security,
                 stream,
                 timeout,
-                host,
             )
 
         return self.pool.apply_async(
@@ -1127,6 +1126,7 @@ class ApiClient:
             (
                 resource_path,
                 method,
+                host,
                 headers,
                 body,
                 json,
@@ -1134,7 +1134,6 @@ class ApiClient:
                 security,
                 stream,
                 timeout,
-                host,
             )
         )
 
@@ -1260,38 +1259,7 @@ class Api(TypedDictInputVerifier):
     """
 
     def __init__(self, api_client: typing.Optional[ApiClient] = None):
-        if api_client is None:
-            api_client = ApiClient()
-        self.api_client = api_client
-
-    def _get_host(
-        self,
-        operation_id: str,
-        servers: typing.Tuple[typing.Dict[str, str], ...] = tuple(),
-        host_index: typing.Optional[int] = None
-    ) -> typing.Optional[str]:
-        configuration = self.api_client.configuration
-        try:
-            if host_index is None:
-                index = configuration.server_operation_index.get(
-                    operation_id, configuration.server_index
-                )
-            else:
-                index = host_index
-            server_variables = configuration.server_operation_variables.get(
-                operation_id, configuration.server_variables
-            )
-            host = configuration.get_host_from_settings(
-                index, variables=server_variables, servers=servers
-            )
-        except IndexError:
-            if servers:
-                raise exceptions.ApiValueError(
-                    "Invalid host index. Must be 0 <= index < %s" %
-                    len(servers)
-                )
-            host = None
-        return host
+        self.api_client: ApiClient = api_client or ApiClient()
 
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):

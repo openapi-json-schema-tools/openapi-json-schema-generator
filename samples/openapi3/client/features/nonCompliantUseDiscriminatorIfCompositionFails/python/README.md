@@ -136,13 +136,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 import this_package
-from this_package import configuration
+from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:3000
-# See configuration.py for a list of all supported configuration parameters.
-used_configuration = configuration.Configuration(
-    host = "http://localhost:3000"
+used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
 with this_package.ApiClient(used_configuration) as api_client:
@@ -164,13 +161,21 @@ with this_package.ApiClient(used_configuration) as api_client:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
 ```
 
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
+0 | [Server0](docs/servers/server_0.md) |
+
 ## Endpoints
 
-All URIs are relative to *http://localhost:3000*
+All URIs are relative to the selected server
+- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
+- Code samples in endpoints documents show how to do this
+- server_index can also be passed in to endpoint calls, see endpoint documentation
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-**post** /operators | [DefaultApi](docs/apis/tags/DefaultApi.md).[post_operators](docs/apis/tags/default_api/post_operators.md)  | 
+/operators **post** | [DefaultApi](docs/apis/tags/default_api.md).[post_operators](docs/apis/tags/default_api/post_operators.md)  | 
 
 ## Component Schemas
 
@@ -179,10 +184,6 @@ Class | Description
 [AdditionOperator](docs/components/schema/addition_operator.md) |
 [Operator](docs/components/schema/operator.md) |
 [SubtractionOperator](docs/components/schema/subtraction_operator.md) |
-
-## Author
-
-
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in this_package.apis.tags.tag_to_api and this_package.components.schemas may fail with a

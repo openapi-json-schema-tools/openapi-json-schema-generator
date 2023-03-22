@@ -108,7 +108,7 @@ class EnumsInProperties(
         *args_: typing.Union[dict, frozendict.frozendict, ],
         bar: typing.Union[Schema_.Properties.Bar, str, ],
         foo: typing.Union[Schema_.Properties.Foo, str, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'EnumsInProperties':
         return super().__new__(

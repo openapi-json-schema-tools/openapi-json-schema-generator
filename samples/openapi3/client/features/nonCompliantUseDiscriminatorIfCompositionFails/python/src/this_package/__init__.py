@@ -17,7 +17,7 @@ __version__ = "1.0.0"
 from this_package.api_client import ApiClient
 
 # import Configuration
-from this_package.configuration import Configuration
+from this_package.configurations.api_configuration import ApiConfiguration
 
 # import exceptions
 from this_package.exceptions import OpenApiException

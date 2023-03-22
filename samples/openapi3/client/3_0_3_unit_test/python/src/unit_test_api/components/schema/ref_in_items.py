@@ -50,7 +50,7 @@ class RefInItems(
                 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference'
             ],
         ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'RefInItems':
         return super().__new__(
             cls,

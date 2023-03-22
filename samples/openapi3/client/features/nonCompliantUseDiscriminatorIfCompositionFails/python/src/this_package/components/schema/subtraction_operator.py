@@ -44,7 +44,18 @@ class SubtractionOperator(
         class Properties:
             A = schemas.Float64Schema
             B = schemas.Float64Schema
-            OperatorId = schemas.StrSchema
+            
+            
+            class OperatorId(
+                schemas.StrSchema
+            ):
+            
+            
+                class Schema_:
+                    types = {
+                        str,
+                    }
+                    default = "SUB"
             __annotations__ = {
                 "a": A,
                 "b": B,
@@ -101,7 +112,7 @@ class SubtractionOperator(
         a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
         b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
         operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'SubtractionOperator':
         return super().__new__(
             cls,

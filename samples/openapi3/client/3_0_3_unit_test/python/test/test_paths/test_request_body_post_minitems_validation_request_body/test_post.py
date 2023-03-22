@@ -12,8 +12,9 @@ from unittest.mock import patch
 import urllib3
 
 import unit_test_api
-from unit_test_api.paths.request_body_post_minitems_validation_request_body import post  # noqa: E501
-from unit_test_api import configuration, schemas, api_client
+from unit_test_api.paths.request_body_post_minitems_validation_request_body.post import operation as post  # noqa: E501
+from unit_test_api import schemas, api_client
+from unit_test_api.configurations import api_configuration, schema_configuration
 
 from .. import ApiTestMixin
 
@@ -22,7 +23,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     """
     Post unit test stubs
     """
-    configuration_ = configuration.Configuration()
+    configuration_ = api_configuration.ApiConfiguration()
 
     def setUp(self):
         used_api_client = api_client.ApiClient(configuration=self.configuration_)

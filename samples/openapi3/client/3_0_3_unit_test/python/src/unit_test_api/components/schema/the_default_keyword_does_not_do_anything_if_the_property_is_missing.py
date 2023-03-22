@@ -49,6 +49,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
                         decimal.Decimal,
                     }
                     inclusive_maximum = 3
+                    default = 5
             __annotations__ = {
                 "alpha": Alpha,
             }
@@ -88,7 +89,7 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict, ],
         alpha: typing.Union[Schema_.Properties.Alpha, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        configuration_: typing.Optional[schemas.configuration_module.Configuration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing':
         return super().__new__(
