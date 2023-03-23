@@ -438,7 +438,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generatePathItem(List<File> files, CodegenKey pathKey, CodegenPathItem pathItem, String jsonPath, List<CodegenServer> servers) {
+    private void generatePathItem(List<File> files, CodegenKey pathKey, CodegenPathItem pathItem, String jsonPath, List<CodegenServer> servers, List<HashMap<String, CodegenSecurityRequirementValue>> security) {
         Map<String, Object> pathTemplateInfo = new HashMap<>();
         pathTemplateInfo.put("pathModule", pathKey.snakeCase);
         pathTemplateInfo.put("apiClassName", pathKey.camelCase);
@@ -475,6 +475,7 @@ public class DefaultGenerator implements Generator {
                             endpointInfo.put("path", pathKey);
                             endpointInfo.put("pathItem", pathItem);
                             endpointInfo.put("servers", servers);
+                            endpointInfo.put("security", security);
                             endpointInfo.put("packageName", config.packageName());
                             endpointInfo.put("apiPackage", config.apiPackage());
                             endpointInfo.put("tag", tag);
@@ -546,7 +547,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, List<CodegenServer> servers) {
+    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, List<CodegenServer> servers, List<HashMap<String, CodegenSecurityRequirementValue>> security) {
         if (paths == null || paths.isEmpty()) {
             LOGGER.info("Skipping generation of paths because the specification document lacks them.");
             return;
@@ -559,13 +560,12 @@ public class DefaultGenerator implements Generator {
         String pathsJsonPath = "#/paths";
         generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, true);
 
-        TreeMap<CodegenKey, CodegenPathItem> codegenPaths = new TreeMap<>();
         for (Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey pathKey = entry.getKey();
             CodegenPathItem pathItem = entry.getValue();
             String jsonPath = "#/paths/" + ModelUtils.encodeSlashes(pathKey.original);
 
-            generatePathItem(files, pathKey, pathItem, jsonPath, servers);
+            generatePathItem(files, pathKey, pathItem, jsonPath, servers, security);
         }
     }
 
@@ -1429,7 +1429,7 @@ public class DefaultGenerator implements Generator {
         List<CodegenServer> servers = config.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
         TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
-        generatePaths(files, paths, servers);
+        generatePaths(files, paths, servers, security);
         generateServers(files, servers, serversJsonPath);
         // apis
         generateApis(files, paths);

@@ -163,7 +163,7 @@ server_index | Class | Description
 ## Security
 
 Set auth info by setting ApiConfiguration.auth_info to a dict where the
-key is the below security schema quoted name, and the value is an instance of the linked
+key is the below security scheme quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the endpoint code sample.
 
 | Security Index | Security Scheme to Scope Names |

@@ -5,6 +5,7 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
+- [Security](#security)
 - [Servers](#servers)
 - [Code Sample](#code-sample)
 
@@ -42,6 +43,18 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+## Security
+
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
+key is the below security scheme quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+- these securities are the general api securities
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 
 ## Servers
 

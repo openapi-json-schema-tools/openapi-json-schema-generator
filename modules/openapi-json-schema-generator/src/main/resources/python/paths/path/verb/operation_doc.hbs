@@ -6,9 +6,17 @@
 - [General Info](#general-info)
 - [Arguments](#arguments)
 - [Return Types](#return-types)
-{{#if security}}
+{{#neq security null}}
+    {{#gt security.size 0}}
 - [Security](#security)
-{{/if}}
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+- [Security](#security)
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 - [Servers](#servers)
 - [Code Sample](#code-sample)
 
@@ -115,20 +123,41 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiec
 {{> components/responses/response_doc response=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/unless}}
 {{/each}}
-{{#if security}}
+{{#neq security null}}
+    {{#gt security.size 0}}
 
 {{headerSize}}# Security
 
 Set auth info by setting ApiConfiguration.auth_info to a dict where the
-key is the below security schema quoted name, and the value is an instance of the linked
+key is the below security scheme quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
+- these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-    {{#each security}}
+        {{#each security}}
 | {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
-    {{/each}}
-{{/if}}
+        {{/each}}
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+
+{{headerSize}}# Security
+
+Set auth info by setting ApiConfiguration.auth_info to a dict where the
+key is the below security scheme quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the code sample.
+- these securities are the general api securities
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+            {{#each ../security}}
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+            {{/each}}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 
 {{headerSize}}# Servers
 

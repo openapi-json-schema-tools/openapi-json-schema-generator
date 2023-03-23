@@ -2678,14 +2678,14 @@ public class DefaultCodegen implements CodegenConfig {
         if (security == null) {
             return null;
         }
-        List securityRequiremnts = new ArrayList<>();
+        List securityRequirements = new ArrayList<>();
         int i = 0;
         for (SecurityRequirement specSecurityRequirement: security) {
             HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
-            securityRequiremnts.add(securityRequirement);
+            securityRequirements.add(securityRequirement);
             i++;
         }
-        return securityRequiremnts;
+        return securityRequirements;
     }
 
     /**
