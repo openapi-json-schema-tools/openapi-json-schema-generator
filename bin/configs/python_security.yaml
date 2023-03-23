@@ -1,0 +1,5 @@
+generatorName: python
+outputDir: samples/openapi3/client/features/security/python
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/security.yaml
+additionalProperties:
+  packageName: this_package
