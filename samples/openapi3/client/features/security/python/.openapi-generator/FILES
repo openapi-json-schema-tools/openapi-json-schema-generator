@@ -48,6 +48,8 @@ src/this_package/paths/path_with_one_explicit_security/get/operation.py
 src/this_package/paths/path_with_one_explicit_security/get/operation.pyi
 src/this_package/paths/path_with_one_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/responses/response_200/__init__.py
+src/this_package/paths/path_with_one_explicit_security/get/security/__init__.py
+src/this_package/paths/path_with_one_explicit_security/get/security/security_requirement_object_0.py
 src/this_package/paths/path_with_security_from_root/__init__.py
 src/this_package/paths/path_with_security_from_root/get/__init__.py
 src/this_package/paths/path_with_security_from_root/get/operation.py
@@ -60,6 +62,9 @@ src/this_package/paths/path_with_two_explicit_security/get/operation.py
 src/this_package/paths/path_with_two_explicit_security/get/operation.pyi
 src/this_package/paths/path_with_two_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/responses/response_200/__init__.py
+src/this_package/paths/path_with_two_explicit_security/get/security/__init__.py
+src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_0.py
+src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_1.py
 src/this_package/rest.py
 src/this_package/schemas.py
 src/this_package/security/__init__.py

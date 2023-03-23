@@ -490,6 +490,12 @@ public class DefaultGenerator implements Generator {
                     }
                 }
 
+                // paths.some_path.security.security_requirement_0.py
+                if (operation.security != null) {
+                    String securityJsonPath = operationJsonPath + "/security";
+                    generateSecurity(files, operation.security, securityJsonPath);
+                }
+
                 // paths.some_path.post.request_body.py, only written if there is no refModule
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";
@@ -1365,7 +1371,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private void generateSecurity(List<File> files, List<HashMap<String, CodegenSecurityRequirementValue>> security, String jsonPath) {
-        if (security == null && security.isEmpty()) {
+        if (security == null || security.isEmpty()) {
             return;
         }
         if (!generateApis) {
