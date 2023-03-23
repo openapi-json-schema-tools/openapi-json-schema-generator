@@ -1,0 +1,15 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+from {{packageName}} import security_schemes
+
+security_requirement_object: security_schemes.SecurityRequirementObject = {
+{{#with securityRequirementObject}}
+    {{#if this}}
+        {{#each this}}
+    "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
+        {{/each}}
+    {{/if}}
+}
+{{/with}}

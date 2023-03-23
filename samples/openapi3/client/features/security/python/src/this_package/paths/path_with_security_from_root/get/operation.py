@@ -11,6 +11,10 @@ import typing_extensions
 import urllib3
 
 from this_package import api_client, exceptions
+from this_package.security import security_requirement_object_0
+from this_package.security import security_requirement_object_1
+from this_package.security import security_requirement_object_2
+from this_package.security import security_requirement_object_3
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
@@ -28,11 +32,18 @@ from .. import path
 from .responses import response_200
 
 
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+    security_requirement_object_0.security_requirement_object
+    security_requirement_object_1.security_requirement_object
+    security_requirement_object_2.security_requirement_object
+    security_requirement_object_3.security_requirement_object
+]
+
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
+        '200': typing.Type[response_200.ResponseFor200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {

@@ -55,6 +55,8 @@ component security scheme class. See how to do this in the code sample.
 | -------------- | ------------------------------ |
 | 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
 | 1       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
+| 2       | no security |
+| 3       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
 
 ## Servers
 

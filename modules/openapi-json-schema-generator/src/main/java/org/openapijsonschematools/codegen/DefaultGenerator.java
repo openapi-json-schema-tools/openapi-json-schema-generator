@@ -459,6 +459,7 @@ public class DefaultGenerator implements Generator {
                 endpointMap.put("operation", operation);
                 endpointMap.put("pathItem", pathItem);
                 endpointMap.put("httpMethod", httpMethod);
+                endpointMap.put("security", security);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
 
                 // operation docs
@@ -1348,7 +1349,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private TreeMap<String, CodegenTag> generateTags() {
+    private TreeMap<String, CodegenTag> getTags() {
         List<Tag> specTags = openAPI.getTags();
         if (specTags == null) {
             return null;
@@ -1361,6 +1362,27 @@ public class DefaultGenerator implements Generator {
             tags.put(name, tag);
         }
         return tags;
+    }
+
+    private void generateSecurity(List<File> files, List<HashMap<String, CodegenSecurityRequirementValue>> security, String jsonPath) {
+        if (security == null && security.isEmpty()) {
+            return;
+        }
+        if (!generateApis) {
+            LOGGER.info("Skipping generation of security because generateApis is set to false.");
+            return;
+        }
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, null, true);
+
+        int i = 0;
+        for (HashMap<String, CodegenSecurityRequirementValue> securityRequirementObject: security) {
+            Map<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", config.packageName());
+            templateData.put("securityRequirementObject", securityRequirementObject);
+            String serverJsonPath = jsonPath + "/" + i;
+            generateXs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY, CodegenConstants.SECURITY, templateData, true);
+            i++;
+        }
     }
 
     @Override
@@ -1399,7 +1421,7 @@ public class DefaultGenerator implements Generator {
 
         List<File> files = new ArrayList<>();
         // tags
-        TreeMap<String, CodegenTag> tags = generateTags();
+        TreeMap<String, CodegenTag> tags = getTags();
         // components.schemas / models
         TreeMap<String, CodegenSchema> schemas = generateSchemas(files);
         // components.requestBodies
@@ -1414,6 +1436,7 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
         // security
         List<HashMap<String, CodegenSecurityRequirementValue>> security = config.fromSecurity(openAPI.getSecurity(), "#/security");
+        generateSecurity(files, security, "#/security");
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());
         boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());

@@ -1080,6 +1080,11 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public String toSecurityRequirementObjectFilename(String basename) {
+        return toModuleFilename(basename);
+    }
+
+    @Override
     public String getCamelCaseServer(String basename) {
         return toModelName(basename);
     }
@@ -3507,6 +3512,13 @@ public class DefaultCodegen implements CodegenConfig {
         pathPieces[2] = toServerFilename(pathPieces[2]);
     }
 
+    private void updateSecurityFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2]);
+    }
+
     private void updateApisFilepath(String[] pathPieces) {
         // #/apis
         // #/apis/tags
@@ -3534,6 +3546,8 @@ public class DefaultCodegen implements CodegenConfig {
             updatePathsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/servers")) {
             updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/security")) {
+            updateSecurityFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/apis")) {
             // this is a fake json path that the code generates and uses to generate apis
             updateApisFilepath(pathPieces);

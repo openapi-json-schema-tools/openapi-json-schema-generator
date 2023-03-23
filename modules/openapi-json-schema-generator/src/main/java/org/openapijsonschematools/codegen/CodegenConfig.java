@@ -216,6 +216,8 @@ public interface CodegenConfig {
 
     String toServerFilename(String baseName);
 
+    String toSecurityRequirementObjectFilename(String baseName);
+
     String getCamelCaseServer(String baseName);
 
     String toModelImport(String refClass);

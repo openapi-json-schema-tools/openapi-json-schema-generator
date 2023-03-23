@@ -12,6 +12,15 @@ from urllib3._collections import HTTPHeaderDict
 {{/with}}
 
 from {{packageName}} import api_client, exceptions{{#if operation.security}}, security_schemes{{/if}}
+{{#eq operation.security null}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+            {{#each security}}
+from {{packageName}}.security import security_requirement_object_{{@key}}
+            {{/each}}
+        {{/gt}}
+    {{/neq}}
+{{/eq}}
 {{> _helper_imports_schema_types }}
 {{#if imports}}
 
@@ -47,24 +56,39 @@ from .parameters import {{jsonPathPiece.snakeCase}}
     {{/if}}
 {{/or}}
 {{#unless isStub}}
-{{#each security}}
-    {{#if @first}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#each security}}
+            {{#if @first}}
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-    {{/if}}
-        {{#if this}}
+            {{/if}}
+                {{#if this}}
     {
-            {{#each this}}
+                    {{#each this}}
         "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
-            {{/each}}
+                    {{/each}}
     },
-        {{else}}
+                {{else}}
     {},
-        {{/if}}
-    {{#if @last}}
+                {{/if}}
+            {{#if @last}}
 ]
-    {{/if}}
-{{/each}}
+            {{/if}}
+        {{/each}}
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+            {{#each ../security}}
+    security_requirement_object_{{@key}}.security_requirement_object
+            {{/each}}
+]
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 {{/unless}}
 {{#unless isStub}}
 
@@ -79,7 +103,7 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
+        '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
 {{/each}}
     }
 )

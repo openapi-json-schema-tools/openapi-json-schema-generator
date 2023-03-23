@@ -11,6 +11,10 @@ import typing_extensions
 import urllib3
 
 from this_package import api_client, exceptions
+from this_package.security import security_requirement_object_0
+from this_package.security import security_requirement_object_1
+from this_package.security import security_requirement_object_2
+from this_package.security import security_requirement_object_3
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401

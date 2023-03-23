@@ -7,6 +7,9 @@ servers:
 security:
   - api_key: []
   - http_basic_test: []
+  - {}
+  - api_key: []
+    http_basic_test: []
 paths:
   /pathWithSecurityFromRoot:
     get:
