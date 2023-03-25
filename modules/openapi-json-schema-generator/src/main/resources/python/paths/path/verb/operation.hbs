@@ -11,13 +11,15 @@ from urllib3._collections import HTTPHeaderDict
 {{/or}}
 {{/with}}
 
-from {{packageName}} import api_client, exceptions{{#if operation.security}}, security_schemes{{/if}}
+from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
+from {{packageName}}.security import (
             {{#each security}}
-from {{packageName}}.security import security_requirement_object_{{@key}}
+    security_requirement_object_{{@key}},
             {{/each}}
+)
         {{/gt}}
     {{/neq}}
 {{/eq}}
@@ -40,6 +42,15 @@ from . import request_body
 {{#each allParams}}
 from .parameters import {{jsonPathPiece.snakeCase}}
 {{/each}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+from .security import (
+        {{#each security}}
+    security_requirement_object_{{@key}},
+        {{/each}}
+)
+    {{/gt}}
+{{/neq}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
@@ -58,24 +69,12 @@ from .parameters import {{jsonPathPiece.snakeCase}}
 {{#unless isStub}}
 {{#neq security null}}
     {{#gt security.size 0}}
-        {{#each security}}
-            {{#if @first}}
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-            {{/if}}
-                {{#if this}}
-    {
-                    {{#each this}}
-        "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
-                    {{/each}}
-    },
-                {{else}}
-    {},
-                {{/if}}
-            {{#if @last}}
-]
-            {{/if}}
+        {{#each security}}
+    security_requirement_object_{{@key}}.security_requirement_object,
         {{/each}}
+]
     {{/gt}}
 {{else}}
     {{#neq ../security null}}
@@ -83,7 +82,7 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
             {{#each ../security}}
-    security_requirement_object_{{@key}}.security_requirement_object
+    security_requirement_object_{{@key}}.security_requirement_object,
             {{/each}}
 ]
         {{/gt}}
@@ -275,9 +274,19 @@ class BaseApi(api_client.Api):
             fields=_fields,
             body=_body,
     {{/if}}
-    {{#if security}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
             security=_security,
-    {{/if}}
+            security_index=security_index,
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+            security=_security,
+            security_index=security_index,
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
             stream=stream,
             timeout=timeout,
         )

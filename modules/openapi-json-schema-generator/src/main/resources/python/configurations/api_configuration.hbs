@@ -18,6 +18,7 @@ import urllib3
 
 from {{packageName}} import exceptions
 {{#if securitySchemes}}
+from {{packageName}} import security_schemes
     {{#each securitySchemes}}
 from {{packageName}}.components.security_schemes import {{jsonPathPiece.snakeCase}}
     {{/each}}
@@ -107,6 +108,7 @@ class ApiConfiguration(object):
         self,
 {{#if securitySchemes}}
         auth_info: typing.Optional[AuthInfo] = None,
+        security_index: int = 0,
 {{/if}}
 {{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
@@ -118,8 +120,10 @@ class ApiConfiguration(object):
         # Authentication Settings
 {{#if securitySchemes}}
         self.auth_info = auth_info or AuthInfo()
+        self.server_index = server_index
 {{else}}
         self.auth_info = {}
+        self.security_index = 0
 {{/if}}
         # Server Info
 {{#if hasServers}}
@@ -330,3 +334,17 @@ class ApiConfiguration(object):
         used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
+{{#if securitySchemes}}
+
+    def get_server_requirement_object(
+        self,
+        server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        index: typing.Optional[int],
+    ) -> security_schemes.SecurityRequirementObject:
+        """Gets security_schemes.SecurityRequirementObject based on the index
+        :param index: array index of the SecurityRequirementObject
+        :return: the selected security_schemes.SecurityRequirementObject
+        """
+        used_index = index or self.security_index
+        return server_requirement_objects[used_index]
+{{/if}}

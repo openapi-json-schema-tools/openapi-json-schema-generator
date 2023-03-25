@@ -10,11 +10,13 @@ from dataclasses import dataclass
 import typing_extensions
 import urllib3
 
-from this_package import api_client, exceptions
-from this_package.security import security_requirement_object_0
-from this_package.security import security_requirement_object_1
-from this_package.security import security_requirement_object_2
-from this_package.security import security_requirement_object_3
+from this_package import api_client, exceptions, security_schemes
+from this_package.security import (
+    security_requirement_object_0,
+    security_requirement_object_1,
+    security_requirement_object_2,
+    security_requirement_object_3,
+)
 import datetime  # noqa: F401
 import decimal  # noqa: F401
 import functools  # noqa: F401
@@ -88,6 +90,8 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get',
             host=host,
+            security=_security,
+            security_index=security_index,
             stream=stream,
             timeout=timeout,
         )

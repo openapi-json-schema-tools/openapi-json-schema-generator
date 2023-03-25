@@ -1029,6 +1029,7 @@ class ApiClient:
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
+        security_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> urllib3.HTTPResponse:
@@ -1039,8 +1040,14 @@ class ApiClient:
             headers['Cookie'] = self.cookie
 
         # auth setting
-        self.update_params_for_auth(used_headers,
-                                    security, resource_path, method, body)
+        self.update_params_for_auth(
+            used_headers,
+            security,
+            security_index,
+            resource_path,
+            method,
+            body
+        )
 
         # must happen after cookie setting and auth setting in case user is overriding those
         if headers:
@@ -1070,6 +1077,7 @@ class ApiClient:
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
+        security_index: typing.Optional[int] = None,
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -1084,8 +1092,9 @@ class ApiClient:
             placed in the request header.
         :param body: Request body.
         :param fields: Request post form parameters,
-            for `application/x-www-form-urlencoded`, `multipart/form-data`.
-        :param security: The security auth Settings names for the request.
+            for `application/x-www-form-urlencoded`, `multipart/form-data`
+        :param security: The list of possible security auth settings for the request
+        :param security_index: The index to select the security.
         :param async_req: execute request asynchronously
         :type async_req: bool, optional TODO remove, unused
         :param stream: if True, the urllib3.HTTPResponse object will
@@ -1117,6 +1126,7 @@ class ApiClient:
                 body,
                 fields,
                 security,
+                security_index,
                 stream,
                 timeout,
             )
@@ -1132,6 +1142,7 @@ class ApiClient:
                 json,
                 fields,
                 security,
+                security_index,
                 stream,
                 timeout,
             )
@@ -1202,6 +1213,7 @@ class ApiClient:
         self,
         headers: _collections.HTTPHeaderDict,
         security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]],
+        security_index: typing.Optional[int],
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]] = None
@@ -1218,37 +1230,22 @@ class ApiClient:
         if not security:
             return
 
-        possible_security_requirements: typing.List[security_schemes.SecurityRequirementObject] = []
-        for security_requirement_object in security:
-            if not security_requirement_object:
-                # optional auth cause, use no auth
-                possible_security_requirements.append(security_requirement_object)
-                continue
-            for security_scheme_component_name, scope_names in security_requirement_object.items():
-                security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
-                if not security_scheme_instance:
-                    break
-            else:
-                possible_security_requirements.append(security_requirement_object)
-        if len(possible_security_requirements) == 0:
-            missing_auths = [set(security_requirement_object) for security_requirement_object in security]
-            raise exceptions.ApiValueError(f"Configuration instance is missing the required auth for this route. Set one of {missing_auths} in Configuration.auth_info")
-        elif len(possible_security_requirements) > 1:
-            # TODO add security_scheme_index
-            raise exceptions.ApiValueError("Security schemes may be used, select one of them with the security_scheme_index argument")
+        security_requirement_object = self.configuration.get_server_requirement_object(
+            security,
+            security_index
+        )
 
-        for security_requirement_object in possible_security_requirements:
-            if not security_requirement_object:
-                # optional auth cause, use no auth
-                return
-            for security_scheme_component_name, scope_names in security_requirement_object.items():
-                security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
-                security_scheme_instance.apply_auth(
-                    headers,
-                    resource_path,
-                    method,
-                    body
-                )
+        if not security_requirement_object:
+            # optional auth cause, use no auth
+            return
+        for security_scheme_component_name, scope_names in security_requirement_object.items():
+            security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
+            security_scheme_instance.apply_auth(
+                headers,
+                resource_path,
+                method,
+                body
+            )
 
 
 class Api(TypedDictInputVerifier):

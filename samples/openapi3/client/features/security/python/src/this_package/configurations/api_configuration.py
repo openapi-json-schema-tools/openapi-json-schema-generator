@@ -20,6 +20,7 @@ import typing_extensions
 import urllib3
 
 from this_package import exceptions
+from this_package import security_schemes
 from this_package.components.security_schemes import security_scheme_api_key
 from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
@@ -61,6 +62,7 @@ class ApiConfiguration(object):
     def __init__(
         self,
         auth_info: typing.Optional[AuthInfo] = None,
+        security_index: int = 0,
         server_info: typing.Optional[ServerInfo] = None,
         server_index: int = 0,
     ):
@@ -68,6 +70,7 @@ class ApiConfiguration(object):
         """
         # Authentication Settings
         self.auth_info = auth_info or AuthInfo()
+        self.server_index = server_index
         # Server Info
         self.server_info = server_info or ServerInfo({
             'servers/0': server_0.Server0(),
@@ -262,3 +265,15 @@ class ApiConfiguration(object):
         used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
+
+    def get_server_requirement_object(
+        self,
+        server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        index: typing.Optional[int],
+    ) -> security_schemes.SecurityRequirementObject:
+        """Gets security_schemes.SecurityRequirementObject based on the index
+        :param index: array index of the SecurityRequirementObject
+        :return: the selected security_schemes.SecurityRequirementObject
+        """
+        used_index = index or self.security_index
+        return server_requirement_objects[used_index]

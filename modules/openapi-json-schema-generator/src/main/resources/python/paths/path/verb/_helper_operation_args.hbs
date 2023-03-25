@@ -23,6 +23,17 @@
 {{#if produces}}
     accept_content_types: typing.Tuple[str] = _all_accept_content_types,
 {{/if}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+    security_index: typing.Optional[int] = None,
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+    security_index: typing.Optional[int] = None,
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
     server_index: typing.Optional[int] = None,
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

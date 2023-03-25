@@ -26,12 +26,13 @@ from this_package import schemas  # noqa: F401
 
 from .. import path
 from .responses import response_200
+from .security import (
+    security_requirement_object_0,
+)
 
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-    {
-        "api_key": [],
-    },
+    security_requirement_object_0.security_requirement_object,
 ]
 
 
@@ -50,6 +51,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -62,6 +64,7 @@ class BaseApi(api_client.Api):
     def _path_with_one_explicit_security(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -70,6 +73,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -81,6 +85,7 @@ class BaseApi(api_client.Api):
 
     def _path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -103,6 +108,7 @@ class BaseApi(api_client.Api):
             method='get',
             host=host,
             security=_security,
+            security_index=security_index,
             stream=stream,
             timeout=timeout,
         )
@@ -135,6 +141,7 @@ class PathWithOneExplicitSecurity(BaseApi):
     @typing.overload
     def path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -147,6 +154,7 @@ class PathWithOneExplicitSecurity(BaseApi):
     def path_with_one_explicit_security(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -155,6 +163,7 @@ class PathWithOneExplicitSecurity(BaseApi):
     @typing.overload
     def path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -166,6 +175,7 @@ class PathWithOneExplicitSecurity(BaseApi):
 
     def path_with_one_explicit_security(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -185,6 +195,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -197,6 +208,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -205,6 +217,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -216,6 +229,7 @@ class ApiForGet(BaseApi):
 
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
