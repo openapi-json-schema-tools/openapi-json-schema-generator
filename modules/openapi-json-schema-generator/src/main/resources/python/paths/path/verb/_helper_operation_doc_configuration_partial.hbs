@@ -1,71 +1,49 @@
-{{#if security}}
-    {{#each security}}
-        {{#neq this.size 0}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#each security}}
+            {{#neq this.size 0}}
 # security_index {{@key}}
-            {{#each this}}
+                {{#each this}}
 from {{packageName}}.components.security_schemes import {{refInfo.refModule}}
+                {{/each}}
+            {{/neq}}
+        {{/each}}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+            {{#each rootSecurity}}
+                {{#neq this.size 0}}
+# security_index {{@key}}
+                    {{#each this}}
+from {{packageName}}.components.security_schemes import {{refInfo.refModule}}
+                    {{/each}}
+                {{/neq}}
             {{/each}}
-        {{/neq}}
-    {{/each}}
-
-
-{{/if}}
-{{#if security}}
-    {{#each security}}
-# auth_info for security_index {{@key}}
-        {{#eq this.size 0}}
-# no auth required for this security_index
-auth_info: api_configuration.AuthInfo = {}
-        {{else}}
-auth_info: api_configuration.AuthInfo = {
-            {{#each this}}
-    "{{{@key}}}": {{refInfo.refModule}}.{{refInfo.refClass}}(
-                {{#with refInfo.ref}}
-                    {{#eq type "apiKey"}}
-        api_key='sampleApiKeyValue'
-                    {{else}}
-                        {{#eq type "http"}}
-                            {{#eq scheme "basic"}}
-        user_id='someUserIdOrName',
-        password='somePassword',
-                            {{else}}
-                                {{#eq scheme "bearer"}}
-        access_token='someAccessToken'
-                                {{else}}
-                                    {{#eq scheme "signature"}}
-        signing_info={{packageName}}.signing.HttpSigningConfiguration(
-            key_id='my-key-id',
-            private_key_path='rsa.pem',
-            signing_scheme={{{packageName}}}.signing.SCHEME_HS2019,
-            signing_algorithm={{{packageName}}}.signing.ALGORITHM_RSASSA_PSS,
-            signed_headers=[
-                {{{packageName}}}.signing.HEADER_REQUEST_TARGET,
-                {{{packageName}}}.signing.HEADER_CREATED,
-                {{{packageName}}}.signing.HEADER_EXPIRES,
-                {{{packageName}}}.signing.HEADER_HOST,
-                {{{packageName}}}.signing.HEADER_DATE,
-                {{{packageName}}}.signing.HEADER_DIGEST,
-                'Content-Type',
-                'User-Agent'
-            ],
-            signature_max_validity=datetime.timedelta(minutes=5)
-        )
-
-                                    {{/eq}}
-                                {{/eq}}
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
-    ),
-                {{/with}}
-            {{/each}}
-}
-        {{/eq}}
-
-    {{/each}}
-{{/if}}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+{{> paths/path/verb/_helper_operation_doc_auth_info_partial }}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+{{> paths/path/verb/_helper_operation_doc_auth_info_partial security=rootSecurity }}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 used_configuration = api_configuration.ApiConfiguration(
-{{#if security}}
+{{#neq security null}}
+    {{#gt security.size 0}}
     auth_info=auth_info
-{{/if}}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+    auth_info=auth_info
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 )

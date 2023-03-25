@@ -77,7 +77,49 @@ import this_package
 from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
 from pprint import pprint
+# security_index 0
+from this_package.components.security_schemes import security_scheme_api_key
+# security_index 1
+from this_package.components.security_schemes import security_scheme_http_basic_test
+# security_index 3
+from this_package.components.security_schemes import security_scheme_http_basic_test
+from this_package.components.security_schemes import security_scheme_api_key
+
+# auth_info for security_index 0
+auth_info: api_configuration.AuthInfo = {
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
+
+# auth_info for security_index 1
+auth_info: api_configuration.AuthInfo = {
+    "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
+        user_id='someUserIdOrName',
+        password='somePassword',
+    ),
+}
+
+
+# auth_info for security_index 2
+# no auth required for this security_index
+auth_info: api_configuration.AuthInfo = {}
+
+
+# auth_info for security_index 3
+auth_info: api_configuration.AuthInfo = {
+    "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
+        user_id='someUserIdOrName',
+        password='somePassword',
+    ),
+    "api_key": security_scheme_api_key.ApiKey(
+        api_key='sampleApiKeyValue'
+    ),
+}
+
 used_configuration = api_configuration.ApiConfiguration(
+    auth_info=auth_info
 )
 # Enter a context with an instance of the API client
 with this_package.ApiClient(used_configuration) as api_client:

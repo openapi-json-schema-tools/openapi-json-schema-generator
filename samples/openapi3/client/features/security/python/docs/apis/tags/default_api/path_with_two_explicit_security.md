@@ -80,13 +80,13 @@ from this_package.components.security_schemes import security_scheme_api_key
 # security_index 1
 from this_package.components.security_schemes import security_scheme_bearer_test
 
-
 # auth_info for security_index 0
 auth_info: api_configuration.AuthInfo = {
     "api_key": security_scheme_api_key.ApiKey(
         api_key='sampleApiKeyValue'
     ),
 }
+
 
 # auth_info for security_index 1
 auth_info: api_configuration.AuthInfo = {

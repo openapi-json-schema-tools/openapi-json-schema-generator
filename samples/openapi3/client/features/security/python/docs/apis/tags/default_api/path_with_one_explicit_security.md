@@ -77,7 +77,6 @@ from pprint import pprint
 # security_index 0
 from this_package.components.security_schemes import security_scheme_api_key
 
-
 # auth_info for security_index 0
 auth_info: api_configuration.AuthInfo = {
     "api_key": security_scheme_api_key.ApiKey(
