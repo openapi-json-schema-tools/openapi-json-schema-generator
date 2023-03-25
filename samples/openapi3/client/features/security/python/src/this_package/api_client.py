@@ -1230,7 +1230,7 @@ class ApiClient:
         if not security:
             return
 
-        security_requirement_object = self.configuration.get_server_requirement_object(
+        security_requirement_object = self.configuration.get_security_requirement_object(
             security,
             security_index
         )
@@ -1239,7 +1239,7 @@ class ApiClient:
             # optional auth cause, use no auth
             return
         for security_scheme_component_name, scope_names in security_requirement_object.items():
-            security_scheme_instance = self.configuration.auth_info.get(security_scheme_component_name)
+            security_scheme_instance = self.configuration.security_scheme_info.get(security_scheme_component_name)
             security_scheme_instance.apply_auth(
                 headers,
                 resource_path,

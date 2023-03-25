@@ -46,7 +46,7 @@ headers | Unset | headers were not defined |
 
 ## Security
 
-Set auth info by setting ApiConfiguration.auth_info to a dict where the
+Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
 - these securities are specific to this to this endpoint
@@ -80,23 +80,23 @@ from this_package.components.security_schemes import security_scheme_api_key
 # security_index 1
 from this_package.components.security_schemes import security_scheme_bearer_test
 
-# auth_info for security_index 0
-auth_info: api_configuration.AuthInfo = {
+# security_scheme_info for security_index 0
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "api_key": security_scheme_api_key.ApiKey(
         api_key='sampleApiKeyValue'
     ),
 }
 
 
-# auth_info for security_index 1
-auth_info: api_configuration.AuthInfo = {
+# security_scheme_info for security_index 1
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "bearer_test": security_scheme_bearer_test.BearerTest(
         access_token='someAccessToken'
     ),
 }
 
 used_configuration = api_configuration.ApiConfiguration(
-    auth_info=auth_info
+    security_scheme_info=security_scheme_info
 )
 # Enter a context with an instance of the API client
 with this_package.ApiClient(used_configuration) as api_client:

@@ -46,8 +46,8 @@ from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers
 {{/if}}
 {{#if securitySchemes}}
 
-AuthInfo = typing_extensions.TypedDict(
-    'AuthInfo',
+SecuritySchemeInfo = typing_extensions.TypedDict(
+    'SecuritySchemeInfo',
     {
 {{#each securitySchemes}}
         "{{{@key}}}": {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
@@ -93,10 +93,10 @@ class ApiConfiguration(object):
     Do not edit the class manually.
 
 {{#if securitySchemes}}
-    :param auth_info: The security scheme auth info to use when calling endpoints
+    :param security_scheme_info: The security scheme auth info to use when calling endpoints
       The key is a string that identifies the component security scheme that one is adding auth info for
       The value is an instance of the component security scheme class for that security scheme.
-      See the AuthInfo TypedDict definition
+      See the SecuritySchemeInfo TypedDict definition
 {{/if}}
 {{#if hasServers}}
     :param server_info: The server information used to make endpoint calls
@@ -107,7 +107,7 @@ class ApiConfiguration(object):
     def __init__(
         self,
 {{#if securitySchemes}}
-        auth_info: typing.Optional[AuthInfo] = None,
+        security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
         security_index: int = 0,
 {{/if}}
 {{#if hasServers}}
@@ -119,10 +119,10 @@ class ApiConfiguration(object):
         """
         # Authentication Settings
 {{#if securitySchemes}}
-        self.auth_info = auth_info or AuthInfo()
+        self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
         self.server_index = server_index
 {{else}}
-        self.auth_info = {}
+        self.security_scheme_info = {}
         self.security_index = 0
 {{/if}}
         # Server Info
@@ -336,7 +336,7 @@ class ApiConfiguration(object):
         return server.url
 {{#if securitySchemes}}
 
-    def get_server_requirement_object(
+    def get_security_requirement_object(
         self,
         server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],

@@ -26,8 +26,8 @@ from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.servers import server_0
 
-AuthInfo = typing_extensions.TypedDict(
-    'AuthInfo',
+SecuritySchemeInfo = typing_extensions.TypedDict(
+    'SecuritySchemeInfo',
     {
         "api_key": security_scheme_api_key.ApiKey,
         "bearer_test": security_scheme_bearer_test.BearerTest,
@@ -51,17 +51,17 @@ class ApiConfiguration(object):
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param auth_info: The security scheme auth info to use when calling endpoints
+    :param security_scheme_info: The security scheme auth info to use when calling endpoints
       The key is a string that identifies the component security scheme that one is adding auth info for
       The value is an instance of the component security scheme class for that security scheme.
-      See the AuthInfo TypedDict definition
+      See the SecuritySchemeInfo TypedDict definition
     :param server_info: The server information used to make endpoint calls
     :param server_index: Index to servers configuration.
     """
 
     def __init__(
         self,
-        auth_info: typing.Optional[AuthInfo] = None,
+        security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
         security_index: int = 0,
         server_info: typing.Optional[ServerInfo] = None,
         server_index: int = 0,
@@ -69,7 +69,7 @@ class ApiConfiguration(object):
         """Constructor
         """
         # Authentication Settings
-        self.auth_info = auth_info or AuthInfo()
+        self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
         self.server_index = server_index
         # Server Info
         self.server_info = server_info or ServerInfo({
@@ -266,7 +266,7 @@ class ApiConfiguration(object):
         server = self.server_info[used_key]
         return server.url
 
-    def get_server_requirement_object(
+    def get_security_requirement_object(
         self,
         server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],

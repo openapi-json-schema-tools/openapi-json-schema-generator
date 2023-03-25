@@ -1,11 +1,11 @@
     {{#each security}}
 
-# auth_info for security_index {{@key}}
+# security_scheme_info for security_index {{@key}}
         {{#eq this.size 0}}
 # no auth required for this security_index
-auth_info: api_configuration.AuthInfo = {}
+security_scheme_info: api_configuration.SecuritySchemeInfo = {}
         {{else}}
-auth_info: api_configuration.AuthInfo = {
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
             {{#each this}}
     "{{{@key}}}": {{refInfo.refModule}}.{{refInfo.refClass}}(
                 {{#with refInfo.ref}}
