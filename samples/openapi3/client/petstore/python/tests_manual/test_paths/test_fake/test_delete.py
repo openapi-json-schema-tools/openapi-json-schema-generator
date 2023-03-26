@@ -19,12 +19,12 @@ from ... import ApiTestMixin
 
 
 class TestFake(ApiTestMixin, unittest.TestCase):
-    auth_info = api_configuration.AuthInfo(
+    security_scheme_info = api_configuration.SecuritySchemeInfo(
         bearer_test=api_configuration.security_scheme_bearer_test.BearerTest(
             access_token='someAccessToken'
         )
     )
-    used_configuration = api_configuration.ApiConfiguration(auth_info=auth_info)
+    used_configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info)
     used_api_client = api_client.ApiClient(
         configuration=used_configuration
     )

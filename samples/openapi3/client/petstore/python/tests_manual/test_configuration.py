@@ -28,13 +28,13 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         config.disabled_json_schema_keywords = set()
 
     def test_spec_root_servers(self):
-        auth_info = api_configuration.AuthInfo(
+        security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         server_info: api_configuration.ServerInfo = {
             'servers/1': api_configuration.server_1.Server1(variables={'version': 'v2'})
         }
-        configuration = api_configuration.ApiConfiguration(auth_info=auth_info, server_info=server_info, server_index=1)
+        configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info, server_index=1)
         client = ApiClient(configuration=configuration)
         api = pet_api.PetApi(client)
 
@@ -73,7 +73,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
             )
 
     def test_path_servers(self):
-        auth_info = api_configuration.AuthInfo(
+        security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         server_info: api_configuration.ServerInfo = {
@@ -81,7 +81,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
                 variables={'version': 'v2'}
             )
         }
-        configuration = api_configuration.ApiConfiguration(auth_info=auth_info, server_info=server_info)
+        configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info)
         client = ApiClient(configuration=configuration)
         api = pet_api.PetApi(client)
 
