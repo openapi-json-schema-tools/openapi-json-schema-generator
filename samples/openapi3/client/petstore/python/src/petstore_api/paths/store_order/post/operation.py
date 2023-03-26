@@ -26,8 +26,10 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from .responses import response_200
-from .responses import response_400
+from .responses import (
+    response_200,
+    response_400,
+)
 from . import request_body
 
 
@@ -35,8 +37,8 @@ from . import request_body
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
-        '400': response_400.ResponseFor400,
+        '200': typing.Type[response_200.ResponseFor200],
+        '400': typing.Type[response_400.ResponseFor400],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {

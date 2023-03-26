@@ -27,25 +27,24 @@ from petstore_api import schemas  # noqa: F401
 
 from .. import path
 from .responses import response_200
+from .security import (
+    security_requirement_object_0,
+    security_requirement_object_1,
+    security_requirement_object_2,
+)
 
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-    {
-    },
-    {
-        "http_basic_test": [],
-        "api_key": [],
-    },
-    {
-        "petstore_auth": ["write:pets", "read:pets", ],
-    },
+    security_requirement_object_0.security_requirement_object,
+    security_requirement_object_1.security_requirement_object,
+    security_requirement_object_2.security_requirement_object,
 ]
 
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
+        '200': typing.Type[response_200.ResponseFor200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
@@ -61,19 +60,19 @@ class BaseApi(api_client.Api):
     def _multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _multiple_securities(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -83,6 +82,7 @@ class BaseApi(api_client.Api):
     def _multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -95,6 +95,7 @@ class BaseApi(api_client.Api):
     def _multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -123,6 +124,7 @@ class BaseApi(api_client.Api):
             host=host,
             headers=_headers,
             security=_security,
+            security_index=security_index,
             stream=stream,
             timeout=timeout,
         )
@@ -156,19 +158,19 @@ class MultipleSecurities(BaseApi):
     def multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def multiple_securities(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -178,6 +180,7 @@ class MultipleSecurities(BaseApi):
     def multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -190,6 +193,7 @@ class MultipleSecurities(BaseApi):
     def multiple_securities(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -211,19 +215,19 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -233,6 +237,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -245,6 +250,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

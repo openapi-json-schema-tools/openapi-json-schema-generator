@@ -104,9 +104,10 @@ Ref Class | Input Type | Accessed Type | Description
 
 ## Security
 
-Set auth info by setting ApiConfiguration.auth_info to a dict where the
-key is the below security schema quoted name, and the value is an instance of the linked
+Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
+key is the below security scheme quoted name, and the value is an instance of the linked
 component security scheme class. See how to do this in the code sample.
+- these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
@@ -136,15 +137,14 @@ from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
 
-
-# auth_info for security_index 0
-auth_info: api_configuration.AuthInfo = {
+# security_scheme_info for security_index 0
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
     ),
 }
 
 used_configuration = api_configuration.ApiConfiguration(
-    auth_info=auth_info
+    security_scheme_info=security_scheme_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

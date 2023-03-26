@@ -41,9 +41,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def _foo_get(
@@ -127,9 +125,7 @@ class FooGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def foo_get(
@@ -182,9 +178,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def get(

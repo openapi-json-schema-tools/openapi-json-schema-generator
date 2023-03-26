@@ -24,8 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_400
-from .responses import response_404
+from .responses import (
+    response_400,
+    response_404,
+)
 from .parameters import parameter_0
 
 

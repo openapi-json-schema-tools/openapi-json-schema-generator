@@ -26,8 +26,14 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .responses import response_400
-from .parameters import parameter_0
-from .parameters import parameter_1
+from .parameters import (
+    parameter_0,
+    parameter_1,
+)
+from .security import (
+    security_requirement_object_0,
+    security_requirement_object_1,
+)
 
 
 
@@ -83,6 +89,7 @@ class BaseApi(api_client.Api):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -94,6 +101,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[True],
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -104,6 +112,7 @@ class BaseApi(api_client.Api):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -116,6 +125,7 @@ class BaseApi(api_client.Api):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -160,6 +170,7 @@ class BaseApi(api_client.Api):
             host=host,
             headers=_headers,
             security=_security,
+            security_index=security_index,
             stream=stream,
             timeout=timeout,
         )
@@ -194,6 +205,7 @@ class DeletePet(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -205,6 +217,7 @@ class DeletePet(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -215,6 +228,7 @@ class DeletePet(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -227,6 +241,7 @@ class DeletePet(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -250,6 +265,7 @@ class ApiForDelete(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -261,6 +277,7 @@ class ApiForDelete(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -271,6 +288,7 @@ class ApiForDelete(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -283,6 +301,7 @@ class ApiForDelete(BaseApi):
         self,
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

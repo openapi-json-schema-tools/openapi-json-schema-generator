@@ -28,25 +28,27 @@ from petstore_api import schemas  # noqa: F401
 from .. import path
 from .responses import response_200
 from . import request_body
-from .parameters import parameter_0
-from .parameters import parameter_1
-from .parameters import parameter_2
-from .parameters import parameter_3
-from .parameters import parameter_4
-from .parameters import parameter_5
-from .parameters import parameter_6
-from .parameters import parameter_7
-from .parameters import parameter_8
-from .parameters import parameter_9
-from .parameters import parameter_10
-from .parameters import parameter_11
-from .parameters import parameter_12
-from .parameters import parameter_13
-from .parameters import parameter_14
-from .parameters import parameter_15
-from .parameters import parameter_16
-from .parameters import parameter_17
-from .parameters import parameter_18
+from .parameters import (
+    parameter_0,
+    parameter_1,
+    parameter_2,
+    parameter_3,
+    parameter_4,
+    parameter_5,
+    parameter_6,
+    parameter_7,
+    parameter_8,
+    parameter_9,
+    parameter_10,
+    parameter_11,
+    parameter_12,
+    parameter_13,
+    parameter_14,
+    parameter_15,
+    parameter_16,
+    parameter_17,
+    parameter_18,
+)
 
 
 
@@ -175,7 +177,7 @@ class RequestCookieParameters:
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
+        '200': typing.Type[response_200.ResponseFor200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
@@ -201,9 +203,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _parameter_collisions(
@@ -219,9 +219,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -382,9 +380,7 @@ class ParameterCollisions(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def parameter_collisions(
@@ -400,9 +396,7 @@ class ParameterCollisions(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -486,9 +480,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def post(
@@ -504,9 +496,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload

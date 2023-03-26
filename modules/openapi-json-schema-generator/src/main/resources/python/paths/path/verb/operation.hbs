@@ -15,11 +15,17 @@ from {{packageName}} import api_client, exceptions{{#neq operation.security null
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
+            {{#eq security.size 1}}
+                {{#each security}}
+from {{packageName}}.security import security_requirement_object_{{@key}}
+                {{/each}}
+            {{else}}
 from {{packageName}}.security import (
-            {{#each security}}
+                {{#each security}}
     security_requirement_object_{{@key}},
-            {{/each}}
+                {{/each}}
 )
+            {{/eq}}
         {{/gt}}
     {{/neq}}
 {{/eq}}
@@ -33,22 +39,48 @@ from {{packageName}}.security import (
 {{#unless isStub}}
 from .. import path
 {{/unless}}
-{{#each responses}}
+{{#if responses}}
+    {{#eq responses.size 1}}
+        {{#each responses}}
 from .responses import response_{{@key}}
-{{/each}}
-{{#with requestBody}}
-from . import request_body
-{{/with}}
-{{#each allParams}}
-from .parameters import {{jsonPathPiece.snakeCase}}
-{{/each}}
-{{#neq security null}}
-    {{#gt security.size 0}}
-from .security import (
-        {{#each security}}
-    security_requirement_object_{{@key}},
+        {{/each}}
+    {{else}}
+from .responses import (
+        {{#each responses}}
+    response_{{@key}},
         {{/each}}
 )
+    {{/eq}}
+{{/if}}
+{{#if requestBody}}
+from . import request_body
+{{/if}}
+{{#gt allParams.size 0}}
+    {{#eq allParams.size 1}}
+        {{#each allParams}}
+from .parameters import {{jsonPathPiece.snakeCase}}
+        {{/each}}
+    {{else}}
+from .parameters import (
+        {{#each allParams}}
+    {{jsonPathPiece.snakeCase}},
+        {{/each}}
+)
+    {{/eq}}
+{{/gt}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#eq security.size 1}}
+            {{#each security}}
+from .security import security_requirement_object_{{@key}}
+            {{/each}}
+        {{else}}
+from .security import (
+            {{#each security}}
+    security_requirement_object_{{@key}},
+            {{/each}}
+)
+        {{/eq}}
     {{/gt}}
 {{/neq}}
 

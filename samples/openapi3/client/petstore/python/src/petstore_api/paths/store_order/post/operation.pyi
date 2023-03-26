@@ -25,8 +25,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_200
-from .responses import response_400
+from .responses import (
+    response_200,
+    response_400,
+)
 from . import request_body
 
 _all_accept_content_types = (

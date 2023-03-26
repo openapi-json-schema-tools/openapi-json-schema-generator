@@ -20,6 +20,7 @@ import typing_extensions
 import urllib3
 
 from petstore_api import exceptions
+from petstore_api import security_schemes
 from petstore_api.components.security_schemes import security_scheme_api_key
 from petstore_api.components.security_schemes import security_scheme_api_key_query
 from petstore_api.components.security_schemes import security_scheme_bearer_test
@@ -35,8 +36,8 @@ from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
 from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
 
-AuthInfo = typing_extensions.TypedDict(
-    'AuthInfo',
+SecuritySchemeInfo = typing_extensions.TypedDict(
+    'SecuritySchemeInfo',
     {
         "api_key": security_scheme_api_key.ApiKey,
         "api_key_query": security_scheme_api_key_query.ApiKeyQuery,
@@ -70,24 +71,26 @@ class ApiConfiguration(object):
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param auth_info: The security scheme auth info to use when calling endpoints
+    :param security_scheme_info: The security scheme auth info to use when calling endpoints
       The key is a string that identifies the component security scheme that one is adding auth info for
       The value is an instance of the component security scheme class for that security scheme.
-      See the AuthInfo TypedDict definition
+      See the SecuritySchemeInfo TypedDict definition
     :param server_info: The server information used to make endpoint calls
     :param server_index: Index to servers configuration.
     """
 
     def __init__(
         self,
-        auth_info: typing.Optional[AuthInfo] = None,
+        security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
+        security_index: int = 0,
         server_info: typing.Optional[ServerInfo] = None,
         server_index: int = 0,
     ):
         """Constructor
         """
         # Authentication Settings
-        self.auth_info = auth_info or AuthInfo()
+        self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
+        self.security_index = security_index
         # Server Info
         self.server_info = server_info or ServerInfo({
             'servers/0': server_0.Server0(),
@@ -284,3 +287,15 @@ class ApiConfiguration(object):
         used_key = f"{key_prefix}{used_index}"
         server = self.server_info[used_key]
         return server.url
+
+    def get_security_requirement_object(
+        self,
+        server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        index: typing.Optional[int],
+    ) -> security_schemes.SecurityRequirementObject:
+        """Gets security_schemes.SecurityRequirementObject based on the index
+        :param index: array index of the SecurityRequirementObject
+        :return: the selected security_schemes.SecurityRequirementObject
+        """
+        used_index = index or self.security_index
+        return server_requirement_objects[used_index]
