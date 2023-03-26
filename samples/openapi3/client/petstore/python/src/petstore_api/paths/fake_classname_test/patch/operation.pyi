@@ -128,7 +128,7 @@ class BaseApi(api_client.Api):
         elif 'body' in serialized_data:
             _body = serialized_data['body']
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -240,6 +240,7 @@ class Classname(BaseApi):
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -321,6 +322,7 @@ class ApiForPatch(BaseApi):
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

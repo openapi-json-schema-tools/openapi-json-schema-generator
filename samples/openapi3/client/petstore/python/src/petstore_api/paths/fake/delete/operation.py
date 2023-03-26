@@ -188,7 +188,7 @@ class BaseApi(api_client.Api):
             _headers.extend(serialized_data)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -279,6 +279,7 @@ class GroupParameters(BaseApi):
         return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -341,6 +342,7 @@ class ApiForDelete(BaseApi):
         return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

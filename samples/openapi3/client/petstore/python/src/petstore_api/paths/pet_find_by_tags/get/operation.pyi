@@ -128,7 +128,7 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -216,6 +216,7 @@ class FindPetsByTags(BaseApi):
     ):
         return self._find_pets_by_tags(
             query_params=query_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -275,6 +276,7 @@ class ApiForGet(BaseApi):
     ):
         return self._find_pets_by_tags(
             query_params=query_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

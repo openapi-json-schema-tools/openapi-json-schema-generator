@@ -163,7 +163,7 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/' + '/servers/', server_index
+            'paths/' + path + '/' + '/servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -257,6 +257,7 @@ class FindPetsByStatus(BaseApi):
         return self._find_pets_by_status(
             query_params=query_params,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -321,6 +322,7 @@ class ApiForGet(BaseApi):
         return self._find_pets_by_status(
             query_params=query_params,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

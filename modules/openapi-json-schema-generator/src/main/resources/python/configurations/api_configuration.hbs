@@ -105,7 +105,7 @@ ServerIndexInfo = typing_extensions.TypedDict(
     {{#if operations}}
         {{#each operations}}
             {{#if servers}}
-        "paths/{{../../@key.original}}/{{../@key.original}}/servers": typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],,
+        "paths/{{../../@key.original}}/{{../@key.original}}/servers": typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
             {{/if}}
         {{/each}}
     {{/if}}

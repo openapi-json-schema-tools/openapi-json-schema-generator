@@ -34,7 +34,10 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         server_info: api_configuration.ServerInfo = {
             'servers/1': api_configuration.server_1.Server1(variables={'version': 'v2'})
         }
-        configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info, server_index=1)
+        server_index_info: api_configuration.ServerIndexInfo = {
+            'servers': 1
+        }
+        configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info, server_index_info=server_index_info)
         client = ApiClient(configuration=configuration)
         api = pet_api.PetApi(client)
 
