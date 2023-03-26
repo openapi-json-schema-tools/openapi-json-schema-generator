@@ -48,7 +48,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
     api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 
     @patch.object(urllib3.PoolManager, 'request')
-    def test_endpoint_call_contains_security(self, mock_request):
+    def test_endpoint_call_contains_security0(self, mock_request):
         mock_request.return_value = self.response(b'')
 
         api = get.ApiForGet(api_client=self.used_api_client)
@@ -64,6 +64,63 @@ class TestGet(ApiTestMixin, unittest.TestCase):
         assert isinstance(api_response.body, schemas.Unset)
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 200
+
+    @patch.object(urllib3.PoolManager, 'request')
+    def test_endpoint_call_contains_security1(self, mock_request):
+        mock_request.return_value = self.response(b'')
+
+        api = get.ApiForGet(api_client=self.used_api_client)
+        api_response = api.get(security_index=1)
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            f'http://localhost:3000/pathWithSecurityFromRoot',
+            method='GET',
+            additional_headers={'Authorization': 'Basic c29tZVVzZXJJZE9yTmFtZTpzb21lUGFzc3dvcmQ='}
+        )
+
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, schemas.Unset)
+        assert isinstance(api_response.headers, schemas.Unset)
+        assert api_response.response.status == 200
+
+    @patch.object(urllib3.PoolManager, 'request')
+    def test_endpoint_call_contains_security2(self, mock_request):
+        mock_request.return_value = self.response(b'')
+
+        api = get.ApiForGet(api_client=self.used_api_client)
+        api_response = api.get(security_index=2)
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            f'http://localhost:3000/pathWithSecurityFromRoot',
+            method='GET',
+        )
+
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, schemas.Unset)
+        assert isinstance(api_response.headers, schemas.Unset)
+        assert api_response.response.status == 200
+
+    @patch.object(urllib3.PoolManager, 'request')
+    def test_endpoint_call_contains_security3(self, mock_request):
+        mock_request.return_value = self.response(b'')
+
+        api = get.ApiForGet(api_client=self.used_api_client)
+        api_response = api.get(security_index=3)
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            f'http://localhost:3000/pathWithSecurityFromRoot',
+            method='GET',
+            additional_headers={
+                'Authorization': 'Basic c29tZVVzZXJJZE9yTmFtZTpzb21lUGFzc3dvcmQ=',
+                'api_key': 'sampleApiKeyValue'
+            }
+        )
+
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, schemas.Unset)
+        assert isinstance(api_response.headers, schemas.Unset)
+        assert api_response.response.status == 200
+
 
 if __name__ == '__main__':
     unittest.main()

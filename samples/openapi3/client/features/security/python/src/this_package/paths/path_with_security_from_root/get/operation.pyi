@@ -174,6 +174,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -184,6 +185,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -192,6 +194,7 @@ class ApiForGet(BaseApi):
     @typing.overload
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -203,12 +206,14 @@ class ApiForGet(BaseApi):
 
     def get(
         self,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._path_with_security_from_root(
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

@@ -25,9 +25,7 @@ import frozendict  # noqa: F401
 from this_package import schemas  # noqa: F401
 
 from .responses import response_200
-from .security import (
-    security_requirement_object_0,
-)
+from .security import security_requirement_object_0
 
 
 
@@ -162,6 +160,7 @@ class PathWithOneExplicitSecurity(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._path_with_one_explicit_security(
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -214,6 +213,7 @@ class ApiForGet(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._path_with_one_explicit_security(
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

@@ -163,6 +163,7 @@ class PathWithTwoExplicitSecurity(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._path_with_two_explicit_security(
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -215,6 +216,7 @@ class ApiForGet(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._path_with_two_explicit_security(
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

@@ -395,29 +395,29 @@ class ApiFor{{httpMethod.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType=@key this=this}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="null" contentType="null"}}
 
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
         return self._{{operationId.snakeCase}}(
-            {{> paths/path/verb/_helper_operation_args_passed }}
+            {{> paths/path/verb/_helper_operation_args_passed rootSecurity=../security }}
         )
 
 
