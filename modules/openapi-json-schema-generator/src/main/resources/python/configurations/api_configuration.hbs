@@ -56,6 +56,31 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+"""
+the default security_index to use at each openapi document json path
+the fallback value is stored in the 'security' key
+"""
+SecurityIndexInfo = typing_extensions.TypedDict(
+    'SecurityIndexInfo',
+    {
+{{#if security}}
+        'security': typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+{{else}}
+        'security': int,
+{{/if}}
+{{#each paths}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if security}}
+        "paths/{{../../@key.original}}/{{../@key.original}}/security": typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+    },
+    total=False
+)
 {{/if}}
 {{#if hasServers}}
 

@@ -51,6 +51,32 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
     total=False
 )
 
+"""
+the default security_index to use at each openapi document json path
+the fallback value is stored in the 'security' key
+"""
+SecurityIndexInfo = typing_extensions.TypedDict(
+    'SecurityIndexInfo',
+    {
+        'security': int,
+        "paths///fake/security": typing_extensions.Literal[0],
+        "paths///fake/security": typing_extensions.Literal[0],
+        "paths///fake/multipleSecurities/security": typing_extensions.Literal[0, 1, 2],
+        "paths///fake/{petId}/uploadImageWithRequiredFile/security": typing_extensions.Literal[0],
+        "paths///fake_classname_test/security": typing_extensions.Literal[0],
+        "paths///pet/security": typing_extensions.Literal[0, 1, 2],
+        "paths///pet/security": typing_extensions.Literal[0, 1],
+        "paths///pet/findByStatus/security": typing_extensions.Literal[0, 1, 2],
+        "paths///pet/findByTags/security": typing_extensions.Literal[0, 1],
+        "paths///pet/{petId}/security": typing_extensions.Literal[0, 1],
+        "paths///pet/{petId}/security": typing_extensions.Literal[0],
+        "paths///pet/{petId}/security": typing_extensions.Literal[0, 1],
+        "paths///pet/{petId}/uploadImage/security": typing_extensions.Literal[0],
+        "paths///store/inventory/security": typing_extensions.Literal[0],
+    },
+    total=False
+)
+
 # the server to use at each openapi document json path
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
