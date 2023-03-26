@@ -29,11 +29,8 @@ class TestGet(ApiTestMixin, unittest.TestCase):
     used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
     api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 
-    response_status = 200
-    response_body = ''
-
     @patch.object(urllib3.PoolManager, 'request')
-    def test_endpoint_lacks_security(self, mock_request):
+    def test_endpoint_call_lacks_security(self, mock_request):
         mock_request.return_value = self.response(b'')
 
         api = get.ApiForGet(api_client=self.used_api_client)
