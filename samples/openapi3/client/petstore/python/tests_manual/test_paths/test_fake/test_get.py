@@ -41,7 +41,6 @@ class TestFake(ApiTestMixin, unittest.TestCase):
             method='GET',
             content_type=None,
             accept_content_type='application/json',
-            headers={'enum_header_string': '-efg'}
         )
 
         assert isinstance(api_response.response, urllib3.HTTPResponse)
