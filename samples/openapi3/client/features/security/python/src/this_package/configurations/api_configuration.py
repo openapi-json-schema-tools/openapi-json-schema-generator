@@ -70,7 +70,7 @@ class ApiConfiguration(object):
         """
         # Authentication Settings
         self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
-        self.server_index = server_index
+        self.security_index = security_index
         # Server Info
         self.server_info = server_info or ServerInfo({
             'servers/0': server_0.Server0(),

@@ -19,10 +19,15 @@ class ApiTestMixin:
         content_type: typing.Optional[str] = None,
         accept_content_type: typing.Optional[str] = None,
         stream: bool = False,
+        additional_headers: typing.Optional[dict] = None
     ):
         headers = {
             'User-Agent': cls.user_agent
         }
+        if additional_headers:
+            assert 'Accept' not in additional_headers
+            assert 'Content-Type' not in additional_headers
+            headers.update(additional_headers)
         if accept_content_type:
             headers['Accept'] = accept_content_type
         if content_type:

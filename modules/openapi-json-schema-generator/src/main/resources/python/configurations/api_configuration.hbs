@@ -120,7 +120,7 @@ class ApiConfiguration(object):
         # Authentication Settings
 {{#if securitySchemes}}
         self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
-        self.server_index = server_index
+        self.security_index = security_index
 {{else}}
         self.security_scheme_info = {}
         self.security_index = 0
@@ -128,9 +128,9 @@ class ApiConfiguration(object):
         # Server Info
 {{#if hasServers}}
         self.server_info = server_info or ServerInfo({
-{{#each servers}}
+    {{#each servers}}
             'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
-{{/each}}
+    {{/each}}
         })
         self.server_index = server_index
 {{else}}
