@@ -26,6 +26,7 @@ from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.servers import server_0
 
+# security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing_extensions.TypedDict(
     'SecuritySchemeInfo',
     {
@@ -36,10 +37,23 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
     total=False
 )
 
+# the server to use at each openapi document json path
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
+    },
+    total=False
+)
+
+"""
+the default server_index to use at each openapi document json path
+the fallback value is stored in the 'servers' key
+"""
+ServerIndexInfo = typing_extensions.TypedDict(
+    'ServerIndexInfo',
+    {
+        'servers': typing_extensions.Literal[0],
     },
     total=False
 )
@@ -51,12 +65,13 @@ class ApiConfiguration(object):
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param security_scheme_info: The security scheme auth info to use when calling endpoints
+    :param security_scheme_info: the security scheme auth info that can be used when calling endpoints
       The key is a string that identifies the component security scheme that one is adding auth info for
-      The value is an instance of the component security scheme class for that security scheme.
+      The value is an instance of the component security scheme class for that security scheme
       See the SecuritySchemeInfo TypedDict definition
-    :param server_info: The server information used to make endpoint calls
-    :param server_index: Index to servers configuration.
+    :param security_index: index to secuirty configuration
+    :param server_info: the servers that can be used to make endpoint calls
+    :param server_index_info: index to servers configuration
     """
 
     def __init__(
@@ -64,18 +79,18 @@ class ApiConfiguration(object):
         security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
         security_index: int = 0,
         server_info: typing.Optional[ServerInfo] = None,
-        server_index: int = 0,
+        server_index_info: typing.Optional[ServerIndexInfo] = None,
     ):
         """Constructor
         """
         # Authentication Settings
-        self.security_scheme_info = security_scheme_info or SecuritySchemeInfo()
+        self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
         self.security_index = security_index
         # Server Info
-        self.server_info = server_info or ServerInfo({
+        self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
-        })
-        self.server_index = server_index
+        }
+        self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
         """Logging Settings
         """
@@ -261,9 +276,15 @@ class ApiConfiguration(object):
         :param index: array index of the host settings
         :return: URL based on host settings
         """
-        used_index = index or self.server_index
-        used_key = f"{key_prefix}{used_index}"
-        server = self.server_info[used_key]
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.server_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.server_index_info["servers"]
+        server = self.server_info[f"{key_prefix}/{used_index}"]
         return server.url
 
     def get_security_requirement_object(
