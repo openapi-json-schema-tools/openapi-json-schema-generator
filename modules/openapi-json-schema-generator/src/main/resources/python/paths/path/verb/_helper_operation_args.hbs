@@ -28,8 +28,8 @@
     security_index: typing.Optional[int] = None,
     {{/gt}}
 {{else}}
-    {{#neq ../security null}}
-        {{#gt ../security.size 0}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
     security_index: typing.Optional[int] = None,
         {{/gt}}
     {{/neq}}
@@ -51,15 +51,15 @@
 ) -> api_client.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}typing.Union[
-    {{> paths/path/verb/_helper_operation_response_type_hint }}
-]: ...
+) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}{{#gt responses.size 1}}typing.Union[
+    {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
+]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}
 {{/eq}}
 {{#eq skipDeserialization "null"}}
 {{#if isOverload}}
 ) -> typing.Union[
-    {{> paths/path/verb/_helper_operation_response_type_hint }}
+    {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
     api_client.ApiResponseWithoutDeserialization,
 ]: ...
 {{else}}
