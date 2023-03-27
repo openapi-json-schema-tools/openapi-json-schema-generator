@@ -40,9 +40,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def _logout_user(
@@ -81,7 +79,7 @@ class BaseApi(api_client.Api):
         used_path = path
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -117,9 +115,7 @@ class LogoutUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def logout_user(
@@ -167,9 +163,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-    ]: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def get(

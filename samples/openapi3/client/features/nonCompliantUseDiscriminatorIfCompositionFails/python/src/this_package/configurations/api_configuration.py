@@ -22,10 +22,23 @@ import urllib3
 from this_package import exceptions
 from this_package.servers import server_0
 
+# the server to use at each openapi document json path
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
+    },
+    total=False
+)
+
+"""
+the default server_index to use at each openapi document json path
+the fallback value is stored in the 'servers' key
+"""
+ServerIndexInfo = typing_extensions.TypedDict(
+    'ServerIndexInfo',
+    {
+        'servers': typing_extensions.Literal[0],
     },
     total=False
 )
@@ -37,24 +50,25 @@ class ApiConfiguration(object):
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     Do not edit the class manually.
 
-    :param server_info: The server information used to make endpoint calls
-    :param server_index: Index to servers configuration.
+    :param server_info: the servers that can be used to make endpoint calls
+    :param server_index_info: index to servers configuration
     """
 
     def __init__(
         self,
         server_info: typing.Optional[ServerInfo] = None,
-        server_index: int = 0,
+        server_index_info: typing.Optional[ServerIndexInfo] = None,
     ):
         """Constructor
         """
         # Authentication Settings
-        self.auth_info = {}
+        self.security_scheme_info: {}
+        self.security_index_info = {'security': 0}
         # Server Info
-        self.server_info = server_info or ServerInfo({
+        self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
-        })
-        self.server_index = server_index
+        }
+        self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
         """Logging Settings
         """
@@ -240,7 +254,13 @@ class ApiConfiguration(object):
         :param index: array index of the host settings
         :return: URL based on host settings
         """
-        used_index = index or self.server_index
-        used_key = f"{key_prefix}{used_index}"
-        server = self.server_info[used_key]
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.server_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.server_index_info["servers"]
+        server = self.server_info[f"{key_prefix}/{used_index}"]
         return server.url

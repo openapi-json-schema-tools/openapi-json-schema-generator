@@ -24,9 +24,15 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_200
-from .responses import response_400
+from .responses import (
+    response_200,
+    response_400,
+)
 from .parameters import parameter_0
+from .security import (
+    security_requirement_object_0,
+    security_requirement_object_1,
+)
 
 
 
@@ -58,6 +64,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -71,6 +78,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -80,6 +88,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -92,6 +101,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -118,14 +128,19 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
+        )
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/get/security',
+            _security,
+            security_index
         )
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
             host=host,
-            security=_security,
+            security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
         )
@@ -160,6 +175,7 @@ class FindPetsByTags(BaseApi):
     def find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -173,6 +189,7 @@ class FindPetsByTags(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -182,6 +199,7 @@ class FindPetsByTags(BaseApi):
     def find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -194,6 +212,7 @@ class FindPetsByTags(BaseApi):
     def find_pets_by_tags(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -201,6 +220,7 @@ class FindPetsByTags(BaseApi):
     ):
         return self._find_pets_by_tags(
             query_params=query_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -215,6 +235,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -228,6 +249,7 @@ class ApiForGet(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -237,6 +259,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -249,6 +272,7 @@ class ApiForGet(BaseApi):
     def get(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -256,6 +280,7 @@ class ApiForGet(BaseApi):
     ):
         return self._find_pets_by_tags(
             query_params=query_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

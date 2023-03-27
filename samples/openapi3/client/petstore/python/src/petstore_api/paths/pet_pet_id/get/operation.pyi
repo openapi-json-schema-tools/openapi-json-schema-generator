@@ -25,10 +25,13 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_200
-from .responses import response_400
-from .responses import response_404
+from .responses import (
+    response_200,
+    response_400,
+    response_404,
+)
 from .parameters import parameter_0
+from .security import security_requirement_object_0
 
 
 
@@ -65,6 +68,7 @@ class BaseApi(api_client.Api):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -79,6 +83,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -89,6 +94,7 @@ class BaseApi(api_client.Api):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -102,6 +108,7 @@ class BaseApi(api_client.Api):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -133,7 +140,12 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
+        )
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/get/security',
+            _security,
+            security_index
         )
 
         response = self.api_client.call_api(
@@ -141,7 +153,7 @@ class BaseApi(api_client.Api):
             method='get',
             host=host,
             headers=_headers,
-            security=_security,
+            security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
         )
@@ -178,6 +190,7 @@ class GetPetById(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -192,6 +205,7 @@ class GetPetById(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -202,6 +216,7 @@ class GetPetById(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -215,6 +230,7 @@ class GetPetById(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -223,6 +239,7 @@ class GetPetById(BaseApi):
         return self._get_pet_by_id(
             path_params=path_params,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -238,6 +255,7 @@ class ApiForGet(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -252,6 +270,7 @@ class ApiForGet(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -262,6 +281,7 @@ class ApiForGet(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -275,6 +295,7 @@ class ApiForGet(BaseApi):
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -283,6 +304,7 @@ class ApiForGet(BaseApi):
         return self._get_pet_by_id(
             path_params=path_params,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

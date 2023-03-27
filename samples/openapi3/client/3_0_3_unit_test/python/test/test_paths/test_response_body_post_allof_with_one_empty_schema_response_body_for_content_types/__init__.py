@@ -48,7 +48,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/responseBody/postAllofWithOneEmptySchemaResponseBodyForContentTypes",
+                self.api_config.get_server_url('servers', None) + "/responseBody/postAllofWithOneEmptySchemaResponseBodyForContentTypes",
                 method='post'.upper(),
                 accept_content_type=accept_content_type,
             )

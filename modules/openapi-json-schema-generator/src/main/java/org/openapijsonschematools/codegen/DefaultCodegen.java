@@ -1080,6 +1080,11 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
+    public String toSecurityRequirementObjectFilename(String basename) {
+        return toModuleFilename(basename);
+    }
+
+    @Override
     public String getCamelCaseServer(String basename) {
         return toModelName(basename);
     }
@@ -2639,15 +2644,7 @@ public class DefaultCodegen implements CodegenConfig {
                     return 1;
             });
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> security = null;
-        List<SecurityRequirement> securities = operation.getSecurity();
-        if (securities != null && !securities.isEmpty()) {
-            security = new ArrayList<>();
-            for (SecurityRequirement originalSecurityRequirement: securities) {
-                HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(originalSecurityRequirement, jsonPath + "/security");
-                security.add(securityRequirement);
-            }
-        }
+        List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
@@ -2681,12 +2678,28 @@ public class DefaultCodegen implements CodegenConfig {
                 jsonPathPiece);
     }
 
+    @Override
+    public List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
+        if (security == null) {
+            return null;
+        }
+        List securityRequirements = new ArrayList<>();
+        int i = 0;
+        for (SecurityRequirement specSecurityRequirement: security) {
+            HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
+            securityRequirements.add(securityRequirement);
+            i++;
+        }
+        return securityRequirements;
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
      * @param response     OAS Response object
      * @return Codegen Response object
      */
+    @Override
     public CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath) {
         if (response == null) {
             String msg = "response in fromResponse cannot be null!";
@@ -3453,6 +3466,9 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces[4].equals("servers")) {
             // #/paths/somePath/get/servers/someServer
             pathPieces[5] = toServerFilename(pathPieces[5]);
+        } else if (pathPieces[4].equals("security")) {
+            // #/paths/somePath/get/security/0
+            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5]);
         } else if (pathPieces[4].equals("responses")) {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             pathPieces[5] = toResponseModuleName(pathPieces[5]);
@@ -3499,6 +3515,13 @@ public class DefaultCodegen implements CodegenConfig {
         pathPieces[2] = toServerFilename(pathPieces[2]);
     }
 
+    private void updateSecurityFilepath(String[] pathPieces) {
+        if (pathPieces.length < 3) {
+            return;
+        }
+        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2]);
+    }
+
     private void updateApisFilepath(String[] pathPieces) {
         // #/apis
         // #/apis/tags
@@ -3526,6 +3549,8 @@ public class DefaultCodegen implements CodegenConfig {
             updatePathsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/servers")) {
             updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/security")) {
+            updateSecurityFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/apis")) {
             // this is a fake json path that the code generates and uses to generate apis
             updateApisFilepath(pathPieces);

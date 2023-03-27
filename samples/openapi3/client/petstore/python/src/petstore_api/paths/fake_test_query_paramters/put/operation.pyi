@@ -25,12 +25,14 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .responses import response_200
-from .parameters import parameter_0
-from .parameters import parameter_1
-from .parameters import parameter_2
-from .parameters import parameter_3
-from .parameters import parameter_4
-from .parameters import parameter_5
+from .parameters import (
+    parameter_0,
+    parameter_1,
+    parameter_2,
+    parameter_3,
+    parameter_4,
+    parameter_5,
+)
 
 
 
@@ -76,9 +78,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _query_parameter_collection_format(
@@ -131,7 +131,7 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -175,9 +175,7 @@ class QueryParameterCollectionFormat(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def query_parameter_collection_format(
@@ -230,9 +228,7 @@ class ApiForPut(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def put(

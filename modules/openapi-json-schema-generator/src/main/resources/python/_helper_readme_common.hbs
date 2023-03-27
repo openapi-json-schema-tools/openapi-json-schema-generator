@@ -16,6 +16,20 @@ server_index | Class | Description
 {{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
 {{/each}}
 {{/if}}
+{{#if security}}
+
+## Security
+
+Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
+key is the below security scheme quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the endpoint code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+    {{#each security}}
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](docs/components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+    {{/each}}
+{{/if}}
 {{#if paths}}
 
 ## Endpoints

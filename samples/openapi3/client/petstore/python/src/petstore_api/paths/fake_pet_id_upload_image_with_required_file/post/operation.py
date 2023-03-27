@@ -29,6 +29,7 @@ from .. import path
 from .responses import response_200
 from . import request_body
 from .parameters import parameter_0
+from .security import security_requirement_object_0
 
 
 
@@ -55,16 +56,14 @@ class RequestPathParameters:
         parameter_0.Parameter0,
     ]
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-    {
-        "petstore_auth": ["write:pets", "read:pets", ],
-    },
+    security_requirement_object_0.security_requirement_object,
 ]
 
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
+        '200': typing.Type[response_200.ResponseFor200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
@@ -83,13 +82,12 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _upload_file_with_required_file(
@@ -98,13 +96,12 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -115,6 +112,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -127,6 +125,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -142,6 +141,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -183,7 +183,12 @@ class BaseApi(api_client.Api):
             elif 'body' in serialized_data:
                 _body = serialized_data['body']
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
+        )
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/post/security',
+            _security,
+            security_index
         )
 
         response = self.api_client.call_api(
@@ -193,7 +198,7 @@ class BaseApi(api_client.Api):
             headers=_headers,
             fields=_fields,
             body=_body,
-            security=_security,
+            security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
         )
@@ -230,13 +235,12 @@ class UploadFileWithRequiredFile(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def upload_file_with_required_file(
@@ -245,13 +249,12 @@ class UploadFileWithRequiredFile(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -262,6 +265,7 @@ class UploadFileWithRequiredFile(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -274,6 +278,7 @@ class UploadFileWithRequiredFile(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -289,6 +294,7 @@ class UploadFileWithRequiredFile(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -299,6 +305,7 @@ class UploadFileWithRequiredFile(BaseApi):
             path_params=path_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -316,13 +323,12 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def post(
@@ -331,13 +337,12 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -348,6 +353,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -360,6 +366,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -375,6 +382,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -385,6 +393,7 @@ class ApiForPost(BaseApi):
             path_params=path_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

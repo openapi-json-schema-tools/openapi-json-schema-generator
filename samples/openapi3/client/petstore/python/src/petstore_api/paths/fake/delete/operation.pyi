@@ -26,12 +26,15 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .responses import response_200
-from .parameters import parameter_0
-from .parameters import parameter_1
-from .parameters import parameter_2
-from .parameters import parameter_3
-from .parameters import parameter_4
-from .parameters import parameter_5
+from .parameters import (
+    parameter_0,
+    parameter_1,
+    parameter_2,
+    parameter_3,
+    parameter_4,
+    parameter_5,
+)
+from .security import security_requirement_object_0
 
 
 
@@ -95,13 +98,12 @@ class BaseApi(api_client.Api):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _group_parameters(
@@ -109,6 +111,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -119,6 +122,7 @@ class BaseApi(api_client.Api):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -132,6 +136,7 @@ class BaseApi(api_client.Api):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -167,7 +172,12 @@ class BaseApi(api_client.Api):
             _headers.extend(serialized_data)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
+        )
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/delete/security',
+            _security,
+            security_index
         )
 
         response = self.api_client.call_api(
@@ -175,7 +185,7 @@ class BaseApi(api_client.Api):
             method='delete',
             host=host,
             headers=_headers,
-            security=_security,
+            security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
         )
@@ -210,13 +220,12 @@ class GroupParameters(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def group_parameters(
@@ -224,6 +233,7 @@ class GroupParameters(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -234,6 +244,7 @@ class GroupParameters(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -247,6 +258,7 @@ class GroupParameters(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -255,6 +267,7 @@ class GroupParameters(BaseApi):
         return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,
@@ -270,13 +283,12 @@ class ApiForDelete(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def delete(
@@ -284,6 +296,7 @@ class ApiForDelete(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -294,6 +307,7 @@ class ApiForDelete(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -307,6 +321,7 @@ class ApiForDelete(BaseApi):
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
+        security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -315,6 +330,7 @@ class ApiForDelete(BaseApi):
         return self._group_parameters(
             query_params=query_params,
             header_params=header_params,
+            security_index=security_index,
             server_index=server_index,
             stream=stream,
             timeout=timeout,

@@ -18,6 +18,7 @@ import urllib3
 
 from {{packageName}} import exceptions
 {{#if securitySchemes}}
+from {{packageName}} import security_schemes
     {{#each securitySchemes}}
 from {{packageName}}.components.security_schemes import {{jsonPathPiece.snakeCase}}
     {{/each}}
@@ -45,8 +46,9 @@ from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers
 {{/if}}
 {{#if securitySchemes}}
 
-AuthInfo = typing_extensions.TypedDict(
-    'AuthInfo',
+# security scheme key identifier to security scheme instance
+SecuritySchemeInfo = typing_extensions.TypedDict(
+    'SecuritySchemeInfo',
     {
 {{#each securitySchemes}}
         "{{{@key}}}": {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
@@ -54,9 +56,35 @@ AuthInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+"""
+the default security_index to use at each openapi document json path
+the fallback value is stored in the 'security' key
+"""
+SecurityIndexInfo = typing_extensions.TypedDict(
+    'SecurityIndexInfo',
+    {
+{{#if security}}
+        'security': typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+{{else}}
+        'security': int,
+{{/if}}
+{{#each paths}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if security}}
+        "paths/{{../@key.original}}/{{@key.original}}/security": typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+    },
+    total=False
+)
 {{/if}}
 {{#if hasServers}}
 
+# the server to use at each openapi document json path
 ServerInfo = typing_extensions.TypedDict(
     'ServerInfo',
     {
@@ -82,6 +110,34 @@ ServerInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+"""
+the default server_index to use at each openapi document json path
+the fallback value is stored in the 'servers' key
+"""
+ServerIndexInfo = typing_extensions.TypedDict(
+    'ServerIndexInfo',
+    {
+{{#if servers}}
+        'servers': typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+{{else}}
+        'servers': int,
+{{/if}}
+{{#each paths}}
+    {{#if servers}}
+        "paths/{{../@key.original}}/servers": typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+    {{/if}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if servers}}
+        "paths/{{../../@key.original}}/{{../@key.original}}/servers": typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+    },
+    total=False
+)
 {{/if}}
 
 
@@ -92,46 +148,66 @@ class ApiConfiguration(object):
     Do not edit the class manually.
 
 {{#if securitySchemes}}
-    :param auth_info: The security scheme auth info to use when calling endpoints
+    :param security_scheme_info: the security scheme auth info that can be used when calling endpoints
       The key is a string that identifies the component security scheme that one is adding auth info for
-      The value is an instance of the component security scheme class for that security scheme.
-      See the AuthInfo TypedDict definition
+      The value is an instance of the component security scheme class for that security scheme
+      See the SecuritySchemeInfo TypedDict definition
+    :param security_index_info: path to security_index information
 {{/if}}
 {{#if hasServers}}
-    :param server_info: The server information used to make endpoint calls
-    :param server_index: Index to servers configuration.
+    :param server_info: the servers that can be used to make endpoint calls
+    :param server_index_info: index to servers configuration
 {{/if}}
     """
 
     def __init__(
         self,
 {{#if securitySchemes}}
-        auth_info: typing.Optional[AuthInfo] = None,
+        security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
+        security_index_info: typing.Optional[SecurityIndexInfo] = None,
 {{/if}}
 {{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
-        server_index: int = 0,
+        server_index_info: typing.Optional[ServerIndexInfo] = None,
 {{/if}}
     ):
         """Constructor
         """
         # Authentication Settings
 {{#if securitySchemes}}
-        self.auth_info = auth_info or AuthInfo()
+        self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
+        self.security_index_info: SecurityIndexInfo = security_index_info or {'security': 0}
 {{else}}
-        self.auth_info = {}
+        self.security_scheme_info: {}
+        self.security_index_info = {'security': 0}
 {{/if}}
         # Server Info
 {{#if hasServers}}
-        self.server_info = server_info or ServerInfo({
-{{#each servers}}
+        self.server_info: ServerInfo = server_info or {
+    {{#each servers}}
             'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
-{{/each}}
-        })
-        self.server_index = server_index
+    {{/each}}
+    {{#each paths}}
+        {{#if servers}}
+            {{#each servers}}
+            "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
+            {{/each}}
+        {{/if}}
+        {{#if operations}}
+            {{#each operations}}
+                {{#if servers}}
+                    {{#each servers}}
+            "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+        }
+        self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
 {{else}}
         self.server_info = {}
-        self.server_index = 0
+        self.server_index_info = {'servers': 0}
 {{/if}}
         self.logger = {}
         """Logging Settings
@@ -326,7 +402,35 @@ class ApiConfiguration(object):
         :param index: array index of the host settings
         :return: URL based on host settings
         """
-        used_index = index or self.server_index
-        used_key = f"{key_prefix}{used_index}"
-        server = self.server_info[used_key]
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.server_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.server_index_info["servers"]
+        server = self.server_info[f"{key_prefix}/{used_index}"]
         return server.url
+{{#if securitySchemes}}
+
+    def get_security_requirement_object(
+        self,
+        key_prefix: str,
+        security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        index: typing.Optional[int],
+    ) -> security_schemes.SecurityRequirementObject:
+        """Gets security_schemes.SecurityRequirementObject based on the index
+        :param index: array index of the SecurityRequirementObject
+        :return: the selected security_schemes.SecurityRequirementObject
+        """
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.security_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.security_index_info["security"]
+        return security_requirement_objects[used_index]
+{{/if}}

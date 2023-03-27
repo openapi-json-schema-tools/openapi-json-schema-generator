@@ -24,8 +24,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_400
-from .responses import response_404
+from .responses import (
+    response_400,
+    response_404,
+)
 from .parameters import parameter_0
 
 
@@ -114,7 +116,7 @@ class BaseApi(api_client.Api):
             used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(

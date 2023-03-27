@@ -476,6 +476,19 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 }}
         );
         jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
+                new HashMap<String, String>() {{
+                    put("security/security.hbs", ".py");
+                }}
+        );
+
+        jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
                 new HashMap<String, String>() {{
                     put("paths/__init__paths.hbs", File.separatorChar + "__init__.py");
@@ -1730,6 +1743,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     @Override
     public String toServerFilename(String basename) {
         return "server_" + basename;
+    }
+
+    @Override
+    public String toSecurityRequirementObjectFilename(String basename) {
+        return "security_requirement_object_" + basename;
     }
 
     @Override

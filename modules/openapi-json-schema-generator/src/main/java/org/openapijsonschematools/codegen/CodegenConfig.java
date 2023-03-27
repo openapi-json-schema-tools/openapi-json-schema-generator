@@ -140,6 +140,8 @@ public interface CodegenConfig {
 
     CodegenTag fromTag(String name, String description);
 
+    List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath);
+
     CodegenOperation fromOperation(Operation operation, String jsonPath);
 
     CodegenKey getKey(String key);
@@ -213,6 +215,8 @@ public interface CodegenConfig {
     String toSecuritySchemeFilename(String baseName);
 
     String toServerFilename(String baseName);
+
+    String toSecurityRequirementObjectFilename(String baseName);
 
     String getCamelCaseServer(String baseName);
 

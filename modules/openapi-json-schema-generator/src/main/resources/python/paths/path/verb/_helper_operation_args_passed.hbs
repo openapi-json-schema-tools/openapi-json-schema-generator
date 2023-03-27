@@ -33,6 +33,17 @@ content_type=content_type,
 {{#if produces}}
 accept_content_types=accept_content_types,
 {{/if}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+security_index=security_index,
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+security_index=security_index,
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 server_index=server_index,
 stream=stream,
 timeout=timeout,

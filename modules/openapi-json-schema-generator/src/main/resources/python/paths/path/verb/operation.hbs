@@ -11,7 +11,24 @@ from urllib3._collections import HTTPHeaderDict
 {{/or}}
 {{/with}}
 
-from {{packageName}} import api_client, exceptions{{#if operation.security}}, security_schemes{{/if}}
+from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+{{#eq operation.security null}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+            {{#eq security.size 1}}
+                {{#each security}}
+from {{packageName}}.security import security_requirement_object_{{@key}}
+                {{/each}}
+            {{else}}
+from {{packageName}}.security import (
+                {{#each security}}
+    security_requirement_object_{{@key}},
+                {{/each}}
+)
+            {{/eq}}
+        {{/gt}}
+    {{/neq}}
+{{/eq}}
 {{> _helper_imports_schema_types }}
 {{#if imports}}
 
@@ -22,15 +39,50 @@ from {{packageName}} import api_client, exceptions{{#if operation.security}}, se
 {{#unless isStub}}
 from .. import path
 {{/unless}}
-{{#each responses}}
+{{#if responses}}
+    {{#eq responses.size 1}}
+        {{#each responses}}
 from .responses import response_{{@key}}
-{{/each}}
-{{#with requestBody}}
+        {{/each}}
+    {{else}}
+from .responses import (
+        {{#each responses}}
+    response_{{@key}},
+        {{/each}}
+)
+    {{/eq}}
+{{/if}}
+{{#if requestBody}}
 from . import request_body
-{{/with}}
-{{#each allParams}}
+{{/if}}
+{{#gt allParams.size 0}}
+    {{#eq allParams.size 1}}
+        {{#each allParams}}
 from .parameters import {{jsonPathPiece.snakeCase}}
-{{/each}}
+        {{/each}}
+    {{else}}
+from .parameters import (
+        {{#each allParams}}
+    {{jsonPathPiece.snakeCase}},
+        {{/each}}
+)
+    {{/eq}}
+{{/gt}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#eq security.size 1}}
+            {{#each security}}
+from .security import security_requirement_object_{{@key}}
+            {{/each}}
+        {{else}}
+from .security import (
+            {{#each security}}
+    security_requirement_object_{{@key}},
+            {{/each}}
+)
+        {{/eq}}
+    {{/gt}}
+{{/neq}}
 
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
@@ -47,24 +99,27 @@ from .parameters import {{jsonPathPiece.snakeCase}}
     {{/if}}
 {{/or}}
 {{#unless isStub}}
-{{#each security}}
-    {{#if @first}}
+{{#neq security null}}
+    {{#gt security.size 0}}
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
-    {{/if}}
-        {{#if this}}
-    {
-            {{#each this}}
-        "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
-            {{/each}}
-    },
-        {{else}}
-    {},
-        {{/if}}
-    {{#if @last}}
+        {{#each security}}
+    security_requirement_object_{{@key}}.security_requirement_object,
+        {{/each}}
 ]
-    {{/if}}
-{{/each}}
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+            {{#each ../security}}
+    security_requirement_object_{{@key}}.security_requirement_object,
+            {{/each}}
+]
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 {{/unless}}
 {{#unless isStub}}
 
@@ -79,7 +134,7 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
 {{#each nonDefaultResponses}}
-        '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
+        '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
 {{/each}}
     }
 )
@@ -104,27 +159,27 @@ _all_accept_content_types = (
 class BaseApi(api_client.Api):
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper rootSecurity=../security contentType=@key this=this}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper rootSecurity=../security contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="null" contentType="null"}}
 
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
         """
     {{#if summary}}
         {{summary}}
@@ -226,19 +281,38 @@ class BaseApi(api_client.Api):
     {{/with}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/{{httpMethod.original}}/servers/', server_index
+            'paths/' + path + '/{{httpMethod.original}}/servers', server_index
         )
     {{else}}
         {{#if pathItem.servers}}
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/' + '/servers/', server_index
+            'paths/' + path + '/' + '/servers', server_index
         )
         {{else}}
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
         {{/if}}
     {{/if}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/{{httpMethod.original}}/security',
+            _security,
+            security_index
+        )
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'servers',
+            _security,
+            security_index
+        )
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
 
         response = self.api_client.call_api(
             resource_path=used_path,
@@ -251,9 +325,17 @@ class BaseApi(api_client.Api):
             fields=_fields,
             body=_body,
     {{/if}}
-    {{#if security}}
-            security=_security,
-    {{/if}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+            security_requirement_object=security_requirement_object,
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+            security_requirement_object=security_requirement_object,
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
             stream=stream,
             timeout=timeout,
         )
@@ -330,29 +412,29 @@ class ApiFor{{httpMethod.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper contentType=@key this=this}}
+    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType=@key this=this}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper contentType="null" this=this}}
+    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType="null" this=this}}
 
 {{else}}
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 {{/if}}
 
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True" contentType="null"}}
 
     @typing.overload
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="null" contentType="null"}}
 
     def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
         return self._{{operationId.snakeCase}}(
-            {{> paths/path/verb/_helper_operation_args_passed }}
+            {{> paths/path/verb/_helper_operation_args_passed rootSecurity=../security }}
         )
 
 

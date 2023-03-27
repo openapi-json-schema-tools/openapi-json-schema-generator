@@ -25,9 +25,11 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .responses import response_200
-from .parameters import parameter_0
-from .parameters import parameter_1
-from .parameters import parameter_2
+from .parameters import (
+    parameter_0,
+    parameter_1,
+    parameter_2,
+)
 
 
 
@@ -67,9 +69,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _case_sensitive_params(
@@ -122,7 +122,7 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(
@@ -166,9 +166,7 @@ class CaseSensitiveParams(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def case_sensitive_params(
@@ -221,9 +219,7 @@ class ApiForPut(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def put(

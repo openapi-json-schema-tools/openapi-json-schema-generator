@@ -26,11 +26,11 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
     """
 
     def test_post(self):
-        auth_info = api_configuration.AuthInfo(
+        security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         used_api_client = api_client.ApiClient(
-            configuration=api_configuration.ApiConfiguration(auth_info=auth_info)
+            configuration=api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info)
         )
         api = post.ApiForPost(api_client=used_api_client)
 

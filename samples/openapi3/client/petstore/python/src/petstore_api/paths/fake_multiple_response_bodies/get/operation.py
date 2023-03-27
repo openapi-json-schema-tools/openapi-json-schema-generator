@@ -26,16 +26,18 @@ import frozendict  # noqa: F401
 from petstore_api import schemas  # noqa: F401
 
 from .. import path
-from .responses import response_200
-from .responses import response_202
+from .responses import (
+    response_200,
+    response_202,
+)
 
 
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': response_200.ResponseFor200,
-        '202': response_202.ResponseFor202,
+        '200': typing.Type[response_200.ResponseFor200],
+        '202': typing.Type[response_202.ResponseFor202],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
@@ -107,7 +109,7 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(

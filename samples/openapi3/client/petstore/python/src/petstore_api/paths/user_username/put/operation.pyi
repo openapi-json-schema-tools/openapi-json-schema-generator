@@ -25,8 +25,10 @@ import frozendict  # noqa: F401
 
 from petstore_api import schemas  # noqa: F401
 
-from .responses import response_400
-from .responses import response_404
+from .responses import (
+    response_400,
+    response_404,
+)
 from . import request_body
 from .parameters import parameter_0
 
@@ -150,7 +152,7 @@ class BaseApi(api_client.Api):
         elif 'body' in serialized_data:
             _body = serialized_data['body']
         host = self.api_client.configuration.get_server_url(
-            'servers/', server_index
+            'servers', server_index
         )
 
         response = self.api_client.call_api(

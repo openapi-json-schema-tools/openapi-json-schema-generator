@@ -26,12 +26,12 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
         Find pet by ID  # noqa: E501
     """
     def test_get(self):
-        auth_info = api_configuration.AuthInfo(
+        security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(
                 api_key='someKey'
             )
         )
-        config_with_auth = api_configuration.ApiConfiguration(auth_info=auth_info)
+        config_with_auth = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info)
         used_api_client = api_client.ApiClient(configuration=config_with_auth)
         api = get.ApiForGet(api_client=used_api_client)
 
