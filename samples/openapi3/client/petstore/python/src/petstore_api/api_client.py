@@ -1028,8 +1028,7 @@ class ApiClient:
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
-        security_index: typing.Optional[int] = None,
+        security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> urllib3.HTTPResponse:
@@ -1042,8 +1041,7 @@ class ApiClient:
         # auth setting
         self.update_params_for_auth(
             used_headers,
-            security,
-            security_index,
+            security_requirement_object,
             resource_path,
             method,
             body
@@ -1076,8 +1074,7 @@ class ApiClient:
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]] = None,
-        security_index: typing.Optional[int] = None,
+        security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -1093,8 +1090,7 @@ class ApiClient:
         :param body: Request body.
         :param fields: Request post form parameters,
             for `application/x-www-form-urlencoded`, `multipart/form-data`
-        :param security: The list of possible security auth settings for the request
-        :param security_index: The index to select the security.
+        :param security_requirement_object: The security requirement object, used to apply auth when making the call
         :param async_req: execute request asynchronously
         :type async_req: bool, optional TODO remove, unused
         :param stream: if True, the urllib3.HTTPResponse object will
@@ -1125,8 +1121,7 @@ class ApiClient:
                 headers,
                 body,
                 fields,
-                security,
-                security_index,
+                security_requirement_object,
                 stream,
                 timeout,
             )
@@ -1141,8 +1136,7 @@ class ApiClient:
                 body,
                 json,
                 fields,
-                security,
-                security_index,
+                security_requirement_object,
                 stream,
                 timeout,
             )
@@ -1212,8 +1206,7 @@ class ApiClient:
     def update_params_for_auth(
         self,
         headers: _collections.HTTPHeaderDict,
-        security: typing.Optional[typing.List[security_schemes.SecurityRequirementObject]],
-        security_index: typing.Optional[int],
+        security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject],
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]] = None
@@ -1221,20 +1214,12 @@ class ApiClient:
         """Updates header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
-        :param security: security authentication setting identifiers list
+        :param security_requirement_object: the openapi security requirement object
         :param resource_path: A string representation of the HTTP request resource path.
         :param method: A string representation of the HTTP request method.
         :param body: A object representing the body of the HTTP request.
             The object type is the return value of _encoder.default().
         """
-        if not security:
-            return
-
-        security_requirement_object = self.configuration.get_security_requirement_object(
-            security,
-            security_index
-        )
-
         if not security_requirement_object:
             # optional auth cause, use no auth
             return
@@ -1244,7 +1229,8 @@ class ApiClient:
                 headers,
                 resource_path,
                 method,
-                body
+                body,
+                scope_names
             )
 
 

@@ -9,5 +9,5 @@
 from petstore_api import security_schemes
 
 security_requirement_object: security_schemes.SecurityRequirementObject = {
-    "bearer_test": [],
+    "bearer_test": (),
 }

@@ -162,14 +162,18 @@ class BaseApi(api_client.Api):
         host = self.api_client.configuration.get_server_url(
             'servers', server_index
         )
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/get/security',
+            _security,
+            security_index
+        )
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
             host=host,
             headers=_headers,
-            security=_security,
-            security_index=security_index,
+            security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
         )

@@ -59,20 +59,20 @@ SecurityIndexInfo = typing_extensions.TypedDict(
     'SecurityIndexInfo',
     {
         'security': int,
-        "paths///fake/security": typing_extensions.Literal[0],
-        "paths///fake/security": typing_extensions.Literal[0],
-        "paths///fake/multipleSecurities/security": typing_extensions.Literal[0, 1, 2],
-        "paths///fake/{petId}/uploadImageWithRequiredFile/security": typing_extensions.Literal[0],
-        "paths///fake_classname_test/security": typing_extensions.Literal[0],
-        "paths///pet/security": typing_extensions.Literal[0, 1, 2],
-        "paths///pet/security": typing_extensions.Literal[0, 1],
-        "paths///pet/findByStatus/security": typing_extensions.Literal[0, 1, 2],
-        "paths///pet/findByTags/security": typing_extensions.Literal[0, 1],
-        "paths///pet/{petId}/security": typing_extensions.Literal[0, 1],
-        "paths///pet/{petId}/security": typing_extensions.Literal[0],
-        "paths///pet/{petId}/security": typing_extensions.Literal[0, 1],
-        "paths///pet/{petId}/uploadImage/security": typing_extensions.Literal[0],
-        "paths///store/inventory/security": typing_extensions.Literal[0],
+        "paths//fake/delete/security": typing_extensions.Literal[0],
+        "paths//fake/post/security": typing_extensions.Literal[0],
+        "paths//fake/multipleSecurities/get/security": typing_extensions.Literal[0, 1, 2],
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/security": typing_extensions.Literal[0],
+        "paths//fake_classname_test/patch/security": typing_extensions.Literal[0],
+        "paths//pet/post/security": typing_extensions.Literal[0, 1, 2],
+        "paths//pet/put/security": typing_extensions.Literal[0, 1],
+        "paths//pet/findByStatus/get/security": typing_extensions.Literal[0, 1, 2],
+        "paths//pet/findByTags/get/security": typing_extensions.Literal[0, 1],
+        "paths//pet/{petId}/delete/security": typing_extensions.Literal[0, 1],
+        "paths//pet/{petId}/get/security": typing_extensions.Literal[0],
+        "paths//pet/{petId}/post/security": typing_extensions.Literal[0, 1],
+        "paths//pet/{petId}/uploadImage/post/security": typing_extensions.Literal[0],
+        "paths//store/inventory/get/security": typing_extensions.Literal[0],
     },
     total=False
 )
@@ -117,7 +117,7 @@ class ApiConfiguration(object):
       The key is a string that identifies the component security scheme that one is adding auth info for
       The value is an instance of the component security scheme class for that security scheme
       See the SecuritySchemeInfo TypedDict definition
-    :param security_index: index to secuirty configuration
+    :param security_index_info: path to security_index information
     :param server_info: the servers that can be used to make endpoint calls
     :param server_index_info: index to servers configuration
     """
@@ -125,7 +125,7 @@ class ApiConfiguration(object):
     def __init__(
         self,
         security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
-        security_index: int = 0,
+        security_index_info: typing.Optional[SecurityIndexInfo] = None,
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
     ):
@@ -133,7 +133,7 @@ class ApiConfiguration(object):
         """
         # Authentication Settings
         self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
-        self.security_index = security_index
+        self.security_index_info: SecurityIndexInfo = security_index_info or {'security': 0}
         # Server Info
         self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
@@ -343,12 +343,20 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        key_prefix: str,
+        security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],
     ) -> security_schemes.SecurityRequirementObject:
         """Gets security_schemes.SecurityRequirementObject based on the index
         :param index: array index of the SecurityRequirementObject
         :return: the selected security_schemes.SecurityRequirementObject
         """
-        used_index = index or self.security_index
-        return server_requirement_objects[used_index]
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.security_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.security_index_info["security"]
+        return security_requirement_objects[used_index]

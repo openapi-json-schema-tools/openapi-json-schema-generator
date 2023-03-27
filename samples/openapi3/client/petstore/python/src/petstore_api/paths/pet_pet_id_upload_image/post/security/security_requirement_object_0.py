@@ -9,5 +9,5 @@
 from petstore_api import security_schemes
 
 security_requirement_object: security_schemes.SecurityRequirementObject = {
-    "petstore_auth": ["write:pets", "read:pets", ],
+    "petstore_auth": ("write:pets", "read:pets", ),
 }

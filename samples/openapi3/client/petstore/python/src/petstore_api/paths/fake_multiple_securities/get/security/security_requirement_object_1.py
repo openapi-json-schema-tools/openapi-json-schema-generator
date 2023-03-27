@@ -9,6 +9,6 @@
 from petstore_api import security_schemes
 
 security_requirement_object: security_schemes.SecurityRequirementObject = {
-    "http_basic_test": [],
-    "api_key": [],
+    "http_basic_test": (),
+    "api_key": (),
 }
