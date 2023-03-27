@@ -8,8 +8,8 @@ security_requirement_object: security_schemes.SecurityRequirementObject = {
 {{#with securityRequirementObject}}
     {{#if this}}
         {{#each this}}
-    "{{@key}}": [{{#each scopeNames}}"{{.}}", {{/each}}],
+    "{{@key}}": ({{#each scopeNames}}"{{.}}", {{/each}}),
         {{/each}}
     {{/if}}
-}
 {{/with}}
+}

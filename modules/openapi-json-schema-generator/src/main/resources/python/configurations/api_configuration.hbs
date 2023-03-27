@@ -152,7 +152,7 @@ class ApiConfiguration(object):
       The key is a string that identifies the component security scheme that one is adding auth info for
       The value is an instance of the component security scheme class for that security scheme
       See the SecuritySchemeInfo TypedDict definition
-    :param security_index: index to secuirty configuration
+    :param security_index_info: path to security_index information
 {{/if}}
 {{#if hasServers}}
     :param server_info: the servers that can be used to make endpoint calls
@@ -164,7 +164,7 @@ class ApiConfiguration(object):
         self,
 {{#if securitySchemes}}
         security_scheme_info: typing.Optional[SecuritySchemeInfo] = None,
-        security_index: int = 0,
+        security_index_info: typing.Optional[SecurityIndexInfo] = None,
 {{/if}}
 {{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
@@ -176,10 +176,10 @@ class ApiConfiguration(object):
         # Authentication Settings
 {{#if securitySchemes}}
         self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
-        self.security_index = security_index
+        self.security_index_info: SecurityIndexInfo = security_index_info or {'security': 0}
 {{else}}
-        self.security_scheme_info: SecuritySchemeInfo = {}
-        self.security_index = 0
+        self.security_scheme_info: {}
+        self.security_index_info = {'security': 0}
 {{/if}}
         # Server Info
 {{#if hasServers}}
@@ -416,13 +416,21 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        server_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
+        key_prefix: str,
+        security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],
     ) -> security_schemes.SecurityRequirementObject:
         """Gets security_schemes.SecurityRequirementObject based on the index
         :param index: array index of the SecurityRequirementObject
         :return: the selected security_schemes.SecurityRequirementObject
         """
-        used_index = index or self.security_index
-        return server_requirement_objects[used_index]
+        if index:
+            used_index = index
+        else:
+            try:
+                used_index = self.security_index_info[key_prefix]
+            except KeyError:
+                # fallback and use the default index
+                used_index = self.security_index_info["security"]
+        return security_requirement_objects[used_index]
 {{/if}}

@@ -294,6 +294,25 @@ class BaseApi(api_client.Api):
         )
         {{/if}}
     {{/if}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/{{httpMethod.original}}/servers',
+            _security,
+            security_index
+        )
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'servers',
+            _security,
+            security_index
+        )
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
 
         response = self.api_client.call_api(
             resource_path=used_path,
@@ -308,14 +327,12 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#neq security null}}
         {{#gt security.size 0}}
-            security=_security,
-            security_index=security_index,
+            security_requirement_object=security_requirement_object,
         {{/gt}}
     {{else}}
         {{#neq ../security null}}
             {{#gt ../security.size 0}}
-            security=_security,
-            security_index=security_index,
+            security_requirement_object=security_requirement_object,
             {{/gt}}
         {{/neq}}
     {{/neq}}

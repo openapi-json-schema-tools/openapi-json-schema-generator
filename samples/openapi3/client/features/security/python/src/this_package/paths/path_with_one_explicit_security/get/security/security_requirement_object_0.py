@@ -9,5 +9,5 @@
 from this_package import security_schemes
 
 security_requirement_object: security_schemes.SecurityRequirementObject = {
-    "api_key": [],
+    "api_key": (),
 }
