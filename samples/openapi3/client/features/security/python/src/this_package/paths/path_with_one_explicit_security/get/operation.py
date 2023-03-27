@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
             'servers', server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            'paths/' + path + '/get/servers',
+            'paths/' + path + '/get/security',
             _security,
             security_index
         )

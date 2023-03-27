@@ -45,8 +45,8 @@ SecurityIndexInfo = typing_extensions.TypedDict(
     'SecurityIndexInfo',
     {
         'security': typing_extensions.Literal[0, 1, 2, 3],
-        "paths///pathWithOneExplicitSecurity/security": typing_extensions.Literal[0],
-        "paths///pathWithTwoExplicitSecurity/security": typing_extensions.Literal[0, 1],
+        "paths//pathWithOneExplicitSecurity/get/security": typing_extensions.Literal[0],
+        "paths//pathWithTwoExplicitSecurity/get/security": typing_extensions.Literal[0, 1],
     },
     total=False
 )

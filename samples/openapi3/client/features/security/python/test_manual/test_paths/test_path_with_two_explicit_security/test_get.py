@@ -80,6 +80,28 @@ class TestGet(ApiTestMixin, unittest.TestCase):
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 200
 
+    @patch.object(urllib3.PoolManager, 'request')
+    def test_endpoint_call_contains_security_index1_from_endpoint_config(self, mock_request):
+        mock_request.return_value = self.response(b'')
+
+        api_config = api_configuration.ApiConfiguration(
+            security_scheme_info=self.security_scheme_info,
+            security_index_info={'paths//pathWithTwoExplicitSecurity/get/security': 1}
+        )
+        used_api_client = api_client.ApiClient(configuration=api_config)
+        api = get.ApiForGet(api_client=used_api_client)
+        api_response = api.get()
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            f'http://localhost:3000/pathWithTwoExplicitSecurity',
+            method='GET',
+            additional_headers={'Authorization': 'Bearer someAccessToken'}
+        )
+
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, schemas.Unset)
+        assert isinstance(api_response.headers, schemas.Unset)
+        assert api_response.response.status == 200
 
 if __name__ == '__main__':
     unittest.main()

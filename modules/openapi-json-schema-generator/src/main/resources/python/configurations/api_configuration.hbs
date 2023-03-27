@@ -73,7 +73,7 @@ SecurityIndexInfo = typing_extensions.TypedDict(
     {{#if operations}}
         {{#each operations}}
             {{#if security}}
-        "paths/{{../../@key.original}}/{{../@key.original}}/security": typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+        "paths/{{../@key.original}}/{{@key.original}}/security": typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
             {{/if}}
         {{/each}}
     {{/if}}

@@ -297,7 +297,7 @@ class BaseApi(api_client.Api):
     {{#neq security null}}
         {{#gt security.size 0}}
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            'paths/' + path + '/{{httpMethod.original}}/servers',
+            'paths/' + path + '/{{httpMethod.original}}/security',
             _security,
             security_index
         )
