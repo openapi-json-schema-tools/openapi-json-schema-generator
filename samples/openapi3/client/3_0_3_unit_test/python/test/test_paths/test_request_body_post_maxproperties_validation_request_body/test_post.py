@@ -77,7 +77,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
+                self.api_config.get_server_url('servers', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -107,7 +107,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
+                self.api_config.get_server_url('servers', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -137,7 +137,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
+                self.api_config.get_server_url('servers', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -170,7 +170,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
+                self.api_config.get_server_url('servers', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
@@ -205,7 +205,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
-                self.api_config.get_server_url('servers/', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
+                self.api_config.get_server_url('servers', None) + "/requestBody/postMaxpropertiesValidationRequestBody",
                 method='post'.upper(),
                 body=self.json_bytes(payload),
                 content_type=content_type,
