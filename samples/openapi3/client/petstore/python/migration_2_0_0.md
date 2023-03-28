@@ -18,24 +18,24 @@ Ths applies to:
 
 The generator now writes a class for each of those generated components.
 
-Reason:
+### Reason:
 A lot of openapi data is $ref references throughout an openapi document.
 With this update, those $ref source locations are generated with file system paths that closely mirror the openapi
 document json schema path to that info. $ref definition is then imported in generated python code.
 This minimizes the amount of code that is generated, imposes well defined encapsulation and allows templates to be
 re-used for many types of data regardless of where the data is in the source openapi document.
 
-Action:
+### Action:
 - Update where you are importing models from, models are now component schemas
   - File path change: model/pet.py -> components/schema/pet.py
 
 ## Packaging changes
 Code has been updated to use .toml packaging. Code is now distributed in a src directory
 
-Reason:
+### Reason:
 These updates follow latest python packaging best practices
 
-Action:
+### Action:
 - if you are suppressing generation of any files, you will need to edit those file paths
   - File Path Change: package_name -> src/package_name
 
@@ -44,7 +44,7 @@ If paths contain inline descriptions of parameters, request bodies, responses, s
 then those are now generated in separate files. Those files are imported into the endpoint code.
 File locations closely mirror the openapi data json schema path.
 
-Reason:
+### Reason:
 Generating those files in paths that closely mirror the json schema paths will allow
 the generator to use $ref to any location in the openapi document in the future, not just components.
 These could include:
@@ -72,7 +72,7 @@ So instead
 - paths/somePath/get/__init__.py stays empty and does not need lots of memory when api_configuration.py imports servers
 - server information was kept in paths/somePath/get/servers/server_x.py
 
-Action:
+### Action:
 - if you are importing any endpoint form its file, update your import
   - File path update: paths/somePath/get.py -> paths/somePath/get/operation.py
 
@@ -85,13 +85,13 @@ Configuration information was separated into two classes
 - configurations/schema_configuration.py SchemaConfiguration for:
   - disabled openapi/json-schema keywords
 
-Reason:
+### Reason:
 Schema validation only relies on SchemaConfiguration data and does not need to know about any ApiConfiguration info
 General api configuration info was poorly structured in the legacy configuration class which had 13 inputs.
 The refactored ApiConfiguration now has 4 inputs which define servers and security info.
 Having these separate classes prevents circular imports when the schemas.py file imports its SchemaConfiguration class.
 
-Action:
+### Action:
 - When you instantiate ApiClient, update your code to pass in an instance of SchemaConfiguration + ApiConfiguration
 
 
@@ -105,11 +105,11 @@ wherever they were defined in the openapi document
 - security/security_requirement_object_0.py
 - paths/somePath/get/security/security_requirement_object_0.py
 
-Reason:
+### Reason:
 Server classes now re-use schema validation code to ensure that inputs to server variables are valid.
 Generating these separate files minimizes generated code and maximizes code re-use.
 
-Action:
+### Action:
 - If endpoints need to use specific servers or security not at index 0, pass security_index_info + server_index_info
   into ApiConfiguration when instantiating it
 - If you use non-default server variable values, then update your code to pass in server_info into ApiConfiguration
@@ -123,7 +123,7 @@ Almost all properties are now public static final and are:
 - immutable
 - publicly accessible to the templates
 
-Reason:
+### Reason:
 These updates make the code much more maintainable.
 The number of properties that have to be maintained is much smaller
 - Component Schema: ~100 properties in CodegenModel.java -> ~50 properties in CodegenSchema.java
@@ -132,7 +132,7 @@ The number of properties that have to be maintained is much smaller
 This will reduce bugs like: why can't I access this property in this template
 Because instances are mostly immutable it is very clear where the wrong value is being created/assigned.
 
-Actions:
+### Action:
 - if you are customizing the python generator, you will need to update your java code
 
 ## Api Access By Tags and Paths Updated
@@ -152,10 +152,10 @@ todo
 - servers section added to readme if servers were defined in the openapi document root
 - security section added to readme if security was defined in the openapi document root
 
-Reason
+### Reason:
 Endpoint documentation had indentation and linking bugs before, this fixes them.
 When all endpoints docs were written in one file it was difficult to link ot the correct section.
 How to set server and security info was unclear before, the new docs and classes should clarify that.
 
-Action:
+### Action:
 - if you link to specific parts of the documentation, update your links
