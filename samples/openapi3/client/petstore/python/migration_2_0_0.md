@@ -5,7 +5,7 @@ The v1.0.4 release is nearly identical to the openapi-generator v6.3.0 release
 
 Below is a summary of big changes when updating you code from v1.X.X to 2.0.0
 
-### Component Generation
+## Component Generation
 Update:
 Openapi document components in "#/components/x" are now generated in a components/x packages
 Ths applies to:
@@ -29,7 +29,7 @@ Action:
 - Update where you are importing models from, models are now component schemas
   - File path change: model/pet.py -> components/schema/pet.py
 
-### Packaging changes
+## Packaging changes
 Code has been updated to use .toml packaging. Code is now distributed in a src directory
 
 Reason:
@@ -39,7 +39,7 @@ Action:
 - if you are suppressing generation of any files, you will need to edit those file paths
   - File Path Change: package_name -> src/package_name
 
-### Path Generation
+## Path Generation
 If paths contain inline descriptions of parameters, request bodies, responses, security, or servers,
 then those are now generated in separate files. Those files are imported into the endpoint code.
 File locations closely mirror the openapi data json schema path.
@@ -76,7 +76,7 @@ Action:
 - if you are importing any endpoint form its file, update your import
   - File path update: paths/somePath/get.py -> paths/somePath/get/operation.py
 
-### Configuration Info Refactored
+## Configuration Info Refactored
 Configuration information was separated into two classes
 - configurations/api_configuration.py ApiConfiguration for:
   - server info
@@ -95,7 +95,7 @@ Action:
 - When you instantiate ApiClient, update your code to pass in an instance of SchemaConfiguration + ApiConfiguration
 
 
-### Servers and Security Generation
+## Servers and Security Generation
 Servers are now generated as separate files with one class per file wherever they were defined in the openapi document
 - servers/server_0.py
 - paths/somePath/servers/server_0.py
@@ -114,7 +114,7 @@ Action:
   into ApiConfiguration when instantiating it
 - If you use non-default server variable values, then update your code to pass in server_info into ApiConfiguration
 
-### Java Classes for Openapi Data Refactored
+## Java Classes for Openapi Data Refactored
 Almost every java class used to store openapi document data at generation time has been re-written or refactored.
 The new classes are much shorter and contain only what is needed to generate code and documentation.
 This will make it much easier to add new openapi v3.1.0 features like new json schema keywords.
@@ -135,14 +135,14 @@ Because instances are mostly immutable it is very clear where the wrong value is
 Actions:
 - if you are customizing the python generator, you will need to update your java code
 
-### Api Access By Tags and Paths Updated
+## Api Access By Tags and Paths Updated
 todo
 
-### Input Names
+## Input Names
 - _configuration -> configuration_
 - ....
 
-### Documentation Updated
+## Documentation Updated
 - components now have sections in the readme
   - models became component schemas
 - one file is now generated for each endpoint
