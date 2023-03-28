@@ -602,6 +602,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             readmeTemplate = "README_onlypackage.hbs";
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
+        supportingFiles.add(new SupportingFile("migration_2_0_0.hbs", "", "migration_2_0_0.md"));
+        supportingFiles.add(new SupportingFile("migration_other_python_generators.hbs", "", "migration_other_python_generators.md"));
         supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
 
         if (!generateSourceCodeOnly) {
