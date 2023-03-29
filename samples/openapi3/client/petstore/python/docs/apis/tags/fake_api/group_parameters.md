@@ -108,7 +108,7 @@ Required Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false"]
 
 #### Parameter4
 
@@ -120,7 +120,7 @@ Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false"]
 
 ## Return Types
 

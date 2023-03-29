@@ -48,7 +48,7 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_form_string_array** | list, tuple | [properties.EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray), tuple | Form parameter enum test (string array) | [optional]
-**enum_form_string** | str | str | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of -efg
+**enum_form_string** | str | str | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray
@@ -64,7 +64,7 @@ list, tuple | tuple | Form parameter enum test (string array) |
 ##### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$", ] if omitted the server will use the default value of $
+items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -93,7 +93,7 @@ list, tuple | tuple |  |
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$", ] if omitted the server will use the default value of $
+items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 #### Parameter3
 
@@ -105,7 +105,7 @@ Query parameter enum test (string)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of -efg
+str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 #### Parameter4
 
@@ -117,7 +117,7 @@ Query parameter enum test (double)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | must be one of [1, -2, ] value must be a 32 bit integer
+decimal.Decimal, int | decimal.Decimal |  | must be one of [1, -2] value must be a 32 bit integer
 
 #### Parameter5
 
@@ -129,7 +129,7 @@ Query parameter enum test (double)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int, float | decimal.Decimal |  | must be one of [1.1, -1.2, ] value must be a 64 bit float
+decimal.Decimal, int, float | decimal.Decimal |  | must be one of [1.1, -1.2] value must be a 64 bit float
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -156,7 +156,7 @@ list, tuple | tuple |  |
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$", ] if omitted the server will use the default value of $
+items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 #### Parameter1
 
@@ -168,7 +168,7 @@ Header parameter enum test (string)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)", ] if omitted the server will use the default value of -efg
+str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 ## Return Types
 
