@@ -136,7 +136,14 @@ Because instances are mostly immutable it is very clear where the wrong value is
 - if you are customizing the python generator, you will need to update your java code
 
 ## Api Access By Tags and Paths Updated
-todo
+Previously, keys togo from tags and paths to apis were enums.
+The code was updated to use a TypedDict and uses strings as the keys.
+
+### Reason:
+Making this change allows type hinting to work for the TypedDict with string keys
+
+### Action:
+- If you use path_to_api.py or tag_to_api.py, update the key that you use to access the api
 
 ## Input Names
 - _configuration -> configuration_
