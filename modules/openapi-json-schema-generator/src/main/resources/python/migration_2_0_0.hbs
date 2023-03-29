@@ -8,7 +8,7 @@
 - [Servers and Security Generation](#servers-and-security-generation)
 - [Java Classes for Openapi Data Refactored](#java-classes-for-openapi-data-refactored)
 - [Api Access by Tags and Paths Updated](#api-access-by-tags-and-paths-updated)
-- [Some...]()
+- [Some Method/Property/Input/Class Names Updated](#some-methodpropertyinputclass-names-updated)
 - [Documentation Updated](#documentation-updated)
 
 ## Compatibility note for opeanpi-generator
