@@ -59,7 +59,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
+[Client](../../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Security
 

@@ -46,12 +46,12 @@ refParam | [Parameter5.schema](#parameter5-schema), dict, frozendict.frozendict,
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 #### Parameter1
 
@@ -60,12 +60,12 @@ items | str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 #### Parameter2
 
@@ -74,12 +74,12 @@ items | str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 #### Parameter3
 
@@ -88,12 +88,12 @@ items | str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 #### Parameter4
 
@@ -102,12 +102,12 @@ items | str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 #### Parameter5
 
@@ -116,7 +116,7 @@ items | str | str,  |  |
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../../components/schema/string_with_validation.md) | str | str,  |
+[StringWithValidation](../../../components/schema/string_with_validation.md) | str | str |
 
 ## Return Types
 

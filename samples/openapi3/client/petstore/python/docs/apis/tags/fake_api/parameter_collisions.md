@@ -43,7 +43,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -65,7 +65,7 @@ A-B | [Parameter4.schema](#parameter4-schema), str | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter1
 
@@ -74,7 +74,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter2
 
@@ -83,7 +83,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter3
 
@@ -92,7 +92,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter4
 
@@ -101,7 +101,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -122,7 +122,7 @@ A-B | [Parameter8.schema](#parameter8-schema), str | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter6
 
@@ -131,7 +131,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter7
 
@@ -140,7 +140,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter8
 
@@ -149,7 +149,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ### path_params
 #### RequestPathParameters.Params
@@ -171,7 +171,7 @@ A-B | [Parameter13.schema](#parameter13-schema), str | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter10
 
@@ -180,7 +180,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter11
 
@@ -189,7 +189,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter12
 
@@ -198,7 +198,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter13
 
@@ -207,7 +207,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ### cookie_params
 #### RequestCookieParameters.Params
@@ -229,7 +229,7 @@ A-B | [Parameter18.schema](#parameter18-schema), str | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter15
 
@@ -238,7 +238,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter16
 
@@ -247,7 +247,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter17
 
@@ -256,7 +256,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter18
 
@@ -265,7 +265,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ## Return Types
 
@@ -297,7 +297,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ## Servers
 

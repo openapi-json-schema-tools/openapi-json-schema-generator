@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_invalid_named_refed_properties
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

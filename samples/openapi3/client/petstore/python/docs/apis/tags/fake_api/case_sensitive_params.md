@@ -43,7 +43,7 @@ some_var | [Parameter2.schema](#parameter2-schema), str | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter1
 
@@ -52,7 +52,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter2
 
@@ -61,7 +61,7 @@ str | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ## Return Types
 

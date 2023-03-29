@@ -42,7 +42,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
+[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
@@ -74,7 +74,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
+[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 

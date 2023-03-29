@@ -55,7 +55,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../../components/schema/health_check_result.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
+[HealthCheckResult](../../../components/schema/health_check_result.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 

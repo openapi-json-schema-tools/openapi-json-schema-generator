@@ -50,7 +50,7 @@ Required String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter2
 
@@ -62,7 +62,7 @@ Required Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 #### Parameter3
 
@@ -74,7 +74,7 @@ String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter5
 
@@ -86,7 +86,7 @@ Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -108,7 +108,7 @@ Required Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false", ]
 
 #### Parameter4
 
@@ -120,7 +120,7 @@ Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false", ]
 
 ## Return Types
 

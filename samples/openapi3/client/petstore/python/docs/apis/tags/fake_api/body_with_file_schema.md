@@ -38,7 +38,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[FileSchemaTestClass](../../../components/schema/file_schema_test_class.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
+[FileSchemaTestClass](../../../components/schema/file_schema_test_class.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 

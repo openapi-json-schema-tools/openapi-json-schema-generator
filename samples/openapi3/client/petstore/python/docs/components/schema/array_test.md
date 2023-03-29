@@ -4,14 +4,14 @@ petstore_api.components.schema.array_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**array_of_string** | list, tuple | tuple, [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]
-**array_array_of_integer** | list, tuple | tuple, [properties.ArrayArrayOfInteger](#properties-arrayarrayofinteger) |  | [optional]
-**array_array_of_model** | list, tuple | tuple, [properties.ArrayArrayOfModel](#properties-arrayarrayofmodel) |  | [optional]
+**array_of_string** | list, tuple | [properties.ArrayOfString](#properties-arrayofstring), tuple |  | [optional]
+**array_array_of_integer** | list, tuple | [properties.ArrayArrayOfInteger](#properties-arrayarrayofinteger), tuple |  | [optional]
+**array_array_of_model** | list, tuple | [properties.ArrayArrayOfModel](#properties-arrayarrayofmodel), tuple |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties ArrayOfString
@@ -19,55 +19,55 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 # properties ArrayArrayOfInteger
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofinteger-items) | list, tuple | tuple,  |  |
+[items](#properties-arrayarrayofinteger-items) | list, tuple | tuple |  |
 
 # properties ArrayArrayOfInteger Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
+items | decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 # properties ArrayArrayOfModel
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofmodel-items) | list, tuple | tuple,  |  |
+[items](#properties-arrayarrayofmodel-items) | list, tuple | tuple |  |
 
 # properties ArrayArrayOfModel Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes

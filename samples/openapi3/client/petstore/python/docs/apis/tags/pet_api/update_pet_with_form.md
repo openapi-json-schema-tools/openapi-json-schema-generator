@@ -40,13 +40,13 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str | str,  | Updated name of the pet | [optional]
-**status** | str | str,  | Updated status of the pet | [optional]
+**name** | str | str | Updated name of the pet | [optional]
+**status** | str | str | Updated status of the pet | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params
@@ -68,7 +68,7 @@ ID of pet that needs to be updated
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 ## Return Types
 

@@ -14,6 +14,6 @@ Content-Type | Schema
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../components/schema/string_with_validation.md) | str | str,  |
+[StringWithValidation](../../components/schema/string_with_validation.md) | str | str |
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

@@ -45,7 +45,7 @@ class NullableString(
 
     def __new__(
         cls,
-        arg_: typing.Union[Nonestr],
+        arg_: typing.Union[None, str],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'NullableString':
         return super().__new__(

@@ -46,7 +46,7 @@ The user name for login
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 #### Parameter1
 
@@ -58,7 +58,7 @@ The password for login in clear text
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ## Return Types
 
@@ -103,13 +103,13 @@ numberHeader | [NumberHeader.schema](../../../components/headers/header_number_h
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ### Header Details
 #### ResponseFor200 headers XRateLimit
@@ -127,7 +127,7 @@ Content-Type | Schema
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal,  |  | value must be a 32 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 32 bit integer
 #### ResponseFor200 headers XExpiresAfter
 
 ##### Description
@@ -138,7 +138,7 @@ date in UTC when token expires
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.datetime | str,  |  | value must conform to RFC-3339 date-time
+strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 ## ResponseFor400
 

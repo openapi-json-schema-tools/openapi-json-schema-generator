@@ -43,7 +43,7 @@ api_key | [Parameter0.schema](#parameter0-schema), str | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ### path_params
 #### RequestPathParameters.Params
@@ -64,7 +64,7 @@ Pet id to delete
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 ## Return Types
 

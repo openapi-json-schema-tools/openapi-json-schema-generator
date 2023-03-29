@@ -46,12 +46,12 @@ Tags to filter by
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str,  |  |
+items | str | str |  |
 
 ## Return Types
 

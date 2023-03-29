@@ -42,7 +42,7 @@ file to upload
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO,  | file to upload |
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload |
 
 ## Return Types
 
@@ -77,7 +77,7 @@ file to download
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO,  | file to download |
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to download |
 
 ## Servers
 

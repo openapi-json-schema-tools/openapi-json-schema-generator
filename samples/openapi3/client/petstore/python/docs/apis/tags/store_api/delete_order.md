@@ -45,7 +45,7 @@ ID of the order that needs to be deleted
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str,  |  |
+str | str |  |
 
 ## Return Types
 
