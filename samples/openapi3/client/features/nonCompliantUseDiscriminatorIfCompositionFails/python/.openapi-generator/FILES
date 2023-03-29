@@ -9,6 +9,8 @@ docs/components/schema/operator.md
 docs/components/schema/subtraction_operator.md
 docs/servers/server_0.md
 git_push.sh
+migration_2_0_0.md
+migration_other_python_generators.md
 pyproject.toml
 requirements.txt
 src/this_package/__init__.py
