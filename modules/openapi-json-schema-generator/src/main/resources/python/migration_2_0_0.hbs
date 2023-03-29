@@ -1,5 +1,16 @@
 # Migration v1.X.X to v2.0.0
 
+- [Compatibility note for opeanpi-generator](#compatibility-note-for-opeanpi-generator)
+- [Component Generation](#component-generation)
+- [Packaging Changes](#packaging-changes)
+- [Path Generation](#path-generation)
+- [Configuration Info Refactored](#configuration-info-refactored)
+- [Servers and Security Generation](#servers-and-security-generation)
+- [Java Classes for Openapi Data Refactored](#java-classes-for-openapi-data-refactored)
+- [Api Access by Tags and Paths Updated](#api-access-by-tags-and-paths-updated)
+- [Some...]()
+- [Documentation Updated](#documentation-updated)
+
 ## Compatibility note for opeanpi-generator
 The v1.0.4 release is nearly identical to the openapi-generator v6.3.0 release
 
@@ -145,9 +156,33 @@ Making this change allows type hinting to work for the TypedDict with string key
 ### Action
 - If you use path_to_api.py or tag_to_api.py, update the key that you use to access the api
 
-## Input Names
+## Some Method/Property/Input/Class Names Updated
+- is_true_oapg -> is_true_
+- is_false_oapg -> is_false_
+- is_none_oapg -> is_none_
+- as_date_oapg -> as_date_
+- as_datetime_oapg -> as_datetime_
+- as_decimal_oapg -> as_decimal_
+- as_uuid_oapg -> as_uuid_
+- as_float_oapg -> as_float_
+- as_int_oapg -> as_int_
+- get_item_oapg -> get_item_
+- from_openapi_data_oapg -> from_openapi_data_
+- _verify_typed_dict_inputs_oapg -> _verify_typed_dict_inputs
 - _configuration -> configuration_
-- ....
+- _arg -> arg_
+- _args -> args_
+- MetaOapg -> Schema_
+- JsonSchema -> OpenApiSchema
+
+### Reason
+Classes can have arbitrarily named properties set on them
+Endpoints can have arbitrary operationId method names set
+For those reasons, I use the prefix and suffix _ to greatly reduce the likelihood of collisions
+on protected + public classes/methods.
+
+### Action
+- if you use the above methods/inputs/properties/classes update them to the latest names
 
 ## Documentation Updated
 - components now have sections in the readme
