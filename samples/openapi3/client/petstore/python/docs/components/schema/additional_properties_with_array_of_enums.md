@@ -9,7 +9,7 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | list, tuple | [AdditionalProperties](#additionalproperties), tuple | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | list, tuple | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
 
 # AdditionalProperties
 

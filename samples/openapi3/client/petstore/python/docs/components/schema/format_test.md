@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **float32** | decimal.Decimal, int, float | decimal.Decimal |  | [optional] value must be a 32 bit float
 **double** | decimal.Decimal, int, float | decimal.Decimal |  | [optional] value must be a 64 bit float
 **float64** | decimal.Decimal, int, float | decimal.Decimal |  | [optional] value must be a 64 bit float
-**arrayWithUniqueItems** | list, tuple | [properties.ArrayWithUniqueItems](#properties-arraywithuniqueitems), tuple |  | [optional]
+**arrayWithUniqueItems** | list, tuple | [properties.ArrayWithUniqueItems](#properties-arraywithuniqueitems) |  | [optional]
 **string** | str | str |  | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  | [optional]
 **dateTime** | strdatetime.datetime | str |  | [optional] value must conform to RFC-3339 date-time
