@@ -31,7 +31,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someParam | [Parameter0.content.application_json.schema](#parameter0-content-applicationjson-schema) | | 
+someParam | [Parameter0.content.application_json.schema](#parameter0-content-applicationjson-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
 
 
 #### Parameter0

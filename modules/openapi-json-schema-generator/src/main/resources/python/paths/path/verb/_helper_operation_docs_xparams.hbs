@@ -13,7 +13,7 @@ Key | Input Type | Description  | Notes
 {{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece schema.jsonPathPiece) includeSuffix=false }}), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
             {{else}}
                 {{#each content}}
-{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../jsonPathPiece "content" @key this.schema.jsonPathPiece) includeSuffix=false }}) | | {{#unless required}}optional{{/unless}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../jsonPathPiece "content" @key this.schema.jsonPathPiece) includeSuffix=false }}), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
                 {{/each}}
             {{/if}}
         {{/if}}
