@@ -55,7 +55,7 @@ items | str | str,  |  |
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
@@ -77,7 +77,10 @@ headers | Unset | headers were not defined |
 
 Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
-component security scheme class. See how to do this in the code sample.
+component security scheme class.
+Select the security index by setting ApiConfiguration.security_index_info or by
+passing in security_index into the endpoint method.
+See how to do this in the code sample.
 - these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
@@ -88,8 +91,8 @@ component security scheme class. See how to do this in the code sample.
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
