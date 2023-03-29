@@ -21,8 +21,8 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#request_body_request_bodycontentapplication_x_www_form_urlencodedschema), Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -68,6 +68,7 @@ items | str | str,  |  | must be one of [">", "$", ] if omitted the server will 
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -132,6 +133,7 @@ decimal.Decimal, int, float | decimal.Decimal,  |  | must be one of [1.1, -1.2, 
 
 ### header_params
 #### RequestHeaderParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

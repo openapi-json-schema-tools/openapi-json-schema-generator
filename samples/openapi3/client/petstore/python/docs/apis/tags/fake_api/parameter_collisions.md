@@ -20,10 +20,10 @@
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema), Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -47,6 +47,7 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -104,6 +105,7 @@ str | str,  |  |
 
 ### header_params
 #### RequestHeaderParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -151,6 +153,7 @@ str | str,  |  |
 
 ### path_params
 #### RequestPathParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -208,6 +211,7 @@ str | str,  |  |
 
 ### cookie_params
 #### RequestCookieParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

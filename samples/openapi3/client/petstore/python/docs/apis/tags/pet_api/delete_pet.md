@@ -20,8 +20,8 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -29,6 +29,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### header_params
 #### RequestHeaderParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -46,6 +47,7 @@ str | str,  |  |
 
 ### path_params
 #### RequestPathParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

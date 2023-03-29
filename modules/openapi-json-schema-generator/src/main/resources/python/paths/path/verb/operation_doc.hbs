@@ -44,16 +44,16 @@ Name | Type | Description  | Notes
         {{/if}}
     {{/with}}
     {{#if queryParams}}
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
     {{/if}}
     {{#if headerParams}}
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
     {{/if}}
     {{#if pathParams}}
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
     {{/if}}
     {{#if cookieParams}}
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
