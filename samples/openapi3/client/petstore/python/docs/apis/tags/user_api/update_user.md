@@ -50,7 +50,7 @@ Ref Class | Input Type | Accessed Type | Description
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [PathUserName](../../../components/parameters/parameter_path_user_name.md) | | 
+username | [PathUserName.schema](../../../components/parameters/parameter_path_user_name.md#schema), str | | 
 
 
 ## Return Types

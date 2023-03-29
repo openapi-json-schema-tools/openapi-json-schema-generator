@@ -31,7 +31,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [PathUserName](../../../components/parameters/parameter_path_user_name.md) | | 
+username | [PathUserName.schema](../../../components/parameters/parameter_path_user_name.md#schema), str | | 
 
 
 ## Return Types
