@@ -33,10 +33,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter0-schema) | | 
-required_int64_group | [Parameter2.schema](#parameter2-schema) | | 
-string_group | [Parameter3.schema](#parameter3-schema) | | optional
-int64_group | [Parameter5.schema](#parameter5-schema) | | optional
+required_string_group | [Parameter0.schema](#parameter0-schema), str | | 
+required_int64_group | [Parameter2.schema](#parameter2-schema), decimal.Decimal, int | | 
+string_group | [Parameter3.schema](#parameter3-schema), str | | optional
+int64_group | [Parameter5.schema](#parameter5-schema), decimal.Decimal, int | | optional
 
 
 #### Parameter0
@@ -49,7 +49,7 @@ Required String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter2
 
@@ -61,7 +61,7 @@ Required Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
 
 #### Parameter3
 
@@ -73,7 +73,7 @@ String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter5
 
@@ -85,15 +85,15 @@ Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
 
 ### header_params
 #### RequestHeaderParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter1-schema) | | 
-boolean_group | [Parameter4.schema](#parameter4-schema) | | optional
+required_boolean_group | [Parameter1.schema](#parameter1-schema), str | | 
+boolean_group | [Parameter4.schema](#parameter4-schema), str | | optional
 
 
 #### Parameter1
@@ -106,7 +106,7 @@ Required Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
+str | str,  |  | must be one of ["true", "false", ]
 
 #### Parameter4
 
@@ -118,7 +118,7 @@ Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
+str | str,  |  | must be one of ["true", "false", ]
 
 ## Return Types
 

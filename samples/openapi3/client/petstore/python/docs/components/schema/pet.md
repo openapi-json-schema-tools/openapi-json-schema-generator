@@ -7,17 +7,17 @@ Pet object that needs to be added to the store
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  | Pet object that needs to be added to the store |
+dict, frozendict.frozendict | frozendict.frozendict,  | Pet object that needs to be added to the store |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str,  | str,  |  |
-**photoUrls** | list, tuple,  | tuple, [properties.PhotoUrls](#properties-photourls) |  |
-**id** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
+**name** | str | str,  |  |
+**photoUrls** | list, tuple | tuple, [properties.PhotoUrls](#properties-photourls) |  |
+**id** | decimal.Decimal, int | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.md) | [**Category**](category.md) |  | [optional]
-**tags** | list, tuple,  | tuple, [properties.Tags](#properties-tags) |  | [optional]
-**status** | str,  | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
+**tags** | list, tuple | tuple, [properties.Tags](#properties-tags) |  | [optional]
+**status** | str | str,  | pet status in the store | [optional] must be one of ["available", "pending", "sold", ]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties PhotoUrls
@@ -25,19 +25,19 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 # properties Tags
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes

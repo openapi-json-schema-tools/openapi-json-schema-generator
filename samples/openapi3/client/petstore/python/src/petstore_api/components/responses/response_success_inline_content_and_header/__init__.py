@@ -32,7 +32,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str, ],
+            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str],
         },
         total=False
     )

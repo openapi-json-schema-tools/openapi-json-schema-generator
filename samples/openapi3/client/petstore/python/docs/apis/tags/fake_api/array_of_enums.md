@@ -42,7 +42,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ArrayOfEnums](../../../components/schema/array_of_enums.md) | list, tuple,  | tuple,  |
+[ArrayOfEnums](../../../components/schema/array_of_enums.md) | list, tuple | tuple,  |
 
 ## Return Types
 
@@ -74,7 +74,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ArrayOfEnums](../../../components/schema/array_of_enums.md) | list, tuple,  | tuple,  |
+[ArrayOfEnums](../../../components/schema/array_of_enums.md) | list, tuple | tuple,  |
 
 ## Servers
 

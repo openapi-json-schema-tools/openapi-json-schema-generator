@@ -32,7 +32,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [Parameter0.schema](#parameter0-schema) | | 
+order_id | [Parameter0.schema](#parameter0-schema), decimal.Decimal, int | | 
 
 
 #### Parameter0
@@ -45,7 +45,7 @@ ID of pet that needs to be fetched
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
 
 ## Return Types
 
@@ -80,13 +80,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
 
 ## ResponseFor400
 

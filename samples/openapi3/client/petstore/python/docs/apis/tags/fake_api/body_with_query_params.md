@@ -38,14 +38,14 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../../components/schema/user.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[User](../../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
 
 ### query_params
 #### RequestQueryParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | [Parameter0.schema](#parameter0-schema) | | 
+query | [Parameter0.schema](#parameter0-schema), str | | 
 
 
 #### Parameter0
@@ -55,7 +55,7 @@ query | [Parameter0.schema](#parameter0-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 

@@ -30,12 +30,12 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-pipe | [Parameter0.schema](#parameter0-schema) | | 
-ioutil | [Parameter1.schema](#parameter1-schema) | | 
-http | [Parameter2.schema](#parameter2-schema) | | 
-url | [Parameter3.schema](#parameter3-schema) | | 
-context | [Parameter4.schema](#parameter4-schema) | | 
-refParam | [Parameter5.schema](#parameter5-schema) | | 
+pipe | [Parameter0.schema](#parameter0-schema), list, tuple | | 
+ioutil | [Parameter1.schema](#parameter1-schema), list, tuple | | 
+http | [Parameter2.schema](#parameter2-schema), list, tuple | | 
+url | [Parameter3.schema](#parameter3-schema), list, tuple | | 
+context | [Parameter4.schema](#parameter4-schema), list, tuple | | 
+refParam | [Parameter5.schema](#parameter5-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
 
 
 #### Parameter0
@@ -45,12 +45,12 @@ refParam | [Parameter5.schema](#parameter5-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 #### Parameter1
 
@@ -59,12 +59,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 #### Parameter2
 
@@ -73,12 +73,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 #### Parameter3
 
@@ -87,12 +87,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 #### Parameter4
 
@@ -101,12 +101,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 #### Parameter5
 
@@ -115,7 +115,7 @@ items | str,  | str,  |  |
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../../components/schema/string_with_validation.md) | str,  | str,  |
+[StringWithValidation](../../../components/schema/string_with_validation.md) | str | str,  |
 
 ## Return Types
 

@@ -100,7 +100,7 @@ class ObjectWithDecimalProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         length: typing.Union['decimal_payload.DecimalPayload', schemas.Unset] = schemas.unset,
         width: typing.Union[Schema_.Properties.Width, str, schemas.Unset] = schemas.unset,
         cost: typing.Union['money.Money', schemas.Unset] = schemas.unset,

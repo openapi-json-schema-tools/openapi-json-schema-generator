@@ -43,18 +43,18 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
 ### query_params
 #### RequestQueryParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter0.schema](#parameter0-schema) | | optional
-aB | [Parameter1.schema](#parameter1-schema) | | optional
-Ab | [Parameter2.schema](#parameter2-schema) | | optional
-self | [Parameter3.schema](#parameter3-schema) | | optional
-A-B | [Parameter4.schema](#parameter4-schema) | | optional
+1 | [Parameter0.schema](#parameter0-schema), str | | optional
+aB | [Parameter1.schema](#parameter1-schema), str | | optional
+Ab | [Parameter2.schema](#parameter2-schema), str | | optional
+self | [Parameter3.schema](#parameter3-schema), str | | optional
+A-B | [Parameter4.schema](#parameter4-schema), str | | optional
 
 
 #### Parameter0
@@ -64,7 +64,7 @@ A-B | [Parameter4.schema](#parameter4-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter1
 
@@ -73,7 +73,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter2
 
@@ -82,7 +82,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter3
 
@@ -91,7 +91,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter4
 
@@ -100,17 +100,17 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ### header_params
 #### RequestHeaderParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter5.schema](#parameter5-schema) | | optional
-aB | [Parameter6.schema](#parameter6-schema) | | optional
-self | [Parameter7.schema](#parameter7-schema) | | optional
-A-B | [Parameter8.schema](#parameter8-schema) | | optional
+1 | [Parameter5.schema](#parameter5-schema), str | | optional
+aB | [Parameter6.schema](#parameter6-schema), str | | optional
+self | [Parameter7.schema](#parameter7-schema), str | | optional
+A-B | [Parameter8.schema](#parameter8-schema), str | | optional
 
 
 #### Parameter5
@@ -120,7 +120,7 @@ A-B | [Parameter8.schema](#parameter8-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter6
 
@@ -129,7 +129,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter7
 
@@ -138,7 +138,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter8
 
@@ -147,18 +147,18 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ### path_params
 #### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter9.schema](#parameter9-schema) | | 
-aB | [Parameter10.schema](#parameter10-schema) | | 
-Ab | [Parameter11.schema](#parameter11-schema) | | 
-self | [Parameter12.schema](#parameter12-schema) | | 
-A-B | [Parameter13.schema](#parameter13-schema) | | 
+1 | [Parameter9.schema](#parameter9-schema), str | | 
+aB | [Parameter10.schema](#parameter10-schema), str | | 
+Ab | [Parameter11.schema](#parameter11-schema), str | | 
+self | [Parameter12.schema](#parameter12-schema), str | | 
+A-B | [Parameter13.schema](#parameter13-schema), str | | 
 
 
 #### Parameter9
@@ -168,7 +168,7 @@ A-B | [Parameter13.schema](#parameter13-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter10
 
@@ -177,7 +177,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter11
 
@@ -186,7 +186,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter12
 
@@ -195,7 +195,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter13
 
@@ -204,18 +204,18 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ### cookie_params
 #### RequestCookieParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter14.schema](#parameter14-schema) | | optional
-aB | [Parameter15.schema](#parameter15-schema) | | optional
-Ab | [Parameter16.schema](#parameter16-schema) | | optional
-self | [Parameter17.schema](#parameter17-schema) | | optional
-A-B | [Parameter18.schema](#parameter18-schema) | | optional
+1 | [Parameter14.schema](#parameter14-schema), str | | optional
+aB | [Parameter15.schema](#parameter15-schema), str | | optional
+Ab | [Parameter16.schema](#parameter16-schema), str | | optional
+self | [Parameter17.schema](#parameter17-schema), str | | optional
+A-B | [Parameter18.schema](#parameter18-schema), str | | optional
 
 
 #### Parameter14
@@ -225,7 +225,7 @@ A-B | [Parameter18.schema](#parameter18-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter15
 
@@ -234,7 +234,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter16
 
@@ -243,7 +243,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter17
 
@@ -252,7 +252,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter18
 
@@ -261,7 +261,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 
@@ -293,7 +293,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
 
 ## Servers
 

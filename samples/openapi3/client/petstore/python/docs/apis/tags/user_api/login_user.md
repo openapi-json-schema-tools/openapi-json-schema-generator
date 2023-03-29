@@ -31,8 +31,8 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-username | [Parameter0.schema](#parameter0-schema) | | 
-password | [Parameter1.schema](#parameter1-schema) | | 
+username | [Parameter0.schema](#parameter0-schema), str | | 
+password | [Parameter1.schema](#parameter1-schema), str | | 
 
 
 #### Parameter0
@@ -45,7 +45,7 @@ The user name for login
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter1
 
@@ -57,7 +57,7 @@ The password for login in clear text
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 
@@ -102,13 +102,13 @@ numberHeader | [NumberHeader.schema](../../../components/headers/header_number_h
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ### Header Details
 #### ResponseFor200 headers XRateLimit
@@ -126,7 +126,7 @@ Content-Type | Schema
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+decimal.Decimal, int | decimal.Decimal,  |  | value must be a 32 bit integer
 #### ResponseFor200 headers XExpiresAfter
 
 ##### Description
@@ -137,7 +137,7 @@ date in UTC when token expires
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str, datetime.datetime,  | str,  |  | value must conform to RFC-3339 date-time
+strdatetime.datetime | str,  |  | value must conform to RFC-3339 date-time
 
 ## ResponseFor400
 

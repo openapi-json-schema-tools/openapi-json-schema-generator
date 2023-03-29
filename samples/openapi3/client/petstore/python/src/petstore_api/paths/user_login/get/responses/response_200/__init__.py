@@ -34,18 +34,18 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'X-Rate-Limit': typing.Union[header_x_rate_limit.XRateLimit.content["application/json"].schema, decimal.Decimal, int, ],
-            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str, ],
+            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+            'X-Rate-Limit': typing.Union[header_x_rate_limit.XRateLimit.content["application/json"].schema, decimal.Decimal, int],
+            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int],
+            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[header_x_expires_after.XExpiresAfter.schema, str, datetime.datetime, ],
-            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str, ],
+            'X-Expires-After': typing.Union[header_x_expires_after.XExpiresAfter.schema, strdatetime.datetime],
+            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str],
         },
         total=False
     )

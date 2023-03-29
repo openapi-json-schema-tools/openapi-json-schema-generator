@@ -66,9 +66,9 @@ class MapTest(
                     
                         def __new__(
                             cls,
-                            *args_: typing.Union[dict, frozendict.frozendict, ],
+                            *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+                            **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
@@ -86,9 +86,9 @@ class MapTest(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
                 ) -> 'MapMapOfString':
                     return super().__new__(
                         cls,
@@ -138,9 +138,9 @@ class MapTest(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                 ) -> 'MapOfEnumString':
                     return super().__new__(
                         cls,
@@ -168,9 +168,9 @@ class MapTest(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, bool, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, bool],
                 ) -> 'DirectMap':
                     return super().__new__(
                         cls,
@@ -246,7 +246,7 @@ class MapTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         map_map_of_string: typing.Union[Schema_.Properties.MapMapOfString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         map_of_enum_string: typing.Union[Schema_.Properties.MapOfEnumString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         direct_map: typing.Union[Schema_.Properties.DirectMap, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,

@@ -39,7 +39,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'order_id': typing.Union[parameter_0.Parameter0.schema, decimal.Decimal, int, ],
+            'order_id': typing.Union[parameter_0.Parameter0.schema, decimal.Decimal, int],
         }
     )
     OptionalParams = typing_extensions.TypedDict(

@@ -31,7 +31,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-id | [Parameter0.schema](#parameter0-schema) | | 
+id | [Parameter0.schema](#parameter0-schema), str | | 
 
 
 #### Parameter0
@@ -44,7 +44,7 @@ The internal object id
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 

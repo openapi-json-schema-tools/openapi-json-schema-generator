@@ -145,11 +145,11 @@ class Order(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         quantity: typing.Union[Schema_.Properties.Quantity, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        shipDate: typing.Union[Schema_.Properties.ShipDate, str, datetime.datetime, schemas.Unset] = schemas.unset,
+        shipDate: typing.Union[Schema_.Properties.ShipDate, strdatetime.datetime, schemas.Unset] = schemas.unset,
         status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
         complete: typing.Union[Schema_.Properties.Complete, bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

@@ -55,9 +55,9 @@ class AdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                 ) -> 'MapProperty':
                     return super().__new__(
                         cls,
@@ -92,9 +92,9 @@ class AdditionalPropertiesClass(
                     
                         def __new__(
                             cls,
-                            *args_: typing.Union[dict, frozendict.frozendict, ],
+                            *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+                            **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                         ) -> 'AdditionalProperties':
                             return super().__new__(
                                 cls,
@@ -112,9 +112,9 @@ class AdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
                 ) -> 'MapOfMapProperty':
                     return super().__new__(
                         cls,
@@ -144,9 +144,9 @@ class AdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
                 ) -> 'MapWithUndeclaredPropertiesAnytype3':
                     return super().__new__(
                         cls,
@@ -166,7 +166,7 @@ class AdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'EmptyMap':
                     return super().__new__(
@@ -193,9 +193,9 @@ class AdditionalPropertiesClass(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, ],
+                    *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, str, ],
+                    **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                 ) -> 'MapWithUndeclaredPropertiesString':
                     return super().__new__(
                         cls,
@@ -303,7 +303,7 @@ class AdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         map_property: typing.Union[Schema_.Properties.MapProperty, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         map_of_map_property: typing.Union[Schema_.Properties.MapOfMapProperty, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         anytype_1: typing.Union[Schema_.Properties.Anytype1, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,

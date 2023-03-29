@@ -42,7 +42,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[String](../../../components/schema/string.md) | str,  | str,  |
+[String](../../../components/schema/string.md) | str | str,  |
 
 ## Return Types
 
@@ -74,7 +74,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[String](../../../components/schema/string.md) | str,  | str,  |
+[String](../../../components/schema/string.md) | str | str,  |
 
 ## Servers
 

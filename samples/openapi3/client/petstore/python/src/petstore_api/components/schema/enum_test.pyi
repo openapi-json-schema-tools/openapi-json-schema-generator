@@ -230,8 +230,8 @@ class EnumTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        enum_string_required: typing.Union[Schema_.Properties.EnumStringRequired, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        enum_string_required: typing.Union[Schema_.Properties.EnumStringRequired, str],
         enum_string: typing.Union[Schema_.Properties.EnumString, str, schemas.Unset] = schemas.unset,
         enum_integer: typing.Union[Schema_.Properties.EnumInteger, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         enum_number: typing.Union[Schema_.Properties.EnumNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,

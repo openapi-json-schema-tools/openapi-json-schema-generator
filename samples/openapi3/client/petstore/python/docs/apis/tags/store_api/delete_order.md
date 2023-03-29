@@ -31,7 +31,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [Parameter0.schema](#parameter0-schema) | | 
+order_id | [Parameter0.schema](#parameter0-schema), str | | 
 
 
 #### Parameter0
@@ -44,7 +44,7 @@ ID of the order that needs to be deleted
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 

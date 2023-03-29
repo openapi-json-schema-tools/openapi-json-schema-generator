@@ -33,7 +33,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter0-schema) | | 
+status | [Parameter0.schema](#parameter0-schema), list, tuple | | 
 
 
 #### Parameter0
@@ -46,12 +46,12 @@ Status values that need to be considered for filter
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of available
+items | str | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of available
 
 ## Return Types
 
@@ -111,7 +111,7 @@ https://petstore.swagger.io/{version}
 #### Variables
 Key | Type | Description | Notes
 --- | ---- | ----------- | ------
-**version** | str,  |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
+**version** | str |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
 
 ## Code Sample
 

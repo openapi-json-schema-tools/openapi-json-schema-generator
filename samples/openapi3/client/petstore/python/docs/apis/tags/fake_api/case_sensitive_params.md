@@ -30,9 +30,9 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-someVar | [Parameter0.schema](#parameter0-schema) | | 
-SomeVar | [Parameter1.schema](#parameter1-schema) | | 
-some_var | [Parameter2.schema](#parameter2-schema) | | 
+someVar | [Parameter0.schema](#parameter0-schema), str | | 
+SomeVar | [Parameter1.schema](#parameter1-schema), str | | 
+some_var | [Parameter2.schema](#parameter2-schema), str | | 
 
 
 #### Parameter0
@@ -42,7 +42,7 @@ some_var | [Parameter2.schema](#parameter2-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter1
 
@@ -51,7 +51,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 #### Parameter2
 
@@ -60,7 +60,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ## Return Types
 

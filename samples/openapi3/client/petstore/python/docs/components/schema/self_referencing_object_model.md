@@ -4,7 +4,7 @@ petstore_api.components.schema.self_referencing_object_model
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict,  |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

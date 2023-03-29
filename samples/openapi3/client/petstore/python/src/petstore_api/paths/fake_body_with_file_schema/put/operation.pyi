@@ -34,7 +34,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -68,7 +68,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
 
     def _body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -152,7 +152,7 @@ class BodyWithFileSchema(BaseApi):
     @typing.overload
     def body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -163,7 +163,7 @@ class BodyWithFileSchema(BaseApi):
     @typing.overload
     def body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -175,7 +175,7 @@ class BodyWithFileSchema(BaseApi):
     @typing.overload
     def body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -186,7 +186,7 @@ class BodyWithFileSchema(BaseApi):
     @typing.overload
     def body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -199,7 +199,7 @@ class BodyWithFileSchema(BaseApi):
 
     def body_with_file_schema(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -222,7 +222,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -233,7 +233,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -245,7 +245,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -256,7 +256,7 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -269,7 +269,7 @@ class ApiForPut(BaseApi):
 
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,

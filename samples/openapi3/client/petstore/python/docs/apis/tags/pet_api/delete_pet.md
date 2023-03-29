@@ -32,7 +32,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-api_key | [Parameter0.schema](#parameter0-schema) | | optional
+api_key | [Parameter0.schema](#parameter0-schema), str | | optional
 
 
 #### Parameter0
@@ -42,14 +42,14 @@ api_key | [Parameter0.schema](#parameter0-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str,  |  |
 
 ### path_params
 #### RequestPathParameters.Params
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter1.schema](#parameter1-schema) | | 
+petId | [Parameter1.schema](#parameter1-schema), decimal.Decimal, int | | 
 
 
 #### Parameter1
@@ -62,7 +62,7 @@ Pet id to delete
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal,  |  | value must be a 64 bit integer
 
 ## Return Types
 

@@ -32,7 +32,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-tags | [Parameter0.schema](#parameter0-schema) | | 
+tags | [Parameter0.schema](#parameter0-schema), list, tuple | | 
 
 
 #### Parameter0
@@ -45,12 +45,12 @@ Tags to filter by
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple,  |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str,  |  |
 
 ## Return Types
 

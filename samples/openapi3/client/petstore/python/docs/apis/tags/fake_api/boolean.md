@@ -42,7 +42,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Boolean](../../../components/schema/boolean.md) | bool,  | BoolClass,  |
+[Boolean](../../../components/schema/boolean.md) | bool | BoolClass,  |
 
 ## Return Types
 
@@ -74,7 +74,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Boolean](../../../components/schema/boolean.md) | bool,  | BoolClass,  |
+[Boolean](../../../components/schema/boolean.md) | bool | BoolClass,  |
 
 ## Servers
 

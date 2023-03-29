@@ -80,8 +80,8 @@ class Banana(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        lengthCm: typing.Union[Schema_.Properties.LengthCm, decimal.Decimal, int, float, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        lengthCm: typing.Union[Schema_.Properties.LengthCm, decimal.Decimal, int, float],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> 'Banana':

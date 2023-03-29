@@ -42,7 +42,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
 
 ## Return Types
 
@@ -74,7 +74,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict,  |
 
 ## Servers
 

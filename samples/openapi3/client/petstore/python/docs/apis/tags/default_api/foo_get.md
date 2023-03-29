@@ -54,7 +54,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict,  |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -88,7 +88,7 @@ https://petstore.swagger.io/{version}
 #### Variables
 Key | Type | Description | Notes
 --- | ---- | ----------- | ------
-**version** | str,  |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
+**version** | str |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
 
 ## Code Sample
 

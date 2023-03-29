@@ -43,15 +43,15 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_string_group': typing.Union[parameter_0.Parameter0.schema, str, ],
-            'required_int64_group': typing.Union[parameter_2.Parameter2.schema, decimal.Decimal, int, ],
+            'required_string_group': typing.Union[parameter_0.Parameter0.schema, str],
+            'required_int64_group': typing.Union[parameter_2.Parameter2.schema, decimal.Decimal, int],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'string_group': typing.Union[parameter_3.Parameter3.schema, str, ],
-            'int64_group': typing.Union[parameter_5.Parameter5.schema, decimal.Decimal, int, ],
+            'string_group': typing.Union[parameter_3.Parameter3.schema, str],
+            'int64_group': typing.Union[parameter_5.Parameter5.schema, decimal.Decimal, int],
         },
         total=False
     )
@@ -72,13 +72,13 @@ class RequestHeaderParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'required_boolean_group': typing.Union[parameter_1.Parameter1.schema, str, ],
+            'required_boolean_group': typing.Union[parameter_1.Parameter1.schema, str],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'boolean_group': typing.Union[parameter_4.Parameter4.schema, str, ],
+            'boolean_group': typing.Union[parameter_4.Parameter4.schema, str],
         },
         total=False
     )
