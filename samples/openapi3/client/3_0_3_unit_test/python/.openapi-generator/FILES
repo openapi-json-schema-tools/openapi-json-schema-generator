@@ -815,6 +815,8 @@ docs/components/schema/uri_reference_format.md
 docs/components/schema/uri_template_format.md
 docs/servers/server_0.md
 git_push.sh
+migration_2_0_0.md
+migration_other_python_generators.md
 pyproject.toml
 requirements.txt
 src/unit_test_api/__init__.py
