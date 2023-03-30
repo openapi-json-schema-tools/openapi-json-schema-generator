@@ -10,7 +10,7 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **byte** | str | str |  |
-**date** | strdatetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+**date** | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 **number** | decimal.Decimal, int, float | decimal.Decimal |  |
 **password** | str | str |  |
 **integer** | decimal.Decimal, int | decimal.Decimal |  | [optional]
@@ -24,9 +24,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **arrayWithUniqueItems** | list, tuple | [properties.ArrayWithUniqueItems](#properties-arraywithuniqueitems) |  | [optional]
 **string** | str | str |  | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  | [optional]
-**dateTime** | strdatetime.datetime | str |  | [optional] value must conform to RFC-3339 date-time
-**uuid** | struuid.UUID | str |  | [optional] value must be a uuid
-**uuidNoExample** | struuid.UUID | str |  | [optional] value must be a uuid
+**dateTime** | str, datetime.datetime | str |  | [optional] value must conform to RFC-3339 date-time
+**uuid** | str, uuid.UUID | str |  | [optional] value must be a uuid
+**uuidNoExample** | str, uuid.UUID | str |  | [optional] value must be a uuid
 **pattern_with_digits** | str | str | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str | str | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
 **noneProp** | None | NoneClass |  | [optional]

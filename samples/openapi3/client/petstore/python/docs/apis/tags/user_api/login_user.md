@@ -138,7 +138,7 @@ date in UTC when token expires
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
+str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 ## ResponseFor400
 

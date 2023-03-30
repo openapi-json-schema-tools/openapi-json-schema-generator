@@ -11,8 +11,8 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#anyof-_0) | dict, frozendict.frozendict | frozendict.frozendict |  |
-[_1](#anyof-_1) | strdatetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_2](#anyof-_2) | strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
+[_1](#anyof-_1) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_2](#anyof-_2) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 [_3](#anyof-_3) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
 [_4](#anyof-_4) | str | str |  |
 [_5](#anyof-_5) | str | str |  |
@@ -39,14 +39,14 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # anyof _2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
+str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 # anyof _3
 

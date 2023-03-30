@@ -83,9 +83,9 @@ class SelfReferencingObjectModel(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        selfRef: typing.Union['SelfReferencingObjectModel', schemas.Unset] = schemas.unset,
+        selfRef: typing.Union['SelfReferencingObjectModel', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: 'SelfReferencingObjectModel',
+        **kwargs: typing.Union['SelfReferencingObjectModel', dict, frozendict.frozendict],
     ) -> 'SelfReferencingObjectModel':
         return super().__new__(
             cls,

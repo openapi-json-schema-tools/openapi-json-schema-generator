@@ -16,10 +16,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) |  |
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
 [_2](#oneof-_2) | None | NoneClass |  |
-[_3](#oneof-_3) | strdatetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_3](#oneof-_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [_4](#oneof-_4) | dict, frozendict.frozendict | frozendict.frozendict |  |
 [_5](#oneof-_5) | list, tuple | tuple |  |
-[_6](#oneof-_6) | strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
+[_6](#oneof-_6) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 # oneof _2
 
@@ -33,7 +33,7 @@ None | NoneClass |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # oneof _4
 
@@ -59,6 +59,6 @@ items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-strdatetime.datetime | str |  | value must conform to RFC-3339 date-time
+str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

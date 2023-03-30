@@ -44,7 +44,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'X-Expires-After': typing.Union[header_x_expires_after.XExpiresAfter.schema, strdatetime.datetime],
+            'X-Expires-After': typing.Union[header_x_expires_after.XExpiresAfter.schema, str, datetime.datetime],
             'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str],
         },
         total=False

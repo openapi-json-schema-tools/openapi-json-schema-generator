@@ -167,7 +167,7 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[None, strdatetime.date],
+                    arg_: typing.Union[None, str, datetime.date],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'DateProp':
                     return super().__new__(
@@ -196,7 +196,7 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[None, strdatetime.datetime],
+                    arg_: typing.Union[None, str, datetime.datetime],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> 'DatetimeProp':
                     return super().__new__(
@@ -677,8 +677,8 @@ class NullableClass(
         number_prop: typing.Union[Schema_.Properties.NumberProp, None, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         boolean_prop: typing.Union[Schema_.Properties.BooleanProp, None, bool, schemas.Unset] = schemas.unset,
         string_prop: typing.Union[Schema_.Properties.StringProp, None, str, schemas.Unset] = schemas.unset,
-        date_prop: typing.Union[Schema_.Properties.DateProp, None, strdatetime.date, schemas.Unset] = schemas.unset,
-        datetime_prop: typing.Union[Schema_.Properties.DatetimeProp, None, strdatetime.datetime, schemas.Unset] = schemas.unset,
+        date_prop: typing.Union[Schema_.Properties.DateProp, None, str, datetime.date, schemas.Unset] = schemas.unset,
+        datetime_prop: typing.Union[Schema_.Properties.DatetimeProp, None, str, datetime.datetime, schemas.Unset] = schemas.unset,
         array_nullable_prop: typing.Union[Schema_.Properties.ArrayNullableProp, None, list, tuple, schemas.Unset] = schemas.unset,
         array_and_items_nullable_prop: typing.Union[Schema_.Properties.ArrayAndItemsNullableProp, None, list, tuple, schemas.Unset] = schemas.unset,
         array_items_nullable: typing.Union[Schema_.Properties.ArrayItemsNullable, list, tuple, schemas.Unset] = schemas.unset,
