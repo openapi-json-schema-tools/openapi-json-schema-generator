@@ -421,10 +421,14 @@ class ApiFor{{httpMethod.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType=@key this=this}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType=@key}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType="null" this=this}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 
 {{else}}
     @typing.overload
