@@ -20,7 +20,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#request_body_request_bodycontentapplication_json_patchjsonschema), Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#RequestBody-content-applicationjsonpatchjson-schema), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file

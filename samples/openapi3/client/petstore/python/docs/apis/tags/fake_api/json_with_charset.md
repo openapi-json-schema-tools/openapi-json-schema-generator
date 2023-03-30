@@ -19,7 +19,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json_charsetutf8.schema](#request_body_request_bodycontentapplication_json_charsetutf8schema), Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json_charsetutf8.schema](#RequestBody-content-applicationjsoncharsetutf8-schema), Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json; charset=utf-8", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
