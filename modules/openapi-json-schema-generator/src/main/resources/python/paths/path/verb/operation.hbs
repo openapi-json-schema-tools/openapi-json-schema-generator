@@ -386,10 +386,14 @@ class {{operationId.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_operationid_wrapper contentType=@key this=this}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType=@key}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_operationid_wrapper contentType="null" this=this}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
 
 {{else}}
     @typing.overload
