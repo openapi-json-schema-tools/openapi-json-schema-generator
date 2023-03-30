@@ -16,19 +16,19 @@ def __new__(
     *args_: typing.Union[{{> _helper_schema_python_types }}],
         {{/contains}}
         {{#contains types "string"}}
-    arg_: {{> _helper_schema_python_types }}
+    arg_: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "number"}}
     arg_: typing.Union[{{> _helper_schema_python_types }}],
         {{/contains}}
         {{#contains types "integer"}}
-    arg_: {{> _helper_schema_python_types }}
+    arg_: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "boolean"}}
-    arg_: {{> _helper_schema_python_types }}
+    arg_: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "null"}}
-    arg_: {{> _helper_schema_python_types }}
+    arg_: {{> _helper_schema_python_types }},
         {{/contains}}
     {{else}}
         {{#contains types "object"}}
