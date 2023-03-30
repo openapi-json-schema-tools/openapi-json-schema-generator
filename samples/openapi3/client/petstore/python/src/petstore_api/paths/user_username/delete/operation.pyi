@@ -64,9 +64,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _delete_user(
@@ -165,9 +163,7 @@ class DeleteUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def delete_user(
@@ -220,9 +216,7 @@ class ApiForDelete(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def delete(

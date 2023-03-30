@@ -80,6 +80,42 @@ public class CodegenOperation {
         this.jsonPathPiece = jsonPathPiece;
     }
 
+    // used by operation templates
+    public Map<String, CodegenResponse> getNonErrorResponses() {
+        HashMap<String,CodegenResponse> nonErrorResponses = new HashMap<>();
+        if (statusCodeResponses != null) {
+            for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
+                if (entry.getKey() >= 200 && entry.getKey() <= 299) {
+                    nonErrorResponses.put(entry.getKey().toString(), entry.getValue());
+                }
+            }
+        }
+        if (wildcardCodeResponses != null) {
+            for (Map.Entry<Integer, CodegenResponse> entry: wildcardCodeResponses.entrySet()) {
+                if (entry.getKey() == 2) {
+                    nonErrorResponses.put(entry.getKey().toString(), entry.getValue());
+                }
+            }
+        }
+        if (defaultResponse != null) {
+            if (nonErrorResponses.isEmpty()) {
+                /* default response should be non-error because
+                The Responses Object MUST contain at least one response code, and if only one response code
+                is provided it SHOULD be the response for a successful operation call.
+                 */
+                nonErrorResponses.put("default", defaultResponse);
+            } else {
+                // the code does not know if this is an error response or non-error
+                // TODO add generation option that specifies it?
+                nonErrorResponses.put("default", defaultResponse);
+            }
+        }
+        if (nonErrorResponses.isEmpty()) {
+            return null;
+        }
+        return nonErrorResponses;
+    }
+
     public boolean getAllResponsesAreErrors() {
         if (responses.size() == 1 && defaultResponse != null) {
             return false;

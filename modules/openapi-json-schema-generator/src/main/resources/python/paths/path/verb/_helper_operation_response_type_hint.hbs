@@ -1,20 +1,4 @@
-{{#each statusCodeResponses}}
-{{#gte @key 200}}
-{{#lte @key 299}}
+{{#each getNonErrorResponses}}
 {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
 {{/if}}
-{{/lte}}
-{{/gte}}
 {{/each}}
-{{#each wildcardCodeResponses}}
-{{#eq @key 2}}
-{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
-{{/if}}
-{{/eq}}
-{{/each}}
-{{#if defaultResponse}}
-{{#with defaultResponse}}
-{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
-{{/if}}
-{{/with}}
-{{/if}}
