@@ -124,35 +124,36 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 {{#unless isStub}}
 
 
-{{#if defaultResponse}}
-{{#with defaultResponse}}
+    {{#if defaultResponse}}
+        {{#with defaultResponse}}
 default_response = response_default.{{jsonPathPiece.camelCase}}
-{{/with}}
-{{/if}}
-{{#if nonDefaultResponses}}
+        {{/with}}
+    {{/if}}
+    {{#if nonDefaultResponses}}
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-{{#each nonDefaultResponses}}
+        {{#each nonDefaultResponses}}
         '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
-{{/each}}
+        {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-{{#each nonDefaultResponses}}
+        {{#each nonDefaultResponses}}
     '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
-{{/each}}
+        {{/each}}
 }
-{{/if}}
+    {{/if}}
 {{/unless}}
 {{#each produces}}
-{{#if @first}}
+    {{#if @first}}
+
 _all_accept_content_types = (
-{{/if}}
+    {{/if}}
     "{{{.}}}",
-{{#if @last}}
+    {{#if @last}}
 )
-{{/if}}
+    {{/if}}
 {{/each}}
 
 

@@ -30,6 +30,7 @@ from .responses import (
     response_202,
 )
 
+
 _all_accept_content_types = (
     "application/json",
 )

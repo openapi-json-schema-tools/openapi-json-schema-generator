@@ -29,6 +29,7 @@ from .responses import response_200
 from . import request_body
 from .security import security_requirement_object_0
 
+
 _all_accept_content_types = (
     "application/json",
 )
