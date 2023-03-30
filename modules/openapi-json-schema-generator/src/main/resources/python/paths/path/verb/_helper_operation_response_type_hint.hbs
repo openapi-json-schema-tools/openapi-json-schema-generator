@@ -1,20 +1,20 @@
 {{#each statusCodeResponses}}
 {{#gte @key 200}}
 {{#lte @key 299}}
-response_{{@key}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
+{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
 {{/if}}
 {{/lte}}
 {{/gte}}
 {{/each}}
 {{#each wildcardCodeResponses}}
 {{#eq @key 2}}
-response_{{@key}}xx.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
+{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
 {{/if}}
 {{/eq}}
 {{/each}}
 {{#if defaultResponse}}
 {{#with defaultResponse}}
-response_default.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
+{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.response_cls{{#if multiple}},
 {{/if}}
 {{/with}}
 {{/if}}
