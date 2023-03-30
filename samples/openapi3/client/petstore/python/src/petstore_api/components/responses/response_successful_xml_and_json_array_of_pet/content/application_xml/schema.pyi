@@ -39,10 +39,10 @@ class Schema(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                'pet.Pet', ...
+                typing.Union['pet.Pet', dict, frozendict.frozendict], ...
             ],
             typing.List[
-                'pet.Pet'
+                typing.Union['pet.Pet', dict, frozendict.frozendict]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

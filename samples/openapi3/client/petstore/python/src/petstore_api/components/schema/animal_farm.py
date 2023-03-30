@@ -44,10 +44,10 @@ class AnimalFarm(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                'animal.Animal', ...
+                typing.Union['animal.Animal', dict, frozendict.frozendict], ...
             ],
             typing.List[
-                'animal.Animal'
+                typing.Union['animal.Animal', dict, frozendict.frozendict]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

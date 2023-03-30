@@ -5,10 +5,10 @@ def __new__(
         {{#contains types "array"}}
     arg_: typing.Union[
         typing.Tuple[
-            {{#with ../items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
+            {{#with ../items}}{{#if refInfo.refClass}}typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}]{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
         ],
         typing.List[
-            {{#with ../items}}{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
+            {{#with ../items}}{{#if refInfo.refClass}}typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}]{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
         ],
     ],
         {{/contains}}

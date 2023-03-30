@@ -67,10 +67,10 @@ class Drawing(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            'shape.Shape', ...
+                            typing.Union['shape.Shape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader], ...
                         ],
                         typing.List[
-                            'shape.Shape'
+                            typing.Union['shape.Shape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
