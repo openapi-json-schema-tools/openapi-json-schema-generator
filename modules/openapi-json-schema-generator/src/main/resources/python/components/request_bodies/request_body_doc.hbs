@@ -21,7 +21,7 @@
 Content-Type | Schema
 ------------ | -------
             {{/if}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
         {{/each}}
 
         {{#each content}}
@@ -29,7 +29,7 @@ Content-Type | Schema
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) includeSuffix=false }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
             {{/with}}
         {{/each}}
     {{/with}}
@@ -41,7 +41,7 @@ Ref Class | Input Type | Accessed Type | Description
 Content-Type | Schema
 ------------ | -------
         {{/if}}
-"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) includeSuffix=false }})
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
     {{/each}}
 
     {{#each content}}
