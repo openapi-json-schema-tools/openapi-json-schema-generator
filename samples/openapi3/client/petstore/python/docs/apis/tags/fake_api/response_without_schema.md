@@ -41,10 +41,10 @@ contents without schema definition, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | Unset | body was not defined |
+[body](#responsefor200-body) | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | no schema defined

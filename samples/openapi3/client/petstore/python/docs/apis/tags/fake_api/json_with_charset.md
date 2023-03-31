@@ -57,10 +57,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json_charsetutf8.schema](#responsefor200-content-applicationjsoncharsetutf8-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_json_charsetutf8.schema](#responsefor200-content-applicationjsoncharsetutf8-schema), ] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#responsefor200-content-applicationjsoncharsetutf8-schema)

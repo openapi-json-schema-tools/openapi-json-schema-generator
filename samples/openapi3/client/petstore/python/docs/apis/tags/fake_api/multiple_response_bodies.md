@@ -42,10 +42,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
@@ -67,10 +67,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body-1) | typing.Union[[content.application_json.schema](#responsefor202-content-applicationjson-schema), ] |  |
+[body](#responsefor202-body) | typing.Union[[content.application_json.schema](#responsefor202-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor202 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor202-content-applicationjson-schema)

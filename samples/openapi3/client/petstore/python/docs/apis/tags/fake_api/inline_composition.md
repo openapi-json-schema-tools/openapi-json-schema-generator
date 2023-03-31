@@ -174,10 +174,10 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema), ] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)

@@ -40,10 +40,10 @@ response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#default-content-applicationjson-schema), ] |  |
+[body](#default-body) | typing.Union[[content.application_json.schema](#default-content-applicationjson-schema), ] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### Default Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#default-content-applicationjson-schema)

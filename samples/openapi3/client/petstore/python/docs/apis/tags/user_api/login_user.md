@@ -77,10 +77,10 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
 [headers](#headers) | [Headers](#headers) |  |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/xml" | [content.application_xml.Schema](#responsefor200-content-applicationxml-schema)
