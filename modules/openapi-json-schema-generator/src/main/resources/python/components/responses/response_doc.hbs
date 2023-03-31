@@ -23,7 +23,11 @@ body | {{#unless content}}Unset{{else}}{{#if hasContentSchema}}typing.Union[{{#e
 headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{/with}}
 {{else}}
-{{#if content}}[body](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "body") }}){{else}}body{{/if}} | {{#unless content}}Unset{{else}}{{#if hasContentSchema}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}, {{/each}}]{{else}}Unset{{/if}}{{/unless}} | {{#unless content}}body was not defined{{else}}{{#unless hasContentSchema}}body was not defined{{/unless}}{{/unless}} |
+{{#if content}}
+[body](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "body") }}) | {{#if hasContentSchema}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}, {{/each}}]{{else}}Unset{{/if}} | {{#unless hasContentSchema}}body was not defined{{/unless}} |
+{{else}}
+body | Unset | body was not defined |
+{{/if}}
 {{#if headers}}[headers](#headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
     {{#if content}}
 
