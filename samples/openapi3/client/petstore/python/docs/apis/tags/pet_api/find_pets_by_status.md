@@ -194,4 +194,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling PetApi->find_pets_by_status: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../pet_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

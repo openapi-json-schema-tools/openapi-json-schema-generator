@@ -68,4 +68,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../UserApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../user_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

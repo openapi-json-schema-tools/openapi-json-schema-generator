@@ -128,4 +128,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeClassnameTags123Api->classname: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../FakeClassnameTags123Api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_classname_tags123_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

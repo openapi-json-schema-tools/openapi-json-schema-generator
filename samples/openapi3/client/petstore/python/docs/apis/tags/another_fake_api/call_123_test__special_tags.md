@@ -102,4 +102,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../AnotherFakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../another_fake_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
