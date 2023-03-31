@@ -3,9 +3,9 @@
 {{../packageName}}.components.parameters.{{componentModule}}
 {{/if}}
 {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Parameter" jsonPathPiece) recordUsage=true }}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Parameter" jsonPathPiece) }}
 {{else}}
-{{> components/_helper_header_from_identifier_pieces recordUsage=false }}
+{{> components/_helper_header_from_identifier_pieces }}
 {{/eq}}
 {{#if description}}
 
@@ -16,7 +16,7 @@
     {{#with getDeepestRef}}
         {{#if schema}}
             {{#with schema}}
-{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) jsonPathPiece) recordUsage=false }}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) jsonPathPiece) }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../refInfo.refClass}}.schema](../../components/parameters/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) jsonPathPiece) includeSuffix=false }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description}}{{/if}}
@@ -33,7 +33,7 @@ Content-Type | Schema
             {{/each}}
             {{#each getDeepestRef.content}}
                 {{#with this.schema}}
-{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) recordUsage=false }}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/parameters/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) includeSuffix=false }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
