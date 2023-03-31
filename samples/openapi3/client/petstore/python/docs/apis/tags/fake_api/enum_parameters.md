@@ -187,7 +187,7 @@ Not found
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor404-body) | typing.Union[[content.application_json.schema](#responsefor404-content-applicationjson-schema), ] |  |
+[body](#responsefor404-body) | [content.application_json.schema](#responsefor404-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor404 Body

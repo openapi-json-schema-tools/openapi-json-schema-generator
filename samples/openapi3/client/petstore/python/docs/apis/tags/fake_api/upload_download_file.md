@@ -60,7 +60,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_octet_stream.schema](#responsefor200-content-applicationoctetstream-schema), ] |  |
+[body](#responsefor200-body) | [content.application_octet_stream.schema](#responsefor200-content-applicationoctetstream-schema) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

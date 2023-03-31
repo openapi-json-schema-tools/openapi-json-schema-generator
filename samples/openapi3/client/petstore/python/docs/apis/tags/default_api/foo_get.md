@@ -40,7 +40,7 @@ response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#default-body) | typing.Union[[content.application_json.schema](#default-content-applicationjson-schema), ] |  |
+[body](#default-body) | [content.application_json.schema](#default-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
 ### Default Body

@@ -57,7 +57,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_json_charsetutf8.schema](#responsefor200-content-applicationjsoncharsetutf8-schema), ] |  |
+[body](#responsefor200-body) | [content.application_json_charsetutf8.schema](#responsefor200-content-applicationjsoncharsetutf8-schema) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

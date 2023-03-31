@@ -24,7 +24,7 @@ headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../.
     {{/with}}
 {{else}}
 {{#if content}}
-[body](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "body") }}) | {{#if hasContentSchema}}typing.Union[{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}, {{/each}}]{{else}}Unset{{/if}} | {{#unless hasContentSchema}}body was not defined{{/unless}} |
+[body](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "body") }}) | {{#if hasContentSchema}}{{#gt content.size 1}}typing.Union[{{/gt}}{{#each content}}{{#unless @first}}, {{/unless}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}{{/each}}{{#gt content.size 1}}]{{/gt}}{{else}}Unset{{/if}} | {{#unless hasContentSchema}}body was not defined{{/unless}} |
 {{else}}
 body | Unset | body was not defined |
 {{/if}}

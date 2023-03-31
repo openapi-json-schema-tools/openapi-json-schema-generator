@@ -43,17 +43,21 @@ class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     {{#and headers content}}
         {{#if hasContentSchema}}
+            {{#gt content.size 1}}
     body: typing.Union[
-            {{#each content}}
-                {{#if this.schema}}
-                    {{#with this.schema}}
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
         {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
-                    {{/with}}
-                {{else}}
+                        {{/with}}
+                    {{else}}
         schemas.Unset,
-                {{/if}}
-            {{/each}}
+                    {{/if}}
+                {{/each}}
     ]
+            {{else}}
+    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}},
+            {{/gt}}
         {{else}}
     body: schemas.Unset = schemas.unset
         {{/if}}
