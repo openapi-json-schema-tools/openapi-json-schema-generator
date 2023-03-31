@@ -12,6 +12,7 @@
 | Field | Value |
 | ----- | ----- |
 | Summary | testing composed schemas at inline locations |
+| Description | composed schemas at inline locations + multiple requestBody content types |
 | Path | "/fake/inlineComposition/" |
 | HTTP Method | post |
 

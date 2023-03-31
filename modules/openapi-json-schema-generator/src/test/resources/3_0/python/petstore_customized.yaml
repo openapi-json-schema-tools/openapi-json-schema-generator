@@ -1435,6 +1435,7 @@ paths:
       tags:
         - fake
       summary: testing composed schemas at inline locations
+      description: composed schemas at inline locations + multiple requestBody content types
       operationId: inlineComposition
       parameters:
         - name: compositionAtRoot

@@ -1,8 +1,10 @@
 package org.openapijsonschematools.codegen.model;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -20,6 +22,43 @@ public class CodegenRequestBody {
     public final String componentModule;
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
+
+    /*
+    A method that returns all content schemas
+    This only works on the RequestBody that contains a CodegenMediaType with a schema definition
+     */
+    public Set<CodegenSchema> getContentSchemas() {
+        if (content == null) {
+            return null;
+        }
+        LinkedHashSet<CodegenSchema> schemas = new LinkedHashSet<>();
+        for (CodegenMediaType mediaType: content.values()) {
+            if (mediaType == null) {
+                continue;
+            }
+            if (mediaType.schema == null) {
+                continue;
+            }
+            CodegenSchema schema = new CodegenSchema();
+            if (mediaType.schema.refInfo != null) {
+                // TODO adjust this for 3.1.0
+                // in 3.1.0 ref can be combined with other constraints
+                // so types and format should come from
+                // the first schema then, not the deepest ref
+                CodegenSchema deepest = mediaType.schema.getDeepestRef();
+                schema.types = deepest.types;
+                schema.format = deepest.format;
+            } else {
+                schema.types = mediaType.schema.types;
+                schema.format = mediaType.schema.format;
+            }
+            schemas.add(schema);
+        }
+        if (schemas.isEmpty()) {
+            return null;
+        }
+        return schemas;
+    }
 
     public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
