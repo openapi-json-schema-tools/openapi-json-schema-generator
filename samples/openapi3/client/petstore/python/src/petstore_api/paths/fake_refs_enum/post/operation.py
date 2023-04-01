@@ -51,7 +51,12 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, None, str, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            schemas.Unset,
+            None,
+            str
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -195,7 +200,12 @@ class StringEnum(BaseApi):
     def string_enum(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, None, str, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            schemas.Unset,
+            None,
+            str
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -291,7 +301,12 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, None, str, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            schemas.Unset,
+            None,
+            str
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

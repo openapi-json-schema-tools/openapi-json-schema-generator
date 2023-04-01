@@ -38,7 +38,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -166,7 +170,11 @@ class CreateUser(BaseApi):
     @typing.overload
     def create_user(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -252,7 +260,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

@@ -64,7 +64,12 @@ class BaseApi(api_client.Api):
     def _upload_image(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["multipart/form-data"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
@@ -237,7 +242,12 @@ class UploadImage(BaseApi):
     def upload_image(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["multipart/form-data"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
@@ -345,7 +355,12 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[request_body.RequestBody.content["multipart/form-data"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["multipart/form-data"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,

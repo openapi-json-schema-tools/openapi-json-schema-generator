@@ -39,7 +39,12 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -188,7 +193,12 @@ class EndpointParameters(BaseApi):
     def endpoint_parameters(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -284,7 +294,12 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

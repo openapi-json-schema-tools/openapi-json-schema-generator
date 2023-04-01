@@ -35,7 +35,12 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json-patch+json"].schema,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -172,7 +177,12 @@ class JsonPatch(BaseApi):
     def json_patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json-patch+json"].schema,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -262,7 +272,12 @@ class ApiForPatch(BaseApi):
     def patch(
         self,
         content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json-patch+json"].schema, list, tuple, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json-patch+json"].schema,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,

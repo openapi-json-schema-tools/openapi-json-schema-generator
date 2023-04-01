@@ -38,7 +38,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            list,
+            tuple
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -166,7 +170,11 @@ class CreateUsersWithListInput(BaseApi):
     @typing.overload
     def create_users_with_list_input(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            list,
+            tuple
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -252,7 +260,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, list, tuple],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            list,
+            tuple
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

@@ -1,5 +1,7 @@
 {{#if requestBody.refInfo}}
+{{! $ref requestBody }}
     {{#if requestBody.getDeepestRef.required}}
+    {{! required }}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
 body: typing.Union[
@@ -11,7 +13,16 @@ body: typing.Union[
             {{/each}}
 ],
         {{else}}
-body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+body: typing.Union[
+            {{#each content}}
+                {{#eq @key.original ../../contentType }}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+                    {{#with this.schema.getSelfOrDeepestRef}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -43,6 +54,7 @@ content_type: str = '{{{@key.original}}}',
             {{/with}}
         {{/if}}
     {{else}}
+    {{! optional }}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
 skip_deserialization: typing_extensions.Literal[True],
@@ -82,12 +94,25 @@ body: typing.Union[
     {{> _helper_schema_python_types_newline }}
             {{/each}}
 ] = schemas.unset,
-body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+        {{else}}
+body: typing.Union[
+            {{#each content}}
+                {{#eq @key.original ../../contentType }}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    schemas.Unset,
+                    {{#with this.schema.getSelfOrDeepestRef}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
 {{else}}
+{{! inline requestBody }}
     {{#if requestBody.required}}
+    {{! required }}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
 body: typing.Union[
@@ -99,7 +124,16 @@ body: typing.Union[
             {{/each}}
 ],
         {{else}}
-body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+body: typing.Union[
+            {{#each content}}
+                {{#eq @key.original ../../contentType }}
+    request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+                    {{#with this.schema.getSelfOrDeepestRef}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
@@ -131,6 +165,7 @@ content_type: str = '{{{@key.original}}}',
             {{/with}}
         {{/if}}
     {{else}}
+    {{! optional }}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
 skip_deserialization: typing_extensions.Literal[True],
@@ -171,7 +206,17 @@ body: typing.Union[
             {{/each}}
 ] = schemas.unset,
         {{else}}
-body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+body: typing.Union[
+            {{#each content}}
+                {{#eq @key.original ../../contentType }}
+    request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    schemas.Unset,
+                    {{#with this.schema.getSelfOrDeepestRef}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}

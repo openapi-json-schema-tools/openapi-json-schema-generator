@@ -62,7 +62,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -74,7 +78,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _add_pet(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/xml"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -225,7 +233,11 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -237,7 +249,11 @@ class AddPet(BaseApi):
     @typing.overload
     def add_pet(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/xml"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -333,7 +349,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -345,7 +365,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/xml"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/xml"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,

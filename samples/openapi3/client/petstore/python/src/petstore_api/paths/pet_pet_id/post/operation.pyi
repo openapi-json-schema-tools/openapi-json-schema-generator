@@ -63,7 +63,12 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -225,7 +230,12 @@ class UpdatePetWithForm(BaseApi):
     def update_pet_with_form(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -324,7 +334,12 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
