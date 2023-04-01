@@ -64,7 +64,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -80,7 +81,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -95,7 +97,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -112,7 +115,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -203,7 +207,8 @@ class ClientModel(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -219,7 +224,8 @@ class ClientModel(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -234,7 +240,8 @@ class ClientModel(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -251,7 +258,8 @@ class ClientModel(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -291,7 +299,8 @@ class ApiForPatch(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -307,7 +316,8 @@ class ApiForPatch(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -322,7 +332,8 @@ class ApiForPatch(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -339,7 +350,8 @@ class ApiForPatch(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,

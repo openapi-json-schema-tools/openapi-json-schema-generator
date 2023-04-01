@@ -48,8 +48,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -65,8 +66,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -79,8 +81,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -96,8 +99,9 @@ class BaseApi(api_client.Api):
         content_type: str = 'application/json-patch+json',
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -181,8 +185,9 @@ class JsonPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -198,8 +203,9 @@ class JsonPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -212,8 +218,9 @@ class JsonPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -229,8 +236,9 @@ class JsonPatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -267,8 +275,9 @@ class ApiForPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -284,8 +293,9 @@ class ApiForPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -298,8 +308,9 @@ class ApiForPatch(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -315,8 +326,9 @@ class ApiForPatch(BaseApi):
         content_type: str = 'application/json-patch+json',
         body: typing.Union[
             request_body.RequestBody.content["application/json-patch+json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

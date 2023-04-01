@@ -96,8 +96,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -116,8 +117,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -133,8 +135,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -153,8 +156,9 @@ class BaseApi(api_client.Api):
         content_type: str = 'multipart/form-data',
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -265,8 +269,9 @@ class UploadImage(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -285,8 +290,9 @@ class UploadImage(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -302,8 +308,9 @@ class UploadImage(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -322,8 +329,9 @@ class UploadImage(BaseApi):
         content_type: str = 'multipart/form-data',
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -369,8 +377,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -389,8 +398,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -406,8 +416,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -426,8 +437,9 @@ class ApiForPost(BaseApi):
         content_type: str = 'multipart/form-data',
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,

@@ -69,7 +69,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -86,7 +87,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -102,7 +104,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -120,7 +123,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         security_index: typing.Optional[int] = None,
@@ -228,7 +232,8 @@ class AddPet(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -245,7 +250,8 @@ class AddPet(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -261,7 +267,8 @@ class AddPet(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -279,7 +286,8 @@ class AddPet(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         security_index: typing.Optional[int] = None,
@@ -332,7 +340,8 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -349,7 +358,8 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -365,7 +375,8 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = ...,
         security_index: typing.Optional[int] = None,
@@ -383,7 +394,8 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             request_body.RequestBody.content["application/xml"].schema,
-                        dict, frozendict.frozendict,
+            dict,
+            frozendict.frozendict
         ],
         content_type: str = 'application/json',
         security_index: typing.Optional[int] = None,

@@ -134,8 +134,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -154,8 +155,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -171,8 +173,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -191,8 +194,9 @@ class BaseApi(api_client.Api):
         content_type: str = 'application/x-www-form-urlencoded',
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -305,8 +309,9 @@ class EnumParameters(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -325,8 +330,9 @@ class EnumParameters(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -342,8 +348,9 @@ class EnumParameters(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -362,8 +369,9 @@ class EnumParameters(BaseApi):
         content_type: str = 'application/x-www-form-urlencoded',
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -409,8 +417,9 @@ class ApiForGet(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -429,8 +438,9 @@ class ApiForGet(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -446,8 +456,9 @@ class ApiForGet(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
@@ -466,8 +477,9 @@ class ApiForGet(BaseApi):
         content_type: str = 'application/x-www-form-urlencoded',
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-                        dict, frozendict.frozendict,
-            schemas.Unset
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         header_params: RequestHeaderParameters.Params = frozendict.frozendict(),

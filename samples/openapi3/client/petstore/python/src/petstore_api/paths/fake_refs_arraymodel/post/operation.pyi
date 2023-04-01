@@ -53,8 +53,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -71,8 +72,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -86,8 +88,9 @@ class BaseApi(api_client.Api):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -104,8 +107,9 @@ class BaseApi(api_client.Api):
         content_type: str = 'application/json',
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -193,8 +197,9 @@ class ArrayModel(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -211,8 +216,9 @@ class ArrayModel(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -226,8 +232,9 @@ class ArrayModel(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -244,8 +251,9 @@ class ArrayModel(BaseApi):
         content_type: str = 'application/json',
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -285,8 +293,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -303,8 +312,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -318,8 +328,9 @@ class ApiForPost(BaseApi):
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -336,8 +347,9 @@ class ApiForPost(BaseApi):
         content_type: str = 'application/json',
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        list, tuple,
-            schemas.Unset
+            schemas.Unset,
+            list,
+            tuple
         ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
