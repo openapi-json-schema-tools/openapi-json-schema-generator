@@ -51,7 +51,11 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -65,7 +69,11 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -76,7 +84,11 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -90,7 +102,11 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -175,7 +191,11 @@ class NumberWithValidations(BaseApi):
     def number_with_validations(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -189,7 +209,11 @@ class NumberWithValidations(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -200,7 +224,11 @@ class NumberWithValidations(BaseApi):
     def number_with_validations(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -214,7 +242,11 @@ class NumberWithValidations(BaseApi):
     def number_with_validations(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -251,7 +283,11 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -265,7 +301,11 @@ class ApiForPost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -276,7 +316,11 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -290,7 +334,11 @@ class ApiForPost(BaseApi):
     def post(
         self,
         content_type: str = 'application/json',
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        decimal.Decimal, int, float,
+            schemas.Unset
+        ] = schemas.unset,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

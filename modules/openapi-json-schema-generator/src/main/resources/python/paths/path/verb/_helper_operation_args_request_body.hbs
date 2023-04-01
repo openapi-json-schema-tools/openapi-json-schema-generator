@@ -2,7 +2,14 @@
     {{#if requestBody.getDeepestRef.required}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[
+            {{#each content}}
+        request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+        {{> _helper_schema_python_types }},
+            {{/each}}
+        ],
         {{else}}
     body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
@@ -66,8 +73,15 @@
         {{/if}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each content}}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/each}}schemas.Unset] = schemas.unset,
-        {{else}}
+    body: typing.Union[
+            {{#each content}}
+        request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+        {{> _helper_schema_python_types }},
+            {{/each}}
+        schemas.Unset
+    ] = schemas.unset,
     body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
@@ -76,7 +90,14 @@
     {{#if requestBody.required}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/each}}],
+    body: typing.Union[
+            {{#each content}}
+        request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+        {{> _helper_schema_python_types }},
+            {{/each}}
+    ],
         {{else}}
     body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
@@ -140,7 +161,15 @@
         {{/if}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[{{#each content}}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/each}}schemas.Unset] = schemas.unset,
+    body: typing.Union[
+            {{#each content}}
+        request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+        {{> _helper_schema_python_types }},
+            {{/each}}
+        schemas.Unset
+    ] = schemas.unset,
         {{else}}
     body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}

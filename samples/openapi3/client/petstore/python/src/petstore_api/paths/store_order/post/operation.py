@@ -68,7 +68,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -81,7 +84,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -93,7 +99,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -107,7 +116,10 @@ class BaseApi(api_client.Api):
 
     def _place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -196,7 +208,10 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -209,7 +224,10 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -221,7 +239,10 @@ class PlaceOrder(BaseApi):
     @typing.overload
     def place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -235,7 +256,10 @@ class PlaceOrder(BaseApi):
 
     def place_order(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -272,7 +296,10 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -285,7 +312,10 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -297,7 +327,10 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -311,7 +344,10 @@ class ApiForPost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                        dict, frozendict.frozendict,
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,

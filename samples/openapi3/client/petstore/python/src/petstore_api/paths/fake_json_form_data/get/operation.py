@@ -58,7 +58,11 @@ class BaseApi(api_client.Api):
     def _json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -71,7 +75,11 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -81,7 +89,11 @@ class BaseApi(api_client.Api):
     def _json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -94,7 +106,11 @@ class BaseApi(api_client.Api):
     def _json_form_data(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -175,7 +191,11 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -188,7 +208,11 @@ class JsonFormData(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -198,7 +222,11 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -211,7 +239,11 @@ class JsonFormData(BaseApi):
     def json_form_data(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -245,7 +277,11 @@ class ApiForGet(BaseApi):
     def get(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -258,7 +294,11 @@ class ApiForGet(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -268,7 +308,11 @@ class ApiForGet(BaseApi):
     def get(
         self,
         content_type: str = ...,
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -281,7 +325,11 @@ class ApiForGet(BaseApi):
     def get(
         self,
         content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[request_body.RequestBody.content["application/x-www-form-urlencoded"].schema, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[
+            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
+                        dict, frozendict.frozendict,
+            schemas.Unset
+        ] = schemas.unset,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
