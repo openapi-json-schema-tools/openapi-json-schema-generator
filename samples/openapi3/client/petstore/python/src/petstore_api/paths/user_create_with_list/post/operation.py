@@ -52,7 +52,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -81,7 +81,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -97,7 +97,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -176,7 +176,7 @@ class CreateUsersWithListInput(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -191,7 +191,7 @@ class CreateUsersWithListInput(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -205,7 +205,7 @@ class CreateUsersWithListInput(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -221,7 +221,7 @@ class CreateUsersWithListInput(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -258,7 +258,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -273,7 +273,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -287,7 +287,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -303,7 +303,7 @@ class ApiForPost(BaseApi):
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
                         list, tuple,
-            ],
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,

@@ -64,7 +64,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -95,7 +95,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -112,7 +112,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -203,7 +203,7 @@ class UploadDownloadFile(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -219,7 +219,7 @@ class UploadDownloadFile(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -234,7 +234,7 @@ class UploadDownloadFile(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -251,7 +251,7 @@ class UploadDownloadFile(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -291,7 +291,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -307,7 +307,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -322,7 +322,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -339,7 +339,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/octet-stream"].schema,
-                        bytes, io.FileIO, io.BufferedReader,
+                                bytes, io.FileIO, io.BufferedReader,
         ],
         content_type: str = 'application/octet-stream',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,

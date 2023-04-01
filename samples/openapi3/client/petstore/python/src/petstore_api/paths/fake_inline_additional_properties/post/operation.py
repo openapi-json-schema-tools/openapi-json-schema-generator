@@ -59,7 +59,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -74,7 +74,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -88,7 +88,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -104,7 +104,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
@@ -190,7 +190,7 @@ class InlineAdditionalProperties(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -205,7 +205,7 @@ class InlineAdditionalProperties(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -219,7 +219,7 @@ class InlineAdditionalProperties(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -235,7 +235,7 @@ class InlineAdditionalProperties(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
@@ -272,7 +272,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -287,7 +287,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
@@ -301,7 +301,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -317,7 +317,7 @@ class ApiForPost(BaseApi):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                        dict, frozendict.frozendict,
+                                dict, frozendict.frozendict,
         ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,

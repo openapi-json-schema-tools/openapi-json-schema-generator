@@ -1,6 +1,6 @@
     self,
 {{#if requestBody}}
-{{> paths/path/verb/_helper_operation_args_request_body }}
+    {{> paths/path/verb/_helper_operation_args_request_body }}
 {{else}}
     {{#if isOverload}}
         {{#eq skipDeserialization "True"}}

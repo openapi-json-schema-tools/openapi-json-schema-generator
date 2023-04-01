@@ -2,42 +2,42 @@
     {{#if requestBody.getDeepestRef.required}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[
+body: typing.Union[
             {{#each content}}
-        request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
             {{/each}}
             {{#each getContentSchemas}}
-        {{> _helper_schema_python_types }},
+    {{> _helper_schema_python_types }},
             {{/each}}
-        ],
+],
         {{else}}
-    body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
+skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
                 {{#with requestBody.getDeepestRef}}
                     {{#each content}}
                         {{#eq @key.original ../../contentType}}
                             {{#if @first}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
+content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
                             {{else}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"],
+content_type: typing_extensions.Literal["{{{@key.original}}}"],
                             {{/if}}
                         {{/eq}}
                     {{/each}}
                 {{/with}}
             {{else}}
-    content_type: str = ...,
+content_type: str = ...,
             {{/neq}}
         {{else}}
             {{#with requestBody.getDeepestRef}}
                 {{#each content}}
                     {{#if @first}}
-    content_type: str = '{{{@key.original}}}',
+content_type: str = '{{{@key.original}}}',
                     {{/if}}
                 {{/each}}
             {{/with}}
@@ -45,44 +45,44 @@
     {{else}}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
+skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
                 {{#with requestBody.getDeepestRef}}
                     {{#each content}}
                         {{#eq @key.original ../../contentType}}
                             {{#if @first}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
+content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
                             {{else}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"],
+content_type: typing_extensions.Literal["{{{@key.original}}}"],
                             {{/if}}
                         {{/eq}}
                     {{/each}}
                 {{/with}}
             {{else}}
-    content_type: str = ...,
+content_type: str = ...,
             {{/neq}}
         {{else}}
             {{#with requestBody.getDeepestRef}}
                 {{#each content}}
                     {{#if @first}}
-    content_type: str = '{{{@key.original}}}',
+content_type: str = '{{{@key.original}}}',
                     {{/if}}
                 {{/each}}
             {{/with}}
         {{/if}}
         {{#with requestBody.getDeepestRef}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[
+body: typing.Union[
             {{#each content}}
-        request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
             {{/each}}
             {{#each getContentSchemas}}
-        {{> _helper_schema_python_types }},
+    {{> _helper_schema_python_types }},
             {{/each}}
         schemas.Unset
-    ] = schemas.unset,
-    body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+] = schemas.unset,
+body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
@@ -90,42 +90,42 @@
     {{#if requestBody.required}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[
+body: typing.Union[
             {{#each content}}
-        request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
             {{/each}}
             {{#each getContentSchemas}}
         {{> _helper_schema_python_types }},
             {{/each}}
-    ],
+],
         {{else}}
-    body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
+body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}{{/with}}{{/eq}}{{/each}}],
         {{/eq}}
         {{/with}}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
+skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
                 {{#with requestBody}}
                     {{#each content}}
                         {{#eq @key.original ../../contentType}}
                             {{#if @first}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
+content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
                             {{else}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"],
+content_type: typing_extensions.Literal["{{{@key.original}}}"],
                             {{/if}}
                         {{/eq}}
                     {{/each}}
                 {{/with}}
             {{else}}
-    content_type: str = ...,
+content_type: str = ...,
             {{/neq}}
         {{else}}
             {{#with requestBody}}
                 {{#each content}}
                     {{#if @first}}
-    content_type: str = '{{{@key.original}}}',
+content_type: str = '{{{@key.original}}}',
                     {{/if}}
                 {{/each}}
             {{/with}}
@@ -133,45 +133,45 @@
     {{else}}
         {{#if isOverload}}
             {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
+skip_deserialization: typing_extensions.Literal[True],
             {{/eq}}
             {{#neq contentType "null"}}
                 {{#with requestBody}}
                     {{#each content}}
                         {{#eq @key.original ../../contentType}}
                             {{#if @first}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
+content_type: typing_extensions.Literal["{{{@key.original}}}"] = ...,
                             {{else}}
-    content_type: typing_extensions.Literal["{{{@key.original}}}"],
+content_type: typing_extensions.Literal["{{{@key.original}}}"],
                             {{/if}}
                         {{/eq}}
                     {{/each}}
                 {{/with}}
             {{else}}
-    content_type: str = ...,
+content_type: str = ...,
             {{/neq}}
         {{else}}
             {{#with requestBody}}
                 {{#each content}}
                     {{#if @first}}
-    content_type: str = '{{{@key.original}}}',
+content_type: str = '{{{@key.original}}}',
                     {{/if}}
                 {{/each}}
             {{/with}}
         {{/if}}
         {{#with requestBody}}
         {{#eq ../contentType "null"}}
-    body: typing.Union[
+body: typing.Union[
             {{#each content}}
-        request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+    request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
             {{/each}}
             {{#each getContentSchemas}}
-        {{> _helper_schema_python_types }},
+    {{> _helper_schema_python_types }},
             {{/each}}
-        schemas.Unset
-    ] = schemas.unset,
+    schemas.Unset
+] = schemas.unset,
         {{else}}
-    body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
+body: typing.Union[{{#each content}}{{#eq @key.original ../../contentType }}request_body.{{../jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema, {{#with this.schema.getSelfOrDeepestRef}}{{> _helper_schema_python_types }}, {{/with}}{{/eq}}{{/each}}schemas.Unset] = schemas.unset,
         {{/eq}}
         {{/with}}
     {{/if}}
