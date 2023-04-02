@@ -151,8 +151,6 @@ class BaseApi(api_client.Api):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -188,8 +186,6 @@ class BaseApi(api_client.Api):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -222,8 +218,6 @@ class BaseApi(api_client.Api):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -259,8 +253,6 @@ class BaseApi(api_client.Api):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -418,8 +410,6 @@ class InlineComposition(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -455,8 +445,6 @@ class InlineComposition(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -489,8 +477,6 @@ class InlineComposition(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -526,8 +512,6 @@ class InlineComposition(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -625,8 +609,6 @@ class ApiForPost(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -662,8 +644,6 @@ class ApiForPost(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -696,8 +676,6 @@ class ApiForPost(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -733,8 +711,6 @@ class ApiForPost(BaseApi):
             bytes,
             io.FileIO,
             io.BufferedReader
-            dict,
-            frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,

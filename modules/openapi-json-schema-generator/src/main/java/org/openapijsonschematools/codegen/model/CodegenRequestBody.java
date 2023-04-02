@@ -1,5 +1,6 @@
 package org.openapijsonschematools.codegen.model;
 
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -32,6 +33,7 @@ public class CodegenRequestBody {
             return null;
         }
         LinkedHashSet<CodegenSchema> schemas = new LinkedHashSet<>();
+        LinkedHashSet<CodegenSchema> anyTypeSchemas = new LinkedHashSet<>();
         for (CodegenMediaType mediaType: content.values()) {
             if (mediaType == null) {
                 continue;
@@ -51,6 +53,11 @@ public class CodegenRequestBody {
             } else {
                 schema.types = mediaType.schema.types;
                 schema.format = mediaType.schema.format;
+            }
+            if (schema.types == null && schema.format == null) {
+                // return only anyType if it exists because it covers all use cases
+                anyTypeSchemas.add(schema);
+                return anyTypeSchemas;
             }
             schemas.add(schema);
         }
