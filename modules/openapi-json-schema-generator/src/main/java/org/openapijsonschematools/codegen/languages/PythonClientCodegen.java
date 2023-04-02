@@ -67,6 +67,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
 import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
 
 @SuppressWarnings("rawtypes")
@@ -678,6 +679,48 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "DefaultApi";
         }
         return toModelName(name) + apiNameSuffix;
+    }
+
+    public String toModelName(String name, String jsonPath) {
+        String sanitizedName = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        // remove dollar sign
+        sanitizedName = sanitizedName.replaceAll("$", "");
+        // remove whitespace
+        sanitizedName = sanitizedName.replaceAll("\\s+", "");
+
+        String nameWithPrefixSuffix = sanitizedName;
+        if (!StringUtils.isEmpty(modelNamePrefix)) {
+            // add '_' so that model name can be camelized correctly
+            nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;
+        }
+
+        if (!StringUtils.isEmpty(modelNameSuffix)) {
+            // add '_' so that model name can be camelized correctly
+            nameWithPrefixSuffix = nameWithPrefixSuffix + "_" + modelNameSuffix;
+        }
+
+        // camelize the model name
+        // phone_number => PhoneNumber
+        String camelizedName = camelize(nameWithPrefixSuffix);
+
+        // model name cannot use reserved keyword, e.g. return
+        if (isReservedWord(camelizedName)) {
+            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
+            LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+            return modelName;
+        }
+
+        // model name starts with number
+        if (camelizedName.matches("^\\d.*")) {
+            // TODO add logic here to not log if json path exists, the last fragment is a number
+            // TODO and the earlier fragment is an excluded case: oneOf/anyOf/allOf
+            // TODO call it from all needed call sites
+            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
+            LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+            return modelName;
+        }
+
+        return camelizedName;
     }
 
     /**
