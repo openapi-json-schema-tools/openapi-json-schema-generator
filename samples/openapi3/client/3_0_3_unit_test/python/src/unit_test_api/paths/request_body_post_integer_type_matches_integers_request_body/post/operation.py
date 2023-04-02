@@ -46,7 +46,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -57,7 +61,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -69,7 +77,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -80,7 +92,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -93,7 +109,11 @@ class BaseApi(api_client.Api):
 
     def _post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -164,7 +184,11 @@ class PostIntegerTypeMatchesIntegersRequestBody(BaseApi):
     @typing.overload
     def post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -175,7 +199,11 @@ class PostIntegerTypeMatchesIntegersRequestBody(BaseApi):
     @typing.overload
     def post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -187,7 +215,11 @@ class PostIntegerTypeMatchesIntegersRequestBody(BaseApi):
     @typing.overload
     def post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -198,7 +230,11 @@ class PostIntegerTypeMatchesIntegersRequestBody(BaseApi):
     @typing.overload
     def post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -211,7 +247,11 @@ class PostIntegerTypeMatchesIntegersRequestBody(BaseApi):
 
     def post_integer_type_matches_integers_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -234,7 +274,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -245,7 +289,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -257,7 +305,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -268,7 +320,11 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -281,7 +337,11 @@ class ApiForPost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,

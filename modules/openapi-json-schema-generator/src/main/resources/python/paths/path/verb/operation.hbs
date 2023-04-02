@@ -124,45 +124,50 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 {{#unless isStub}}
 
 
-{{#if defaultResponse}}
-{{#with defaultResponse}}
+    {{#if defaultResponse}}
+        {{#with defaultResponse}}
 default_response = response_default.{{jsonPathPiece.camelCase}}
-{{/with}}
-{{/if}}
-{{#if nonDefaultResponses}}
+        {{/with}}
+    {{/if}}
+    {{#if nonDefaultResponses}}
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-{{#each nonDefaultResponses}}
+        {{#each nonDefaultResponses}}
         '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
-{{/each}}
+        {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-{{#each nonDefaultResponses}}
+        {{#each nonDefaultResponses}}
     '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
-{{/each}}
+        {{/each}}
 }
-{{/if}}
+    {{/if}}
 {{/unless}}
 {{#each produces}}
-{{#if @first}}
+    {{#if @first}}
+
 _all_accept_content_types = (
-{{/if}}
+    {{/if}}
     "{{{.}}}",
-{{#if @last}}
+    {{#if @last}}
 )
-{{/if}}
+    {{/if}}
 {{/each}}
 
 
 class BaseApi(api_client.Api):
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper rootSecurity=../security contentType=@key this=this}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType=@key}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_baseapi_wrapper rootSecurity=../security contentType="null" this=this}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 
 {{else}}
     @typing.overload
@@ -381,10 +386,14 @@ class {{operationId.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_operationid_wrapper contentType=@key this=this}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType=@key}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_operationid_wrapper contentType="null" this=this}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
 
 {{else}}
     @typing.overload
@@ -412,10 +421,14 @@ class ApiFor{{httpMethod.camelCase}}(BaseApi):
 
 {{#if requestBody}}
     {{#each getContentTypeToOperation}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType=@key this=this}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType=@key}}
 
     {{/each}}
-    {{> paths/path/verb/_helper_operation_args_httpmethod_wrapper rootSecurity=../security contentType="null" this=this}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
 
 {{else}}
     @typing.overload

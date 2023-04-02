@@ -44,10 +44,10 @@ class SelfReferencingArrayModel(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                'SelfReferencingArrayModel', ...
+                typing.Union['SelfReferencingArrayModel', list, tuple], ...
             ],
             typing.List[
-                'SelfReferencingArrayModel'
+                typing.Union['SelfReferencingArrayModel', list, tuple]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

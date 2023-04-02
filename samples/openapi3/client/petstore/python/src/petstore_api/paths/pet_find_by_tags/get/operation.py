@@ -41,7 +41,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'tags': typing.Union[parameter_0.Parameter0.schema, list, tuple, ],
+            'tags': typing.Union[parameter_0.Parameter0.schema, list, tuple],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -88,9 +88,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _find_pets_by_tags(
@@ -199,9 +197,7 @@ class FindPetsByTags(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def find_pets_by_tags(
@@ -259,9 +255,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get(

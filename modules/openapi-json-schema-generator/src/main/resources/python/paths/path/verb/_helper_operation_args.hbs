@@ -1,6 +1,6 @@
     self,
 {{#if requestBody}}
-{{> paths/path/verb/_helper_operation_args_request_body }}
+    {{> paths/path/verb/_helper_operation_args_request_body }}
 {{else}}
     {{#if isOverload}}
         {{#eq skipDeserialization "True"}}
@@ -51,7 +51,7 @@
 ) -> api_client.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}{{#gt responses.size 1}}typing.Union[
+) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
 ]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}

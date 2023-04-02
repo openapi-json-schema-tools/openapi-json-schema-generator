@@ -101,10 +101,10 @@ class SubtractionOperator(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float, ],
-        b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float, ],
-        operator_id: typing.Union[Schema_.Properties.OperatorId, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        a: typing.Union[Schema_.Properties.A, decimal.Decimal, int, float],
+        b: typing.Union[Schema_.Properties.B, decimal.Decimal, int, float],
+        operator_id: typing.Union[Schema_.Properties.OperatorId, str],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> 'SubtractionOperator':
         return super().__new__(

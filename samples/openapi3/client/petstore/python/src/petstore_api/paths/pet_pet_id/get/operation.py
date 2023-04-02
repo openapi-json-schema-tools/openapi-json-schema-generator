@@ -40,7 +40,7 @@ class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'petId': typing.Union[parameter_0.Parameter0.schema, decimal.Decimal, int, ],
+            'petId': typing.Union[parameter_0.Parameter0.schema, decimal.Decimal, int],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -76,6 +76,7 @@ _status_code_to_response: __StatusCodeToResponse = {
     '400': response_400.ResponseFor400,
     '404': response_404.ResponseFor404,
 }
+
 _all_accept_content_types = (
     "application/xml",
     "application/json",
@@ -93,9 +94,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _get_pet_by_id(
@@ -215,9 +214,7 @@ class GetPetById(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get_pet_by_id(
@@ -280,9 +277,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get(

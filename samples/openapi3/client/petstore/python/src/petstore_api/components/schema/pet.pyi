@@ -63,10 +63,10 @@ class Pet(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str, ], ...
+                            typing.Union[Schema_.Items, str], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str, ]
+                            typing.Union[Schema_.Items, str]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -97,10 +97,10 @@ class Pet(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            'tag.Tag', ...
+                            typing.Union['tag.Tag', dict, frozendict.frozendict], ...
                         ],
                         typing.List[
-                            'tag.Tag'
+                            typing.Union['tag.Tag', dict, frozendict.frozendict]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -215,11 +215,11 @@ class Pet(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        name: typing.Union[Schema_.Properties.Name, str, ],
-        photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        name: typing.Union[Schema_.Properties.Name, str],
+        photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        category: typing.Union['category.Category', schemas.Unset] = schemas.unset,
+        category: typing.Union['category.Category', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
         status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

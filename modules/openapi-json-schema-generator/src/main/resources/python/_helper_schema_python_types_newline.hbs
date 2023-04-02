@@ -1,0 +1,72 @@
+{{#eq types null}}
+dict,
+frozendict.frozendict,
+str,
+datetime.date,
+datetime.datetime,
+uuid.UUID,
+int,
+float,
+decimal.Decimal,
+bool,
+None,
+list,
+tuple,
+bytes,
+io.FileIO,
+io.BufferedReader
+{{else}}
+    {{#each types}}
+        {{#eq this "array"}}
+list,
+tuple{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "object"}}
+dict,
+frozendict.frozendict{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "null"}}
+None{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "string" }}
+            {{#eq ../format null}}
+str{{#unless @last}},{{/unless}}
+            {{else}}
+                {{#eq ../format "date"}}
+str,
+datetime.date{{#unless @last}},{{/unless}}
+                {{else}}
+                    {{#eq ../format "date-time"}}
+str,
+datetime.datetime{{#unless @last}},{{/unless}}
+                    {{else}}
+                        {{#eq ../format "uuid"}}
+str,
+uuid.UUID{{#unless @last}},{{/unless}}
+                        {{else}}
+                            {{#eq ../format "binary"}}
+bytes,
+io.FileIO,
+io.BufferedReader{{#unless @last}},{{/unless}}
+                            {{else}}
+str{{#unless @last}},{{/unless}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#eq this "integer"}}
+decimal.Decimal,
+int{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "number"}}
+decimal.Decimal,
+int,
+float{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "boolean"}}
+bool{{#unless @last}},{{/unless}}
+        {{/eq}}
+    {{/each}}
+{{/eq}}

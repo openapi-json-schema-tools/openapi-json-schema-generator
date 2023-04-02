@@ -44,10 +44,10 @@ class RefInItems(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', ...
+                typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader], ...
             ],
             typing.List[
-                'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference'
+                typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

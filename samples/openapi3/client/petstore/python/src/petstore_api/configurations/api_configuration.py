@@ -100,8 +100,8 @@ ServerIndexInfo = typing_extensions.TypedDict(
     'ServerIndexInfo',
     {
         'servers': typing_extensions.Literal[0, 1, 2],
-        "paths///foo/servers": typing_extensions.Literal[0, 1],
-        "paths//servers": typing_extensions.Literal[0, 1],
+        "paths//foo/get/servers": typing_extensions.Literal[0, 1],
+        "paths//pet/findByStatus/servers": typing_extensions.Literal[0, 1],
     },
     total=False
 )

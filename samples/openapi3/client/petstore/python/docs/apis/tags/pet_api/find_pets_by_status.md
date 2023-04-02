@@ -21,7 +21,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -30,10 +30,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter0-schema) | | 
+status | [Parameter0.schema](#parameter0-schema), list, tuple | | 
 
 
 #### Parameter0
@@ -46,16 +47,16 @@ Status values that need to be considered for filter
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | must be one of ["available", "pending", "sold", ] if omitted the server will use the default value of available
+items | str | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
@@ -77,7 +78,10 @@ headers | Unset | headers were not defined |
 
 Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
-component security scheme class. See how to do this in the code sample.
+component security scheme class.
+Select the security index by setting ApiConfiguration.security_index_info or by
+passing in security_index into the endpoint method.
+See how to do this in the code sample.
 - these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
@@ -89,8 +93,8 @@ component security scheme class. See how to do this in the code sample.
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are specific to this "/pet/findByStatus" path
 - defaults to server_index=0, server.url = https://path-server-test.petstore.local/v2
 
@@ -111,7 +115,7 @@ https://petstore.swagger.io/{version}
 #### Variables
 Key | Type | Description | Notes
 --- | ---- | ----------- | ------
-**version** | str,  |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
+**version** | str |  |  must be one of ["v1", "v2"] if omitted the client will use the default value of v1
 
 ## Code Sample
 
@@ -190,4 +194,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling PetApi->find_pets_by_status: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../PetApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../pet_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

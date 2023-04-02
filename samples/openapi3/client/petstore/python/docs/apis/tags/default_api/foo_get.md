@@ -26,7 +26,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#default-response_cls) | response
@@ -40,10 +40,10 @@ response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#default-content-applicationjson-schema), ] |  |
+[body](#default-body) | [content.application_json.schema](#default-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
-### Body
+### Default Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#default-content-applicationjson-schema)
@@ -54,19 +54,19 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**string** | [**Foo**](../../../components/schema/foo.md) | [**Foo**](../../../components/schema/foo.md) |  | [optional]
+**string** | [**Foo**](../../../components/schema/foo.md), dict, frozendict.frozendict | [**Foo**](../../../components/schema/foo.md) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are specific to this endpoint
 - defaults to server_index=0, server.url = https://path-server-test.petstore.local/v2
 
@@ -88,7 +88,7 @@ https://petstore.swagger.io/{version}
 #### Variables
 Key | Type | Description | Notes
 --- | ---- | ----------- | ------
-**version** | str,  |  |  must be one of ["v1", "v2", ] if omitted the client will use the default value of v1
+**version** | str |  |  must be one of ["v1", "v2"] if omitted the client will use the default value of v1
 
 ## Code Sample
 
@@ -112,4 +112,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling DefaultApi->foo_get: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../DefaultApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../default_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

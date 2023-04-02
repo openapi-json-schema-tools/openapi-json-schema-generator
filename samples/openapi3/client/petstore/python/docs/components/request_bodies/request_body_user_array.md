@@ -14,7 +14,7 @@ Content-Type | Schema
 ### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ### List Items
 Class Name | Input Type | Accessed Type | Description | Notes

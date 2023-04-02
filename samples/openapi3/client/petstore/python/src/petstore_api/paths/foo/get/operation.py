@@ -31,6 +31,7 @@ from .responses import response_default
 
 
 default_response = response_default.Default
+
 _all_accept_content_types = (
     "application/json",
 )

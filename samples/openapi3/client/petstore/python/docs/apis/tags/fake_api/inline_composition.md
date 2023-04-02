@@ -12,6 +12,7 @@
 | Field | Value |
 | ----- | ----- |
 | Summary | testing composed schemas at inline locations |
+| Description | composed schemas at inline locations + multiple requestBody content types |
 | Path | "/fake/inlineComposition/" |
 | HTTP Method | post |
 
@@ -19,8 +20,8 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema), [RequestBody.content.multipart_form_data.schema](#request_body_request_bodycontentmultipart_form_dataschema), Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), [RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", "multipart/form-data", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -44,31 +45,31 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#requestbody-content-applicationjson-schema-allof-_0) | str,  | str,  |  |
+[_0](#requestbody-content-applicationjson-schema-allof-_0) | str | str |  |
 
 #### RequestBody content ApplicationJson Schema allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 #### RequestBody content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO, [properties.SomeProp](#requestbody-content-multipartformdata-schema-properties-someprop) |  | [optional]
+**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#requestbody-content-multipartformdata-schema-properties-someprop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### RequestBody content MultipartFormData Schema properties SomeProp
@@ -76,28 +77,29 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#requestbody-content-multipartformdata-schema-properties-someprop-allof-_0) | str,  | str,  |  |
+[_0](#requestbody-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
 
 #### RequestBody content MultipartFormData Schema properties SomeProp allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-compositionAtRoot | [Parameter0.schema](#parameter0-schema) | | optional
-compositionInProperty | [Parameter1.schema](#parameter1-schema) | | optional
+compositionAtRoot | [Parameter0.schema](#parameter0-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
+compositionInProperty | [Parameter1.schema](#parameter1-schema), dict, frozendict.frozendict | | optional
 
 
 #### Parameter0
@@ -107,20 +109,20 @@ compositionInProperty | [Parameter1.schema](#parameter1-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#parameter0-schema-allof-_0) | str,  | str,  |  |
+[_0](#parameter0-schema-allof-_0) | str | str |  |
 
 ##### Parameter0 Schema allof _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter1
 
@@ -129,12 +131,12 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO, [properties.SomeProp](#parameter1-schema-properties-someprop) |  | [optional]
+**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#parameter1-schema-properties-someprop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ##### Parameter1 Schema properties SomeProp
@@ -142,24 +144,24 @@ Key | Input Type | Accessed Type | Description | Notes
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#parameter1-schema-properties-someprop-allof-_0) | str,  | str,  |  |
+[_0](#parameter1-schema-properties-someprop-allof-_0) | str | str |  |
 
 ##### Parameter1 Schema properties SomeProp allof _0
 
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success, multiple content types
@@ -173,10 +175,10 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema)] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
@@ -188,31 +190,31 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#responsefor200-content-applicationjson-schema-allof-_0) | str,  | str,  |  |
+[_0](#responsefor200-content-applicationjson-schema-allof-_0) | str | str |  |
 
 #### ResponseFor200 content ApplicationJson Schema allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 #### ResponseFor200 content MultipartFormData Schema
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO, [properties.SomeProp](#responsefor200-content-multipartformdata-schema-properties-someprop) |  | [optional]
+**someProp** | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#responsefor200-content-multipartformdata-schema-properties-someprop) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### ResponseFor200 content MultipartFormData Schema properties SomeProp
@@ -220,26 +222,26 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#responsefor200-content-multipartformdata-schema-properties-someprop-allof-_0) | str,  | str,  |  |
+[_0](#responsefor200-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
 
 #### ResponseFor200 content MultipartFormData Schema properties SomeProp allof _0
 
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -282,4 +284,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeApi->inline_composition: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

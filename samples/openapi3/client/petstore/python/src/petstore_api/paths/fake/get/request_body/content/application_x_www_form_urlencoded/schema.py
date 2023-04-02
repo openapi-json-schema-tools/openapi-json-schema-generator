@@ -70,10 +70,10 @@ class Schema(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str, ], ...
+                            typing.Union[Schema_.Items, str], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str, ]
+                            typing.Union[Schema_.Items, str]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -161,7 +161,7 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         enum_form_string_array: typing.Union[Schema_.Properties.EnumFormStringArray, list, tuple, schemas.Unset] = schemas.unset,
         enum_form_string: typing.Union[Schema_.Properties.EnumFormString, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

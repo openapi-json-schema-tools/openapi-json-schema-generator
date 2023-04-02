@@ -325,11 +325,11 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[Schema_.Properties.Byte, str, ],
-        double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float, ],
-        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float, ],
-        pattern_without_delimiter: typing.Union[Schema_.Properties.PatternWithoutDelimiter, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        byte: typing.Union[Schema_.Properties.Byte, str],
+        double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float],
+        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float],
+        pattern_without_delimiter: typing.Union[Schema_.Properties.PatternWithoutDelimiter, str],
         integer: typing.Union[Schema_.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32: typing.Union[Schema_.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int64: typing.Union[Schema_.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,

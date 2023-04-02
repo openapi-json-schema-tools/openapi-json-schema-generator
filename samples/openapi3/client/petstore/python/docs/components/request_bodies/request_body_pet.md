@@ -15,12 +15,12 @@ Content-Type | Schema
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Pet](../../components/schema/pet.md) | dict, frozendict.frozendict | frozendict.frozendict |
 ## content ApplicationXml Schema
 
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[RefPet](../../components/schema/ref_pet.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

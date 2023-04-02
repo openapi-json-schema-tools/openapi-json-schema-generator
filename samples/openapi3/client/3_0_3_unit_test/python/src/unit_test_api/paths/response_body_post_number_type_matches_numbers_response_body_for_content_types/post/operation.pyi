@@ -27,6 +27,7 @@ from unit_test_api import schemas  # noqa: F401
 
 from .responses import response_200
 
+
 _all_accept_content_types = (
     "application/json",
 )

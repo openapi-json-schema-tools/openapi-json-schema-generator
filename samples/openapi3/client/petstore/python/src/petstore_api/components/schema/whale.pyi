@@ -107,8 +107,8 @@ class Whale(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        className: typing.Union[Schema_.Properties.ClassName, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        className: typing.Union[Schema_.Properties.ClassName, str],
         hasBaleen: typing.Union[Schema_.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
         hasTeeth: typing.Union[Schema_.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

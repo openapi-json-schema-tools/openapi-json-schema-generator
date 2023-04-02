@@ -134,10 +134,10 @@ class FormatTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, decimal.Decimal, int, float, ], ...
+                            typing.Union[Schema_.Items, decimal.Decimal, int, float], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, decimal.Decimal, int, float, ]
+                            typing.Union[Schema_.Items, decimal.Decimal, int, float]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -437,11 +437,11 @@ class FormatTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        byte: typing.Union[Schema_.Properties.Byte, str, ],
-        date: typing.Union[Schema_.Properties.Date, str, datetime.date, ],
-        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float, ],
-        password: typing.Union[Schema_.Properties.Password, str, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
+        byte: typing.Union[Schema_.Properties.Byte, str],
+        date: typing.Union[Schema_.Properties.Date, str, datetime.date],
+        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float],
+        password: typing.Union[Schema_.Properties.Password, str],
         integer: typing.Union[Schema_.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32: typing.Union[Schema_.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         int32withValidations: typing.Union[Schema_.Properties.Int32withValidations, decimal.Decimal, int, schemas.Unset] = schemas.unset,

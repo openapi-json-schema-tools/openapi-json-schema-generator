@@ -84,7 +84,7 @@ class HasOnlyReadOnly(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[Schema_.Properties.Bar, str, schemas.Unset] = schemas.unset,
         foo: typing.Union[Schema_.Properties.Foo, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

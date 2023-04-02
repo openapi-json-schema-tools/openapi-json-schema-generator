@@ -54,10 +54,10 @@ class ArrayWithValidationsInItems(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                typing.Union[Schema_.Items, decimal.Decimal, int, ], ...
+                typing.Union[Schema_.Items, decimal.Decimal, int], ...
             ],
             typing.List[
-                typing.Union[Schema_.Items, decimal.Decimal, int, ]
+                typing.Union[Schema_.Items, decimal.Decimal, int]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

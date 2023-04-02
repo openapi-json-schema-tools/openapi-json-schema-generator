@@ -20,7 +20,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -29,10 +29,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### path_params
 #### RequestPathParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [Parameter0.schema](#parameter0-schema) | | 
+order_id | [Parameter0.schema](#parameter0-schema), decimal.Decimal, int | | 
 
 
 #### Parameter0
@@ -45,11 +46,11 @@ ID of pet that needs to be fetched
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
@@ -65,10 +66,10 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema)] |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/xml" | [content.application_xml.Schema](#responsefor200-content-applicationxml-schema)
@@ -80,13 +81,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## ResponseFor400
 
@@ -115,8 +116,8 @@ headers | Unset | headers were not defined |
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -154,4 +155,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling StoreApi->get_order_by_id: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../store_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

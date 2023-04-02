@@ -26,7 +26,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
@@ -40,10 +40,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
@@ -54,13 +54,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NullTypeMatchesOnlyTheNullObject](../../../components/schema/null_type_matches_only_the_null_object.md) | None,  | NoneClass,  |
+[NullTypeMatchesOnlyTheNullObject](../../../components/schema/null_type_matches_only_the_null_object.md) | None | NoneClass |
 
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = https://someserver.com/v1
 
@@ -90,4 +90,4 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling PathPostApi->post_null_type_matches_only_the_null_object_response_body_for_content_types: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../PathPostApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../path_post_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

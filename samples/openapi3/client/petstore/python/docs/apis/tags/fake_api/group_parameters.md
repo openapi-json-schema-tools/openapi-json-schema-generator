@@ -21,8 +21,8 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -30,13 +30,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter0-schema) | | 
-required_int64_group | [Parameter2.schema](#parameter2-schema) | | 
-string_group | [Parameter3.schema](#parameter3-schema) | | optional
-int64_group | [Parameter5.schema](#parameter5-schema) | | optional
+required_string_group | [Parameter0.schema](#parameter0-schema), str | | 
+required_int64_group | [Parameter2.schema](#parameter2-schema), decimal.Decimal, int | | 
+string_group | [Parameter3.schema](#parameter3-schema), str | | optional
+int64_group | [Parameter5.schema](#parameter5-schema), decimal.Decimal, int | | optional
 
 
 #### Parameter0
@@ -49,7 +50,7 @@ Required String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter2
 
@@ -61,7 +62,7 @@ Required Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 #### Parameter3
 
@@ -73,7 +74,7 @@ String in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter5
 
@@ -85,15 +86,16 @@ Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 
 ### header_params
 #### RequestHeaderParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter1-schema) | | 
-boolean_group | [Parameter4.schema](#parameter4-schema) | | optional
+required_boolean_group | [Parameter1.schema](#parameter1-schema), str | | 
+boolean_group | [Parameter4.schema](#parameter4-schema), str | | optional
 
 
 #### Parameter1
@@ -106,7 +108,7 @@ Required Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false"]
 
 #### Parameter4
 
@@ -118,11 +120,11 @@ Boolean in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["true", "false", ]
+str | str |  | must be one of ["true", "false"]
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
@@ -131,7 +133,10 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 
 Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
-component security scheme class. See how to do this in the code sample.
+component security scheme class.
+Select the security index by setting ApiConfiguration.security_index_info or by
+passing in security_index into the endpoint method.
+See how to do this in the code sample.
 - these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
@@ -141,8 +146,8 @@ component security scheme class. See how to do this in the code sample.
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -217,4 +222,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

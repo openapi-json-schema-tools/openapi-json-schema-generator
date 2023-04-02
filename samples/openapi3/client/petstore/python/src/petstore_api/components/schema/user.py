@@ -65,7 +65,7 @@ class User(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, dict, frozendict.frozendict, ],
+                    *args_: typing.Union[None, dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'ObjectWithNoDeclaredPropsNullable':
@@ -90,7 +90,7 @@ class User(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> 'AnyTypeExceptNullProp':
@@ -246,7 +246,7 @@ class User(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         username: typing.Union[Schema_.Properties.Username, str, schemas.Unset] = schemas.unset,
         firstName: typing.Union[Schema_.Properties.FirstName, str, schemas.Unset] = schemas.unset,

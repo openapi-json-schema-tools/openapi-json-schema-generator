@@ -28,6 +28,7 @@ from petstore_api import schemas  # noqa: F401
 from .responses import response_200
 from . import request_body
 
+
 _all_accept_content_types = (
     "application/json",
 )
@@ -37,7 +38,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -49,7 +54,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -62,7 +71,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -74,7 +87,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -88,7 +105,11 @@ class BaseApi(api_client.Api):
 
     def _call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -164,7 +185,11 @@ class _123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -176,7 +201,11 @@ class _123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -189,7 +218,11 @@ class _123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -201,7 +234,11 @@ class _123TestSpecialTags(BaseApi):
     @typing.overload
     def call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -215,7 +252,11 @@ class _123TestSpecialTags(BaseApi):
 
     def call_123_test__special_tags(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -240,7 +281,11 @@ class ApiForPatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -252,7 +297,11 @@ class ApiForPatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -265,7 +314,11 @@ class ApiForPatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -277,7 +330,11 @@ class ApiForPatch(BaseApi):
     @typing.overload
     def patch(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = ...,
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
@@ -291,7 +348,11 @@ class ApiForPatch(BaseApi):
 
     def patch(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,

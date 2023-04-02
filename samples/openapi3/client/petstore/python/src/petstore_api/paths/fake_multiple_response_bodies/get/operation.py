@@ -44,6 +44,7 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
     '202': response_202.ResponseFor202,
 }
+
 _all_accept_content_types = (
     "application/json",
 )

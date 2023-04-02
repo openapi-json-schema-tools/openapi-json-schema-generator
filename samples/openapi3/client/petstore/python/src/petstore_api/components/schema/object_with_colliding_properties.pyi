@@ -86,7 +86,7 @@ class ObjectWithCollidingProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[Schema_.Properties.SomeProp, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         someprop: typing.Union[Schema_.Properties.Someprop, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

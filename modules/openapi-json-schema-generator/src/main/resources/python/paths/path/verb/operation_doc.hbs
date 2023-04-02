@@ -38,22 +38,32 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#with requestBody}}
         {{#if refInfo}}
-[**body**](../../../components/request_bodies/{{refInfo.refModule}}.md) | typing.Union[{{#with getDeepestRef}}{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{../../../refInfo.refModule}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}){{/with}}{{/each}}{{/with}}{{#unless getDeepestRef.required}}, Unset]{{else}}]{{/unless}} | {{#if getDeepestRef.required}}required{{else}}optional, default is unset{{/if}} |
+            {{#with getDeepestRef}}
+                {{#if required}}
+[**body**](../../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+                {{else}}
+[**body**](../../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
+                {{/if}}
+            {{/with}}
         {{else}}
-[body](#requestbody) | typing.Union[{{#each content}}{{#unless @first}}, {{/unless}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{../../jsonPathPiece.snakeCase}}content{{../@key.snakeCase}}{{jsonPathPiece.snakeCase}}){{/with}}{{/each}}{{#unless required}}, Unset]{{else}}]{{/unless}} | {{#if required}}required{{else}}optional, default is unset{{/if}} |
+            {{#if required}}
+[body](#requestbody) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "RequestBody" "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+            {{else}}
+[body](#requestbody) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "RequestBody" "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
+            {{/if}}
         {{/if}}
     {{/with}}
     {{#if queryParams}}
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
     {{/if}}
     {{#if headerParams}}
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
     {{/if}}
     {{#if pathParams}}
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
     {{/if}}
     {{#if cookieParams}}
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -98,7 +108,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 {{headerSize}}# Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
@@ -130,7 +140,10 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiec
 
 Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
-component security scheme class. See how to do this in the code sample.
+component security scheme class.
+Select the security index by setting ApiConfiguration.security_index_info or by
+passing in security_index into the endpoint method.
+See how to do this in the code sample.
 - these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
@@ -147,7 +160,10 @@ component security scheme class. See how to do this in the code sample.
 
 Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
 key is the below security scheme quoted name, and the value is an instance of the linked
-component security scheme class. See how to do this in the code sample.
+component security scheme class.
+Select the security index by setting ApiConfiguration.security_index_info or by
+passing in security_index into the endpoint method.
+See how to do this in the code sample.
 - these securities are the general api securities
 
 | Security Index | Security Scheme to Scope Names |
@@ -162,8 +178,8 @@ component security scheme class. See how to do this in the code sample.
 {{headerSize}}# Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 {{#if servers}}
 - these servers are specific to this endpoint
     {{#with servers.0}}
@@ -220,5 +236,5 @@ server_index | Class | Description
 
 {{> paths/path/verb/_helper_operation_doc_example rootSecurity=../security }}
 
-[[Back to top]](#top) [[Back to API]](../{{tag.className}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
+[[Back to top]](#top) [[Back to API]](../{{tag.moduleName}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
 {{/with}}

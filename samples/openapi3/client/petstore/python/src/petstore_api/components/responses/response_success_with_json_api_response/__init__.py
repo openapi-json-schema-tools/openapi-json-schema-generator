@@ -31,16 +31,16 @@ class Header:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int, ],
-            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str, ],
+            'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int],
+            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+            'stringHeader': typing.Union[header_string_header.StringHeader.schema, str],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str, ],
+            'numberHeader': typing.Union[header_number_header.NumberHeader.schema, str],
         },
         total=False
     )
@@ -61,9 +61,7 @@ class Header:
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        application_json_schema.Schema,
-    ]
+    body: application_json_schema.Schema
     headers: Header.Params
 
 

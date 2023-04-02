@@ -40,8 +40,8 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'username': typing.Union[parameter_0.Parameter0.schema, str, ],
-            'password': typing.Union[parameter_1.Parameter1.schema, str, ],
+            'username': typing.Union[parameter_0.Parameter0.schema, str],
+            'password': typing.Union[parameter_1.Parameter1.schema, str],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -59,7 +59,8 @@ class RequestQueryParameters:
     parameters = [
         parameter_0.Parameter0,
         parameter_1.Parameter1,
-    ]_all_accept_content_types = (
+    ]
+_all_accept_content_types = (
     "application/xml",
     "application/json",
 )
@@ -75,9 +76,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _login_user(
@@ -186,9 +185,7 @@ class LoginUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def login_user(
@@ -246,9 +243,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-    ]: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get(

@@ -52,10 +52,10 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str, ], ...
+                            typing.Union[Schema_.Items, str], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str, ]
+                            typing.Union[Schema_.Items, str]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -92,10 +92,10 @@ class ArrayTest(
                             cls,
                             arg_: typing.Union[
                                 typing.Tuple[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int, ], ...
+                                    typing.Union[Schema_.Items, decimal.Decimal, int], ...
                                 ],
                                 typing.List[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int, ]
+                                    typing.Union[Schema_.Items, decimal.Decimal, int]
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -113,10 +113,10 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple, ], ...
+                            typing.Union[Schema_.Items, list, tuple], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, list, tuple, ]
+                            typing.Union[Schema_.Items, list, tuple]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -156,10 +156,10 @@ class ArrayTest(
                             cls,
                             arg_: typing.Union[
                                 typing.Tuple[
-                                    'read_only_first.ReadOnlyFirst', ...
+                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict], ...
                                 ],
                                 typing.List[
-                                    'read_only_first.ReadOnlyFirst'
+                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict]
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -177,10 +177,10 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple, ], ...
+                            typing.Union[Schema_.Items, list, tuple], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, list, tuple, ]
+                            typing.Union[Schema_.Items, list, tuple]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -248,7 +248,7 @@ class ArrayTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
         array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,

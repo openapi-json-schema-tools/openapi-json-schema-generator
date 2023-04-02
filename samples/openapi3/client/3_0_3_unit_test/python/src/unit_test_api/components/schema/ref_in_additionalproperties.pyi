@@ -48,9 +48,9 @@ class RefInAdditionalproperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
+        *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference',
+        **kwargs: typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
     ) -> 'RefInAdditionalproperties':
         return super().__new__(
             cls,

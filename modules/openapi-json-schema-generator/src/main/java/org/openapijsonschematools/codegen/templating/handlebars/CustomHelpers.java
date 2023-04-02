@@ -86,37 +86,4 @@ public enum CustomHelpers implements Helper<Object> {
             return null;
         }
     },
-
-    /**
-     * gets the anchor identifier suffix
-     *
-     */
-    getIdentifierSuffix {
-        @Override
-        public Object apply(final Object context, final Options options) {
-            Object b = options.param(0, null);
-            if (context instanceof HashMap && b instanceof List) {
-                HashMap<List<String>, Integer> thisContext = (HashMap<List<String>, Integer>) context;
-                List<String> identifier = getIdentifier((List<?>) b);
-                int newQty = thisContext.getOrDefault(identifier, -1) + 1;
-                ((HashMap<List<String>, Integer>) context).put(identifier, newQty);
-                if (newQty == 0) {
-                    return "";
-                }
-                return "-"+ newQty;
-            }
-            return null;
-        }
-    };
-    private static List<String> getIdentifier(List<?> identifierPieces) {
-        ArrayList<String> result = new ArrayList<>();
-        for (Object item: identifierPieces) {
-            if (item instanceof CodegenKey) {
-                result.add(((CodegenKey) item).anchorPiece);
-            } else if (item instanceof String) {
-                result.add((String) item);
-            }
-        }
-        return Collections.unmodifiableList(result);
-    }
 }

@@ -66,10 +66,10 @@ class Drawing(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            'shape.Shape', ...
+                            typing.Union['shape.Shape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader], ...
                         ],
                         typing.List[
-                            'shape.Shape'
+                            typing.Union['shape.Shape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -150,13 +150,13 @@ class Drawing(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, ],
-        mainShape: typing.Union['shape.Shape', schemas.Unset] = schemas.unset,
-        shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', schemas.Unset] = schemas.unset,
-        nullableShape: typing.Union['nullable_shape.NullableShape', schemas.Unset] = schemas.unset,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        mainShape: typing.Union['shape.Shape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        shapeOrNull: typing.Union['shape_or_null.ShapeOrNull', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        nullableShape: typing.Union['nullable_shape.NullableShape', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
         shapes: typing.Union[Schema_.Properties.Shapes, list, tuple, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: 'fruit.Fruit',
+        **kwargs: typing.Union['fruit.Fruit', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
     ) -> 'Drawing':
         return super().__new__(
             cls,

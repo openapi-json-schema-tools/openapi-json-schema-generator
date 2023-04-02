@@ -36,7 +36,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'query': typing.Union[parameter_0.Parameter0.schema, str, ],
+            'query': typing.Union[parameter_0.Parameter0.schema, str],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -70,7 +70,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -82,7 +86,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -95,7 +103,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -107,7 +119,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -121,7 +137,11 @@ class BaseApi(api_client.Api):
 
     def _body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -205,7 +225,11 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -217,7 +241,11 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -230,7 +258,11 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -242,7 +274,11 @@ class BodyWithQueryParams(BaseApi):
     @typing.overload
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -256,7 +292,11 @@ class BodyWithQueryParams(BaseApi):
 
     def body_with_query_params(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -281,7 +321,11 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            dict,
+            frozendict.frozendict
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -293,7 +337,11 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -306,7 +354,11 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -318,7 +370,11 @@ class ApiForPut(BaseApi):
     @typing.overload
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = ...,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
@@ -332,7 +388,11 @@ class ApiForPut(BaseApi):
 
     def put(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, dict, frozendict.frozendict, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                dict,
+                frozendict.frozendict
+        ],
         content_type: str = 'application/json',
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,

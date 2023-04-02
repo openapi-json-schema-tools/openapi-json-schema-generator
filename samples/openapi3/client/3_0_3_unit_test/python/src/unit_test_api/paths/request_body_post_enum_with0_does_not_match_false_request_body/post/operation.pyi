@@ -34,7 +34,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int,
+            float
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -45,7 +50,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -57,7 +67,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -68,7 +83,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -81,7 +101,12 @@ class BaseApi(api_client.Api):
 
     def _post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -152,7 +177,12 @@ class PostEnumWith0DoesNotMatchFalseRequestBody(BaseApi):
     @typing.overload
     def post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int,
+            float
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -163,7 +193,12 @@ class PostEnumWith0DoesNotMatchFalseRequestBody(BaseApi):
     @typing.overload
     def post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -175,7 +210,12 @@ class PostEnumWith0DoesNotMatchFalseRequestBody(BaseApi):
     @typing.overload
     def post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -186,7 +226,12 @@ class PostEnumWith0DoesNotMatchFalseRequestBody(BaseApi):
     @typing.overload
     def post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -199,7 +244,12 @@ class PostEnumWith0DoesNotMatchFalseRequestBody(BaseApi):
 
     def post_enum_with0_does_not_match_false_request_body(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -222,7 +272,12 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+            decimal.Decimal,
+            int,
+            float
+        ],
         content_type: typing_extensions.Literal["application/json"] = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -233,7 +288,12 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -245,7 +305,12 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
@@ -256,7 +321,12 @@ class ApiForPost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = ...,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -269,7 +339,12 @@ class ApiForPost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[request_body.RequestBody.content["application/json"].schema, decimal.Decimal, int, float, ],
+        body: typing.Union[
+            request_body.RequestBody.content["application/json"].schema,
+                decimal.Decimal,
+                int,
+                float
+        ],
         content_type: str = 'application/json',
         server_index: typing.Optional[int] = None,
         stream: bool = False,

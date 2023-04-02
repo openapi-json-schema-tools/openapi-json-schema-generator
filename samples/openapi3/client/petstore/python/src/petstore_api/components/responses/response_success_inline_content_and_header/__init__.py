@@ -32,7 +32,7 @@ class Header:
     OptionalParams = typing_extensions.TypedDict(
         'OptionalParams',
         {
-            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str, ],
+            'someHeader': typing.Union[header_some_header.SomeHeader.schema, str],
         },
         total=False
     )
@@ -49,9 +49,7 @@ class Header:
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        application_json_schema.Schema,
-    ]
+    body: application_json_schema.Schema
     headers: Header.Params
 
 

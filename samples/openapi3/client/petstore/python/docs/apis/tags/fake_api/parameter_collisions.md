@@ -19,11 +19,11 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#request_body_request_bodycontentapplication_jsonschema), Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams) | |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams) | |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
+[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -43,18 +43,19 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter0.schema](#parameter0-schema) | | optional
-aB | [Parameter1.schema](#parameter1-schema) | | optional
-Ab | [Parameter2.schema](#parameter2-schema) | | optional
-self | [Parameter3.schema](#parameter3-schema) | | optional
-A-B | [Parameter4.schema](#parameter4-schema) | | optional
+1 | [Parameter0.schema](#parameter0-schema), str | | optional
+aB | [Parameter1.schema](#parameter1-schema), str | | optional
+Ab | [Parameter2.schema](#parameter2-schema), str | | optional
+self | [Parameter3.schema](#parameter3-schema), str | | optional
+A-B | [Parameter4.schema](#parameter4-schema), str | | optional
 
 
 #### Parameter0
@@ -64,7 +65,7 @@ A-B | [Parameter4.schema](#parameter4-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter1
 
@@ -73,7 +74,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter2
 
@@ -82,7 +83,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter3
 
@@ -91,7 +92,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter4
 
@@ -100,17 +101,18 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ### header_params
 #### RequestHeaderParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter5.schema](#parameter5-schema) | | optional
-aB | [Parameter6.schema](#parameter6-schema) | | optional
-self | [Parameter7.schema](#parameter7-schema) | | optional
-A-B | [Parameter8.schema](#parameter8-schema) | | optional
+1 | [Parameter5.schema](#parameter5-schema), str | | optional
+aB | [Parameter6.schema](#parameter6-schema), str | | optional
+self | [Parameter7.schema](#parameter7-schema), str | | optional
+A-B | [Parameter8.schema](#parameter8-schema), str | | optional
 
 
 #### Parameter5
@@ -120,7 +122,7 @@ A-B | [Parameter8.schema](#parameter8-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter6
 
@@ -129,7 +131,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter7
 
@@ -138,7 +140,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter8
 
@@ -147,18 +149,19 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ### path_params
 #### RequestPathParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter9.schema](#parameter9-schema) | | 
-aB | [Parameter10.schema](#parameter10-schema) | | 
-Ab | [Parameter11.schema](#parameter11-schema) | | 
-self | [Parameter12.schema](#parameter12-schema) | | 
-A-B | [Parameter13.schema](#parameter13-schema) | | 
+1 | [Parameter9.schema](#parameter9-schema), str | | 
+aB | [Parameter10.schema](#parameter10-schema), str | | 
+Ab | [Parameter11.schema](#parameter11-schema), str | | 
+self | [Parameter12.schema](#parameter12-schema), str | | 
+A-B | [Parameter13.schema](#parameter13-schema), str | | 
 
 
 #### Parameter9
@@ -168,7 +171,7 @@ A-B | [Parameter13.schema](#parameter13-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter10
 
@@ -177,7 +180,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter11
 
@@ -186,7 +189,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter12
 
@@ -195,7 +198,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter13
 
@@ -204,18 +207,19 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ### cookie_params
 #### RequestCookieParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-1 | [Parameter14.schema](#parameter14-schema) | | optional
-aB | [Parameter15.schema](#parameter15-schema) | | optional
-Ab | [Parameter16.schema](#parameter16-schema) | | optional
-self | [Parameter17.schema](#parameter17-schema) | | optional
-A-B | [Parameter18.schema](#parameter18-schema) | | optional
+1 | [Parameter14.schema](#parameter14-schema), str | | optional
+aB | [Parameter15.schema](#parameter15-schema), str | | optional
+Ab | [Parameter16.schema](#parameter16-schema), str | | optional
+self | [Parameter17.schema](#parameter17-schema), str | | optional
+A-B | [Parameter18.schema](#parameter18-schema), str | | optional
 
 
 #### Parameter14
@@ -225,7 +229,7 @@ A-B | [Parameter18.schema](#parameter18-schema) | | optional
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter15
 
@@ -234,7 +238,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter16
 
@@ -243,7 +247,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter17
 
@@ -252,7 +256,7 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 #### Parameter18
 
@@ -261,11 +265,11 @@ str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
@@ -279,10 +283,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
@@ -293,13 +297,13 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO,  |  |
+dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
 
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -392,4 +396,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

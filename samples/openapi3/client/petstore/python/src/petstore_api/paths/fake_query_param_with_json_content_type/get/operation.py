@@ -35,7 +35,7 @@ class RequestQueryParameters:
     RequiredParams = typing_extensions.TypedDict(
         'RequiredParams',
         {
-            'someParam': typing.Union[parameter_0.Parameter0.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
+            'someParam': typing.Union[parameter_0.Parameter0.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
         }
     )
     OptionalParams = typing_extensions.TypedDict(
@@ -63,6 +63,7 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
+
 _all_accept_content_types = (
     "application/json",
 )

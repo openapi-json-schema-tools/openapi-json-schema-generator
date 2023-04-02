@@ -19,7 +19,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams) | |
+[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -27,15 +27,16 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### query_params
 #### RequestQueryParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-pipe | [Parameter0.schema](#parameter0-schema) | | 
-ioutil | [Parameter1.schema](#parameter1-schema) | | 
-http | [Parameter2.schema](#parameter2-schema) | | 
-url | [Parameter3.schema](#parameter3-schema) | | 
-context | [Parameter4.schema](#parameter4-schema) | | 
-refParam | [Parameter5.schema](#parameter5-schema) | | 
+pipe | [Parameter0.schema](#parameter0-schema), list, tuple | | 
+ioutil | [Parameter1.schema](#parameter1-schema), list, tuple | | 
+http | [Parameter2.schema](#parameter2-schema), list, tuple | | 
+url | [Parameter3.schema](#parameter3-schema), list, tuple | | 
+context | [Parameter4.schema](#parameter4-schema), list, tuple | | 
+refParam | [Parameter5.schema](#parameter5-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
 
 
 #### Parameter0
@@ -45,12 +46,12 @@ refParam | [Parameter5.schema](#parameter5-schema) | |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str |  |
 
 #### Parameter1
 
@@ -59,12 +60,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str |  |
 
 #### Parameter2
 
@@ -73,12 +74,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str |  |
 
 #### Parameter3
 
@@ -87,12 +88,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str |  |
 
 #### Parameter4
 
@@ -101,12 +102,12 @@ items | str,  | str,  |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  |
+list, tuple | tuple |  |
 
 ###### List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  |
+items | str | str |  |
 
 #### Parameter5
 
@@ -115,11 +116,11 @@ items | str,  | str,  |  |
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../../components/schema/string_with_validation.md) | str,  | str,  |
+[StringWithValidation](../../../components/schema/string_with_validation.md) | str | str |
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
@@ -127,8 +128,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -180,4 +181,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeApi->query_parameter_collection_format: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../FakeApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../fake_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

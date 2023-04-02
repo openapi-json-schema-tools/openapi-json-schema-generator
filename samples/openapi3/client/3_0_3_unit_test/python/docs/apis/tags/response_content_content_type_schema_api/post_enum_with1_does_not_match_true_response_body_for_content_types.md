@@ -26,7 +26,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
@@ -40,10 +40,10 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), ] |  |
+[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
 headers | Unset | headers were not defined |
 
-### Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
@@ -54,13 +54,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWith1DoesNotMatchTrue](../../../components/schema/enum_with1_does_not_match_true.md) | decimal.Decimal, int, float,  | decimal.Decimal,  |
+[EnumWith1DoesNotMatchTrue](../../../components/schema/enum_with1_does_not_match_true.md) | decimal.Decimal, int, float | decimal.Decimal |
 
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = https://someserver.com/v1
 
@@ -90,4 +90,4 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling ResponseContentContentTypeSchemaApi->post_enum_with1_does_not_match_true_response_body_for_content_types: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../ResponseContentContentTypeSchemaApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../response_content_content_type_schema_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

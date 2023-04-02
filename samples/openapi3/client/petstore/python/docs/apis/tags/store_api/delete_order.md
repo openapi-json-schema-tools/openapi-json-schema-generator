@@ -20,7 +20,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams) | |
+[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -28,10 +28,11 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### path_params
 #### RequestPathParameters.Params
+This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [Parameter0.schema](#parameter0-schema) | | 
+order_id | [Parameter0.schema](#parameter0-schema), str | | 
 
 
 #### Parameter0
@@ -44,11 +45,11 @@ ID of the order that needs to be deleted
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 ## Return Types
 
-Code | Class | Description
+HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid ID supplied
@@ -81,8 +82,8 @@ headers | Unset | headers were not defined |
 ## Servers
 
 Set the available servers by defining your used servers in ApiConfiguration.server_info
-Then select your server by setting a server_index in ApiConfiguration.server_index or by
-passing server_index in to the endpoint function.
+Then select your server by setting a server index in ApiConfiguration.server_index_info or by
+passing server_index in to the endpoint method.
 - these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
@@ -120,4 +121,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling StoreApi->delete_order: %s\n" % e)
 ```
 
-[[Back to top]](#top) [[Back to API]](../StoreApi.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to top]](#top) [[Back to API]](../store_api.md) [[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)

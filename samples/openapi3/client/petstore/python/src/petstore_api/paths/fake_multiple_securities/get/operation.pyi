@@ -32,6 +32,7 @@ from .security import (
     security_requirement_object_2,
 )
 
+
 _all_accept_content_types = (
     "application/json",
 )
