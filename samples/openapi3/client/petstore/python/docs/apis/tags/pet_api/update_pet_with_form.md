@@ -20,7 +20,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), dict, frozendict.frozendict, Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, frozendict.frozendict] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different server

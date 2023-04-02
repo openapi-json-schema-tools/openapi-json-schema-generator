@@ -19,7 +19,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |

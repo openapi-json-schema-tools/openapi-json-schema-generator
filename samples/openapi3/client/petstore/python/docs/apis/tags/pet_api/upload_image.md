@@ -20,7 +20,7 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), dict, frozendict.frozendict, Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, frozendict.frozendict] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
