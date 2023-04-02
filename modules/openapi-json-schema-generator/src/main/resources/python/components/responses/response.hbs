@@ -56,7 +56,7 @@ class _ApiResponse(api_client.ApiResponse):
                 {{/each}}
     ]
             {{else}}
-    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}},
+    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
             {{/gt}}
         {{else}}
     body: schemas.Unset = schemas.unset

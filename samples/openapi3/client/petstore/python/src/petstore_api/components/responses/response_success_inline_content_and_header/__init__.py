@@ -49,7 +49,7 @@ class Header:
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema,
+    body: application_json_schema.Schema
     headers: Header.Params
 
 
