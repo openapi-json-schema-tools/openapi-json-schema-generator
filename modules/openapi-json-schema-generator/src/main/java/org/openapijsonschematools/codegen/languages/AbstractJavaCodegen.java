@@ -750,7 +750,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     @Override
     public String toModelTestFilename(String name) {
-        return toModelName(name) + "Test";
+        return toModelName(name, null) + "Test";
     }
 
     @Override
@@ -825,7 +825,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toModelName(final String name) {
+    public String toModelName(final String name, String jsonPath) {
         // We need to check if schema-mapping has a different model for this class, so we use it
         // instead of the auto-generated one.
         if (schemaMapping.containsKey(name)) {
@@ -878,9 +878,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     }
 
     @Override
-    public String toModelFilename(String name) {
+    public String toModelFilename(String name, String jsonPath) {
         // should be the same as the model name
-        return toModelName(name);
+        return toModelName(name, jsonPath);
     }
 
     /**

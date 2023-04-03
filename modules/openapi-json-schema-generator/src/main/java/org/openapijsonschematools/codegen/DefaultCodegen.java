@@ -476,7 +476,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (modelNameToSchemaCache == null) {
             // Create a cache to efficiently lookup schema based on model name.
             Map<String, Schema> m = new HashMap<>();
-            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key), schema));
+            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, null), schema));
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
@@ -830,11 +830,11 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
 
-    public String toResponseModuleName(String componentName) { return toModuleFilename(componentName); }
+    public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getCamelCaseResponse(String componentName) { return toModelName(componentName); }
+    public String getCamelCaseResponse(String componentName) { return toModelName(componentName, null); }
 
-    public String toHeaderFilename(String componentName) { return toModuleFilename(componentName); }
+    public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
     @Override
     public String apiFileFolder() {
@@ -1051,46 +1051,46 @@ public class DefaultCodegen implements CodegenConfig {
      * @return the file name of the model
      */
     @Override
-    public String toModelFilename(String name) {
-        return toModuleFilename(name);
+    public String toModelFilename(String name, String jsonPath) {
+        return toModuleFilename(name, jsonPath);
     }
 
     @Override
-    public String toModuleFilename(String name) {
+    public String toModuleFilename(String name, String jsonPath) {
         return org.openapijsonschematools.codegen.utils.StringUtils.camelize(name);
     }
 
-    public String toPathFilename(String name) {
-        return toModuleFilename(name);
+    public String toPathFilename(String name, String jsonPath) {
+        return toModuleFilename(name, jsonPath);
     }
 
     @Override
-    public String toParameterFilename(String basename) {
-        return toModuleFilename(basename);
+    public String toParameterFilename(String basename, String jsonPath) {
+        return toModuleFilename(basename, jsonPath);
     }
 
     @Override
-    public String toSecuritySchemeFilename(String basename) {
-        return toModuleFilename(basename);
+    public String toSecuritySchemeFilename(String basename, String jsonPath) {
+        return toModuleFilename(basename, jsonPath);
     }
 
     @Override
-    public String toServerFilename(String basename) {
-        return toModuleFilename(basename);
+    public String toServerFilename(String basename, String jsonPath) {
+        return toModuleFilename(basename, jsonPath);
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename) {
-        return toModuleFilename(basename);
+    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
+        return toModuleFilename(basename, jsonPath);
     }
 
     @Override
     public String getCamelCaseServer(String basename) {
-        return toModelName(basename);
+        return toModelName(basename, null);
     }
 
     public String getCamelCaseParameter(String basename) {
-        return toModelName(basename);
+        return toModelName(basename, null);
     }
 
     /**
@@ -1531,7 +1531,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @return capitalized model name
      */
     @Override
-    public String toModelName(final String name) {
+    public String toModelName(final String name, String jsonPath) {
         if (schemaKeyToModelNameCache.containsKey(name)) {
             return schemaKeyToModelNameCache.get(name);
         }
@@ -2385,7 +2385,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         String[] refPieces = ref.split("/");
-        return toModelName(refPieces[refPieces.length-1]);
+        return toModelName(refPieces[refPieces.length-1], ref);
     }
 
     protected String getOperationIdSnakeCase(String operationId) {
@@ -2410,7 +2410,7 @@ public class DefaultCodegen implements CodegenConfig {
                 operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
             }
         }
-        String camelCase = toModelName(operationId);
+        String camelCase = toModelName(operationId, null);
         String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
@@ -3394,14 +3394,14 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         if (pathPieces[2].equals("headers")) {
-            pathPieces[3] = toHeaderFilename(pathPieces[3]);
+            pathPieces[3] = toHeaderFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[2].equals("parameters")) {
-            pathPieces[3] = toParameterFilename(pathPieces[3]);
+            pathPieces[3] = toParameterFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -3416,14 +3416,14 @@ public class DefaultCodegen implements CodegenConfig {
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
-            pathPieces[3] = toResponseModuleName(pathPieces[3]);
+            pathPieces[3] = toResponseModuleName(pathPieces[3], null);
 
             if (pathPieces.length < 6) {
                 return;
             }
             if (pathPieces[4].equals("headers")) {
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
-                pathPieces[5] = toHeaderFilename(pathPieces[5]);
+                pathPieces[5] = toHeaderFilename(pathPieces[5], null);
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
@@ -3435,7 +3435,7 @@ public class DefaultCodegen implements CodegenConfig {
                 pathPieces[5] = getKey(contentType).snakeCase;
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
-            pathPieces[3] = toSecuritySchemeFilename(pathPieces[3]);
+            pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
         }
     }
 
@@ -3444,7 +3444,7 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         // #/paths/somePath
-        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]));
+        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
         if (pathPieces.length < 4) {
             return;
         }
@@ -3457,21 +3457,21 @@ public class DefaultCodegen implements CodegenConfig {
             pathPieces[4] = requestBodyIdentifier;
         }
         if (pathPieces[3].equals("servers")) {
-            // #/paths/somePath/servers/someServer
-            pathPieces[4] = toServerFilename(pathPieces[4]);
+            // #/paths/somePath/servers/0
+            pathPieces[4] = toServerFilename(pathPieces[4], null);
         }
         if (pathPieces.length < 6) {
             return;
         }
         if (pathPieces[4].equals("servers")) {
             // #/paths/somePath/get/servers/someServer
-            pathPieces[5] = toServerFilename(pathPieces[5]);
+            pathPieces[5] = toServerFilename(pathPieces[5], null);
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security/0
-            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5]);
+            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
         } else if (pathPieces[4].equals("responses")) {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
-            pathPieces[5] = toResponseModuleName(pathPieces[5]);
+            pathPieces[5] = toResponseModuleName(pathPieces[5], null);
 
             if (pathPieces.length < 8) {
                 return;
@@ -3482,7 +3482,7 @@ public class DefaultCodegen implements CodegenConfig {
                 pathPieces[7] = getKey(contentType).snakeCase;
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                pathPieces[7] = toHeaderFilename(pathPieces[7]);
+                pathPieces[7] = toHeaderFilename(pathPieces[7], null);
 
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
@@ -3492,7 +3492,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         } else if (pathPieces[4].equals("parameters")) {
             // #/paths/somePath/get/parameters/0 -> length 6
-            pathPieces[5] = toParameterFilename(pathPieces[5]);
+            pathPieces[5] = toParameterFilename(pathPieces[5], null);
 
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
@@ -3512,14 +3512,14 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length < 3) {
             return;
         }
-        pathPieces[2] = toServerFilename(pathPieces[2]);
+        pathPieces[2] = toServerFilename(pathPieces[2], null);
     }
 
     private void updateSecurityFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }
-        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2]);
+        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2], null);
     }
 
     private void updateApisFilepath(String[] pathPieces) {
@@ -3535,7 +3535,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces[2].equals("tags")) {
             pathPieces[3] = toApiFilename(pathPieces[3]);
         } else if (pathPieces[2].equals("paths")) {
-            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]));
+            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]), null);
         }
     }
 
@@ -4169,7 +4169,7 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName);
+        return toModuleFilename(componentName, null);
     }
 
     protected String toRefModule(String ref, String sourceJsonPath, String expectedComponentType) {
@@ -4195,11 +4195,11 @@ public class DefaultCodegen implements CodegenConfig {
             case "requestBodies":
                 return toRequestBodyFilename(refPieces[3]);
             case "responses":
-                return toResponseModuleName(refPieces[3]);
+                return toResponseModuleName(refPieces[3], ref);
             case "headers":
-                return toHeaderFilename(refPieces[3]);
+                return toHeaderFilename(refPieces[3], ref);
             case "parameters":
-                return toParameterFilename(refPieces[3]);
+                return toParameterFilename(refPieces[3], ref);
             case "schemas":
                 if (ref.equals(sourceJsonPath)) {
                     // property is of type self
@@ -4207,7 +4207,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 return getKey(refPieces[3]).snakeCase;
             case "securitySchemes":
-                return toSecuritySchemeFilename(refPieces[3]);
+                return toSecuritySchemeFilename(refPieces[3], ref);
         }
         return null;
     }
@@ -4219,7 +4219,7 @@ public class DefaultCodegen implements CodegenConfig {
         // parameters/i -> i
         // components/parameters/someParam -> someParam
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-        return getKey(usedName, expectedComponentType);
+        return getKey(usedName, expectedComponentType, currentJsonPath);
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, CodegenSchema instance) {
@@ -4297,6 +4297,10 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     public CodegenKey getKey(String key, String expectedComponentType) {
+        return getKey(key, expectedComponentType, null);
+    }
+
+    public CodegenKey getKey(String key, String expectedComponentType, String jsonPath) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
@@ -4304,31 +4308,31 @@ public class DefaultCodegen implements CodegenConfig {
         String anchorPiece = null;
         switch (expectedComponentType) {
             case "schemas":
-                snakeCaseName = toModelFilename(usedKey);
-                camelCaseName = toModelName(usedKey);
+                snakeCaseName = toModelFilename(usedKey, jsonPath);
+                camelCaseName = toModelName(usedKey, jsonPath);
                 break;
             case "parameters":
-                snakeCaseName = toParameterFilename(usedKey);
+                snakeCaseName = toParameterFilename(usedKey, jsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 snakeCaseName = toRequestBodyFilename(usedKey);
-                camelCaseName = toModelName(usedKey);
+                camelCaseName = toModelName(usedKey, jsonPath);
                 break;
             case "headers":
-                snakeCaseName = toHeaderFilename(usedKey);
-                camelCaseName = toModelName(usedKey);
+                snakeCaseName = toHeaderFilename(usedKey, jsonPath);
+                camelCaseName = toModelName(usedKey, jsonPath);
                 break;
             case "responses":
-                snakeCaseName = toResponseModuleName(usedKey);
+                snakeCaseName = toResponseModuleName(usedKey, jsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
-                snakeCaseName = toSecuritySchemeFilename(usedKey);
-                camelCaseName = toModelName(usedKey);
+                snakeCaseName = toSecuritySchemeFilename(usedKey, jsonPath);
+                camelCaseName = toModelName(usedKey, jsonPath);
                 break;
             case "servers":
-                snakeCaseName = toServerFilename(usedKey);
+                snakeCaseName = toServerFilename(usedKey, jsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
                 break;
         }
@@ -4348,12 +4352,12 @@ public class DefaultCodegen implements CodegenConfig {
     public CodegenKey getKey(String key) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
-        String camelCase = toModelName(usedKey);
+        String camelCase = toModelName(usedKey, null);
         String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 usedKey,
                 isValid,
-                toModelFilename(usedKey),
+                toModelFilename(usedKey, null),
                 camelCase,
                 anchorPiece
         );

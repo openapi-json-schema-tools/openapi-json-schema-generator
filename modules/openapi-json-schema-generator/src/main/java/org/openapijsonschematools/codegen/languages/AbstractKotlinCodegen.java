@@ -604,7 +604,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
      * @return capitalized model name
      */
     @Override
-    public String toModelName(final String name) {
+    public String toModelName(final String name, String jsonPath) {
         // memoization
         String origName = name;
         if (schemaKeyToModelNameCache.containsKey(origName)) {
@@ -664,9 +664,9 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toModelFilename(String name) {
+    public String toModelFilename(String name, String jsonPath) {
         // Should be the same as the model name
-        return toModelName(name);
+        return toModelName(name, jsonPath);
     }
 
     /**

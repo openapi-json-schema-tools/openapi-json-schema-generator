@@ -49,7 +49,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _client_model(
@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -196,7 +196,7 @@ class ClientModel(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def client_model(
@@ -212,7 +212,7 @@ class ClientModel(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -246,7 +246,7 @@ class ClientModel(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -292,7 +292,7 @@ class ApiForPatch(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def patch(
@@ -308,7 +308,7 @@ class ApiForPatch(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -342,7 +342,7 @@ class ApiForPatch(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

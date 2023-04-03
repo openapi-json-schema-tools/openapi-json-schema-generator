@@ -95,7 +95,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _inline_composition(
@@ -113,7 +113,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _inline_composition(
@@ -146,7 +146,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -214,7 +214,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -354,7 +354,7 @@ class InlineComposition(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def inline_composition(
@@ -372,7 +372,7 @@ class InlineComposition(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def inline_composition(
@@ -405,7 +405,7 @@ class InlineComposition(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -473,7 +473,7 @@ class InlineComposition(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -553,7 +553,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def post(
@@ -571,7 +571,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def post(
@@ -604,7 +604,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> _200.ResponseFor200.response_cls: ...
 
 
     @typing.overload
@@ -672,7 +672,7 @@ class ApiForPost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
+        _200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

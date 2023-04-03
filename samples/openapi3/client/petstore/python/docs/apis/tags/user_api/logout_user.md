@@ -29,7 +29,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
+default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/ref_success_description_only.md#ref_success_description_onlyresponse_cls) | Success
 
 ## Servers
 

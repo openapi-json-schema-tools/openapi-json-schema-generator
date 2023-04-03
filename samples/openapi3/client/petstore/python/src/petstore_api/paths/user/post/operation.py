@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
     @typing.overload
     def _create_user(
@@ -63,7 +63,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
 
     @typing.overload
@@ -95,7 +95,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_default.Default.response_cls,
+        default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -180,7 +180,7 @@ class CreateUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
     @typing.overload
     def create_user(
@@ -195,7 +195,7 @@ class CreateUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
 
     @typing.overload
@@ -227,7 +227,7 @@ class CreateUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_default.Default.response_cls,
+        default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -270,7 +270,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
     @typing.overload
     def post(
@@ -285,7 +285,7 @@ class ApiForPost(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
+    ) -> default.Default.response_cls: ...
 
 
     @typing.overload
@@ -317,7 +317,7 @@ class ApiForPost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        response_default.Default.response_cls,
+        default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

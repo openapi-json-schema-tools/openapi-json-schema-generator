@@ -678,9 +678,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (name.length() == 0) {
             return "DefaultApi";
         }
-        return toModelName(name) + apiNameSuffix;
+        return toModelName(name, null) + apiNameSuffix;
     }
 
+    @Override
+    public String toModuleFilename(String name, String jsonPath) {
+        // underscore the model file name
+        // PhoneNumber => phone_number
+        return underscore(dropDots(toModelName(name, jsonPath)));
+    }
+
+    @Override
     public String toModelName(String name, String jsonPath) {
         String sanitizedName = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
         // remove dollar sign
@@ -710,12 +718,23 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return modelName;
         }
 
+
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
             // TODO add logic here to not log if json path exists, the last fragment is a number
             // TODO and the earlier fragment is an excluded case: oneOf/anyOf/allOf
             // TODO call it from all needed call sites
+            HashSet<String> composedKeywords = new HashSet<>();
+            composedKeywords.add("allOf");
+            composedKeywords.add("anyOf");
+            composedKeywords.add("oneOf");
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
+            if (jsonPath != null) {
+                String[] pathPieces = jsonPath.split("/");
+                if (composedKeywords.contains(pathPieces[pathPieces.length-2])) {
+                    return modelName;
+                }
+            }
             LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
         }
@@ -1573,7 +1592,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (modelNameToSchemaCache == null) {
             // Create a cache to efficiently lookup schema based on model name.
             Map<String, Schema> m = new HashMap<>();
-            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key), schema));
+            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, null), schema));
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
@@ -1649,7 +1668,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String toResponseModuleName(String componentName) {
-        String suffix = toModuleFilename(componentName);
+        String suffix = toModuleFilename(componentName, null);
         String spacer = "";
         if (!suffix.startsWith("_")) {
             spacer = "_";
@@ -1660,10 +1679,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename("request_body_" + componentName);
+        return toModuleFilename("request_body_" + componentName, null);
     }
 
-    public String toHeaderFilename(String componentName) { return toModuleFilename("header_" + componentName); }
+    public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename("header_" + componentName, null); }
 
     @Override
     public String apiFileFolder() {
@@ -1768,7 +1787,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    public String toParameterFilename(String name) {
+    public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
         try {
             Integer.parseInt(name);
@@ -1776,22 +1795,22 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "parameter_" + name;
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
-            return "parameter_" + toModuleFilename(name);
+            return "parameter_" + toModuleFilename(name, null);
         }
     }
 
     @Override
-    public String toSecuritySchemeFilename(String basename) {
-        return "security_scheme_" + toModuleFilename(basename);
+    public String toSecuritySchemeFilename(String basename, String jsonPath) {
+        return "security_scheme_" + toModuleFilename(basename, null);
     }
 
     @Override
-    public String toServerFilename(String basename) {
+    public String toServerFilename(String basename, String jsonPath) {
         return "server_" + basename;
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename) {
+    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
         return "security_requirement_object_" + basename;
     }
 
@@ -1808,7 +1827,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "Parameter" + name;
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
-            return toModelName(name);
+            return toModelName(name, null);
         }
     }
 
@@ -1819,13 +1838,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             return "ResponseFor" + name;
         } catch (NumberFormatException nfe) {
             // for header parameters in responses
-            return toModelName(name);
+            return toModelName(name, null);
         }
     }
 
     @Override
     public String toParamName(String basename) {
-        return toParameterFilename(basename);
+        return toParameterFilename(basename, null);
     }
 
     @Override
@@ -1838,11 +1857,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             case "responses":
                 return toResponseModuleName(componentName);
             case "headers":
-                return toHeaderFilename(componentName);
+                return toHeaderFilename(componentName, null);
             case "parameters":
-                return toParameterFilename(componentName);
+                return toParameterFilename(componentName, null);
             case "securitySchemes":
-                return toSecuritySchemeFilename(componentName);
+                return toSecuritySchemeFilename(componentName, null);
         }
         return null;
     }
@@ -1852,7 +1871,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
             if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-                return toModelName(refPieces[3]);
+                return toModelName(refPieces[3], ref);
             }
             Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
             boolean requestBodyCase = (
@@ -1879,7 +1898,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // module info is stored in refModule
         if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
             String schemaName = refPieces[3];
-            return toModelName(schemaName);
+            return toModelName(schemaName, ref);
         }
         return null;
     }
@@ -1887,7 +1906,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private String toRequestBodyRefClass(String ref) {
         String[] refPieces = ref.split("/");
         if (ref.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
-            return toModelName(refPieces[3]);
+            return toModelName(refPieces[3], ref);
         }
         return null;
     }
@@ -1895,7 +1914,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private String toResponseRefClass(String ref) {
         String[] refPieces = ref.split("/");
         if (ref.startsWith("#/components/responses/") && refPieces.length == 4) {
-            return toModelName(refPieces[3]);
+            return toModelName(refPieces[3], ref);
         }
         return null;
     }
@@ -1903,7 +1922,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private String toHeaderRefClass(String ref) {
         String[] refPieces = ref.split("/");
         if (ref.startsWith("#/components/headers/") && refPieces.length == 4) {
-            return toModelName(refPieces[3]);
+            return toModelName(refPieces[3], ref);
         }
         return null;
     }
@@ -1911,7 +1930,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private String toParameterRefClass(String ref) {
         String[] refPieces = ref.split("/");
         if (ref.startsWith("#/components/parameters/") && refPieces.length == 4) {
-            return toModelName(refPieces[3]);
+            return toModelName(refPieces[3], ref);
         }
         return null;
     }
@@ -1919,7 +1938,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     private String toSecuritySchemesRefClass(String ref) {
         String[] refPieces = ref.split("/");
         if (ref.startsWith("#/components/securitySchemes/") && refPieces.length == 4) {
-            return toModelName(refPieces[3]);
+            return toModelName(refPieces[3], ref);
         }
         return null;
     }

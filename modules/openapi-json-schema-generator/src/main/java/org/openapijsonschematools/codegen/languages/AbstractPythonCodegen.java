@@ -455,63 +455,16 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     @Override
-    public String toModelName(String name) {
-        String sanitizedName = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
-        // remove dollar sign
-        sanitizedName = sanitizedName.replaceAll("$", "");
-        // remove whitespace
-        sanitizedName = sanitizedName.replaceAll("\\s+", "");
-
-        String nameWithPrefixSuffix = sanitizedName;
-        if (!StringUtils.isEmpty(modelNamePrefix)) {
-            // add '_' so that model name can be camelized correctly
-            nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;
-        }
-
-        if (!StringUtils.isEmpty(modelNameSuffix)) {
-            // add '_' so that model name can be camelized correctly
-            nameWithPrefixSuffix = nameWithPrefixSuffix + "_" + modelNameSuffix;
-        }
-
-        // camelize the model name
-        // phone_number => PhoneNumber
-        String camelizedName = camelize(nameWithPrefixSuffix);
-
-        // model name cannot use reserved keyword, e.g. return
-        if (isReservedWord(camelizedName)) {
-            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
-            return modelName;
-        }
-
-        // model name starts with number
-        if (camelizedName.matches("^\\d.*")) {
-            String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", camelizedName, modelName);
-            return modelName;
-        }
-
-        return camelizedName;
-    }
-
-    @Override
-    public String toModelFilename(String name) {
+    public String toModelFilename(String name, String jsonPath) {
         // underscore the model file name
         // PhoneNumber => phone_number
-        return toModuleFilename(name);
-    }
-
-    @Override
-    public String toModuleFilename(String name) {
-        // underscore the model file name
-        // PhoneNumber => phone_number
-        return underscore(dropDots(toModelName(name)));
+        return toModuleFilename(name, jsonPath);
     }
 
 
     @Override
     public String toModelTestFilename(String name) {
-        return "test_" + toModelFilename(name);
+        return "test_" + toModelFilename(name, null);
     }
 
     @Override

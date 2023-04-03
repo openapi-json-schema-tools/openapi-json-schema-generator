@@ -53,7 +53,7 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#default-response_cls) | Unexpected error
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/success_description_only.md#success_description_onlyresponse_cls) | Success
 
 ## Default
 
