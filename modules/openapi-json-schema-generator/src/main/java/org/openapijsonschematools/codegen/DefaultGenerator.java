@@ -686,7 +686,7 @@ public class DefaultGenerator implements Generator {
             templateData.put("identifierToHeadingQty", new HashMap<>());
             templateData.put("response", response);
             // TODO make this a property that can be turned off and on
-            generateXs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
+            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
         }
         return responses;
     }
