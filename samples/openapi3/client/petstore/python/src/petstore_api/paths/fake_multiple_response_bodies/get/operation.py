@@ -60,8 +60,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
     ]: ...
 
     @typing.overload
@@ -83,8 +83,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -157,8 +157,8 @@ class MultipleResponseBodies(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
     ]: ...
 
     @typing.overload
@@ -180,8 +180,8 @@ class MultipleResponseBodies(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -214,8 +214,8 @@ class ApiForGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
     ]: ...
 
     @typing.overload
@@ -237,8 +237,8 @@ class ApiForGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
-        _202.ResponseFor202.response_cls,
+        response_200.ResponseFor200.response_cls,
+        response_202.ResponseFor202.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

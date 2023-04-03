@@ -74,7 +74,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> _200.ResponseFor200.response_cls: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _get_pet_by_id(
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -194,7 +194,7 @@ class GetPetById(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> _200.ResponseFor200.response_cls: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get_pet_by_id(
@@ -219,7 +219,7 @@ class GetPetById(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -257,7 +257,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> _200.ResponseFor200.response_cls: ...
+    ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def get(
@@ -282,7 +282,7 @@ class ApiForGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        _200.ResponseFor200.response_cls,
+        response_200.ResponseFor200.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

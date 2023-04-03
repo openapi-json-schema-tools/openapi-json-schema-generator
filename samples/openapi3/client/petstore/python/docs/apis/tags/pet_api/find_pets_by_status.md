@@ -59,7 +59,7 @@ items | str | str |  | must be one of ["available", "pending", "sold"] if omitte
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/successful_xml_and_json_array_of_pet.md#successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
+200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid status value
 
 ## ResponseFor400

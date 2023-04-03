@@ -40,7 +40,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> default.Default.response_cls: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def _logout_user(
@@ -59,7 +59,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        default.Default.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -115,7 +115,7 @@ class LogoutUser(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> default.Default.response_cls: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def logout_user(
@@ -134,7 +134,7 @@ class LogoutUser(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        default.Default.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -163,7 +163,7 @@ class ApiForGet(BaseApi):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> default.Default.response_cls: ...
+    ) -> response_default.Default.response_cls: ...
 
     @typing.overload
     def get(
@@ -182,7 +182,7 @@ class ApiForGet(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        default.Default.response_cls,
+        response_default.Default.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

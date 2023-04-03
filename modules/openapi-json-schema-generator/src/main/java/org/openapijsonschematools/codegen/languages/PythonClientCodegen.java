@@ -1667,7 +1667,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toApiName(name);
     }
 
-    public String toResponseModuleName(String componentName) {
+    @Override
+    public String toResponseModuleName(String componentName, String jsonPath) {
         String suffix = toModuleFilename(componentName, null);
         String spacer = "";
         if (!suffix.startsWith("_")) {
@@ -1855,7 +1856,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             case "requestBodies":
                 return toRequestBodyFilename(componentName);
             case "responses":
-                return toResponseModuleName(componentName);
+                return toResponseModuleName(componentName, null);
             case "headers":
                 return toHeaderFilename(componentName, null);
             case "parameters":
