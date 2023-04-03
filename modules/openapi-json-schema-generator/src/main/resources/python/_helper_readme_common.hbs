@@ -55,7 +55,7 @@ Class | Description
 ----- | ------------
 {{#each schemas}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -67,7 +67,7 @@ Class | Description
 ----- | ------------
 {{#each requestBodies}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -79,7 +79,7 @@ Class | Description
 ----- | ------------
 {{#each responses}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/responses/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -91,7 +91,7 @@ Class | Description
 ----- | ------------
 {{#each headers}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/headers/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -103,7 +103,7 @@ Class | Description
 ----- | ------------
 {{#each parameters}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -115,7 +115,7 @@ Class | Description
 ----- | ------------
     {{#each securitySchemes}}
         {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{componentModule}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
         {{/with}}
     {{/each}}
 
