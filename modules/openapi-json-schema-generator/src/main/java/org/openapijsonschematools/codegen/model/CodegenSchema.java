@@ -79,7 +79,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
 
     // Extra needed fields
-    public String componentModule;
+    public boolean componentModule;
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
     public String unescapedDescription;

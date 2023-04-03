@@ -20,7 +20,7 @@ public class CodegenRequestBody {
     public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final TreeSet<String> imports;
-    public final String componentModule;
+    public final boolean componentModule;
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
 
@@ -67,7 +67,7 @@ public class CodegenRequestBody {
         return schemas;
     }
 
-    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.vendorExtensions = vendorExtensions;

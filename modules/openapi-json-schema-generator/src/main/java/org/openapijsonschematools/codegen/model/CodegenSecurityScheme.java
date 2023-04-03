@@ -31,12 +31,12 @@ public class CodegenSecurityScheme {
     public final CodegenOauthFlows flows;
     public final String openIdConnectUrl;
     public final TreeSet<String> imports;
-    public final String componentModule;
+    public final boolean componentModule;
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenSecurityScheme> refInfo;
     public final Map<String, Object> vendorExtensions;
 
-    public CodegenSecurityScheme(String type, String description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, String componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions) {
+    public CodegenSecurityScheme(String type, String description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions) {
         this.type = type;
         this.description = description;
         this.name = name;

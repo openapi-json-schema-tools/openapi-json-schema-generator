@@ -28,9 +28,9 @@ public class CodegenResponse {
     public final CodegenKey jsonPathPiece;
     public final Map<String, Object> vendorExtensions;
     public final TreeSet<String> imports;
-    public final String componentModule;
+    public final boolean componentModule;
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, String componentModule) {
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
         this.description = description;

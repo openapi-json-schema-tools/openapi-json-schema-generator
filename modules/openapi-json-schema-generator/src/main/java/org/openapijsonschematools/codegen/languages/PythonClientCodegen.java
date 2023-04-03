@@ -1848,25 +1848,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return toParameterFilename(basename, null);
     }
 
-    @Override
-    protected String toComponentModule(String componentName, String priorJsonPathSegment) {
-        switch (priorJsonPathSegment) {
-            case "schemas":
-                return getKey(componentName).snakeCase;
-            case "requestBodies":
-                return toRequestBodyFilename(componentName);
-            case "responses":
-                return toResponseModuleName(componentName, null);
-            case "headers":
-                return toHeaderFilename(componentName, null);
-            case "parameters":
-                return toParameterFilename(componentName, null);
-            case "securitySchemes":
-                return toSecuritySchemeFilename(componentName, null);
-        }
-        return null;
-    }
-
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
