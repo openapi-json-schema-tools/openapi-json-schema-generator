@@ -612,7 +612,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (!generateSourceCodeOnly) {
             supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
             supportingFiles.add(new SupportingFile("test-requirements.hbs", "", "test-requirements.txt"));
-            supportingFiles.add(new SupportingFile("requirements.hbs", "", "requirements.txt"));
 
             supportingFiles.add(new SupportingFile("git_push.hbs", "", "git_push.sh"));
             supportingFiles.add(new SupportingFile("gitignore.hbs", "", ".gitignore"));
