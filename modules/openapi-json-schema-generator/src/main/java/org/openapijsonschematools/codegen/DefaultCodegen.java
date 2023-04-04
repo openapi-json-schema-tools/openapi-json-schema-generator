@@ -1812,10 +1812,6 @@ public class DefaultCodegen implements CodegenConfig {
                         hasDiscriminatorCnt++;
                     }
                 }
-                if (discriminatorsPropNames.size() > 1) {
-                    LOGGER.warn("The oneOf schemas have conflicting discriminator property names. " +
-                            "oneOf schemas must have the same property name, but found " + String.join(", ", discriminatorsPropNames));
-                }
                 if (foundDisc != null && (hasDiscriminatorCnt + hasNullTypeCnt) == composedSchema.getOneOf().size() && discriminatorsPropNames.size() == 1) {
                     disc.setPropertyName(foundDisc.getPropertyName());
                     disc.setMapping(foundDisc.getMapping());
@@ -1840,10 +1836,6 @@ public class DefaultCodegen implements CodegenConfig {
                         discriminatorsPropNames.add(foundDisc.getPropertyName());
                         hasDiscriminatorCnt++;
                     }
-                }
-                if (discriminatorsPropNames.size() > 1) {
-                    LOGGER.warn("The anyOf schemas have conflicting discriminator property names. " +
-                            "anyOf schemas must have the same property name, but found " + String.join(", ", discriminatorsPropNames));
                 }
                 if (foundDisc != null && (hasDiscriminatorCnt + hasNullTypeCnt) == composedSchema.getAnyOf().size() && discriminatorsPropNames.size() == 1) {
                     disc.setPropertyName(foundDisc.getPropertyName());
