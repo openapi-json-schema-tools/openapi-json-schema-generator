@@ -1,6 +1,6 @@
 {{#with parameter}}
 {{#if componentModule}}
-{{../packageName}}.components.parameters.{{componentModule}}
+{{../packageName}}.components.parameters.{{jsonPathPiece.snakeCase}}
 {{/if}}
 {{#eq identifierPieces.size 0}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Parameter" jsonPathPiece) }}

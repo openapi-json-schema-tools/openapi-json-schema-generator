@@ -8,7 +8,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
+[body](#body) | [content.application_json.schema](#content-applicationjson-schema) |  |
 [headers](#headers) | [Headers](#headers) |  |
 
 ## Body
@@ -31,6 +31,6 @@ numberHeader | [NumberHeader.schema](../../components/headers/header_number_head
 #### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schemas/api_response.ApiResponse.md#api_response) | dict, frozendict.frozendict,  | frozendict.frozendict,  |
+[ApiResponse](../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

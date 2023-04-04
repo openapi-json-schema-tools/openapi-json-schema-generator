@@ -1,6 +1,6 @@
 {{#with requestBody}}
 {{#if componentModule}}
-{{packageName}}.components.request_bodies.{{componentModule}}
+{{packageName}}.components.request_bodies.{{jsonPathPiece.snakeCase}}
 {{/if}}
 {{#eq identifierPieces.size 0}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "RequestBody" jsonPathPiece) }}

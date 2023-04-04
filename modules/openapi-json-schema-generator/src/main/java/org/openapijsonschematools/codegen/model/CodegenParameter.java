@@ -34,7 +34,7 @@ public class CodegenParameter {
     public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final Set<String> imports;
-    public final String componentModule;
+    public final boolean componentModule;
     public final CodegenKey jsonPathPiece;
     public final Boolean explode;
     public final String style;
@@ -47,7 +47,7 @@ public class CodegenParameter {
     public final CodegenRefInfo<CodegenParameter> refInfo;
     public final Boolean allowReserved;
 
-    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, String componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
+    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.example = example;

@@ -8,7 +8,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_json.schema](#content-applicationjson-schema), ] |  |
+[body](#body) | [content.application_json.schema](#content-applicationjson-schema) |  |
 [headers](#headers) | [Headers](#headers) |  |
 
 ## Body
@@ -27,12 +27,12 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
+dict, frozendict.frozendict | frozendict.frozendict |  |
 
 #### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | decimal.Decimal, int,  | decimal.Decimal,  | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+**any_string_name** | decimal.Decimal, int | decimal.Decimal | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## Header Details
 ### headers SomeHeader
@@ -42,6 +42,6 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  |
+str | str |  |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

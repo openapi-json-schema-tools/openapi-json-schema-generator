@@ -1,6 +1,6 @@
 {{#with header}}
     {{#if componentModule}}
-{{packageName}}.components.headers.{{componentModule}}
+{{packageName}}.components.headers.{{jsonPathPiece.snakeCase}}
     {{/if}}
     {{#eq identifierPieces.size 0}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Header" jsonPathPiece) }}

@@ -6,7 +6,7 @@ import unittest
 
 import {{packageName}}
 {{#with schema}}
-from {{packageName}}.components.schema.{{componentModule}} import {{jsonPathPiece.camelCase}}
+from {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}} import {{jsonPathPiece.camelCase}}
 from {{packageName}}.configurations import schema_configuration
 
 

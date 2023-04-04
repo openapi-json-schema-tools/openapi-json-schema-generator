@@ -102,7 +102,7 @@ public interface CodegenConfig {
 
     String toApiVarName(String name);
 
-    String toModelName(String name);
+    String toModelName(String name, String jsonPath);
 
     String toParamName(String name);
 
@@ -194,9 +194,9 @@ public interface CodegenConfig {
 
     String toApiFilename(String name);
 
-    String toModelFilename(String name);
+    String toModelFilename(String name, String jsonPath);
 
-    String toModuleFilename(String name);
+    String toModuleFilename(String name, String jsonPath);
 
     String toApiTestFilename(String name);
 
@@ -206,17 +206,17 @@ public interface CodegenConfig {
 
     String toRequestBodyFilename(String componentName);
 
-    String toHeaderFilename(String componentName);
+    String toHeaderFilename(String componentName, String jsonPath);
 
-    String toPathFilename(String path);
+    String toPathFilename(String path, String jsonPath);
 
-    String toParameterFilename(String baseName);
+    String toParameterFilename(String baseName, String jsonPath);
 
-    String toSecuritySchemeFilename(String baseName);
+    String toSecuritySchemeFilename(String baseName, String jsonPath);
 
-    String toServerFilename(String baseName);
+    String toServerFilename(String baseName, String jsonPath);
 
-    String toSecurityRequirementObjectFilename(String baseName);
+    String toSecurityRequirementObjectFilename(String baseName, String jsonPath);
 
     String getCamelCaseServer(String baseName);
 
