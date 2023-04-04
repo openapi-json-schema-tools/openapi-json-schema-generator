@@ -711,31 +711,32 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // phone_number => PhoneNumber
         String camelizedName = camelize(nameWithPrefixSuffix);
 
+        String[] pathPieces = null;
+        boolean isComponent = false;
+        if (jsonPath != null) {
+            pathPieces = jsonPath.split("/");
+            // #/components/schemas/blah -> size 4
+            if (pathPieces.length == 4 && jsonPath.startsWith("#/components/")) {
+                isComponent = true;
+            }
+        }
+
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(camelizedName)) {
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+            if (isComponent) {
+                LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+            }
             return modelName;
         }
 
 
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
-            // TODO add logic here to not log if json path exists, the last fragment is a number
-            // TODO and the earlier fragment is an excluded case: oneOf/anyOf/allOf
-            // TODO call it from all needed call sites
-            HashSet<String> composedKeywords = new HashSet<>();
-            composedKeywords.add("allOf");
-            composedKeywords.add("anyOf");
-            composedKeywords.add("oneOf");
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            if (jsonPath != null) {
-                String[] pathPieces = jsonPath.split("/");
-                if (composedKeywords.contains(pathPieces[pathPieces.length-2])) {
-                    return modelName;
-                }
+            if (isComponent) {
+                LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to {}", camelizedName, modelName);
             }
-            LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
         }
 
