@@ -38,6 +38,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.PairCacheKey;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
@@ -102,6 +103,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected CodegenIgnoreProcessor ignoreProcessor;
     protected TemplateProcessor templateProcessor = null;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
+    private HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
 
     public PythonClientCodegen() {
         super();
@@ -690,6 +692,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toModelName(String name, String jsonPath) {
+        PairCacheKey key = new PairCacheKey(name, jsonPath);
+        if (modelNameCache.containsKey(key)) {
+            return modelNameCache.get(key);
+        }
         String sanitizedName = sanitizeName(name);
         // remove dollar sign
         sanitizedName = sanitizedName.replaceAll("$", "");
@@ -727,6 +733,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             if (isComponent) {
                 LOGGER.warn("{} (reserved word) cannot be used as component name. Renamed to {}", camelizedName, modelName);
             }
+            modelNameCache.put(key, modelName);
             return modelName;
         }
 
@@ -737,9 +744,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             if (isComponent) {
                 LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to {}", camelizedName, modelName);
             }
+            modelNameCache.put(key, modelName);
             return modelName;
         }
 
+        modelNameCache.put(key, camelizedName);
         return camelizedName;
     }
 

@@ -62,6 +62,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
+import org.openapijsonschematools.codegen.model.PairCacheKey;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -1541,31 +1542,7 @@ public class DefaultCodegen implements CodegenConfig {
         return camelCaseName;
     }
 
-    private static class CodegenSchemaCacheKey {
-        private CodegenSchemaCacheKey(String sourceJsonPath, String currentJsonPath) {
-            this.sourceJsonPath = sourceJsonPath;
-            this.currentJsonPath = currentJsonPath;
-        }
-
-        private final String sourceJsonPath;
-        private final String currentJsonPath;
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            CodegenSchemaCacheKey that = (CodegenSchemaCacheKey) o;
-            return Objects.equals(sourceJsonPath, that.sourceJsonPath) &&
-                    Objects.equals(currentJsonPath, that.currentJsonPath);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(sourceJsonPath, currentJsonPath);
-        }
-    }
-
-    Map<CodegenSchemaCacheKey, CodegenSchema> codegenSchemaCache = new HashMap<>();
+    Map<PairCacheKey, CodegenSchema> codegenSchemaCache = new HashMap<>();
     // json path to instance
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
@@ -2231,7 +2208,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         LOGGER.debug("debugging fromSchema for {} {} : {}", sourceJsonPath, currentJsonPath, p);
 
-        CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(sourceJsonPath, currentJsonPath);
+        PairCacheKey ck = new PairCacheKey(sourceJsonPath, currentJsonPath);
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
 
         String ref = p.get$ref();
@@ -2679,7 +2656,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (security == null) {
             return null;
         }
-        List securityRequirements = new ArrayList<>();
+        List<HashMap<String, CodegenSecurityRequirementValue>> securityRequirements = new ArrayList<>();
         int i = 0;
         for (SecurityRequirement specSecurityRequirement: security) {
             HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
@@ -4220,7 +4197,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (ref != null) {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
-            CodegenSchemaCacheKey ck = new CodegenSchemaCacheKey(ref, ref);
+            PairCacheKey ck = new PairCacheKey(ref, ref);
             CodegenSchema cs = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
             instance.refInfo = new CodegenRefInfo<>(cs, refClass, refModule);
         }
