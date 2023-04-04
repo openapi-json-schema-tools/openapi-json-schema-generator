@@ -68,9 +68,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Custom|✗|OAS2,OAS3
 |Int32|✓|OAS2,OAS3
 |Int64|✓|OAS2,OAS3
+|Integer|✗|OAS2,OAS3
 |Float|✓|OAS2,OAS3
 |Double|✓|OAS2,OAS3
-|Decimal|✓|ToolingExtension
+|Number|✗|OAS2,OAS3
 |String|✓|OAS2,OAS3
 |Byte|✓|OAS2,OAS3
 |Binary|✓|OAS2,OAS3
@@ -79,25 +80,12 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DateTime|✓|OAS2,OAS3
 |Password|✓|OAS2,OAS3
 |File|✓|OAS2
-|Uuid|✗|
+|Uuid|✗|OAS2,OAS3
 |Array|✓|OAS2,OAS3
 |Null|✗|OAS3
 |AnyType|✗|OAS2,OAS3
 |Object|✓|OAS2,OAS3
-|Maps|✓|ToolingExtension
-|CollectionFormat|✓|OAS2
-|CollectionFormatMulti|✓|OAS2
 |Enum|✓|OAS2,OAS3
-|ArrayOfEnum|✓|ToolingExtension
-|ArrayOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfPrimitives|✓|ToolingExtension
-|ArrayOfCollectionOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfEnum|✓|ToolingExtension
-|MapOfEnum|✓|ToolingExtension
-|MapOfModel|✓|ToolingExtension
-|MapOfCollectionOfPrimitives|✓|ToolingExtension
-|MapOfCollectionOfModel|✓|ToolingExtension
-|MapOfCollectionOfEnum|✓|ToolingExtension
 
 ### Documentation Feature
 | Name | Supported | Defined By |

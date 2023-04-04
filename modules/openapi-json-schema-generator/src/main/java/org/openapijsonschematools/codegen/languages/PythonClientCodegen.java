@@ -118,6 +118,25 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         removeEnumValuePrefix = false;
 
         modifyFeatureSet(features -> features
+                .includeDataTypeFeatures(
+                        DataTypeFeature.Int32,
+                        DataTypeFeature.Int64,
+                        DataTypeFeature.Integer,
+                        DataTypeFeature.Float,
+                        DataTypeFeature.Double,
+                        DataTypeFeature.Number,
+                        DataTypeFeature.String,
+                        // DataTypeFeature.Byte,
+                        DataTypeFeature.Binary,
+                        DataTypeFeature.Boolean,
+                        DataTypeFeature.Date,
+                        DataTypeFeature.DateTime,
+                        // DataTypeFeature.Password,
+                        DataTypeFeature.File,
+                        DataTypeFeature.Array,
+                        DataTypeFeature.Object,
+                        DataTypeFeature.Enum
+                )
                 .includeSchemaSupportFeatures(
                         SchemaSupportFeature.Simple,
                         SchemaSupportFeature.Composite,
