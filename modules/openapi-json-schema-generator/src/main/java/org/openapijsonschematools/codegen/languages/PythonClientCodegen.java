@@ -690,7 +690,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toModelName(String name, String jsonPath) {
-        String sanitizedName = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        String sanitizedName = sanitizeName(name);
         // remove dollar sign
         sanitizedName = sanitizedName.replaceAll("$", "");
         // remove whitespace
@@ -725,7 +725,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (isReservedWord(camelizedName)) {
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
             if (isComponent) {
-                LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+                LOGGER.warn("{} (reserved word) cannot be used as component name. Renamed to {}", camelizedName, modelName);
             }
             return modelName;
         }
