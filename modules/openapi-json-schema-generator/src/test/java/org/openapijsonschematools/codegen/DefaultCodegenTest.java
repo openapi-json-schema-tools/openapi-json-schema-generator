@@ -720,9 +720,9 @@ public class DefaultCodegenTest {
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
         TreeSet hs = new TreeSet<>();
         for (String leafModelName : leafModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
+            hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName, null)));
         }
-        hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
+        hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile", null)));
 
         CodegenKey petDiscPropName = codegen.getKey(propertyName);
         CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
@@ -740,7 +740,7 @@ public class DefaultCodegenTest {
         List<String> reptileModelNames = Arrays.asList("Lizard", "Snake");
         hs.clear();
         for (String reptileModelName : reptileModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
+            hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName, null)));
         }
         CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
         CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
@@ -758,7 +758,7 @@ public class DefaultCodegenTest {
         List<String> myPetNames = Arrays.asList("Cat", "Lizard");
         hs.clear();
         for (String myPetName : myPetNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(myPetName, codegen.toModelName(myPetName)));
+            hs.add(new CodegenDiscriminator.MappedModel(myPetName, codegen.toModelName(myPetName, null)));
         }
         CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
         CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
@@ -794,9 +794,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         hs.clear();
-        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B")));
-        hs.add(new CodegenDiscriminator.MappedModel("B", codegen.toModelName("B")));
-        hs.add(new CodegenDiscriminator.MappedModel("C", codegen.toModelName("C")));
+        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B", null)));
+        hs.add(new CodegenDiscriminator.MappedModel("B", codegen.toModelName("B", null)));
+        hs.add(new CodegenDiscriminator.MappedModel("C", codegen.toModelName("C", null)));
         assertEquals(cm.hasDiscriminatorWithNonEmptyMapping(), true);
         assertEquals(cm.discriminator.mappedModels, hs);
 
@@ -809,8 +809,8 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         hs.clear();
-        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B")));
-        hs.add(new CodegenDiscriminator.MappedModel("C", codegen.toModelName("C")));
+        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B", null)));
+        hs.add(new CodegenDiscriminator.MappedModel("C", codegen.toModelName("C", null)));
         assertEquals(cm.hasDiscriminatorWithNonEmptyMapping(), true);
         assertEquals(cm.discriminator.mappedModels, hs);
 
@@ -823,7 +823,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         hs.clear();
-        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B")));
+        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B", null)));
         assertEquals(cm.hasDiscriminatorWithNonEmptyMapping(), true);
         assertEquals(cm.discriminator.mappedModels, hs);
     }
@@ -857,9 +857,9 @@ public class DefaultCodegenTest {
         // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
         TreeSet hs = new TreeSet<>();
         for (String leafModelName : leafModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName)));
+            hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName, null)));
         }
-        hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile")));
+        hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile", null)));
         CodegenKey petDiscPropName = codegen.getKey(propertyName);
         CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
@@ -875,7 +875,7 @@ public class DefaultCodegenTest {
         List<String> reptileModelNames = Arrays.asList("Lizard", "Snake");
         hs.clear();
         for (String reptileModelName : reptileModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName)));
+            hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName, null)));
         }
         CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
         CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
@@ -922,7 +922,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
         hs.clear();
-        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B")));
+        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B", null)));
         assertEquals(cm.discriminator.mappedModels, hs);
 
         // the mapping in b is in B
@@ -1039,9 +1039,9 @@ public class DefaultCodegenTest {
         );
         hs = new java.util.LinkedHashSet();
         mn = "FruitInlineDisc_anyOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn)));
+        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
         mn = "FruitInlineDisc_anyOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn)));
+        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
         assertEquals(cm.discriminator.mappedModels, hs);
 
         // inline anyOf with inline anyOf model doesn't work because we have null $refs and we throw an exception
@@ -1149,9 +1149,9 @@ public class DefaultCodegenTest {
         );
         hs = new java.util.LinkedHashSet();
         mn = "FruitInlineDisc_oneOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn)));
+        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
         mn = "FruitInlineDisc_oneOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn)));
+        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
         assertEquals(cm.discriminator.mappedModels, hs);
 
         // inline oneOf with inline oneOf model doesn't work because we have null $refs and we throw an exception
