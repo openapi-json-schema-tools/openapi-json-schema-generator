@@ -16,7 +16,6 @@ fi
 
 ### install dependencies
 pip install tox
-pip install flake8
 ### locally install the package, needed for pycharm problem checking
 python -m pip install .
 
