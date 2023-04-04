@@ -1,7 +1,5 @@
 #!/bin/bash
 
-REQUIREMENTS_FILE=dev-requirements.txt
-REQUIREMENTS_OUT=dev-requirements.txt.log
 SETUP_OUT=*.egg-info
 VENV=venv
 DEACTIVE=false
@@ -17,8 +15,8 @@ if [ -z "$VENVV" ]; then
 fi
 
 ### install dependencies
-pip install -r $REQUIREMENTS_FILE | tee -a $REQUIREMENTS_OUT
-### locally install the package
+pip install tox
+### locally install the package, needed for pycharm problem checking
 python -m pip install .
 
 ### run tests
