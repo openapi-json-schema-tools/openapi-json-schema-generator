@@ -1,6 +1,14 @@
 {{#with operation}}
-<a name="{{operationId.anchorPiece}}"></a>
-{{headerSize}} **{{{operationId.snakeCase}}}**
+{{packageName}}.paths.{{path.snakeCase}}.operation
+{{headerSize}} Operation Method Name
+
+| Method Name | Api Class | Notes |
+| ----------- | --------- | ----- |
+    {{#each tags}}
+| {{../operationId.snakeCase}} | [{{className}}](../../apis/tags/{{moduleName}}.md) | This api is only for tag={{{name}}}
+    {{/each}}
+| {{httpMethod.original}} | ApiFor{{httpMethod.camelCase}} | This api is only for this endpoint
+| {{httpMethod.original}} | {{path.camelCase}} | This api is only for path={{{path.original}}}
 
 {{headerSize}}# Table of Contents
 - [General Info](#general-info)
@@ -236,5 +244,9 @@ server_index | Class | Description
 
 {{> paths/path/verb/_helper_operation_doc_example rootSecurity=../security }}
 
-[[Back to top]](#top) [[Back to API]](../{{tag.moduleName}}.md) {{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
+[[Back to top]](#top)
+    {{#each tags}}
+[[Back to {{className}} API]](../../apis/tags/{{moduleName}}.md)
+    {{/each}}
+{{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
 {{/with}}
