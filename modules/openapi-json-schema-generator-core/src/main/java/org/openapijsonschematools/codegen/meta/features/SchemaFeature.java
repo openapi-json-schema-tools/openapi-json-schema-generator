@@ -22,90 +22,93 @@ import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
 /**
  * Defines special circumstances handled by the generator.
  */
-public enum SchemaSupportFeature {
+public enum SchemaFeature {
     @OAS2 @OAS3
-    additionalProperties,
+    AdditionalProperties,
 
     /**
      * The json schema Composition allOf keyword
      * If a composed schema uses the allOf keyword, then payloads must be valid against all the given allOf schemas
      */
     @OAS2 @OAS3
-    allOf,
+    AllOf,
 
     /**
      * The json schema Composition anyOf keyword
      * If a composed schema uses the anyOf keyword, then payloads must be valid against any of the given anyOf schemas
      */
     @OAS3
-    anyOf,
+    AnyOf,
 
     @OAS2 @OAS3
-    discriminator,
+    Discriminator,
 
     @OAS2 @OAS3
-    enumKeyword,
+    Enum,
 
     @OAS2 @OAS3
-    exclusiveMinimum,
+    ExclusiveMinimum,
 
     @OAS2 @OAS3
-    exclusiveMaximum,
+    ExclusiveMaximum,
 
     @OAS2 @OAS3
-    format,
+    Format,
 
     @OAS2 @OAS3
-    items,
+    Items,
 
     @OAS2 @OAS3
-    maxItems,
+    MaxItems,
 
     @OAS2 @OAS3
-    maxLength,
+    MaxLength,
 
     @OAS2 @OAS3
-    maxProperties,
+    MaxProperties,
 
     @OAS2 @OAS3
-    maximum,
+    Maximum,
 
     @OAS2 @OAS3
-    minItems,
+    MinItems,
 
     @OAS2 @OAS3
-    minLength,
+    MinLength,
 
     @OAS2 @OAS3
-    minProperties,
+    MinProperties,
 
     @OAS2 @OAS3
-    minimum,
+    Minimum,
 
     @OAS2 @OAS3
-    multipleOf,
+    MultipleOf,
 
     @OAS3
-    not,
+    Not,
 
     @OAS3
-    nullable,
+    Nullable,
 
     @OAS3
-    oneOf,
+    OneOf,
 
     @OAS2 @OAS3
-    pattern,
+    Pattern,
 
     @OAS2 @OAS3
-    properties,
+    Properties,
 
     @OAS2 @OAS3
-    required,
+    Required,
 
     @OAS2 @OAS3
-    type,
+    Type,
 
     @OAS2 @OAS3
-    uniqueItems
+    UniqueItems,
+
+    @OAS2 @OAS3
+    Xml
 }

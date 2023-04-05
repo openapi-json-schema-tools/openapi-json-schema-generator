@@ -26,6 +26,7 @@ import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
@@ -36,7 +37,6 @@ import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
@@ -144,20 +144,20 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         DataTypeFeature.Password
                 )
                 .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.additionalProperties,
-                        SchemaSupportFeature.allOf, SchemaSupportFeature.anyOf,
-                        SchemaSupportFeature.discriminator, SchemaSupportFeature.enumKeyword,
-                        SchemaSupportFeature.exclusiveMaximum, SchemaSupportFeature.exclusiveMinimum,
-                        SchemaSupportFeature.format, SchemaSupportFeature.items,
-                        SchemaSupportFeature.maxItems, SchemaSupportFeature.maxLength,
-                        SchemaSupportFeature.maxProperties, SchemaSupportFeature.maximum,
-                        SchemaSupportFeature.minItems, SchemaSupportFeature.minLength,
-                        SchemaSupportFeature.minProperties, SchemaSupportFeature.minimum,
-                        SchemaSupportFeature.multipleOf, SchemaSupportFeature.not,
-                        SchemaSupportFeature.nullable, SchemaSupportFeature.oneOf,
-                        SchemaSupportFeature.pattern, SchemaSupportFeature.properties,
-                        SchemaSupportFeature.required, SchemaSupportFeature.type,
-                        SchemaSupportFeature.uniqueItems
+                        SchemaFeature.AdditionalProperties,
+                        SchemaFeature.AllOf, SchemaFeature.AnyOf,
+                        SchemaFeature.Discriminator, SchemaFeature.Enum,
+                        SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
+                        SchemaFeature.Format, SchemaFeature.Items,
+                        SchemaFeature.MaxItems, SchemaFeature.MaxLength,
+                        SchemaFeature.MaxProperties, SchemaFeature.Maximum,
+                        SchemaFeature.MinItems, SchemaFeature.MinLength,
+                        SchemaFeature.MinProperties, SchemaFeature.Minimum,
+                        SchemaFeature.MultipleOf, SchemaFeature.Not,
+                        SchemaFeature.Nullable, SchemaFeature.OneOf,
+                        SchemaFeature.Pattern, SchemaFeature.Properties,
+                        SchemaFeature.Required, SchemaFeature.Type,
+                        SchemaFeature.UniqueItems
                 )
                 .includeDocumentationFeatures(
                         DocumentationFeature.Readme,
@@ -186,7 +186,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         GlobalFeature.Servers,
                         GlobalFeature.Paths,
                         GlobalFeature.Components,
-                        GlobalFeature.Security
+                        GlobalFeature.Security,
+                        GlobalFeature.Tags
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
@@ -196,8 +197,24 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         ComponentsFeature.headers,
                         ComponentsFeature.securitySchemes
                 )
+                .includeParameterFeatures(
+                        ParameterFeature.Name,
+                        ParameterFeature.Required,
+                        ParameterFeature.In_Path,
+                        ParameterFeature.In_Query,
+                        ParameterFeature.In_Header,
+                        ParameterFeature.Style_Matrix,
+                        ParameterFeature.Style_Label,
+                        ParameterFeature.Style_Form,
+                        ParameterFeature.Style_Simple,
+                        ParameterFeature.Style_PipeDelimited,
+                        ParameterFeature.Style_SpaceDelimited,
+                        ParameterFeature.Explode,
+                        ParameterFeature.Schema,
+                        ParameterFeature.Content
+                )
                 .excludeParameterFeatures(
-                        ParameterFeature.Cookie
+                        ParameterFeature.In_Cookie
                 )
         );
 

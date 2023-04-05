@@ -22,7 +22,7 @@ import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
@@ -43,7 +43,7 @@ public class FeatureSet {
     private EnumSet<ComponentsFeature> componentsFeatures;
     private EnumSet<DocumentationFeature> documentationFeatures;
     private EnumSet<GlobalFeature> globalFeatures;
-    private EnumSet<SchemaSupportFeature> schemaSupportFeatures;
+    private EnumSet<SchemaFeature> schemaFeatures;
     private EnumSet<ParameterFeature> parameterFeatures;
     private EnumSet<SecurityFeature> securityFeatures;
     private EnumSet<WireFormatFeature> wireFormatFeatures;
@@ -53,7 +53,7 @@ public class FeatureSet {
             clientModificationFeatures = builder.clientModificationFeatures;
             dataTypeFeatures = builder.dataTypeFeatures;
             documentationFeatures = builder.documentationFeatures;
-            schemaSupportFeatures = builder.schemaSupportFeatures;
+            schemaFeatures = builder.schemaFeatures;
             componentsFeatures = builder.componentsFeatures;
             globalFeatures = builder.globalFeatures;
             parameterFeatures = builder.parameterFeatures;
@@ -76,7 +76,7 @@ public class FeatureSet {
             builder.clientModificationFeatures = copy.getClientModificationFeatures();
             builder.dataTypeFeatures = copy.getDataTypeFeatures();
             builder.documentationFeatures = copy.getDocumentationFeatures();
-            builder.schemaSupportFeatures = copy.getSchemaSupportFeatures();
+            builder.schemaFeatures = copy.getSchemaSupportFeatures();
             builder.globalFeatures = copy.getGlobalFeatures();
             builder.parameterFeatures = copy.getParameterFeatures();
             builder.securityFeatures = copy.getSecurityFeatures();
@@ -129,11 +129,11 @@ public class FeatureSet {
      *
      * @return A new copy of the defined feature set. Changes to this instance are not promoted.
      */
-    public EnumSet<SchemaSupportFeature> getSchemaSupportFeatures() {
-        if (schemaSupportFeatures != null) {
-            return EnumSet.copyOf(schemaSupportFeatures);
+    public EnumSet<SchemaFeature> getSchemaSupportFeatures() {
+        if (schemaFeatures != null) {
+            return EnumSet.copyOf(schemaFeatures);
         } else {
-            return EnumSet.noneOf(SchemaSupportFeature.class);
+            return EnumSet.noneOf(SchemaFeature.class);
         }
     }
 
@@ -274,14 +274,14 @@ public class FeatureSet {
 
             states.add(state);
         });
-        EnumSet.allOf(SchemaSupportFeature.class).forEach(feat -> {
+        EnumSet.allOf(SchemaFeature.class).forEach(feat -> {
             FeatureSetFlattened state = new FeatureSetFlattened();
-            state.featureCategory = SchemaSupportFeature.class.getSimpleName();
+            state.featureCategory = SchemaFeature.class.getSimpleName();
             state.featureName = feat.name();
-            state.isSupported = this.schemaSupportFeatures.contains(feat);
+            state.isSupported = this.schemaFeatures.contains(feat);
 
             try {
-                for (Annotation an : SchemaSupportFeature.class.getField(feat.name()).getAnnotations()) {
+                for (Annotation an : SchemaFeature.class.getField(feat.name()).getAnnotations()) {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
@@ -381,7 +381,7 @@ public class FeatureSet {
         private EnumSet<ClientModificationFeature> clientModificationFeatures;
         private EnumSet<DataTypeFeature> dataTypeFeatures;
         private EnumSet<DocumentationFeature> documentationFeatures;
-        private EnumSet<SchemaSupportFeature> schemaSupportFeatures;
+        private EnumSet<SchemaFeature> schemaFeatures;
 
         private EnumSet<ComponentsFeature> componentsFeatures;
         private EnumSet<GlobalFeature> globalFeatures;
@@ -393,7 +393,7 @@ public class FeatureSet {
             this.clientModificationFeatures = EnumSet.noneOf(ClientModificationFeature.class);
             this.dataTypeFeatures = EnumSet.noneOf(DataTypeFeature.class);
             this.documentationFeatures = EnumSet.noneOf(DocumentationFeature.class);
-            this.schemaSupportFeatures = EnumSet.noneOf(SchemaSupportFeature.class);
+            this.schemaFeatures = EnumSet.noneOf(SchemaFeature.class);
             this.parameterFeatures = EnumSet.noneOf(ParameterFeature.class);
             this.securityFeatures = EnumSet.noneOf(SecurityFeature.class);
             this.globalFeatures = EnumSet.noneOf(GlobalFeature.class);
@@ -521,39 +521,39 @@ public class FeatureSet {
         /**
          * Sets the {@code schemaSupportFeature} and returns a reference to this Builder so that the methods can be chained together.
          *
-         * @param schemaSupportFeatures the {@code schemaSupportFeature} to set
+         * @param schemaFeatures the {@code schemaSupportFeature} to set
          * @return a reference to this Builder
          */
-        public Builder schemaSupportFeatures(EnumSet<SchemaSupportFeature> schemaSupportFeatures) {
-            if (schemaSupportFeatures != null) {
-                this.schemaSupportFeatures = schemaSupportFeatures;
+        public Builder schemaSupportFeatures(EnumSet<SchemaFeature> schemaFeatures) {
+            if (schemaFeatures != null) {
+                this.schemaFeatures = schemaFeatures;
             } else {
-                this.schemaSupportFeatures = EnumSet.noneOf(SchemaSupportFeature.class);
+                this.schemaFeatures = EnumSet.noneOf(SchemaFeature.class);
             }
             return this;
         }
 
         /**
-         * Includes the defined {@link SchemaSupportFeature} to the new/existing set of supported features.
+         * Includes the defined {@link SchemaFeature} to the new/existing set of supported features.
          *
-         * @param schemaSupportFeature One or more {@code schemaSupportFeature} to ensure are included in the set.
+         * @param schemaFeature One or more {@code schemaFeature} to ensure are included in the set.
          *
          * @return a reference to this Builder
          */
-        public Builder includeSchemaSupportFeatures(SchemaSupportFeature... schemaSupportFeature) {
-            this.schemaSupportFeatures.addAll(Arrays.stream(schemaSupportFeature).collect(Collectors.toList()));
+        public Builder includeSchemaSupportFeatures(SchemaFeature... schemaFeature) {
+            this.schemaFeatures.addAll(Arrays.stream(schemaFeature).collect(Collectors.toList()));
             return this;
         }
 
         /**
-         * Excludes the defined {@link SchemaSupportFeature} from the set of supported features.
+         * Excludes the defined {@link SchemaFeature} from the set of supported features.
          *
-         * @param schemaSupportFeature One or more {@code schemaSupportFeature} to ensure are excluded from the set.
+         * @param schemaFeature One or more {@code schemaFeature} to ensure are excluded from the set.
          *
          * @return a reference to this Builder
          */
-        public Builder excludeSchemaSupportFeatures(SchemaSupportFeature... schemaSupportFeature) {
-            this.schemaSupportFeatures.removeAll(Arrays.stream(schemaSupportFeature).collect(Collectors.toList()));
+        public Builder excludeSchemaSupportFeatures(SchemaFeature... schemaFeature) {
+            this.schemaFeatures.removeAll(Arrays.stream(schemaFeature).collect(Collectors.toList()));
             return this;
         }
 

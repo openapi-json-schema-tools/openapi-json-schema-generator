@@ -5,7 +5,7 @@ import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
 import org.testng.annotations.Test;
@@ -41,10 +41,10 @@ public class FeatureSetTest {
                 .includeClientModificationFeatures(ClientModificationFeature.BasePath)
                 .includeDataTypeFeatures(DataTypeFeature.Int32, DataTypeFeature.Array)
                 .includeGlobalFeatures(GlobalFeature.Security, GlobalFeature.Info)
-                .includeParameterFeatures(ParameterFeature.Body, ParameterFeature.Query)
+                .includeParameterFeatures(ParameterFeature.In_Header, ParameterFeature.In_Query)
                 .includeSecurityFeatures(SecurityFeature.HTTP_Bearer, SecurityFeature.HTTP_Basic, SecurityFeature.OAuth2_Implicit)
                 .includeDocumentationFeatures(DocumentationFeature.ComponentSchemas)
-                .includeSchemaSupportFeatures(SchemaSupportFeature.oneOf)
+                .includeSchemaSupportFeatures(SchemaFeature.OneOf)
                 .build();
 
         List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten();
@@ -88,8 +88,8 @@ public class FeatureSetTest {
         assertEquals(supported.get(3).featureName, DocumentationFeature.ComponentSchemas.name());
         assertEquals(new HashSet<>(supported.get(3).source), oas3Only);
 
-        assertEquals(supported.get(4).featureCategory, SchemaSupportFeature.class.getSimpleName());
-        assertEquals(supported.get(4).featureName, SchemaSupportFeature.oneOf.name());
+        assertEquals(supported.get(4).featureCategory, SchemaFeature.class.getSimpleName());
+        assertEquals(supported.get(4).featureName, SchemaFeature.OneOf.name());
         assertEquals(new HashSet<>(supported.get(4).source), oas3Only);
 
         assertEquals(supported.get(5).featureCategory, GlobalFeature.class.getSimpleName());
@@ -101,12 +101,12 @@ public class FeatureSetTest {
         assertEquals(new HashSet<>(supported.get(6).source), bothSpecs);
 
         assertEquals(supported.get(7).featureCategory, ParameterFeature.class.getSimpleName());
-        assertEquals(supported.get(7).featureName, ParameterFeature.Query.name());
+        assertEquals(supported.get(7).featureName, ParameterFeature.In_Query.name());
         assertEquals(new HashSet<>(supported.get(7).source), bothSpecs);
 
         assertEquals(supported.get(8).featureCategory, ParameterFeature.class.getSimpleName());
-        assertEquals(supported.get(8).featureName, ParameterFeature.Body.name());
-        assertEquals(new HashSet<>(supported.get(8).source), oas2Only);
+        assertEquals(supported.get(8).featureName, ParameterFeature.In_Header.name());
+        assertEquals(new HashSet<>(supported.get(8).source), bothSpecs);
 
         assertEquals(supported.get(9).featureCategory, SecurityFeature.class.getSimpleName());
         assertEquals(supported.get(9).featureName, SecurityFeature.HTTP_Basic.name());

@@ -23,55 +23,51 @@ import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
  * Defines parameters supported by endpoints in the generated code.
  */
 public enum ParameterFeature {
-    /**
-     * Supports path parameters.
-     */
     @OAS2 @OAS3
-    Path,
+    Name,
 
-    /**
-     * Supports query parameters.
-     */
     @OAS2 @OAS3
-    Query,
+    Required,
 
-    /**
-     * Supports header parameters.
-     */
     @OAS2 @OAS3
-    Header,
+    In_Path,
 
-    /**
-     * Supports body parameters.
-     *
-     * <p>
-     *     OAS 3.x specification supports this structurally rather than as an "in" parameter.
-     * </p>
-     */
-    @OAS2
-    Body,
+    @OAS2 @OAS3
+    In_Query,
 
-    /**
-     * Supports form encoded parameters.
-     *
-     * OAS 3.x specification supports this structurally via content types rather than as an "in" parameter.
-     */
-    @OAS2
-    FormUnencoded,
+    @OAS2 @OAS3
+    In_Header,
 
-    /**
-     * Supports multipart parameters.
-     *
-     * <p>OAS 3.x specification supports this structurally via content types rather than as an "in" parameter.</p>
-     */
-    @OAS2
-    FormMultipart,
-
-    /**
-     * Supports Cookie parameters.
-     *
-     * <p>Not defined in OAS 2.0 and no tooling extensions currently supported for OAS 2.0 support.</p>
-     */
     @OAS3
-    Cookie
+    In_Cookie,
+
+    @OAS3
+    Style_Matrix,
+
+    @OAS3
+    Style_Label,
+
+    @OAS3
+    Style_Form,
+
+    @OAS3
+    Style_Simple,
+
+    @OAS3
+    Style_SpaceDelimited,
+
+    @OAS3
+    Style_PipeDelimited,
+
+    @OAS3
+    Style_DeepObject,
+
+    @OAS3
+    Explode,
+
+    @OAS3
+    Schema,
+
+    @OAS3
+    Content,
 }

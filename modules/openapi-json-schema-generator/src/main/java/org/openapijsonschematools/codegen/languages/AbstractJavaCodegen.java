@@ -30,6 +30,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultCodegen;
@@ -37,8 +38,6 @@ import org.openapijsonschematools.codegen.VendorExtension;
 import org.openapijsonschematools.codegen.languages.features.DocumentationProviderFeatures;
 import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.slf4j.Logger;
@@ -137,7 +136,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                         SecurityFeature.class
                 ))
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.not
+                        SchemaFeature.Not
                 )
                 .includeClientModificationFeatures(
                         ClientModificationFeature.BasePath

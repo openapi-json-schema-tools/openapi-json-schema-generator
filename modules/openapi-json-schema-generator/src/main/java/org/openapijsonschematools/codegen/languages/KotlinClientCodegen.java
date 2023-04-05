@@ -18,26 +18,22 @@
 package org.openapijsonschematools.codegen.languages;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
@@ -152,10 +148,10 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         SecurityFeature.OAuth2_Implicit
                 )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.not
+                        SchemaFeature.Not
                 )
                 .excludeParameterFeatures(
-                        ParameterFeature.Cookie
+                        ParameterFeature.In_Cookie
                 )
                 .includeClientModificationFeatures(ClientModificationFeature.BasePath)
         );

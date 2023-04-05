@@ -133,43 +133,53 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Parameter Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Path|✓|OAS2,OAS3
-|Query|✓|OAS2,OAS3
-|Header|✓|OAS2,OAS3
-|Body|✓|OAS2
-|FormUnencoded|✓|OAS2
-|FormMultipart|✓|OAS2
-|Cookie|✓|OAS3
+|Name|✗|OAS2,OAS3
+|Required|✗|OAS2,OAS3
+|In_Path|✓|OAS2,OAS3
+|In_Query|✓|OAS2,OAS3
+|In_Header|✓|OAS2,OAS3
+|In_Cookie|✓|OAS3
+|Style_Matrix|✗|OAS3
+|Style_Label|✗|OAS3
+|Style_Form|✗|OAS3
+|Style_Simple|✗|OAS3
+|Style_SpaceDelimited|✗|OAS3
+|Style_PipeDelimited|✗|OAS3
+|Style_DeepObject|✗|OAS3
+|Explode|✗|OAS3
+|Schema|✗|OAS3
+|Content|✗|OAS3
 
-### Schema Support Feature
+### Schema Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|additionalProperties|✗|OAS2,OAS3
-|allOf|✗|OAS2,OAS3
-|anyOf|✗|OAS3
-|discriminator|✓|OAS2,OAS3
-|enumKeyword|✓|OAS2,OAS3
-|exclusiveMinimum|✓|OAS2,OAS3
-|exclusiveMaximum|✓|OAS2,OAS3
-|format|✓|OAS2,OAS3
-|items|✓|OAS2,OAS3
-|maxItems|✓|OAS2,OAS3
-|maxLength|✓|OAS2,OAS3
-|maxProperties|✓|OAS2,OAS3
-|maximum|✓|OAS2,OAS3
-|minItems|✓|OAS2,OAS3
-|minLength|✓|OAS2,OAS3
-|minProperties|✓|OAS2,OAS3
-|minimum|✓|OAS2,OAS3
-|multipleOf|✓|OAS2,OAS3
-|not|✗|OAS3
-|nullable|✗|OAS3
-|oneOf|✗|OAS3
-|pattern|✓|OAS2,OAS3
-|properties|✓|OAS2,OAS3
-|required|✓|OAS2,OAS3
-|type|✓|OAS2,OAS3
-|uniqueItems|✓|OAS2,OAS3
+|AdditionalProperties|✗|OAS2,OAS3
+|AllOf|✗|OAS2,OAS3
+|AnyOf|✗|OAS3
+|Discriminator|✓|OAS2,OAS3
+|Enum|✓|OAS2,OAS3
+|ExclusiveMinimum|✓|OAS2,OAS3
+|ExclusiveMaximum|✓|OAS2,OAS3
+|Format|✓|OAS2,OAS3
+|Items|✓|OAS2,OAS3
+|MaxItems|✓|OAS2,OAS3
+|MaxLength|✓|OAS2,OAS3
+|MaxProperties|✓|OAS2,OAS3
+|Maximum|✓|OAS2,OAS3
+|MinItems|✓|OAS2,OAS3
+|MinLength|✓|OAS2,OAS3
+|MinProperties|✓|OAS2,OAS3
+|Minimum|✓|OAS2,OAS3
+|MultipleOf|✓|OAS2,OAS3
+|Not|✗|OAS3
+|Nullable|✗|OAS3
+|OneOf|✗|OAS3
+|Pattern|✓|OAS2,OAS3
+|Properties|✓|OAS2,OAS3
+|Required|✓|OAS2,OAS3
+|Type|✓|OAS2,OAS3
+|UniqueItems|✓|OAS2,OAS3
+|Xml|✗|OAS2,OAS3
 
 ### Security Feature
 | Name | Supported | Defined By |

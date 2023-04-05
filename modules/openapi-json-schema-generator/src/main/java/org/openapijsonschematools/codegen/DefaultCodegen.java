@@ -39,7 +39,7 @@ import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
@@ -143,22 +143,22 @@ public class DefaultCodegen implements CodegenConfig {
                         GlobalFeature.Components
                 )
                 .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.discriminator, SchemaSupportFeature.enumKeyword,
-                        SchemaSupportFeature.exclusiveMaximum, SchemaSupportFeature.exclusiveMinimum,
-                        SchemaSupportFeature.format, SchemaSupportFeature.items,
-                        SchemaSupportFeature.maxItems, SchemaSupportFeature.maxLength,
-                        SchemaSupportFeature.maxProperties, SchemaSupportFeature.maximum,
-                        SchemaSupportFeature.minItems, SchemaSupportFeature.minLength,
-                        SchemaSupportFeature.minProperties, SchemaSupportFeature.minimum,
-                        SchemaSupportFeature.multipleOf,
-                        SchemaSupportFeature.pattern, SchemaSupportFeature.properties,
-                        SchemaSupportFeature.required, SchemaSupportFeature.type,
-                        SchemaSupportFeature.uniqueItems
+                        SchemaFeature.Discriminator, SchemaFeature.Enum,
+                        SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
+                        SchemaFeature.Format, SchemaFeature.Items,
+                        SchemaFeature.MaxItems, SchemaFeature.MaxLength,
+                        SchemaFeature.MaxProperties, SchemaFeature.Maximum,
+                        SchemaFeature.MinItems, SchemaFeature.MinLength,
+                        SchemaFeature.MinProperties, SchemaFeature.Minimum,
+                        SchemaFeature.MultipleOf,
+                        SchemaFeature.Pattern, SchemaFeature.Properties,
+                        SchemaFeature.Required, SchemaFeature.Type,
+                        SchemaFeature.UniqueItems
                         // Union (OneOf) not 100% yet.
                 )
                 .includeParameterFeatures(
-                        ParameterFeature.Path, ParameterFeature.Query, ParameterFeature.Header, ParameterFeature.Body,
-                        ParameterFeature.FormUnencoded, ParameterFeature.FormMultipart, ParameterFeature.Cookie
+                        ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,
+                        ParameterFeature.In_Cookie
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey, SecurityFeature.HTTP_Basic, SecurityFeature.HTTP_Bearer,
@@ -2104,16 +2104,16 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenSchema> oneOfs = Collections.emptyList();
             List<CodegenSchema> anyOfs = Collections.emptyList();
             List<CodegenSchema> notSchemas = Collections.emptyList();
-            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
+            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AllOf)) {
                 allOfs = schema.allOf;
             }
-            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.oneOf)) {
+            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.OneOf)) {
                 oneOfs = schema.oneOf;
             }
-            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.anyOf)) {
+            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AnyOf)) {
                 anyOfs = schema.anyOf;
             }
-            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
+            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Not)) {
                 notSchemas = Collections.singletonList(schema.not);
             }
             Stream<CodegenSchema> allSchemas = Stream.of(
