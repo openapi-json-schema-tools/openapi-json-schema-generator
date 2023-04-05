@@ -68,9 +68,6 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
             FORMAT_TEXT, FORMAT_MARKDOWN, FORMAT_YAMLSAMPLE})
     private String format;
 
-    @Option(name = {"--import-mappings"}, title = "import mappings", description = "displays the default import mappings (types and aliases, and what imports they will pull into the template)")
-    private Boolean importMappings;
-
     @Option(name = {"--schema-mappings"}, title = "schema mappings", description = "display the schema mappings (none)")
     private Boolean schemaMappings;
 
@@ -119,7 +116,6 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
             instantiationTypes = Boolean.TRUE;
             reservedWords = Boolean.TRUE;
             languageSpecificPrimitives = Boolean.TRUE;
-            importMappings = Boolean.TRUE;
             featureSets = Boolean.TRUE;
             metadata = Boolean.TRUE;
             supportedVendorExtensions = Boolean.TRUE;
@@ -231,24 +227,6 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
                 .append("|").append(extension.getDefaultValue())
                 .append(newline)
         );
-        sb.append(newline);
-    }
-
-    private void generateMdImportMappings(StringBuilder sb, CodegenConfig config) {
-        sb.append(newline).append("## IMPORT MAPPING").append(newline).append(newline);
-
-        sb.append("| Type/Alias | Imports |").append(newline);
-        sb.append("| ---------- | ------- |").append(newline);
-
-        config.importMapping()
-                .entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByKey())
-                .forEachOrdered(kvp -> {
-                    sb.append("|").append(escapeHtml4(kvp.getKey())).append("|").append(escapeHtml4(kvp.getValue())).append("|");
-                    sb.append(newline);
-                });
-
         sb.append(newline);
     }
 
@@ -372,10 +350,6 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
             generateMdSupportedVendorExtensions(sb, config);
         }
 
-        if (Boolean.TRUE.equals(importMappings)) {
-            generateMdImportMappings(sb, config);
-        }
-
         if (Boolean.TRUE.equals(instantiationTypes)) {
             generateMdInstantiationTypes(sb, config);
         }
@@ -445,19 +419,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
                     .replaceAll("\n", System.lineSeparator() + optNestedIndent));
             sb.append(newline).append(newline);
         });
-
-        if (Boolean.TRUE.equals(importMappings)) {
-            sb.append(newline).append("IMPORT MAPPING").append(newline).append(newline);
-            Map<String, String> map = config.importMapping()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Type/Alias", "Imports");
-            sb.append(newline);
-        }
-
+        
         if (Boolean.TRUE.equals(schemaMappings)) {
             sb.append(newline).append("SCHEMA MAPPING").append(newline).append(newline);
             Map<String, String> map = config.schemaMapping()

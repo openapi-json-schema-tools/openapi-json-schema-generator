@@ -27,12 +27,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |sortModelPropertiesByRequiredFlag|Sort model properties to place required parameters before optional parameters.| |true|
 |sortParamsByRequiredFlag|Sort method arguments to place required parameters before optional parameters.| |true|
 
-## IMPORT MAPPING
-
-| Type/Alias | Imports |
-| ---------- | ------- |
-
-
 ## INSTANTIATION TYPES
 
 | Type/Alias | Instantiated By |

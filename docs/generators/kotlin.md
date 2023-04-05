@@ -46,22 +46,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |useRxJava2|Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: this option has been deprecated. Please use `useRxJava3` instead.| |false|
 |useRxJava3|Whether to use the RxJava3 adapter with the retrofit2 library.| |false|
 
-## IMPORT MAPPING
-
-| Type/Alias | Imports |
-| ---------- | ------- |
-|BigDecimal|java.math.BigDecimal|
-|Date|java.time.LocalDate|
-|DateTime|java.time.OffsetDateTime|
-|File|java.io.File|
-|LocalDate|java.time.LocalDate|
-|LocalDateTime|java.time.LocalDateTime|
-|LocalTime|java.time.LocalTime|
-|Timestamp|java.sql.Timestamp|
-|URI|java.net.URI|
-|UUID|java.util.UUID|
-
-
 ## INSTANTIATION TYPES
 
 | Type/Alias | Instantiated By |

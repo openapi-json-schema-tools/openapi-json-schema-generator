@@ -218,10 +218,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 )
         );
 
-        // clear import mapping (from default generator) as python does not use it
-        // at the moment
-        importMapping.clear();
-
         modelPackage = "components.schema";
         apiPackage = "apis";
         outputFolder = "generated-code" + File.separatorChar + "python";

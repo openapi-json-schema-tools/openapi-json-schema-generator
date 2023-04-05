@@ -162,8 +162,6 @@ public interface CodegenConfig {
 
     Map<String, String> instantiationTypes();
 
-    Map<String, String> importMapping();
-
     Map<String, String> schemaMapping();
 
     Map<String, String> inlineSchemaNameMapping();

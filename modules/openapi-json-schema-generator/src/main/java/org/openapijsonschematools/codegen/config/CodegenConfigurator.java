@@ -656,7 +656,6 @@ public class CodegenConfigurator {
         // TODO: Work toward CodegenConfig having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
         config.typeMapping().putAll(generatorSettings.getTypeMappings());
-        config.importMapping().putAll(generatorSettings.getImportMappings());
         config.schemaMapping().putAll(generatorSettings.getSchemaMappings());
         config.inlineSchemaNameMapping().putAll(generatorSettings.getInlineSchemaNameMappings());
         config.inlineSchemaNameDefault().putAll(generatorSettings.getInlineSchemaNameDefaults());

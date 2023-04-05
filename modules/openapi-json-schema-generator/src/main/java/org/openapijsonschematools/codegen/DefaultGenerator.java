@@ -1624,46 +1624,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Transforms a set of imports to a map with key config.toModelImport(import) and value the import string.
-     *
-     * @param allImports - Set of imports
-     * @return Map of fully qualified import path and initial import.
-     */
-    private Map<String, String> getAllImportsMappings(Set<String> allImports) {
-        Map<String, String> result = new HashMap<>();
-        allImports.forEach(nextImport -> {
-            String mapping = config.importMapping().get(nextImport);
-            if (mapping != null) {
-                result.put(mapping, nextImport);
-            } else {
-                result.putAll(config.toModelImportMap(nextImport));
-            }
-        });
-        return result;
-    }
-
-    /**
-     * Using an import map created via {@link #getAllImportsMappings(Set)} to build a list import objects.
-     * The import objects have two keys: import and classname which hold the key and value of the initial map entry.
-     *
-     * @param mappedImports Map of fully qualified import and import
-     * @return The set of unique imports
-     */
-    private Set<Map<String, String>> toImportsObjects(Map<String, String> mappedImports) {
-        Set<Map<String, String>> result = new TreeSet<>(
-            Comparator.comparing(o -> o.get("classname"))
-        );
-
-        mappedImports.forEach((key, value) -> {
-            Map<String, String> im = new LinkedHashMap<>();
-            im.put("import", key);
-            im.put("classname", value);
-            result.add(im);
-        });
-        return result;
-    }
-
-    /**
      * Generates a file at .openapi-generator/VERSION to track the version of user's latest run.
      *
      * @param files The list tracking generated files

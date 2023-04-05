@@ -31,12 +31,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |useInlineModelResolver|use the inline model resolver, if true inline complex models will be extracted into components and $refs to them will be used| |false|
 |useNose|use the nose test framework| |false|
 
-## IMPORT MAPPING
-
-| Type/Alias | Imports |
-| ---------- | ------- |
-
-
 ## INSTANTIATION TYPES
 
 | Type/Alias | Instantiated By |
