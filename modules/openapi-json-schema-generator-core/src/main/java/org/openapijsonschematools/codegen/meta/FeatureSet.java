@@ -17,6 +17,7 @@
 package org.openapijsonschematools.codegen.meta;
 
 import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
@@ -39,6 +40,7 @@ public class FeatureSet {
 
     private EnumSet<ClientModificationFeature> clientModificationFeatures;
     private EnumSet<DataTypeFeature> dataTypeFeatures;
+    private EnumSet<ComponentsFeature> componentsFeatures;
     private EnumSet<DocumentationFeature> documentationFeatures;
     private EnumSet<GlobalFeature> globalFeatures;
     private EnumSet<SchemaSupportFeature> schemaSupportFeatures;
@@ -52,6 +54,7 @@ public class FeatureSet {
             dataTypeFeatures = builder.dataTypeFeatures;
             documentationFeatures = builder.documentationFeatures;
             schemaSupportFeatures = builder.schemaSupportFeatures;
+            componentsFeatures = builder.componentsFeatures;
             globalFeatures = builder.globalFeatures;
             parameterFeatures = builder.parameterFeatures;
             securityFeatures = builder.securityFeatures;
@@ -131,6 +134,14 @@ public class FeatureSet {
             return EnumSet.copyOf(schemaSupportFeatures);
         } else {
             return EnumSet.noneOf(SchemaSupportFeature.class);
+        }
+    }
+
+    public EnumSet<ComponentsFeature> getComponentsFeatures() {
+        if (componentsFeatures != null) {
+            return EnumSet.copyOf(componentsFeatures);
+        } else {
+            return EnumSet.noneOf(ComponentsFeature.class);
         }
     }
 
@@ -355,6 +366,8 @@ public class FeatureSet {
         private EnumSet<DataTypeFeature> dataTypeFeatures;
         private EnumSet<DocumentationFeature> documentationFeatures;
         private EnumSet<SchemaSupportFeature> schemaSupportFeatures;
+
+        private EnumSet<ComponentsFeature> componentsFeatures;
         private EnumSet<GlobalFeature> globalFeatures;
         private EnumSet<ParameterFeature> parameterFeatures;
         private EnumSet<SecurityFeature> securityFeatures;
@@ -368,6 +381,7 @@ public class FeatureSet {
             this.parameterFeatures = EnumSet.noneOf(ParameterFeature.class);
             this.securityFeatures = EnumSet.noneOf(SecurityFeature.class);
             this.globalFeatures = EnumSet.noneOf(GlobalFeature.class);
+            this.componentsFeatures = EnumSet.noneOf(ComponentsFeature.class);
             this.wireFormatFeatures = EnumSet.noneOf(WireFormatFeature.class);
         }
 
@@ -602,6 +616,25 @@ public class FeatureSet {
          */
         public Builder excludeSecurityFeatures(SecurityFeature... securityFeature) {
             this.securityFeatures.removeAll(Arrays.stream(securityFeature).collect(Collectors.toList()));
+            return this;
+        }
+
+        public Builder componentsFeatures(EnumSet<ComponentsFeature> componentsFeatures) {
+            if (componentsFeatures != null) {
+                this.componentsFeatures = componentsFeatures;
+            } else {
+                this.componentsFeatures = EnumSet.noneOf(ComponentsFeature.class);
+            }
+            return this;
+        }
+
+        public Builder includeComponentsFeatures(ComponentsFeature... componentsFeature) {
+            this.componentsFeatures.addAll(Arrays.stream(componentsFeature).collect(Collectors.toList()));
+            return this;
+        }
+
+        public Builder excludeComponentsFeatures(ComponentsFeature... componentsFeature) {
+            this.componentsFeatures.removeAll(Arrays.stream(componentsFeature).collect(Collectors.toList()));
             return this;
         }
 

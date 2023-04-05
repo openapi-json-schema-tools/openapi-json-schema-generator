@@ -34,6 +34,7 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
+import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
@@ -133,6 +134,9 @@ public class DefaultCodegen implements CodegenConfig {
                 .includeDocumentationFeatures(
                         DocumentationFeature.Api, DocumentationFeature.ComponentSchemas
                         // README is template specific
+                )
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Host, GlobalFeature.BasePath, GlobalFeature.Info, GlobalFeature.PartialSchemes,
