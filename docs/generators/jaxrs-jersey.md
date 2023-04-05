@@ -249,7 +249,17 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Readme|✓|ToolingExtension
-|Model|✓|ToolingExtension
+|Servers|✗|OAS3
+|Security|✗|OAS2,OAS3
+|ComponentSchemas|✓|OAS3
+|ComponentResponses|✗|OAS3
+|ComponentParameters|✗|OAS3
+|ComponentRequestBodies|✗|OAS3
+|ComponentHeaders|✗|OAS3
+|ComponentSecuritySchemes|✗|OAS3
+|ComponentLinks|✗|OAS3
+|ComponentCallbacks|✗|OAS3
+|ComponentPathItems|✗|OAS3
 |Api|✓|ToolingExtension
 
 ### Global Feature

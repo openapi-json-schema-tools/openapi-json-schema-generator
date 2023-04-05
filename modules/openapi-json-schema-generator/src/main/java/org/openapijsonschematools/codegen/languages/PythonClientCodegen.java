@@ -156,7 +156,18 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         SchemaSupportFeature.required, SchemaSupportFeature.type,
                         SchemaSupportFeature.uniqueItems
                 )
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeDocumentationFeatures(
+                        DocumentationFeature.Readme,
+                        DocumentationFeature.Servers,
+                        DocumentationFeature.Security,
+                        DocumentationFeature.ComponentSchemas,
+                        DocumentationFeature.ComponentResponses,
+                        DocumentationFeature.ComponentParameters,
+                        DocumentationFeature.ComponentRequestBodies,
+                        DocumentationFeature.ComponentHeaders,
+                        DocumentationFeature.ComponentSecuritySchemes,
+                        DocumentationFeature.Api
+                )
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
                 .securityFeatures(EnumSet.of(
                         SecurityFeature.BasicAuth,

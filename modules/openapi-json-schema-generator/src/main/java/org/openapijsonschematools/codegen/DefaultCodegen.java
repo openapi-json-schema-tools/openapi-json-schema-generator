@@ -131,7 +131,7 @@ public class DefaultCodegen implements CodegenConfig {
                         // Custom types are template specific
                 )
                 .includeDocumentationFeatures(
-                        DocumentationFeature.Api, DocumentationFeature.Model
+                        DocumentationFeature.Api, DocumentationFeature.ComponentSchemas
                         // README is template specific
                 )
                 .includeGlobalFeatures(

@@ -16,6 +16,8 @@
 
 package org.openapijsonschematools.codegen.meta.features;
 
+import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
+import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
 import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExtension;
 
 /**
@@ -28,11 +30,38 @@ public enum DocumentationFeature {
     @ToolingExtension
     Readme,
 
-    /**
-     * Generated output includes documentation for all generated models.
-     */
-    @ToolingExtension
-    Model,
+    @OAS3
+    Servers,
+
+    @OAS2 @OAS3
+    Security,
+
+    @OAS3
+    ComponentSchemas,
+
+    @OAS3
+    ComponentResponses,
+
+    @OAS3
+    ComponentParameters,
+
+    @OAS3
+    ComponentRequestBodies,
+
+    @OAS3
+    ComponentHeaders,
+
+    @OAS3
+    ComponentSecuritySchemes,
+
+    @OAS3
+    ComponentLinks,
+
+    @OAS3
+    ComponentCallbacks,
+
+    @OAS3
+    ComponentPathItems,
 
     /**
      * Generated output includes documentation for all generated APIs.
