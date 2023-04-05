@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_pattern_is_not_anchored_request_body**](pattern_api/post_pattern_is_not_anchored_request_body.md) | 
-[**post_pattern_is_not_anchored_response_body_for_content_types**](pattern_api/post_pattern_is_not_anchored_response_body_for_content_types.md) | 
-[**post_pattern_validation_request_body**](pattern_api/post_pattern_validation_request_body.md) | 
-[**post_pattern_validation_response_body_for_content_types**](pattern_api/post_pattern_validation_response_body_for_content_types.md) | 
+[**post_pattern_is_not_anchored_request_body**](../../paths/request_body_post_pattern_is_not_anchored_request_body/post.md) | 
+[**post_pattern_is_not_anchored_response_body_for_content_types**](../../paths/response_body_post_pattern_is_not_anchored_response_body_for_content_types/post.md) | 
+[**post_pattern_validation_request_body**](../../paths/request_body_post_pattern_validation_request_body/post.md) | 
+[**post_pattern_validation_response_body_for_content_types**](../../paths/response_body_post_pattern_validation_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

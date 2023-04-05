@@ -9,11 +9,11 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_forbidden_property_request_body**](_not_api/post_forbidden_property_request_body.md) | 
-[**post_forbidden_property_response_body_for_content_types**](_not_api/post_forbidden_property_response_body_for_content_types.md) | 
-[**post_not_more_complex_schema_request_body**](_not_api/post_not_more_complex_schema_request_body.md) | 
-[**post_not_more_complex_schema_response_body_for_content_types**](_not_api/post_not_more_complex_schema_response_body_for_content_types.md) | 
-[**post_not_request_body**](_not_api/post_not_request_body.md) | 
-[**post_not_response_body_for_content_types**](_not_api/post_not_response_body_for_content_types.md) | 
+[**post_forbidden_property_request_body**](../../paths/request_body_post_forbidden_property_request_body/post.md) | 
+[**post_forbidden_property_response_body_for_content_types**](../../paths/response_body_post_forbidden_property_response_body_for_content_types/post.md) | 
+[**post_not_more_complex_schema_request_body**](../../paths/request_body_post_not_more_complex_schema_request_body/post.md) | 
+[**post_not_more_complex_schema_response_body_for_content_types**](../../paths/response_body_post_not_more_complex_schema_response_body_for_content_types/post.md) | 
+[**post_not_request_body**](../../paths/request_body_post_not_request_body/post.md) | 
+[**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -9,21 +9,21 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_property_named_ref_that_is_not_a_reference_request_body**](ref_api/post_property_named_ref_that_is_not_a_reference_request_body.md) | 
-[**post_property_named_ref_that_is_not_a_reference_response_body_for_content_types**](ref_api/post_property_named_ref_that_is_not_a_reference_response_body_for_content_types.md) | 
-[**post_ref_in_additionalproperties_request_body**](ref_api/post_ref_in_additionalproperties_request_body.md) | 
-[**post_ref_in_additionalproperties_response_body_for_content_types**](ref_api/post_ref_in_additionalproperties_response_body_for_content_types.md) | 
-[**post_ref_in_allof_request_body**](ref_api/post_ref_in_allof_request_body.md) | 
-[**post_ref_in_allof_response_body_for_content_types**](ref_api/post_ref_in_allof_response_body_for_content_types.md) | 
-[**post_ref_in_anyof_request_body**](ref_api/post_ref_in_anyof_request_body.md) | 
-[**post_ref_in_anyof_response_body_for_content_types**](ref_api/post_ref_in_anyof_response_body_for_content_types.md) | 
-[**post_ref_in_items_request_body**](ref_api/post_ref_in_items_request_body.md) | 
-[**post_ref_in_items_response_body_for_content_types**](ref_api/post_ref_in_items_response_body_for_content_types.md) | 
-[**post_ref_in_not_request_body**](ref_api/post_ref_in_not_request_body.md) | 
-[**post_ref_in_not_response_body_for_content_types**](ref_api/post_ref_in_not_response_body_for_content_types.md) | 
-[**post_ref_in_oneof_request_body**](ref_api/post_ref_in_oneof_request_body.md) | 
-[**post_ref_in_oneof_response_body_for_content_types**](ref_api/post_ref_in_oneof_response_body_for_content_types.md) | 
-[**post_ref_in_property_request_body**](ref_api/post_ref_in_property_request_body.md) | 
-[**post_ref_in_property_response_body_for_content_types**](ref_api/post_ref_in_property_response_body_for_content_types.md) | 
+[**post_property_named_ref_that_is_not_a_reference_request_body**](../../paths/request_body_post_property_named_ref_that_is_not_a_reference_request_body/post.md) | 
+[**post_property_named_ref_that_is_not_a_reference_response_body_for_content_types**](../../paths/response_body_post_property_named_ref_that_is_not_a_reference_response_body_for_content_types/post.md) | 
+[**post_ref_in_additionalproperties_request_body**](../../paths/request_body_post_ref_in_additionalproperties_request_body/post.md) | 
+[**post_ref_in_additionalproperties_response_body_for_content_types**](../../paths/response_body_post_ref_in_additionalproperties_response_body_for_content_types/post.md) | 
+[**post_ref_in_allof_request_body**](../../paths/request_body_post_ref_in_allof_request_body/post.md) | 
+[**post_ref_in_allof_response_body_for_content_types**](../../paths/response_body_post_ref_in_allof_response_body_for_content_types/post.md) | 
+[**post_ref_in_anyof_request_body**](../../paths/request_body_post_ref_in_anyof_request_body/post.md) | 
+[**post_ref_in_anyof_response_body_for_content_types**](../../paths/response_body_post_ref_in_anyof_response_body_for_content_types/post.md) | 
+[**post_ref_in_items_request_body**](../../paths/request_body_post_ref_in_items_request_body/post.md) | 
+[**post_ref_in_items_response_body_for_content_types**](../../paths/response_body_post_ref_in_items_response_body_for_content_types/post.md) | 
+[**post_ref_in_not_request_body**](../../paths/request_body_post_ref_in_not_request_body/post.md) | 
+[**post_ref_in_not_response_body_for_content_types**](../../paths/response_body_post_ref_in_not_response_body_for_content_types/post.md) | 
+[**post_ref_in_oneof_request_body**](../../paths/request_body_post_ref_in_oneof_request_body/post.md) | 
+[**post_ref_in_oneof_response_body_for_content_types**](../../paths/response_body_post_ref_in_oneof_response_body_for_content_types/post.md) | 
+[**post_ref_in_property_request_body**](../../paths/request_body_post_ref_in_property_request_body/post.md) | 
+[**post_ref_in_property_response_body_for_content_types**](../../paths/response_body_post_ref_in_property_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

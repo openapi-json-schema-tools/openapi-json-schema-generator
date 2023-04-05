@@ -97,10 +97,10 @@ All URIs are relative to the selected server
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-/pathWithNoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_no_explicit_security](docs/apis/tags/default_api/path_with_no_explicit_security.md)  | path with no explicit security
-/pathWithOneExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_one_explicit_security](docs/apis/tags/default_api/path_with_one_explicit_security.md)  | path with one explicit security
-/pathWithSecurityFromRoot **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_security_from_root](docs/apis/tags/default_api/path_with_security_from_root.md)  | path with security from root
-/pathWithTwoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_two_explicit_security](docs/apis/tags/default_api/path_with_two_explicit_security.md)  | path with two explicit security
+/pathWithNoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_no_explicit_security](docs/paths/path_with_no_explicit_security/get.md)  | path with no explicit security
+/pathWithOneExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_one_explicit_security](docs/paths/path_with_one_explicit_security/get.md)  | path with one explicit security
+/pathWithSecurityFromRoot **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_security_from_root](docs/paths/path_with_security_from_root/get.md)  | path with security from root
+/pathWithTwoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_two_explicit_security](docs/paths/path_with_two_explicit_security/get.md)  | path with two explicit security
 
 ## Component SecuritySchemes
 

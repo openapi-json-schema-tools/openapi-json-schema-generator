@@ -3,10 +3,10 @@
 .travis.yml
 README.md
 docs/apis/tags/default_api.md
-docs/apis/tags/default_api/post_operators.md
 docs/components/schema/addition_operator.md
 docs/components/schema/operator.md
 docs/components/schema/subtraction_operator.md
+docs/paths/operators/post.md
 docs/servers/server_0.md
 git_push.sh
 migration_2_0_0.md

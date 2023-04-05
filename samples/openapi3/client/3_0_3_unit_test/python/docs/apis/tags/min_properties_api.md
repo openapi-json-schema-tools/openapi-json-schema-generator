@@ -9,7 +9,7 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_minproperties_validation_request_body**](min_properties_api/post_minproperties_validation_request_body.md) | 
-[**post_minproperties_validation_response_body_for_content_types**](min_properties_api/post_minproperties_validation_response_body_for_content_types.md) | 
+[**post_minproperties_validation_request_body**](../../paths/request_body_post_minproperties_validation_request_body/post.md) | 
+[**post_minproperties_validation_response_body_for_content_types**](../../paths/response_body_post_minproperties_validation_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

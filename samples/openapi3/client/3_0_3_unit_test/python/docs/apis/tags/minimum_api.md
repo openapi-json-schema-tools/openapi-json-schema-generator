@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_minimum_validation_request_body**](minimum_api/post_minimum_validation_request_body.md) | 
-[**post_minimum_validation_response_body_for_content_types**](minimum_api/post_minimum_validation_response_body_for_content_types.md) | 
-[**post_minimum_validation_with_signed_integer_request_body**](minimum_api/post_minimum_validation_with_signed_integer_request_body.md) | 
-[**post_minimum_validation_with_signed_integer_response_body_for_content_types**](minimum_api/post_minimum_validation_with_signed_integer_response_body_for_content_types.md) | 
+[**post_minimum_validation_request_body**](../../paths/request_body_post_minimum_validation_request_body/post.md) | 
+[**post_minimum_validation_response_body_for_content_types**](../../paths/response_body_post_minimum_validation_response_body_for_content_types/post.md) | 
+[**post_minimum_validation_with_signed_integer_request_body**](../../paths/request_body_post_minimum_validation_with_signed_integer_request_body/post.md) | 
+[**post_minimum_validation_with_signed_integer_response_body_for_content_types**](../../paths/response_body_post_minimum_validation_with_signed_integer_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_maximum_validation_request_body**](maximum_api/post_maximum_validation_request_body.md) | 
-[**post_maximum_validation_response_body_for_content_types**](maximum_api/post_maximum_validation_response_body_for_content_types.md) | 
-[**post_maximum_validation_with_unsigned_integer_request_body**](maximum_api/post_maximum_validation_with_unsigned_integer_request_body.md) | 
-[**post_maximum_validation_with_unsigned_integer_response_body_for_content_types**](maximum_api/post_maximum_validation_with_unsigned_integer_response_body_for_content_types.md) | 
+[**post_maximum_validation_request_body**](../../paths/request_body_post_maximum_validation_request_body/post.md) | 
+[**post_maximum_validation_response_body_for_content_types**](../../paths/response_body_post_maximum_validation_response_body_for_content_types/post.md) | 
+[**post_maximum_validation_with_unsigned_integer_request_body**](../../paths/request_body_post_maximum_validation_with_unsigned_integer_request_body/post.md) | 
+[**post_maximum_validation_with_unsigned_integer_response_body_for_content_types**](../../paths/response_body_post_maximum_validation_with_unsigned_integer_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

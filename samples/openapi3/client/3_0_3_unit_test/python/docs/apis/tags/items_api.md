@@ -9,7 +9,7 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_nested_items_request_body**](items_api/post_nested_items_request_body.md) | 
-[**post_nested_items_response_body_for_content_types**](items_api/post_nested_items_response_body_for_content_types.md) | 
+[**post_nested_items_request_body**](../../paths/request_body_post_nested_items_request_body/post.md) | 
+[**post_nested_items_response_body_for_content_types**](../../paths/response_body_post_nested_items_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

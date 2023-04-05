@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_maxproperties0_means_the_object_is_empty_request_body**](max_properties_api/post_maxproperties0_means_the_object_is_empty_request_body.md) | 
-[**post_maxproperties0_means_the_object_is_empty_response_body_for_content_types**](max_properties_api/post_maxproperties0_means_the_object_is_empty_response_body_for_content_types.md) | 
-[**post_maxproperties_validation_request_body**](max_properties_api/post_maxproperties_validation_request_body.md) | 
-[**post_maxproperties_validation_response_body_for_content_types**](max_properties_api/post_maxproperties_validation_response_body_for_content_types.md) | 
+[**post_maxproperties0_means_the_object_is_empty_request_body**](../../paths/request_body_post_maxproperties0_means_the_object_is_empty_request_body/post.md) | 
+[**post_maxproperties0_means_the_object_is_empty_response_body_for_content_types**](../../paths/response_body_post_maxproperties0_means_the_object_is_empty_response_body_for_content_types/post.md) | 
+[**post_maxproperties_validation_request_body**](../../paths/request_body_post_maxproperties_validation_request_body/post.md) | 
+[**post_maxproperties_validation_response_body_for_content_types**](../../paths/response_body_post_maxproperties_validation_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -3,13 +3,13 @@
 .travis.yml
 README.md
 docs/apis/tags/default_api.md
-docs/apis/tags/default_api/path_with_no_explicit_security.md
-docs/apis/tags/default_api/path_with_one_explicit_security.md
-docs/apis/tags/default_api/path_with_security_from_root.md
-docs/apis/tags/default_api/path_with_two_explicit_security.md
 docs/components/security_schemes/security_scheme_api_key.md
 docs/components/security_schemes/security_scheme_bearer_test.md
 docs/components/security_schemes/security_scheme_http_basic_test.md
+docs/paths/path_with_no_explicit_security/get.md
+docs/paths/path_with_one_explicit_security/get.md
+docs/paths/path_with_security_from_root/get.md
+docs/paths/path_with_two_explicit_security/get.md
 docs/servers/server_0.md
 git_push.sh
 migration_2_0_0.md

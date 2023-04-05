@@ -12,9 +12,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**path_with_no_explicit_security**](default_api/path_with_no_explicit_security.md) | path with no explicit security
-[**path_with_one_explicit_security**](default_api/path_with_one_explicit_security.md) | path with one explicit security
-[**path_with_security_from_root**](default_api/path_with_security_from_root.md) | path with security from root
-[**path_with_two_explicit_security**](default_api/path_with_two_explicit_security.md) | path with two explicit security
+[**path_with_no_explicit_security**](../../paths/path_with_no_explicit_security/get.md) | path with no explicit security
+[**path_with_one_explicit_security**](../../paths/path_with_one_explicit_security/get.md) | path with one explicit security
+[**path_with_security_from_root**](../../paths/path_with_security_from_root/get.md) | path with security from root
+[**path_with_two_explicit_security**](../../paths/path_with_two_explicit_security/get.md) | path with two explicit security
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
