@@ -154,10 +154,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DateTime|✓|OAS2,OAS3
 |Password|✓|OAS2,OAS3
 |File|✓|OAS2
-|Uuid|✗|OAS2,OAS3
+|Uuid|✓|OAS2,OAS3
 |Array|✓|OAS2,OAS3
-|Null|✗|OAS3
-|AnyType|✗|OAS2,OAS3
+|Null|✓|OAS3
+|AnyType|✓|OAS2,OAS3
 |Object|✓|OAS2,OAS3
 |Enum|✓|OAS2,OAS3
 

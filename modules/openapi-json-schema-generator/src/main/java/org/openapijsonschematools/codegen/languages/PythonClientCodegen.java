@@ -131,10 +131,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         DataTypeFeature.Boolean,
                         DataTypeFeature.Date,
                         DataTypeFeature.DateTime,
+                        DataTypeFeature.Uuid,
                         // DataTypeFeature.Password,
                         DataTypeFeature.File,
                         DataTypeFeature.Array,
                         DataTypeFeature.Object,
+                        DataTypeFeature.Null,
+                        DataTypeFeature.AnyType,
                         DataTypeFeature.Enum
                 )
                 .includeSchemaSupportFeatures(
