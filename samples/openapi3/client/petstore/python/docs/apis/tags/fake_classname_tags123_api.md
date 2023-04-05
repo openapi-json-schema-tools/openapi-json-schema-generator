@@ -9,6 +9,6 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**classname**](fake_classname_tags123_api/classname.md) | To test class name in snake case
+[**classname**](../../paths/fake_classname_test/patch.md) | To test class name in snake case
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

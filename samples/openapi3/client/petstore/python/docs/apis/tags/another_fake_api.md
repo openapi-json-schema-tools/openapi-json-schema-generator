@@ -9,6 +9,6 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**call_123_test__special_tags**](another_fake_api/call_123_test__special_tags.md) | To test special tags
+[**call_123_test__special_tags**](../../paths/another_fake_dummy/patch.md) | To test special tags
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

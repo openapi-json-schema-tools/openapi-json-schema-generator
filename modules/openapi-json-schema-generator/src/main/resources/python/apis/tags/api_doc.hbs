@@ -16,8 +16,10 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-{{#each operationIdToOperation}}
-[**{{@key.snakeCase}}**]({{tag.moduleName}}/{{operationId.snakeCase}}.md) | {{#if summary}}{{summary}}{{/if}}
+{{#each operationIdToPathToOperation}}
+    {{#each this}}
+[**{{../@key.snakeCase}}**](../../paths/{{@key.snakeCase}}/{{jsonPathPiece.original}}.md) | {{#if summary}}{{summary}}{{/if}}
+    {{/each}}
 {{/each}}
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" endpointsLink=true }}

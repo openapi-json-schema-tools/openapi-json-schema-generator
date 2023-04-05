@@ -12,13 +12,13 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**create_user**](user_api/create_user.md) | Create user
-[**create_users_with_array_input**](user_api/create_users_with_array_input.md) | Creates list of users with given input array
-[**create_users_with_list_input**](user_api/create_users_with_list_input.md) | Creates list of users with given input array
-[**delete_user**](user_api/delete_user.md) | Delete user
-[**get_user_by_name**](user_api/get_user_by_name.md) | Get user by user name
-[**login_user**](user_api/login_user.md) | Logs user into the system
-[**logout_user**](user_api/logout_user.md) | Logs out current logged in user session
-[**update_user**](user_api/update_user.md) | Updated user
+[**create_user**](../../paths/user/post.md) | Create user
+[**create_users_with_array_input**](../../paths/user_create_with_array/post.md) | Creates list of users with given input array
+[**create_users_with_list_input**](../../paths/user_create_with_list/post.md) | Creates list of users with given input array
+[**delete_user**](../../paths/user_username/delete.md) | Delete user
+[**get_user_by_name**](../../paths/user_username/get.md) | Get user by user name
+[**login_user**](../../paths/user_login/get.md) | Logs user into the system
+[**logout_user**](../../paths/user_logout/get.md) | Logs out current logged in user session
+[**update_user**](../../paths/user_username/put.md) | Updated user
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

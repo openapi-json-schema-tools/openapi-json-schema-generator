@@ -9,40 +9,40 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**additional_properties_with_array_of_enums**](fake_api/additional_properties_with_array_of_enums.md) | Additional Properties with Array of Enums
-[**array_model**](fake_api/array_model.md) | 
-[**array_of_enums**](fake_api/array_of_enums.md) | Array of Enums
-[**body_with_file_schema**](fake_api/body_with_file_schema.md) | 
-[**body_with_query_params**](fake_api/body_with_query_params.md) | 
-[**boolean**](fake_api/boolean.md) | 
-[**case_sensitive_params**](fake_api/case_sensitive_params.md) | 
-[**client_model**](fake_api/client_model.md) | To test \&quot;client\&quot; model
-[**composed_one_of_different_types**](fake_api/composed_one_of_different_types.md) | 
-[**delete_coffee**](fake_api/delete_coffee.md) | Delete coffee
-[**endpoint_parameters**](fake_api/endpoint_parameters.md) | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-[**enum_parameters**](fake_api/enum_parameters.md) | To test enum parameters
-[**fake_health_get**](fake_api/fake_health_get.md) | Health check endpoint
-[**group_parameters**](fake_api/group_parameters.md) | Fake endpoint to test group parameters (optional)
-[**inline_additional_properties**](fake_api/inline_additional_properties.md) | test inline additionalProperties
-[**inline_composition**](fake_api/inline_composition.md) | testing composed schemas at inline locations
-[**json_form_data**](fake_api/json_form_data.md) | test json serialization of form data
-[**json_patch**](fake_api/json_patch.md) | json patch
-[**json_with_charset**](fake_api/json_with_charset.md) | json with charset tx and rx
-[**mammal**](fake_api/mammal.md) | 
-[**multiple_response_bodies**](fake_api/multiple_response_bodies.md) | multiple responses have response bodies
-[**multiple_securities**](fake_api/multiple_securities.md) | multiple security requirements
-[**number_with_validations**](fake_api/number_with_validations.md) | 
-[**object_in_query**](fake_api/object_in_query.md) | user list
-[**object_model_with_ref_props**](fake_api/object_model_with_ref_props.md) | 
-[**parameter_collisions**](fake_api/parameter_collisions.md) | parameter collision case
-[**query_param_with_json_content_type**](fake_api/query_param_with_json_content_type.md) | query param with json content-type
-[**query_parameter_collection_format**](fake_api/query_parameter_collection_format.md) | 
-[**ref_object_in_query**](fake_api/ref_object_in_query.md) | user list
-[**response_without_schema**](fake_api/response_without_schema.md) | receives a response without schema
-[**string**](fake_api/string.md) | 
-[**string_enum**](fake_api/string_enum.md) | 
-[**upload_download_file**](fake_api/upload_download_file.md) | uploads a file and downloads a file using application/octet-stream
-[**upload_file**](fake_api/upload_file.md) | uploads a file using multipart/form-data
-[**upload_files**](fake_api/upload_files.md) | uploads files using multipart/form-data
+[**additional_properties_with_array_of_enums**](../../paths/fake_additional_properties_with_array_of_enums/get.md) | Additional Properties with Array of Enums
+[**array_model**](../../paths/fake_refs_arraymodel/post.md) | 
+[**array_of_enums**](../../paths/fake_refs_array_of_enums/post.md) | Array of Enums
+[**body_with_file_schema**](../../paths/fake_body_with_file_schema/put.md) | 
+[**body_with_query_params**](../../paths/fake_body_with_query_params/put.md) | 
+[**boolean**](../../paths/fake_refs_boolean/post.md) | 
+[**case_sensitive_params**](../../paths/fake_case_sensitive_params/put.md) | 
+[**client_model**](../../paths/fake/patch.md) | To test \&quot;client\&quot; model
+[**composed_one_of_different_types**](../../paths/fake_refs_composed_one_of_number_with_validations/post.md) | 
+[**delete_coffee**](../../paths/fake_delete_coffee_id/delete.md) | Delete coffee
+[**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+[**enum_parameters**](../../paths/fake/get.md) | To test enum parameters
+[**fake_health_get**](../../paths/fake_health/get.md) | Health check endpoint
+[**group_parameters**](../../paths/fake/delete.md) | Fake endpoint to test group parameters (optional)
+[**inline_additional_properties**](../../paths/fake_inline_additional_properties/post.md) | test inline additionalProperties
+[**inline_composition**](../../paths/fake_inline_composition/post.md) | testing composed schemas at inline locations
+[**json_form_data**](../../paths/fake_json_form_data/get.md) | test json serialization of form data
+[**json_patch**](../../paths/fake_json_patch/patch.md) | json patch
+[**json_with_charset**](../../paths/fake_json_with_charset/post.md) | json with charset tx and rx
+[**mammal**](../../paths/fake_refs_mammal/post.md) | 
+[**multiple_response_bodies**](../../paths/fake_multiple_response_bodies/get.md) | multiple responses have response bodies
+[**multiple_securities**](../../paths/fake_multiple_securities/get.md) | multiple security requirements
+[**number_with_validations**](../../paths/fake_refs_number/post.md) | 
+[**object_in_query**](../../paths/fake_obj_in_query/get.md) | user list
+[**object_model_with_ref_props**](../../paths/fake_refs_object_model_with_ref_props/post.md) | 
+[**parameter_collisions**](../../paths/fake_parameter_collisions1_abab_self_ab/post.md) | parameter collision case
+[**query_param_with_json_content_type**](../../paths/fake_query_param_with_json_content_type/get.md) | query param with json content-type
+[**query_parameter_collection_format**](../../paths/fake_test_query_paramters/put.md) | 
+[**ref_object_in_query**](../../paths/fake_ref_obj_in_query/get.md) | user list
+[**response_without_schema**](../../paths/fake_response_without_schema/get.md) | receives a response without schema
+[**string**](../../paths/fake_refs_string/post.md) | 
+[**string_enum**](../../paths/fake_refs_enum/post.md) | 
+[**upload_download_file**](../../paths/fake_upload_download_file/post.md) | uploads a file and downloads a file using application/octet-stream
+[**upload_file**](../../paths/fake_upload_file/post.md) | uploads a file using multipart/form-data
+[**upload_files**](../../paths/fake_upload_files/post.md) | uploads files using multipart/form-data
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

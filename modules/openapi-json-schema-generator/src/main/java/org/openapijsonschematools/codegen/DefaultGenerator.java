@@ -1044,7 +1044,7 @@ public class DefaultGenerator implements Generator {
         }
 
         HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
-        HashMap<CodegenTag, TreeMap<CodegenKey, CodegenOperation>> tagToOperationIdToOperation = new HashMap<>();
+        HashMap<CodegenTag, TreeMap<CodegenKey, HashMap<CodegenKey, CodegenOperation>>> tagToOperationIdToPathToOperation = new HashMap<>();
         Map<String, String> apiPathTemplates = config.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH);
         for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey path = entry.getKey();
@@ -1073,16 +1073,18 @@ public class DefaultGenerator implements Generator {
                     }
                     if (!tagToPathToOperations.containsKey(tag)) {
                         tagToPathToOperations.put(tag, new HashMap<>());
-                        tagToOperationIdToOperation.put(tag, new TreeMap<>());
+                        tagToOperationIdToPathToOperation.put(tag, new TreeMap<>());
                     }
                     HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = tagToPathToOperations.get(tag);
                     if (!pathToOperations.containsKey(path)) {
                         pathToOperations.put(path, new ArrayList<>());
                     }
                     pathToOperations.get(path).add(op);
-                    TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = tagToOperationIdToOperation.get(tag);
-                    if (!operationIdToOperation.containsKey(op.operationId)) {
-                        operationIdToOperation.put(op.operationId, op);
+                    TreeMap<CodegenKey, HashMap<CodegenKey, CodegenOperation>> operationIdToPathToOperation = tagToOperationIdToPathToOperation.get(tag);
+                    if (!operationIdToPathToOperation.containsKey(op.operationId)) {
+                        HashMap<CodegenKey, CodegenOperation> pathToOperation = new HashMap<>();
+                        pathToOperation.put(path, op);
+                        operationIdToPathToOperation.put(op.operationId, pathToOperation);
                     }
                 }
             }
@@ -1140,9 +1142,9 @@ public class DefaultGenerator implements Generator {
                 }
             }
 
-            TreeMap<CodegenKey, CodegenOperation> operationIdToOperation = new TreeMap<>(new OperationIdComparator());
-            operationIdToOperation.putAll(tagToOperationIdToOperation.get(tag));
-            apiData.put("operationIdToOperation", operationIdToOperation);
+            TreeMap<CodegenKey, HashMap<CodegenKey, CodegenOperation>> operationIdToPathToOperation = new TreeMap<>(new OperationIdComparator());
+            operationIdToPathToOperation.putAll(tagToOperationIdToPathToOperation.get(tag));
+            apiData.put("operationIdToPathToOperation", operationIdToPathToOperation);
 
             if (apiTagTemplates != null) {
                 for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {

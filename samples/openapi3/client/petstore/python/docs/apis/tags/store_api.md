@@ -12,9 +12,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**delete_order**](store_api/delete_order.md) | Delete purchase order by ID
-[**get_inventory**](store_api/get_inventory.md) | Returns pet inventories by status
-[**get_order_by_id**](store_api/get_order_by_id.md) | Find purchase order by ID
-[**place_order**](store_api/place_order.md) | Place an order for a pet
+[**delete_order**](../../paths/store_order_order_id/delete.md) | Delete purchase order by ID
+[**get_inventory**](../../paths/store_inventory/get.md) | Returns pet inventories by status
+[**get_order_by_id**](../../paths/store_order_order_id/get.md) | Find purchase order by ID
+[**place_order**](../../paths/store_order/post.md) | Place an order for a pet
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
