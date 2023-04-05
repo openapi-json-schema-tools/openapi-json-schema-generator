@@ -147,12 +147,12 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Double|✓|OAS2,OAS3
 |Number|✓|OAS2,OAS3
 |String|✓|OAS2,OAS3
-|Byte|✓|OAS2,OAS3
+|Byte|✗|OAS2,OAS3
 |Binary|✓|OAS2,OAS3
 |Boolean|✓|OAS2,OAS3
 |Date|✓|OAS2,OAS3
 |DateTime|✓|OAS2,OAS3
-|Password|✓|OAS2,OAS3
+|Password|✗|OAS2,OAS3
 |File|✓|OAS2
 |Uuid|✓|OAS2,OAS3
 |Array|✓|OAS2,OAS3
@@ -241,11 +241,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Security Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|BasicAuth|✓|OAS2,OAS3
+|HTTP_Basic|✓|OAS2,OAS3
 |ApiKey|✓|OAS2,OAS3
 |OpenIDConnect|✗|OAS3
-|BearerToken|✓|OAS3
-|OAuth2_Implicit|✓|OAS2,OAS3
+|HTTP_Bearer|✓|OAS2,OAS3
+|OAuth2_Implicit|✗|OAS2,OAS3
 |OAuth2_Password|✗|OAS2,OAS3
 |OAuth2_ClientCredentials|✗|OAS2,OAS3
 |OAuth2_AuthorizationCode|✗|OAS2,OAS3

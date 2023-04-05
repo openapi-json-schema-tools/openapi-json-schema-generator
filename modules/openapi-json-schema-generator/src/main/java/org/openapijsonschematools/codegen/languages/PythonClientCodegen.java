@@ -126,19 +126,21 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         DataTypeFeature.Double,
                         DataTypeFeature.Number,
                         DataTypeFeature.String,
-                        // DataTypeFeature.Byte,
                         DataTypeFeature.Binary,
                         DataTypeFeature.Boolean,
                         DataTypeFeature.Date,
                         DataTypeFeature.DateTime,
                         DataTypeFeature.Uuid,
-                        // DataTypeFeature.Password,
                         DataTypeFeature.File,
                         DataTypeFeature.Array,
                         DataTypeFeature.Object,
                         DataTypeFeature.Null,
                         DataTypeFeature.AnyType,
                         DataTypeFeature.Enum
+                )
+                .excludeDataTypeFeatures(
+                        DataTypeFeature.Byte,
+                        DataTypeFeature.Password
                 )
                 .includeSchemaSupportFeatures(
                         SchemaSupportFeature.additionalProperties,
@@ -170,11 +172,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 )
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
                 .securityFeatures(EnumSet.of(
-                        SecurityFeature.BasicAuth,
-                        SecurityFeature.BearerToken,
                         SecurityFeature.ApiKey,
-                        SecurityFeature.OAuth2_Implicit
+                        SecurityFeature.HTTP_Basic,
+                        SecurityFeature.HTTP_Bearer
                 ))
+                .excludeSecurityFeatures(
+                        SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
+                        SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
+                )
                 .includeGlobalFeatures(
                         GlobalFeature.ParameterizedServer,
                         GlobalFeature.ParameterStyling

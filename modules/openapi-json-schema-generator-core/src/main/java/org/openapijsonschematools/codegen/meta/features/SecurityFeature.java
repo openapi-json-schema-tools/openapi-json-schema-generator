@@ -27,7 +27,7 @@ public enum SecurityFeature {
      * Supports header-based basic http auth.
      */
     @OAS2 @OAS3
-    BasicAuth,
+    HTTP_Basic,
 
     /**
      * Supports header-based api-key http auth.
@@ -44,8 +44,8 @@ public enum SecurityFeature {
     /**
      * Supports header-based bearer auth (e.g. header + bearer format).
      */
-    @OAS3
-    BearerToken,
+    @OAS2 @OAS3
+    HTTP_Bearer,
 
     /**
      * Supports authorization via OAuth2 implicit flow.

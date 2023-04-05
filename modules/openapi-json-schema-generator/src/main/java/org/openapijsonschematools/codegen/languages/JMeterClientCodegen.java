@@ -82,7 +82,7 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
         modifyFeatureSet(features -> features
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
                 .securityFeatures(EnumSet.of(
-                        SecurityFeature.BasicAuth,
+                        SecurityFeature.HTTP_Basic,
                         SecurityFeature.ApiKey,
                         SecurityFeature.OAuth2_Implicit
                 ))

@@ -159,7 +159,7 @@ public class DefaultCodegen implements CodegenConfig {
                         ParameterFeature.FormUnencoded, ParameterFeature.FormMultipart, ParameterFeature.Cookie
                 )
                 .includeSecurityFeatures(
-                        SecurityFeature.BasicAuth, SecurityFeature.ApiKey, SecurityFeature.BearerToken,
+                        SecurityFeature.ApiKey, SecurityFeature.HTTP_Basic, SecurityFeature.HTTP_Bearer,
                         SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
                         SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
                         // OpenIDConnect not yet supported
