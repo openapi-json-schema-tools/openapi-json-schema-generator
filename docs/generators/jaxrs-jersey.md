@@ -279,21 +279,14 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Host|✓|OAS2,OAS3
-|BasePath|✓|OAS2,OAS3
 |Info|✓|OAS2,OAS3
-|Schemes|✗|OAS2,OAS3
-|PartialSchemes|✓|OAS2,OAS3
-|Consumes|✓|OAS2
-|Produces|✓|OAS2
-|ExternalDocumentation|✓|OAS2,OAS3
-|Examples|✓|OAS2,OAS3
-|XMLStructureDefinitions|✗|OAS2,OAS3
-|MultiServer|✗|OAS3
-|ParameterizedServer|✗|OAS3
-|ParameterStyling|✗|OAS3
-|Callbacks|✗|OAS3
-|LinkObjects|✗|OAS3
+|Servers|✗|OAS3
+|Paths|✗|OAS2,OAS3
+|Webhooks|✗|OAS3
+|Components|✓|OAS3
+|Security|✗|OAS2,OAS3
+|Tags|✗|OAS2,OAS3
+|ExternalDocs|✗|OAS2,OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |

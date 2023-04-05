@@ -7,7 +7,6 @@ import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
-import org.openapijsonschematools.codegen.meta.features.*;
 import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
 import org.testng.annotations.Test;
 
@@ -41,11 +40,11 @@ public class FeatureSetTest {
         FeatureSet featureSet = FeatureSet.newBuilder()
                 .includeClientModificationFeatures(ClientModificationFeature.BasePath)
                 .includeDataTypeFeatures(DataTypeFeature.Int32, DataTypeFeature.Array)
-                .includeGlobalFeatures(GlobalFeature.Consumes, GlobalFeature.Examples)
+                .includeGlobalFeatures(GlobalFeature.Security, GlobalFeature.Info)
                 .includeParameterFeatures(ParameterFeature.Body, ParameterFeature.Query)
-                .includeSecurityFeatures(SecurityFeature.BearerToken, SecurityFeature.BasicAuth, SecurityFeature.OAuth2_Implicit)
-                .includeDocumentationFeatures(DocumentationFeature.Model)
-                .includeSchemaSupportFeatures(SchemaSupportFeature.Composite)
+                .includeSecurityFeatures(SecurityFeature.HTTP_Bearer, SecurityFeature.HTTP_Basic, SecurityFeature.OAuth2_Implicit)
+                .includeDocumentationFeatures(DocumentationFeature.ComponentSchemas)
+                .includeSchemaSupportFeatures(SchemaSupportFeature.oneOf)
                 .build();
 
         List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten();
@@ -86,19 +85,19 @@ public class FeatureSetTest {
         assertEquals(new HashSet<>(supported.get(2).source), bothSpecs);
 
         assertEquals(supported.get(3).featureCategory, DocumentationFeature.class.getSimpleName());
-        assertEquals(supported.get(3).featureName, DocumentationFeature.Model.name());
-        assertEquals(new HashSet<>(supported.get(3).source), toolingOnly);
+        assertEquals(supported.get(3).featureName, DocumentationFeature.ComponentSchemas.name());
+        assertEquals(new HashSet<>(supported.get(3).source), oas3Only);
 
         assertEquals(supported.get(4).featureCategory, SchemaSupportFeature.class.getSimpleName());
-        assertEquals(supported.get(4).featureName, SchemaSupportFeature.Composite.name());
-        assertEquals(new HashSet<>(supported.get(4).source), bothSpecs);
+        assertEquals(supported.get(4).featureName, SchemaSupportFeature.oneOf.name());
+        assertEquals(new HashSet<>(supported.get(4).source), oas3Only);
 
         assertEquals(supported.get(5).featureCategory, GlobalFeature.class.getSimpleName());
-        assertEquals(supported.get(5).featureName, GlobalFeature.Consumes.name());
-        assertEquals(new HashSet<>(supported.get(5).source), oas2Only);
+        assertEquals(supported.get(5).featureName, GlobalFeature.Info.name());
+        assertEquals(new HashSet<>(supported.get(5).source), bothSpecs);
 
         assertEquals(supported.get(6).featureCategory, GlobalFeature.class.getSimpleName());
-        assertEquals(supported.get(6).featureName, GlobalFeature.Examples.name());
+        assertEquals(supported.get(6).featureName, GlobalFeature.Security.name());
         assertEquals(new HashSet<>(supported.get(6).source), bothSpecs);
 
         assertEquals(supported.get(7).featureCategory, ParameterFeature.class.getSimpleName());
@@ -110,12 +109,12 @@ public class FeatureSetTest {
         assertEquals(new HashSet<>(supported.get(8).source), oas2Only);
 
         assertEquals(supported.get(9).featureCategory, SecurityFeature.class.getSimpleName());
-        assertEquals(supported.get(9).featureName, SecurityFeature.BasicAuth.name());
+        assertEquals(supported.get(9).featureName, SecurityFeature.HTTP_Basic.name());
         assertEquals(new HashSet<>(supported.get(9).source), bothSpecs);
 
         assertEquals(supported.get(10).featureCategory, SecurityFeature.class.getSimpleName());
-        assertEquals(supported.get(10).featureName, SecurityFeature.BearerToken.name());
-        assertEquals(new HashSet<>(supported.get(10).source), oas3Only);
+        assertEquals(supported.get(10).featureName, SecurityFeature.HTTP_Bearer.name());
+        assertEquals(new HashSet<>(supported.get(10).source), bothSpecs);
 
         assertEquals(supported.get(11).featureCategory, SecurityFeature.class.getSimpleName());
         assertEquals(supported.get(11).featureName, SecurityFeature.OAuth2_Implicit.name());
