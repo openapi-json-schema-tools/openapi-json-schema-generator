@@ -23,7 +23,7 @@ from petstore_api.components.schema.integer_enum_big import IntegerEnumBig
 from petstore_api.components.schema.integer_max10 import IntegerMax10
 from petstore_api.components.schema.integer_min15 import IntegerMin15
 from petstore_api.components.schema.nullable_string import NullableString
-from petstore_api.schemas import AnyTypeSchema, Schema, NoneSchema, StrSchema, none_type, Singleton
+from petstore_api.schemas import AnyTypeSchema, Schema, NoneSchema, StrSchema, Singleton
 
 
 class TestCombineNonObjectSchemas(unittest.TestCase):
