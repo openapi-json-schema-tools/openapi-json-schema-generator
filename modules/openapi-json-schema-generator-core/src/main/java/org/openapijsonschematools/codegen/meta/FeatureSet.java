@@ -306,6 +306,22 @@ public class FeatureSet {
 
             states.add(state);
         });
+        EnumSet.allOf(ComponentsFeature.class).forEach(feat -> {
+            FeatureSetFlattened state = new FeatureSetFlattened();
+            state.featureCategory = ComponentsFeature.class.getSimpleName();
+            state.featureName = feat.name();
+            state.isSupported = this.componentsFeatures.contains(feat);
+
+            try {
+                for (Annotation an : ComponentsFeature.class.getField(feat.name()).getAnnotations()) {
+                    state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
+                }
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+
+            states.add(state);
+        });
         EnumSet.allOf(ParameterFeature.class).forEach(feat -> {
             FeatureSetFlattened state = new FeatureSetFlattened();
             state.featureCategory = ParameterFeature.class.getSimpleName();

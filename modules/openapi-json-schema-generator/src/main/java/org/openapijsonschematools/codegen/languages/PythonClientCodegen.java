@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
@@ -183,6 +184,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 .includeGlobalFeatures(
                         GlobalFeature.ParameterizedServer,
                         GlobalFeature.ParameterStyling
+                )
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas,
+                        ComponentsFeature.responses,
+                        ComponentsFeature.parameters,
+                        ComponentsFeature.requestBodies,
+                        ComponentsFeature.headers,
+                        ComponentsFeature.securitySchemes
                 )
                 .excludeGlobalFeatures(
                         GlobalFeature.XMLStructureDefinitions,

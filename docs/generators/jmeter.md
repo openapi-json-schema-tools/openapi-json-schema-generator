@@ -62,6 +62,20 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |UserAgent|✗|ToolingExtension
 |MockServer|✗|ToolingExtension
 
+### Components Feature
+| Name | Supported | Defined By |
+| ---- | --------- | ---------- |
+|schemas|✗|OAS3
+|responses|✗|OAS3
+|parameters|✗|OAS3
+|examples|✗|OAS3
+|requestBodies|✗|OAS3
+|headers|✗|OAS3
+|securitySchemes|✗|OAS3
+|links|✗|OAS3
+|callbacks|✗|OAS3
+|pathItems|✗|OAS3
+
 ### Data Type Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
