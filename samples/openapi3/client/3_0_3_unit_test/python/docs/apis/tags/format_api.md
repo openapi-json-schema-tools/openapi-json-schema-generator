@@ -9,23 +9,23 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_date_time_format_request_body**](format_api/post_date_time_format_request_body.md) | 
-[**post_date_time_format_response_body_for_content_types**](format_api/post_date_time_format_response_body_for_content_types.md) | 
-[**post_email_format_request_body**](format_api/post_email_format_request_body.md) | 
-[**post_email_format_response_body_for_content_types**](format_api/post_email_format_response_body_for_content_types.md) | 
-[**post_hostname_format_request_body**](format_api/post_hostname_format_request_body.md) | 
-[**post_hostname_format_response_body_for_content_types**](format_api/post_hostname_format_response_body_for_content_types.md) | 
-[**post_ipv4_format_request_body**](format_api/post_ipv4_format_request_body.md) | 
-[**post_ipv4_format_response_body_for_content_types**](format_api/post_ipv4_format_response_body_for_content_types.md) | 
-[**post_ipv6_format_request_body**](format_api/post_ipv6_format_request_body.md) | 
-[**post_ipv6_format_response_body_for_content_types**](format_api/post_ipv6_format_response_body_for_content_types.md) | 
-[**post_json_pointer_format_request_body**](format_api/post_json_pointer_format_request_body.md) | 
-[**post_json_pointer_format_response_body_for_content_types**](format_api/post_json_pointer_format_response_body_for_content_types.md) | 
-[**post_uri_format_request_body**](format_api/post_uri_format_request_body.md) | 
-[**post_uri_format_response_body_for_content_types**](format_api/post_uri_format_response_body_for_content_types.md) | 
-[**post_uri_reference_format_request_body**](format_api/post_uri_reference_format_request_body.md) | 
-[**post_uri_reference_format_response_body_for_content_types**](format_api/post_uri_reference_format_response_body_for_content_types.md) | 
-[**post_uri_template_format_request_body**](format_api/post_uri_template_format_request_body.md) | 
-[**post_uri_template_format_response_body_for_content_types**](format_api/post_uri_template_format_response_body_for_content_types.md) | 
+[**post_date_time_format_request_body**](../../paths/request_body_post_date_time_format_request_body/post.md) | 
+[**post_date_time_format_response_body_for_content_types**](../../paths/response_body_post_date_time_format_response_body_for_content_types/post.md) | 
+[**post_email_format_request_body**](../../paths/request_body_post_email_format_request_body/post.md) | 
+[**post_email_format_response_body_for_content_types**](../../paths/response_body_post_email_format_response_body_for_content_types/post.md) | 
+[**post_hostname_format_request_body**](../../paths/request_body_post_hostname_format_request_body/post.md) | 
+[**post_hostname_format_response_body_for_content_types**](../../paths/response_body_post_hostname_format_response_body_for_content_types/post.md) | 
+[**post_ipv4_format_request_body**](../../paths/request_body_post_ipv4_format_request_body/post.md) | 
+[**post_ipv4_format_response_body_for_content_types**](../../paths/response_body_post_ipv4_format_response_body_for_content_types/post.md) | 
+[**post_ipv6_format_request_body**](../../paths/request_body_post_ipv6_format_request_body/post.md) | 
+[**post_ipv6_format_response_body_for_content_types**](../../paths/response_body_post_ipv6_format_response_body_for_content_types/post.md) | 
+[**post_json_pointer_format_request_body**](../../paths/request_body_post_json_pointer_format_request_body/post.md) | 
+[**post_json_pointer_format_response_body_for_content_types**](../../paths/response_body_post_json_pointer_format_response_body_for_content_types/post.md) | 
+[**post_uri_format_request_body**](../../paths/request_body_post_uri_format_request_body/post.md) | 
+[**post_uri_format_response_body_for_content_types**](../../paths/response_body_post_uri_format_response_body_for_content_types/post.md) | 
+[**post_uri_reference_format_request_body**](../../paths/request_body_post_uri_reference_format_request_body/post.md) | 
+[**post_uri_reference_format_response_body_for_content_types**](../../paths/response_body_post_uri_reference_format_response_body_for_content_types/post.md) | 
+[**post_uri_template_format_request_body**](../../paths/request_body_post_uri_template_format_request_body/post.md) | 
+[**post_uri_template_format_response_body_for_content_types**](../../paths/response_body_post_uri_template_format_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

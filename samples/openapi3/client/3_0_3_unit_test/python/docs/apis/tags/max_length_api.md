@@ -9,7 +9,7 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_maxlength_validation_request_body**](max_length_api/post_maxlength_validation_request_body.md) | 
-[**post_maxlength_validation_response_body_for_content_types**](max_length_api/post_maxlength_validation_response_body_for_content_types.md) | 
+[**post_maxlength_validation_request_body**](../../paths/request_body_post_maxlength_validation_request_body/post.md) | 
+[**post_maxlength_validation_response_body_for_content_types**](../../paths/response_body_post_maxlength_validation_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

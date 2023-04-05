@@ -90,7 +90,7 @@ All URIs are relative to the selected server
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
-/operators **post** | [DefaultApi](docs/apis/tags/default_api.md).[post_operators](docs/apis/tags/default_api/post_operators.md)  | 
+/operators **post** | [DefaultApi](docs/apis/tags/default_api.md).[post_operators](docs/paths/operators/post.md)  | 
 
 ## Component Schemas
 

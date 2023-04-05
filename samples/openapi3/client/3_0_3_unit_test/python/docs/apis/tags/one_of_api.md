@@ -9,17 +9,17 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_nested_oneof_to_check_validation_semantics_request_body**](one_of_api/post_nested_oneof_to_check_validation_semantics_request_body.md) | 
-[**post_nested_oneof_to_check_validation_semantics_response_body_for_content_types**](one_of_api/post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.md) | 
-[**post_oneof_complex_types_request_body**](one_of_api/post_oneof_complex_types_request_body.md) | 
-[**post_oneof_complex_types_response_body_for_content_types**](one_of_api/post_oneof_complex_types_response_body_for_content_types.md) | 
-[**post_oneof_request_body**](one_of_api/post_oneof_request_body.md) | 
-[**post_oneof_response_body_for_content_types**](one_of_api/post_oneof_response_body_for_content_types.md) | 
-[**post_oneof_with_base_schema_request_body**](one_of_api/post_oneof_with_base_schema_request_body.md) | 
-[**post_oneof_with_base_schema_response_body_for_content_types**](one_of_api/post_oneof_with_base_schema_response_body_for_content_types.md) | 
-[**post_oneof_with_empty_schema_request_body**](one_of_api/post_oneof_with_empty_schema_request_body.md) | 
-[**post_oneof_with_empty_schema_response_body_for_content_types**](one_of_api/post_oneof_with_empty_schema_response_body_for_content_types.md) | 
-[**post_oneof_with_required_request_body**](one_of_api/post_oneof_with_required_request_body.md) | 
-[**post_oneof_with_required_response_body_for_content_types**](one_of_api/post_oneof_with_required_response_body_for_content_types.md) | 
+[**post_nested_oneof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_oneof_to_check_validation_semantics_request_body/post.md) | 
+[**post_nested_oneof_to_check_validation_semantics_response_body_for_content_types**](../../paths/response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types/post.md) | 
+[**post_oneof_complex_types_request_body**](../../paths/request_body_post_oneof_complex_types_request_body/post.md) | 
+[**post_oneof_complex_types_response_body_for_content_types**](../../paths/response_body_post_oneof_complex_types_response_body_for_content_types/post.md) | 
+[**post_oneof_request_body**](../../paths/request_body_post_oneof_request_body/post.md) | 
+[**post_oneof_response_body_for_content_types**](../../paths/response_body_post_oneof_response_body_for_content_types/post.md) | 
+[**post_oneof_with_base_schema_request_body**](../../paths/request_body_post_oneof_with_base_schema_request_body/post.md) | 
+[**post_oneof_with_base_schema_response_body_for_content_types**](../../paths/response_body_post_oneof_with_base_schema_response_body_for_content_types/post.md) | 
+[**post_oneof_with_empty_schema_request_body**](../../paths/request_body_post_oneof_with_empty_schema_request_body/post.md) | 
+[**post_oneof_with_empty_schema_response_body_for_content_types**](../../paths/response_body_post_oneof_with_empty_schema_response_body_for_content_types/post.md) | 
+[**post_oneof_with_required_request_body**](../../paths/request_body_post_oneof_with_required_request_body/post.md) | 
+[**post_oneof_with_required_response_body_for_content_types**](../../paths/response_body_post_oneof_with_required_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

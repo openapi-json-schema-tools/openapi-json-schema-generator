@@ -9,13 +9,13 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_required_default_validation_request_body**](required_api/post_required_default_validation_request_body.md) | 
-[**post_required_default_validation_response_body_for_content_types**](required_api/post_required_default_validation_response_body_for_content_types.md) | 
-[**post_required_validation_request_body**](required_api/post_required_validation_request_body.md) | 
-[**post_required_validation_response_body_for_content_types**](required_api/post_required_validation_response_body_for_content_types.md) | 
-[**post_required_with_empty_array_request_body**](required_api/post_required_with_empty_array_request_body.md) | 
-[**post_required_with_empty_array_response_body_for_content_types**](required_api/post_required_with_empty_array_response_body_for_content_types.md) | 
-[**post_required_with_escaped_characters_request_body**](required_api/post_required_with_escaped_characters_request_body.md) | 
-[**post_required_with_escaped_characters_response_body_for_content_types**](required_api/post_required_with_escaped_characters_response_body_for_content_types.md) | 
+[**post_required_default_validation_request_body**](../../paths/request_body_post_required_default_validation_request_body/post.md) | 
+[**post_required_default_validation_response_body_for_content_types**](../../paths/response_body_post_required_default_validation_response_body_for_content_types/post.md) | 
+[**post_required_validation_request_body**](../../paths/request_body_post_required_validation_request_body/post.md) | 
+[**post_required_validation_response_body_for_content_types**](../../paths/response_body_post_required_validation_response_body_for_content_types/post.md) | 
+[**post_required_with_empty_array_request_body**](../../paths/request_body_post_required_with_empty_array_request_body/post.md) | 
+[**post_required_with_empty_array_response_body_for_content_types**](../../paths/response_body_post_required_with_empty_array_response_body_for_content_types/post.md) | 
+[**post_required_with_escaped_characters_request_body**](../../paths/request_body_post_required_with_escaped_characters_request_body/post.md) | 
+[**post_required_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_required_with_escaped_characters_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_object_properties_validation_request_body**](properties_api/post_object_properties_validation_request_body.md) | 
-[**post_object_properties_validation_response_body_for_content_types**](properties_api/post_object_properties_validation_response_body_for_content_types.md) | 
-[**post_properties_with_escaped_characters_request_body**](properties_api/post_properties_with_escaped_characters_request_body.md) | 
-[**post_properties_with_escaped_characters_response_body_for_content_types**](properties_api/post_properties_with_escaped_characters_response_body_for_content_types.md) | 
+[**post_object_properties_validation_request_body**](../../paths/request_body_post_object_properties_validation_request_body/post.md) | 
+[**post_object_properties_validation_response_body_for_content_types**](../../paths/response_body_post_object_properties_validation_response_body_for_content_types/post.md) | 
+[**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 
+[**post_properties_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_properties_with_escaped_characters_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -12,6 +12,6 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**foo_get**](default_api/foo_get.md) | 
+[**foo_get**](../../paths/foo/get.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

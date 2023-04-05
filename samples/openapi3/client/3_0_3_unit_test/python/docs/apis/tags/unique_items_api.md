@@ -9,9 +9,9 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_uniqueitems_false_validation_request_body**](unique_items_api/post_uniqueitems_false_validation_request_body.md) | 
-[**post_uniqueitems_false_validation_response_body_for_content_types**](unique_items_api/post_uniqueitems_false_validation_response_body_for_content_types.md) | 
-[**post_uniqueitems_validation_request_body**](unique_items_api/post_uniqueitems_validation_request_body.md) | 
-[**post_uniqueitems_validation_response_body_for_content_types**](unique_items_api/post_uniqueitems_validation_response_body_for_content_types.md) | 
+[**post_uniqueitems_false_validation_request_body**](../../paths/request_body_post_uniqueitems_false_validation_request_body/post.md) | 
+[**post_uniqueitems_false_validation_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_false_validation_response_body_for_content_types/post.md) | 
+[**post_uniqueitems_validation_request_body**](../../paths/request_body_post_uniqueitems_validation_request_body/post.md) | 
+[**post_uniqueitems_validation_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_validation_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -12,6 +12,6 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
-[**post_operators**](default_api/post_operators.md) | 
+[**post_operators**](../../paths/operators/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
