@@ -23,50 +23,8 @@ import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
  * Defines special circumstances handled by the generator.
  */
 public enum SchemaSupportFeature {
-    /**
-     * Support of simple schemas (those which define properties directly).
-     */
     @OAS2 @OAS3
-    Simple,
-
-    /**
-     * Support of complex schemas (those which refer to the properties of another model).
-     *
-     * <p>In OpenAPI Specification, this indicates support of AllOf/OneOf.</p>
-     */
-    @OAS2 @OAS3
-    Composite,
-
-    /**
-     * Support for polymorphic classes.
-     *
-     * <p>
-     * This suggests Composite support, but may not always be the case and is therefore separate.
-     * </p>
-     *
-     * <p>In OpenAPI Specification, this indicates support of AllOf with a discriminator property on the derived schema.</p>
-     */
-    @OAS2 @OAS3
-    Polymorphism,
-
-    /**
-     * Support for a union type.
-     *
-     * <p>
-     * This means that a single "Type" in generated code may refer to one of any type in a set of 2 or more types.
-     *
-     * This is defined as a union as "OneOf" support is not explicitly limited to physical boundaries in OpenAPI Specification. The
-     * implementation of such a type is easily represented dynamically (a JSON object), but requires explicit language support and
-     * potentially a custom implementation (typed instances).
-     *
-     * Note that a generator may support "Unions" very loosely by returning an Object/Any/ref/interface{} type, leaving onus
-     * on type determination to the consumer. This does *NOT* suggest generated code implements a "Union Type".
-     * </p>
-     *
-     * <p>This suggests support of OneOf in OpenAPI Specification with a discriminator.</p>
-     */
-    @OAS3
-    Union,
+    additionalProperties,
 
     /**
      * The json schema Composition allOf keyword
@@ -82,17 +40,72 @@ public enum SchemaSupportFeature {
     @OAS3
     anyOf,
 
-    /**
-     * The json schema Composition oneOf keyword
-     * If a composed schema uses the oneOf keyword, then payloads must be valid against one of the given oneOf schemas
-     */
+    @OAS2 @OAS3
+    discriminator,
+
+    @OAS2 @OAS3
+    enumKeyword,
+
+    @OAS2 @OAS3
+    exclusiveMinimum,
+
+    @OAS2 @OAS3
+    exclusiveMaximum,
+
+    @OAS2 @OAS3
+    format,
+
+    @OAS2 @OAS3
+    items,
+
+    @OAS2 @OAS3
+    maxItems,
+
+    @OAS2 @OAS3
+    maxLength,
+
+    @OAS2 @OAS3
+    maxProperties,
+
+    @OAS2 @OAS3
+    maximum,
+
+    @OAS2 @OAS3
+    minItems,
+
+    @OAS2 @OAS3
+    minLength,
+
+    @OAS2 @OAS3
+    minProperties,
+
+    @OAS2 @OAS3
+    minimum,
+
+    @OAS2 @OAS3
+    multipleOf,
+
+    @OAS3
+    not,
+
+    @OAS3
+    nullable,
+
     @OAS3
     oneOf,
 
-    /**
-     * The json schema Composition not keyword
-     * If a composed schema uses the not keyword, then payloads must not be valid against the given not schema
-     */
-    @OAS3
-    not
+    @OAS2 @OAS3
+    pattern,
+
+    @OAS2 @OAS3
+    properties,
+
+    @OAS2 @OAS3
+    required,
+
+    @OAS2 @OAS3
+    type,
+
+    @OAS2 @OAS3
+    uniqueItems
 }

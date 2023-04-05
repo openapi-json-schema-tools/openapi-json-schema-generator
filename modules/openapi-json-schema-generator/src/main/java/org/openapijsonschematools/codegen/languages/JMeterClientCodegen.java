@@ -93,7 +93,7 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
                         GlobalFeature.ParameterStyling
                 )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.Polymorphism
+                        SchemaSupportFeature.not
                 )
                 .includeParameterFeatures(
                         ParameterFeature.Cookie

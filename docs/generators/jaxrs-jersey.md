@@ -285,14 +285,32 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Schema Support Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Simple|✓|OAS2,OAS3
-|Composite|✓|OAS2,OAS3
-|Polymorphism|✗|OAS2,OAS3
-|Union|✗|OAS3
+|additionalProperties|✗|OAS2,OAS3
 |allOf|✗|OAS2,OAS3
 |anyOf|✗|OAS3
-|oneOf|✗|OAS3
+|discriminator|✓|OAS2,OAS3
+|enumKeyword|✓|OAS2,OAS3
+|exclusiveMinimum|✓|OAS2,OAS3
+|exclusiveMaximum|✓|OAS2,OAS3
+|format|✓|OAS2,OAS3
+|items|✓|OAS2,OAS3
+|maxItems|✓|OAS2,OAS3
+|maxLength|✓|OAS2,OAS3
+|maxProperties|✓|OAS2,OAS3
+|maximum|✓|OAS2,OAS3
+|minItems|✓|OAS2,OAS3
+|minLength|✓|OAS2,OAS3
+|minProperties|✓|OAS2,OAS3
+|minimum|✓|OAS2,OAS3
+|multipleOf|✓|OAS2,OAS3
 |not|✗|OAS3
+|nullable|✗|OAS3
+|oneOf|✗|OAS3
+|pattern|✓|OAS2,OAS3
+|properties|✓|OAS2,OAS3
+|required|✓|OAS2,OAS3
+|type|✓|OAS2,OAS3
+|uniqueItems|✓|OAS2,OAS3
 
 ### Security Feature
 | Name | Supported | Defined By |

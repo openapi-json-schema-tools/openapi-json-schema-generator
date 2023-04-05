@@ -103,7 +103,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected CodegenIgnoreProcessor ignoreProcessor;
     protected TemplateProcessor templateProcessor = null;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
-    private HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
+    private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
 
     public PythonClientCodegen() {
         super();
@@ -138,14 +138,20 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         DataTypeFeature.Enum
                 )
                 .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.Simple,
-                        SchemaSupportFeature.Composite,
-                        SchemaSupportFeature.Polymorphism,
-                        SchemaSupportFeature.Union,
-                        SchemaSupportFeature.allOf,
-                        SchemaSupportFeature.anyOf,
-                        SchemaSupportFeature.oneOf,
-                        SchemaSupportFeature.not
+                        SchemaSupportFeature.additionalProperties,
+                        SchemaSupportFeature.allOf, SchemaSupportFeature.anyOf,
+                        SchemaSupportFeature.discriminator, SchemaSupportFeature.enumKeyword,
+                        SchemaSupportFeature.exclusiveMaximum, SchemaSupportFeature.exclusiveMinimum,
+                        SchemaSupportFeature.format, SchemaSupportFeature.items,
+                        SchemaSupportFeature.maxItems, SchemaSupportFeature.maxLength,
+                        SchemaSupportFeature.maxProperties, SchemaSupportFeature.maximum,
+                        SchemaSupportFeature.minItems, SchemaSupportFeature.minLength,
+                        SchemaSupportFeature.minProperties, SchemaSupportFeature.minimum,
+                        SchemaSupportFeature.multipleOf, SchemaSupportFeature.not,
+                        SchemaSupportFeature.nullable, SchemaSupportFeature.oneOf,
+                        SchemaSupportFeature.pattern, SchemaSupportFeature.properties,
+                        SchemaSupportFeature.required, SchemaSupportFeature.type,
+                        SchemaSupportFeature.uniqueItems
                 )
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
@@ -155,11 +161,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         SecurityFeature.ApiKey,
                         SecurityFeature.OAuth2_Implicit
                 ))
-                .includeDataTypeFeatures(
-                        DataTypeFeature.Null,
-                        DataTypeFeature.AnyType,
-                        DataTypeFeature.Uuid
-                )
                 .includeGlobalFeatures(
                         GlobalFeature.ParameterizedServer,
                         GlobalFeature.ParameterStyling
@@ -168,8 +169,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         GlobalFeature.XMLStructureDefinitions,
                         GlobalFeature.Callbacks,
                         GlobalFeature.LinkObjects
-                )
-                .excludeSchemaSupportFeatures(
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.Cookie
@@ -674,7 +673,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (generateModels) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
-        boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
@@ -735,7 +733,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // phone_number => PhoneNumber
         String camelizedName = camelize(nameWithPrefixSuffix);
 
-        String[] pathPieces = null;
+        String[] pathPieces;
         boolean isComponent = false;
         if (jsonPath != null) {
             pathPieces = jsonPath.split("/");

@@ -141,8 +141,17 @@ public class DefaultCodegen implements CodegenConfig {
                         // TODO: xml structures, styles, link objects, parameterized servers, full schemes for OAS 2.0
                 )
                 .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.Simple, SchemaSupportFeature.Composite,
-                        SchemaSupportFeature.Polymorphism
+                        SchemaSupportFeature.discriminator, SchemaSupportFeature.enumKeyword,
+                        SchemaSupportFeature.exclusiveMaximum, SchemaSupportFeature.exclusiveMinimum,
+                        SchemaSupportFeature.format, SchemaSupportFeature.items,
+                        SchemaSupportFeature.maxItems, SchemaSupportFeature.maxLength,
+                        SchemaSupportFeature.maxProperties, SchemaSupportFeature.maximum,
+                        SchemaSupportFeature.minItems, SchemaSupportFeature.minLength,
+                        SchemaSupportFeature.minProperties, SchemaSupportFeature.minimum,
+                        SchemaSupportFeature.multipleOf,
+                        SchemaSupportFeature.pattern, SchemaSupportFeature.properties,
+                        SchemaSupportFeature.required, SchemaSupportFeature.type,
+                        SchemaSupportFeature.uniqueItems
                         // Union (OneOf) not 100% yet.
                 )
                 .includeParameterFeatures(

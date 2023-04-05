@@ -143,7 +143,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                         GlobalFeature.ParameterStyling
                 )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.Polymorphism
+                        SchemaSupportFeature.not
                 )
                 .includeClientModificationFeatures(
                         ClientModificationFeature.BasePath

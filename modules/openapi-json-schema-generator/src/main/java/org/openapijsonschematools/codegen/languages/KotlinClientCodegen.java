@@ -158,7 +158,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         GlobalFeature.ParameterStyling
                 )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.Polymorphism
+                        SchemaSupportFeature.not
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.Cookie
