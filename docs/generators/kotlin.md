@@ -46,22 +46,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |useRxJava2|Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: this option has been deprecated. Please use `useRxJava3` instead.| |false|
 |useRxJava3|Whether to use the RxJava3 adapter with the retrofit2 library.| |false|
 
-## IMPORT MAPPING
-
-| Type/Alias | Imports |
-| ---------- | ------- |
-|BigDecimal|java.math.BigDecimal|
-|Date|java.time.LocalDate|
-|DateTime|java.time.OffsetDateTime|
-|File|java.io.File|
-|LocalDate|java.time.LocalDate|
-|LocalDateTime|java.time.LocalDateTime|
-|LocalTime|java.time.LocalTime|
-|Timestamp|java.sql.Timestamp|
-|URI|java.net.URI|
-|UUID|java.util.UUID|
-
-
 ## INSTANTIATION TYPES
 
 | Type/Alias | Instantiated By |
@@ -182,15 +166,30 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |UserAgent|✗|ToolingExtension
 |MockServer|✗|ToolingExtension
 
+### Components Feature
+| Name | Supported | Defined By |
+| ---- | --------- | ---------- |
+|schemas|✗|OAS3
+|responses|✗|OAS3
+|parameters|✗|OAS3
+|examples|✗|OAS3
+|requestBodies|✗|OAS3
+|headers|✗|OAS3
+|securitySchemes|✗|OAS3
+|links|✗|OAS3
+|callbacks|✗|OAS3
+|pathItems|✗|OAS3
+
 ### Data Type Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Custom|✗|OAS2,OAS3
 |Int32|✓|OAS2,OAS3
 |Int64|✓|OAS2,OAS3
+|Integer|✗|OAS2,OAS3
 |Float|✓|OAS2,OAS3
 |Double|✓|OAS2,OAS3
-|Decimal|✓|ToolingExtension
+|Number|✗|OAS2,OAS3
 |String|✓|OAS2,OAS3
 |Byte|✓|OAS2,OAS3
 |Binary|✓|OAS2,OAS3
@@ -199,82 +198,100 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DateTime|✓|OAS2,OAS3
 |Password|✓|OAS2,OAS3
 |File|✓|OAS2
-|Uuid|✗|
+|Uuid|✗|OAS2,OAS3
 |Array|✓|OAS2,OAS3
 |Null|✗|OAS3
 |AnyType|✗|OAS2,OAS3
 |Object|✓|OAS2,OAS3
-|Maps|✓|ToolingExtension
-|CollectionFormat|✓|OAS2
-|CollectionFormatMulti|✓|OAS2
 |Enum|✓|OAS2,OAS3
-|ArrayOfEnum|✓|ToolingExtension
-|ArrayOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfPrimitives|✓|ToolingExtension
-|ArrayOfCollectionOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfEnum|✓|ToolingExtension
-|MapOfEnum|✓|ToolingExtension
-|MapOfModel|✓|ToolingExtension
-|MapOfCollectionOfPrimitives|✓|ToolingExtension
-|MapOfCollectionOfModel|✓|ToolingExtension
-|MapOfCollectionOfEnum|✓|ToolingExtension
 
 ### Documentation Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Readme|✓|ToolingExtension
-|Model|✓|ToolingExtension
+|Servers|✗|OAS3
+|Security|✗|OAS2,OAS3
+|ComponentSchemas|✓|OAS3
+|ComponentResponses|✗|OAS3
+|ComponentParameters|✗|OAS3
+|ComponentRequestBodies|✗|OAS3
+|ComponentHeaders|✗|OAS3
+|ComponentSecuritySchemes|✗|OAS3
+|ComponentLinks|✗|OAS3
+|ComponentCallbacks|✗|OAS3
+|ComponentPathItems|✗|OAS3
 |Api|✓|ToolingExtension
 
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Host|✓|OAS2,OAS3
-|BasePath|✓|OAS2,OAS3
 |Info|✓|OAS2,OAS3
-|Schemes|✗|OAS2,OAS3
-|PartialSchemes|✓|OAS2,OAS3
-|Consumes|✓|OAS2
-|Produces|✓|OAS2
-|ExternalDocumentation|✓|OAS2,OAS3
-|Examples|✓|OAS2,OAS3
-|XMLStructureDefinitions|✗|OAS2,OAS3
-|MultiServer|✗|OAS3
-|ParameterizedServer|✗|OAS3
-|ParameterStyling|✗|OAS3
-|Callbacks|✗|OAS3
-|LinkObjects|✗|OAS3
+|Servers|✗|OAS3
+|Paths|✗|OAS2,OAS3
+|Webhooks|✗|OAS3
+|Components|✓|OAS3
+|Security|✗|OAS2,OAS3
+|Tags|✗|OAS2,OAS3
+|ExternalDocs|✗|OAS2,OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Path|✓|OAS2,OAS3
-|Query|✓|OAS2,OAS3
-|Header|✓|OAS2,OAS3
-|Body|✓|OAS2
-|FormUnencoded|✓|OAS2
-|FormMultipart|✓|OAS2
-|Cookie|✗|OAS3
+|Name|✗|OAS2,OAS3
+|Required|✗|OAS2,OAS3
+|In_Path|✓|OAS2,OAS3
+|In_Query|✓|OAS2,OAS3
+|In_Header|✓|OAS2,OAS3
+|In_Cookie|✗|OAS3
+|Style_Matrix|✗|OAS3
+|Style_Label|✗|OAS3
+|Style_Form|✗|OAS3
+|Style_Simple|✗|OAS3
+|Style_SpaceDelimited|✗|OAS3
+|Style_PipeDelimited|✗|OAS3
+|Style_DeepObject|✗|OAS3
+|Explode|✗|OAS3
+|Schema|✗|OAS3
+|Content|✗|OAS3
 
-### Schema Support Feature
+### Schema Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Simple|✓|OAS2,OAS3
-|Composite|✓|OAS2,OAS3
-|Polymorphism|✗|OAS2,OAS3
-|Union|✗|OAS3
-|allOf|✗|OAS2,OAS3
-|anyOf|✗|OAS3
-|oneOf|✗|OAS3
-|not|✗|OAS3
+|AdditionalProperties|✗|OAS2,OAS3
+|AllOf|✗|OAS2,OAS3
+|AnyOf|✗|OAS3
+|Discriminator|✓|OAS2,OAS3
+|Enum|✓|OAS2,OAS3
+|ExclusiveMinimum|✓|OAS2,OAS3
+|ExclusiveMaximum|✓|OAS2,OAS3
+|Format|✓|OAS2,OAS3
+|Items|✓|OAS2,OAS3
+|MaxItems|✓|OAS2,OAS3
+|MaxLength|✓|OAS2,OAS3
+|MaxProperties|✓|OAS2,OAS3
+|Maximum|✓|OAS2,OAS3
+|MinItems|✓|OAS2,OAS3
+|MinLength|✓|OAS2,OAS3
+|MinProperties|✓|OAS2,OAS3
+|Minimum|✓|OAS2,OAS3
+|MultipleOf|✓|OAS2,OAS3
+|Not|✗|OAS3
+|Nullable|✗|OAS3
+|OneOf|✗|OAS3
+|Pattern|✓|OAS2,OAS3
+|Properties|✓|OAS2,OAS3
+|Required|✓|OAS2,OAS3
+|Type|✓|OAS2,OAS3
+|UniqueItems|✓|OAS2,OAS3
+|Xml|✗|OAS2,OAS3
 
 ### Security Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|BasicAuth|✓|OAS2,OAS3
+|HTTP_Basic|✓|OAS2,OAS3
 |ApiKey|✓|OAS2,OAS3
 |OpenIDConnect|✗|OAS3
-|BearerToken|✓|OAS3
+|HTTP_Bearer|✓|OAS2,OAS3
 |OAuth2_Implicit|✗|OAS2,OAS3
 |OAuth2_Password|✗|OAS2,OAS3
 |OAuth2_ClientCredentials|✗|OAS2,OAS3

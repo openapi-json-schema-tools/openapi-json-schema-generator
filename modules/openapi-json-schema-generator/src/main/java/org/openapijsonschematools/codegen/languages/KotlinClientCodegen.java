@@ -18,26 +18,22 @@
 package org.openapijsonschematools.codegen.languages;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenOperation;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
@@ -151,17 +147,11 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         SecurityFeature.OAuth2_ClientCredentials,
                         SecurityFeature.OAuth2_Implicit
                 )
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects,
-                        GlobalFeature.ParameterStyling
-                )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.Polymorphism
+                        SchemaFeature.Not
                 )
                 .excludeParameterFeatures(
-                        ParameterFeature.Cookie
+                        ParameterFeature.In_Cookie
                 )
                 .includeClientModificationFeatures(ClientModificationFeature.BasePath)
         );
@@ -507,18 +497,15 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
     private void processThreeTenBpDate(String dateLibrary) {
         additionalProperties.put(DateLibrary.THREETENBP.value, true);
         typeMapping.put("date", "LocalDate");
-        importMapping.put("LocalDate", "org.threeten.bp.LocalDate");
         defaultIncludes.add("org.threeten.bp.LocalDate");
 
         if (dateLibrary.equals(DateLibrary.THREETENBP.value)) {
             typeMapping.put("date-time", "org.threeten.bp.OffsetDateTime");
             typeMapping.put("DateTime", "OffsetDateTime");
-            importMapping.put("OffsetDateTime", "org.threeten.bp.OffsetDateTime");
             defaultIncludes.add("org.threeten.bp.OffsetDateTime");
         } else if (dateLibrary.equals(DateLibrary.THREETENBP_LOCALDATETIME.value)) {
             typeMapping.put("date-time", "org.threeten.bp.LocalDateTime");
             typeMapping.put("DateTime", "LocalDateTime");
-            importMapping.put("LocalDateTime", "org.threeten.bp.LocalDateTime");
             defaultIncludes.add("org.threeten.bp.LocalDateTime");
         }
     }
@@ -536,11 +523,9 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         if (dateLibrary.equals(DateLibrary.JAVA8.value)) {
             typeMapping.put("date-time", "java.time.OffsetDateTime");
             typeMapping.put("DateTime", "OffsetDateTime");
-            importMapping.put("OffsetDateTime", "java.time.OffsetDateTime");
         } else if (dateLibrary.equals(DateLibrary.JAVA8_LOCALDATETIME.value)) {
             typeMapping.put("date-time", "java.time.LocalDateTime");
             typeMapping.put("DateTime", "LocalDateTime");
-            importMapping.put("LocalDateTime", "java.time.LocalDateTime");
         }
     }
 
@@ -653,8 +638,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
 
         defaultIncludes.add("io.ktor.client.request.forms.InputProvider");
 
-        importMapping.put("InputProvider", "io.ktor.client.request.forms.InputProvider");
-
         supportingFiles.add(new SupportingFile("infrastructure/ApiAbstractions.kt.mustache", infrastructureFolder, "ApiAbstractions.kt"));
         supportingFiles.add(new SupportingFile("infrastructure/ApiClient.kt.mustache", infrastructureFolder, "ApiClient.kt"));
         supportingFiles.add(new SupportingFile("infrastructure/HttpResponse.kt.mustache", infrastructureFolder, "HttpResponse.kt"));
@@ -707,19 +690,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         typeMapping.put("binary", "OctetByteArray");
         typeMapping.put("ByteArray", "Base64ByteArray");
         typeMapping.put("object", "kotlin.String");  // kotlin.Any not serializable
-
-        // multiplatform import mapping
-        importMapping.put("BigDecimal", "kotlin.Double");
-        importMapping.put("UUID", "kotlin.String");
-        importMapping.put("URI", "kotlin.String");
-        importMapping.put("InputProvider", "io.ktor.client.request.forms.InputProvider");
-        importMapping.put("File", packageName + ".infrastructure.OctetByteArray");
-        importMapping.put("Timestamp", "kotlin.String");
-        importMapping.put("LocalDateTime", "kotlin.String");
-        importMapping.put("LocalDate", "kotlin.String");
-        importMapping.put("LocalTime", "kotlin.String");
-        importMapping.put("Base64ByteArray", packageName + ".infrastructure.Base64ByteArray");
-        importMapping.put("OctetByteArray", packageName + ".infrastructure.OctetByteArray");
 
         // multiplatform specific supporting files
         supportingFiles.add(new SupportingFile("infrastructure/Base64ByteArray.kt.mustache", infrastructureFolder, "Base64ByteArray.kt"));

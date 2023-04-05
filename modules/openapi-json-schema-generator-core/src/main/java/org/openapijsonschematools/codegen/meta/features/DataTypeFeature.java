@@ -25,8 +25,8 @@ import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExten
  * Some of these features are defined in specs, and some are specific to the tool.
  *
  * Where data types are listed as tool-specific, this either indicates that the data type is common enough that it is an officially
- * supported custom data type by the toolset (see {@link DataTypeFeature#Decimal}), or that the consideration of a special type isn't
- * explicitly mentioned by the specification(s) but differs enough across languages that it warrants a special callout (see {@link DataTypeFeature#ArrayOfModel}).
+ * supported custom data type by the toolset, or that the consideration of a special type isn't
+ * explicitly mentioned by the specification(s) but differs enough across languages that it warrants a special callout.
  */
 public enum DataTypeFeature {
     /**
@@ -50,24 +50,29 @@ public enum DataTypeFeature {
     Int64,
 
     /**
-     * Supports number/float
+     * Supports integer without format
+     */
+    @OAS2 @OAS3
+    Integer,
+
+    /**
+     * Supports type: number, format:float
      */
     @OAS2 @OAS3
     Float,
 
     /**
-     * Supports number/double
+     * Supports type: number, format: double
      */
     @OAS2 @OAS3
     Double,
 
     /**
-     * Supports number/decimal (a special case for some languages)
+     * Supports type: number, no format
      *
-     * <p>Decimal is not a type defined by OAS 2.0 specification</p>
      */
-    @ToolingExtension
-    Decimal,
+    @OAS2 @OAS3
+    Number,
 
     /**
      * Supports string
@@ -76,13 +81,13 @@ public enum DataTypeFeature {
     String,
 
     /**
-     * Supports string/byte: base64 encoded
+     * Supports type:string format:byte, base64 encoded
      */
     @OAS2 @OAS3
     Byte,
 
     /**
-     * Supports string/binary: any collection of octets
+     * Supports type:string format:binary: any collection of octets
      */
     @OAS2 @OAS3
     Binary,
@@ -141,6 +146,7 @@ public enum DataTypeFeature {
     /**
      * String uuid data
      */
+    @OAS2 @OAS3
     Uuid,
 
     /**
@@ -168,95 +174,8 @@ public enum DataTypeFeature {
     Object,
 
     /**
-     * Supports map of data
-     */
-    @ToolingExtension
-    Maps,
-
-    /**
-     * Supports specifying the format of the array if type array is used (one of: csv, ssv, tsv, pipes).
-     *
-     * <p>
-     * For multi support, check {@link DataTypeFeature#CollectionFormatMulti}. OAS 3.x removes collectionFormat in favor of Style properties.
-     * </p>
-     */
-    @OAS2
-    CollectionFormat,
-
-    /**
-     * Supports collection format=multi.
-     *
-     * <p>
-     * This is special cased because it is not as easily implemented as a delimiter as with CollectionFormat.
-     * OAS 3.x removes collectionFormat for style properties.
-     * </p>
-     */
-    @OAS2
-    CollectionFormatMulti,
-
-    /**
      * Supports enum properties
      */
     @OAS2 @OAS3
-    Enum,
-
-    /**
-     * Supports an array of enum
-     */
-    @ToolingExtension
-    ArrayOfEnum,
-
-    /**
-     * Supports an array of models
-     */
-    @ToolingExtension
-    ArrayOfModel,
-
-    /**
-     * Supports an array of arrays (primitives)
-     */
-    @ToolingExtension
-    ArrayOfCollectionOfPrimitives,
-
-    /**
-     * Supports an array of arrays (models)
-     */
-    @ToolingExtension
-    ArrayOfCollectionOfModel,
-
-    /**
-     * Supports an array of arrays (enums)
-     */
-    @ToolingExtension
-    ArrayOfCollectionOfEnum,
-
-    /**
-     * Supports a map of enums
-     */
-    @ToolingExtension
-    MapOfEnum,
-
-    /**
-     * Supports a map of models
-     */
-    @ToolingExtension
-    MapOfModel,
-
-    /**
-     * Supports a map of arrays (primitives)
-     */
-    @ToolingExtension
-    MapOfCollectionOfPrimitives,
-
-    /**
-     * Supports a map of arrays (models)
-     */
-    @ToolingExtension
-    MapOfCollectionOfModel,
-
-    /**
-     * Supports a map of arrays (enums)
-     */
-    @ToolingExtension
-    MapOfCollectionOfEnum,
+    Enum
 }

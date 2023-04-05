@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 OpenAPI-Generator Contributors (https://openapi-generator.tech)
+ * Copyright 2023 OpenAPI-Json-Schema-Generator Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,58 +16,36 @@
 
 package org.openapijsonschematools.codegen.meta.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
 
-/**
- * Defines parameters supported by endpoints in the generated code.
- */
-public enum ParameterFeature {
-    @OAS2 @OAS3
-    Name,
-
-    @OAS2 @OAS3
-    Required,
-
-    @OAS2 @OAS3
-    In_Path,
-
-    @OAS2 @OAS3
-    In_Query,
-
-    @OAS2 @OAS3
-    In_Header,
+public enum ComponentsFeature {
+    @OAS3
+    schemas,
 
     @OAS3
-    In_Cookie,
+    responses,
 
     @OAS3
-    Style_Matrix,
+    parameters,
 
     @OAS3
-    Style_Label,
+    examples,
 
     @OAS3
-    Style_Form,
+    requestBodies,
 
     @OAS3
-    Style_Simple,
+    headers,
 
     @OAS3
-    Style_SpaceDelimited,
+    securitySchemes,
 
     @OAS3
-    Style_PipeDelimited,
+    links,
 
     @OAS3
-    Style_DeepObject,
+    callbacks,
 
     @OAS3
-    Explode,
-
-    @OAS3
-    Schema,
-
-    @OAS3
-    Content,
+    pathItems
 }

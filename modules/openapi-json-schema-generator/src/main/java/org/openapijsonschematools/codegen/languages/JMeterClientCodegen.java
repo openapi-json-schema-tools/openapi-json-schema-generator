@@ -20,14 +20,12 @@ package org.openapijsonschematools.codegen.languages;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
-import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.CodegenConfig;
 import org.openapijsonschematools.codegen.CodegenType;
 import org.openapijsonschematools.codegen.DefaultCodegen;
 import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 
@@ -82,21 +80,15 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
         modifyFeatureSet(features -> features
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
                 .securityFeatures(EnumSet.of(
-                        SecurityFeature.BasicAuth,
+                        SecurityFeature.HTTP_Basic,
                         SecurityFeature.ApiKey,
                         SecurityFeature.OAuth2_Implicit
                 ))
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects,
-                        GlobalFeature.ParameterStyling
-                )
                 .excludeSchemaSupportFeatures(
-                        SchemaSupportFeature.Polymorphism
+                        SchemaFeature.Not
                 )
                 .includeParameterFeatures(
-                        ParameterFeature.Cookie
+                        ParameterFeature.In_Cookie
                 )
                 .includeClientModificationFeatures(
                         ClientModificationFeature.BasePath

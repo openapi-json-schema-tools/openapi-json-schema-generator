@@ -34,11 +34,12 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
+import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
@@ -125,36 +126,42 @@ public class DefaultCodegen implements CodegenConfig {
         DefaultFeatureSet = FeatureSet.newBuilder()
                 .includeDataTypeFeatures(
                         DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Float, DataTypeFeature.Double,
-                        DataTypeFeature.Decimal, DataTypeFeature.String, DataTypeFeature.Byte, DataTypeFeature.Binary,
+                        DataTypeFeature.String, DataTypeFeature.Byte, DataTypeFeature.Binary,
                         DataTypeFeature.Boolean, DataTypeFeature.Date, DataTypeFeature.DateTime, DataTypeFeature.Password,
-                        DataTypeFeature.File, DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Maps, DataTypeFeature.CollectionFormat,
-                        DataTypeFeature.CollectionFormatMulti, DataTypeFeature.Enum, DataTypeFeature.ArrayOfEnum, DataTypeFeature.ArrayOfModel,
-                        DataTypeFeature.ArrayOfCollectionOfPrimitives, DataTypeFeature.ArrayOfCollectionOfModel, DataTypeFeature.ArrayOfCollectionOfEnum,
-                        DataTypeFeature.MapOfEnum, DataTypeFeature.MapOfModel, DataTypeFeature.MapOfCollectionOfPrimitives,
-                        DataTypeFeature.MapOfCollectionOfModel, DataTypeFeature.MapOfCollectionOfEnum
+                        DataTypeFeature.File, DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum
                         // Custom types are template specific
                 )
                 .includeDocumentationFeatures(
-                        DocumentationFeature.Api, DocumentationFeature.Model
+                        DocumentationFeature.Api, DocumentationFeature.ComponentSchemas
                         // README is template specific
                 )
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas
+                )
                 .includeGlobalFeatures(
-                        GlobalFeature.Host, GlobalFeature.BasePath, GlobalFeature.Info, GlobalFeature.PartialSchemes,
-                        GlobalFeature.Consumes, GlobalFeature.Produces, GlobalFeature.ExternalDocumentation, GlobalFeature.Examples,
-                        GlobalFeature.Callbacks
-                        // TODO: xml structures, styles, link objects, parameterized servers, full schemes for OAS 2.0
+                        GlobalFeature.Info,
+                        GlobalFeature.Components
                 )
                 .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.Simple, SchemaSupportFeature.Composite,
-                        SchemaSupportFeature.Polymorphism
+                        SchemaFeature.Discriminator, SchemaFeature.Enum,
+                        SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
+                        SchemaFeature.Format, SchemaFeature.Items,
+                        SchemaFeature.MaxItems, SchemaFeature.MaxLength,
+                        SchemaFeature.MaxProperties, SchemaFeature.Maximum,
+                        SchemaFeature.MinItems, SchemaFeature.MinLength,
+                        SchemaFeature.MinProperties, SchemaFeature.Minimum,
+                        SchemaFeature.MultipleOf,
+                        SchemaFeature.Pattern, SchemaFeature.Properties,
+                        SchemaFeature.Required, SchemaFeature.Type,
+                        SchemaFeature.UniqueItems
                         // Union (OneOf) not 100% yet.
                 )
                 .includeParameterFeatures(
-                        ParameterFeature.Path, ParameterFeature.Query, ParameterFeature.Header, ParameterFeature.Body,
-                        ParameterFeature.FormUnencoded, ParameterFeature.FormMultipart, ParameterFeature.Cookie
+                        ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,
+                        ParameterFeature.In_Cookie
                 )
                 .includeSecurityFeatures(
-                        SecurityFeature.BasicAuth, SecurityFeature.ApiKey, SecurityFeature.BearerToken,
+                        SecurityFeature.ApiKey, SecurityFeature.HTTP_Basic, SecurityFeature.HTTP_Bearer,
                         SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
                         SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
                         // OpenIDConnect not yet supported
@@ -185,7 +192,6 @@ public class DefaultCodegen implements CodegenConfig {
     protected Map<String, String> instantiationTypes;
     protected Set<String> reservedWords;
     protected Set<String> languageSpecificPrimitives = new HashSet<>();
-    protected Map<String, String> importMapping = new HashMap<>();
     // a map to store the mapping between a schema and the new one
     protected Map<String, String> schemaMapping = new HashMap<>();
     // a map to store the mapping between inline schema and the name provided by the user
@@ -752,11 +758,6 @@ public class DefaultCodegen implements CodegenConfig {
     @Override
     public Set<String> languageSpecificPrimitives() {
         return languageSpecificPrimitives;
-    }
-
-    @Override
-    public Map<String, String> importMapping() {
-        return importMapping;
     }
 
     @Override
@@ -2097,16 +2098,16 @@ public class DefaultCodegen implements CodegenConfig {
             List<CodegenSchema> oneOfs = Collections.emptyList();
             List<CodegenSchema> anyOfs = Collections.emptyList();
             List<CodegenSchema> notSchemas = Collections.emptyList();
-            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.allOf)) {
+            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AllOf)) {
                 allOfs = schema.allOf;
             }
-            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.oneOf)) {
+            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.OneOf)) {
                 oneOfs = schema.oneOf;
             }
-            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.anyOf)) {
+            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AnyOf)) {
                 anyOfs = schema.anyOf;
             }
-            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaSupportFeature.not)) {
+            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Not)) {
                 notSchemas = Collections.singletonList(schema.not);
             }
             Stream<CodegenSchema> allSchemas = Stream.of(

@@ -227,18 +227,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         instantiationTypes.put("list", "kotlin.collections.ArrayList");
         instantiationTypes.put("map", "kotlin.collections.HashMap");
 
-        importMapping = new HashMap<>();
-        importMapping.put("BigDecimal", "java.math.BigDecimal");
-        importMapping.put("UUID", "java.util.UUID");
-        importMapping.put("URI", "java.net.URI");
-        importMapping.put("File", "java.io.File");
-        importMapping.put("Date", "java.time.LocalDate");
-        importMapping.put("Timestamp", "java.sql.Timestamp");
-        importMapping.put("DateTime", "java.time.OffsetDateTime");
-        importMapping.put("LocalDateTime", "java.time.LocalDateTime");
-        importMapping.put("LocalDate", "java.time.LocalDate");
-        importMapping.put("LocalTime", "java.time.LocalTime");
-
         specialCharReplacements.put(";", "Semicolon");
 
         cliOptions.clear();
@@ -619,12 +607,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
         // If schemaMapping contains name, assume this is a legitimate model name.
         if (schemaMapping.containsKey(name)) {
             return schemaMapping.get(name);
-        }
-
-        // TODO review importMapping below as we've added schema mapping support
-        // If importMapping contains name, assume this is a legitimate model name.
-        if (importMapping.containsKey(name)) {
-            return importMapping.get(name);
         }
 
         String modifiedName = name.replaceAll("\\.", "");

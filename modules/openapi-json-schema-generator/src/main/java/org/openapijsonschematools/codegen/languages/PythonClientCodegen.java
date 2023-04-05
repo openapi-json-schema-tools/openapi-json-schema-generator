@@ -25,6 +25,8 @@ import io.swagger.v3.oas.models.OpenAPI;
 import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
@@ -35,7 +37,6 @@ import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaSupportFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
@@ -103,7 +104,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     protected CodegenIgnoreProcessor ignoreProcessor;
     protected TemplateProcessor templateProcessor = null;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
-    private HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
+    private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
 
     public PythonClientCodegen() {
         super();
@@ -118,48 +119,104 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         removeEnumValuePrefix = false;
 
         modifyFeatureSet(features -> features
-                .includeSchemaSupportFeatures(
-                        SchemaSupportFeature.Simple,
-                        SchemaSupportFeature.Composite,
-                        SchemaSupportFeature.Polymorphism,
-                        SchemaSupportFeature.Union,
-                        SchemaSupportFeature.allOf,
-                        SchemaSupportFeature.anyOf,
-                        SchemaSupportFeature.oneOf,
-                        SchemaSupportFeature.not
-                )
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
-                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
-                .securityFeatures(EnumSet.of(
-                        SecurityFeature.BasicAuth,
-                        SecurityFeature.BearerToken,
-                        SecurityFeature.ApiKey,
-                        SecurityFeature.OAuth2_Implicit
-                ))
                 .includeDataTypeFeatures(
+                        DataTypeFeature.Int32,
+                        DataTypeFeature.Int64,
+                        DataTypeFeature.Integer,
+                        DataTypeFeature.Float,
+                        DataTypeFeature.Double,
+                        DataTypeFeature.Number,
+                        DataTypeFeature.String,
+                        DataTypeFeature.Binary,
+                        DataTypeFeature.Boolean,
+                        DataTypeFeature.Date,
+                        DataTypeFeature.DateTime,
+                        DataTypeFeature.Uuid,
+                        DataTypeFeature.File,
+                        DataTypeFeature.Array,
+                        DataTypeFeature.Object,
                         DataTypeFeature.Null,
                         DataTypeFeature.AnyType,
-                        DataTypeFeature.Uuid
+                        DataTypeFeature.Enum
+                )
+                .excludeDataTypeFeatures(
+                        DataTypeFeature.Byte,
+                        DataTypeFeature.Password
+                )
+                .includeSchemaSupportFeatures(
+                        SchemaFeature.AdditionalProperties,
+                        SchemaFeature.AllOf, SchemaFeature.AnyOf,
+                        SchemaFeature.Discriminator, SchemaFeature.Enum,
+                        SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
+                        SchemaFeature.Format, SchemaFeature.Items,
+                        SchemaFeature.MaxItems, SchemaFeature.MaxLength,
+                        SchemaFeature.MaxProperties, SchemaFeature.Maximum,
+                        SchemaFeature.MinItems, SchemaFeature.MinLength,
+                        SchemaFeature.MinProperties, SchemaFeature.Minimum,
+                        SchemaFeature.MultipleOf, SchemaFeature.Not,
+                        SchemaFeature.Nullable, SchemaFeature.OneOf,
+                        SchemaFeature.Pattern, SchemaFeature.Properties,
+                        SchemaFeature.Required, SchemaFeature.Type,
+                        SchemaFeature.UniqueItems
+                )
+                .includeDocumentationFeatures(
+                        DocumentationFeature.Readme,
+                        DocumentationFeature.Servers,
+                        DocumentationFeature.Security,
+                        DocumentationFeature.ComponentSchemas,
+                        DocumentationFeature.ComponentResponses,
+                        DocumentationFeature.ComponentParameters,
+                        DocumentationFeature.ComponentRequestBodies,
+                        DocumentationFeature.ComponentHeaders,
+                        DocumentationFeature.ComponentSecuritySchemes,
+                        DocumentationFeature.Api
+                )
+                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
+                .securityFeatures(EnumSet.of(
+                        SecurityFeature.ApiKey,
+                        SecurityFeature.HTTP_Basic,
+                        SecurityFeature.HTTP_Bearer
+                ))
+                .excludeSecurityFeatures(
+                        SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
+                        SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
                 )
                 .includeGlobalFeatures(
-                        GlobalFeature.ParameterizedServer,
-                        GlobalFeature.ParameterStyling
+                        GlobalFeature.Info,
+                        GlobalFeature.Servers,
+                        GlobalFeature.Paths,
+                        GlobalFeature.Components,
+                        GlobalFeature.Security,
+                        GlobalFeature.Tags
                 )
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas,
+                        ComponentsFeature.responses,
+                        ComponentsFeature.parameters,
+                        ComponentsFeature.requestBodies,
+                        ComponentsFeature.headers,
+                        ComponentsFeature.securitySchemes
                 )
-                .excludeSchemaSupportFeatures(
+                .includeParameterFeatures(
+                        ParameterFeature.Name,
+                        ParameterFeature.Required,
+                        ParameterFeature.In_Path,
+                        ParameterFeature.In_Query,
+                        ParameterFeature.In_Header,
+                        ParameterFeature.Style_Matrix,
+                        ParameterFeature.Style_Label,
+                        ParameterFeature.Style_Form,
+                        ParameterFeature.Style_Simple,
+                        ParameterFeature.Style_PipeDelimited,
+                        ParameterFeature.Style_SpaceDelimited,
+                        ParameterFeature.Explode,
+                        ParameterFeature.Schema,
+                        ParameterFeature.Content
                 )
                 .excludeParameterFeatures(
-                        ParameterFeature.Cookie
+                        ParameterFeature.In_Cookie
                 )
         );
-
-        // clear import mapping (from default generator) as python does not use it
-        // at the moment
-        importMapping.clear();
 
         modelPackage = "components.schema";
         apiPackage = "apis";
@@ -175,9 +232,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
                 Arrays.asList(
-                        // local variable name used in API methods (endpoints)
-                        "all_params", "resource_path", "path_params", "query_params",
-                        "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
                         // @property
                         "property",
                         // python reserved words
@@ -187,7 +241,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
                         "False", "async", "await",
                         // types
-                        "float", "int", "str", "bool", "none_type", "dict", "frozendict", "list", "tuple", "file_type"));
+                        "float", "int", "str", "bool", "dict", "frozendict", "list", "tuple"));
 
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
@@ -241,12 +295,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         this.setDisallowAdditionalPropertiesIfNotPresent(false);
         GlobalSettings.setProperty("x-disallow-additional-properties-if-not-present", "false");
 
-        // this may set datatype right for additional properties
-        instantiationTypes.put("map", "dict");
+        // this tells users what openapi types turn in to
+        instantiationTypes.put("object", "frozendict.frozendict");
+        instantiationTypes.put("array", "tuple");
+        instantiationTypes.put("string", "str");
+        instantiationTypes.put("number", "decimal.Decimal");
+        instantiationTypes.put("integer", "decimal.Decimal");
+        instantiationTypes.put("boolean", "schemas.BoolClass");
+        instantiationTypes.put("null", "schemas.NoneClass");
 
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
-        typeMapping.put("decimal", "str");
 
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
                 .stability(Stability.STABLE)
@@ -655,7 +714,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (generateModels) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
-        boolean generateApis = (boolean) additionalProperties().get(CodegenConstants.GENERATE_APIS);
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
@@ -716,7 +774,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // phone_number => PhoneNumber
         String camelizedName = camelize(nameWithPrefixSuffix);
 
-        String[] pathPieces = null;
+        String[] pathPieces;
         boolean isComponent = false;
         if (jsonPath != null) {
             pathPieces = jsonPath.split("/");

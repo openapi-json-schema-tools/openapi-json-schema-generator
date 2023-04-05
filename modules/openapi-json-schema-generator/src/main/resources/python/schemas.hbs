@@ -29,8 +29,7 @@ class Unset(object):
 
 unset = Unset()
 
-none_type = type(None)
-file_type = io.IOBase
+none_type_ = type(None)
 
 
 class FileIO(io.FileIO):
@@ -159,7 +158,7 @@ class Singleton:
         """
         key = (cls, arg_, str(arg_))
         if key not in cls._instances:
-            if isinstance(arg_, (none_type, bool, BoolClass, NoneClass)):
+            if isinstance(arg_, (none_type_, bool, BoolClass, NoneClass)):
                 inst = super().__new__(cls)
                 cls._instances[key] = inst
             else:
@@ -2127,7 +2126,7 @@ def cast_to_allowed_types(
                 for i, item in enumerate(arg)
             ]
         )
-    elif isinstance(arg, (none_type, NoneClass)):
+    elif isinstance(arg, (none_type_, NoneClass)):
         path_to_type[path_to_item] = NoneClass
         return NoneClass.NONE
     elif isinstance(arg, (datetime.date, datetime.datetime)):

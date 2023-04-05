@@ -138,7 +138,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
-                .includeGlobalFeatures(GlobalFeature.ParameterizedServer)
         );
 
         outputFolder = "generated-code" + File.separator + "java";
@@ -553,7 +552,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
         } else if (VERTX.equals(getLibrary())) {
             typeMapping.put("file", "AsyncFile");
-            importMapping.put("AsyncFile", "io.vertx.core.file.AsyncFile");
             forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
             supportingFiles.remove(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml"));
         } else if (GOOGLE_API_CLIENT.equals(getLibrary())) {
