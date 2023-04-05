@@ -212,9 +212,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
                 Arrays.asList(
-                        // local variable name used in API methods (endpoints)
-                        "all_params", "resource_path", "path_params", "query_params",
-                        "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
                         // @property
                         "property",
                         // python reserved words
@@ -224,7 +221,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
                         "False", "async", "await",
                         // types
-                        "float", "int", "str", "bool", "none_type", "dict", "frozendict", "list", "tuple", "file_type"));
+                        "float", "int", "str", "bool", "dict", "frozendict", "list", "tuple"));
 
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
