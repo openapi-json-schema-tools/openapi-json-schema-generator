@@ -41,7 +41,13 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 | Type/Alias | Instantiated By |
 | ---------- | --------------- |
-|map|dict|
+|array|tuple|
+|boolean|schemas.BoolClass|
+|integer|decimal.Decimal|
+|null|schemas.NoneClass|
+|number|decimal.Decimal|
+|object|frozendict.frozendict|
+|string|str|
 
 
 ## LANGUAGE PRIMITIVES

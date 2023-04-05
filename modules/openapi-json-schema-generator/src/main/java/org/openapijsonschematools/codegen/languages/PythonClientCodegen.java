@@ -299,12 +299,17 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         this.setDisallowAdditionalPropertiesIfNotPresent(false);
         GlobalSettings.setProperty("x-disallow-additional-properties-if-not-present", "false");
 
-        // this may set datatype right for additional properties
-        instantiationTypes.put("map", "dict");
+        // this tells users what openapi types turn in to
+        instantiationTypes.put("object", "frozendict.frozendict");
+        instantiationTypes.put("array", "tuple");
+        instantiationTypes.put("string", "str");
+        instantiationTypes.put("number", "decimal.Decimal");
+        instantiationTypes.put("integer", "decimal.Decimal");
+        instantiationTypes.put("boolean", "schemas.BoolClass");
+        instantiationTypes.put("null", "schemas.NoneClass");
 
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
-        typeMapping.put("decimal", "str");
 
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
                 .stability(Stability.STABLE)
