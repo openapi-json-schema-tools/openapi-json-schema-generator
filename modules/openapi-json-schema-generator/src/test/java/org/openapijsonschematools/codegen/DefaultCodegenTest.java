@@ -1809,32 +1809,6 @@ public class DefaultCodegenTest {
     }
 
     @Test
-    public void importMapping() {
-        DefaultCodegen codegen = new DefaultCodegen();
-        codegen.importMapping.put("TypeAlias", "foo.bar.TypeAlias");
-
-        OpenAPI openAPI = new OpenAPIParser()
-                .readLocation("src/test/resources/3_0/type-alias.yaml", null, new ParseOptions()).getOpenAPI();
-        codegen.setOpenAPI(openAPI);
-
-
-        codegen.fromSchema(
-                openAPI.getComponents().getSchemas().get("TypeAlias"),
-                "#/components/schemas/TypeAlias",
-                "#/components/schemas/TypeAlias"
-        );
-        CodegenSchema codegenModel = codegen.fromSchema(
-                openAPI.getComponents().getSchemas().get("ParentType"),
-                "#/components/schemas/ParentType",
-                "#/components/schemas/ParentType"
-        );
-
-        assertEquals(codegenModel.properties.size(), 1);
-        CodegenKey ck = codegen.getKey("typeAlias");
-        Assert.assertTrue(codegenModel.optionalProperties.get(ck).refInfo.ref.types.contains("string"));
-    }
-
-    @Test
     public void schemaMapping() {
         DefaultCodegen codegen = new DefaultCodegen();
         codegen.schemaMapping.put("TypeAlias", "foo.bar.TypeAlias");

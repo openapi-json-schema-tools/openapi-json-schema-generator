@@ -120,7 +120,7 @@ class ParameterSerializerBase:
             if percent_encode:
                 return parse.quote(str(in_data))
             return str(in_data)
-        elif isinstance(in_data, schemas.none_type):
+        elif isinstance(in_data, schemas.none_type_):
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return None
         elif isinstance(in_data, list) and not in_data:
@@ -237,7 +237,7 @@ class ParameterSerializerBase:
                 var_name_piece,
                 named_parameter_expansion
             )
-        elif isinstance(in_data, schemas.none_type):
+        elif isinstance(in_data, schemas.none_type_):
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return ""
         elif isinstance(in_data, list):

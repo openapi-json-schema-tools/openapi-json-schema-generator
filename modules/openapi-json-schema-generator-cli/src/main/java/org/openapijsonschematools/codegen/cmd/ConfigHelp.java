@@ -419,7 +419,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
                     .replaceAll("\n", System.lineSeparator() + optNestedIndent));
             sb.append(newline).append(newline);
         });
-        
+
         if (Boolean.TRUE.equals(schemaMappings)) {
             sb.append(newline).append("SCHEMA MAPPING").append(newline).append(newline);
             Map<String, String> map = config.schemaMapping()
