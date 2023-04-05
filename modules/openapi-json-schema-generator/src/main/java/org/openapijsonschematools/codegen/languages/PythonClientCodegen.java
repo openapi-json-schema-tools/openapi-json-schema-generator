@@ -182,8 +182,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
                 )
                 .includeGlobalFeatures(
-                        GlobalFeature.ParameterizedServer,
-                        GlobalFeature.ParameterStyling
+                        GlobalFeature.Info,
+                        GlobalFeature.Servers,
+                        GlobalFeature.Paths,
+                        GlobalFeature.Components,
+                        GlobalFeature.Security
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
@@ -192,11 +195,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         ComponentsFeature.requestBodies,
                         ComponentsFeature.headers,
                         ComponentsFeature.securitySchemes
-                )
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.Cookie

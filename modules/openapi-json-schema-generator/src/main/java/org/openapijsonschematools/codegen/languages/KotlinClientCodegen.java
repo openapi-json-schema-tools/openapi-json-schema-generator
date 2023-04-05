@@ -151,12 +151,6 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                         SecurityFeature.OAuth2_ClientCredentials,
                         SecurityFeature.OAuth2_Implicit
                 )
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects,
-                        GlobalFeature.ParameterStyling
-                )
                 .excludeSchemaSupportFeatures(
                         SchemaSupportFeature.not
                 )

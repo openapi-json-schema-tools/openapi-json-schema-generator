@@ -138,7 +138,6 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
-                .includeGlobalFeatures(GlobalFeature.ParameterizedServer)
         );
 
         outputFolder = "generated-code" + File.separator + "java";

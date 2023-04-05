@@ -139,10 +139,8 @@ public class DefaultCodegen implements CodegenConfig {
                         ComponentsFeature.schemas
                 )
                 .includeGlobalFeatures(
-                        GlobalFeature.Host, GlobalFeature.BasePath, GlobalFeature.Info, GlobalFeature.PartialSchemes,
-                        GlobalFeature.Consumes, GlobalFeature.Produces, GlobalFeature.ExternalDocumentation, GlobalFeature.Examples,
-                        GlobalFeature.Callbacks
-                        // TODO: xml structures, styles, link objects, parameterized servers, full schemes for OAS 2.0
+                        GlobalFeature.Info,
+                        GlobalFeature.Components
                 )
                 .includeSchemaSupportFeatures(
                         SchemaSupportFeature.discriminator, SchemaSupportFeature.enumKeyword,

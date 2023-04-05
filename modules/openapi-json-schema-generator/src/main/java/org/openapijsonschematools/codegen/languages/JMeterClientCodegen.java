@@ -86,12 +86,6 @@ public class JMeterClientCodegen extends DefaultCodegen implements CodegenConfig
                         SecurityFeature.ApiKey,
                         SecurityFeature.OAuth2_Implicit
                 ))
-                .excludeGlobalFeatures(
-                        GlobalFeature.XMLStructureDefinitions,
-                        GlobalFeature.Callbacks,
-                        GlobalFeature.LinkObjects,
-                        GlobalFeature.ParameterStyling
-                )
                 .excludeSchemaSupportFeatures(
                         SchemaSupportFeature.not
                 )
