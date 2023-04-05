@@ -3,9 +3,9 @@ petstore_api.paths.fake.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| group_parameters | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| delete | ApiForDelete | This api is only for this endpoint
-| delete | Fake | This api is only for path=/fake
+| group_parameters | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| delete | ApiForDelete | This api is only for this endpoint |
+| delete | Fake | This api is only for path=/fake |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -133,7 +133,7 @@ str | str |  | must be one of ["true", "false"]
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Security
 
@@ -147,7 +147,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["bearer_test"](../../../components/security_schemes/security_scheme_bearer_test.md) []<br> |
+| 0       | ["bearer_test"](../../components/security_schemes/security_scheme_bearer_test.md) []<br> |
 
 ## Servers
 
@@ -230,4 +230,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

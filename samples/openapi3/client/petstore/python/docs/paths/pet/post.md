@@ -3,9 +3,9 @@ petstore_api.paths.pet.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| add_pet | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| post | ApiForPost | This api is only for this endpoint
-| post | Pet | This api is only for path=/pet
+| add_pet | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| post | ApiForPost | This api is only for this endpoint |
+| post | Pet | This api is only for path=/pet |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -27,7 +27,7 @@ petstore_api.paths.pet.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -39,7 +39,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 405 | [ResponseFor405.response_cls](#responsefor405-response_cls) | Invalid input
 
 ## ResponseFor405
@@ -66,9 +66,9 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
-| 1       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
-| 2       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["http_signature_test"](../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 2       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -176,4 +176,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

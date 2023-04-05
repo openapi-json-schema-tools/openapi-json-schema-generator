@@ -3,9 +3,9 @@ petstore_api.paths.user_login.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| login_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user
-| get | ApiForGet | This api is only for this endpoint
-| get | UserLogin | This api is only for path=/user/login
+| login_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user |
+| get | ApiForGet | This api is only for this endpoint |
+| get | UserLogin | This api is only for path=/user/login |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -203,4 +203,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to UserApi API]](../../apis/tags/user_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

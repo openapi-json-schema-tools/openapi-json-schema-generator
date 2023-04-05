@@ -3,9 +3,9 @@ petstore_api.paths.user_logout.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| logout_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user
-| get | ApiForGet | This api is only for this endpoint
-| get | UserLogout | This api is only for path=/user/logout
+| logout_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user |
+| get | ApiForGet | This api is only for this endpoint |
+| get | UserLogout | This api is only for path=/user/logout |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -35,7 +35,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [RefSuccessDescriptionOnly.response_cls](../../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
+default | [RefSuccessDescriptionOnly.response_cls](../../components/responses/response_ref_success_description_only.md#response_ref_success_description_onlyresponse_cls) | Success
 
 ## Servers
 
@@ -76,4 +76,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to UserApi API]](../../apis/tags/user_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

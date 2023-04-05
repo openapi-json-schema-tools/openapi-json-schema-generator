@@ -3,9 +3,9 @@ petstore_api.paths.fake.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| client_model | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| patch | ApiForPatch | This api is only for this endpoint
-| patch | Fake | This api is only for path=/fake
+| client_model | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| patch | ApiForPatch | This api is only for this endpoint |
+| patch | Fake | This api is only for path=/fake |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -26,7 +26,7 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -64,7 +64,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Client](../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -110,4 +110,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

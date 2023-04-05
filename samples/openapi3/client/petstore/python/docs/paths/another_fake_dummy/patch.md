@@ -3,9 +3,9 @@ petstore_api.paths.another_fake_dummy.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| call_123_test__special_tags | [AnotherFakeApi](../../apis/tags/another_fake_api.md) | This api is only for tag=$another-fake?
-| patch | ApiForPatch | This api is only for this endpoint
-| patch | AnotherFakeDummy | This api is only for path=/another-fake/dummy
+| call_123_test__special_tags | [AnotherFakeApi](../../apis/tags/another_fake_api.md) | This api is only for tag=$another-fake? |
+| patch | ApiForPatch | This api is only for this endpoint |
+| patch | AnotherFakeDummy | This api is only for path=/another-fake/dummy |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -26,7 +26,7 @@ petstore_api.paths.another_fake_dummy.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -64,7 +64,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Client](../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -110,4 +110,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to AnotherFakeApi API]](../../apis/tags/another_fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

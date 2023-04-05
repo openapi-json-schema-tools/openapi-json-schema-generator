@@ -3,9 +3,9 @@ petstore_api.paths.fake_inline_additional_properties.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| inline_additional_properties | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeInlineAdditionalProperties | This api is only for path=/fake/inline-additionalProperties
+| inline_additional_properties | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeInlineAdditionalProperties | This api is only for path=/fake/inline-additionalProperties |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -59,7 +59,7 @@ Key | Input Type | Accessed Type | Description | Notes
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Servers
 
@@ -105,4 +105,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

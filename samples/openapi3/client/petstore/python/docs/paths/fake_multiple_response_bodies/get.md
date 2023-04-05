@@ -3,9 +3,9 @@ petstore_api.paths.fake_multiple_response_bodies.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| multiple_response_bodies | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeMultipleResponseBodies | This api is only for path=/fake/multipleResponseBodies
+| multiple_response_bodies | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeMultipleResponseBodies | This api is only for path=/fake/multipleResponseBodies |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -128,4 +128,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

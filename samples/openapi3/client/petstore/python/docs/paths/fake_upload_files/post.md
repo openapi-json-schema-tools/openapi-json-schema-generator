@@ -3,9 +3,9 @@ petstore_api.paths.fake_upload_files.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| upload_files | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeUploadFiles | This api is only for path=/fake/uploadFiles
+| upload_files | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeUploadFiles | This api is only for path=/fake/uploadFiles |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -95,7 +95,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ApiResponse](../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -143,4 +143,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

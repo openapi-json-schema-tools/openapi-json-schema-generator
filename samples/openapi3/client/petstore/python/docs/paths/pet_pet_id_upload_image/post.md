@@ -3,9 +3,9 @@ petstore_api.paths.pet_pet_id_upload_image.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| upload_image | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| post | ApiForPost | This api is only for this endpoint
-| post | PetPetIdUploadImage | This api is only for path=/pet/{petId}/uploadImage
+| upload_image | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| post | ApiForPost | This api is only for this endpoint |
+| post | PetPetIdUploadImage | This api is only for path=/pet/{petId}/uploadImage |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -82,7 +82,7 @@ decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessWithJsonApiResponse.response_cls](../../../components/responses/response_success_with_json_api_response.md#response_success_with_json_api_responseresponse_cls) | successful operation
+200 | [SuccessWithJsonApiResponse.response_cls](../../components/responses/response_success_with_json_api_response.md#response_success_with_json_api_responseresponse_cls) | successful operation
 
 ## Security
 
@@ -96,7 +96,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -170,4 +170,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

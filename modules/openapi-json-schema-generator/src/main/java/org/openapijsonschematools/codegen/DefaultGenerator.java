@@ -473,7 +473,7 @@ public class DefaultGenerator implements Generator {
                 endpointInfo.put("packageName", config.packageName());
                 endpointInfo.put("apiPackage", config.apiPackage());
                 endpointInfo.put("headerSize", "#");
-                endpointInfo.put("complexTypePrefix", "../../../components/schema/");
+                endpointInfo.put("complexTypePrefix", "../../components/schema/");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                 endpointInfo.put("identifierToHeadingQty", new HashMap<>());
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);

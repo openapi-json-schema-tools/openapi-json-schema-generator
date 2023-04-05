@@ -3,9 +3,9 @@ petstore_api.paths.fake_parameter_collisions1_abab_self_ab.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| parameter_collisions | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeParameterCollisions1ABAbSelfAB | This api is only for path=/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/
+| parameter_collisions | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeParameterCollisions1ABAbSelfAB | This api is only for path=/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -404,4 +404,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

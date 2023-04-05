@@ -3,9 +3,9 @@ petstore_api.paths.fake_response_without_schema.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| response_without_schema | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeResponseWithoutSchema | This api is only for path=/fake/responseWithoutSchema
+| response_without_schema | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeResponseWithoutSchema | This api is only for path=/fake/responseWithoutSchema |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -95,4 +95,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

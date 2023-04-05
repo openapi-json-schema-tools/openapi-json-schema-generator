@@ -3,9 +3,9 @@ petstore_api.paths.store_order.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| place_order | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store
-| post | ApiForPost | This api is only for this endpoint
-| post | StoreOrder | This api is only for path=/store/order
+| place_order | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store |
+| post | ApiForPost | This api is only for this endpoint |
+| post | StoreOrder | This api is only for path=/store/order |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
@@ -82,13 +82,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## ResponseFor400
 
@@ -151,4 +151,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to StoreApi API]](../../apis/tags/store_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

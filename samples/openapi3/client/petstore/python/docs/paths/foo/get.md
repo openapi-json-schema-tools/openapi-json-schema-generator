@@ -3,9 +3,9 @@ petstore_api.paths.foo.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| foo_get | [DefaultApi](../../apis/tags/default_api.md) | This api is only for tag=default
-| get | ApiForGet | This api is only for this endpoint
-| get | Foo | This api is only for path=/foo
+| foo_get | [DefaultApi](../../apis/tags/default_api.md) | This api is only for tag=default |
+| get | ApiForGet | This api is only for this endpoint |
+| get | Foo | This api is only for path=/foo |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -65,7 +65,7 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**string** | [**Foo**](../../../components/schema/foo.md), dict, frozendict.frozendict | [**Foo**](../../../components/schema/foo.md) |  | [optional]
+**string** | [**Foo**](../../components/schema/foo.md), dict, frozendict.frozendict | [**Foo**](../../components/schema/foo.md) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Servers
@@ -120,4 +120,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to DefaultApi API]](../../apis/tags/default_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

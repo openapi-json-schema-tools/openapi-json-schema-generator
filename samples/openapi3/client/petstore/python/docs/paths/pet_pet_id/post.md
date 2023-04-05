@@ -3,9 +3,9 @@ petstore_api.paths.pet_pet_id.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| update_pet_with_form | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| post | ApiForPost | This api is only for this endpoint
-| post | PetPetId | This api is only for path=/pet/{petId}
+| update_pet_with_form | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| post | ApiForPost | This api is only for this endpoint |
+| post | PetPetId | This api is only for path=/pet/{petId} |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -107,8 +107,8 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
-| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 1       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -192,4 +192,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

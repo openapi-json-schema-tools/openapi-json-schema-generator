@@ -3,9 +3,9 @@ petstore_api.paths.fake_query_param_with_json_content_type.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| query_param_with_json_content_type | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeQueryParamWithJsonContentType | This api is only for path=/fake/queryParamWithJsonContentType
+| query_param_with_json_content_type | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeQueryParamWithJsonContentType | This api is only for path=/fake/queryParamWithJsonContentType |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -133,4 +133,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

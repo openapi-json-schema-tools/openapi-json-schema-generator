@@ -3,9 +3,9 @@ petstore_api.paths.fake_multiple_securities.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| multiple_securities | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeMultipleSecurities | This api is only for path=/fake/multipleSecurities
+| multiple_securities | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeMultipleSecurities | This api is only for path=/fake/multipleSecurities |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -77,8 +77,8 @@ See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
 | 0       | no security |
-| 1       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
-| 2       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 1       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 2       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -149,4 +149,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

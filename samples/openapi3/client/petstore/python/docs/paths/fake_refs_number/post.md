@@ -3,9 +3,9 @@ petstore_api.paths.fake_refs_number.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| number_with_validations | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeRefsNumber | This api is only for path=/fake/refs/number
+| number_with_validations | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeRefsNumber | This api is only for path=/fake/refs/number |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
+[NumberWithValidations](../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
+[NumberWithValidations](../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
 
 ## Servers
 
@@ -123,4 +123,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

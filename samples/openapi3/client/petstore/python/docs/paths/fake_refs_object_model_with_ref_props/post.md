@@ -3,9 +3,9 @@ petstore_api.paths.fake_refs_object_model_with_ref_props.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| object_model_with_ref_props | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeRefsObjectModelWithRefProps | This api is only for path=/fake/refs/object_model_with_ref_props
+| object_model_with_ref_props | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeRefsObjectModelWithRefProps | This api is only for path=/fake/refs/object_model_with_ref_props |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectModelWithRefProps](../../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -127,4 +127,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

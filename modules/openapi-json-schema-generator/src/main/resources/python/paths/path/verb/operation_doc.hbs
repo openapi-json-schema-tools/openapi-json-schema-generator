@@ -5,10 +5,10 @@
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
     {{#each tags}}
-| {{../operationId.snakeCase}} | [{{className}}](../../apis/tags/{{moduleName}}.md) | This api is only for tag={{{name}}}
+| {{../operationId.snakeCase}} | [{{className}}](../../apis/tags/{{moduleName}}.md) | This api is only for tag={{{name}}} |
     {{/each}}
-| {{httpMethod.original}} | ApiFor{{httpMethod.camelCase}} | This api is only for this endpoint
-| {{httpMethod.original}} | {{path.camelCase}} | This api is only for path={{{path.original}}}
+| {{httpMethod.original}} | ApiFor{{httpMethod.camelCase}} | This api is only for this endpoint |
+| {{httpMethod.original}} | {{path.camelCase}} | This api is only for path={{{path.original}}} |
 
 {{headerSize}}# Table of Contents
 - [General Info](#general-info)
@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
         {{#if refInfo}}
             {{#with getDeepestRef}}
                 {{#if required}}
-[**body**](../../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+[**body**](../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
                 {{else}}
-[**body**](../../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
+[**body**](../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
                 {{/if}}
             {{/with}}
         {{else}}
@@ -122,7 +122,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 {{#if defaultResponse}}
     {{#with defaultResponse}}
         {{#if refInfo}}
-default | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
+default | [{{refInfo.refClass}}.response_cls](../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
         {{else}}
 default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
         {{/if}}
@@ -130,7 +130,7 @@ default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiec
 {{/if}}
 {{#each nonDefaultResponses}}
     {{#if refInfo}}
-{{@key}} | [{{refInfo.refClass}}.response_cls](../../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
+{{@key}} | [{{refInfo.refClass}}.response_cls](../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
     {{else}}
 {{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
     {{/if}}
@@ -157,7 +157,7 @@ See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
         {{#each security}}
-| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
         {{/each}}
     {{/gt}}
 {{else}}
@@ -177,7 +177,7 @@ See how to do this in the code sample.
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
             {{#each ../security}}
-| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](../../components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
             {{/each}}
         {{/gt}}
     {{/neq}}
@@ -248,5 +248,5 @@ server_index | Class | Description
     {{#each tags}}
 [[Back to {{className}} API]](../../apis/tags/{{moduleName}}.md)
     {{/each}}
-{{> _helper_footer_links readmePath="../../../../" endpointsLink=true}}
+{{> _helper_footer_links readmePath="../../../" endpointsLink=true}}
 {{/with}}

@@ -3,9 +3,9 @@ petstore_api.paths.fake_body_with_file_schema.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| body_with_file_schema | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| put | ApiForPut | This api is only for this endpoint
-| put | FakeBodyWithFileSchema | This api is only for path=/fake/body-with-file-schema
+| body_with_file_schema | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| put | ApiForPut | This api is only for this endpoint |
+| put | FakeBodyWithFileSchema | This api is only for path=/fake/body-with-file-schema |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -44,14 +44,14 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[FileSchemaTestClass](../../../components/schema/file_schema_test_class.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[FileSchemaTestClass](../../components/schema/file_schema_test_class.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Servers
 
@@ -101,4 +101,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

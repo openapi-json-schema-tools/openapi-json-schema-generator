@@ -3,9 +3,9 @@ petstore_api.paths.fake_classname_test.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| classname | [FakeClassnameTags123Api](../../apis/tags/fake_classname_tags123_api.md) | This api is only for tag=fake_classname_tags 123#$%^
-| patch | ApiForPatch | This api is only for this endpoint
-| patch | FakeClassnameTest | This api is only for path=/fake_classname_test
+| classname | [FakeClassnameTags123Api](../../apis/tags/fake_classname_tags123_api.md) | This api is only for tag=fake_classname_tags 123#$%^ |
+| patch | ApiForPatch | This api is only for this endpoint |
+| patch | FakeClassnameTest | This api is only for path=/fake_classname_test |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -27,7 +27,7 @@ petstore_api.paths.fake_classname_test.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
@@ -65,7 +65,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Client](../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Security
 
@@ -79,7 +79,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["api_key_query"](../../../components/security_schemes/security_scheme_api_key_query.md) []<br> |
+| 0       | ["api_key_query"](../../components/security_schemes/security_scheme_api_key_query.md) []<br> |
 
 ## Servers
 
@@ -136,4 +136,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeClassnameTags123Api API]](../../apis/tags/fake_classname_tags123_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

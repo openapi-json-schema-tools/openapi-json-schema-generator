@@ -3,9 +3,9 @@ petstore_api.paths.store_inventory.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| get_inventory | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store
-| get | ApiForGet | This api is only for this endpoint
-| get | StoreInventory | This api is only for path=/store/inventory
+| get_inventory | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store |
+| get | ApiForGet | This api is only for this endpoint |
+| get | StoreInventory | This api is only for path=/store/inventory |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -38,7 +38,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessInlineContentAndHeader.response_cls](../../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
+200 | [SuccessInlineContentAndHeader.response_cls](../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
 
 ## Security
 
@@ -52,7 +52,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["api_key"](../../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 0       | ["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
 
 ## Servers
 
@@ -104,4 +104,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to StoreApi API]](../../apis/tags/store_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

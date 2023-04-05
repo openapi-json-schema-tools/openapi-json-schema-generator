@@ -3,9 +3,9 @@ petstore_api.paths.store_order_order_id.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| get_order_by_id | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store
-| get | ApiForGet | This api is only for this endpoint
-| get | StoreOrderOrderId | This api is only for path=/store/order/{order_id}
+| get_order_by_id | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store |
+| get | ApiForGet | This api is only for this endpoint |
+| get | StoreOrderOrderId | This api is only for path=/store/order/{order_id} |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -87,13 +87,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## ResponseFor400
 
@@ -163,4 +163,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to StoreApi API]](../../apis/tags/store_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

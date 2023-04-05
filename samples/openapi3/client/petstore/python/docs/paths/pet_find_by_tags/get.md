@@ -3,9 +3,9 @@ petstore_api.paths.pet_find_by_tags.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| find_pets_by_tags | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| get | ApiForGet | This api is only for this endpoint
-| get | PetFindByTags | This api is only for path=/pet/findByTags
+| find_pets_by_tags | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| get | ApiForGet | This api is only for this endpoint |
+| get | PetFindByTags | This api is only for path=/pet/findByTags |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -64,7 +64,7 @@ items | str | str |  |
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
+200 | [RefSuccessfulXmlAndJsonArrayOfPet.response_cls](../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#response_ref_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
 400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid tag value
 
 ## ResponseFor400
@@ -91,8 +91,8 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
-| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["http_signature_test"](../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 1       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -177,4 +177,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

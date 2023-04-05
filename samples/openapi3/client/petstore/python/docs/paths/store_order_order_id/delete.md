@@ -3,9 +3,9 @@ petstore_api.paths.store_order_order_id.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| delete_order | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store
-| delete | ApiForDelete | This api is only for this endpoint
-| delete | StoreOrderOrderId | This api is only for path=/store/order/{order_id}
+| delete_order | [StoreApi](../../apis/tags/store_api.md) | This api is only for tag=store |
+| delete | ApiForDelete | This api is only for this endpoint |
+| delete | StoreOrderOrderId | This api is only for path=/store/order/{order_id} |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -129,4 +129,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to StoreApi API]](../../apis/tags/store_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

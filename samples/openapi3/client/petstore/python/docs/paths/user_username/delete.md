@@ -3,9 +3,9 @@ petstore_api.paths.user_username.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| delete_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user
-| delete | ApiForDelete | This api is only for this endpoint
-| delete | UserUsername | This api is only for path=/user/{username}
+| delete_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user |
+| delete | ApiForDelete | This api is only for this endpoint |
+| delete | UserUsername | This api is only for path=/user/{username} |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -46,7 +46,7 @@ username | [RefPathUserName.schema](../../../components/parameters/parameter_ref
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
 
 ## ResponseFor404
@@ -105,4 +105,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to UserApi API]](../../apis/tags/user_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

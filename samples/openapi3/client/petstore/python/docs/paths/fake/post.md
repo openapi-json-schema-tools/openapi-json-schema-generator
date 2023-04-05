@@ -3,9 +3,9 @@ petstore_api.paths.fake.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| endpoint_parameters | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | Fake | This api is only for path=/fake
+| endpoint_parameters | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | Fake | This api is only for path=/fake |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -72,7 +72,7 @@ Key | Input Type | Accessed Type | Description | Notes
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
 
 ## ResponseFor404
@@ -99,7 +99,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["http_basic_test"](../../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
+| 0       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 
 ## Servers
 
@@ -170,4 +170,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

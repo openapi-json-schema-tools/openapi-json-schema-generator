@@ -3,9 +3,9 @@ petstore_api.paths.fake_inline_composition.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| inline_composition | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeInlineComposition | This api is only for path=/fake/inlineComposition/
+| inline_composition | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeInlineComposition | This api is only for path=/fake/inlineComposition/ |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -292,4 +292,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

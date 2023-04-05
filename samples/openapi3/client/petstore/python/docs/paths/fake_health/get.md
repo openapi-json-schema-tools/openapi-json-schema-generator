@@ -3,9 +3,9 @@ petstore_api.paths.fake_health.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| fake_health_get | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeHealth | This api is only for path=/fake/health
+| fake_health_get | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeHealth | This api is only for path=/fake/health |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -61,7 +61,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../../components/schema/health_check_result.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[HealthCheckResult](../../components/schema/health_check_result.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -102,4 +102,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

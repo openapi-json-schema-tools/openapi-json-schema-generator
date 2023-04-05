@@ -3,9 +3,9 @@ petstore_api.paths.fake_delete_coffee_id.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| delete_coffee | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| delete | ApiForDelete | This api is only for this endpoint
-| delete | FakeDeleteCoffeeId | This api is only for path=/fake/deleteCoffee/{id}
+| delete_coffee | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| delete | ApiForDelete | This api is only for this endpoint |
+| delete | FakeDeleteCoffeeId | This api is only for path=/fake/deleteCoffee/{id} |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -59,7 +59,7 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 default | [Default.response_cls](#default-response_cls) | Unexpected error
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Default
 
@@ -117,4 +117,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

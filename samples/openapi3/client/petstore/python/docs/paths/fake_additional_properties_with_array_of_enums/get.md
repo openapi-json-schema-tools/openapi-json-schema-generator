@@ -3,9 +3,9 @@ petstore_api.paths.fake_additional_properties_with_array_of_enums.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| additional_properties_with_array_of_enums | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| get | ApiForGet | This api is only for this endpoint
-| get | FakeAdditionalPropertiesWithArrayOfEnums | This api is only for path=/fake/additional-properties-with-array-of-enums
+| additional_properties_with_array_of_enums | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| get | ApiForGet | This api is only for this endpoint |
+| get | FakeAdditionalPropertiesWithArrayOfEnums | This api is only for path=/fake/additional-properties-with-array-of-enums |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Servers
 
@@ -128,4 +128,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

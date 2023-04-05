@@ -3,9 +3,9 @@ petstore_api.paths.pet.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| update_pet | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| put | ApiForPut | This api is only for this endpoint
-| put | Pet | This api is only for path=/pet
+| update_pet | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| put | ApiForPut | This api is only for this endpoint |
+| put | Pet | This api is only for path=/pet |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -26,7 +26,7 @@ petstore_api.paths.pet.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -90,8 +90,8 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["http_signature_test"](../../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
-| 1       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["http_signature_test"](../../components/security_schemes/security_scheme_http_signature_test.md) []<br> |
+| 1       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -189,4 +189,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

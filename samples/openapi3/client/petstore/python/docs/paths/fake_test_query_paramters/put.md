@@ -3,9 +3,9 @@ petstore_api.paths.fake_test_query_paramters.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| query_parameter_collection_format | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| put | ApiForPut | This api is only for this endpoint
-| put | FakeTestQueryParamters | This api is only for path=/fake/test-query-paramters
+| query_parameter_collection_format | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| put | ApiForPut | This api is only for this endpoint |
+| put | FakeTestQueryParamters | This api is only for path=/fake/test-query-paramters |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -122,14 +122,14 @@ items | str | str |  |
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[StringWithValidation](../../../components/schema/string_with_validation.md) | str | str |
+[StringWithValidation](../../components/schema/string_with_validation.md) | str | str |
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Servers
 
@@ -189,4 +189,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

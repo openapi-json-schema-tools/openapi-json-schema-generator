@@ -3,9 +3,9 @@ petstore_api.paths.user.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| create_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user
-| post | ApiForPost | This api is only for this endpoint
-| post | User | This api is only for path=/user
+| create_user | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user |
+| post | ApiForPost | This api is only for this endpoint |
+| post | User | This api is only for path=/user |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[User](../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Return Types
 
@@ -125,4 +125,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to UserApi API]](../../apis/tags/user_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

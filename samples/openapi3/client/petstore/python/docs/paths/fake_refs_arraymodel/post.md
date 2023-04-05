@@ -3,9 +3,9 @@ petstore_api.paths.fake_refs_arraymodel.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| array_model | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| post | ApiForPost | This api is only for this endpoint
-| post | FakeRefsArraymodel | This api is only for path=/fake/refs/arraymodel
+| array_model | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakeRefsArraymodel | This api is only for path=/fake/refs/arraymodel |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AnimalFarm](../../../components/schema/animal_farm.md) | list, tuple | tuple |
+[AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AnimalFarm](../../../components/schema/animal_farm.md) | list, tuple | tuple |
+[AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |
 
 ## Servers
 
@@ -125,4 +125,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

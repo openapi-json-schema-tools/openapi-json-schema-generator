@@ -3,9 +3,9 @@ petstore_api.paths.user_create_with_list.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| create_users_with_list_input | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user
-| post | ApiForPost | This api is only for this endpoint
-| post | UserCreateWithList | This api is only for path=/user/createWithList
+| create_users_with_list_input | [UserApi](../../apis/tags/user_api.md) | This api is only for tag=user |
+| post | ApiForPost | This api is only for this endpoint |
+| post | UserCreateWithList | This api is only for path=/user/createWithList |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -25,7 +25,7 @@ petstore_api.paths.user_create_with_list.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[[RefUserArray.content.application_json.schema](../../../components/request_bodies/request_body_ref_user_array.md#content-applicationjson-schema), list, tuple] | required |
+[**body**](../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[[RefUserArray.content.application_json.schema](../../components/request_bodies/request_body_ref_user_array.md#content-applicationjson-schema), list, tuple] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -109,4 +109,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to UserApi API]](../../apis/tags/user_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

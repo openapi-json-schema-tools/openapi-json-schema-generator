@@ -3,9 +3,9 @@ petstore_api.paths.fake_pet_id_upload_image_with_required_file.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| upload_file_with_required_file | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet
-| post | ApiForPost | This api is only for this endpoint
-| post | FakePetIdUploadImageWithRequiredFile | This api is only for path=/fake/{petId}/uploadImageWithRequiredFile
+| upload_file_with_required_file | [PetApi](../../apis/tags/pet_api.md) | This api is only for tag=pet |
+| post | ApiForPost | This api is only for this endpoint |
+| post | FakePetIdUploadImageWithRequiredFile | This api is only for path=/fake/{petId}/uploadImageWithRequiredFile |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -107,7 +107,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ApiResponse](../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ## Security
 
@@ -121,7 +121,7 @@ See how to do this in the code sample.
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["petstore_auth"](../../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
+| 0       | ["petstore_auth"](../../components/security_schemes/security_scheme_petstore_auth.md) [write:pets, read:pets]<br> |
 
 ## Servers
 
@@ -195,4 +195,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to PetApi API]](../../apis/tags/pet_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

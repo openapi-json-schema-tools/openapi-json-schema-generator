@@ -3,9 +3,9 @@ petstore_api.paths.fake_body_with_query_params.operation
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| body_with_query_params | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake
-| put | ApiForPut | This api is only for this endpoint
-| put | FakeBodyWithQueryParams | This api is only for path=/fake/body-with-query-params
+| body_with_query_params | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
+| put | ApiForPut | This api is only for this endpoint |
+| put | FakeBodyWithQueryParams | This api is only for path=/fake/body-with-query-params |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -44,7 +44,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[User](../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -69,7 +69,7 @@ str | str |  |
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
 
 ## Servers
 
@@ -130,4 +130,4 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to FakeApi API]](../../apis/tags/fake_api.md)
-[[Back to Endpoints]](../../../../README.md#Endpoints) [[Back to README]](../../../../README.md)
+[[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
