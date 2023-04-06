@@ -99,6 +99,7 @@ invalid python variable names. Names like:
 - "1variable"
 - "@now"
 - " "
+- "from"
 To allow these use cases to work, frozendict.frozendict is used as the base class of type object schemas.
 This means that one can use normal dict methods on instances of these classes.
 - optional properties which were not set will not exist in the instance
