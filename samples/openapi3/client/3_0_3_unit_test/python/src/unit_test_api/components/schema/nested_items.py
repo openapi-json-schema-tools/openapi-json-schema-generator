@@ -75,7 +75,7 @@ class NestedItems(
                                     ],
                                 ],
                                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            ) -> 'Items':
+                            ) -> 'NestedItems.Schema_.Items.Schema_.Items.Schema_.Items':
                                 return super().__new__(
                                     cls,
                                     arg_,
@@ -96,7 +96,7 @@ class NestedItems(
                             ],
                         ],
                         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    ) -> 'Items':
+                    ) -> 'NestedItems.Schema_.Items.Schema_.Items':
                         return super().__new__(
                             cls,
                             arg_,
@@ -117,7 +117,7 @@ class NestedItems(
                     ],
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-            ) -> 'Items':
+            ) -> 'NestedItems.Schema_.Items':
                 return super().__new__(
                     cls,
                     arg_,

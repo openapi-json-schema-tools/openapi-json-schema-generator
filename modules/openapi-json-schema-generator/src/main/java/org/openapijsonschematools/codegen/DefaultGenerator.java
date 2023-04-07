@@ -384,6 +384,7 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", config.packageName());
         schemaData.put("schema", schema);
+        schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         schemaData.putAll(config.additionalProperties());
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODELS, schemaData, generateModels);
     }
@@ -475,7 +476,6 @@ public class DefaultGenerator implements Generator {
                 endpointInfo.put("headerSize", "#");
                 endpointInfo.put("complexTypePrefix", "../../components/schema/");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                endpointInfo.put("identifierToHeadingQty", new HashMap<>());
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
 
                 // paths.some_path.security.security_requirement_0.py
@@ -671,7 +671,6 @@ public class DefaultGenerator implements Generator {
             templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("identifierToHeadingQty", new HashMap<>());
             templateData.put("response", response);
             // TODO make this a property that can be turned off and on
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
@@ -723,7 +722,6 @@ public class DefaultGenerator implements Generator {
             templateData.put("securityScheme", securityScheme);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("identifierToHeadingQty", new HashMap<>());
             templateData.put("complexTypePrefix", "../../components/schema/");
             // TODO add a flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME, CodegenConstants.SECURITY_SCHEME_DOCS, templateData, true);
@@ -757,7 +755,6 @@ public class DefaultGenerator implements Generator {
             templateData.put("requestBody", requestBody);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("identifierToHeadingQty", new HashMap<>());
             templateData.put("complexTypePrefix", "../../components/schema/");
             // todo add flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
@@ -807,7 +804,6 @@ public class DefaultGenerator implements Generator {
             templateData.put("parameter", parameter);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("identifierToHeadingQty", new HashMap<>());
             templateData.put("complexTypePrefix", "../../components/schema/");
             // todo add flag to turn this off
             generateXDocs(files, parameterJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER, CodegenConstants.PARAMETER_DOCS, templateData, true);
@@ -921,7 +917,6 @@ public class DefaultGenerator implements Generator {
             templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("docRoot", "../../");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("identifierToHeadingQty", new HashMap<>());
             // TODO add flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER, CodegenConstants.HEADER_DOCS, templateData, true);
         }
@@ -999,7 +994,6 @@ public class DefaultGenerator implements Generator {
                 // to generate model documentation files
                 if (generateModelDocumentation) {
                     schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                    schemaData.put("identifierToHeadingQty", new HashMap<>());
                     generateSchemaDocumentation(files, schemaData, jsonPath);
                 }
 
@@ -1338,7 +1332,6 @@ public class DefaultGenerator implements Generator {
             if (server.rootServer) {
                 templateData.put("headerSize", "#");
                 templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                templateData.put("identifierToHeadingQty", new HashMap<>());
                 generateXDocs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
             }
             i++;

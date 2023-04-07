@@ -68,7 +68,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> '_9':
+                ) -> 'ComposedAnyOfDifferentTypesNoValidations.Schema_.AnyOf._9':
                     return super().__new__(
                         cls,
                         arg_,

@@ -65,7 +65,7 @@ class FileSchemaTestClass(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'Files':
+                ) -> 'FileSchemaTestClass.Schema_.Properties.Files':
                     return super().__new__(
                         cls,
                         arg_,

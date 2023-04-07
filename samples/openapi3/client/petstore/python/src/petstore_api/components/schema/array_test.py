@@ -59,7 +59,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayOfString':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayOfString':
                     return super().__new__(
                         cls,
                         arg_,
@@ -99,7 +99,7 @@ class ArrayTest(
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> 'Items':
+                        ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items':
                             return super().__new__(
                                 cls,
                                 arg_,
@@ -120,7 +120,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayArrayOfInteger':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfInteger':
                     return super().__new__(
                         cls,
                         arg_,
@@ -163,7 +163,7 @@ class ArrayTest(
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> 'Items':
+                        ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items':
                             return super().__new__(
                                 cls,
                                 arg_,
@@ -184,7 +184,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayArrayOfModel':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfModel':
                     return super().__new__(
                         cls,
                         arg_,

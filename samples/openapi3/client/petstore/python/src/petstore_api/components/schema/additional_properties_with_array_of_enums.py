@@ -60,7 +60,7 @@ class AdditionalPropertiesWithArrayOfEnums(
                     ],
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-            ) -> 'AdditionalProperties':
+            ) -> 'AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties':
                 return super().__new__(
                     cls,
                     arg_,

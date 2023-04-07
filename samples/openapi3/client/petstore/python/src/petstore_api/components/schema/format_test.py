@@ -141,7 +141,7 @@ class FormatTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayWithUniqueItems':
+                ) -> 'FormatTest.Schema_.Properties.ArrayWithUniqueItems':
                     return super().__new__(
                         cls,
                         arg_,

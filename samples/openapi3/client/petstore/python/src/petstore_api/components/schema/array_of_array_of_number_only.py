@@ -68,7 +68,7 @@ class ArrayOfArrayOfNumberOnly(
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> 'Items':
+                        ) -> 'ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber.Schema_.Items':
                             return super().__new__(
                                 cls,
                                 arg_,
@@ -89,7 +89,7 @@ class ArrayOfArrayOfNumberOnly(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayArrayNumber':
+                ) -> 'ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber':
                     return super().__new__(
                         cls,
                         arg_,

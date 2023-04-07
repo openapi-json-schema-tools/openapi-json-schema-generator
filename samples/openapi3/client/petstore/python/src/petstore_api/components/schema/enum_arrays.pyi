@@ -83,7 +83,7 @@ class EnumArrays(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayEnum':
+                ) -> 'EnumArrays.Schema_.Properties.ArrayEnum':
                     return super().__new__(
                         cls,
                         arg_,

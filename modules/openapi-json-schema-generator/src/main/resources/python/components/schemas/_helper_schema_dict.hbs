@@ -19,7 +19,7 @@ class {{jsonPathPiece.camelCase}}(
 
 
     class Schema_:
-        {{> components/schemas/_helper_dict_partial }}
+        {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}
 {{else}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation}}
@@ -27,7 +27,7 @@ class {{jsonPathPiece.camelCase}}(
 
     class Schema_:
         types = {frozendict.frozendict}
-        {{> components/schemas/_helper_dict_partial }}
+        {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
         {{> components/schemas/_helper_validations }}
 {{/or}}
 {{/if}}

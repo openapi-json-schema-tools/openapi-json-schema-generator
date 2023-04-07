@@ -70,7 +70,7 @@ class Pet(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'PhotoUrls':
+                ) -> 'Pet.Schema_.Properties.PhotoUrls':
                     return super().__new__(
                         cls,
                         arg_,
@@ -104,7 +104,7 @@ class Pet(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'Tags':
+                ) -> 'Pet.Schema_.Properties.Tags':
                     return super().__new__(
                         cls,
                         arg_,
