@@ -88,6 +88,7 @@ type is unset. This data could be stored as
 1. class properties
 2. in a container in the class like in a dict or in a nested class
 
+This data is stored in a nested class named Schema_.
 Storing this data as a nested class ensures that the data is encapsulated, does not collide with
 class properties, and allows for deeper complex inline definitions.
 
@@ -122,6 +123,7 @@ invalid python variable names. Names like:
 - "@now"
 - " "
 - "from"
+
 To allow these use cases to work, frozendict.frozendict is used as the base class of type object schemas.
 This means that one can use normal dict methods on instances of these classes.
 
@@ -149,6 +151,7 @@ See te below accessors for number data:
 
 <details>
   <summary>String + Date Example</summary>
+
 For example the string payload '2023-12-20' is validates to both of these schemas:
 1. string only
 ```
