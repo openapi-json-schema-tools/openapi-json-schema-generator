@@ -14,14 +14,6 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#if isStub}}
-{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-
-
-    class Schema_:
-        {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
-{{/or}}
-{{else}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation}}
 
 
@@ -30,7 +22,6 @@ class {{jsonPathPiece.camelCase}}(
         {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
         {{> components/schemas/_helper_validations }}
 {{/or}}
-{{/if}}
     {{> components/schemas/_helper_property_type_hints }}
 
     {{> components/schemas/_helper_new }}
