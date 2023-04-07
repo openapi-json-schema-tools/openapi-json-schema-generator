@@ -54,7 +54,7 @@ class Schema(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'Schema.Properties.Files':
+                ) -> 'Schema.Schema_.Properties.Files':
                     return super().__new__(
                         cls,
                         arg_,

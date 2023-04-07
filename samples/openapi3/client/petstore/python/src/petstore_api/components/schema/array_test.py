@@ -59,7 +59,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayTest.Properties.ArrayOfString':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayOfString':
                     return super().__new__(
                         cls,
                         arg_,
@@ -99,7 +99,7 @@ class ArrayTest(
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> 'ArrayTest.Properties.ArrayArrayOfInteger.Schema_.Items':
+                        ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items':
                             return super().__new__(
                                 cls,
                                 arg_,
@@ -120,7 +120,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayTest.Properties.ArrayArrayOfInteger':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfInteger':
                     return super().__new__(
                         cls,
                         arg_,
@@ -163,7 +163,7 @@ class ArrayTest(
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> 'ArrayTest.Properties.ArrayArrayOfModel.Schema_.Items':
+                        ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items':
                             return super().__new__(
                                 cls,
                                 arg_,
@@ -184,7 +184,7 @@ class ArrayTest(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ArrayTest.Properties.ArrayArrayOfModel':
+                ) -> 'ArrayTest.Schema_.Properties.ArrayArrayOfModel':
                     return super().__new__(
                         cls,
                         arg_,

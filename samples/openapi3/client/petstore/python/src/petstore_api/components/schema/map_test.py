@@ -69,7 +69,7 @@ class MapTest(
                             *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[Schema_.AdditionalProperties, str],
-                        ) -> 'MapTest.Properties.MapMapOfString.AdditionalProperties':
+                        ) -> 'MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *args_,
@@ -89,7 +89,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
-                ) -> 'MapTest.Properties.MapMapOfString':
+                ) -> 'MapTest.Schema_.Properties.MapMapOfString':
                     return super().__new__(
                         cls,
                         *args_,
@@ -141,7 +141,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, str],
-                ) -> 'MapTest.Properties.MapOfEnumString':
+                ) -> 'MapTest.Schema_.Properties.MapOfEnumString':
                     return super().__new__(
                         cls,
                         *args_,
@@ -171,7 +171,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, bool],
-                ) -> 'MapTest.Properties.DirectMap':
+                ) -> 'MapTest.Schema_.Properties.DirectMap':
                     return super().__new__(
                         cls,
                         *args_,

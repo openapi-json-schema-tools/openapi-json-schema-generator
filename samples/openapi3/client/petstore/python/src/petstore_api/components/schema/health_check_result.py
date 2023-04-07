@@ -60,7 +60,7 @@ class HealthCheckResult(
                     cls,
                     arg_: typing.Union[None, str],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'HealthCheckResult.Properties.NullableMessage':
+                ) -> 'HealthCheckResult.Schema_.Properties.NullableMessage':
                     return super().__new__(
                         cls,
                         arg_,

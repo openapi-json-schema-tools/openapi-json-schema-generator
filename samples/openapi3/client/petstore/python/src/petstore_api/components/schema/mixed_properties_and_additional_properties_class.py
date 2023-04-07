@@ -65,7 +65,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union['animal.Animal', dict, frozendict.frozendict],
-                ) -> 'MixedPropertiesAndAdditionalPropertiesClass.Properties.Map':
+                ) -> 'MixedPropertiesAndAdditionalPropertiesClass.Schema_.Properties.Map':
                     return super().__new__(
                         cls,
                         *args_,
