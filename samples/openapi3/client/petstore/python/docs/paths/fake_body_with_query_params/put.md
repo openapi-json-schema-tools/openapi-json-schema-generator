@@ -91,6 +91,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake_body_with_query_params.put import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -100,7 +101,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         'query': "query_example",
     }
     body = user.User(

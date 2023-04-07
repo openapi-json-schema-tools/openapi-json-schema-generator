@@ -85,6 +85,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake_obj_in_query.get import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -94,7 +95,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         'mapBean': dict(
         keyword="keyword_example",
     ),

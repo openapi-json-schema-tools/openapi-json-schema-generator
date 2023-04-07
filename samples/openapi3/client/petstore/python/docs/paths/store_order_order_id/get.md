@@ -139,6 +139,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import store_api
+from petstore_api.paths.store_order_order_id.get import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -148,7 +149,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params = {
+    path_params: operation.RequestPathParameters.Params = {
         'order_id': 1,
     }
     try:

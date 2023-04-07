@@ -178,6 +178,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import user_api
+from petstore_api.paths.user_login.get import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -187,7 +188,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = user_api.UserApi(api_client)
 
     # example passing only required values which don't have defaults set
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         'username': "username_example",
         'password': "password_example",
     }

@@ -118,6 +118,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import pet_api
+from petstore_api.paths.pet_pet_id_upload_image.post import operation
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_petstore_auth
@@ -137,7 +138,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params = {
+    path_params: operation.RequestPathParameters.Params = {
         'petId': 1,
     }
     try:

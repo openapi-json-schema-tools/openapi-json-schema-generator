@@ -33,7 +33,8 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         mock_request.return_value = self.response(b'')
 
         api = get.ApiForGet(api_client=self.used_api_client)
-        api_response = api.get(header_params={'enum_header_string': '-efg'})
+        header_params: get.RequestHeaderParameters.Params = {'enum_header_string': '-efg'}
+        api_response = api.get(header_params)
         self.assert_pool_manager_request_called_with(
             mock_request,
             f'http://petstore.swagger.io:80/v2/fake',
@@ -82,7 +83,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         with self.assertRaises(petstore_api.ApiException) as cm:
             api_response = api.get()
 
-        exc: petstore_api.ApiException[get.ApiResponseFor404] = cm.exception
+        exc: petstore_api.ApiException[get.response_404.ResponseFor404] = cm.exception
         expected_status = 404
         expected_reason = '404'
         self.assertEqual(exc.status, expected_status)
