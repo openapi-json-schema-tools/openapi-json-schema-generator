@@ -41,6 +41,9 @@ public enum SchemaFeature {
     AnyOf,
 
     @OAS2 @OAS3
+    Default,
+
+    @OAS2 @OAS3
     Discriminator,
 
     @OAS2 @OAS3

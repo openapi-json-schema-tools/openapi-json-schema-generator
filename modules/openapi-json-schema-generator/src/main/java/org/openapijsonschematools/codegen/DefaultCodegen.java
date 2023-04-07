@@ -142,7 +142,7 @@ public class DefaultCodegen implements CodegenConfig {
                         GlobalFeature.Info,
                         GlobalFeature.Components
                 )
-                .includeSchemaSupportFeatures(
+                .includeSchemaFeatures(
                         SchemaFeature.Discriminator, SchemaFeature.Enum,
                         SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
                         SchemaFeature.Format, SchemaFeature.Items,

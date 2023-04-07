@@ -524,7 +524,7 @@ public class FeatureSet {
          * @param schemaFeatures the {@code schemaSupportFeature} to set
          * @return a reference to this Builder
          */
-        public Builder schemaSupportFeatures(EnumSet<SchemaFeature> schemaFeatures) {
+        public Builder schemaFeatures(EnumSet<SchemaFeature> schemaFeatures) {
             if (schemaFeatures != null) {
                 this.schemaFeatures = schemaFeatures;
             } else {
@@ -540,7 +540,7 @@ public class FeatureSet {
          *
          * @return a reference to this Builder
          */
-        public Builder includeSchemaSupportFeatures(SchemaFeature... schemaFeature) {
+        public Builder includeSchemaFeatures(SchemaFeature... schemaFeature) {
             this.schemaFeatures.addAll(Arrays.stream(schemaFeature).collect(Collectors.toList()));
             return this;
         }
@@ -552,7 +552,7 @@ public class FeatureSet {
          *
          * @return a reference to this Builder
          */
-        public Builder excludeSchemaSupportFeatures(SchemaFeature... schemaFeature) {
+        public Builder excludeSchemaFeatures(SchemaFeature... schemaFeature) {
             this.schemaFeatures.removeAll(Arrays.stream(schemaFeature).collect(Collectors.toList()));
             return this;
         }
