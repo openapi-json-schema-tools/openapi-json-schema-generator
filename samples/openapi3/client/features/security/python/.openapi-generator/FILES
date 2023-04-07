@@ -40,13 +40,11 @@ src/this_package/paths/__init__.py
 src/this_package/paths/path_with_no_explicit_security/__init__.py
 src/this_package/paths/path_with_no_explicit_security/get/__init__.py
 src/this_package/paths/path_with_no_explicit_security/get/operation.py
-src/this_package/paths/path_with_no_explicit_security/get/operation.pyi
 src/this_package/paths/path_with_no_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_no_explicit_security/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_one_explicit_security/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/operation.py
-src/this_package/paths/path_with_one_explicit_security/get/operation.pyi
 src/this_package/paths/path_with_one_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/security/__init__.py
@@ -54,13 +52,11 @@ src/this_package/paths/path_with_one_explicit_security/get/security/security_req
 src/this_package/paths/path_with_security_from_root/__init__.py
 src/this_package/paths/path_with_security_from_root/get/__init__.py
 src/this_package/paths/path_with_security_from_root/get/operation.py
-src/this_package/paths/path_with_security_from_root/get/operation.pyi
 src/this_package/paths/path_with_security_from_root/get/responses/__init__.py
 src/this_package/paths/path_with_security_from_root/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_two_explicit_security/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/operation.py
-src/this_package/paths/path_with_two_explicit_security/get/operation.pyi
 src/this_package/paths/path_with_two_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/security/__init__.py

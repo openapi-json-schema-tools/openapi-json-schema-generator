@@ -463,7 +463,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("components/schemas/schema.hbs", ".py");
-        schemaTemplates.put("components/schemas/schema_stub.hbs", ".pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
@@ -578,7 +577,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         HashMap<String, String> operationTemplates = new HashMap<>();
         operationTemplates.put("__init__.hbs", File.separatorChar + "__init__.py");
         operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "operation.py");
-        operationTemplates.put("paths/path/verb/operation_stub.hbs", File.separatorChar + "operation.pyi");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates
