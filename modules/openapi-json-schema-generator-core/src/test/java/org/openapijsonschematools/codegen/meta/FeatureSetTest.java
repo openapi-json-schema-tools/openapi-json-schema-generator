@@ -44,7 +44,7 @@ public class FeatureSetTest {
                 .includeParameterFeatures(ParameterFeature.In_Header, ParameterFeature.In_Query)
                 .includeSecurityFeatures(SecurityFeature.HTTP_Bearer, SecurityFeature.HTTP_Basic, SecurityFeature.OAuth2_Implicit)
                 .includeDocumentationFeatures(DocumentationFeature.ComponentSchemas)
-                .includeSchemaSupportFeatures(SchemaFeature.OneOf)
+                .includeSchemaFeatures(SchemaFeature.OneOf)
                 .build();
 
         List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten();

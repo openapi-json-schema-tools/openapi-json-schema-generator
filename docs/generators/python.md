@@ -219,6 +219,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |AdditionalProperties|✓|OAS2,OAS3
 |AllOf|✓|OAS2,OAS3
 |AnyOf|✓|OAS3
+|Default|✓|OAS2,OAS3
 |Discriminator|✓|OAS2,OAS3
 |Enum|✓|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3

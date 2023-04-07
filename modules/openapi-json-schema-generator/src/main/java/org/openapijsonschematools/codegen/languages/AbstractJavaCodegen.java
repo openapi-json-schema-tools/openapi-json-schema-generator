@@ -135,7 +135,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
                 .securityFeatures(EnumSet.noneOf(
                         SecurityFeature.class
                 ))
-                .excludeSchemaSupportFeatures(
+                .excludeSchemaFeatures(
                         SchemaFeature.Not
                 )
                 .includeClientModificationFeatures(
