@@ -8,10 +8,10 @@
 
         {{/if}}
 {{> _helper_imports }}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
+{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{else}}
 {{> _helper_imports_schema_types }}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
+{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
         {{#if imports}}
 
         {{/if}}

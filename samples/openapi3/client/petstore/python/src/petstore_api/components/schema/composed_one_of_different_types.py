@@ -66,7 +66,7 @@ class ComposedOneOfDifferentTypes(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'ComposedOneOfDifferentTypes.Schema_.OneOf':
+                ) -> 'ComposedOneOfDifferentTypes.Schema_.OneOf._4':
                     return super().__new__(
                         cls,
                         *args_,
@@ -97,7 +97,7 @@ class ComposedOneOfDifferentTypes(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'ComposedOneOfDifferentTypes.Schema_.OneOf':
+                ) -> 'ComposedOneOfDifferentTypes.Schema_.OneOf._5':
                     return super().__new__(
                         cls,
                         arg_,

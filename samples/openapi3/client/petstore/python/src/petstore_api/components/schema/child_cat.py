@@ -94,7 +94,7 @@ class ChildCat(
                     name: typing.Union[Schema_.Properties.Name, str, schemas.Unset] = schemas.unset,
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'ChildCat.Schema_.AllOf':
+                ) -> 'ChildCat.Schema_.AllOf._1':
                     return super().__new__(
                         cls,
                         *args_,
