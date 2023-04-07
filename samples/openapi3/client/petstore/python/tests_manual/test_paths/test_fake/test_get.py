@@ -34,7 +34,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
 
         api = get.ApiForGet(api_client=self.used_api_client)
         header_params: get.RequestHeaderParameters.Params = {'enum_header_string': '-efg'}
-        api_response = api.get(header_params)
+        api_response = api.get(header_params=header_params)
         self.assert_pool_manager_request_called_with(
             mock_request,
             f'http://petstore.swagger.io:80/v2/fake',
