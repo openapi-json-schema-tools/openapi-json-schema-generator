@@ -131,7 +131,7 @@ This means that one can use normal dict methods on instances of these classes.
   <summary>Other Details</summary>
 
 - optional properties which were not set will not exist in the instance
-- None is only allowed in as a variable if type: "null" was included or nullable: true was set
+- None is only allowed in as a value if type: "null" was included or nullable: true was set
 - type hints are written for accessing values by key literals like instance["hi-there"]
 - and there is a method instance.get_item_["hi-there"] which returns an schemas.Unset value if the key was not set
 - required properties with valid python names are accessible with instance.SomeRequiredProp
@@ -141,7 +141,8 @@ This means that one can use normal dict methods on instances of these classes.
 
 ### Json Schema Type + Format, Validated Data Storage
 N schemas can be validated on the same payload.
-To allow multiple schemas to validate, the data must be stored using one immutable class.
+To allow multiple schemas to validate, the data must be stored using one base class whether or not
+a json schema format constraint exists in the schema.
 See te below accessors for string data:
 - type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
 
@@ -168,7 +169,7 @@ is stored as a string, with a date accessor, instance.as_date_
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the [installation procedure](#installation) and then run the following:
 
 ```python
 import petstore_api
@@ -467,10 +468,10 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from petstore_api.apis.default_api import DefaultApi`
-- `from petstore_api.apis.paths.some_path import SomePath`
-- `from petstore_api.paths.some_path.get import ApiForget`
-- `from petstore_api.components.schema.pet import Pet`
+- tagged api: `from petstore_api.apis.tags.default_api import DefaultApi`
+- api for one path: `from petstore_api.apis.paths.some_path import SomePath`
+- api for one operation (path + verb): `from petstore_api.paths.some_path.get import ApiForget`
+- single model import: `from petstore_api.components.schema.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:

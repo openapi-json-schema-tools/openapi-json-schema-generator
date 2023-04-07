@@ -133,10 +133,10 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from {{{packageName}}}.{{apiPackage}}.default_api import DefaultApi`
-- `from {{{packageName}}}.{{apiPackage}}.paths.some_path import SomePath`
-- `from {{{packageName}}}.paths.some_path.get import ApiForget`
-- `from {{{packageName}}}.{{modelPackage}}.pet import Pet`
+- tagged api: `from {{{packageName}}}.{{apiPackage}}.tags.default_api import DefaultApi`
+- api for one path: `from {{{packageName}}}.{{apiPackage}}.paths.some_path import SomePath`
+- api for one operation (path + verb): `from {{{packageName}}}.paths.some_path.get import ApiForget`
+- single model import: `from {{{packageName}}}.{{modelPackage}}.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
