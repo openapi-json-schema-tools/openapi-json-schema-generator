@@ -129,6 +129,7 @@ Key | Type | Description | Notes
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import pet_api
+from petstore_api.paths.pet_find_by_status.get import operation
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_api_key
@@ -185,7 +186,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         'status': [
         "available"
     ],

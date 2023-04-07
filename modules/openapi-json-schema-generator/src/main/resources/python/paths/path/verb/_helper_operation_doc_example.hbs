@@ -10,6 +10,9 @@ from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
         {{/if}}
     {{/each}}
 {{/if}}
+{{#or pathParams queryParams headerParams cookieParams}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import operation
+{{/or}}
 {{#each imports}}
 {{{.}}}
 {{/each}}
@@ -31,7 +34,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     {{#if pathParams}}
-    path_params = {
+    path_params: operation.RequestPathParameters.Params = {
         {{#each pathParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -46,7 +49,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if queryParams}}
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         {{#each queryParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -61,7 +64,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if cookieParams}}
-    cookie_params = {
+    cookie_params: operation.RequestCookieParameters.Params = {
         {{#each cookieParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -76,7 +79,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if headerParams}}
-    header_params = {
+    header_params: operation.RequestHeaderParameters.Params = {
         {{#each headerParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -169,7 +172,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if queryParams}}
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         {{#each queryParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -180,7 +183,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if cookieParams}}
-    cookie_params = {
+    cookie_params: operation.RequestCookieParameters.Params = {
         {{#each cookieParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -191,7 +194,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if headerParams}}
-    header_params = {
+    header_params: operation.RequestHeaderParameters.Params = {
         {{#each headerParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},

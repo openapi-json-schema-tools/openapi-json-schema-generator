@@ -325,6 +325,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -334,18 +335,18 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params = {
+    path_params: operation.RequestPathParameters.Params = {
         '1': "1_example",
         'aB': "aB_example",
         'Ab': "Ab_example",
         'self': "self_example",
         'A-B': "A-B_example",
     }
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
     }
-    cookie_params = {
+    cookie_params: operation.RequestCookieParameters.Params = {
     }
-    header_params = {
+    header_params: operation.RequestHeaderParameters.Params = {
     }
     try:
         # parameter collision case
@@ -367,21 +368,21 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'self': "self_example",
         'A-B': "A-B_example",
     }
-    query_params = {
+    query_params: operation.RequestQueryParameters.Params = {
         '1': "1_example",
         'aB': "aB_example",
         'Ab': "Ab_example",
         'self': "self_example",
         'A-B': "A-B_example",
     }
-    cookie_params = {
+    cookie_params: operation.RequestCookieParameters.Params = {
         '1': "1_example",
         'aB': "aB_example",
         'Ab': "Ab_example",
         'self': "self_example",
         'A-B': "A-B_example",
     }
-    header_params = {
+    header_params: operation.RequestHeaderParameters.Params = {
         '1': "1_example",
         'aB': "aB_example",
         'self': "self_example",
