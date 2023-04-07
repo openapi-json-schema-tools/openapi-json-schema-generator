@@ -22,7 +22,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#if hasValidation}}
         {{> components/schemas/_helper_validations }}
 {{/if}}
-        {{> components/schemas/_helper_list_partial }}
+        {{> components/schemas/_helper_list_partial identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}
 
     {{> components/schemas/_helper_new }}
