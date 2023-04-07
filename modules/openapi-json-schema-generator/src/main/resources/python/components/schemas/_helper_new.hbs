@@ -92,7 +92,7 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{/with}}
-) -> '{{jsonPathPiece.camelCase}}':
+) -> '{{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}':
     return super().__new__(
         cls,
 {{#eq types null}}

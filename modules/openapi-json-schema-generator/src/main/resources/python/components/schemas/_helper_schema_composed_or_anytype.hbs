@@ -50,10 +50,10 @@ class {{jsonPathPiece.camelCase}}(
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{#if items}}
-        {{> components/schemas/_helper_list_partial }}
+        {{> components/schemas/_helper_list_partial identifierPieces=(append identifierPieces "Schema_") }}
 {{/if}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-        {{> components/schemas/_helper_dict_partial }}
+        {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}
 {{#unless isStub}}
 {{#if hasValidation}}
@@ -61,7 +61,7 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 {{/unless}}
 {{#or allOf anyOf oneOf not}}
-        {{> components/schemas/_helper_composed_schemas }}
+        {{> components/schemas/_helper_composed_schemas identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}
 {{#if enumValueToName}}
     {{> components/schemas/_helper_enums }}

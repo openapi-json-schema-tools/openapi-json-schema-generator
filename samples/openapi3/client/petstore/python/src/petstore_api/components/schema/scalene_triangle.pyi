@@ -101,7 +101,7 @@ class ScaleneTriangle(
                     triangleType: typing.Union[Schema_.Properties.TriangleType, str, schemas.Unset] = schemas.unset,
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> '_1':
+                ) -> 'ScaleneTriangle.Schema_.AllOf':
                     return super().__new__(
                         cls,
                         *args_,

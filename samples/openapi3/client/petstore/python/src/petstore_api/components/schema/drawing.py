@@ -74,7 +74,7 @@ class Drawing(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'Shapes':
+                ) -> 'Drawing.Properties.Shapes':
                     return super().__new__(
                         cls,
                         arg_,

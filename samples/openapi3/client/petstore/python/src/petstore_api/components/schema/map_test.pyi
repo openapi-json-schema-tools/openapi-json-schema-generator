@@ -66,7 +66,7 @@ class MapTest(
                             *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[Schema_.AdditionalProperties, str],
-                        ) -> 'AdditionalProperties':
+                        ) -> 'MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties':
                             return super().__new__(
                                 cls,
                                 *args_,
@@ -86,7 +86,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
-                ) -> 'MapMapOfString':
+                ) -> 'MapTest.Schema_.Properties.MapMapOfString':
                     return super().__new__(
                         cls,
                         *args_,
@@ -127,7 +127,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, str],
-                ) -> 'MapOfEnumString':
+                ) -> 'MapTest.Schema_.Properties.MapOfEnumString':
                     return super().__new__(
                         cls,
                         *args_,
@@ -156,7 +156,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, bool],
-                ) -> 'DirectMap':
+                ) -> 'MapTest.Schema_.Properties.DirectMap':
                     return super().__new__(
                         cls,
                         *args_,

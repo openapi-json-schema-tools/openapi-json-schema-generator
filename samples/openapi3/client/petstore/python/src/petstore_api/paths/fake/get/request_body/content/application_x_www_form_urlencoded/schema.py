@@ -77,7 +77,7 @@ class Schema(
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> 'EnumFormStringArray':
+                ) -> 'Schema.Properties.EnumFormStringArray':
                     return super().__new__(
                         cls,
                         arg_,
