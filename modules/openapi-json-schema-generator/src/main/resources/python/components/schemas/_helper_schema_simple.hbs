@@ -18,7 +18,6 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#unless isStub}}
 {{#or hasValidation enumValueToName format defaultValue}}
 
 
@@ -58,14 +57,6 @@ class {{jsonPathPiece.camelCase}}(
         {{> components/schemas/_helper_schema_enum }}
 {{/if}}
 {{/or}}
-{{/unless}}
 {{#if enumValueToName}}
     {{> components/schemas/_helper_enums }}
-{{/if}}
-{{#if isStub}}
-{{#or hasValidation defaultValue}}
-{{#unless enumValueToName}}
-    pass
-{{/unless}}
-{{/or}}
 {{/if}}

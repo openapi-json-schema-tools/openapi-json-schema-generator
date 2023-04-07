@@ -36,9 +36,7 @@ from {{packageName}}.security import (
 {{> _helper_imports }}
 {{#with operation}}
 
-{{#unless isStub}}
 from .. import path
-{{/unless}}
 {{#if responses}}
     {{#eq responses.size 1}}
         {{#each responses}}
@@ -98,7 +96,6 @@ from .security import (
 {{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
     {{/if}}
 {{/or}}
-{{#unless isStub}}
 {{#neq security null}}
     {{#gt security.size 0}}
 
@@ -120,8 +117,6 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
         {{/gt}}
     {{/neq}}
 {{/neq}}
-{{/unless}}
-{{#unless isStub}}
 
 
     {{#if defaultResponse}}
@@ -144,7 +139,6 @@ _status_code_to_response: __StatusCodeToResponse = {
         {{/each}}
 }
     {{/if}}
-{{/unless}}
 {{#each produces}}
     {{#if @first}}
 

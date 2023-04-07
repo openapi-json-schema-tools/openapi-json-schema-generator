@@ -55,11 +55,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
         {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}
-{{#unless isStub}}
 {{#if hasValidation}}
         {{> components/schemas/_helper_validations }}
 {{/if}}
-{{/unless}}
 {{#or allOf anyOf oneOf not}}
         {{> components/schemas/_helper_composed_schemas identifierPieces=(append identifierPieces "Schema_") }}
 {{/or}}

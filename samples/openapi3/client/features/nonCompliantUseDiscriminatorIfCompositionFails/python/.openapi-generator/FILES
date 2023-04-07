@@ -24,11 +24,8 @@ src/this_package/apis/tags/default_api.py
 src/this_package/components/__init__.py
 src/this_package/components/schema/__init__.py
 src/this_package/components/schema/addition_operator.py
-src/this_package/components/schema/addition_operator.pyi
 src/this_package/components/schema/operator.py
-src/this_package/components/schema/operator.pyi
 src/this_package/components/schema/subtraction_operator.py
-src/this_package/components/schema/subtraction_operator.pyi
 src/this_package/components/schemas/__init__.py
 src/this_package/configurations/__init__.py
 src/this_package/configurations/api_configuration.py
@@ -38,12 +35,10 @@ src/this_package/paths/__init__.py
 src/this_package/paths/operators/__init__.py
 src/this_package/paths/operators/post/__init__.py
 src/this_package/paths/operators/post/operation.py
-src/this_package/paths/operators/post/operation.pyi
 src/this_package/paths/operators/post/request_body/__init__.py
 src/this_package/paths/operators/post/request_body/content/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/schema.py
-src/this_package/paths/operators/post/request_body/content/application_json/schema.pyi
 src/this_package/paths/operators/post/responses/__init__.py
 src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/rest.py
