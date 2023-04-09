@@ -36,14 +36,6 @@ Old: `swaggerapi/swagger-codegen-cli`
 
 New: `openapi-json-schema-tools/openapi-json-schema-generator-cli`
 
-**OpenAPI Generator as web service**
-
-Image to run OpenAPI Generator as a web service (see [OpenAPI Generator Online Docker Image](https://github.com/OpenAPITools/openapi-generator/blob/master/README.md#openapi-generator-online-docker-image))
-
-Old: `swaggerapi/swagger-generator`
-
-New: `openapi-json-schema-tools/openapi-json-schema-generator-online`
-
 
 ## New maven coordinates
 
