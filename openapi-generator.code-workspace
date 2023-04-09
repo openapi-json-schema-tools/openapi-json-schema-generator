@@ -20,10 +20,6 @@
 			"name": "openapi-generator-maven-plugin",
 			"path": "modules/openapi-generator-maven-plugin"
 		},
-		{
-			"name": "openapi-generator-online",
-			"path": "modules/openapi-generator-online"
-		},
 	],
 	"settings": {
 		"editor.formatOnType": true,

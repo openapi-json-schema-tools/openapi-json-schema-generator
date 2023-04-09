@@ -1,20 +1,10 @@
-<h1 align="center">OpenAPI JSON Schema Generator</h1>
+# OpenAPI JSON Schema Generator</h1>
 
-<div align="center">
+[![CI Tests](https://dl.circleci.com/status-badge/img/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master)
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
 
-[![CI Tests](https://dl.circleci.com/status-badge/img/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/openapi-json-schema-tools/openapi-json-schema-generator/tree/master) [![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
-
-</div>
-
-<div align="center">
-
-:star::star::star: If you would like to contribute, please refer to [guidelines](CONTRIBUTING.md) and a list of [open tasks](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).:star::star::star:
-
-:warning: If the OpenAPI spec, templates or any input (e.g. options, environment variables) is obtained from an untrusted source or environment, please make sure you've reviewed these inputs before using OpenAPI JSON Schema Generator to generate the API client, server stub or documentation to avoid potential security issues (e.g. [code injection](https://en.wikipedia.org/wiki/Code_injection)). For security vulnerabilities, please contact create an issue. :warning:
-
-:bangbang: Both "openapi-json-schema-tools" (the parent organization of OpenAPI JSON Schema Generator) and "OpenAPI JSON Schema Generator" are not affiliated with OpenAPI Initiative (OAI) :bangbang:
-
-</div>
+Auto generate a client sdk from your openapi 3.0.0-3.0.3 document using Openapi JSON Schema Generator. 
+This project is a code generator that focuses on supporting all openapi and json schema features.
 
 ## Overview
 OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) given an
@@ -41,11 +31,13 @@ Currently, the following languages/frameworks are supported:
   - accessing properties in object instances so some_val in some_val = some_inst['someKey'] will have the correct type hint
   - accessing array items in array instances so some_val in some_val = array_inst[0] will have the correct type hint
   - endpoint inputs + responses
+- Code re-use built in from the ground up
+  - components/schemas/headers etc are generated as separate classes and imported when used via $ref
+- Openapi spec inline schemas supported at any depth in any location
 - Format support for: int32, int64, float, double, binary, date, datetime, uuid
 - Invalid (in python) property names supported like `from`, `1var`, `hi-there` etc in
   - schema property names
   - endpoint parameter names
-- Openapi spec inline schemas supported at any depth
 - If needed, validation of some json schema keywords can be deactivated via a configuration class
 - Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string
 - String transmission of numbers supported with type: string, format: number, value can be accessed as a Decimal with inst.as_decimal_
@@ -63,10 +55,8 @@ And many more!
 
 ### Can I build here?
 
-Yes! Contributions are welcome.
-If you want to build a new server or client or documentation generator you are welcome to here.
-Can I write a python generator based on the pydantic or jsonschema libraries?
-Definitely!
+Yes; contributions are welcome!
+Submit a PR if you want to add a new server scaffold, client sdk, or documentation generator in any language.
 
 ## Table of contents
 
@@ -81,8 +71,7 @@ Definitely!
   - [3 - Usage](#3---usage)
     - [3.1 - Customization](#31---customization)
     - [3.2 - Workflow Integration](#32---workflow-integration-maven-gradle-github-cicd)
-    - [3.3 - Online Generators](#33---online-openapi-json-schema-generator)
-    - [3.4 - License Information on Generated Code](#34---license-information-on-generated-code)
+    - [3.3 - License Information on Generated Code](#34---license-information-on-generated-code)
   - [4 - Companies/Projects using OpenAPI JSON Schema Generator](#4---companiesprojects-using-openapi-json-schema-generator)
   - [5 - About Us](#5---about-us)
     - [5.1 - History of OpenAPI JSON Schema Generator](#51---history-of-openapi-json-schema-generator)
@@ -96,6 +85,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 
 | OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility  |
 |---------------------------------------|-----------------------------|
+| 2.0.0                                 | 3.0.0 - 3.0.3               |
 | 1.0.4                                 | 3.0.0 - 3.0.3               |
 | 1.0.3                                 | 3.0.0 - 3.0.3               |
 | 1.0.2                                 | 3.0.0 - 3.0.3               |
@@ -149,39 +139,6 @@ docker run --rm -v "${PWD}:/local" openapjsonschematools/openapi-json-schema-gen
 ```
 
 The generated code will be located under `./out/python` in the current directory.
-
-#### OpenAPI JSON Schema Generator Online Docker Image
-
-The openapi-json-schema-generator-online image can act as a self-hosted web application and API for generating code. This container can be incorporated into a CI pipeline, and requires at least two HTTP requests and some docker orchestration to access generated code.
-
-Example usage:
-
-```sh
-# Start container at port 8888 and save the container id
-> CID=$(docker run -d -p 8888:8080 openapijsonschematools/openapi-json-schema-generator-online)
-
-# allow for startup
-> sleep 10
-
-# Get the IP of the running container (optional)
-GEN_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}'  $CID)
-
-# Execute an HTTP request to generate a Ruby client
-> curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' \
--d '{"openAPIUrl": "https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml"}' \
-'http://localhost:8888/api/gen/clients/python'
-
-{"code":"c2d483.3.4672-40e9-91df-b9ffd18d22b8","link":"http://localhost:8888/api/gen/download/c2d483.3.4672-40e9-91df-b9ffd18d22b8"}
-
-# Download the generated zip file
-> wget http://localhost:8888/api/gen/download/c2d483.3.4672-40e9-91df-b9ffd18d22b8
-
-# Unzip the file
-> unzip c2d483.3.4672-40e9-91df-b9ffd18d22b8
-
-# Shutdown the openapi generator image
-> docker stop $CID && docker rm $CID
-```
 
 #### Development in docker
 
@@ -345,11 +302,7 @@ Please refer to [customization.md](docs/customization.md) on how to customize th
 
 Please refer to [integration.md](docs/integration.md) on how to integrate OpenAPI generator with Maven, Gradle,  Github and CI/CD.
 
-### [3.3 - Online OpenAPI generator](#table-of-contents)
-
-Please refer to [online.md](docs/online.md) on how to run and use the `openapi-json-schema-generator-online` - a web service for `openapi-json-schema-generator`.
-
-### [3.4 - License information on Generated Code](#table-of-contents)
+### [3.3 - License information on Generated Code](#table-of-contents)
 
 The OpenAPI JSON Schema Generator project is intended as a benefit for users of the Open API Specification.  The project itself has the [License](#license) as specified. In addition, please understand the following points:
 
