@@ -1200,7 +1200,6 @@
                 <module>modules/openapi-json-schema-generator-core</module>
                 <module>modules/openapi-json-schema-generator</module>
                 <module>modules/openapi-json-schema-generator-cli</module>
-                <module>modules/openapi-json-schema-generator-online</module>
             </modules>
         </profile>
     </profiles>
