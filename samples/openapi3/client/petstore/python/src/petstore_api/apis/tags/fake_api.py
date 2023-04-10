@@ -20,6 +20,7 @@ from petstore_api.paths.fake_json_form_data.get.operation import JsonFormData
 from petstore_api.paths.fake_refs_string.post.operation import String
 from petstore_api.paths.fake_response_without_schema.get.operation import ResponseWithoutSchema
 from petstore_api.paths.fake_refs_object_model_with_ref_props.post.operation import ObjectModelWithRefProps
+from petstore_api.paths.fake_redirection.get.operation import Redirection
 from petstore_api.paths.fake_obj_in_query.get.operation import ObjectInQuery
 from petstore_api.paths.fake_case_sensitive_params.put.operation import CaseSensitiveParams
 from petstore_api.paths.fake_inline_additional_properties.post.operation import InlineAdditionalProperties
@@ -59,6 +60,7 @@ class FakeApi(
     String,
     ResponseWithoutSchema,
     ObjectModelWithRefProps,
+    Redirection,
     ObjectInQuery,
     CaseSensitiveParams,
     InlineAdditionalProperties,

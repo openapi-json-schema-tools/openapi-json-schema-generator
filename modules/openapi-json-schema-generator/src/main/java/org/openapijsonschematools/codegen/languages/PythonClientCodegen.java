@@ -228,7 +228,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         ParameterFeature.Content
                 )
                 .includeOperationFeatures(
-                        OperationFeature.Responses_RangedResponseCodes
+                        OperationFeature.Responses_RangedResponseCodes,
+                        OperationFeature.Responses_RedirectionResponse
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.In_Cookie

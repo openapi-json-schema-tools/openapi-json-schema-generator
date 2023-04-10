@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
         else:
             api_response = default_response.deserialize(response, self.api_client.schema_configuration)
 
-        if not 200 <= response.status <= 299:
+        if not 200 <= response.status <= 399:
             raise exceptions.ApiException(
                 status=response.status,
                 reason=response.reason,

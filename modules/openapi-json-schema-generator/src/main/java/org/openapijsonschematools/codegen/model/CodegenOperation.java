@@ -85,14 +85,14 @@ public class CodegenOperation {
         HashMap<String,CodegenResponse> nonErrorResponses = new HashMap<>();
         if (statusCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
-                if (entry.getKey() >= 200 && entry.getKey() <= 299) {
+                if (entry.getKey() >= 200 && entry.getKey() <= 399) {
                     nonErrorResponses.put(entry.getKey().toString(), entry.getValue());
                 }
             }
         }
         if (wildcardCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: wildcardCodeResponses.entrySet()) {
-                if (entry.getKey() == 2) {
+                if (entry.getKey() == 2 || entry.getKey() == 3) {
                     nonErrorResponses.put(entry.getKey().toString(), entry.getValue());
                 }
             }

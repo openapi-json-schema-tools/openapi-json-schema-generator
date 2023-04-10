@@ -190,6 +190,7 @@ docs/paths/fake_obj_in_query/get.md
 docs/paths/fake_parameter_collisions1_abab_self_ab/post.md
 docs/paths/fake_pet_id_upload_image_with_required_file/post.md
 docs/paths/fake_query_param_with_json_content_type/get.md
+docs/paths/fake_redirection/get.md
 docs/paths/fake_ref_obj_in_query/get.md
 docs/paths/fake_refs_array_of_enums/post.md
 docs/paths/fake_refs_arraymodel/post.md
@@ -259,6 +260,7 @@ src/petstore_api/apis/paths/fake_obj_in_query.py
 src/petstore_api/apis/paths/fake_parameter_collisions1_abab_self_ab.py
 src/petstore_api/apis/paths/fake_pet_id_upload_image_with_required_file.py
 src/petstore_api/apis/paths/fake_query_param_with_json_content_type.py
+src/petstore_api/apis/paths/fake_redirection.py
 src/petstore_api/apis/paths/fake_ref_obj_in_query.py
 src/petstore_api/apis/paths/fake_refs_array_of_enums.py
 src/petstore_api/apis/paths/fake_refs_arraymodel.py
@@ -834,6 +836,12 @@ src/petstore_api/paths/fake_query_param_with_json_content_type/get/responses/res
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/responses/response_200/content/__init__.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/responses/response_200/content/application_json/__init__.py
 src/petstore_api/paths/fake_query_param_with_json_content_type/get/responses/response_200/content/application_json/schema.py
+src/petstore_api/paths/fake_redirection/__init__.py
+src/petstore_api/paths/fake_redirection/get/__init__.py
+src/petstore_api/paths/fake_redirection/get/operation.py
+src/petstore_api/paths/fake_redirection/get/responses/__init__.py
+src/petstore_api/paths/fake_redirection/get/responses/response_303/__init__.py
+src/petstore_api/paths/fake_redirection/get/responses/response_3xx/__init__.py
 src/petstore_api/paths/fake_ref_obj_in_query/__init__.py
 src/petstore_api/paths/fake_ref_obj_in_query/get/__init__.py
 src/petstore_api/paths/fake_ref_obj_in_query/get/operation.py
@@ -1358,6 +1366,7 @@ test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
+test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py
 test/test_paths/test_fake/__init__.py
@@ -1401,6 +1410,8 @@ test/test_paths/test_fake_pet_id_upload_image_with_required_file/__init__.py
 test/test_paths/test_fake_pet_id_upload_image_with_required_file/test_post.py
 test/test_paths/test_fake_query_param_with_json_content_type/__init__.py
 test/test_paths/test_fake_query_param_with_json_content_type/test_get.py
+test/test_paths/test_fake_redirection/__init__.py
+test/test_paths/test_fake_redirection/test_get.py
 test/test_paths/test_fake_ref_obj_in_query/__init__.py
 test/test_paths/test_fake_ref_obj_in_query/test_get.py
 test/test_paths/test_fake_refs_array_of_enums/__init__.py
