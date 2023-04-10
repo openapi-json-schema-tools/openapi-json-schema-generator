@@ -152,7 +152,7 @@ class BaseApi(api_client.Api):
                 ]
                 api_response = _status_code_to_response[status].deserialize(
                     response, self.api_client.schema_configuration)
-            elif ranged_response_status_code in _status_code_to_response:
+            elif ranged_response_status_code in _ranged_status_code_to_response:
                 ranged_response_status_code: typing_extensions.Literal[
                     '1',
                     '2',
@@ -160,7 +160,7 @@ class BaseApi(api_client.Api):
                     '4',
                     '5',
                 ]
-                api_response = _status_code_to_response[ranged_response_status_code].deserialize(
+                api_response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
                     response, self.api_client.schema_configuration)
             else:
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
