@@ -25,9 +25,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        application_json_schema.Schema,
-    ]
+    body: application_json_schema.Schema
     headers: schemas.Unset = schemas.unset
 
 

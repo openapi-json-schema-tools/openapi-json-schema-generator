@@ -1361,9 +1361,6 @@ test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py
 test/test_paths/test_fake/__init__.py
-test/test_paths/test_fake/__init__.py
-test/test_paths/test_fake/__init__.py
-test/test_paths/test_fake/__init__.py
 test/test_paths/test_fake/test_delete.py
 test/test_paths/test_fake/test_get.py
 test/test_paths/test_fake/test_patch.py
@@ -1439,15 +1436,12 @@ test/test_paths/test_fake_wild_card_responses/test_get.py
 test/test_paths/test_foo/__init__.py
 test/test_paths/test_foo/test_get.py
 test/test_paths/test_pet/__init__.py
-test/test_paths/test_pet/__init__.py
 test/test_paths/test_pet/test_post.py
 test/test_paths/test_pet/test_put.py
 test/test_paths/test_pet_find_by_status/__init__.py
 test/test_paths/test_pet_find_by_status/test_get.py
 test/test_paths/test_pet_find_by_tags/__init__.py
 test/test_paths/test_pet_find_by_tags/test_get.py
-test/test_paths/test_pet_pet_id/__init__.py
-test/test_paths/test_pet_pet_id/__init__.py
 test/test_paths/test_pet_pet_id/__init__.py
 test/test_paths/test_pet_pet_id/test_delete.py
 test/test_paths/test_pet_pet_id/test_get.py
@@ -1458,7 +1452,6 @@ test/test_paths/test_store_inventory/__init__.py
 test/test_paths/test_store_inventory/test_get.py
 test/test_paths/test_store_order/__init__.py
 test/test_paths/test_store_order/test_post.py
-test/test_paths/test_store_order_order_id/__init__.py
 test/test_paths/test_store_order_order_id/__init__.py
 test/test_paths/test_store_order_order_id/test_delete.py
 test/test_paths/test_store_order_order_id/test_get.py
@@ -1472,8 +1465,6 @@ test/test_paths/test_user_login/__init__.py
 test/test_paths/test_user_login/test_get.py
 test/test_paths/test_user_logout/__init__.py
 test/test_paths/test_user_logout/test_get.py
-test/test_paths/test_user_username/__init__.py
-test/test_paths/test_user_username/__init__.py
 test/test_paths/test_user_username/__init__.py
 test/test_paths/test_user_username/test_delete.py
 test/test_paths/test_user_username/test_get.py
