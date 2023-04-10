@@ -81,6 +81,7 @@ class BaseApi(api_client.Api):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
     ]: ...
 
     @typing.overload
@@ -104,6 +105,7 @@ class BaseApi(api_client.Api):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -165,7 +167,7 @@ class BaseApi(api_client.Api):
             else:
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
-        if not 200 <= response.status <= 299:
+        if not 200 <= response.status <= 399:
             raise exceptions.ApiException(
                 status=response.status,
                 reason=response.reason,
@@ -189,6 +191,7 @@ class WildCardResponses(BaseApi):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
     ]: ...
 
     @typing.overload
@@ -212,6 +215,7 @@ class WildCardResponses(BaseApi):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -246,6 +250,7 @@ class ApiForGet(BaseApi):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
     ]: ...
 
     @typing.overload
@@ -269,6 +274,7 @@ class ApiForGet(BaseApi):
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_2xx.ResponseFor2XX.response_cls,
+        response_3xx.ResponseFor3XX.response_cls,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
