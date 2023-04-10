@@ -265,6 +265,13 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Tags|✗|OAS2,OAS3
 |ExternalDocs|✗|OAS2,OAS3
 
+### Operation Feature
+| Name | Supported | Defined By |
+| ---- | --------- | ---------- |
+|Responses_HttpStatusCode|✓|OAS2,OAS3
+|Responses_RangedResponseCodes|✗|OAS2,OAS3
+|Responses_Default|✓|OAS2,OAS3
+
 ### Parameter Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
