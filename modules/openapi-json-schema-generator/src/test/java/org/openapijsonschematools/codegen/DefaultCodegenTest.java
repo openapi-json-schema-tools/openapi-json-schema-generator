@@ -269,16 +269,10 @@ public class DefaultCodegenTest {
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
-        Assert.assertNotNull(codegenParameter.content.get(ck).schema.refInfo);
+        Assert.assertNull(codegenParameter.content.get(ck).schema.refInfo);
 
-        Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
-        CodegenSchema model = codegen.fromSchema(
-                specModel,
-                "#/components/schemas/updatePetWithForm_request",
-                "#/components/schemas/updatePetWithForm_request"
-        );
-        ck = codegen.getKey("visitDate");
-        assertEquals(model.properties.get(ck).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
+        CodegenKey propertyKey = codegen.getKey("visitDate");
+        assertEquals(codegenParameter.content.get(ck).schema.properties.get(propertyKey).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
     }
 
     @Test
