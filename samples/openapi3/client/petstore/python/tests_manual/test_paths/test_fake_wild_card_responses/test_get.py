@@ -54,5 +54,28 @@ class TestGet(ApiTestMixin, unittest.TestCase):
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 200
 
+    @patch.object(urllib3.PoolManager, 'request')
+    def test_wildcard_response(self, mock_request):
+        response_json = {}
+        body = self.json_bytes(response_json)
+        mock_request.return_value = self.response(body, status=202)
+
+        api_response = self.api.get()
+        self.assert_pool_manager_request_called_with(
+            mock_request,
+            f'http://petstore.swagger.io:80/v2/fake/wildCardResponses',
+            body=None,
+            method='GET',
+            content_type=None,
+            accept_content_type='application/json',
+        )
+
+        assert isinstance(api_response, get.response_2xx.ResponseFor2XX.response_cls)
+        assert isinstance(api_response.response, urllib3.HTTPResponse)
+        assert isinstance(api_response.body, get.response_2xx.ResponseFor2XX.content['application/json'].schema)
+        assert isinstance(api_response.headers, schemas.Unset)
+        assert api_response.response.status == 202
+
+
 if __name__ == '__main__':
     unittest.main()

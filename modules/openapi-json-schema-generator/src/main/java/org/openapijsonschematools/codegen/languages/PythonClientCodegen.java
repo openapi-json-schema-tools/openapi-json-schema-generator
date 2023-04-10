@@ -26,6 +26,7 @@ import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.meta.features.OperationFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
@@ -225,6 +226,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         ParameterFeature.Explode,
                         ParameterFeature.Schema,
                         ParameterFeature.Content
+                )
+                .includeOperationFeatures(
+                        OperationFeature.Responses_RangedResponseCodes
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.In_Cookie

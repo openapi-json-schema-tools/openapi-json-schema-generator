@@ -21,6 +21,7 @@ import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
+import org.openapijsonschematools.codegen.meta.features.OperationFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
@@ -46,6 +47,7 @@ public class FeatureSet {
     private EnumSet<SchemaFeature> schemaFeatures;
     private EnumSet<ParameterFeature> parameterFeatures;
     private EnumSet<SecurityFeature> securityFeatures;
+    private EnumSet<OperationFeature> operationFeatures;
     private EnumSet<WireFormatFeature> wireFormatFeatures;
 
     private FeatureSet(Builder builder) {
@@ -59,6 +61,7 @@ public class FeatureSet {
             parameterFeatures = builder.parameterFeatures;
             securityFeatures = builder.securityFeatures;
             wireFormatFeatures = builder.wireFormatFeatures;
+            operationFeatures = builder.operationFeatures;
         }
     }
 
@@ -81,8 +84,17 @@ public class FeatureSet {
             builder.parameterFeatures = copy.getParameterFeatures();
             builder.securityFeatures = copy.getSecurityFeatures();
             builder.wireFormatFeatures = copy.getWireFormatFeatures();
+            builder.operationFeatures = copy.getOperationFeatures();
         }
         return builder;
+    }
+
+    public EnumSet<OperationFeature> getOperationFeatures() {
+        if (operationFeatures != null) {
+            return EnumSet.copyOf(operationFeatures);
+        } else {
+            return EnumSet.noneOf(OperationFeature.class);
+        }
     }
 
     /**
@@ -389,6 +401,8 @@ public class FeatureSet {
         private EnumSet<SecurityFeature> securityFeatures;
         private EnumSet<WireFormatFeature> wireFormatFeatures;
 
+        private EnumSet<OperationFeature> operationFeatures;
+
         private Builder() {
             this.clientModificationFeatures = EnumSet.noneOf(ClientModificationFeature.class);
             this.dataTypeFeatures = EnumSet.noneOf(DataTypeFeature.class);
@@ -399,6 +413,26 @@ public class FeatureSet {
             this.globalFeatures = EnumSet.noneOf(GlobalFeature.class);
             this.componentsFeatures = EnumSet.noneOf(ComponentsFeature.class);
             this.wireFormatFeatures = EnumSet.noneOf(WireFormatFeature.class);
+            this.operationFeatures = EnumSet.noneOf(OperationFeature.class);
+        }
+
+        public Builder operationFeatures(EnumSet<OperationFeature> operationFeatures) {
+            if (operationFeatures != null) {
+                this.operationFeatures = operationFeatures;
+            } else {
+                this.operationFeatures = EnumSet.noneOf(OperationFeature.class);
+            }
+            return this;
+        }
+
+        public Builder includeOperationFeatures(OperationFeature... operationFeature) {
+            this.operationFeatures.addAll(Arrays.stream(operationFeature).collect(Collectors.toList()));
+            return this;
+        }
+
+        public Builder excludeOperationFeatures(OperationFeature... operationFeature) {
+            this.operationFeatures.removeAll(Arrays.stream(operationFeature).collect(Collectors.toList()));
+            return this;
         }
 
         /**

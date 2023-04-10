@@ -38,6 +38,7 @@ import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
+import org.openapijsonschematools.codegen.meta.features.OperationFeature;
 import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
@@ -159,6 +160,9 @@ public class DefaultCodegen implements CodegenConfig {
                 .includeParameterFeatures(
                         ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,
                         ParameterFeature.In_Cookie
+                )
+                .includeOperationFeatures(
+                        OperationFeature.Responses_Default, OperationFeature.Responses_HttpStatusCode
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey, SecurityFeature.HTTP_Basic, SecurityFeature.HTTP_Bearer,
