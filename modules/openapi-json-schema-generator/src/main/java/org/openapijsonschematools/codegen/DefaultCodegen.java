@@ -1893,6 +1893,7 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn(
                             "Invalid inline schema defined in oneOf/anyOf in '{}'. Per the OpenApi spec, for this case when a composed schema defines a discriminator, the oneOf/anyOf schemas must use $ref. Change this inline definition to a $ref definition",
                             composedSchemaName);
+                    continue;
                 }
                 CodegenSchema df = discriminatorFound(composedSchemaName, sc, discPropName, openAPI);
                 String modelName = ModelUtils.getSimpleRef(ref);

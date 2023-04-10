@@ -1037,18 +1037,17 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        hs = new java.util.LinkedHashSet();
-        mn = "FruitInlineDisc_anyOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        mn = "FruitInlineDisc_anyOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        assertEquals(cm.discriminator.mappedModels, hs);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // inline anyOf with inline anyOf model doesn't work because we have null $refs and we throw an exception
         final String fmodelName = "FruitInlineInlineDisc";
         final Schema fsc = openAPI.getComponents().getSchemas().get(fmodelName);
         // comment out below as we're now showing warnings instead of throwing exceptions
-        //Assert.assertThrows(() -> codegen.fromSchema(fmodelName, fsc));
+        String jsonPath  = "#/components/schemas/" + fmodelName;
+        cm = codegen.fromSchema(fsc, jsonPath, jsonPath);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // ref anyOf models with discriminator in properties in those models
         modelName = "FruitReqDisc";
@@ -1147,18 +1146,16 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        hs = new java.util.LinkedHashSet();
-        mn = "FruitInlineDisc_oneOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        mn = "FruitInlineDisc_oneOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        assertEquals(cm.discriminator.mappedModels, hs);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // inline oneOf with inline oneOf model doesn't work because we have null $refs and we throw an exception
         final String fmodelName = "FruitInlineInlineDisc";
         final Schema fsc = openAPI.getComponents().getSchemas().get(fmodelName);
-        // comment out below as we're now showing warnings instead of throwing exceptions
-        //Assert.assertThrows(() -> codegen.fromSchema(fmodelName, fsc));
+        String jsonPath = "#/components/schemas/" + fmodelName;
+        cm = codegen.fromSchema(fsc, jsonPath, jsonPath);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // ref oneOf models with discriminator in properties in those models
         modelName = "FruitReqDisc";
