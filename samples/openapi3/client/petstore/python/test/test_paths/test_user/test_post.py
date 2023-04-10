@@ -29,7 +29,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
     api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
-    response_status = 0
+    response_status = 200
     response_body = ''
 
 if __name__ == '__main__':

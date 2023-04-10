@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod.original}}.response_{{../@key}}.{{responseClassName}}.content["{{{@key.original}}}"].schema
+response_body_schema = {{httpMethod.original}}.{{responseModuleName}}.{{responseClassName}}.content["{{{@key.original}}}"].schema
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}

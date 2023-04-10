@@ -451,6 +451,9 @@ public class DefaultGenerator implements Generator {
         }
 
         if (pathItem.operations != null) {
+            String testInitFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
+            generateFile(new HashMap<>(), "__init__.hbs", testInitFilename, files, true, CodegenConstants.API_TESTS);
+
             for (Map.Entry<CodegenKey, CodegenOperation> entry: pathItem.operations.entrySet()) {
                 CodegenKey httpMethod = entry.getKey();
                 CodegenOperation operation = entry.getValue();
@@ -532,9 +535,6 @@ public class DefaultGenerator implements Generator {
                         endpointTestMap.put("path", pathKey);
                         endpointTestMap.put("packageName", config.packageName());
                         outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
-                        generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
-
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
                         generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
                     }
                 }

@@ -1644,6 +1644,43 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/wildCardResponses:
+    get:
+      operationId: wildCardResponses
+      summary: operation with wildcard responses
+      tags:
+        - fake
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema: {}
+        1XX:
+          description: 1XX response
+          content:
+            application/json:
+              schema: {}
+        2XX:
+          description: 2XX response
+          content:
+            application/json:
+              schema: {}
+        3XX:
+          description: 3XX response
+          content:
+            application/json:
+              schema: {}
+        4XX:
+          description: 4XX response
+          content:
+            application/json:
+              schema: {}
+        5XX:
+          description: 5XX response
+          content:
+            application/json:
+              schema: {}
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

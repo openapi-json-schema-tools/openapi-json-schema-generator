@@ -249,6 +249,7 @@ HTTP request | Method | Description
 /fake/uploadDownloadFile **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_download_file](docs/paths/fake_upload_download_file/post.md)  | uploads a file and downloads a file using application/octet-stream
 /fake/uploadFile **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_file](docs/paths/fake_upload_file/post.md)  | uploads a file using multipart/form-data
 /fake/uploadFiles **post** | [FakeApi](docs/apis/tags/fake_api.md).[upload_files](docs/paths/fake_upload_files/post.md)  | uploads files using multipart/form-data
+/fake/wildCardResponses **get** | [FakeApi](docs/apis/tags/fake_api.md).[wild_card_responses](docs/paths/fake_wild_card_responses/get.md)  | operation with wildcard responses
 /fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/apis/tags/pet_api.md).[upload_file_with_required_file](docs/paths/fake_pet_id_upload_image_with_required_file/post.md)  | uploads an image (required)
 /fake_classname_test **patch** | [FakeClassnameTags123Api](docs/apis/tags/fake_classname_tags123_api.md).[classname](docs/paths/fake_classname_test/patch.md)  | To test class name in snake case
 /foo **get** | [DefaultApi](docs/apis/tags/default_api.md).[foo_get](docs/paths/foo/get.md)  | 

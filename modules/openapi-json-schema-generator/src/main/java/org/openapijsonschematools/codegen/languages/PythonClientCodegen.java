@@ -26,6 +26,7 @@ import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.CliOption;
 import org.openapijsonschematools.codegen.CodegenConstants;
 import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.meta.features.OperationFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
@@ -225,6 +226,9 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         ParameterFeature.Explode,
                         ParameterFeature.Schema,
                         ParameterFeature.Content
+                )
+                .includeOperationFeatures(
+                        OperationFeature.Responses_RangedResponseCodes
                 )
                 .excludeParameterFeatures(
                         ParameterFeature.In_Cookie
@@ -1747,13 +1751,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
-        String suffix = toModuleFilename(componentName, null);
+        if (!jsonPath.startsWith("#/components/responses/")) {
+            return "response_" + componentName.toLowerCase(Locale.ROOT);
+        }
+        String suffix = toModuleFilename(componentName, jsonPath);
         String spacer = "";
         if (!suffix.startsWith("_")) {
             spacer = "_";
         }
         return "response" + spacer + suffix;
-
     }
 
     @Override
@@ -1911,14 +1917,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String getCamelCaseResponse(String name) {
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
+        if (name.matches("^\\d[X\\d]{2}$")) {
+            // 200 or 2XX
             return "ResponseFor" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModelName(name, null);
         }
+        return toModelName(name, null);
     }
 
     @Override

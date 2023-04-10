@@ -11,6 +11,7 @@ from petstore_api.paths.fake_multiple_response_bodies.get.operation import Multi
 from petstore_api.paths.fake_multiple_securities.get.operation import MultipleSecurities
 from petstore_api.paths.fake_query_param_with_json_content_type.get.operation import QueryParamWithJsonContentType
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.operation import ParameterCollisions
+from petstore_api.paths.fake_wild_card_responses.get.operation import WildCardResponses
 from petstore_api.paths.fake_refs_array_of_enums.post.operation import ArrayOfEnums
 from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.operation import AdditionalPropertiesWithArrayOfEnums
 from petstore_api.paths.fake_json_patch.patch.operation import JsonPatch
@@ -49,6 +50,7 @@ class FakeApi(
     MultipleSecurities,
     QueryParamWithJsonContentType,
     ParameterCollisions,
+    WildCardResponses,
     ArrayOfEnums,
     AdditionalPropertiesWithArrayOfEnums,
     JsonPatch,

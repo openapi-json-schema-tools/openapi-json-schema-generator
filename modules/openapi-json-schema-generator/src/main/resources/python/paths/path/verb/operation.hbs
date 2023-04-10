@@ -45,7 +45,7 @@ from .responses import response_{{@key}}
     {{else}}
 from .responses import (
         {{#each responses}}
-    response_{{@key}},
+    {{jsonPathPiece.snakeCase}},
         {{/each}}
 )
     {{/eq}}
@@ -124,18 +124,33 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 default_response = response_default.{{jsonPathPiece.camelCase}}
         {{/with}}
     {{/if}}
-    {{#if nonDefaultResponses}}
+    {{#if statusCodeResponses}}
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        {{#each nonDefaultResponses}}
-        '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
+        {{#each statusCodeResponses}}
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
         {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-        {{#each nonDefaultResponses}}
-    '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
+        {{#each statusCodeResponses}}
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        {{/each}}
+}
+    {{/if}}
+    {{#if wildcardCodeResponses}}
+__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+    '__RangedStatusCodeToResponse',
+    {
+        {{#each wildcardCodeResponses}}
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+        {{/each}}
+    }
+)
+_ranged_status_code_to_response: __RangedStatusCodeToResponse = {
+        {{#each wildcardCodeResponses}}
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
         {{/each}}
 }
     {{/if}}
@@ -344,25 +359,50 @@ class BaseApi(api_client.Api):
         else:
 {{#if nonDefaultResponses}}
             status = str(response.status)
+    {{#if wildcardCodeResponses}}
+            ranged_response_status_code = status[0]
+    {{/if}}
+    {{#if statusCodeResponses}}
             if status in _status_code_to_response:
                 status: typing_extensions.Literal[
-{{#each nonDefaultResponses}}
+        {{#each statusCodeResponses}}
                     '{{@key}}',
-{{/each}}
+        {{/each}}
                 ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.schema_configuration)
+                api_response = _status_code_to_response[status].deserialize(
+                    response, self.api_client.schema_configuration)
+        {{#if wildcardCodeResponses}}
+            elif ranged_response_status_code in _ranged_status_code_to_response:
+                ranged_response_status_code: typing_extensions.Literal[
+        {{#each wildcardCodeResponses}}
+                    '{{@key}}',
+        {{/each}}
+                ]
+                api_response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
+                    response, self.api_client.schema_configuration)
+        {{/if}}
+    {{else}}
+            if ranged_response_status_code in _ranged_status_code_to_response:
+                ranged_response_status_code: typing_extensions.Literal[
+        {{#each wildcardCodeResponses}}
+                    '{{@key}}',
+        {{/each}}
+                ]
+                api_response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
+                    response, self.api_client.schema_configuration)
+    {{/if}}
             else:
-                {{#if defaultResponse}}
+    {{#if defaultResponse}}
                 api_response = default_response.deserialize(response, self.api_client.schema_configuration)
-                {{else}}
+    {{else}}
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
-                {{/if}}
+    {{/if}}
 {{else}}
-            {{#if defaultResponse}}
+    {{#if defaultResponse}}
             api_response = default_response.deserialize(response, self.api_client.schema_configuration)
-            {{else}}
+    {{else}}
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
-            {{/if}}
+    {{/if}}
 {{/if}}
 
         if not 200 <= response.status <= 299:

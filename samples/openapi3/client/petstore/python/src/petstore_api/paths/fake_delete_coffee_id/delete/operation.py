@@ -154,7 +154,8 @@ class BaseApi(api_client.Api):
                 status: typing_extensions.Literal[
                     '200',
                 ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.schema_configuration)
+                api_response = _status_code_to_response[status].deserialize(
+                    response, self.api_client.schema_configuration)
             else:
                 api_response = default_response.deserialize(response, self.api_client.schema_configuration)
 

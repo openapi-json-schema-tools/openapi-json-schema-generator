@@ -25,9 +25,7 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 @dataclasses.dataclass
 class _ApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        application_json_charsetutf8_schema.Schema,
-    ]
+    body: application_json_charsetutf8_schema.Schema
     headers: schemas.Unset = schemas.unset
 
 

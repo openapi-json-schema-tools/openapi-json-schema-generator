@@ -44,5 +44,6 @@ Method | Description
 [**upload_download_file**](../../paths/fake_upload_download_file/post.md) | uploads a file and downloads a file using application/octet-stream
 [**upload_file**](../../paths/fake_upload_file/post.md) | uploads a file using multipart/form-data
 [**upload_files**](../../paths/fake_upload_files/post.md) | uploads files using multipart/form-data
+[**wild_card_responses**](../../paths/fake_wild_card_responses/get.md) | operation with wildcard responses
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)
