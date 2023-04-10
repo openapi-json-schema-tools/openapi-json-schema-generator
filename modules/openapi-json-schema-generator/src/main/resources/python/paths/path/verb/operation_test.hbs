@@ -28,18 +28,46 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
     api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
 
-{{#each responses}}
-    {{#if @first}}
-    response_status = {{#eq @key "default"}}0{{else}}{{@key}}{{/eq}}
-        {{#if refInfo}}
-            {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=../jsonPathPiece.camelCase }}
-            {{/with}}
-        {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseClassName=jsonPathPiece.camelCase }}
+{{#if statusCodeResponses}}
+    {{#each statusCodeResponses}}
+        {{#if @first}}
+    response_status = {{@key}}
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                {{/with}}
+            {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+            {{/if}}
         {{/if}}
+    {{/each}}
+{{else}}
+    {{#if wildcardCodeResponses}}
+        {{#each wildcardCodeResponses}}
+            {{#if @first}}
+    response_status = {{@key}}99
+                {{#if refInfo}}
+                    {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                    {{/with}}
+                {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    {{else}}
+        {{#with defaultResponse}}
+    response_status = 200
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                {{/with}}
+            {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+            {{/if}}
+        {{/with}}
     {{/if}}
-{{/each}}
+{{/if}}
 {{#if requestBody}}
 {{#with requestBody}}
 {{#if required}}
