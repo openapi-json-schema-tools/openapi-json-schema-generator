@@ -37,6 +37,7 @@ Method | Description
 [**parameter_collisions**](../../paths/fake_parameter_collisions1_abab_self_ab/post.md) | parameter collision case
 [**query_param_with_json_content_type**](../../paths/fake_query_param_with_json_content_type/get.md) | query param with json content-type
 [**query_parameter_collection_format**](../../paths/fake_test_query_paramters/put.md) | 
+[**redirection**](../../paths/fake_redirection/get.md) | operation with redirection responses
 [**ref_object_in_query**](../../paths/fake_ref_obj_in_query/get.md) | user list
 [**response_without_schema**](../../paths/fake_response_without_schema/get.md) | receives a response without schema
 [**string**](../../paths/fake_refs_string/post.md) | 

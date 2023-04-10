@@ -1681,6 +1681,17 @@ paths:
           content:
             application/json:
               schema: {}
+  /fake/redirection:
+    get:
+      operationId: redirection
+      summary: operation with redirection responses
+      tags:
+        - fake
+      responses:
+        303:
+          description: see other
+        3XX:
+          description: 3XX response
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

@@ -23,15 +23,15 @@ import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
  * Defines Operation features supported in the generated code.
  */
 public enum OperationFeature {
-    /**
-     * Supports header-based basic http auth.
-     */
-    @OAS2 @OAS3
+    @OAS3
     Responses_HttpStatusCode,
 
-    @OAS2 @OAS3
+    @OAS3
     Responses_RangedResponseCodes,
 
-    @OAS2 @OAS3
+    @OAS3
     Responses_Default,
+
+    @OAS3
+    Responses_RedirectionResponse,
 }

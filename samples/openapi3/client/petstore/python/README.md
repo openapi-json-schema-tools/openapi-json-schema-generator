@@ -234,6 +234,7 @@ HTTP request | Method | Description
 /fake/objInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[object_in_query](docs/paths/fake_obj_in_query/get.md)  | user list
 /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[parameter_collisions](docs/paths/fake_parameter_collisions1_abab_self_ab/post.md)  | parameter collision case
 /fake/queryParamWithJsonContentType **get** | [FakeApi](docs/apis/tags/fake_api.md).[query_param_with_json_content_type](docs/paths/fake_query_param_with_json_content_type/get.md)  | query param with json content-type
+/fake/redirection **get** | [FakeApi](docs/apis/tags/fake_api.md).[redirection](docs/paths/fake_redirection/get.md)  | operation with redirection responses
 /fake/refObjInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[ref_object_in_query](docs/paths/fake_ref_obj_in_query/get.md)  | user list
 /fake/refs/array-of-enums **post** | [FakeApi](docs/apis/tags/fake_api.md).[array_of_enums](docs/paths/fake_refs_array_of_enums/post.md)  | Array of Enums
 /fake/refs/arraymodel **post** | [FakeApi](docs/apis/tags/fake_api.md).[array_model](docs/paths/fake_refs_arraymodel/post.md)  | 

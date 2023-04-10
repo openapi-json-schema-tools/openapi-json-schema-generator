@@ -19,6 +19,7 @@ from petstore_api.apis.paths.fake_multiple_securities import FakeMultipleSecurit
 from petstore_api.apis.paths.fake_obj_in_query import FakeObjInQuery
 from petstore_api.apis.paths.fake_parameter_collisions1_abab_self_ab import FakeParameterCollisions1ABAbSelfAB
 from petstore_api.apis.paths.fake_query_param_with_json_content_type import FakeQueryParamWithJsonContentType
+from petstore_api.apis.paths.fake_redirection import FakeRedirection
 from petstore_api.apis.paths.fake_ref_obj_in_query import FakeRefObjInQuery
 from petstore_api.apis.paths.fake_refs_array_of_enums import FakeRefsArrayOfEnums
 from petstore_api.apis.paths.fake_refs_arraymodel import FakeRefsArraymodel
@@ -74,6 +75,7 @@ PathToApi = typing_extensions.TypedDict(
     "/fake/objInQuery": typing.Type[FakeObjInQuery],
     "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": typing.Type[FakeParameterCollisions1ABAbSelfAB],
     "/fake/queryParamWithJsonContentType": typing.Type[FakeQueryParamWithJsonContentType],
+    "/fake/redirection": typing.Type[FakeRedirection],
     "/fake/refObjInQuery": typing.Type[FakeRefObjInQuery],
     "/fake/refs/array-of-enums": typing.Type[FakeRefsArrayOfEnums],
     "/fake/refs/arraymodel": typing.Type[FakeRefsArraymodel],
@@ -130,6 +132,7 @@ path_to_api = PathToApi(
     "/fake/objInQuery": FakeObjInQuery,
     "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": FakeParameterCollisions1ABAbSelfAB,
     "/fake/queryParamWithJsonContentType": FakeQueryParamWithJsonContentType,
+    "/fake/redirection": FakeRedirection,
     "/fake/refObjInQuery": FakeRefObjInQuery,
     "/fake/refs/array-of-enums": FakeRefsArrayOfEnums,
     "/fake/refs/arraymodel": FakeRefsArraymodel,
