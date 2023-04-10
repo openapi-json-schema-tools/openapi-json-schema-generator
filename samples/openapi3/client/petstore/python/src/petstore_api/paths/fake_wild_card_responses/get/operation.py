@@ -40,21 +40,28 @@ from .responses import (
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
-        '1XX': typing.Type[response_1xx.ResponseFor1XX],
         '200': typing.Type[response_200.ResponseFor200],
-        '2XX': typing.Type[response_2xx.ResponseFor2XX],
-        '3XX': typing.Type[response_3xx.ResponseFor3XX],
-        '4XX': typing.Type[response_4xx.ResponseFor4XX],
-        '5XX': typing.Type[response_5xx.ResponseFor5XX],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '1XX': response_1xx.ResponseFor1XX,
     '200': response_200.ResponseFor200,
-    '2XX': response_2xx.ResponseFor2XX,
-    '3XX': response_3xx.ResponseFor3XX,
-    '4XX': response_4xx.ResponseFor4XX,
-    '5XX': response_5xx.ResponseFor5XX,
+}
+__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+    '__RangedStatusCodeToResponse',
+    {
+        '1': typing.Type[response_1xx.ResponseFor1XX],
+        '2': typing.Type[response_2xx.ResponseFor2XX],
+        '3': typing.Type[response_3xx.ResponseFor3XX],
+        '4': typing.Type[response_4xx.ResponseFor4XX],
+        '5': typing.Type[response_5xx.ResponseFor5XX],
+    }
+)
+_ranged_status_code_to_response: __RangedStatusCodeToResponse = {
+    '1': response_1xx.ResponseFor1XX,
+    '2': response_2xx.ResponseFor2XX,
+    '3': response_3xx.ResponseFor3XX,
+    '4': response_4xx.ResponseFor4XX,
+    '5': response_5xx.ResponseFor5XX,
 }
 
 _all_accept_content_types = (
@@ -138,16 +145,23 @@ class BaseApi(api_client.Api):
             api_response = api_client.ApiResponseWithoutDeserialization(response=response)
         else:
             status = str(response.status)
+            ranged_response_status_code = status[0]
             if status in _status_code_to_response:
                 status: typing_extensions.Literal[
-                    '1XX',
                     '200',
-                    '2XX',
-                    '3XX',
-                    '4XX',
-                    '5XX',
                 ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.schema_configuration)
+                api_response = _status_code_to_response[status].deserialize(
+                    response, self.api_client.schema_configuration)
+            elif ranged_response_status_code in _status_code_to_response:
+                ranged_response_status_code: typing_extensions.Literal[
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5',
+                ]
+                api_response = _status_code_to_response[ranged_response_status_code].deserialize(
+                    response, self.api_client.schema_configuration)
             else:
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 

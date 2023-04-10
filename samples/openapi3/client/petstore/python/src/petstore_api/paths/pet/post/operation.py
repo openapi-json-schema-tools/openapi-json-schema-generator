@@ -213,7 +213,8 @@ class BaseApi(api_client.Api):
                     '200',
                     '405',
                 ]
-                api_response = _status_code_to_response[status].deserialize(response, self.api_client.schema_configuration)
+                api_response = _status_code_to_response[status].deserialize(
+                    response, self.api_client.schema_configuration)
             else:
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
