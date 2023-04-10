@@ -34,6 +34,7 @@ from petstore_api.apis.paths.fake_test_query_paramters import FakeTestQueryParam
 from petstore_api.apis.paths.fake_upload_download_file import FakeUploadDownloadFile
 from petstore_api.apis.paths.fake_upload_file import FakeUploadFile
 from petstore_api.apis.paths.fake_upload_files import FakeUploadFiles
+from petstore_api.apis.paths.fake_wild_card_responses import FakeWildCardResponses
 from petstore_api.apis.paths.fake_pet_id_upload_image_with_required_file import FakePetIdUploadImageWithRequiredFile
 from petstore_api.apis.paths.fake_classname_test import FakeClassnameTest
 from petstore_api.apis.paths.foo import Foo
@@ -88,6 +89,7 @@ PathToApi = typing_extensions.TypedDict(
     "/fake/uploadDownloadFile": typing.Type[FakeUploadDownloadFile],
     "/fake/uploadFile": typing.Type[FakeUploadFile],
     "/fake/uploadFiles": typing.Type[FakeUploadFiles],
+    "/fake/wildCardResponses": typing.Type[FakeWildCardResponses],
     "/fake/{petId}/uploadImageWithRequiredFile": typing.Type[FakePetIdUploadImageWithRequiredFile],
     "/fake_classname_test": typing.Type[FakeClassnameTest],
     "/foo": typing.Type[Foo],
@@ -143,6 +145,7 @@ path_to_api = PathToApi(
     "/fake/uploadDownloadFile": FakeUploadDownloadFile,
     "/fake/uploadFile": FakeUploadFile,
     "/fake/uploadFiles": FakeUploadFiles,
+    "/fake/wildCardResponses": FakeWildCardResponses,
     "/fake/{petId}/uploadImageWithRequiredFile": FakePetIdUploadImageWithRequiredFile,
     "/fake_classname_test": FakeClassnameTest,
     "/foo": Foo,

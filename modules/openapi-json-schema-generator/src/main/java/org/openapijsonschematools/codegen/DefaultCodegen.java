@@ -3379,7 +3379,8 @@ public class DefaultCodegen implements CodegenConfig {
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
-            pathPieces[3] = toResponseModuleName(pathPieces[3], null);
+            String responseJsonPath = "#/components/responses/" + pathPieces[3];
+            pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
 
             if (pathPieces.length < 6) {
                 return;
@@ -3407,6 +3408,7 @@ public class DefaultCodegen implements CodegenConfig {
             return;
         }
         // #/paths/somePath
+        String path = pathPieces[2];
         pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
         if (pathPieces.length < 4) {
             return;
@@ -3434,8 +3436,8 @@ public class DefaultCodegen implements CodegenConfig {
             pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
         } else if (pathPieces[4].equals("responses")) {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
-            pathPieces[5] = toResponseModuleName(pathPieces[5], null);
-
+            String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
+            pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
             if (pathPieces.length < 8) {
                 return;
             }

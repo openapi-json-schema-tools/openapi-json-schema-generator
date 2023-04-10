@@ -1747,13 +1747,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
-        String suffix = toModuleFilename(componentName, null);
+        if (!jsonPath.startsWith("#/components/responses/")) {
+            return "response_" + componentName.toLowerCase(Locale.ROOT);
+        }
+        String suffix = toModuleFilename(componentName, jsonPath);
         String spacer = "";
         if (!suffix.startsWith("_")) {
             spacer = "_";
         }
         return "response" + spacer + suffix;
-
     }
 
     @Override
@@ -1911,14 +1913,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     public String getCamelCaseResponse(String name) {
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
+        if (name.matches("^\\d[X\\d]{2}$")) {
+            // 200 or 2XX
             return "ResponseFor" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModelName(name, null);
         }
+        return toModelName(name, null);
     }
 
     @Override

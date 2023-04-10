@@ -45,7 +45,7 @@ from .responses import response_{{@key}}
     {{else}}
 from .responses import (
         {{#each responses}}
-    response_{{@key}},
+    {{jsonPathPiece.snakeCase}},
         {{/each}}
 )
     {{/eq}}
@@ -129,13 +129,13 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {
         {{#each nonDefaultResponses}}
-        '{{@key}}': typing.Type[response_{{@key}}.{{jsonPathPiece.camelCase}}],
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
         {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
         {{#each nonDefaultResponses}}
-    '{{@key}}': response_{{@key}}.{{jsonPathPiece.camelCase}},
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
         {{/each}}
 }
     {{/if}}
