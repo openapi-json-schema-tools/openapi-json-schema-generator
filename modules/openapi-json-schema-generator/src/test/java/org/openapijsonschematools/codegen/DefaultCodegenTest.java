@@ -3046,14 +3046,7 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
-                "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "AnyTypeHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ObjectHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedNoAllofPropsHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofOptPropHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofReqPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofReqPropHasPropertiesHasRequired"  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofReqPropHasPropertiesNoRequired"
         ));
         for (CodegenKey key: cm.properties.keySet()) {
             CodegenSchema prop = cm.properties.get(key);
