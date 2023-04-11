@@ -2770,24 +2770,15 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // null because they are refs
-        assertEquals(co.pathParams.get(0).schema.properties, null);
-        assertEquals(co.pathParams.get(0).schema.requiredProperties, null);
-        CodegenKey applicationJson = codegen.getKey("application/json");
-        assertEquals(co.requestBody.content.get(applicationJson).schema.properties, null);
-        assertEquals(co.requestBody.content.get(applicationJson).schema.requiredProperties, null);
 
-        // CodegenOperation puts the inline schema into schemas and refs it
-        assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
-        modelName = "objectWithOptionalAndRequiredProps_request";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        assertEquals(cm.properties.size(), 3);
-        assertEquals(cm.requiredProperties.size(), 2);
+        assertEquals(co.pathParams.get(0).schema.properties.size(), 3);
+        assertEquals(co.pathParams.get(0).schema.requiredProperties.size(), 2);
+        CodegenKey applicationJson = codegen.getKey("application/json");
+        assertEquals(co.requestBody.content.get(applicationJson).schema.properties.size(), 3);
+        assertEquals(co.requestBody.content.get(applicationJson).schema.requiredProperties.size(), 2);
+
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.properties.size(), 3);
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.requiredProperties.size(), 2);
 
         // CodegenSchema puts the inline schema into schemas and refs it
         modelName = "ObjectPropContainsProps";
@@ -2799,7 +2790,8 @@ public class DefaultCodegenTest {
         );
         CodegenKey ck = codegen.getKey("a");
         CodegenSchema cp = cm.properties.get(ck);
-        assertEquals(cp.refInfo.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
+        assertEquals(cp.properties.size(), 3);
+        assertEquals(cp.requiredProperties.size(), 2);
     }
 
     @Test
