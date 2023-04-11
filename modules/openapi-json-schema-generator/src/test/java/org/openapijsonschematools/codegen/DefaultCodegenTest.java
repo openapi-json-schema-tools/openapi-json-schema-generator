@@ -3118,21 +3118,14 @@ public class DefaultCodegenTest {
                 "ObjectWithOptionalB",
                 "AnyTypeNoPropertiesNoRequired",
                 "AnyTypeHasPropertiesNoRequired",
-                "AnyTypeHasPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ObjectNoPropertiesNoRequired",
-                "ObjectHasPropertiesNoRequired", // Note: this is extracted into another component and is a ref
+                "ObjectHasPropertiesNoRequired",
                 "ComposedNoAllofPropsNoPropertiesNoRequired",
                 "ComposedNoAllofPropsHasPropertiesNoRequired",
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
-                "ObjectHasPropertiesHasRequired", // False because this is extracted into another component and is a ref
-                "ComposedNoAllofPropsHasPropertiesHasRequired", // False because this is extracted into another component and is a ref
-                "ComposedHasAllofOptPropHasPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
-                "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "ComposedHasAllofReqPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
-                "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
+                "ComposedHasAllofReqPropHasPropertiesNoRequired"
         ));
         CodegenKey ck = codegen.getKey("application/json");
         for (CodegenResponse cr : co.responses.values()) {
