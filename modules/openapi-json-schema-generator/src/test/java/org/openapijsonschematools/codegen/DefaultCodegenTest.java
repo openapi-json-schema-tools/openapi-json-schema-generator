@@ -269,16 +269,10 @@ public class DefaultCodegenTest {
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
         CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
-        Assert.assertNotNull(codegenParameter.content.get(ck).schema.refInfo);
+        Assert.assertNull(codegenParameter.content.get(ck).schema.refInfo);
 
-        Schema specModel = openAPI.getComponents().getSchemas().get("updatePetWithForm_request");
-        CodegenSchema model = codegen.fromSchema(
-                specModel,
-                "#/components/schemas/updatePetWithForm_request",
-                "#/components/schemas/updatePetWithForm_request"
-        );
-        ck = codegen.getKey("visitDate");
-        assertEquals(model.properties.get(ck).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
+        CodegenKey propertyKey = codegen.getKey("visitDate");
+        assertEquals(codegenParameter.content.get(ck).schema.properties.get(propertyKey).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
     }
 
     @Test
@@ -1037,18 +1031,17 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        hs = new java.util.LinkedHashSet();
-        mn = "FruitInlineDisc_anyOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        mn = "FruitInlineDisc_anyOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        assertEquals(cm.discriminator.mappedModels, hs);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // inline anyOf with inline anyOf model doesn't work because we have null $refs and we throw an exception
         final String fmodelName = "FruitInlineInlineDisc";
         final Schema fsc = openAPI.getComponents().getSchemas().get(fmodelName);
         // comment out below as we're now showing warnings instead of throwing exceptions
-        //Assert.assertThrows(() -> codegen.fromSchema(fmodelName, fsc));
+        String jsonPath  = "#/components/schemas/" + fmodelName;
+        cm = codegen.fromSchema(fsc, jsonPath, jsonPath);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // ref anyOf models with discriminator in properties in those models
         modelName = "FruitReqDisc";
@@ -1147,18 +1140,16 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        hs = new java.util.LinkedHashSet();
-        mn = "FruitInlineDisc_oneOf";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        mn = "FruitInlineDisc_oneOf_1";
-        hs.add(new CodegenDiscriminator.MappedModel(mn, codegen.toModelName(mn, null)));
-        assertEquals(cm.discriminator.mappedModels, hs);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // inline oneOf with inline oneOf model doesn't work because we have null $refs and we throw an exception
         final String fmodelName = "FruitInlineInlineDisc";
         final Schema fsc = openAPI.getComponents().getSchemas().get(fmodelName);
-        // comment out below as we're now showing warnings instead of throwing exceptions
-        //Assert.assertThrows(() -> codegen.fromSchema(fmodelName, fsc));
+        String jsonPath = "#/components/schemas/" + fmodelName;
+        cm = codegen.fromSchema(fsc, jsonPath, jsonPath);
+        assertEquals(cm.discriminator.mapping, null);
+        assertEquals(cm.discriminator.mappedModels.size(), 0);
 
         // ref oneOf models with discriminator in properties in those models
         modelName = "FruitReqDisc";
@@ -1466,27 +1457,21 @@ public class DefaultCodegenTest {
     @Test
     public void testNullableProperty() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        new InlineModelResolver().flatten(openAPI);
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        codegen.fromSchema(
-                openAPI.getComponents().getSchemas().get("User_address"),
-                "#/components/schemas/User_address",
-                "#/components/schemas/User_address"
-        );
-        CodegenSchema property = codegen.fromSchema(
-                (Schema) openAPI.getComponents().getSchemas().get("User").getProperties().get("address"),
+        CodegenSchema userModel = codegen.fromSchema(
+                (Schema) openAPI.getComponents().getSchemas().get("User"),
                 "#/components/schemas/User",
-                "#/components/schemas/User/properties/address"
+                "#/components/schemas/User"
         );
-        Assert.assertTrue(property.refInfo.ref.nullable);
+        CodegenKey key = codegen.getKey("address");
+        Assert.assertTrue(userModel.properties.get(key).nullable);
     }
 
     @Test
     public void testDeprecatedModel() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/component-deprecated.yml");
-        new InlineModelResolver().flatten(openAPI);
         final DefaultCodegen codegen = new DefaultCodegen();
 
         CodegenSchema codegenPetModel = codegen.fromSchema(
@@ -1507,7 +1492,6 @@ public class DefaultCodegenTest {
     @Test
     public void testDeprecatedProperty() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/property-deprecated.yaml");
-        new InlineModelResolver().flatten(openAPI);
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
@@ -1539,7 +1523,6 @@ public class DefaultCodegenTest {
     @Test
     public void testDeprecatedRef() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/model-deprecated.yaml");
-        new InlineModelResolver().flatten(openAPI);
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
@@ -1711,7 +1694,6 @@ public class DefaultCodegenTest {
     @Test
     public void testAlias() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/type_alias.yaml");
-        new InlineModelResolver().flatten(openAPI);
 
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
@@ -1867,7 +1849,6 @@ public class DefaultCodegenTest {
     @Test
     public void arrayInnerReferencedSchemaMarkedAsModel_30() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/arrayRefBody.yaml");
-        new InlineModelResolver().flatten(openAPI);
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
@@ -2789,24 +2770,15 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // null because they are refs
-        assertEquals(co.pathParams.get(0).schema.properties, null);
-        assertEquals(co.pathParams.get(0).schema.requiredProperties, null);
-        CodegenKey applicationJson = codegen.getKey("application/json");
-        assertEquals(co.requestBody.content.get(applicationJson).schema.properties, null);
-        assertEquals(co.requestBody.content.get(applicationJson).schema.requiredProperties, null);
 
-        // CodegenOperation puts the inline schema into schemas and refs it
-        assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
-        modelName = "objectWithOptionalAndRequiredProps_request";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        assertEquals(cm.properties.size(), 3);
-        assertEquals(cm.requiredProperties.size(), 2);
+        assertEquals(co.pathParams.get(0).schema.properties.size(), 3);
+        assertEquals(co.pathParams.get(0).schema.requiredProperties.size(), 2);
+        CodegenKey applicationJson = codegen.getKey("application/json");
+        assertEquals(co.requestBody.content.get(applicationJson).schema.properties.size(), 3);
+        assertEquals(co.requestBody.content.get(applicationJson).schema.requiredProperties.size(), 2);
+
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.properties.size(), 3);
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.requiredProperties.size(), 2);
 
         // CodegenSchema puts the inline schema into schemas and refs it
         modelName = "ObjectPropContainsProps";
@@ -2818,7 +2790,8 @@ public class DefaultCodegenTest {
         );
         CodegenKey ck = codegen.getKey("a");
         CodegenSchema cp = cm.properties.get(ck);
-        assertEquals(cp.refInfo.refClass, "ObjectWithOptionalAndRequiredPropsRequest");
+        assertEquals(cp.properties.size(), 3);
+        assertEquals(cp.requiredProperties.size(), 2);
     }
 
     @Test
@@ -2903,26 +2876,21 @@ public class DefaultCodegenTest {
         String modelName;
         modelName = "ArrayWithObjectWithPropsInItems";
         ArraySchema as = (ArraySchema) openAPI.getComponents().getSchemas().get(modelName);
-        assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", as.getItems().get$ref());
-        sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromSchema(
-                sc,
+                as,
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        assertTrue(cm.properties.size() > 0);
+        assertTrue(cm.items.properties.size() > 0);
 
         modelName = "ObjectWithObjectWithPropsInAdditionalProperties";
         MapSchema ms = (MapSchema) openAPI.getComponents().getSchemas().get(modelName);
-        Schema addProps = (Schema) ms.getAdditionalProperties();
-        assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", addProps.get$ref());
-        sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromSchema(
-                sc,
+                ms,
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        assertTrue(cm.properties.size() > 0);
+        assertTrue(cm.additionalProperties.properties.size() > 0);
     }
 
     @Test
@@ -2946,9 +2914,9 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // no vars because it's a ref
-        assertTrue(co.pathParams.get(0).schema.properties == null);
-        assertTrue(co.requestBody.content.get(ck).schema.properties == null);
+
+        assertTrue(co.pathParams.get(0).schema.properties.size() == 3);
+        assertTrue(co.requestBody.content.get(ck).schema.properties.size() == 3);
     }
 
     @Test
@@ -2971,8 +2939,8 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // does not have vars because the inline schema was extracted into a component ref
-        assertTrue(co.responses.get("200").content.get(applicationJson).schema.properties == null);
+
+        assertTrue(co.responses.get("200").content.get(applicationJson).schema.properties.size() == 3);
     }
 
     @Test
@@ -3061,14 +3029,7 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
-                "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "AnyTypeHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ObjectHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedNoAllofPropsHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofOptPropHasPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofReqPropNoPropertiesHasRequired",  // remove when delete/turn off inline model resolver
-                "ComposedHasAllofReqPropHasPropertiesHasRequired"  // remove when delete/turn off inline model resolver
+                "ComposedHasAllofReqPropHasPropertiesNoRequired"
         ));
         for (CodegenKey key: cm.properties.keySet()) {
             CodegenSchema prop = cm.properties.get(key);
@@ -3140,21 +3101,14 @@ public class DefaultCodegenTest {
                 "ObjectWithOptionalB",
                 "AnyTypeNoPropertiesNoRequired",
                 "AnyTypeHasPropertiesNoRequired",
-                "AnyTypeHasPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ObjectNoPropertiesNoRequired",
-                "ObjectHasPropertiesNoRequired", // Note: this is extracted into another component and is a ref
+                "ObjectHasPropertiesNoRequired",
                 "ComposedNoAllofPropsNoPropertiesNoRequired",
                 "ComposedNoAllofPropsHasPropertiesNoRequired",
                 "ComposedHasAllofOptPropNoPropertiesNoRequired",
                 "ComposedHasAllofOptPropHasPropertiesNoRequired",
-                "ComposedHasAllofOptPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
-                "ObjectHasPropertiesHasRequired", // False because this is extracted into another component and is a ref
-                "ComposedNoAllofPropsHasPropertiesHasRequired", // False because this is extracted into another component and is a ref
-                "ComposedHasAllofOptPropHasPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
-                "ComposedHasAllofReqPropHasPropertiesNoRequired",
-                "ComposedHasAllofReqPropNoPropertiesHasRequired",  // TODO: hasRequired should be true, fix this
-                "ComposedHasAllofReqPropHasPropertiesHasRequired"  // TODO: hasRequired should be true, fix this
+                "ComposedHasAllofReqPropHasPropertiesNoRequired"
         ));
         CodegenKey ck = codegen.getKey("application/json");
         for (CodegenResponse cr : co.responses.values()) {
@@ -3772,7 +3726,7 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         CodegenKey applicationXWwwFormUrlencoded = codegen.getKey("application/x-www-form-urlencoded");
         CodegenSchema formSchema = co.requestBody.content.get(applicationXWwwFormUrlencoded).schema;
-        assertEquals(formSchema.refInfo.ref.properties.size(), 6);
+        assertEquals(formSchema.properties.size(), 6);
 
         LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.content.get(applicationXWwwFormUrlencoded).encoding;
         assertEquals(encoding.get("int-param").explode, true);
@@ -3929,7 +3883,6 @@ public class DefaultCodegenTest {
     public static class FromParameter {
         private CodegenParameter codegenParameter(String path) {
             final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/fromParameter.yaml");
-            new InlineModelResolver().flatten(openAPI);
             final DefaultCodegen codegen = new DefaultCodegen();
             codegen.setOpenAPI(openAPI);
 

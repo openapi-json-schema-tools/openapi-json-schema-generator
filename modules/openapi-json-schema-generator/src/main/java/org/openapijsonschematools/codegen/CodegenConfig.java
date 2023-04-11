@@ -325,8 +325,6 @@ public interface CodegenConfig {
 
     List<VendorExtension> getSupportedVendorExtensions();
 
-    boolean getUseInlineModelResolver();
-
     String toRefClass(String ref, String sourceJsonPath, String expectedComponentType);
 
     CodegenRequestBody fromRequestBody(RequestBody body, String sourceJsonPath);

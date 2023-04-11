@@ -48,8 +48,6 @@ public class TestUtils {
      */
     public static OpenAPI parseFlattenSpec(String specFilePath) {
         OpenAPI openAPI = parseSpec(specFilePath);
-        InlineModelResolver inlineModelResolver = new InlineModelResolver();
-        inlineModelResolver.flatten(openAPI);
         return openAPI;
     }
 
@@ -57,7 +55,7 @@ public class TestUtils {
      * Helper method for parsing specs into an intermediary OpenAPI structure for pre-processing.
      *
      * Use this method only for tests targeting processing helpers such as {@link ModelUtils}
-     * or {@link InlineModelResolver}. Using this for testing generators will mean you're not testing the OpenAPI document
+     * Using this for testing generators will mean you're not testing the OpenAPI document
      * in a state the generator will be presented at runtime.
      *
      * @param specFilePath The path to the specification file

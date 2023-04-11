@@ -1893,6 +1893,7 @@ public class DefaultCodegen implements CodegenConfig {
                     LOGGER.warn(
                             "Invalid inline schema defined in oneOf/anyOf in '{}'. Per the OpenApi spec, for this case when a composed schema defines a discriminator, the oneOf/anyOf schemas must use $ref. Change this inline definition to a $ref definition",
                             composedSchemaName);
+                    continue;
                 }
                 CodegenSchema df = discriminatorFound(composedSchemaName, sc, discPropName, openAPI);
                 String modelName = ModelUtils.getSimpleRef(ref);
@@ -4772,9 +4773,6 @@ public class DefaultCodegen implements CodegenConfig {
     public List<VendorExtension> getSupportedVendorExtensions() {
         return new ArrayList<>();
     }
-
-    @Override
-    public boolean getUseInlineModelResolver() { return true; }
 
     /*
     A function to convert yaml or json ingested strings like property names

@@ -14,8 +14,6 @@ public class ExampleGeneratorTest {
     public void generateFromResponseSchemaWithPrimitiveType() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/example_generator_test.yaml");
 
-        new InlineModelResolver().flatten(openAPI);
-
         ExampleGenerator exampleGenerator = new ExampleGenerator(openAPI.getComponents().getSchemas(), openAPI);
         Set<String> mediaTypeKeys = new TreeSet<>();
         mediaTypeKeys.add("application/json");
@@ -43,8 +41,6 @@ public class ExampleGeneratorTest {
     public void generateFromResponseSchemaWithNoExample() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/example_generator_test.yaml");
 
-        new InlineModelResolver().flatten(openAPI);
-
         ExampleGenerator exampleGenerator = new ExampleGenerator(openAPI.getComponents().getSchemas(), openAPI);
         Set<String> mediaTypeKeys = new TreeSet<>();
         mediaTypeKeys.add("application/json");
@@ -68,8 +64,6 @@ public class ExampleGeneratorTest {
     @Test
     public void generateFromResponseSchemaWithArrayOfModel() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/example_generator_test.yaml");
-
-        new InlineModelResolver().flatten(openAPI);
 
         ExampleGenerator exampleGenerator = new ExampleGenerator(openAPI.getComponents().getSchemas(), openAPI);
         Set<String> mediaTypeKeys = new TreeSet<>();
@@ -98,8 +92,6 @@ public class ExampleGeneratorTest {
     public void generateFromResponseSchemaWithArrayOfPrimitiveTypes() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/example_generator_test.yaml");
 
-        new InlineModelResolver().flatten(openAPI);
-
         ExampleGenerator exampleGenerator = new ExampleGenerator(openAPI.getComponents().getSchemas(), openAPI);
         Set<String> mediaTypeKeys = new TreeSet<>();
         mediaTypeKeys.add("application/json");
@@ -126,8 +118,6 @@ public class ExampleGeneratorTest {
     @Test
     public void generateFromResponseSchemaWithModel() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/example_generator_test.yaml");
-
-        new InlineModelResolver().flatten(openAPI);
 
         ExampleGenerator exampleGenerator = new ExampleGenerator(openAPI.getComponents().getSchemas(), openAPI);
         Set<String> mediaTypeKeys = new TreeSet<>();
