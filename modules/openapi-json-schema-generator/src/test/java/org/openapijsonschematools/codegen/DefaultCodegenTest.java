@@ -2931,9 +2931,9 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // no vars because it's a ref
-        assertTrue(co.pathParams.get(0).schema.properties == null);
-        assertTrue(co.requestBody.content.get(ck).schema.properties == null);
+
+        assertTrue(co.pathParams.get(0).schema.properties.size() == 3);
+        assertTrue(co.requestBody.content.get(ck).schema.properties.size() == 3);
     }
 
     @Test
