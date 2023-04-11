@@ -1,0 +1,36 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+{{#with header}}
+{{#if refInfo}}
+    {{#if imports}}
+
+    {{/if}}
+{{> _helper_imports }}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import typing
+import typing_extensions
+
+from {{packageName}} import api_client
+    {{#if schema}}
+        {{#with schema}}
+from . import {{jsonPathPiece.snakeCase}}
+        {{/with}}
+    {{else}}
+        {{#if content}}
+            {{#each content}}
+                {{#with this}}
+                    {{#with schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+                    {{/with}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/if}}
+
+
+{{> components/_helper_param_or_header_instance noName=true }}
+{{/if}}
+{{/with}}

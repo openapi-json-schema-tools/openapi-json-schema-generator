@@ -1,0 +1,120 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+import unittest
+from unittest.mock import patch
+
+import urllib3
+
+import {{packageName}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{httpMethod.original}} import operation as {{httpMethod.original}}  # noqa: E501
+from {{packageName}} import schemas, api_client
+from {{packageName}}.configurations import api_configuration, schema_configuration
+
+from .. import ApiTestMixin
+
+
+{{#with operation}}
+class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
+    """
+    {{httpMethod.camelCase}} unit test stubs
+{{#if summary}}
+        {{{summary}}}  # noqa: E501
+{{/if}}
+    """
+    api_config = api_configuration.ApiConfiguration()
+    schema_config = schema_configuration.SchemaConfiguration()
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
+
+{{#if statusCodeResponses}}
+    {{#each statusCodeResponses}}
+        {{#if @first}}
+    response_status = {{@key}}
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                {{/with}}
+            {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+            {{/if}}
+        {{/if}}
+    {{/each}}
+{{else}}
+    {{#if wildcardCodeResponses}}
+        {{#each wildcardCodeResponses}}
+            {{#if @first}}
+    response_status = {{@key}}99
+                {{#if refInfo}}
+                    {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                    {{/with}}
+                {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    {{else}}
+        {{#with defaultResponse}}
+    response_status = 200
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+                {{/with}}
+            {{else}}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+            {{/if}}
+        {{/with}}
+    {{/if}}
+{{/if}}
+{{#if requestBody}}
+{{#with requestBody}}
+{{#if required}}
+{{#each content}}
+{{#if this.testCases}}
+{{#each testCases}}
+{{#with this }}
+
+    def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
+        content_type = '{{{../@key.original}}}'
+        # {{description}}
+        with patch.object(urllib3.PoolManager, 'request') as mock_request:
+            payload = (
+{{#with data}}
+                {{> components/schemas/_helper_payload_renderer endChar='' }}
+{{/with}}
+            )
+{{#if valid}}
+            body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
+                payload,
+                configuration_=self.schema_config
+            )
+            mock_request.return_value = self.response(
+                self.json_bytes(self.response_body),
+                status=self.response_status
+            )
+            {{> paths/path/verb/_helper_operation_test_partial }}
+
+            assert isinstance(api_response.response, urllib3.HTTPResponse)
+            assert isinstance(api_response.body, schemas.Unset)
+{{else}}
+            with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
+                body = {{httpMethod.original}}.request_body.RequestBody.content["{{{../@key.original}}}"].schema.from_openapi_data_(
+                    payload,
+                    configuration_=self.schema_config
+                )
+                self.api.{{httpMethod.original}}(body=body)
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{/if}}
+{{/with}}
+{{else}}
+    {{/if}}
+{{/with}}
+
+if __name__ == '__main__':
+    unittest.main()

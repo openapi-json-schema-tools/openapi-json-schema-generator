@@ -1,0 +1,8 @@
+{{#with items}}
+{{#if refInfo.refClass}}
+
+{{> components/schemas/_helper_refclass_staticmethod }}
+{{else}}
+{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{/if}}
+{{/with}}

@@ -1,0 +1,135 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+{{#with response}}
+{{#if refInfo}}
+    {{#if imports}}
+
+    {{/if}}
+{{> _helper_imports }}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import dataclasses
+import datetime
+import decimal
+import io
+import typing
+import uuid
+
+import frozendict
+import typing_extensions
+import urllib3
+
+from {{packageName}} import api_client
+from {{packageName}} import schemas
+    {{#if content}}
+    {{#each content}}
+        {{#with this.schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+        {{/with}}
+    {{/each}}
+    {{/if}}
+    {{#each headers}}
+from .headers import {{jsonPathPiece.snakeCase}}
+    {{/each}}
+    {{#if headers}}
+{{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
+    {{/if}}
+
+
+@dataclasses.dataclass
+class _ApiResponse(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    {{#and headers content}}
+        {{#if hasContentSchema}}
+            {{#gt content.size 1}}
+    body: typing.Union[
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
+        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+                        {{/with}}
+                    {{else}}
+        schemas.Unset,
+                    {{/if}}
+                {{/each}}
+    ]
+            {{else}}
+    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+            {{/gt}}
+        {{else}}
+    body: schemas.Unset = schemas.unset
+        {{/if}}
+    headers: Header.Params
+    {{else}}
+        {{#or headers content}}
+            {{#if headers}}
+    headers: Header.Params
+    body: schemas.Unset = schemas.unset
+            {{else}}
+                {{#if hasContentSchema}}
+                    {{#gt content.size 1}}
+    body: typing.Union[
+                        {{#each content}}
+                            {{#if this.schema}}
+                                {{#with this.schema}}
+        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+                            {{/with}}
+                        {{else}}
+        schemas.Unset,
+                            {{/if}}
+                        {{/each}}
+    ]
+                    {{else}}
+    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+                    {{/gt}}
+                {{else}}
+    body: schemas.Unset = schemas.unset
+                {{/if}}
+    headers: schemas.Unset = schemas.unset
+            {{/if}}
+        {{/or}}
+    {{/and}}
+    {{#unless headers}}
+    {{#unless content}}
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
+    {{/unless}}
+    {{/unless}}
+
+
+class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
+    response_cls = _ApiResponse
+    {{#each content}}
+
+
+    class __{{@key.camelCase}}MediaType(api_client.MediaType):
+        {{#with this}}
+            {{#with schema}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+            {{else}}
+        pass
+            {{/with}}
+        {{/with}}
+    {{/each}}
+    {{#if content}}
+    __Content = typing_extensions.TypedDict(
+        '__Content',
+        {
+        {{#each content}}
+            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
+        {{/each}}
+        }
+    )
+    content: __Content = {
+        {{#each content}}
+        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
+        {{/each}}
+    }
+    {{/if}}
+    {{#if headers}}
+    headers=Header.parameters
+    {{/if}}
+{{/if}}
+{{/with}}

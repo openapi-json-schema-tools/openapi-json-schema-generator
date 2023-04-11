@@ -30,7 +30,7 @@ jobs:
             ~/.m2/repository
             ~/.gradle
             !~/.gradle/caches/*/plugin-resolution/
-            !~/.m2/repository/org/openapitools/
+            !~/.m2/repository/org/openapijsonschematools/
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -66,7 +66,7 @@ jobs:
             ~/.m2/repository
             ~/.gradle
             !~/.gradle/caches/*/plugin-resolution/
-            !~/.m2/repository/org/openapitools/
+            !~/.m2/repository/org/openapijsonschematools/
           key: ${{ runner.os }}-test-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -175,7 +175,7 @@ jobs:
             ~/.m2/repository
             ~/.gradle
             !~/.gradle/caches/*/plugin-resolution/
-            !~/.m2/repository/org/openapitools/
+            !~/.m2/repository/org/openapijsonschematools/
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-test-maven-plugin-${{ env.cache-name }}-
@@ -209,7 +209,7 @@ jobs:
             ~/.gradle
             !~/.gradle/caches/modules-2/modules-2.lock
             !~/.gradle/caches/*/plugin-resolution/
-            !~/.m2/repository/org/openapitools/
+            !~/.m2/repository/org/openapijsonschematools/
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-test-gradle-plugin-${{ env.cache-name }}-

@@ -1,0 +1,50 @@
+{{#if requestBody}}
+{{#with requestBody}}
+body=body,
+{{/with}}
+{{/if}}
+{{#if queryParams}}
+query_params=query_params,
+{{/if}}
+{{#if headerParams}}
+header_params=header_params,
+{{/if}}
+{{#if pathParams}}
+path_params=path_params,
+{{/if}}
+{{#if cookieParams}}
+cookie_params=cookie_params,
+{{/if}}
+{{#with requestBody}}
+    {{#if refInfo}}
+        {{#each getDeepestRef.content}}
+        {{#if @first}}
+content_type=content_type,
+        {{/if}}
+        {{/each}}
+    {{else}}
+        {{#each content}}
+        {{#if @first}}
+content_type=content_type,
+        {{/if}}
+        {{/each}}
+    {{/if}}
+{{/with}}
+{{#if produces}}
+accept_content_types=accept_content_types,
+{{/if}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+security_index=security_index,
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+security_index=security_index,
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+server_index=server_index,
+stream=stream,
+timeout=timeout,
+skip_deserialization=skip_deserialization

@@ -1,0 +1,139 @@
+def __new__(
+    cls,
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "array"}}
+    arg_: typing.Union[
+        typing.Tuple[
+            {{#with ../items}}{{#if refInfo.refClass}}typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}]{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}, ...
+        ],
+        typing.List[
+            {{#with ../items}}{{#if refInfo.refClass}}typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}]{{else}}typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}]{{/if}}{{/with}}
+        ],
+    ],
+        {{/contains}}
+        {{#contains types "object"}}
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
+        {{#contains types "string"}}
+    arg_: {{> _helper_schema_python_types }},
+        {{/contains}}
+        {{#contains types "number"}}
+    arg_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
+        {{#contains types "integer"}}
+    arg_: {{> _helper_schema_python_types }},
+        {{/contains}}
+        {{#contains types "boolean"}}
+    arg_: {{> _helper_schema_python_types }},
+        {{/contains}}
+        {{#contains types "null"}}
+    arg_: {{> _helper_schema_python_types }},
+        {{/contains}}
+    {{else}}
+        {{#contains types "object"}}
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+        {{else}}
+    arg_: typing.Union[{{> _helper_schema_python_types }}],
+        {{/contains}}
+    {{/eq}}
+{{else}}
+    *args_: typing.Union[{{> _helper_schema_python_types }}],
+{{/if}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+                    {{#with this}}
+                        {{#if refInfo.refClass}}
+    {{@key.original}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}],
+                        {{else}}
+                            {{#if jsonPathPiece}}
+                                {{#if schemaIsFromAdditionalProperties}}
+    {{@key.original}}: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
+                                {{else}}
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
+                                {{/if}}
+                            {{else}}
+    {{@key.original}}: typing.Union[schemas.AnyTypeSchema, {{> _helper_schema_python_types }}],
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
+{{/if}}
+{{#each optionalProperties}}
+    {{#if @key.isValid}}
+        {{#if refInfo.refClass}}
+    {{@key.original}}: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}, schemas.Unset] = schemas.unset,
+        {{else}}
+    {{@key.original}}: typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}, schemas.Unset] = schemas.unset,
+        {{/if}}
+    {{/if}}
+{{/each}}
+    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+{{#with additionalProperties}}
+    {{#unless isBooleanSchemaFalse}}
+        {{#if refInfo.refClass}}
+    **kwargs: typing.Union['{{> components/schemas/_helper_refclass_with_module }}', {{#with getDeepestRef}}{{> _helper_schema_python_types }}{{/with}}],
+        {{else}}
+    **kwargs: typing.Union[Schema_.{{jsonPathPiece.camelCase}}, {{> _helper_schema_python_types }}],
+        {{/if}}
+    {{/unless}}
+{{else}}
+    {{#eq types null}}
+    **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
+    {{else}}
+        {{#contains types "object"}}
+    **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
+        {{/contains}}
+    {{/eq}}
+{{/with}}
+) -> '{{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}':
+    return super().__new__(
+        cls,
+{{#eq types null}}
+        *args_,
+{{else}}
+    {{#contains types "object"}}
+        *args_,
+    {{else}}
+        arg_,
+    {{/contains}}
+{{/eq}}
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#contains types "object"}}
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+                    {{#with this}}
+        {{@key.original}}={{@key.original}},
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/contains}}
+    {{/eq}}
+{{/if}}
+{{#each optionalProperties}}
+    {{#if @key.isValid}}
+        {{@key.original}}={{@key.original}},
+    {{/if}}
+{{/each}}
+        configuration_=configuration_,
+{{#with additionalProperties}}
+    {{#unless isBooleanSchemaFalse}}
+        **kwargs,
+    {{/unless}}
+{{else}}
+    {{#eq types null}}
+        **kwargs,
+    {{else}}
+        {{#contains types "object"}}
+        **kwargs,
+        {{/contains}}
+    {{/eq}}
+{{/with}}
+    )

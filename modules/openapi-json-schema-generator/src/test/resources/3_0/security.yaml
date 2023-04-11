@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: security-test
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+security:
+  - api_key: []
+  - http_basic_test: []
+  - {}
+  - api_key: []
+    http_basic_test: []
+paths:
+  /pathWithSecurityFromRoot:
+    get:
+      summary: path with security from root
+      operationId: pathWithSecurityFromRoot
+      responses:
+        '200':
+          description: OK
+  /pathWithOneExplicitSecurity:
+    get:
+      summary: path with one explicit security
+      operationId: pathWithOneExplicitSecurity
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+  /pathWithTwoExplicitSecurity:
+    get:
+      summary: path with two explicit security
+      operationId: pathWithTwoExplicitSecurity
+      security:
+        - api_key: []
+        - bearer_test: []
+      responses:
+        '200':
+          description: OK
+  /pathWithNoExplicitSecurity:
+    get:
+      summary: path with no explicit security
+      operationId: pathWithNoExplicitSecurity
+      security: []
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    api_key:
+      description: apiKey in header
+      type: apiKey
+      name: api_key
+      in: header
+    http_basic_test:
+      description: http basic
+      type: http
+      scheme: basic
+    bearer_test:
+      description: http bearer with JWT bearer format
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

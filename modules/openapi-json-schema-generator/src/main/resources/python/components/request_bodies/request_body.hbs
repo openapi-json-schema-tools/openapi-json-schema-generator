@@ -1,0 +1,53 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+{{#with requestBody}}
+{{#if refInfo}}
+    {{#if imports}}
+
+    {{/if}}
+{{> _helper_imports }}
+{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import typing
+import typing_extensions
+
+from {{packageName}} import api_client
+    {{#each content}}
+    {{#with this}}
+        {{#with schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+        {{/with}}
+    {{/with}}
+    {{/each}}
+
+class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
+    {{#each content}}
+
+
+    class __{{@key.camelCase}}MediaType(api_client.MediaType):
+        {{#with this}}
+            {{#with schema}}
+        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+            {{/with}}
+        {{/with}}
+    {{/each}}
+    __Content = typing_extensions.TypedDict(
+        '__Content',
+        {
+    {{#each content}}
+            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
+    {{/each}}
+        }
+    )
+    content: __Content = {
+    {{#each content}}
+        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
+    {{/each}}
+    }
+    {{#if required}}
+    required = True
+    {{/if}}
+{{/if}}
+{{/with}}

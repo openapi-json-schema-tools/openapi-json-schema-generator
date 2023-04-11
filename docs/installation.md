@@ -12,11 +12,11 @@ Some of the following are cross-platform options and some are not, these are cal
 
 > **Platform(s)**: Linux, macOS, Windows
 
-The [npm package wrapper](https://github.com/openapitools/openapi-generator-cli) is cross-platform wrapper around the .jar artifact. It works by providing a CLI wrapper atop the JAR's command line options. This gives a simple interface layer which normalizes usage of the command line across operating systems, removing some differences in how options or switches are passed to the tool (depending on OS).
+The [npm package wrapper](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator-cli) is cross-platform wrapper around the .jar artifact. It works by providing a CLI wrapper atop the JAR's command line options. This gives a simple interface layer which normalizes usage of the command line across operating systems, removing some differences in how options or switches are passed to the tool (depending on OS).
 **Install** the latest version of the tool globally, exposing the CLI on the command line:
 
 ```bash
-npm install @openapitools/openapi-generator-cli -g
+npm install @openapi-json-schema-tools/openapi-json-schema-generator-cli -g
 ```
 
 To install a specific version of the tool, pass the version during installation:
@@ -28,12 +28,12 @@ openapi-generator-cli version-manager set 5.3.0
 To install the tool as a dev dependency in your current project:
 
 ```bash
-npm install @openapitools/openapi-generator-cli -D
+npm install @openapi-json-schema-tools/openapi-json-schema-generator-cli -D
 ```
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
 
 ```bash
-npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
+npx @openapi-json-schema-tools/openapi-json-schema-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
 ```
 
 > `npx` will execute a globally available `openapi-generator`, and if not found it will fall back to project-local commands. The result is that the above command will work regardless of which installation method you've chosen.
@@ -48,7 +48,7 @@ npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g ruby -o /tm
 brew install openapi-generator
 ```
 
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
 
 ```bash
 openapi-generator generate -i petstore.yaml -g ruby -o /tmp/test/
@@ -71,7 +71,7 @@ scoop bucket add java
 scoop install openjdk
 ```
 
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
 
 ```
 openapi-generator-cli generate -i petstore.yaml -g ruby
@@ -83,14 +83,14 @@ openapi-generator-cli generate -i petstore.yaml -g ruby
 
 The OpenAPI Generator Docker image acts as a standalone executable. It can be used as an alternative to installing via homebrew, or for developers who are unable to install Java or upgrade the installed version.
 
-To generate code from a valid [petstore.yaml](https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc with this image, you'll need to mount a local location as a volume.
+To generate code from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc with this image, you'll need to mount a local location as a volume.
 You'll then need to output the generated code to this mapped volume. Everything else works the same as if you ran the command on your host machine.
 
 Here's an example generating a Go client:
 
 ```bash
 docker run --rm \
-  -v ${PWD}:/local openapitools/openapi-generator-cli generate \
+  -v ${PWD}:/local openapi-json-schema-tools/openapi-json-schema-generator-cli generate \
   -i /local/petstore.yaml \
   -g go \
   -o /local/out/go
@@ -103,18 +103,18 @@ docker run --rm \
 <!-- RELEASE_VERSION -->
 If you're looking for the latest stable version, you can grab it directly from Maven.org (Java 8 runtime at a minimum):
 
-JAR location: `https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar`
+JAR location: `https://repo1.maven.org/maven2/org/openapi-json-schema-tools/openapi-json-schema-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar`
 
 For **Mac/Linux** users:
 
 ```bash
-wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar -O openapi-generator-cli.jar
+wget https://repo1.maven.org/maven2/org/openapi-json-schema-tools/openapi-json-schema-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar -O openapi-generator-cli.jar
 ```
 
 For **Windows** users, you will need to install [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) or you can use Invoke-WebRequest in PowerShell (3.0+), e.g.
 
 ```powershell
-Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar
+Invoke-WebRequest -OutFile openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapi-json-schema-tools/openapi-json-schema-generator-cli/6.1.0/openapi-generator-cli-6.1.0.jar
 ```
 <!-- /RELEASE_VERSION -->
 
@@ -138,10 +138,10 @@ To install the launcher script, copy the contents of the script to a location on
 An example of setting this up (NOTE: Always evaluate scripts curled from external systems before executing them).
 
 ```bash
-mkdir -p ~/bin/openapitools
-curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapitools/openapi-generator-cli
-chmod u+x ~/bin/openapitools/openapi-generator-cli
-export PATH=$PATH:~/bin/openapitools/
+mkdir -p ~/bin/openapijsonschematools
+curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapi-json-schema-tools/openapi-json-schema-generator-cli
+chmod u+x ~/bin/openapi-json-schema-tools/openapi-json-schema-generator-cli
+export PATH=$PATH:~/bin/openapijsonschematools/
 ```
 
 Now, `openapi-generator-cli` is "installed". On invocation, it will query the GitHub repository for the most recently released version. If this matches the last downloaded jar,

@@ -21,10 +21,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |additionalEnumTypeAnnotations|Additional annotations for enum type(class level annotations)| |null|
 |additionalModelTypeAnnotations|Additional annotations for model type(class level annotations). List separated by semicolon(;) or new line (Linux or Windows)| |null|
 |allowUnicodeIdentifiers|boolean, toggles whether unicode identifiers are allowed in names or not, default is false| |false|
-|apiPackage|package for generated api classes| |org.openapitools.client.api|
+|apiPackage|package for generated api classes| |org.openapijsonschematools.client.api|
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
 |artifactId|artifactId in generated pom.xml. This also becomes part of the generated library's filename| |openapi-java-client|
-|artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapitools/openapi-generator|
+|artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |artifactVersion|artifact version in generated pom.xml. This also becomes part of the generated library's filename| |1.0.0|
 |asyncNative|If true, async handlers will be used, instead of the sync version| |false|
 |bigDecimalAsString|Treat BigDecimal values as Strings to avoid precision loss.| |false|
@@ -32,10 +32,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |caseInsensitiveResponseHeaders|Make API response's headers case-insensitive. Available on okhttp-gson, jersey2 libraries| |false|
 |configKey|Config key in @RegisterRestClient. Default to none. Only `microprofile` supports this option.| |null|
 |dateLibrary|Option. Date library to use|<dl><dt>**joda**</dt><dd>Joda (for legacy app only)</dd><dt>**legacy**</dt><dd>Legacy java.util.Date</dd><dt>**java8-localdatetime**</dt><dd>Java 8 using LocalDateTime (for legacy app only)</dd><dt>**java8**</dt><dd>Java 8 native JSR310 (preferred for jdk 1.8+)</dd></dl>|java8|
-|developerEmail|developer email in generated pom.xml| |team@openapitools.org|
+|developerEmail|developer email in generated pom.xml| |team@openapijsonschematools.org|
 |developerName|developer name in generated pom.xml| |OpenAPI-Generator Contributors|
 |developerOrganization|developer organization in generated pom.xml| |OpenAPITools.org|
-|developerOrganizationUrl|developer organization URL in generated pom.xml| |http://openapitools.org|
+|developerOrganizationUrl|developer organization URL in generated pom.xml| |http://openapijsonschematools.org|
 |disableHtmlEscaping|Disable HTML escaping of JSON strings when using gson (needed to avoid problems with byte[] fields)| |false|
 |disallowAdditionalPropertiesIfNotPresent|If false, the 'additionalProperties' implementation (set to true by default) is compliant with the OAS and JSON schema specifications. If true (default), keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.|<dl><dt>**false**</dt><dd>The 'additionalProperties' implementation is compliant with the OAS and JSON schema specifications.</dd><dt>**true**</dt><dd>Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.</dd></dl>|true|
 |discriminatorCaseSensitive|Whether the discriminator value lookup should be case-sensitive or not. This option only works for Java API client| |true|
@@ -45,19 +45,19 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |errorObjectType|Error Object type. (This option is for okhttp-gson-next-gen only)| |null|
 |fullJavaUtil|whether to use fully qualified name for classes under java.util. This option only works for Java API client| |false|
 |gradleProperties|Append additional Gradle properties to the gradle.properties file| |null|
-|groupId|groupId in generated pom.xml| |org.openapitools|
+|groupId|groupId in generated pom.xml| |org.openapijsonschematools|
 |hideGenerationTimestamp|Hides the generation timestamp when files are generated.| |false|
 |ignoreAnyOfInEnum|Ignore anyOf keyword in enum| |false|
 |implicitHeaders|Skip header parameters in the generated API methods using @ApiImplicitParams annotation.| |false|
 |implicitHeadersRegex|Skip header parameters that matches given regex in the generated API methods using @ApiImplicitParams annotation. Note: this parameter is ignored when implicitHeaders=true| |null|
-|invokerPackage|root package for generated code| |org.openapitools.client|
-|legacyDiscriminatorBehavior|Set to false for generators with better support for discriminators. (Python, Java, Go, PowerShell, C#have this enabled by default).|<dl><dt>**true**</dt><dd>The mapping in the discriminator includes descendent schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document.</dd><dt>**false**</dt><dd>The mapping in the discriminator includes any descendent schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.</dd></dl>|true|
+|invokerPackage|root package for generated code| |org.openapijsonschematools.client|
+|legacyDiscriminatorBehavior|Set to false for generators with better support for discriminators. (Python, Java, Go, PowerShell, C#have this enabled by default).|<dl><dt>**true**</dt><dd>The mapping in the discriminator includes descendant schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document.</dd><dt>**false**</dt><dd>The mapping in the discriminator includes any descendant schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.</dd></dl>|true|
 |library|library template (sub-template) to use|<dl><dt>**jersey1**</dt><dd>HTTP client: Jersey client 1.19.x. JSON processing: Jackson 2.9.x. Enable gzip request encoding using '-DuseGzipFeature=true'. IMPORTANT NOTE: jersey 1.x is no longer actively maintained so please upgrade to 'jersey3' or other HTTP libraries instead.</dd><dt>**jersey2**</dt><dd>HTTP client: Jersey client 2.25.1. JSON processing: Jackson 2.9.x</dd><dt>**jersey3**</dt><dd>HTTP client: Jersey client 3.x. JSON processing: Jackson 2.x</dd><dt>**feign**</dt><dd>HTTP client: OpenFeign 10.x. JSON processing: Jackson 2.9.x.</dd><dt>**okhttp-gson**</dt><dd>[DEFAULT] HTTP client: OkHttp 3.x. JSON processing: Gson 2.8.x. Enable Parcelable models on Android using '-DparcelableModel=true'. Enable gzip request encoding using '-DuseGzipFeature=true'.</dd><dt>**retrofit2**</dt><dd>HTTP client: OkHttp 3.x. JSON processing: Gson 2.x (Retrofit 2.3.0). Enable the RxJava adapter using '-DuseRxJava[2/3]=true'. (RxJava 1.x or 2.x or 3.x)</dd><dt>**resttemplate**</dt><dd>HTTP client: Spring RestTemplate 4.x. JSON processing: Jackson 2.9.x</dd><dt>**webclient**</dt><dd>HTTP client: Spring WebClient 5.x. JSON processing: Jackson 2.9.x</dd><dt>**resteasy**</dt><dd>HTTP client: Resteasy client 3.x. JSON processing: Jackson 2.9.x</dd><dt>**vertx**</dt><dd>HTTP client: VertX client 3.x. JSON processing: Jackson 2.9.x</dd><dt>**google-api-client**</dt><dd>HTTP client: Google API client 1.x. JSON processing: Jackson 2.9.x</dd><dt>**rest-assured**</dt><dd>HTTP client: rest-assured : 4.x. JSON processing: Gson 2.x or Jackson 2.10.x. Only for Java 8</dd><dt>**native**</dt><dd>HTTP client: Java native HttpClient. JSON processing: Jackson 2.9.x. Only for Java11+</dd><dt>**microprofile**</dt><dd>HTTP client: Microprofile client 1.x. JSON processing: JSON-B</dd><dt>**apache-httpclient**</dt><dd>HTTP client: Apache httpclient 4.x</dd></dl>|okhttp-gson|
 |licenseName|The name of the license| |Unlicense|
 |licenseUrl|The URL of the license| |http://unlicense.org|
 |microprofileFramework|Framework for microprofile. Possible values "kumuluzee"| |null|
 |microprofileRestClientVersion|Version of MicroProfile Rest Client API.| |null|
-|modelPackage|package for generated models| |org.openapitools.client.model|
+|modelPackage|package for generated models| |org.openapijsonschematools.client.model|
 |openApiNullable|Enable OpenAPI Jackson Nullable library| |true|
 |parcelableModel|Whether to generate models for Android that implement Parcelable with the okhttp-gson library.| |false|
 |parentArtifactId|parent artifactId in generated pom N.B. parentGroupId, parentArtifactId and parentVersion must all be specified for any of them to take effect| |null|
@@ -65,9 +65,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |parentVersion|parent version in generated pom N.B. parentGroupId, parentArtifactId and parentVersion must all be specified for any of them to take effect| |null|
 |performBeanValidation|Perform BeanValidation| |false|
 |prependFormOrBodyParameters|Add form or body parameters to the beginning of the parameter list.| |false|
-|scmConnection|SCM connection in generated pom.xml| |scm:git:git@github.com:openapitools/openapi-generator.git|
-|scmDeveloperConnection|SCM developer connection in generated pom.xml| |scm:git:git@github.com:openapitools/openapi-generator.git|
-|scmUrl|SCM URL in generated pom.xml| |https://github.com/openapitools/openapi-generator|
+|scmConnection|SCM connection in generated pom.xml| |scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git|
+|scmDeveloperConnection|SCM developer connection in generated pom.xml| |scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git|
+|scmUrl|SCM URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |serializableModel|boolean - toggle "implements Serializable" for generated models| |false|
 |serializationLibrary|Serialization library, default depends on value of the option library|<dl><dt>**jsonb**</dt><dd>Use JSON-B as serialization library</dd><dt>**jackson**</dt><dd>Use Jackson as serialization library</dd><dt>**gson**</dt><dd>Use Gson as serialization library</dd></dl>|null|
 |snapshotVersion|Uses a SNAPSHOT version.|<dl><dt>**true**</dt><dd>Use a SnapShot Version</dd><dt>**false**</dt><dd>Use a Release Version</dd></dl>|null|
@@ -101,29 +101,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |x-class-extra-annotation|List of custom annotations to be added to model|MODEL|null
 |x-field-extra-annotation|List of custom annotations to be added to property|FIELD|null
 |x-webclient-blocking|Specifies if method for specific operation should be blocking or non-blocking(ex: return `Mono<T>/Flux<T>` or `return T/List<T>/Set<T>` & execute `.block()` inside generated method)|OPERATION|false
-
-
-## IMPORT MAPPING
-
-| Type/Alias | Imports |
-| ---------- | ------- |
-|Array|java.util.List|
-|ArrayList|java.util.ArrayList|
-|BigDecimal|java.math.BigDecimal|
-|Date|java.util.Date|
-|DateTime|org.joda.time.*|
-|File|java.io.File|
-|HashMap|java.util.HashMap|
-|LinkedHashSet|java.util.LinkedHashSet|
-|List|java.util.*|
-|LocalDate|org.joda.time.*|
-|LocalDateTime|org.joda.time.*|
-|LocalTime|org.joda.time.*|
-|Map|java.util.Map|
-|Set|java.util.*|
-|Timestamp|java.sql.Timestamp|
-|URI|java.net.URI|
-|UUID|java.util.UUID|
 
 
 ## INSTANTIATION TYPES
@@ -237,15 +214,30 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |UserAgent|✗|ToolingExtension
 |MockServer|✗|ToolingExtension
 
+### Components Feature
+| Name | Supported | Defined By |
+| ---- | --------- | ---------- |
+|schemas|✗|OAS3
+|responses|✗|OAS3
+|parameters|✗|OAS3
+|examples|✗|OAS3
+|requestBodies|✗|OAS3
+|headers|✗|OAS3
+|securitySchemes|✗|OAS3
+|links|✗|OAS3
+|callbacks|✗|OAS3
+|pathItems|✗|OAS3
+
 ### Data Type Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Custom|✗|OAS2,OAS3
 |Int32|✓|OAS2,OAS3
 |Int64|✓|OAS2,OAS3
+|Integer|✗|OAS2,OAS3
 |Float|✓|OAS2,OAS3
 |Double|✓|OAS2,OAS3
-|Decimal|✓|ToolingExtension
+|Number|✗|OAS2,OAS3
 |String|✓|OAS2,OAS3
 |Byte|✓|OAS2,OAS3
 |Binary|✓|OAS2,OAS3
@@ -254,82 +246,109 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DateTime|✓|OAS2,OAS3
 |Password|✓|OAS2,OAS3
 |File|✓|OAS2
-|Uuid|✗|
+|Uuid|✗|OAS2,OAS3
 |Array|✓|OAS2,OAS3
 |Null|✗|OAS3
 |AnyType|✗|OAS2,OAS3
 |Object|✓|OAS2,OAS3
-|Maps|✓|ToolingExtension
-|CollectionFormat|✓|OAS2
-|CollectionFormatMulti|✓|OAS2
 |Enum|✓|OAS2,OAS3
-|ArrayOfEnum|✓|ToolingExtension
-|ArrayOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfPrimitives|✓|ToolingExtension
-|ArrayOfCollectionOfModel|✓|ToolingExtension
-|ArrayOfCollectionOfEnum|✓|ToolingExtension
-|MapOfEnum|✓|ToolingExtension
-|MapOfModel|✓|ToolingExtension
-|MapOfCollectionOfPrimitives|✓|ToolingExtension
-|MapOfCollectionOfModel|✓|ToolingExtension
-|MapOfCollectionOfEnum|✓|ToolingExtension
 
 ### Documentation Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Readme|✓|ToolingExtension
-|Model|✓|ToolingExtension
+|Servers|✗|OAS3
+|Security|✗|OAS2,OAS3
+|ComponentSchemas|✓|OAS3
+|ComponentResponses|✗|OAS3
+|ComponentParameters|✗|OAS3
+|ComponentRequestBodies|✗|OAS3
+|ComponentHeaders|✗|OAS3
+|ComponentSecuritySchemes|✗|OAS3
+|ComponentLinks|✗|OAS3
+|ComponentCallbacks|✗|OAS3
+|ComponentPathItems|✗|OAS3
 |Api|✓|ToolingExtension
 
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Host|✓|OAS2,OAS3
-|BasePath|✓|OAS2,OAS3
 |Info|✓|OAS2,OAS3
-|Schemes|✗|OAS2,OAS3
-|PartialSchemes|✓|OAS2,OAS3
-|Consumes|✓|OAS2
-|Produces|✓|OAS2
-|ExternalDocumentation|✓|OAS2,OAS3
-|Examples|✓|OAS2,OAS3
-|XMLStructureDefinitions|✗|OAS2,OAS3
-|MultiServer|✗|OAS3
-|ParameterizedServer|✓|OAS3
-|ParameterStyling|✗|OAS3
-|Callbacks|✗|OAS3
-|LinkObjects|✗|OAS3
+|Servers|✗|OAS3
+|Paths|✗|OAS2,OAS3
+|Webhooks|✗|OAS3
+|Components|✓|OAS3
+|Security|✗|OAS2,OAS3
+|Tags|✗|OAS2,OAS3
+|ExternalDocs|✗|OAS2,OAS3
+
+### Operation Feature
+| Name | Supported | Defined By |
+| ---- | --------- | ---------- |
+|Responses_HttpStatusCode|✓|OAS3
+|Responses_RangedResponseCodes|✗|OAS3
+|Responses_Default|✓|OAS3
+|Responses_RedirectionResponse|✗|OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Path|✓|OAS2,OAS3
-|Query|✓|OAS2,OAS3
-|Header|✓|OAS2,OAS3
-|Body|✓|OAS2
-|FormUnencoded|✓|OAS2
-|FormMultipart|✓|OAS2
-|Cookie|✓|OAS3
+|Name|✗|OAS2,OAS3
+|Required|✗|OAS2,OAS3
+|In_Path|✓|OAS2,OAS3
+|In_Query|✓|OAS2,OAS3
+|In_Header|✓|OAS2,OAS3
+|In_Cookie|✓|OAS3
+|Style_Matrix|✗|OAS3
+|Style_Label|✗|OAS3
+|Style_Form|✗|OAS3
+|Style_Simple|✗|OAS3
+|Style_SpaceDelimited|✗|OAS3
+|Style_PipeDelimited|✗|OAS3
+|Style_DeepObject|✗|OAS3
+|Explode|✗|OAS3
+|Schema|✗|OAS3
+|Content|✗|OAS3
 
-### Schema Support Feature
+### Schema Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Simple|✓|OAS2,OAS3
-|Composite|✓|OAS2,OAS3
-|Polymorphism|✗|OAS2,OAS3
-|Union|✗|OAS3
-|allOf|✗|OAS2,OAS3
-|anyOf|✗|OAS3
-|oneOf|✗|OAS3
-|not|✗|OAS3
+|AdditionalProperties|✗|OAS2,OAS3
+|AllOf|✗|OAS2,OAS3
+|AnyOf|✗|OAS3
+|Default|✗|OAS2,OAS3
+|Discriminator|✓|OAS2,OAS3
+|Enum|✓|OAS2,OAS3
+|ExclusiveMinimum|✓|OAS2,OAS3
+|ExclusiveMaximum|✓|OAS2,OAS3
+|Format|✓|OAS2,OAS3
+|Items|✓|OAS2,OAS3
+|MaxItems|✓|OAS2,OAS3
+|MaxLength|✓|OAS2,OAS3
+|MaxProperties|✓|OAS2,OAS3
+|Maximum|✓|OAS2,OAS3
+|MinItems|✓|OAS2,OAS3
+|MinLength|✓|OAS2,OAS3
+|MinProperties|✓|OAS2,OAS3
+|Minimum|✓|OAS2,OAS3
+|MultipleOf|✓|OAS2,OAS3
+|Not|✗|OAS3
+|Nullable|✗|OAS3
+|OneOf|✗|OAS3
+|Pattern|✓|OAS2,OAS3
+|Properties|✓|OAS2,OAS3
+|Required|✓|OAS2,OAS3
+|Type|✓|OAS2,OAS3
+|UniqueItems|✓|OAS2,OAS3
+|Xml|✗|OAS2,OAS3
 
 ### Security Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|BasicAuth|✗|OAS2,OAS3
+|HTTP_Basic|✗|OAS2,OAS3
 |ApiKey|✗|OAS2,OAS3
 |OpenIDConnect|✗|OAS3
-|BearerToken|✗|OAS3
+|HTTP_Bearer|✗|OAS2,OAS3
 |OAuth2_Implicit|✗|OAS2,OAS3
 |OAuth2_Password|✗|OAS2,OAS3
 |OAuth2_ClientCredentials|✗|OAS2,OAS3

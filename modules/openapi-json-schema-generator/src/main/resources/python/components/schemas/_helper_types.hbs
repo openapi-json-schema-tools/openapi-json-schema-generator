@@ -1,0 +1,32 @@
+{{#if types}}
+types = {
+{{#each types}}
+{{#eq this "null"}}
+    schemas.NoneClass,
+{{/eq}}
+{{#eq this "object"}}
+    frozendict.frozendict,
+{{/eq}}
+{{#eq this "array"}}
+    tuple,
+{{/eq}}
+{{#eq this "string" }}
+    {{#eq ../format "binary"}}
+    FileIO,
+    bytes,
+    {{else}}
+    str,
+    {{/eq}}
+{{/eq}}
+{{#eq this "integer"}}
+    decimal.Decimal,
+{{/eq}}
+{{#eq this "number"}}
+    decimal.Decimal,
+{{/eq}}
+{{#eq this "boolean"}}
+    schemas.BoolClass,
+{{/eq}}
+{{/each}}
+}
+{{/if}}

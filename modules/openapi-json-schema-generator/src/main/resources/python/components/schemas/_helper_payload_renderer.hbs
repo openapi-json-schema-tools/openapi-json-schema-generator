@@ -1,0 +1,36 @@
+{{#eq type "object"}}
+{
+    {{#each value}}
+    "{{{@key}}}":
+        {{#with this}}
+        {{> components/schemas/_helper_payload_renderer endChar=','}}
+        {{/with}}
+    {{/each}}
+}{{endChar}}
+{{/eq}}
+{{#eq type"array"}}
+[
+    {{#each value}}
+    {{> components/schemas/_helper_payload_renderer endChar=','}}
+    {{/each}}
+]{{endChar}}
+{{/eq}}
+{{#eq type "number"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "integer"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "boolean"}}
+    {{#if value}}
+True{{endChar}}
+    {{else}}
+False{{endChar}}
+    {{/if}}
+{{/eq}}
+{{#eq type "null"}}
+None{{endChar}}
+{{/eq}}
+{{#eq type "string"}}
+"{{{value}}}"{{endChar}}
+{{/eq}}

@@ -13,7 +13,7 @@ Add to your `build->plugins` section (default phase is `generate-sources` phase)
 
 ```xml
 <plugin>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <artifactId>openapi-generator-maven-plugin</artifactId>
     <!-- RELEASE_VERSION -->
     <version>6.0.0</version>
@@ -78,7 +78,7 @@ buildscript {
     maven { url "https://repo1.maven.org/maven2" }
   }
   dependencies {
-    classpath "org.openapitools:openapi-generator-gradle-plugin:5.0.0"
+    classpath "org.openapijsonschematools:openapi-generator-gradle-plugin:5.0.0"
   }
 }
 

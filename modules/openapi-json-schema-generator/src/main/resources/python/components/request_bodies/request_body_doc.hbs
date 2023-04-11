@@ -1,0 +1,57 @@
+{{#with requestBody}}
+{{#if componentModule}}
+{{packageName}}.components.request_bodies.{{jsonPathPiece.snakeCase}}
+{{/if}}
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "RequestBody" jsonPathPiece) }}
+{{else}}
+{{> components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if description}}
+
+{{headerSize}}# Description
+{{description}}
+{{/if}}
+{{#if refInfo}}
+    {{#with getDeepestRef}}
+        {{#each content}}
+            {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+            {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
+        {{/each}}
+
+        {{#each content}}
+            {{#with this.schema}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}
+Ref Class | Input Type | Accessed Type | Description
+--------- | ---------- | ------------- | ------------
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description}}{{/if}}
+            {{/with}}
+        {{/each}}
+    {{/with}}
+{{else}}
+    {{#each content}}
+        {{#if @first}}
+
+{{headerSize}}# Content Type To Schema
+Content-Type | Schema
+------------ | -------
+        {{/if}}
+"{{@key.original}}" | [content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }})
+    {{/each}}
+
+    {{#each content}}
+    {{#with this.schema}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) }}
+    {{/with}}
+    {{/each}}
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" requestBodiesLink=true}}
+{{/if}}
+{{/with}}

@@ -478,7 +478,7 @@ components:
         a:
           type: string
     CodegenPropertiesModel:
-      description: "this model lets us check CodegenProperty.vars/requiredVars/hasVars/hasRequired"
+      description: "this model lets us check CodegenSchema.vars/requiredVars/hasVars/hasRequired"
       type: object
       properties:
         AnyTypeNoPropertiesNoRequired:

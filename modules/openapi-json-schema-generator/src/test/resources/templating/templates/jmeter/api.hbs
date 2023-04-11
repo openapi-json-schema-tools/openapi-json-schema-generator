@@ -43,9 +43,9 @@
             <stringProp name="Argument.value">${__P(port,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>{{#operations}}{{#operation}}
-          <elementProp name="testData.{{operationId}}File" elementType="Argument">
-            <stringProp name="Argument.name">testData.{{operationId}}File</stringProp>
-            <stringProp name="Argument.value">${__P(testData.{{operationId}}File,{{classname}}.csv)}</stringProp>
+          <elementProp name="testData.{{operationId.snakeCase}}File" elementType="Argument">
+            <stringProp name="Argument.name">testData.{{operationId.snakeCase}}File</stringProp>
+            <stringProp name="Argument.value">${__P(testData.{{operationId.snakeCase}}File,{{classname}}.csv)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>{{/operation}}{{/operations}}
         </collectionProp>
@@ -65,7 +65,7 @@
         <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
       </ConfigTestElement>
       <hashTree/>
-    {{#operations}}{{#operation}}<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - {{operationId}}" enabled="true">
+    {{#operations}}{{#operation}}<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - {{operationId.snakeCase}}" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -89,7 +89,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="{{operationId}} - ${testCase}" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="{{operationId.snakeCase}} - ${testCase}" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">{{#queryParams}}
               <elementProp name="{{paramName}}" elementType="HTTPArgument">
@@ -108,7 +108,7 @@
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">{{basePathWithoutHost}}{{vendorExtensions.x-path}}</stringProp>
-          <stringProp name="HTTPSampler.method">{{httpMethod}}</stringProp>
+          <stringProp name="HTTPSampler.method">{{httpMethod.original}}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -116,13 +116,14 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">{{summary}} {{notes}}</stringProp>
+          {{this}}
+          <stringProp name="TestPlan.comments">summary notes</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - {{operationId}}" enabled="true">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - {{operationId.snakeCase}}" enabled="true">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">${testData.{{operationId}}File}</stringProp>
+            <stringProp name="filename">${testData.{{operationId.snakeCase}}File}</stringProp>
             <boolProp name="quotedData">true</boolProp>
             <boolProp name="recycle">true</boolProp>
             <stringProp name="shareMode">shareMode.group</stringProp>

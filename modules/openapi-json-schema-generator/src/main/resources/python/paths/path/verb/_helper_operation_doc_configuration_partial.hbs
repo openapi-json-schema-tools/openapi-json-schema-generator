@@ -1,0 +1,49 @@
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#each security}}
+            {{#neq this.size 0}}
+# security_index {{@key}}
+                {{#each this}}
+from {{packageName}}.components.security_schemes import {{refInfo.refModule}}
+                {{/each}}
+            {{/neq}}
+        {{/each}}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+            {{#each rootSecurity}}
+                {{#neq this.size 0}}
+# security_index {{@key}}
+                    {{#each this}}
+from {{packageName}}.components.security_schemes import {{refInfo.refModule}}
+                    {{/each}}
+                {{/neq}}
+            {{/each}}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+{{> paths/path/verb/_helper_operation_doc_security_scheme_info_partial }}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+{{> paths/path/verb/_helper_operation_doc_security_scheme_info_partial security=rootSecurity }}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+used_configuration = api_configuration.ApiConfiguration(
+{{#neq security null}}
+    {{#gt security.size 0}}
+    security_scheme_info=security_scheme_info
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 0}}
+    security_scheme_info=security_scheme_info
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+)

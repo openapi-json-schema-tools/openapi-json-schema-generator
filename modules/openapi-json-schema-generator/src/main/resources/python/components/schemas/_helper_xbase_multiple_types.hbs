@@ -1,0 +1,37 @@
+{{# each types}}
+    {{#eq this "array"}}
+schemas.ListBase,
+    {{/eq}}
+    {{#eq this "object"}}
+schemas.DictBase,
+    {{/eq}}
+    {{#eq this "string"}}
+        {{#eq format "date"}}
+schemas.DateBase,
+        {{/eq}}
+        {{#eq format "date-time"}}
+schemas.DateTimeBase,
+        {{/eq}}
+        {{#eq format "uuid"}}
+schemas.UUIDBase,
+        {{/eq}}
+        {{#eq format "number"}}
+schemas.DecimalBase,
+        {{/eq}}
+schemas.StrBase,
+    {{/eq}}
+    {{#eq this "number"}}
+schemas.NumberBase,
+    {{/eq}}
+    {{#eq this "integer"}}
+schemas.IntBase,
+    {{/eq}}
+    {{#eq this "boolean"}}
+schemas.BoolBase,
+    {{/eq}}
+    {{#eq this "null"}}
+schemas.NoneBase,
+    {{/eq}}
+{{/each}}
+schemas.Schema,
+schemas.{{#each types}}{{#eq this "null"}}None{{/eq}}{{#eq this "object"}}FrozenDict{{/eq}}{{#eq this "array"}}Tuple{{/eq}}{{#eq this "string"}}Str{{/eq}}{{#eq this "number"}}Decimal{{/eq}}{{#eq this "integer"}}Decimal{{/eq}}{{#eq this "boolean"}}Bool{{/eq}}{{/each}}Mixin

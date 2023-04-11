@@ -1,0 +1,59 @@
+{{#neq uniqueItems null}}
+unique_items = {{#if uniqueItems}}True{{else}}False{{/if}}
+{{/neq}}
+{{#neq maxLength null}}
+max_length = {{maxLength}}
+{{/neq}}
+{{#neq minLength null}}
+min_length = {{minLength}}
+{{/neq}}
+{{#neq maxItems null}}
+max_items = {{maxItems}}
+{{/neq}}
+{{#neq minItems null}}
+min_items = {{minItems}}
+{{/neq}}
+{{#neq maxProperties null }}
+max_properties = {{maxProperties}}
+{{/neq}}
+{{#neq minProperties null}}
+min_properties = {{minProperties}}
+{{/neq}}
+{{#neq maximum null}}
+{{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}} = {{maximum}}
+{{/neq}}
+{{#neq minimum null}}
+{{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}} = {{minimum}}
+{{/neq}}
+{{#neq patternInfo null}}
+regex={
+    {{#with patternInfo}}
+    'pattern': r'{{{pattern}}}',  # noqa: E501
+        {{#if flags}}
+            {{#eq flags.size 1}}
+    'flags': {{#each flags}}re.{{#eq this "i"}}I{{/eq}}{{#eq this "m"}}M{{/eq}}{{#eq this "s"}}S{{/eq}}{{#eq this "u"}}U{{/eq}}{{/each}},
+            {{else}}
+    'flags': (
+                {{#each flags}}
+                    {{#eq this "i"}}
+        re.I{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "m"}}
+        re.M{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "s"}}
+        re.S{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "u"}}
+        re.U{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                {{/each}}
+        )
+            {{/eq}}
+        {{/if}}
+    {{/with}}
+}
+{{/neq}}
+{{#neq multipleOf null}}
+multiple_of = {{multipleOf}}
+{{/neq}}

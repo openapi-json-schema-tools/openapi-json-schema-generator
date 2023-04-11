@@ -1,0 +1,149 @@
+{{#each paths}}
+    {{#if @first}}
+        {{#each operations}}
+            {{#if @first}}
+{{> paths/path/verb/_helper_operation_doc_example }}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+{{#if servers}}
+
+## Servers
+server_index | Class | Description
+------------ | ----- | ------------
+{{#each servers}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+{{/each}}
+{{/if}}
+{{#if security}}
+
+## Security
+
+Set auth info by setting ApiConfiguration.security_scheme_info to a dict where the
+key is the below security scheme quoted name, and the value is an instance of the linked
+component security scheme class. See how to do this in the endpoint code sample.
+
+| Security Index | Security Scheme to Scope Names |
+| -------------- | ------------------------------ |
+    {{#each security}}
+| {{@key}}       | {{#eq this.size 0}}no security{{else}}{{#each this}}["{{{@key}}}"](docs/components/security_schemes/{{this.refInfo.refModule}}.md) {{this.scopeNames}}<br>{{/each}}{{/eq}} |
+    {{/each}}
+{{/if}}
+{{#if paths}}
+
+## Endpoints
+
+All URIs are relative to the selected server
+- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
+- Code samples in endpoints documents show how to do this
+- server_index can also be passed in to endpoint calls, see endpoint documentation
+
+HTTP request | Method | Description
+------------ | ------ | -------------
+{{#each paths}}
+{{#each operations}}
+{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}](docs/paths/{{../../@key.snakeCase}}/{{../@key.original}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+{{/each}}
+{{/each}}
+{{/if}}
+{{#if schemas}}
+
+## Component Schemas
+
+Class | Description
+----- | ------------
+{{#each schemas}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if requestBodies}}
+
+## Component RequestBodies
+
+Class | Description
+----- | ------------
+{{#each requestBodies}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if responses}}
+
+## Component Responses
+
+Class | Description
+----- | ------------
+{{#each responses}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if headers}}
+
+## Component Headers
+
+Class | Description
+----- | ------------
+{{#each headers}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if parameters}}
+
+## Component Parameters
+
+Class | Description
+----- | ------------
+{{#each parameters}}
+    {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if securitySchemes}}
+
+## Component SecuritySchemes
+
+Class | Description
+----- | ------------
+    {{#each securitySchemes}}
+        {{#with this}}
+[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+        {{/with}}
+    {{/each}}
+
+{{/if}}
+{{#if infoEmail}}
+
+## Author
+
+{{infoEmail}}
+{{/if}}
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in {{{packageName}}}.{{apiPackage}}.tags.tag_to_api and {{{packageName}}}.{{modelPackage}}s may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- tagged api: `from {{{packageName}}}.{{apiPackage}}.tags.default_api import DefaultApi`
+- api for one path: `from {{{packageName}}}.{{apiPackage}}.paths.some_path import SomePath`
+- api for one operation (path + verb): `from {{{packageName}}}.paths.some_path.get import ApiForget`
+- single model import: `from {{{packageName}}}.{{modelPackage}}.pet import Pet`
+
+Solution 2:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import {{{packageName}}}
+from {{{packageName}}}.{{apiPackage}}.tags.tag_to_api import *
+from {{{packageName}}}.{{modelPackage}}s import *
+```

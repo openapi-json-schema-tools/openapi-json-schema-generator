@@ -1,10 +1,10 @@
 generatorName: typescript-rxjs
 outputDir: samples/client/petstore/typescript-rxjs/builds/es6-target
-inputSpec: modules/openapi-generator/src/test/resources/2_0/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/typescript-rxjs
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/typescript-rxjs
 additionalProperties:
   npmVersion: 1.0.0
   supportsES6: true
-  npmName: '@openapitools/typescript-rxjs-petstore'
+  npmName: '@openapijsonschematools/typescript-rxjs-petstore'
   npmRepository: https://skimdb.npmjs.com/registry
   snapshot: false

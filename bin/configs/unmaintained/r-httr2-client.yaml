@@ -1,7 +1,7 @@
 generatorName: r
 outputDir: samples/client/petstore/R-httr2
-inputSpec: modules/openapi-generator/src/test/resources/3_0/r/petstore.yaml
-templateDir: modules/openapi-generator/src/main/resources/r
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/r/petstore.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/r
 httpUserAgent: PetstoreAgent
 library: httr2
 additionalProperties:

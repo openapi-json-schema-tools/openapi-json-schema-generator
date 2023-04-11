@@ -1,0 +1,488 @@
+# coding: utf-8
+
+{{> _helper_header }}
+
+from dataclasses import dataclass
+import typing_extensions
+import urllib3
+{{#with operation}}
+{{#or headerParams requestBody produces}}
+from urllib3._collections import HTTPHeaderDict
+{{/or}}
+{{/with}}
+
+from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+{{#eq operation.security null}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+            {{#eq security.size 1}}
+                {{#each security}}
+from {{packageName}}.security import security_requirement_object_{{@key}}
+                {{/each}}
+            {{else}}
+from {{packageName}}.security import (
+                {{#each security}}
+    security_requirement_object_{{@key}},
+                {{/each}}
+)
+            {{/eq}}
+        {{/gt}}
+    {{/neq}}
+{{/eq}}
+{{> _helper_imports_schema_types }}
+{{#if imports}}
+
+{{/if}}
+{{> _helper_imports }}
+{{#with operation}}
+
+from .. import path
+{{#if responses}}
+    {{#eq responses.size 1}}
+        {{#each responses}}
+from .responses import response_{{@key}}
+        {{/each}}
+    {{else}}
+from .responses import (
+        {{#each responses}}
+    {{jsonPathPiece.snakeCase}},
+        {{/each}}
+)
+    {{/eq}}
+{{/if}}
+{{#if requestBody}}
+from . import request_body
+{{/if}}
+{{#gt allParams.size 0}}
+    {{#eq allParams.size 1}}
+        {{#each allParams}}
+from .parameters import {{jsonPathPiece.snakeCase}}
+        {{/each}}
+    {{else}}
+from .parameters import (
+        {{#each allParams}}
+    {{jsonPathPiece.snakeCase}},
+        {{/each}}
+)
+    {{/eq}}
+{{/gt}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+        {{#eq security.size 1}}
+            {{#each security}}
+from .security import security_requirement_object_{{@key}}
+            {{/each}}
+        {{else}}
+from .security import (
+            {{#each security}}
+    security_requirement_object_{{@key}},
+            {{/each}}
+)
+        {{/eq}}
+    {{/gt}}
+{{/neq}}
+
+{{#or queryParams headerParams pathParams cookieParams}}
+    {{#if queryParams}}
+{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=queryParams xParamsName="RequestQueryParameters" }}
+    {{/if}}
+    {{#if headerParams}}
+{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=headerParams xParamsName="RequestHeaderParameters" }}
+    {{/if}}
+    {{#if pathParams}}
+{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=pathParams xParamsName="RequestPathParameters" }}
+    {{/if}}
+    {{#if cookieParams}}
+{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
+    {{/if}}
+{{/or}}
+{{#neq security null}}
+    {{#gt security.size 0}}
+
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+        {{#each security}}
+    security_requirement_object_{{@key}}.security_requirement_object,
+        {{/each}}
+]
+    {{/gt}}
+{{else}}
+    {{#neq ../security null}}
+        {{#gt ../security.size 0}}
+
+_security: typing.List[security_schemes.SecurityRequirementObject] = [
+            {{#each ../security}}
+    security_requirement_object_{{@key}}.security_requirement_object,
+            {{/each}}
+]
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
+
+
+    {{#if defaultResponse}}
+        {{#with defaultResponse}}
+default_response = response_default.{{jsonPathPiece.camelCase}}
+        {{/with}}
+    {{/if}}
+    {{#if statusCodeResponses}}
+__StatusCodeToResponse = typing_extensions.TypedDict(
+    '__StatusCodeToResponse',
+    {
+        {{#each statusCodeResponses}}
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+        {{/each}}
+    }
+)
+_status_code_to_response: __StatusCodeToResponse = {
+        {{#each statusCodeResponses}}
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        {{/each}}
+}
+    {{/if}}
+    {{#if wildcardCodeResponses}}
+__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+    '__RangedStatusCodeToResponse',
+    {
+        {{#each wildcardCodeResponses}}
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+        {{/each}}
+    }
+)
+_ranged_status_code_to_response: __RangedStatusCodeToResponse = {
+        {{#each wildcardCodeResponses}}
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        {{/each}}
+}
+    {{/if}}
+{{#each produces}}
+    {{#if @first}}
+
+_all_accept_content_types = (
+    {{/if}}
+    "{{{.}}}",
+    {{#if @last}}
+)
+    {{/if}}
+{{/each}}
+
+
+class BaseApi(api_client.Api):
+{{#if requestBody}}
+    {{#each getContentTypeToOperation}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType=@key}}
+
+    {{/each}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
+
+{{else}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
+{{/if}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True" contentType="null"}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="null" contentType="null"}}
+
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
+        """
+    {{#if summary}}
+        {{summary}}
+    {{/if}}
+        :param skip_deserialization: If true then api_response.response will be set but
+            api_response.body and api_response.headers will not be deserialized into schema
+            class instances
+        """
+    {{#if queryParams}}
+        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
+    {{/if}}
+    {{#if headerParams}}
+        self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
+    {{/if}}
+    {{#if pathParams}}
+        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
+    {{/if}}
+    {{#if cookieParams}}
+        self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
+    {{/if}}
+        used_path = path
+    {{#if pathParams}}
+
+        _path_params = {}
+        for parameter in RequestPathParameters.parameters:
+            parameter_data = path_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _path_params.update(serialized_data)
+
+        for k, v in _path_params.items():
+            used_path = used_path.replace('{%s}' % k, v)
+    {{/if}}
+    {{#if queryParams}}
+
+        prefix_separator_iterator = None
+        for parameter in RequestQueryParameters.parameters:
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
+    {{/if}}
+    {{#or headerParams requestBody produces}}
+
+        _headers = HTTPHeaderDict()
+    {{else}}
+    {{/or}}
+    {{#if headerParams}}
+        for parameter in RequestHeaderParameters.parameters:
+            parameter_data = header_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _headers.extend(serialized_data)
+    {{/if}}
+        # TODO add cookie handling
+    {{#if produces}}
+        if accept_content_types:
+            for accept_content_type in accept_content_types:
+                _headers.add('Accept', accept_content_type)
+    {{/if}}
+    {{#with requestBody}}
+
+    {{#if refInfo}}
+        {{#if getDeepestRef.required}}
+        if body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
+        {{/if}}
+    {{else}}
+        {{#if required}}
+        if body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
+        {{/if}}
+    {{/if}}
+        _fields = None
+        _body = None
+    {{#if refInfo}}
+        {{#if getDeepestRef.required}}
+        {{> paths/path/verb/_helper_operation_body_serialization }}
+        {{else}}
+        if body is not schemas.unset:
+            {{> paths/path/verb/_helper_operation_body_serialization }}
+        {{/if}}
+    {{else}}
+        {{#if required}}
+        {{> paths/path/verb/_helper_operation_body_serialization }}
+        {{else}}
+        if body is not schemas.unset:
+            {{> paths/path/verb/_helper_operation_body_serialization }}
+        {{/if}}
+    {{/if}}
+    {{/with}}
+    {{#if servers}}
+        host = self.api_client.configuration.get_server_url(
+            'paths/' + path + '/{{httpMethod.original}}/servers', server_index
+        )
+    {{else}}
+        {{#if pathItem.servers}}
+        host = self.api_client.configuration.get_server_url(
+            'paths/' + path + '/' + '/servers', server_index
+        )
+        {{else}}
+        host = self.api_client.configuration.get_server_url(
+            'servers', server_index
+        )
+        {{/if}}
+    {{/if}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'paths/' + path + '/{{httpMethod.original}}/security',
+            _security,
+            security_index
+        )
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+        security_requirement_object = self.api_client.configuration.get_security_requirement_object(
+            'servers',
+            _security,
+            security_index
+        )
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
+
+        response = self.api_client.call_api(
+            resource_path=used_path,
+            method='{{httpMethod.original}}',
+            host=host,
+    {{#or headerParams requestBody produces}}
+            headers=_headers,
+    {{/or}}
+    {{#if requestBody}}
+            fields=_fields,
+            body=_body,
+    {{/if}}
+    {{#neq security null}}
+        {{#gt security.size 0}}
+            security_requirement_object=security_requirement_object,
+        {{/gt}}
+    {{else}}
+        {{#neq ../security null}}
+            {{#gt ../security.size 0}}
+            security_requirement_object=security_requirement_object,
+            {{/gt}}
+        {{/neq}}
+    {{/neq}}
+            stream=stream,
+            timeout=timeout,
+        )
+
+        if skip_deserialization:
+            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+        else:
+{{#if nonDefaultResponses}}
+            status = str(response.status)
+    {{#if wildcardCodeResponses}}
+            ranged_response_status_code = status[0]
+    {{/if}}
+    {{#if statusCodeResponses}}
+            if status in _status_code_to_response:
+                status: typing_extensions.Literal[
+        {{#each statusCodeResponses}}
+                    '{{@key}}',
+        {{/each}}
+                ]
+                api_response = _status_code_to_response[status].deserialize(
+                    response, self.api_client.schema_configuration)
+        {{#if wildcardCodeResponses}}
+            elif ranged_response_status_code in _ranged_status_code_to_response:
+                ranged_response_status_code: typing_extensions.Literal[
+        {{#each wildcardCodeResponses}}
+                    '{{@key}}',
+        {{/each}}
+                ]
+                api_response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
+                    response, self.api_client.schema_configuration)
+        {{/if}}
+    {{else}}
+            if ranged_response_status_code in _ranged_status_code_to_response:
+                ranged_response_status_code: typing_extensions.Literal[
+        {{#each wildcardCodeResponses}}
+                    '{{@key}}',
+        {{/each}}
+                ]
+                api_response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
+                    response, self.api_client.schema_configuration)
+    {{/if}}
+            else:
+    {{#if defaultResponse}}
+                api_response = default_response.deserialize(response, self.api_client.schema_configuration)
+    {{else}}
+                api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+    {{/if}}
+{{else}}
+    {{#if defaultResponse}}
+            api_response = default_response.deserialize(response, self.api_client.schema_configuration)
+    {{else}}
+            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+    {{/if}}
+{{/if}}
+
+        if not 200 <= response.status <= 399:
+            raise exceptions.ApiException(
+                status=response.status,
+                reason=response.reason,
+                api_response=api_response
+            )
+
+        return api_response
+
+
+class {{operationId.camelCase}}(BaseApi):
+    # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
+
+{{#if requestBody}}
+    {{#each getContentTypeToOperation}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType=@key}}
+
+    {{/each}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
+
+{{else}}
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="False" contentType="null"}}
+{{/if}}
+
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="True" contentType="null"}}
+
+    @typing.overload
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=true skipDeserialization="null" contentType="null"}}
+
+    def {{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
+        return self._{{operationId.snakeCase}}(
+            {{> paths/path/verb/_helper_operation_args_passed }}
+        )
+
+
+class ApiFor{{httpMethod.camelCase}}(BaseApi):
+    # this class is used by api classes that refer to endpoints by path and http method names
+
+{{#if requestBody}}
+    {{#each getContentTypeToOperation}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType=@key}}
+
+    {{/each}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
+
+{{else}}
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False" contentType="null"}}
+{{/if}}
+
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True" contentType="null"}}
+
+    @typing.overload
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="null" contentType="null"}}
+
+    def {{httpMethod.original}}(
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
+        return self._{{operationId.snakeCase}}(
+            {{> paths/path/verb/_helper_operation_args_passed rootSecurity=../security }}
+        )
+
+
+{{/with}}

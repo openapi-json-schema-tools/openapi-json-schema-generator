@@ -7,18 +7,18 @@
         <relativePath/><!-- lookup parent from repository -->
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.openapitools</groupId>
+    <groupId>org.openapijsonschematools</groupId>
     <artifactId>openapi-json-schema-generator-project</artifactId>
     <packaging>pom</packaging>
     <name>openapi-json-schema-generator-project</name>
     <!-- RELEASE_VERSION -->
     <version>${revision}</version>
     <!-- /RELEASE_VERSION -->
-    <url>https://github.com/openapitools/openapi-json-schema-generator</url>
+    <url>https://github.com/openapi-json-schema-tools/openapi-json-schema-generator</url>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-json-schema-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-jsons-schema-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-jsons-schema-generator</url>
+        <connection>scm:git:git@github.com:openapijsonschematools/openapi-json-schema-generator.git</connection>
+        <developerConnection>scm:git:git@github.com:openapijsonschematools/openapi-jsons-schema-generator.git</developerConnection>
+        <url>https://github.com/openapi-json-schema-tools/openapi-jsons-schema-generator</url>
     </scm>
     <developers>
         <!-- original author of the project -->
@@ -35,7 +35,7 @@
     </developers>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/openapitools/openapi-json-schema-generator/issues</url>
+        <url>https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues</url>
     </issueManagement>
     <distributionManagement>
         <snapshotRepository>
@@ -181,8 +181,8 @@
                     <testNGArtifactName>org.testng:testng</testNGArtifactName>
                     <argLine>@{argLine} -XX:+StartAttachListener</argLine>
                     <systemPropertyVariables>
-                        <org.openapitools.codegen.utils.oncelogger.expiry>1000</org.openapitools.codegen.utils.oncelogger.expiry>
-                        <org.openapitools.codegen.utils.oncelogger.cachesize>5000</org.openapitools.codegen.utils.oncelogger.cachesize>
+                        <org.openapijsonschematools.codegen.utils.oncelogger.expiry>1000</org.openapijsonschematools.codegen.utils.oncelogger.expiry>
+                        <org.openapijsonschematools.codegen.utils.oncelogger.cachesize>5000</org.openapijsonschematools.codegen.utils.oncelogger.cachesize>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>
@@ -228,7 +228,7 @@
                             <mode>development</mode>
                             <url>${project.url}</url>
                             <implementation-version>${project.version}</implementation-version>
-                            <package>org.openapitools</package>
+                            <package>org.openapijsonschematools</package>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -300,7 +300,7 @@
                                     <message>No Snapshots Allowed!</message>
                                     <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
                                     <excludes>
-                                        <exclude>org.openapitools:*</exclude>
+                                        <exclude>org.openapijsonschematools:*</exclude>
                                     </excludes>
                                 </requireReleaseDeps>
                             </rules>
@@ -1200,7 +1200,6 @@
                 <module>modules/openapi-json-schema-generator-core</module>
                 <module>modules/openapi-json-schema-generator</module>
                 <module>modules/openapi-json-schema-generator-cli</module>
-                <module>modules/openapi-json-schema-generator-online</module>
             </modules>
         </profile>
     </profiles>
@@ -1267,7 +1266,7 @@
     </repositories>
     <properties>
         <!-- RELEASE_VERSION -->
-        <revision>1.0.4</revision>
+        <revision>2.0.0</revision>
         <!-- /RELEASE_VERSION -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -1282,7 +1281,7 @@
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
         <groovy.version>3.0.9</groovy.version>
         <guava.version>30.1.1-jre</guava.version>
-        <handlebars-java.version>4.2.1</handlebars-java.version>
+        <handlebars-java.version>4.3.0</handlebars-java.version>
         <jackson-threetenbp.version>2.10.0</jackson-threetenbp.version>
         <jackson.version>2.13.4</jackson.version>
         <jacoco.version>0.8.7</jacoco.version>

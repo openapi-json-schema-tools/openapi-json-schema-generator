@@ -59,7 +59,7 @@ link it here.
 
 ##### Related issues/PRs
 
-<!-- has a similar issue/PR been reported/opened before? Please do a search in https://github.com/openapitools/openapi-json-schema-generator/issues?utf8=%E2%9C%93&q=is%3Aissue%20 -->
+<!-- has a similar issue/PR been reported/opened before? Please do a search in https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues?utf8=%E2%9C%93&q=is%3Aissue%20 -->
 
 ##### Suggest a fix
 

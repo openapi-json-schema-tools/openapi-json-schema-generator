@@ -1,0 +1,105 @@
+{{#with response}}
+{{#if componentModule}}
+{{packageName}}.components.responses.{{jsonPathPiece.snakeCase}}
+{{/if}}
+{{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Response" jsonPathPiece) }}
+{{else}}
+{{> components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if description}}
+
+{{headerSize}}# Description
+{{description}}
+{{/if}}
+
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "response_cls") }}
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+{{#if refInfo}}
+    {{#with getDeepestRef}}
+body | {{#unless content}}Unset{{else}}{{#if hasContentSchema}}{{#gt content.size 1}}typing.Union[{{/gt}}{{#each content}}{{#if this.schema}}[{{../../refInfo.refClass}}.content.{{@key.snakeCase}}.schema](../../components/responses/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}{{#unless @last}}, {{/unless}}{{/each}}{{#gt content.size 1}}]{{/gt}}{{else}}Unset{{/if}}{{/unless}} | {{#unless content}}body was not defined{{else}}{{#unless hasContentSchema}}body was not defined{{/unless}}{{/unless}} |
+headers | {{#unless headers}}Unset{{else}}[{{../refInfo.refClass}}.Headers](../../components/responses/{{../refInfo.refModule}}.md#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{/with}}
+{{else}}
+{{#if content}}
+[body](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "body") }}) | {{#if hasContentSchema}}{{#gt content.size 1}}typing.Union[{{/gt}}{{#each content}}{{#if this.schema}}[content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}Unset{{/if}}{{#unless @last}}, {{/unless}}{{/each}}{{#gt content.size 1}}]{{/gt}}{{else}}Unset{{/if}} | {{#unless hasContentSchema}}body was not defined{{/unless}} |
+{{else}}
+body | Unset | body was not defined |
+{{/if}}
+{{#if headers}}[headers](#headers){{else}}headers{{/if}} | {{#unless headers}}Unset{{else}}[Headers](#headers){{/unless}} | {{#unless headers}}headers were not defined{{/unless}} |
+    {{#if content}}
+
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "Body") }}
+Content-Type | Schema
+------------ | -------
+        {{#each content}}
+"{{@key.original}}" | {{#if this.schema}}[content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}no schema defined{{/if}}
+        {{/each}}
+    {{/if}}
+    {{#if headers}}
+
+{{headerSize}}# Headers
+Key | Accessed Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+        {{#each headers}}
+            {{#with this}}
+                {{#if refInfo}}
+                    {{#with getDeepestRef}}
+                        {{#if schema}}
+                            {{#with schema}}
+{{../@key}} | [{{../../refInfo.refClass}}.schema]({{#unless ../../../componentModule}}../{{/unless}}../../components/headers/{{../../refInfo.refModule}}.md#schema) | | {{#unless required}}optional{{/unless}}
+                            {{/with}}
+                        {{else}}
+                            {{#each content}}
+                                {{#with this}}
+                                    {{#with schema}}
+{{../../@key}} | [{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}]({{#unless ../../../../componentModule}}../{{/unless}}../../components/headers/{{../../../refInfo.refModule}}.md#content-{{../@key.anchorPiece}}-{{jsonPathPiece.anchorPiece}}) | | {{#unless required}}optional{{/unless}}
+                                    {{/with}}
+                                {{/with}}
+                            {{/each}}
+                        {{/if}}
+                    {{/with}}
+                {{else}}
+                    {{#if schema}}
+                        {{#with schema}}
+{{../@key}} | [headers.{{../jsonPathPiece.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../jsonPathPiece jsonPathPiece) }}) | | {{#unless required}}optional{{/unless}}
+                        {{/with}}
+                    {{else}}
+                        {{#each content}}
+                            {{#with this}}
+                                {{#with schema}}
+{{../../@key}} | [headers.{{../../jsonPathPiece.snakeCase}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "headers" ../../jsonPathPiece "content" ../@key jsonPathPiece) }}) | | {{#unless required}}optional{{/unless}}
+                                {{/with}}
+                            {{/with}}
+                        {{/each}}
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    {{/if}}
+    {{#and content hasContentSchema}}
+
+{{headerSize}}# Body Details
+        {{#each content}}
+            {{#with this.schema}}
+{{> components/schemas/schema_doc headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "content" @key jsonPathPiece) }}
+            {{/with}}
+        {{/each}}
+    {{/and}}
+    {{#and headers hasInlineHeader}}
+
+{{headerSize}}# Header Details
+        {{#each headers}}
+            {{#unless refInfo}}
+{{> components/headers/header_doc header=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces "headers" jsonPathPiece) }}
+            {{/unless}}
+        {{/each}}
+    {{/and}}
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" responsesLink=true}}
+{{/if}}
+{{/with}}

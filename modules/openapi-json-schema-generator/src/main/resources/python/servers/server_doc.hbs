@@ -1,0 +1,37 @@
+{{#with server}}
+    {{#if rootServer}}
+{{packageName}}.servers.{{jsonPathPiece.snakeCase}}
+    {{/if}}
+    {{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Server" jsonPathPiece) }}
+    {{else}}
+{{headerSize}} {{jsonPathPiece.camelCase}}
+    {{/eq}}
+    {{#if description}}
+
+{{headerSize}}# Description
+{{description}}
+    {{/if}}
+    {{#if refInfo}}
+| Ref Class | Description |
+| --------- | ----------- |
+| [{{refInfo.refClass}}](../../servers/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description}}{{/if}}{{/with}}
+    {{else}}
+
+{{headerSize}}# Url
+{{{url}}}
+        {{#if variables}}
+
+{{headerSize}}# Variables
+Key | Type | Description | Notes
+--- | ---- | ----------- | ------
+            {{#each variables}}
+**{{@key.original}}** | {{> _helper_schema_python_types }} | {{#if description}}{{description}}{{/if}} | {{> components/schemas/_helper_notes_msg defaultUser="client" }}
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    {{#if rootServer}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../" serversLink=true}}
+    {{/if}}
+{{/with}}

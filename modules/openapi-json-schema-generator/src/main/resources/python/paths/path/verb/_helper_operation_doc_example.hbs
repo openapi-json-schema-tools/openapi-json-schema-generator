@@ -1,0 +1,281 @@
+```python
+import {{{packageName}}}
+from {{packageName}}.configurations import api_configuration
+{{#if tag}}
+from {{packageName}}.{{apiPackage}}.tags import {{tag.moduleName}}
+{{else}}
+    {{#each tags}}
+        {{#if @first}}
+from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#or pathParams queryParams headerParams cookieParams}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import operation
+{{/or}}
+{{#each imports}}
+{{{.}}}
+{{/each}}
+from pprint import pprint
+{{> paths/path/verb/_helper_operation_doc_configuration_partial }}
+# Enter a context with an instance of the API client
+with {{{packageName}}}.ApiClient(used_configuration) as api_client:
+    # Create an instance of the API class
+{{#if tag}}
+    api_instance = {{tag.moduleName}}.{{tag.className}}(api_client)
+{{else}}
+{{#each tags}}
+{{#if @first}}
+    api_instance = {{moduleName}}.{{className}}(api_client)
+{{/if}}
+{{/each}}
+{{/if}}
+{{#if hasRequiredParamOrBody}}
+
+    # example passing only required values which don't have defaults set
+    {{#if pathParams}}
+    path_params: operation.RequestPathParameters.Params = {
+        {{#each pathParams}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if queryParams}}
+    query_params: operation.RequestQueryParameters.Params = {
+        {{#each queryParams}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+            {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if cookieParams}}
+    cookie_params: operation.RequestCookieParameters.Params = {
+        {{#each cookieParams}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if headerParams}}
+    header_params: operation.RequestHeaderParameters.Params = {
+        {{#each headerParams}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#if getDeepestRef.required}}
+                {{#each getDeepestRef.content}}
+                    {{#if @first}}
+                        {{#with this.schema}}
+    body = {{{example}}}
+                        {{/with}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{else}}
+            {{#if required}}
+                {{#each content}}
+                    {{#if @first}}
+                        {{#with this.schema}}
+    body = {{{example}}}
+                        {{/with}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/if}}
+    {{/with}}
+    try:
+    {{#if summary}}
+        # {{{summary}}}
+    {{/if}}
+        api_response = api_instance.{{{operationId.snakeCase}}}(
+    {{#if pathParams}}
+            path_params=path_params,
+    {{/if}}
+    {{#if queryParams}}
+            query_params=query_params,
+    {{/if}}
+    {{#if headerParams}}
+            header_params=header_params,
+    {{/if}}
+    {{#if cookieParams}}
+            cookie_params=cookie_params,
+    {{/if}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#if getDeepestRef.required}}
+            body=body,
+            {{/if}}
+        {{else}}
+            {{#if required}}
+            body=body,
+            {{/if}}
+        {{/if}}
+    {{/with}}
+        )
+        pprint(api_response)
+    except {{{packageName}}}.ApiException as e:
+    {{#if tag}}
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
+    {{else}}
+        {{#each tags}}
+            {{#if @first}}
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+{{#if hasOptionalParamOrBody}}
+
+    # example passing only optional values
+    {{#if pathParams}}
+    path_params = {
+        {{#each pathParams}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if queryParams}}
+    query_params: operation.RequestQueryParameters.Params = {
+        {{#each queryParams}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if cookieParams}}
+    cookie_params: operation.RequestCookieParameters.Params = {
+        {{#each cookieParams}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if headerParams}}
+    header_params: operation.RequestHeaderParameters.Params = {
+        {{#each headerParams}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#each getDeepestRef.content}}
+                {{#if @first}}
+                    {{#with this.schema}}
+    body = {{{example}}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{else}}
+            {{#each content}}
+                {{#if @first}}
+                    {{#with this.schema}}
+    body = {{{example}}}
+                    {{/with}}
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/with}}
+    try:
+    {{#if summary}}
+        # {{{summary}}}
+    {{/if}}
+        api_response = api_instance.{{{operationId.snakeCase}}}(
+    {{#if pathParams}}
+            path_params=path_params,
+    {{/if}}
+    {{#if queryParams}}
+            query_params=query_params,
+    {{/if}}
+    {{#if headerParams}}
+            header_params=header_params,
+    {{/if}}
+    {{#if cookieParams}}
+            cookie_params=cookie_params,
+    {{/if}}
+    {{#if requestBody}}
+            body=body,
+    {{/if}}
+        )
+        pprint(api_response)
+    except {{{packageName}}}.ApiException as e:
+    {{#if tag}}
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
+    {{else}}
+        {{#each tags}}
+            {{#if @first}}
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+{{#unless hasRequiredParamOrBody}}
+{{#unless hasOptionalParamOrBody}}
+
+    # example, this endpoint has no required or optional parameters
+    try:
+    {{#if summary}}
+        # {{{summary}}}
+    {{/if}}
+        api_response = api_instance.{{{operationId.snakeCase}}}()
+        pprint(api_response)
+    except {{{packageName}}}.ApiException as e:
+    {{#if tag}}
+        print("Exception when calling {{tag.className}}->{{operationId.snakeCase}}: %s\n" % e)
+    {{else}}
+        {{#each tags}}
+            {{#if @first}}
+        print("Exception when calling {{className}}->{{operationId.snakeCase}}: %s\n" % e)
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/unless}}
+{{/unless}}
+```

@@ -1,0 +1,111 @@
+{{#if requiredProperties}}
+{{#each requiredProperties}}
+{{#with this}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
+{{else}}
+    {{#if jsonPathPiece}}
+        {{#if schemaIsFromAdditionalProperties}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.{{jsonPathPiece.camelCase}}: ...
+        {{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.Properties.{{jsonPathPiece.camelCase}}: ...
+        {{/if}}
+    {{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.AnyTypeSchema: ...
+    {{/if}}
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{#if optionalProperties}}
+{{#each optionalProperties}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
+{{else}}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.Properties.{{jsonPathPiece.camelCase}}: ...
+{{/if}}
+{{/each}}
+{{/if}}
+{{#or properties requiredProperties}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+@typing.overload
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}: ...
+        {{/unless}}
+    {{else}}
+
+@typing.overload
+def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+    {{/with}}
+
+{{> components/schemas/_helper_getitem methodName="__getitem__" }}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}:
+    # dict_instance[name] accessor
+    return super().__getitem__(name)
+        {{/unless}}
+    {{/with}}
+{{/or}}
+{{#if requiredProperties}}
+{{#each requiredProperties}}
+{{#with this}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
+{{else}}
+    {{#if jsonPathPiece}}
+        {{#if schemaIsFromAdditionalProperties}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.{{jsonPathPiece.camelCase}}: ...
+        {{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.Properties.{{jsonPathPiece.camelCase}}: ...
+        {{/if}}
+    {{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.AnyTypeSchema: ...
+    {{/if}}
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
+{{#if optionalProperties}}
+{{#each optionalProperties}}
+
+@typing.overload
+{{#if refInfo.refClass}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> typing.Union['{{> components/schemas/_helper_refclass_with_module }}', schemas.Unset]: ...
+{{else}}
+def get_item_(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> typing.Union[Schema_.Properties.{{jsonPathPiece.camelCase}}, schemas.Unset]: ...
+{{/if}}
+{{/each}}
+{{/if}}
+{{#or properties requiredProperties}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+@typing.overload
+def get_item_(self, name: str) -> typing.Union[{{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}, schemas.Unset]: ...
+        {{/unless}}
+    {{else}}
+
+@typing.overload
+def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
+    {{/with}}
+
+{{> components/schemas/_helper_getitem methodName="get_item_" }}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+def get_item_(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}:
+    return super().get_item_(name)
+        {{/unless}}
+    {{/with}}
+{{/or}}

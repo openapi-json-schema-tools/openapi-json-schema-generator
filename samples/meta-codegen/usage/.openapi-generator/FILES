@@ -1,9 +1,9 @@
 myFile.sample
-src/org/openapitools/api/PetApi.sample
-src/org/openapitools/api/StoreApi.sample
-src/org/openapitools/api/UserApi.sample
-src/org/openapitools/model/Category.sample
-src/org/openapitools/model/Order.sample
-src/org/openapitools/model/Pet.sample
-src/org/openapitools/model/Tag.sample
-src/org/openapitools/model/User.sample
+src/org/openapijsonschematools/api/PetApi.sample
+src/org/openapijsonschematools/api/StoreApi.sample
+src/org/openapijsonschematools/api/UserApi.sample
+src/org/openapijsonschematools/model/Category.sample
+src/org/openapijsonschematools/model/Order.sample
+src/org/openapijsonschematools/model/Pet.sample
+src/org/openapijsonschematools/model/Tag.sample
+src/org/openapijsonschematools/model/User.sample

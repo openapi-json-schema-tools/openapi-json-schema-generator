@@ -1,0 +1,26 @@
+{{#if enumValueToName}}
+{{#each enumValueToName}}
+
+@schemas.classproperty
+def {{this}}(cls):
+    {{#eq @key.type "string"}}
+    return cls("{{{@key.value}}}")
+    {{/eq}}
+    {{#eq @key.type "number"}}
+    return cls({{{@key.value}}})
+    {{/eq}}
+    {{#eq @key.type "integer"}}
+    return cls({{{@key.value}}})
+    {{/eq}}
+    {{#eq @key.type "boolean"}}
+        {{#if @key.value}}
+    return cls(True)
+        {{else}}
+    return cls(False)
+        {{/if}}
+    {{/eq}}
+    {{#eq @key.type "null"}}
+    return cls(None)
+    {{/eq}}
+{{/each}}
+{{/if}}

@@ -1,0 +1,65 @@
+# coding: utf-8
+{{> _helper_header }}
+
+import dataclasses
+import typing
+{{#if server.variables}}
+import typing_extensions
+{{/if}}
+{{#with server}}
+
+from {{packageName}} import server{{#if variables}}, schemas{{/if}}
+    {{#if variables}}
+
+
+class _Variables:
+        {{#each variables}}
+    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "_Variables" jsonPathPiece.camelCase) }}
+        {{/each}}
+
+_VariablesSchemas = typing_extensions.TypedDict(
+    '_VariablesSchemas',
+    {
+        {{#each variables}}
+        "{{{@key.original}}}": typing.Type[_Variables.{{jsonPathPiece.camelCase}}],
+        {{/each}}
+    },
+    total=False
+)
+
+Variables = typing_extensions.TypedDict(
+    'Variables',
+    {
+        {{#each variables}}
+        "{{{@key.original}}}": {{#unless enumValueToName}}typing_extensions.Literal["{{defaultValue.value}}"],{{else}}typing_extensions.Literal[
+                {{#each enumValueToName}}
+            "{{{@key.value}}}",
+                {{/each}}
+        ],{{/unless}}
+        {{/each}}
+    },
+    total=False
+)
+
+def _default_variable_schemas():
+    return {
+        {{#each variables}}
+        "{{{@key.original}}}": _Variables.{{jsonPathPiece.camelCase}},
+        {{/each}}
+    }
+    {{/if}}
+
+
+@dataclasses.dataclass
+class {{jsonPathPiece.camelCase}}(server.Server):
+    {{#if description}}
+    '''
+    {{description}}
+    '''
+    {{/if}}
+    _url: str = "{{url}}"
+    {{#if variables}}
+    variables: Variables
+    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    {{/if}}
+{{/with}}

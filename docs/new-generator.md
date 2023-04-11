@@ -10,13 +10,13 @@ Creating a new generator which will become a part of the officially supported ge
 The minimum set of files required to create a new generator are:
 
 * A "Codegen" file
-  - exists under `modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/`
+  - exists under `modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/`
   - defines language options
   - defines framework options
   - determines OpenAPI feature set
   - extends the generation workflow
 * SPI registration
-  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/org.openapitools.codegen.CodegenConfig`
+  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/CodegenConfig`
   - Tells the generator that this class exists
   - Allows for classpath extension (addition) of generators
 * A minimal template
@@ -53,7 +53,7 @@ Examples:
   ./new.sh -n kotlin -s
 
     Creates:
-    modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/KotlinServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/KotlinServerCodegen.java
     modules/openapi-generator/src/main/resources/kotlin-server/README.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/model.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/api.mustache
@@ -62,15 +62,15 @@ Examples:
   Create a generic C# server generator:
   ./new.sh -n csharp -s -t
     Creates:
-    modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/CsharpServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/CsharpServerCodegen.java
     modules/openapi-generator/src/main/resources/csharp-server/README.mustache
     modules/openapi-generator/src/main/resources/csharp-server/model.mustache
     modules/openapi-generator/src/main/resources/csharp-server/api.mustache
     bin/configs/csharp-server-petstore-new.yaml
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenModelTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/csharp/CsharpServerCodegenOptionsTest.java
-    modules/openapi-generator/src/test/java/org/openapitools/codegen/options/CsharpServerCodegenOptionsProvider.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenModelTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/csharp/CsharpServerCodegenOptionsTest.java
+    modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen/options/CsharpServerCodegenOptionsProvider.java
 ```
 
 This script allows us to define a client, server, schema, or documentation generator. We'll focus on the simplest generator (documentation). The other generator types may require heavy extension of the "Config" base class, and these docs could very quickly become outdated. When creating a new generator, please review existing generators as a guideline for implementation.
@@ -84,7 +84,7 @@ Create a new Markdown generator, specifying CommonMark as the name to avoid conf
 You should see output similar to the following:
 
 ```bash
-Creating modules/openapi-generator/src/main/java/org/openapitools/codegen/languages/CommonMarkDocumentationCodegen.java
+Creating modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/CommonMarkDocumentationCodegen.java
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/README.mustache
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/model.mustache
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/api.mustache
@@ -309,10 +309,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 {{#parent}}
 {{#parentVars}}
-**{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
+**{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{refClass}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
 {{/parentVars}}
 {{/parent}}
-{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
+{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{refClass}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#readOnly}}[readonly] {{/readOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
 {{/vars}}
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

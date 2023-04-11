@@ -1,0 +1,37 @@
+{{#if parameters}}
+
+{{headerSize}}## {{paramPrefix}}_params
+{{headerSize}}### Request{{paramType}}Parameters.Params
+This is a TypedDict
+
+Key | Input Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+    {{#each parameters}}
+        {{#if refInfo}}
+            {{#with getDeepestRef}}
+                {{#if schema}}
+{{name}} | [{{../refInfo.refClass}}.schema](../../../components/parameters/{{../refInfo.refModule}}.md#schema), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
+                {{else}}
+                    {{#each content}}
+{{../name}} | [{{../../refInfo.refClass}}.content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" @key this.schema.jsonPathPiece) }}), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
+                    {{/each}}
+                {{/if}}
+            {{/with}}
+        {{else}}
+            {{#if schema}}
+{{name}} | [{{jsonPathPiece.camelCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece schema.jsonPathPiece) }}), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
+            {{else}}
+                {{#each content}}
+{{../name}} | [{{../jsonPathPiece.camelCase}}.content.{{@key.snakeCase}}.schema](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces ../jsonPathPiece "content" @key this.schema.jsonPathPiece) }}), {{#with schema}}{{> _helper_schema_python_types }}{{/with}} | | {{#unless required}}optional{{/unless}}
+                {{/each}}
+            {{/if}}
+        {{/if}}
+    {{/each}}
+
+    {{#each parameters as | parameter |}}
+    {{#unless parameter.refInfo}}
+
+{{> components/parameters/parameter_doc headerSize=(join headerSize "###" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/unless}}
+    {{/each}}
+{{/if}}

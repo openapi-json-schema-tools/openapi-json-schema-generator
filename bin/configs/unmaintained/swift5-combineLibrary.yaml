@@ -1,11 +1,11 @@
 generatorName: swift5
 outputDir: samples/client/petstore/swift5/combineLibrary
-inputSpec: modules/openapi-generator/src/test/resources/2_0/swift/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: modules/openapi-generator/src/main/resources/swift5
+inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/swift/petstore-with-fake-endpoints-models-for-testing.yaml
+templateDir: modules/openapi-json-schema-generator/src/main/resources/swift5
 generateAliasAsModel: true
 additionalProperties:
   responseAs: Combine
   podAuthors: ""
   podSummary: PetstoreClient
   projectName: PetstoreClient
-  podHomepage: https://github.com/openapitools/openapi-generator
+  podHomepage: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

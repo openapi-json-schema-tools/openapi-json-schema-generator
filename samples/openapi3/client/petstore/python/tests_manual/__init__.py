@@ -1,4 +1,5 @@
 import collections
+import http
 import json
 import typing
 import unittest
@@ -13,7 +14,7 @@ ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serial
 
 class ApiTestMixin(unittest.TestCase):
     json_content_type = 'application/json'
-    user_agent = 'OpenAPI-Generator/1.0.0/python'
+    user_agent = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
 
     @classmethod
     def assert_request_called_with(
@@ -87,7 +88,7 @@ class ApiTestMixin(unittest.TestCase):
     @classmethod
     def response(
         cls,
-        body: typing.Union[str, bytes],
+        body: typing.Union[str, bytes, http.client.HTTPResponse],
         status: int = 200,
         content_type: str = json_content_type,
         headers: typing.Optional[typing.Dict[str, str]] = None,
@@ -102,7 +103,8 @@ class ApiTestMixin(unittest.TestCase):
             headers=headers,
             status=status,
             preload_content=preload_content,
-            reason=reason
+            reason=reason,
+            auto_close = True
         )
 
     @staticmethod
