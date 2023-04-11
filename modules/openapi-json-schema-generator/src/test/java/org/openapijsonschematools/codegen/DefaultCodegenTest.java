@@ -3734,7 +3734,7 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         CodegenKey applicationXWwwFormUrlencoded = codegen.getKey("application/x-www-form-urlencoded");
         CodegenSchema formSchema = co.requestBody.content.get(applicationXWwwFormUrlencoded).schema;
-        assertEquals(formSchema.refInfo.ref.properties.size(), 6);
+        assertEquals(formSchema.properties.size(), 6);
 
         LinkedHashMap<String, CodegenEncoding> encoding = co.requestBody.content.get(applicationXWwwFormUrlencoded).encoding;
         assertEquals(encoding.get("int-param").explode, true);
