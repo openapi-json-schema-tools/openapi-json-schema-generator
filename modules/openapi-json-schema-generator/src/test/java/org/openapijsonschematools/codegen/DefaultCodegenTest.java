@@ -2888,26 +2888,21 @@ public class DefaultCodegenTest {
         String modelName;
         modelName = "ArrayWithObjectWithPropsInItems";
         ArraySchema as = (ArraySchema) openAPI.getComponents().getSchemas().get(modelName);
-        assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", as.getItems().get$ref());
-        sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromSchema(
-                sc,
+                as,
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        assertTrue(cm.properties.size() > 0);
+        assertTrue(cm.items.properties.size() > 0);
 
         modelName = "ObjectWithObjectWithPropsInAdditionalProperties";
         MapSchema ms = (MapSchema) openAPI.getComponents().getSchemas().get(modelName);
-        Schema addProps = (Schema) ms.getAdditionalProperties();
-        assertEquals("#/components/schemas/ArrayWithObjectWithPropsInItems_inner", addProps.get$ref());
-        sc = openAPI.getComponents().getSchemas().get("ArrayWithObjectWithPropsInItems_inner");
         cm = codegen.fromSchema(
-                sc,
+                ms,
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        assertTrue(cm.properties.size() > 0);
+        assertTrue(cm.additionalProperties.properties.size() > 0);
     }
 
     @Test
