@@ -2951,8 +2951,8 @@ public class DefaultCodegenTest {
         path = "/object_with_optional_and_required_props/{objectData}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        // does not have vars because the inline schema was extracted into a component ref
-        assertTrue(co.responses.get("200").content.get(applicationJson).schema.properties == null);
+
+        assertTrue(co.responses.get("200").content.get(applicationJson).schema.properties.size() == 3);
     }
 
     @Test
