@@ -14,17 +14,40 @@ description = "{{appName}}"
 readme = "README.md"
 requires-python = "{{{generatorLanguageVersion}}}"
 dependencies = [
-    {{> _helper_required_libraries quoted=true }}
+    {{#if asyncio}}
+    "aiohttp >= 3.0.0",
+    {{/if}}
+    "certifi >= 14.5.14",
+    "frozendict ~= 2.3.4",
+    "authlib ~= 1.2.0",
+    "requests ~= 2.28.2", # needed by authlib
+    {{#if hasHttpSignatureSecurityScheme}}
+    "pem >= 19.3.0",
+    "pycryptodome >= 3.9.0",
+    {{/if}}
+    "python-dateutil ~= 2.7.0",
+    "setuptools >= 61.0",
+    {{#if tornado}}
+    "tornado >= 4.2",
+    {{/if}}
+    "typing_extensions ~= 4.5.0",
+    "urllib3 ~= 2.0.a3",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    {{#if licenseInfo}}"License :: {{licenseInfo}}",{{/if}}
+    {{#if licenseInfo}}
+    "License :: {{licenseInfo}}",
+    {{/if}}
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Code Generators"
 ]
 
 {{#or packageUrl infoUrl}}
 [project.urls]
-{{#if packageUrl}}"Homepage" = "{{{packageUrl}}}"{{/if}}
-{{#if infoUrl}}"Bug Tracker" = "{{{infoUrl}}}"{{/if}}
+    {{#if packageUrl}}
+"Homepage" = "{{{packageUrl}}}"
+    {{/if}}
+    {{#if infoUrl}}
+"Bug Tracker" = "{{{infoUrl}}}"
+    {{/if}}
 {{/or}}

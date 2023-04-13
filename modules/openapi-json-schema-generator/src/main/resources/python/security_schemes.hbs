@@ -175,7 +175,15 @@ class ImplicitOAuthFlow:
     authorization_url: str
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
+    # client_identifier: str  # this should be in the settings, json path to client_id
 
+    def __post_init__(self):
+        client = MobileApplicationClient(self.client_identifier)
+        for key, scope_val in scopes.items():
+            # todo send all scopes
+            uri = client.prepare_request_uri(self.authorization_url, scope=scope_val)
+
+        self.c = self.a + self.b
 
 @dataclasses.dataclass
 class TokenUrlOauthFlow:
