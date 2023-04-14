@@ -9,6 +9,7 @@
 import dataclasses
 import typing
 import typing_extensions
+from urllib import parse
 
 from petstore_api import security_schemes
 

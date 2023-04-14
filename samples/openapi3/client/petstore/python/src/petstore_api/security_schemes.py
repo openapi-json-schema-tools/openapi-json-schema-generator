@@ -14,6 +14,7 @@ import dataclasses
 import enum
 import typing
 import typing_extensions
+from urllib import parse
 
 from urllib3 import _collections
 
@@ -175,22 +176,32 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
 
 @dataclasses.dataclass
 class ImplicitOAuthFlow:
-    authorization_url: str
+    authorization_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
+    # client_identifier: str  # this should be in the settings, json path to client_id
 
+"""
+    def __post_init__(self):
+        client = MobileApplicationClient(self.client_identifier)
+        for key, scope_val in scopes.items():
+            # todo send all scopes
+            uri = client.prepare_request_uri(self.authorization_url, scope=scope_val)
+
+        self.c = self.a + self.b
+"""
 
 @dataclasses.dataclass
 class TokenUrlOauthFlow:
-    token_url: str
+    token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
 
 
 @dataclasses.dataclass
 class AuthorizationCodeOauthFlow:
-    authorization_url: str
-    token_url: str
+    authorization_url: parse.ParseResult
+    token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
 

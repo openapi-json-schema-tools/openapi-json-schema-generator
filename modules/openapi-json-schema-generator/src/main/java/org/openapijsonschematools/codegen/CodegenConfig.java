@@ -49,6 +49,7 @@ import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

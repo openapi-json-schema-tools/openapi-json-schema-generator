@@ -9,6 +9,7 @@
 import dataclasses
 import typing
 import typing_extensions
+from urllib import parse
 
 from petstore_api import security_schemes
 
@@ -19,7 +20,11 @@ class PetstoreAuth(security_schemes.OAuth2SecurityScheme):
     '''
     flows = security_schemes.OAuthFlows(
         implicit=security_schemes.ImplicitOAuthFlow(
-            authorization_url="http://petstore.swagger.io/api/oauth/dialog",
+            authorization_url=parse.ParseResult(
+                scheme="http",
+                netloc="petstore.swagger.io",
+                path="/api/oauth/dialog",
+            ),
             scopes={
                 "write:pets": "modify pets in your account",
                 "read:pets": "read your pets",
