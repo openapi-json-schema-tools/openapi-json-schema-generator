@@ -3,6 +3,9 @@
 {{> _helper_header }}
 
 import copy
+{{#if oauthServerHostnames}}
+import dataclasses
+{{/if}}
 from http import client as http_client
 import logging
 {{#unless asyncio}}
@@ -43,6 +46,25 @@ from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers
             {{/each}}
         {{/if}}
     {{/each}}
+{{/if}}
+{{#if oauthServerHostnames}}
+
+
+@dataclasses.dataclass
+class OauthClientInfo:
+    client_id: str
+    client_secret: typing.Optional[str] = None
+
+
+# oauth server to client info
+OathServerClientInfo = typing_extensions.TypedDict(
+    'OathServerClientInfo',
+{{#each oauthServerHostnames}}
+        "{{{.}}}": OauthClientInfo,
+{{/each}}
+    },
+    total=False
+)
 {{/if}}
 {{#if securitySchemes}}
 
@@ -158,6 +180,9 @@ class ApiConfiguration(object):
     :param server_info: the servers that can be used to make endpoint calls
     :param server_index_info: index to servers configuration
 {{/if}}
+{{#if oauthServerHostnames}}
+    :param oath_server_client_info: the oauth client_id and client_secret info
+{{/if}}
     """
 
     def __init__(
@@ -169,6 +194,9 @@ class ApiConfiguration(object):
 {{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
+{{/if}}
+{{#if oauthServerHostnames}}
+        oath_server_client_info: typing.Optional[OathServerClientInfo] = None,
 {{/if}}
     ):
         """Constructor
@@ -208,6 +236,10 @@ class ApiConfiguration(object):
 {{else}}
         self.server_info = {}
         self.server_index_info = {'servers': 0}
+{{/if}}
+{{#if oauthServerHostnames}}
+        # oauth server client info
+        self.oath_server_client_info: OathServerClientInfo = oath_server_client_info or {}
 {{/if}}
         self.logger = {}
         """Logging Settings

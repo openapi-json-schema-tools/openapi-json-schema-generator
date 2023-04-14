@@ -1279,6 +1279,11 @@ public class DefaultGenerator implements Generator {
         bundle.put("security", security);
         bundle.put("apiFolder", config.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", config.modelPackage());
+        if (config.getOauthServerHostnames().isEmpty()) {
+            bundle.put("oauthServerHostnames", null);
+        } else {
+            bundle.put("oauthServerHostnames", config.getOauthServerHostnames());
+        }
         bundle.put("library", config.getLibrary());
         if (securitySchemes == null) {
             bundle.put("hasHttpSignatureSecurityScheme", false);

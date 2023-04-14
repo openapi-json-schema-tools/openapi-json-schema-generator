@@ -1590,6 +1590,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
+    public LinkedHashSet<String> getOauthServerHostnames() {
+        return oauthServerHostnames;
+    }
+
     protected String toTestCaseName(String specTestCaseName) {
         return specTestCaseName;
     }

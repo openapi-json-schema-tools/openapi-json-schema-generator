@@ -51,6 +51,7 @@ import org.openapijsonschematools.codegen.model.CodegenTag;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -148,6 +149,8 @@ public interface CodegenConfig {
     CodegenKey getKey(String key);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
+
+    LinkedHashSet<String> getOauthServerHostnames();
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
