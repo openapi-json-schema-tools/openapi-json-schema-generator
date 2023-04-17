@@ -47,6 +47,7 @@ class OauthClientInfo:
 # oauth server to client info
 OathServerClientInfo = typing_extensions.TypedDict(
     'OathServerClientInfo',
+    {
         "petstore.swagger.io": OauthClientInfo,
     },
     total=False
