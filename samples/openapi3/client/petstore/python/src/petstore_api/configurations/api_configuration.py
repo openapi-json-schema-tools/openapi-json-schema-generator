@@ -10,7 +10,6 @@
 """
 
 import copy
-import dataclasses
 from http import client as http_client
 import logging
 import multiprocessing
@@ -36,22 +35,7 @@ from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
 from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
 from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
-
-
-@dataclasses.dataclass
-class OauthClientInfo:
-    client_id: str
-    client_secret: typing.Optional[str] = None
-
-
-# oauth server to client info
-OathServerClientInfo = typing_extensions.TypedDict(
-    'OathServerClientInfo',
-    {
-        "petstore.swagger.io": OauthClientInfo,
-    },
-    total=False
-)
+from petstore_api import security_schemes
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing_extensions.TypedDict(
@@ -146,7 +130,7 @@ class ApiConfiguration(object):
         security_index_info: typing.Optional[SecurityIndexInfo] = None,
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
-        oath_server_client_info: typing.Optional[OathServerClientInfo] = None,
+        oath_server_client_info: typing.Optional[security_schemes.OauthServerClientInfo] = None,
     ):
         """Constructor
         """
@@ -165,7 +149,7 @@ class ApiConfiguration(object):
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         # oauth server client info
-        self.oath_server_client_info: OathServerClientInfo = oath_server_client_info or {}
+        self.oath_server_client_info: security_schemas.OauthServerClientInfo = oath_server_client_info or {}
         self.logger = {}
         """Logging Settings
         """

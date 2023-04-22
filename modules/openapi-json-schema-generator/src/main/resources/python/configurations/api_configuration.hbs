@@ -3,9 +3,6 @@
 {{> _helper_header }}
 
 import copy
-{{#if oauthServerHostnames}}
-import dataclasses
-{{/if}}
 from http import client as http_client
 import logging
 {{#unless asyncio}}
@@ -48,24 +45,7 @@ from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers
     {{/each}}
 {{/if}}
 {{#if oauthServerHostnames}}
-
-
-@dataclasses.dataclass
-class OauthClientInfo:
-    client_id: str
-    client_secret: typing.Optional[str] = None
-
-
-# oauth server to client info
-OathServerClientInfo = typing_extensions.TypedDict(
-    'OathServerClientInfo',
-    {
-{{#each oauthServerHostnames}}
-        "{{{.}}}": OauthClientInfo,
-{{/each}}
-    },
-    total=False
-)
+from {{packageName}} import security_schemes
 {{/if}}
 {{#if securitySchemes}}
 
@@ -197,7 +177,7 @@ class ApiConfiguration(object):
         server_index_info: typing.Optional[ServerIndexInfo] = None,
 {{/if}}
 {{#if oauthServerHostnames}}
-        oath_server_client_info: typing.Optional[OathServerClientInfo] = None,
+        oath_server_client_info: typing.Optional[security_schemes.OauthServerClientInfo] = None,
 {{/if}}
     ):
         """Constructor
@@ -240,7 +220,7 @@ class ApiConfiguration(object):
 {{/if}}
 {{#if oauthServerHostnames}}
         # oauth server client info
-        self.oath_server_client_info: OathServerClientInfo = oath_server_client_info or {}
+        self.oath_server_client_info: security_schemas.OauthServerClientInfo = oath_server_client_info or {}
 {{/if}}
         self.logger = {}
         """Logging Settings

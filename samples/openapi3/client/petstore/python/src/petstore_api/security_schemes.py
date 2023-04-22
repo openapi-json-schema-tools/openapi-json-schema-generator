@@ -21,6 +21,22 @@ from urllib3 import _collections
 from petstore_api import signing
 
 
+@dataclasses.dataclass
+class OauthClientInfo:
+    client_id: str
+    client_secret: typing.Optional[str] = None
+
+
+# oauth server to client info
+OauthServerClientInfo = typing_extensions.TypedDict(
+    'OauthServerClientInfo',
+    {
+        "petstore.swagger.io": OauthClientInfo,
+    },
+    total=False
+)
+
+
 class SecuritySchemeType(enum.Enum):
     API_KEY = 'apiKey'
     HTTP = 'http'
@@ -44,6 +60,7 @@ class __SecuritySchemeBase(metaclass=abc.ABCMeta):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         pass
 
@@ -62,6 +79,7 @@ class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
             headers.add('Cookie', self.api_key)
@@ -98,6 +116,7 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
@@ -118,6 +137,7 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         headers.add('Authorization', f"Bearer {self.access_token}")
 
@@ -135,6 +155,7 @@ class HTTPSignatureSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         query_params = tuple()
         auth_headers = self.signing_info.get_http_signature_headers(
@@ -155,6 +176,7 @@ class HTTPDigestSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
@@ -170,6 +192,7 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
@@ -225,6 +248,7 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
 
@@ -240,6 +264,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
 
