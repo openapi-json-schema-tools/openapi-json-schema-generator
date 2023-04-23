@@ -13,7 +13,9 @@
 import dataclasses
 import typing
 import typing_extensions
+        {{#eq type "apiKey"}}
 from urllib import parse
+        {{/eq}}
 
 from {{packageName}} import security_schemes
 

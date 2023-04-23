@@ -18,6 +18,7 @@ from urllib import parse
 
 from urllib3 import _collections
 
+from petstore_api import exceptions
 from petstore_api import signing
 
 
@@ -202,23 +203,21 @@ class ImplicitOAuthFlow:
     authorization_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
-    # client_identifier: str  # this should be in the settings, json path to client_id
 
-"""
-    def __post_init__(self):
-        client = MobileApplicationClient(self.client_identifier)
-        for key, scope_val in scopes.items():
-            # todo send all scopes
-            uri = client.prepare_request_uri(self.authorization_url, scope=scope_val)
+    @property
+    def auth_or_token_url(self) -> parse.ParseResult:
+        return self.authorization_url
 
-        self.c = self.a + self.b
-"""
 
 @dataclasses.dataclass
 class TokenUrlOauthFlow:
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
+
+    @property
+    def auth_or_token_url(self) -> parse.ParseResult:
+        return self.token_url
 
 
 @dataclasses.dataclass
@@ -227,6 +226,10 @@ class AuthorizationCodeOauthFlow:
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
+
+    @property
+    def auth_or_token_url(self) -> parse.ParseResult:
+        return self.authorization_url
 
 
 @dataclasses.dataclass
@@ -250,7 +253,39 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
         scope_names: typing.Tuple[str] = (),
         oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
-        raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
+        if not self.flows:
+            raise exceptions.ApiValueError('flows are not defined and are required, define them')
+        if not scope_names:
+            raise exceptions.ApiValueError('scope_names are not defined and are required, define them')
+        if not oath_server_client_info:
+            raise exceptions.ApiValueError('oath_server_client_info is not defined and is required, define it')
+        chosen_flows = []
+        for flow in [self.flows.implicit, self.flows.password, self.flows.client_credentials, self.flows.authorization_code]:
+            if flow is None:
+                continue
+            all_scopes_present = True
+            for scope_name in scope_names:
+                if scope_name not in flow.scopes:
+                    break
+            if not all_scopes_present:
+                continue
+            chosen_flows.append(flow)
+        if not chosen_flows:
+            raise exceptions.ApiValueError(f"flow not found containing scopes={scope_names}")
+        if len(chosen_flows) > 1:
+            raise exceptions.ApiValueError(
+                f"Greater than 1 flow found containing scopes={scope_names}, only 1 "
+                "flow may contain the scopes"
+            )
+        chosen_flow = chosen_flows[0]
+        if chosen_flow.auth_or_token_url.netloc not in oath_server_client_info:
+            raise exceptions.ApiValueError(
+                f"oath_server_client_info is missing info for oauth server "
+                "hostname={chosen_flow.auth_or_token_url.netloc}. Add it to you api_configuration"
+            )
+        client_info = oath_server_client_info[chosen_flow.auth_or_token_url.netloc]
+        # pass in scope + client_info into the flow and get auth for it
+        # note: scope input must be sorted tuple
 
 
 class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
