@@ -9,6 +9,9 @@ import typing
 import typing_extensions
 from urllib import parse
 
+{{#if oauthServerHostnames}}
+from authlib.integrations import requests_client
+{{/if}}
 from urllib3 import _collections
 
 from {{packageName}} import exceptions
@@ -34,6 +37,22 @@ OauthServerClientInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+
+@dataclasses.dataclass
+class OauthTokenRequired(typing_extensions.TypedDict):
+    access_token: str
+    token_type: str
+
+
+@dataclasses.dataclass
+class OauthTokenOptional(typing_extensions.TypedDict, total=False):
+    expires_in: int
+    refresh_token: str
+
+
+class OauthToken(OauthTokenRequired, OauthTokenOptional):
+    pass
 {{/if}}
 
 
@@ -218,21 +237,102 @@ class ImplicitOAuthFlow:
     authorization_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
+    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
         return self.authorization_url
 
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]],
+        scope_names: typing.Tuple[str] = (),
+        client_info: ClientInfo = {}
+    ) -> None:
+        """
+        Not implemented because this flow requires the user to visit a webpage and grant access
+        then get a redirection. The code would need to automatically do that.
+        """
+        raise NotImplementedError("ImplicitOAuthFlow not yet implemented")
+
 
 @dataclasses.dataclass
-class TokenUrlOauthFlow:
+class PasswordOauthFlow:
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
+    username: str
+    password: str
     refresh_url: typing.Optional[str] = None
+    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
+    __scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
         return self.token_url
+
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]],
+        client_info: OauthClientInfo,
+        scope_names: typing.Tuple[str] = (),
+    ) -> None:
+        client = self.__scope_names_to_client.get(scope_names)
+        if client is None:
+            client = requests_client.OAuth2Session(
+                client_info.client_id,
+                client_info.client_secret,
+                scope=scope_names
+            )
+            self.__scope_names_to_token[scope_names] = client
+        token: OauthToken = client.fetch_token(
+            token_endpoint=parse.urlunparse(self.token_url),
+            username=resource_owner_info.username,
+            password=resource_owner_info.password
+        )
+        self.__scope_names_to_token[scope_names] = token
+        print(token)
+        # assume token type is bearer
+        # TODO apply the token to the request
+
+
+@dataclasses.dataclass
+class ClientCredentialsOauthFlow:
+    token_url: parse.ParseResult
+    scopes: typing.Dict[str, str]
+    refresh_url: typing.Optional[str] = None
+    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
+
+    @property
+    def auth_or_token_url(self) -> parse.ParseResult:
+        return self.token_url
+
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]],
+        scope_names: typing.Tuple[str] = (),
+        client_info: ClientInfo = {}
+    ) -> None:
+        """
+        Not implemented because this flow requires the user to visit a webpage an grant access
+        then get a redirection. The code would need to automatically do that.
+        """
+        client = self.__scope_names_to_client.get(scope_names)
+        if client is None:
+            client = requests_client.OAuth2Session(
+                client_id,
+                client_secret,
+                scope=scope_names
+            )
+        token = client.fetch_token(token_endpoint, username='a-name', password='a-password')
 
 
 @dataclasses.dataclass
@@ -250,8 +350,8 @@ class AuthorizationCodeOauthFlow:
 @dataclasses.dataclass
 class OAuthFlows:
     implicit: typing.Optional[ImplicitOAuthFlow] = None
-    password: typing.Optional[TokenUrlOauthFlow] = None
-    client_credentials: typing.Optional[TokenUrlOauthFlow] = None
+    password: typing.Optional[PasswordOauthFlow] = None
+    client_credentials: typing.Optional[ClientCredentialsOauthFlow] = None
     authorization_code: typing.Optional[AuthorizationCodeOauthFlow] = None
 
 
@@ -302,8 +402,15 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
                 "hostname={chosen_flow.auth_or_token_url.netloc}. Add it to you api_configuration"
             )
         client_info = oath_server_client_info[chosen_flow.auth_or_token_url.netloc]
-        # pass in scope + client_info into the flow and get auth for it
         # note: scope input must be sorted tuple
+        chosen_flow.apply_auth(
+            headers=headers,
+            resource_path=resource_path,
+            method=method,
+            body=body,
+            scope_names=scope_names,
+            client_info=client_info
+        )
 
 
 class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):

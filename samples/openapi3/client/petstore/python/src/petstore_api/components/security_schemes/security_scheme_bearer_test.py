@@ -12,6 +12,7 @@ import typing_extensions
 
 from petstore_api import security_schemes
 
+
 @dataclasses.dataclass
 class BearerTest(security_schemes.HTTPBearerSecurityScheme):
     '''

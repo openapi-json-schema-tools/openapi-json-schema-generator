@@ -18,8 +18,9 @@ from urllib import parse
         {{/eq}}
 
 from {{packageName}} import security_schemes
-
         {{#eq type "apiKey"}}
+
+
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
             {{#if description}}
@@ -41,6 +42,8 @@ class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
             {{/eq}}
         {{else}}
             {{#eq type "http"}}
+
+
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
                 {{#if description}}
@@ -53,6 +56,8 @@ class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Bas
                 {{/eq}}
             {{else}}
                 {{#eq type "mutualTLS"}}
+
+
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{#if description}}
@@ -64,6 +69,115 @@ class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{/if}}
                 {{else}}
                     {{#eq type "oauth2"}}
+                        {{#with flows}}
+                            {{#with implicit}}
+
+
+class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
+    authorization_url = parse.ParseResult(
+                                {{#with authorizationUrl}}
+        scheme="{{getProtocol}}",
+        netloc="{{getAuthority}}",
+        path="{{getPath}}",
+                                {{/with}}
+    )
+    scopes = {
+                                {{#each scopes}}
+        "{{@key}}": "{{this}}",
+                                {{/each}}
+    }
+                                {{#if refreshUrl}}
+    refresh_url = "{{refreshUrl}}"
+                                {{/if}}
+                            {{/with}}
+                            {{#with password}}
+
+
+class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
+    token_url = parse.ParseResult(
+                                {{#with tokenUrl}}
+        scheme="{{getProtocol}}",
+        netloc="{{getAuthority}}",
+        path="{{getPath}}",
+                                {{/with}}
+    )
+    scopes = {
+                                {{#each scopes}}
+        "{{@key}}": "{{this}}",
+                                {{/each}}
+    },
+                                {{#if refreshUrl}}
+    refresh_url = "{{refreshUrl}}"
+                                {{/if}}
+                            {{/with}}
+                            {{#with clientCredentials}}
+
+
+class ClientCredentialsOauthFlow(security_schemes.ClientCredentialsOauthFlow):
+    token_url = parse.ParseResult(
+                                {{#with tokenUrl}}
+        scheme="{{getProtocol}}",
+        netloc="{{getAuthority}}",
+        path="{{getPath}}",
+                                {{/with}}
+    )
+    scopes = {
+                                {{#each scopes}}
+        "{{@key}}": "{{this}}",
+                                {{/each}}
+    }
+                                {{#if refreshUrl}}
+    refresh_url = "{{refreshUrl}}"
+                                {{/if}}
+                            {{/with}}
+                            {{#with authorizationCode}}
+
+
+class AuthorizationCodeOauthFlow(security_schemes.AuthorizationCodeOauthFlow):
+    authorization_url = parse.ParseResult(
+                                {{#with authorizationUrl}}
+        scheme="{{getProtocol}}",
+        netloc="{{getAuthority}}",
+        path="{{getPath}}",
+                                {{/with}}
+    )
+    token_url = parse.ParseResult(
+                                {{#with tokenUrl}}
+        scheme="{{getProtocol}}",
+        netloc="{{getAuthority}}",
+        path="{{getPath}}",
+                                {{/with}}
+    )
+    scopes={
+                                {{#each scopes}}
+        "{{@key}}": "{{this}}",
+                                {{/each}}
+    }
+                                {{#if refreshUrl}}
+    refresh_url="{{refreshUrl}}"
+                                {{/if}}
+                            {{/with}}
+                        {{/with}}
+
+
+class OAuthFlows(security_schemes.OAuthFlows):
+                        {{#with flows}}
+                            {{#if password}}
+    password: PasswordOauthFlow
+                            {{/if}}
+                            {{#if implicit}}
+    implicit: ImplicitOAuthFlow = ImplicitOAuthFlow()
+                            {{/if}}
+                            {{#if clientCredentials}}
+    client_credentials: ClientCredentialsOauthFlow = ClientCredentialsOauthFlow()
+                            {{/if}}
+                            {{#if authorizationCode}}
+    authorization_code: AuthorizationCodeOauthFlow = AuthorizationCodeOauthFlow()
+                            {{/if}}
+                        {{/with}}
+
+
+
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
                         {{#if description}}
@@ -71,95 +185,11 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
     {{description}}
     '''
                         {{/if}}
-    flows = security_schemes.OAuthFlows(
-                        {{#with flows}}
-                            {{#with implicit}}
-        implicit=security_schemes.ImplicitOAuthFlow(
-            authorization_url=parse.ParseResult(
-                                {{#with authorizationUrl}}
-                scheme="{{getProtocol}}",
-                netloc="{{getAuthority}}",
-                path="{{getPath}}",
-                                {{/with}}
-            ),
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with password}}
-        password=security_schemes.TokenUrlOauthFlow(
-            token_url=parse.ParseResult(
-                                {{#with tokenUrl}}
-                scheme="{{getProtocol}}",
-                netloc="{{getAuthority}}",
-                path="{{getPath}}",
-                                {{/with}}
-            ),
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with clientCredentials}}
-        client_credentials=security_schemes.TokenUrlOauthFlow(
-            token_url=parse.ParseResult(
-                                {{#with tokenUrl}}
-                scheme="{{getProtocol}}",
-                netloc="{{getAuthority}}",
-                path="{{getPath}}",
-                                {{/with}}
-            ),
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with authorizationCode}}
-        authorization_code=security_schemes.AuthorizationCodeOauthFlow(
-            authorization_url=parse.ParseResult(
-                                {{#with authorizationUrl}}
-                scheme="{{getProtocol}}",
-                netloc="{{getAuthority}}",
-                path="{{getPath}}",
-                                {{/with}}
-            ),
-            token_url=parse.ParseResult(
-                                {{#with tokenUrl}}
-                scheme="{{getProtocol}}",
-                netloc="{{getAuthority}}",
-                path="{{getPath}}",
-                                {{/with}}
-            ),
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                        {{/with}}
-    )
+    flows: OAuthFlows
                     {{else}}
                         {{#eq type "openIdConnect"}}
+
+
 @dataclasses.dataclass
 class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):
                             {{#if description}}
