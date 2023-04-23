@@ -215,8 +215,19 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
 
+class OAuthFlowBase:
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        token: OAuthToken
+    ) -> None:
+        if token['token_type'] == 'Bearer':
+            headers.add('Authorization', f"Bearer {token['access_token']}")
+        raise NotImplementedError(f"OAuthToken token_type={token['token_type']} application not yet implemented")
+
+
 @dataclasses.dataclass
-class ImplicitOAuthFlow:
+class ImplicitOAuthFlow(OAuthFlowBase):
     authorization_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
@@ -243,7 +254,7 @@ class ImplicitOAuthFlow:
 
 
 @dataclasses.dataclass
-class PasswordOauthFlow:
+class PasswordOauthFlow(OAuthFlowBase):
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     username: str
@@ -265,6 +276,10 @@ class PasswordOauthFlow:
         client_info: OauthClientInfo,
         scope_names: typing.Tuple[str] = (),
     ) -> None:
+        token = self.__scope_names_to_token.get(scope_names)
+        if token:
+            super().apply_auth(headers, token)
+            return
         client = self.__scope_names_to_client.get(scope_names)
         if client is None:
             client = requests_client.OAuth2Session(
@@ -275,21 +290,21 @@ class PasswordOauthFlow:
             self.__scope_names_to_token[scope_names] = client
         token: OauthToken = client.fetch_token(
             token_endpoint=parse.urlunparse(self.token_url),
-            username=resource_owner_info.username,
-            password=resource_owner_info.password
+            username=self.username,
+            password=self.password
         )
         self.__scope_names_to_token[scope_names] = token
         print(token)
-        # assume token type is bearer
-        # TODO apply the token to the request
+        super().apply_auth(headers, token)
 
 
 @dataclasses.dataclass
-class ClientCredentialsOauthFlow:
+class ClientCredentialsOauthFlow(OAuthFlowBase):
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
     __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
+    __scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
@@ -304,22 +319,29 @@ class ClientCredentialsOauthFlow:
         scope_names: typing.Tuple[str] = (),
         client_info: ClientInfo = {}
     ) -> None:
-        """
-        Not implemented because this flow requires the user to visit a webpage an grant access
-        then get a redirection. The code would need to automatically do that.
-        """
+        token = self.__scope_names_to_token.get(scope_names)
+        if token:
+            super().apply_auth(headers, token)
+            return
         client = self.__scope_names_to_client.get(scope_names)
         if client is None:
             client = requests_client.OAuth2Session(
-                client_id,
-                client_secret,
+                client_info.client_id,
+                client_info.client_secret,
                 scope=scope_names
             )
-        token = client.fetch_token(token_endpoint, username='a-name', password='a-password')
+            self.__scope_names_to_token[scope_names] = client
+        token: OauthToken = client.fetch_token(
+            token_endpoint=parse.urlunparse(self.token_url),
+            grant_type='client_credentials'
+        )
+        self.__scope_names_to_token[scope_names] = token
+        print(token)
+        super().apply_auth(headers, token)
 
 
 @dataclasses.dataclass
-class AuthorizationCodeOauthFlow:
+class AuthorizationCodeOauthFlow(OAuthFlowBase):
     authorization_url: parse.ParseResult
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
@@ -328,6 +350,21 @@ class AuthorizationCodeOauthFlow:
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
         return self.authorization_url
+
+    def apply_auth(
+        self,
+        headers: _collections.HTTPHeaderDict,
+        resource_path: str,
+        method: str,
+        body: typing.Optional[typing.Union[str, bytes]],
+        scope_names: typing.Tuple[str] = (),
+        client_info: ClientInfo = {}
+    ) -> None:
+        """
+        Not implemented because this flow requires the user to visit a webpage and grant access
+        then get a redirection. The code would need to automatically do that.
+        """
+        raise NotImplementedError("AuthorizationCodeOauthFlow not yet implemented")
 
 
 @dataclasses.dataclass
