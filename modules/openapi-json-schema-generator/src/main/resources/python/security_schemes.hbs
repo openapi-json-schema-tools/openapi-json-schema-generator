@@ -283,6 +283,7 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
             all_scopes_present = True
             for scope_name in scope_names:
                 if scope_name not in flow.scopes:
+                    all_scopes_present = False
                     break
             if not all_scopes_present:
                 continue
