@@ -260,8 +260,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |OpenIDConnect|✗|OAS3
 |HTTP_Bearer|✓|OAS2,OAS3
 |OAuth2_Implicit|✗|OAS2,OAS3
-|OAuth2_Password|✗|OAS2,OAS3
-|OAuth2_ClientCredentials|✗|OAS2,OAS3
+|OAuth2_Password|✓|OAS2,OAS3
+|OAuth2_ClientCredentials|✓|OAS2,OAS3
 |OAuth2_AuthorizationCode|✗|OAS2,OAS3
 
 ### Wire Format Feature

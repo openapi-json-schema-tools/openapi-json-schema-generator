@@ -35,11 +35,11 @@ components:
       type: oauth2
       flows:
         password:
-          tokenUrl: "../auth/realms/master/protocol/openid-connect/token"
+          tokenUrl: "https://example.com/api/oauth/token"
           scopes:
             import:create: create import
         clientCredentials:
-          tokenUrl: "../auth/realms/master/protocol/openid-connect/token"
+          tokenUrl: "https://example.com/api/oauth/token"
           scopes:
             import:create: create import
             import:process: process import

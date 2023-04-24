@@ -187,11 +187,14 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 .securityFeatures(EnumSet.of(
                         SecurityFeature.ApiKey,
                         SecurityFeature.HTTP_Basic,
-                        SecurityFeature.HTTP_Bearer
+                        SecurityFeature.HTTP_Bearer,
+                        SecurityFeature.OAuth2_Password,
+                        SecurityFeature.OAuth2_ClientCredentials
+
                 ))
                 .excludeSecurityFeatures(
-                        SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
-                        SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
+                        SecurityFeature.OAuth2_Implicit,
+                        SecurityFeature.OAuth2_AuthorizationCode
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Info,

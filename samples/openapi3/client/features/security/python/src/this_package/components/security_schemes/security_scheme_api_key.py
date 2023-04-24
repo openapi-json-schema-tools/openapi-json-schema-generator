@@ -12,6 +12,7 @@ import typing_extensions
 
 from this_package import security_schemes
 
+
 @dataclasses.dataclass
 class ApiKey(security_schemes.ApiKeySecurityScheme):
     '''
