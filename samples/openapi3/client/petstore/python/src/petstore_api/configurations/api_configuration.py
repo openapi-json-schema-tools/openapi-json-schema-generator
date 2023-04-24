@@ -149,7 +149,7 @@ class ApiConfiguration(object):
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         # oauth server client info
-        self.oath_server_client_info: security_schemas.OauthServerClientInfo = oath_server_client_info or {}
+        self.oath_server_client_info: security_schemes.OauthServerClientInfo = oath_server_client_info or {}
         self.logger = {}
         """Logging Settings
         """

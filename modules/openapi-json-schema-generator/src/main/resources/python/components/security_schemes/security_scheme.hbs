@@ -205,7 +205,13 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
     {{description}}
     '''
                         {{/if}}
+                        {{#with flows}}
+                            {{#if password}}
     flows: OAuthFlows
+                            {{else}}
+    flows: OAuthFlows = OAuthFlows()
+                            {{/if}}
+                        {{/with}}
                     {{else}}
                         {{#eq type "openIdConnect"}}
 

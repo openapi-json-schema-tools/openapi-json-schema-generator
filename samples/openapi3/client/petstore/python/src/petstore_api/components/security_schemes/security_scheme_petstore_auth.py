@@ -40,4 +40,4 @@ class PetstoreAuth(security_schemes.OAuth2SecurityScheme):
     '''
     oauth2 implicit flow with two scopes
     '''
-    flows: OAuthFlows
+    flows: OAuthFlows = OAuthFlows()
