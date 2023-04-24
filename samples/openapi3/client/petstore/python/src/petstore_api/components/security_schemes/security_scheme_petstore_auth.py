@@ -14,16 +14,20 @@ from urllib import parse
 from petstore_api import security_schemes
 
 
+@dataclasses.dataclass
 class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
-    authorization_url = parse.ParseResult(
+    authorization_url: parse.ParseResult = parse.ParseResult(
         scheme="http",
         netloc="petstore.swagger.io",
         path="/api/oauth/dialog",
+        params='',
+        query='',
+        fragment=''
     )
-    scopes = {
+    scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
         "write:pets": "modify pets in your account",
         "read:pets": "read your pets",
-    }
+    })
 
 
 class OAuthFlows(security_schemes.OAuthFlows):

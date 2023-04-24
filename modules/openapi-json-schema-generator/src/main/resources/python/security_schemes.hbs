@@ -236,11 +236,11 @@ class OAuthFlowBase:
     def apply_auth(
         self,
         headers: _collections.HTTPHeaderDict,
-        token: OAuthToken
+        token: OauthToken
     ) -> None:
         if token['token_type'] == 'Bearer':
             headers.add('Authorization', f"Bearer {token['access_token']}")
-        raise NotImplementedError(f"OAuthToken token_type={token['token_type']} application not yet implemented")
+        raise NotImplementedError(f"OauthToken token_type={token['token_type']} application not yet implemented")
 
 
 @dataclasses.dataclass
@@ -261,7 +261,7 @@ class ImplicitOAuthFlow(OAuthFlowBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
-        client_info: ClientInfo = {}
+        client_info: OauthClientInfo = {}
     ) -> None:
         """
         Not implemented because this flow requires the user to visit a webpage and grant access
@@ -334,7 +334,7 @@ class ClientCredentialsOauthFlow(OAuthFlowBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
-        client_info: ClientInfo = {}
+        client_info: OauthClientInfo = {}
     ) -> None:
         token = self.__scope_names_to_token.get(scope_names)
         if token:
@@ -375,7 +375,7 @@ class AuthorizationCodeOauthFlow(OAuthFlowBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
-        client_info: ClientInfo = {}
+        client_info: OauthClientInfo = {}
     ) -> None:
         """
         Not implemented because this flow requires the user to visit a webpage and grant access

@@ -73,88 +73,108 @@ class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                             {{#with implicit}}
 
 
+@dataclasses.dataclass
 class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
-    authorization_url = parse.ParseResult(
+    authorization_url: parse.ParseResult = parse.ParseResult(
                                 {{#with authorizationUrl}}
         scheme="{{getProtocol}}",
         netloc="{{getAuthority}}",
         path="{{getPath}}",
+        params='',
+        query='',
+        fragment=''
                                 {{/with}}
     )
-    scopes = {
+    scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
                                 {{#each scopes}}
         "{{@key}}": "{{this}}",
                                 {{/each}}
-    }
+    })
                                 {{#if refreshUrl}}
-    refresh_url = "{{refreshUrl}}"
+    refresh_url: str = "{{refreshUrl}}"
                                 {{/if}}
                             {{/with}}
                             {{#with password}}
 
 
+@dataclasses.dataclass
 class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
-    token_url = parse.ParseResult(
+    token_url: parse.ParseResult = parse.ParseResult(
                                 {{#with tokenUrl}}
         scheme="{{getProtocol}}",
         netloc="{{getAuthority}}",
         path="{{getPath}}",
+        params='',
+        query='',
+        fragment=''
                                 {{/with}}
     )
-    scopes = {
+    scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
                                 {{#each scopes}}
         "{{@key}}": "{{this}}",
                                 {{/each}}
-    },
+    })
                                 {{#if refreshUrl}}
-    refresh_url = "{{refreshUrl}}"
+    refresh_url: str = "{{refreshUrl}}"
                                 {{/if}}
                             {{/with}}
                             {{#with clientCredentials}}
 
 
+@dataclasses.dataclass
 class ClientCredentialsOauthFlow(security_schemes.ClientCredentialsOauthFlow):
-    token_url = parse.ParseResult(
+    token_url: parse.ParseResult = parse.ParseResult(
                                 {{#with tokenUrl}}
         scheme="{{getProtocol}}",
         netloc="{{getAuthority}}",
         path="{{getPath}}",
+        params='',
+        query='',
+        fragment=''
                                 {{/with}}
     )
-    scopes = {
+    scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
                                 {{#each scopes}}
         "{{@key}}": "{{this}}",
                                 {{/each}}
-    }
+    })
+
                                 {{#if refreshUrl}}
-    refresh_url = "{{refreshUrl}}"
+    refresh_url: str = "{{refreshUrl}}"
                                 {{/if}}
                             {{/with}}
                             {{#with authorizationCode}}
 
 
+@dataclasses.dataclass
 class AuthorizationCodeOauthFlow(security_schemes.AuthorizationCodeOauthFlow):
-    authorization_url = parse.ParseResult(
+    authorization_url: parse.ParseResult = parse.ParseResult(
                                 {{#with authorizationUrl}}
         scheme="{{getProtocol}}",
         netloc="{{getAuthority}}",
         path="{{getPath}}",
+        params='',
+        query='',
+        fragment=''
                                 {{/with}}
     )
-    token_url = parse.ParseResult(
+    token_url: parse.ParseResult = parse.ParseResult(
                                 {{#with tokenUrl}}
         scheme="{{getProtocol}}",
         netloc="{{getAuthority}}",
         path="{{getPath}}",
+        params='',
+        query='',
+        fragment=''
                                 {{/with}}
     )
-    scopes={
+    scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
                                 {{#each scopes}}
         "{{@key}}": "{{this}}",
                                 {{/each}}
-    }
+    })
                                 {{#if refreshUrl}}
-    refresh_url="{{refreshUrl}}"
+    refresh_url: str = "{{refreshUrl}}"
                                 {{/if}}
                             {{/with}}
                         {{/with}}
