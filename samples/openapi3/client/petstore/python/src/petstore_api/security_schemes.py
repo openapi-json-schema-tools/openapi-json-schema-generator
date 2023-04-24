@@ -231,7 +231,6 @@ class ImplicitOAuthFlow(OAuthFlowBase):
     authorization_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
-    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
@@ -260,8 +259,8 @@ class PasswordOauthFlow(OAuthFlowBase):
     username: str
     password: str
     refresh_url: typing.Optional[str] = None
-    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
-    __scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
+    _scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
+    _scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
@@ -276,11 +275,11 @@ class PasswordOauthFlow(OAuthFlowBase):
         client_info: OauthClientInfo,
         scope_names: typing.Tuple[str] = (),
     ) -> None:
-        token = self.__scope_names_to_token.get(scope_names)
+        token = self._scope_names_to_token.get(scope_names)
         if token:
             super().apply_auth(headers, token)
             return
-        client = self.__scope_names_to_client.get(scope_names)
+        client = self._scope_names_to_client.get(scope_names)
         if client is None:
             client = requests_client.OAuth2Session(
                 client_info.client_id,
@@ -293,7 +292,7 @@ class PasswordOauthFlow(OAuthFlowBase):
             username=self.username,
             password=self.password
         )
-        self.__scope_names_to_token[scope_names] = token
+        self._scope_names_to_token[scope_names] = token
         print(token)
         super().apply_auth(headers, token)
 
@@ -303,8 +302,8 @@ class ClientCredentialsOauthFlow(OAuthFlowBase):
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
-    __scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
-    __scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
+    _scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
+    _scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
 
     @property
     def auth_or_token_url(self) -> parse.ParseResult:
@@ -319,11 +318,11 @@ class ClientCredentialsOauthFlow(OAuthFlowBase):
         scope_names: typing.Tuple[str] = (),
         client_info: OauthClientInfo = {}
     ) -> None:
-        token = self.__scope_names_to_token.get(scope_names)
+        token = self._scope_names_to_token.get(scope_names)
         if token:
             super().apply_auth(headers, token)
             return
-        client = self.__scope_names_to_client.get(scope_names)
+        client = self._scope_names_to_client.get(scope_names)
         if client is None:
             client = requests_client.OAuth2Session(
                 client_info.client_id,
@@ -335,7 +334,7 @@ class ClientCredentialsOauthFlow(OAuthFlowBase):
             token_endpoint=parse.urlunparse(self.token_url),
             grant_type='client_credentials'
         )
-        self.__scope_names_to_token[scope_names] = token
+        self._scope_names_to_token[scope_names] = token
         print(token)
         super().apply_auth(headers, token)
 
