@@ -1,9 +1,0 @@
-myFile.sample
-src/org/openapijsonschematools/api/PetApi.sample
-src/org/openapijsonschematools/api/StoreApi.sample
-src/org/openapijsonschematools/api/UserApi.sample
-src/org/openapijsonschematools/model/Category.sample
-src/org/openapijsonschematools/model/Order.sample
-src/org/openapijsonschematools/model/Pet.sample
-src/org/openapijsonschematools/model/Tag.sample
-src/org/openapijsonschematools/model/User.sample
