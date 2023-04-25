@@ -16,9 +16,42 @@ import typing
 import typing_extensions
 from urllib import parse
 
+from authlib.integrations import requests_client
 from urllib3 import _collections
 
 from this_package import exceptions
+
+
+@dataclasses.dataclass
+class OauthClientInfo:
+    client_id: str
+    client_secret: typing.Optional[str] = None
+
+
+# oauth server to client info
+OauthServerClientInfo = typing_extensions.TypedDict(
+    'OauthServerClientInfo',
+    {
+        "petstore.swagger.io": OauthClientInfo,
+    },
+    total=False
+)
+
+
+@dataclasses.dataclass
+class OauthTokenRequired(typing_extensions.TypedDict):
+    access_token: str
+    token_type: str
+
+
+@dataclasses.dataclass
+class OauthTokenOptional(typing_extensions.TypedDict, total=False):
+    expires_in: int
+    refresh_token: str
+
+
+class OauthToken(OauthTokenRequired, OauthTokenOptional):
+    pass
 
 
 class SecuritySchemeType(enum.Enum):
@@ -44,6 +77,7 @@ class __SecuritySchemeBase(metaclass=abc.ABCMeta):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         pass
 
@@ -62,6 +96,7 @@ class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
             headers.add('Cookie', self.api_key)
@@ -98,6 +133,7 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
@@ -118,6 +154,7 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         headers.add('Authorization', f"Bearer {self.access_token}")
 
@@ -134,6 +171,7 @@ class HTTPDigestSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
@@ -149,6 +187,7 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
@@ -323,6 +362,7 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         if not self.flows:
             raise exceptions.ApiValueError('flows are not defined and are required, define them')
@@ -378,6 +418,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         scope_names: typing.Tuple[str] = (),
+        oath_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
 
@@ -391,6 +432,8 @@ SecurityRequirementObject = typing_extensions.TypedDict(
         'api_key': typing.List[str],
         'bearer_test': typing.List[str],
         'http_basic_test': typing.List[str],
+        'oauthClientCredentials': typing.List[str],
+        'oauthPassword': typing.List[str],
     },
     total=False
 )

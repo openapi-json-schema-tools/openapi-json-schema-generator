@@ -209,6 +209,8 @@ component security scheme class. See how to do this in the endpoint code sample.
 | 1       | ["http_basic_test"](docs/components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 | 2       | no security |
 | 3       | ["http_basic_test"](docs/components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](docs/components/security_schemes/security_scheme_api_key.md) []<br> |
+| 4       | ["oauthClientCredentials"](docs/components/security_schemes/security_scheme_oauth_client_credentials.md) [read:pets]<br> |
+| 5       | ["oauthPassword"](docs/components/security_schemes/security_scheme_oauth_password.md) [write:pets]<br> |
 
 ## Endpoints
 
@@ -231,6 +233,8 @@ Class | Description
 [ApiKey](docs/components/security_schemes/security_scheme_api_key.md) | apiKey in header
 [BearerTest](docs/components/security_schemes/security_scheme_bearer_test.md) | http bearer with JWT bearer format
 [HttpBasicTest](docs/components/security_schemes/security_scheme_http_basic_test.md) | http basic
+[OauthClientCredentials](docs/components/security_schemes/security_scheme_oauth_client_credentials.md) | oauth2 implicit flow with two scopes
+[OauthPassword](docs/components/security_schemes/security_scheme_oauth_password.md) | oauth2 implicit flow with two scopes
 
 
 ## Notes for Large OpenAPI documents

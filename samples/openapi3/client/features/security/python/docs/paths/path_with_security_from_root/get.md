@@ -66,6 +66,8 @@ See how to do this in the code sample.
 | 1       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 | 2       | no security |
 | 3       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 4       | ["oauthClientCredentials"](../../components/security_schemes/security_scheme_oauth_client_credentials.md) [read:pets]<br> |
+| 5       | ["oauthPassword"](../../components/security_schemes/security_scheme_oauth_password.md) [write:pets]<br> |
 
 ## Servers
 
@@ -93,6 +95,10 @@ from this_package.components.security_schemes import security_scheme_http_basic_
 # security_index 3
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.components.security_schemes import security_scheme_api_key
+# security_index 4
+from this_package.components.security_schemes import security_scheme_oauth_client_credentials
+# security_index 5
+from this_package.components.security_schemes import security_scheme_oauth_password
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -124,6 +130,20 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
     "api_key": security_scheme_api_key.ApiKey(
         api_key='sampleApiKeyValue'
+    ),
+}
+
+
+# security_scheme_info for security_index 4
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
+    "oauthClientCredentials": security_scheme_oauth_client_credentials.OauthClientCredentials(
+    ),
+}
+
+
+# security_scheme_info for security_index 5
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
+    "oauthPassword": security_scheme_oauth_password.OauthPassword(
     ),
 }
 

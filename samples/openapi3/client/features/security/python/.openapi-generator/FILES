@@ -6,6 +6,8 @@ docs/apis/tags/default_api.md
 docs/components/security_schemes/security_scheme_api_key.md
 docs/components/security_schemes/security_scheme_bearer_test.md
 docs/components/security_schemes/security_scheme_http_basic_test.md
+docs/components/security_schemes/security_scheme_oauth_client_credentials.md
+docs/components/security_schemes/security_scheme_oauth_password.md
 docs/paths/path_with_no_explicit_security/get.md
 docs/paths/path_with_one_explicit_security/get.md
 docs/paths/path_with_security_from_root/get.md
@@ -32,6 +34,8 @@ src/this_package/components/security_schemes/__init__.py
 src/this_package/components/security_schemes/security_scheme_api_key.py
 src/this_package/components/security_schemes/security_scheme_bearer_test.py
 src/this_package/components/security_schemes/security_scheme_http_basic_test.py
+src/this_package/components/security_schemes/security_scheme_oauth_client_credentials.py
+src/this_package/components/security_schemes/security_scheme_oauth_password.py
 src/this_package/configurations/__init__.py
 src/this_package/configurations/api_configuration.py
 src/this_package/configurations/schema_configuration.py
@@ -69,6 +73,8 @@ src/this_package/security/security_requirement_object_0.py
 src/this_package/security/security_requirement_object_1.py
 src/this_package/security/security_requirement_object_2.py
 src/this_package/security/security_requirement_object_3.py
+src/this_package/security/security_requirement_object_4.py
+src/this_package/security/security_requirement_object_5.py
 src/this_package/security_schemes.py
 src/this_package/server.py
 src/this_package/servers/__init__.py
