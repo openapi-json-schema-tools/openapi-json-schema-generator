@@ -336,93 +336,9 @@ class BaseApi(api_client.Api):
 
 class InlineComposition(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def inline_composition(
-        self,
-        content_type: str = 'application/json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["multipart/form-data"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._inline_composition(
-            body=body,
-            query_params=query_params,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    inline_composition = BaseApi._inline_composition
 
 
 class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def post(
-        self,
-        content_type: str = 'application/json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["multipart/form-data"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._inline_composition(
-            body=body,
-            query_params=query_params,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    post = BaseApi._inline_composition

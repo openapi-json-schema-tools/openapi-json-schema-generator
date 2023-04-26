@@ -417,22 +417,10 @@ class BaseApi(api_client.Api):
 
 class {{operationId.camelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def {{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId.snakeCase}}(
-            {{> paths/path/verb/_helper_operation_args_passed }}
-        )
+    {{operationId.snakeCase}} = BaseApi._{{operationId.snakeCase}}
 
 
 class ApiFor{{httpMethod.camelCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def {{httpMethod.original}}(
-    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null" contentType="null"}}
-        return self._{{operationId.snakeCase}}(
-            {{> paths/path/verb/_helper_operation_args_passed rootSecurity=../security }}
-        )
-
-
+    {{httpMethod.original}} = BaseApi._{{operationId.snakeCase}}
 {{/with}}

@@ -294,67 +294,9 @@ class BaseApi(api_client.Api):
 
 class EnumParameters(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def enum_parameters(
-        self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[
-            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._enum_parameters(
-            body=body,
-            query_params=query_params,
-            header_params=header_params,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    enum_parameters = BaseApi._enum_parameters
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        content_type: str = 'application/x-www-form-urlencoded',
-        body: typing.Union[
-            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._enum_parameters(
-            body=body,
-            query_params=query_params,
-            header_params=header_params,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._enum_parameters

@@ -169,41 +169,9 @@ class BaseApi(api_client.Api):
 
 class DeleteUser(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def delete_user(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._delete_user(
-            path_params=path_params,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    delete_user = BaseApi._delete_user
 
 
 class ApiForDelete(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def delete(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._delete_user(
-            path_params=path_params,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    delete = BaseApi._delete_user

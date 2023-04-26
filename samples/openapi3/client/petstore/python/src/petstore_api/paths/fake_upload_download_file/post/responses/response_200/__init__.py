@@ -23,14 +23,14 @@ from .content.application_octet_stream import schema as application_octet_stream
 
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_octet_stream_schema.Schema
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor200(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
+    response_cls = ApiResponseFor200
 
 
     class __ApplicationOctetStreamMediaType(api_client.MediaType):

@@ -179,41 +179,9 @@ class BaseApi(api_client.Api):
 
 class QueryParameterCollectionFormat(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def query_parameter_collection_format(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._query_parameter_collection_format(
-            query_params=query_params,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    query_parameter_collection_format = BaseApi._query_parameter_collection_format
 
 
 class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def put(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._query_parameter_collection_format(
-            query_params=query_params,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    put = BaseApi._query_parameter_collection_format

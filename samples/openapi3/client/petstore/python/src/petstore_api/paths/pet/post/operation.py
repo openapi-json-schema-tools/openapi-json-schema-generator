@@ -230,59 +230,9 @@ class BaseApi(api_client.Api):
 
 class AddPet(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def add_pet(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["application/xml"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._add_pet(
-            body=body,
-            content_type=content_type,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    add_pet = BaseApi._add_pet
 
 
 class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def post(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["application/xml"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._add_pet(
-            body=body,
-            content_type=content_type,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    post = BaseApi._add_pet

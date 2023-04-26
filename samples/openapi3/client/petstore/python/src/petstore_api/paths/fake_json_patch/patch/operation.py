@@ -185,55 +185,9 @@ class BaseApi(api_client.Api):
 
 class JsonPatch(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def json_patch(
-        self,
-        content_type: str = 'application/json-patch+json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json-patch+json"].schema,
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._json_patch(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    json_patch = BaseApi._json_patch
 
 
 class ApiForPatch(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def patch(
-        self,
-        content_type: str = 'application/json-patch+json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json-patch+json"].schema,
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._json_patch(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    patch = BaseApi._json_patch
