@@ -180,39 +180,6 @@ class BaseApi(api_client.Api):
 class QueryParameterCollectionFormat(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
-    @typing.overload
-    def query_parameter_collection_format(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-    @typing.overload
-    def query_parameter_collection_format(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def query_parameter_collection_format(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
-    ]: ...
-
     def query_parameter_collection_format(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
@@ -232,39 +199,6 @@ class QueryParameterCollectionFormat(BaseApi):
 
 class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    @typing.overload
-    def put(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-    @typing.overload
-    def put(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def put(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
-    ]: ...
 
     def put(
         self,
