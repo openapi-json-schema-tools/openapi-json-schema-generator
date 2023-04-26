@@ -93,29 +93,6 @@ class Whale(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["hasBaleen"]) -> typing.Union[Schema_.Properties.HasBaleen, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["hasTeeth"]) -> typing.Union[Schema_.Properties.HasTeeth, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["className"],
-            typing_extensions.Literal["hasBaleen"],
-            typing_extensions.Literal["hasTeeth"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

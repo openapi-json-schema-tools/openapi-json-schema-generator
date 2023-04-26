@@ -88,41 +88,6 @@ class PropertiesWithEscapedCharacters(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\nbar"]) -> typing.Union[Schema_.Properties.FooNbar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\"bar"]) -> typing.Union[Schema_.Properties.FooBar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\\bar"]) -> typing.Union[Schema_.Properties.FooBar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\rbar"]) -> typing.Union[Schema_.Properties.FooRbar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\tbar"]) -> typing.Union[Schema_.Properties.FooTbar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\fbar"]) -> typing.Union[Schema_.Properties.FooFbar, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo\nbar"],
-            typing_extensions.Literal["foo\"bar"],
-            typing_extensions.Literal["foo\\bar"],
-            typing_extensions.Literal["foo\rbar"],
-            typing_extensions.Literal["foo\tbar"],
-            typing_extensions.Literal["foo\fbar"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

@@ -74,29 +74,6 @@ class ObjectWithDifficultlyNamedProps(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["$special[property.name]"]) -> typing.Union[Schema_.Properties.SpecialPropertyName, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["123Number"]) -> typing.Union[Schema_.Properties._123Number, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["123-list"],
-            typing_extensions.Literal["$special[property.name]"],
-            typing_extensions.Literal["123Number"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

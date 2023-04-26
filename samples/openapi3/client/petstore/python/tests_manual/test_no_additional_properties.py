@@ -39,7 +39,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             inst.petId
         with self.assertRaises(KeyError):
             inst["petId"]
-        assert inst.get_item_("petId") is schemas.unset
+        assert inst.get("petId", schemas.unset) is schemas.unset
 
         # works with required + optional
         inst = NoAdditionalProperties(id=1, petId=2)

@@ -80,29 +80,6 @@ class ObjectModelWithRefProps(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union['number_with_validations.NumberWithValidations', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["myString"]) -> typing.Union['string.String', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["myBoolean"]) -> typing.Union['boolean.Boolean', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["myNumber"],
-            typing_extensions.Literal["myString"],
-            typing_extensions.Literal["myBoolean"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

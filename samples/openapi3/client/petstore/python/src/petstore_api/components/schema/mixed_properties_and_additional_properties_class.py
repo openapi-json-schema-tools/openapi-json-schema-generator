@@ -56,9 +56,6 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                 def __getitem__(self, name: str) -> 'animal.Animal':
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                def get_item_(self, name: str) -> 'animal.Animal':
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -101,29 +98,6 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[Schema_.Properties.Uuid, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["dateTime"]) -> typing.Union[Schema_.Properties.DateTime, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["map"]) -> typing.Union[Schema_.Properties.Map, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["map"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

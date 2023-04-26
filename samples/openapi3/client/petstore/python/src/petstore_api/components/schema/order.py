@@ -125,41 +125,6 @@ class Order(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[Schema_.Properties.Id, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["petId"]) -> typing.Union[Schema_.Properties.PetId, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["quantity"]) -> typing.Union[Schema_.Properties.Quantity, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["shipDate"]) -> typing.Union[Schema_.Properties.ShipDate, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["status"]) -> typing.Union[Schema_.Properties.Status, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["complete"]) -> typing.Union[Schema_.Properties.Complete, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["petId"],
-            typing_extensions.Literal["quantity"],
-            typing_extensions.Literal["shipDate"],
-            typing_extensions.Literal["status"],
-            typing_extensions.Literal["complete"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

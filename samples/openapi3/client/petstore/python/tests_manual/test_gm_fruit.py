@@ -60,11 +60,11 @@ class TestGmFruit(unittest.TestCase):
             fruit["origin"]
         with self.assertRaises(AttributeError):
             fruit.origin
-        assert fruit.get_item_("origin") is schemas.unset
+        assert fruit.get("origin", schemas.unset) is schemas.unset
 
         with self.assertRaises(KeyError):
             fruit['unknown_variable']
-        assert fruit.get_item_("unknown_variable") is schemas.unset
+        assert fruit.get("unknown_variable", schemas.unset) is schemas.unset
         # with getattr
         self.assertTrue(getattr(fruit, 'origin', 'some value'), 'some value')
 

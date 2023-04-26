@@ -60,9 +60,6 @@ class MapTest(
                         def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                             # dict_instance[name] accessor
                             return super().__getitem__(name)
-                        
-                        def get_item_(self, name: str) -> Schema_.AdditionalProperties:
-                            return super().get_item_(name)
                     
                         def __new__(
                             cls,
@@ -80,9 +77,6 @@ class MapTest(
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -132,9 +126,6 @@ class MapTest(
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -162,9 +153,6 @@ class MapTest(
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                def get_item_(self, name: str) -> Schema_.AdditionalProperties:
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -216,33 +204,6 @@ class MapTest(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["map_map_of_string"]) -> typing.Union[Schema_.Properties.MapMapOfString, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["map_of_enum_string"]) -> typing.Union[Schema_.Properties.MapOfEnumString, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["direct_map"]) -> typing.Union[Schema_.Properties.DirectMap, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["indirect_map"]) -> typing.Union['string_boolean_map.StringBooleanMap', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["map_map_of_string"],
-            typing_extensions.Literal["map_of_enum_string"],
-            typing_extensions.Literal["direct_map"],
-            typing_extensions.Literal["indirect_map"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

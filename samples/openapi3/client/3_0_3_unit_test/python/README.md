@@ -133,7 +133,6 @@ This means that one can use normal dict methods on instances of these classes.
 - optional properties which were not set will not exist in the instance
 - None is only allowed in as a value if type: "null" was included or nullable: true was set
 - type hints are written for accessing values by key literals like instance["hi-there"]
-- and there is a method instance.get_item_["hi-there"] which returns an schemas.Unset value if the key was not set
 - required properties with valid python names are accessible with instance.SomeRequiredProp
   which uses the exact key from the openapi document
   - preserving the original key names is required to properly validate a payload to multiple json schemas

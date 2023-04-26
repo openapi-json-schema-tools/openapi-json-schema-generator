@@ -43,9 +43,6 @@ class RefInAdditionalproperties(
     def __getitem__(self, name: str) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    def get_item_(self, name: str) -> 'property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference':
-        return super().get_item_(name)
 
     def __new__(
         cls,

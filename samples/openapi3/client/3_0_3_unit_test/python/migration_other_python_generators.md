@@ -35,10 +35,8 @@ When switching from other python client generators you will need to make some ch
     - Only required keys with valid python names are properties like .someProp and have type hints
     - All optional keys may not exist, so properties are not defined for them
     - One can access optional values with dict_instance['optionalProp'] and KeyError will be raised if it does not exist
-    - Use get_item_ if you need a way to always get a value whether or not the key exists
-        - If the key does not exist, schemas.unset is returned from calling dict_instance.get_item_('optionalProp')
-        - All required and optional keys have type hints for this method, and @typing.overload is used
-        - A type hint is also generated for additionalProperties accessed using this method
+    - if you need a way to always get a value whether or not the key exists use:
+        - dict_instance.get('optionalProp', schemas.unset)
     - So you will need to update you code to use some_instance['optionalProp'] to access optional property
     and additionalProperty values
 8. The location of the api classes has changed
