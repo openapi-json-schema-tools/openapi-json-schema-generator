@@ -172,43 +172,6 @@ class BaseApi(api_client.Api):
 class DeleteCoffee(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
 
-    @typing.overload
-    def delete_coffee(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_default.Default.response_cls,
-    ]: ...
-
-    @typing.overload
-    def delete_coffee(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def delete_coffee(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_default.Default.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
-    ]: ...
-
     def delete_coffee(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
@@ -228,43 +191,6 @@ class DeleteCoffee(BaseApi):
 
 class ApiForDelete(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    @typing.overload
-    def delete(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_default.Default.response_cls,
-    ]: ...
-
-    @typing.overload
-    def delete(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def delete(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_default.Default.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
-    ]: ...
 
     def delete(
         self,
