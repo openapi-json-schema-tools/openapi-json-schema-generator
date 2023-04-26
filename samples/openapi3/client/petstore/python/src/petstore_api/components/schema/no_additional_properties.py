@@ -67,21 +67,6 @@ class NoAdditionalProperties(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["petId"]) -> typing.Union[Schema_.Properties.PetId, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["petId"],
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
