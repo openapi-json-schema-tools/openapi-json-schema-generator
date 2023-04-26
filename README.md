@@ -125,7 +125,7 @@ mvn -Pstatic-analysis clean install
 
 #### Public Pre-built Docker images
 
- - [https://hub.docker.com/r/openapjsonschematools/openapi-json-schema-generator-cli/](https://hub.docker.com/r/openapjsonschematools/openapi-json-schema-generator-cli/) (official CLI)
+ - [https://hub.docker.com/r/openapijsonschematools/openapi-json-schema-generator-cli/](https://hub.docker.com/r/openapijsonschematools/openapi-json-schema-generator-cli/) (official CLI)
 
 #### OpenAPI JSON Schema Generator CLI Docker Image
 
@@ -136,7 +136,7 @@ To generate code with this image, you'll need to mount a local location as a vol
 Example:
 
 ```sh
-docker run --rm -v "${PWD}:/local" openapjsonschematools/openapi-json-schema-generator-cli generate \
+docker run --rm -v "${PWD}:/local" openapijsonschematools/openapi-json-schema-generator-cli generate \
     -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
     -g python \
     -o /local/out/python
