@@ -40,9 +40,6 @@ class StringBooleanMap(
     def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    def get_item_(self, name: str) -> Schema_.AdditionalProperties:
-        return super().get_item_(name)
 
     def __new__(
         cls,

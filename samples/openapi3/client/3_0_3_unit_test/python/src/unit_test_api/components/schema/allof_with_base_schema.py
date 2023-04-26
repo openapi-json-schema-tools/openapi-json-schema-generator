@@ -83,21 +83,6 @@ class AllofWithBaseSchema(
                 ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo: ...
-                
-                @typing.overload
-                def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["foo"],
-                        str
-                    ]
-                ):
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -148,21 +133,6 @@ class AllofWithBaseSchema(
                 ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["baz"]) -> Schema_.Properties.Baz: ...
-                
-                @typing.overload
-                def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["baz"],
-                        str
-                    ]
-                ):
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -199,21 +169,6 @@ class AllofWithBaseSchema(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["bar"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

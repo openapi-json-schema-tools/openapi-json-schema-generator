@@ -81,41 +81,6 @@ class RequiredWithEscapedCharacters(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo\tbar"],
-            typing_extensions.Literal["foo\nbar"],
-            typing_extensions.Literal["foo\fbar"],
-            typing_extensions.Literal["foo\rbar"],
-            typing_extensions.Literal["foo\"bar"],
-            typing_extensions.Literal["foo\\bar"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
