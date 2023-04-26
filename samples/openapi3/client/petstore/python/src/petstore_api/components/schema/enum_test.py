@@ -225,53 +225,6 @@ class EnumTest(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_string_required"]) -> Schema_.Properties.EnumStringRequired: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_string"]) -> typing.Union[Schema_.Properties.EnumString, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_integer"]) -> typing.Union[Schema_.Properties.EnumInteger, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[Schema_.Properties.EnumNumber, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union['string_enum.StringEnum', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing.Union['integer_enum.IntegerEnum', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing.Union['integer_enum_with_default_value.IntegerEnumWithDefaultValue', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing.Union['integer_enum_one_value.IntegerEnumOneValue', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["enum_string_required"],
-            typing_extensions.Literal["enum_string"],
-            typing_extensions.Literal["enum_integer"],
-            typing_extensions.Literal["enum_number"],
-            typing_extensions.Literal["stringEnum"],
-            typing_extensions.Literal["IntegerEnum"],
-            typing_extensions.Literal["StringEnumWithDefaultValue"],
-            typing_extensions.Literal["IntegerEnumWithDefaultValue"],
-            typing_extensions.Literal["IntegerEnumOneValue"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

@@ -189,41 +189,6 @@ class Pet(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["photoUrls"]) -> Schema_.Properties.PhotoUrls: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[Schema_.Properties.Id, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["category"]) -> typing.Union['category.Category', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["tags"]) -> typing.Union[Schema_.Properties.Tags, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["status"]) -> typing.Union[Schema_.Properties.Status, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["name"],
-            typing_extensions.Literal["photoUrls"],
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["category"],
-            typing_extensions.Literal["tags"],
-            typing_extensions.Literal["status"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

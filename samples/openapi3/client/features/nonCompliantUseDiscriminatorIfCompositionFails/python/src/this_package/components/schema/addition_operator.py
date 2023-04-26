@@ -86,25 +86,6 @@ class AdditionOperator(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["a"],
-            typing_extensions.Literal["b"],
-            typing_extensions.Literal["operator_id"],
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

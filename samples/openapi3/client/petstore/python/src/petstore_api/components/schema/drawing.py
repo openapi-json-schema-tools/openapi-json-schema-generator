@@ -121,33 +121,6 @@ class Drawing(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["mainShape"]) -> typing.Union['shape.Shape', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["shapeOrNull"]) -> typing.Union['shape_or_null.ShapeOrNull', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["nullableShape"]) -> typing.Union['nullable_shape.NullableShape', schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["shapes"]) -> typing.Union[Schema_.Properties.Shapes, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union['fruit.Fruit', schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["mainShape"],
-            typing_extensions.Literal["shapeOrNull"],
-            typing_extensions.Literal["nullableShape"],
-            typing_extensions.Literal["shapes"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

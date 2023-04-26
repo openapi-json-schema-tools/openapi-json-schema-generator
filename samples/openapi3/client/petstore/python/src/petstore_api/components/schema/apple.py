@@ -102,25 +102,6 @@ class Apple(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["origin"]) -> typing.Union[Schema_.Properties.Origin, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["cultivar"],
-            typing_extensions.Literal["origin"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

@@ -62,25 +62,6 @@ class ReqPropsFromExplicitAddProps(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["validName"]) -> Schema_.AdditionalProperties: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[Schema_.AdditionalProperties, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["invalid-name"],
-            typing_extensions.Literal["validName"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

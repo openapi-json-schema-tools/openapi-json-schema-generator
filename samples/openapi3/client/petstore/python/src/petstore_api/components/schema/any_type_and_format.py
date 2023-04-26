@@ -316,53 +316,6 @@ class AnyTypeAndFormat(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["uuid"]) -> typing.Union[Schema_.Properties.Uuid, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["date"]) -> typing.Union[Schema_.Properties.Date, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["date-time"]) -> typing.Union[Schema_.Properties.DateTime, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["number"]) -> typing.Union[Schema_.Properties.Number, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["binary"]) -> typing.Union[Schema_.Properties.Binary, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["int32"]) -> typing.Union[Schema_.Properties.Int32, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["int64"]) -> typing.Union[Schema_.Properties.Int64, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["double"]) -> typing.Union[Schema_.Properties.Double, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["float"]) -> typing.Union[Schema_.Properties._Float, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["date-time"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["float"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

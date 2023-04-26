@@ -57,21 +57,6 @@ class ObjectWithOptionalTestProp(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["test"]) -> typing.Union[Schema_.Properties.Test, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["test"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

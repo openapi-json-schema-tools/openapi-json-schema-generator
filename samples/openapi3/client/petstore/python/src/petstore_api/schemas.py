@@ -1912,15 +1912,6 @@ class DictBase:
         except KeyError as ex:
             raise AttributeError(str(ex))
 
-    def get_item_(self, name: str) -> typing.Union['AnyTypeSchema', Unset]:
-        # dict_instance[name] accessor
-        if not isinstance(self, frozendict.frozendict):
-            raise NotImplementedError()
-        try:
-            return super().__getitem__(name)
-        except KeyError:
-            return unset
-
 
 def cast_to_allowed_types(
     arg: typing.Union[

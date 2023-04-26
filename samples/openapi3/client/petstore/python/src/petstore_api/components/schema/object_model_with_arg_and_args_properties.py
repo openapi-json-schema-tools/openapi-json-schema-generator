@@ -70,25 +70,6 @@ class ObjectModelWithArgAndArgsProperties(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["args"]) -> Schema_.Properties.Args: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["arg"],
-            typing_extensions.Literal["args"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

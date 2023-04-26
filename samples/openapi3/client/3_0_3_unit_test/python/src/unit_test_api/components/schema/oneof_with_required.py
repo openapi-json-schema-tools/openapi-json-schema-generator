@@ -76,25 +76,6 @@ class OneofWithRequired(
                 ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["bar"]) -> schemas.AnyTypeSchema: ...
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
-                
-                @typing.overload
-                def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["bar"],
-                        typing_extensions.Literal["foo"],
-                        str
-                    ]
-                ):
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,
@@ -145,25 +126,6 @@ class OneofWithRequired(
                 ):
                     # dict_instance[name] accessor
                     return super().__getitem__(name)
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["baz"]) -> schemas.AnyTypeSchema: ...
-                
-                @typing.overload
-                def get_item_(self, name: typing_extensions.Literal["foo"]) -> schemas.AnyTypeSchema: ...
-                
-                @typing.overload
-                def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["baz"],
-                        typing_extensions.Literal["foo"],
-                        str
-                    ]
-                ):
-                    return super().get_item_(name)
             
                 def __new__(
                     cls,

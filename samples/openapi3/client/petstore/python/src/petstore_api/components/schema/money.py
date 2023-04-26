@@ -73,25 +73,6 @@ class Money(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["currency"]) -> 'currency.Currency': ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["amount"],
-            typing_extensions.Literal["currency"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
