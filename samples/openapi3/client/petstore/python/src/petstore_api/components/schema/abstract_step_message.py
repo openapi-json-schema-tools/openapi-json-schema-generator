@@ -96,29 +96,6 @@ class AbstractStepMessage(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["discriminator"]) -> Schema_.Properties.Discriminator: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["description"],
-            typing_extensions.Literal["discriminator"],
-            typing_extensions.Literal["sequenceNumber"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
