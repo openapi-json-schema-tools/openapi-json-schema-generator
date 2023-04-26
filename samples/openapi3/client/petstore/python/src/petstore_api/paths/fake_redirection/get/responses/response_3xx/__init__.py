@@ -22,11 +22,11 @@ from petstore_api import schemas
 
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiResponseFor3XX(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor3XX(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class ResponseFor3XX(api_client.OpenApiResponse[ApiResponseFor3XX]):
+    response_cls = ApiResponseFor3XX

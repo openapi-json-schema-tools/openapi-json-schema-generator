@@ -182,53 +182,9 @@ class BaseApi(api_client.Api):
 
 class InlineAdditionalProperties(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def inline_additional_properties(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._inline_additional_properties(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    inline_additional_properties = BaseApi._inline_additional_properties
 
 
 class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def post(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._inline_additional_properties(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    post = BaseApi._inline_additional_properties

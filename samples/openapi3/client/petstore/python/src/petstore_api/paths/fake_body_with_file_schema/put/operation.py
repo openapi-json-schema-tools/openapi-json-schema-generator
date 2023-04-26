@@ -181,53 +181,9 @@ class BaseApi(api_client.Api):
 
 class BodyWithFileSchema(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def body_with_file_schema(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._body_with_file_schema(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    body_with_file_schema = BaseApi._body_with_file_schema
 
 
 class ApiForPut(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def put(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._body_with_file_schema(
-            body=body,
-            content_type=content_type,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    put = BaseApi._body_with_file_schema

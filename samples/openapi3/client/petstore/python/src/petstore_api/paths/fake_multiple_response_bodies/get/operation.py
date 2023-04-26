@@ -148,41 +148,9 @@ class BaseApi(api_client.Api):
 
 class MultipleResponseBodies(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def multiple_response_bodies(
-        self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._multiple_response_bodies(
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    multiple_response_bodies = BaseApi._multiple_response_bodies
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._multiple_response_bodies(
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._multiple_response_bodies

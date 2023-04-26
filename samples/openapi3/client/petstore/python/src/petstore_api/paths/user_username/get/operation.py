@@ -189,45 +189,9 @@ class BaseApi(api_client.Api):
 
 class GetUserByName(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def get_user_by_name(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._get_user_by_name(
-            path_params=path_params,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    get_user_by_name = BaseApi._get_user_by_name
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._get_user_by_name(
-            path_params=path_params,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._get_user_by_name

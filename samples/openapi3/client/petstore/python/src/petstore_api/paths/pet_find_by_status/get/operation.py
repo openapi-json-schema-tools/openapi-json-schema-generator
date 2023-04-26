@@ -206,49 +206,9 @@ class BaseApi(api_client.Api):
 
 class FindPetsByStatus(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def find_pets_by_status(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._find_pets_by_status(
-            query_params=query_params,
-            accept_content_types=accept_content_types,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    find_pets_by_status = BaseApi._find_pets_by_status
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._find_pets_by_status(
-            query_params=query_params,
-            accept_content_types=accept_content_types,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._find_pets_by_status

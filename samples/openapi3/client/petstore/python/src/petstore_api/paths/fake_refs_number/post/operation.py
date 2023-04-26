@@ -201,61 +201,9 @@ class BaseApi(api_client.Api):
 
 class NumberWithValidations(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def number_with_validations(
-        self,
-        content_type: str = 'application/json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._number_with_validations(
-            body=body,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    number_with_validations = BaseApi._number_with_validations
 
 
 class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def post(
-        self,
-        content_type: str = 'application/json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._number_with_validations(
-            body=body,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    post = BaseApi._number_with_validations

@@ -178,45 +178,9 @@ class BaseApi(api_client.Api):
 
 class QueryParamWithJsonContentType(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def query_param_with_json_content_type(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._query_param_with_json_content_type(
-            query_params=query_params,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    query_param_with_json_content_type = BaseApi._query_param_with_json_content_type
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._query_param_with_json_content_type(
-            query_params=query_params,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._query_param_with_json_content_type

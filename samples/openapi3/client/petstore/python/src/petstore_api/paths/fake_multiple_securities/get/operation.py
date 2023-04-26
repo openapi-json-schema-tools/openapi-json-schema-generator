@@ -159,45 +159,9 @@ class BaseApi(api_client.Api):
 
 class MultipleSecurities(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def multiple_securities(
-        self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._multiple_securities(
-            accept_content_types=accept_content_types,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    multiple_securities = BaseApi._multiple_securities
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def get(
-        self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._multiple_securities(
-            accept_content_types=accept_content_types,
-            security_index=security_index,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    get = BaseApi._multiple_securities

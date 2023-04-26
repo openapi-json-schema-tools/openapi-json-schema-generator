@@ -201,57 +201,9 @@ class BaseApi(api_client.Api):
 
 class PlaceOrder(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-
-    def place_order(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._place_order(
-            body=body,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
+    place_order = BaseApi._place_order
 
 
 class ApiForPost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-
-    def post(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
-    ):
-        return self._place_order(
-            body=body,
-            content_type=content_type,
-            accept_content_types=accept_content_types,
-            server_index=server_index,
-            stream=stream,
-            timeout=timeout,
-            skip_deserialization=skip_deserialization
-        )
-
-
+    post = BaseApi._place_order

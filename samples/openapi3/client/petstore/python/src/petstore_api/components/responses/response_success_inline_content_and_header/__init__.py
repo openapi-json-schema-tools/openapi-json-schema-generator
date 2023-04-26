@@ -47,14 +47,14 @@ class Header:
     ]
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiSuccessInlineContentAndHeader(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_schema.Schema
     headers: Header.Params
 
 
-class SuccessInlineContentAndHeader(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiSuccessInlineContentAndHeader]):
+    response_cls = ApiSuccessInlineContentAndHeader
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
