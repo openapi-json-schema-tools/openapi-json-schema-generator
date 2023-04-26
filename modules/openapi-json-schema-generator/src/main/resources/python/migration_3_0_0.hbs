@@ -1,0 +1,6 @@
+# Migration v2.0.0 to v3.0.0
+
+- get_item_ methods have been removed to reduce amount of generated code
+  - instead use instance.get('someProp', schemas.unset)
+- urllib3 has been downgraded from 2.0.a3 -> urllib3>=1.21.1,<1.27 required by requests == 2.28.2
+  - this change was required because oauth2 support was added and it uses the requests library

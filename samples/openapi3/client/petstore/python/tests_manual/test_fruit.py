@@ -51,7 +51,7 @@ class TestFruit(unittest.TestCase):
         # with a key
         with self.assertRaises(KeyError):
             assert fruit['cultivar']
-        assert fruit.get_item_('cultivar') is schemas.unset
+        assert fruit.get('cultivar', schemas.unset) is schemas.unset
 
         """
         including extra parameters does not raise an exception

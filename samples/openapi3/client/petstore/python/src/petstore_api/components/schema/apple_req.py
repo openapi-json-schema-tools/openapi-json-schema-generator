@@ -67,21 +67,6 @@ class AppleReq(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["mealy"]) -> typing.Union[Schema_.Properties.Mealy, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["cultivar"],
-            typing_extensions.Literal["mealy"],
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,

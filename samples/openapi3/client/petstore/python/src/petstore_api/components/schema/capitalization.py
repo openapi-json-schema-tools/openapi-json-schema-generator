@@ -87,41 +87,6 @@ class Capitalization(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["smallCamel"]) -> typing.Union[Schema_.Properties.SmallCamel, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["CapitalCamel"]) -> typing.Union[Schema_.Properties.CapitalCamel, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["small_Snake"]) -> typing.Union[Schema_.Properties.SmallSnake, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["Capital_Snake"]) -> typing.Union[Schema_.Properties.CapitalSnake, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> typing.Union[Schema_.Properties.SCAETHFlowPoints, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["ATT_NAME"]) -> typing.Union[Schema_.Properties.ATTNAME, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["smallCamel"],
-            typing_extensions.Literal["CapitalCamel"],
-            typing_extensions.Literal["small_Snake"],
-            typing_extensions.Literal["Capital_Snake"],
-            typing_extensions.Literal["SCA_ETH_Flow_Points"],
-            typing_extensions.Literal["ATT_NAME"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
