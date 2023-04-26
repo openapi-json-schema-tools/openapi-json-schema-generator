@@ -63,25 +63,6 @@ class FromSchema(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["data"]) -> typing.Union[Schema_.Properties.Data, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: typing_extensions.Literal["id"]) -> typing.Union[Schema_.Properties.Id, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["data"],
-            typing_extensions.Literal["id"],
-            str
-        ]
-    ):
-        return super().get_item_(name)
 
     def __new__(
         cls,
