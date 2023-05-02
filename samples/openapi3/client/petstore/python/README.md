@@ -174,27 +174,22 @@ Please follow the [installation procedure](#installation) and then run the follo
 ```python
 import petstore_api
 from petstore_api.configurations import api_configuration
-from petstore_api.apis.tags import another_fake_api
+from petstore_api.apis.tags import fake_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
-    api_instance = another_fake_api.AnotherFakeApi(api_client)
+    api_instance = fake_api.FakeApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    body = client.Client(
-        client="client_example",
-    )
+    # example, this endpoint has no required or optional parameters
     try:
-        # To test special tags
-        api_response = api_instance.call_123_test__special_tags(
-            body=body,
-        )
+        # slash route
+        api_response = api_instance.slash_route()
         pprint(api_response)
     except petstore_api.ApiException as e:
-        print("Exception when calling AnotherFakeApi->call_123_test__special_tags: %s\n" % e)
+        print("Exception when calling FakeApi->slash_route: %s\n" % e)
 ```
 
 ## Servers
@@ -213,6 +208,7 @@ All URIs are relative to the selected server
 
 HTTP request | Method | Description
 ------------ | ------ | -------------
+/ **get** | [FakeApi](docs/apis/tags/fake_api.md).[slash_route](docs/paths/solidus/get.md)  | slash route
 /another-fake/dummy **patch** | [AnotherFakeApi](docs/apis/tags/another_fake_api.md).[call_123_test__special_tags](docs/paths/another_fake_dummy/patch.md)  | To test special tags
 /fake **delete** | [FakeApi](docs/apis/tags/fake_api.md).[group_parameters](docs/paths/fake/delete.md)  | Fake endpoint to test group parameters (optional)
 /fake **get** | [FakeApi](docs/apis/tags/fake_api.md).[enum_parameters](docs/paths/fake/get.md)  | To test enum parameters

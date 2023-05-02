@@ -216,6 +216,7 @@ docs/paths/pet_pet_id/delete.md
 docs/paths/pet_pet_id/get.md
 docs/paths/pet_pet_id/post.md
 docs/paths/pet_pet_id_upload_image/post.md
+docs/paths/solidus/get.md
 docs/paths/store_inventory/get.md
 docs/paths/store_order/post.md
 docs/paths/store_order_order_id/delete.md
@@ -283,6 +284,7 @@ src/petstore_api/apis/paths/pet_find_by_status.py
 src/petstore_api/apis/paths/pet_find_by_tags.py
 src/petstore_api/apis/paths/pet_pet_id.py
 src/petstore_api/apis/paths/pet_pet_id_upload_image.py
+src/petstore_api/apis/paths/solidus.py
 src/petstore_api/apis/paths/store_inventory.py
 src/petstore_api/apis/paths/store_order.py
 src/petstore_api/apis/paths/store_order_order_id.py
@@ -1162,6 +1164,11 @@ src/petstore_api/paths/pet_pet_id_upload_image/post/responses/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/responses/response_200/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/security/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/security/security_requirement_object_0.py
+src/petstore_api/paths/solidus/__init__.py
+src/petstore_api/paths/solidus/get/__init__.py
+src/petstore_api/paths/solidus/get/operation.py
+src/petstore_api/paths/solidus/get/responses/__init__.py
+src/petstore_api/paths/solidus/get/responses/response_200/__init__.py
 src/petstore_api/paths/store_inventory/__init__.py
 src/petstore_api/paths/store_inventory/get/__init__.py
 src/petstore_api/paths/store_inventory/get/operation.py
@@ -1367,6 +1374,7 @@ test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
+test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py
 test/test_paths/test_fake/__init__.py
@@ -1459,6 +1467,8 @@ test/test_paths/test_pet_pet_id/test_get.py
 test/test_paths/test_pet_pet_id/test_post.py
 test/test_paths/test_pet_pet_id_upload_image/__init__.py
 test/test_paths/test_pet_pet_id_upload_image/test_post.py
+test/test_paths/test_solidus/__init__.py
+test/test_paths/test_solidus/test_get.py
 test/test_paths/test_store_inventory/__init__.py
 test/test_paths/test_store_inventory/test_get.py
 test/test_paths/test_store_order/__init__.py

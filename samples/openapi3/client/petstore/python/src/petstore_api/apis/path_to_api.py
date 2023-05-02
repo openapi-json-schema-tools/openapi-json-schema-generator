@@ -1,6 +1,7 @@
 import typing
 import typing_extensions
 
+from petstore_api.apis.paths.solidus import Solidus
 from petstore_api.apis.paths.another_fake_dummy import AnotherFakeDummy
 from petstore_api.apis.paths.fake import Fake
 from petstore_api.apis.paths.fake_additional_properties_with_array_of_enums import FakeAdditionalPropertiesWithArrayOfEnums
@@ -57,6 +58,7 @@ from petstore_api.apis.paths.user_username import UserUsername
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
+    "/": typing.Type[Solidus],
     "/another-fake/dummy": typing.Type[AnotherFakeDummy],
     "/fake": typing.Type[Fake],
     "/fake/additional-properties-with-array-of-enums": typing.Type[FakeAdditionalPropertiesWithArrayOfEnums],
@@ -114,6 +116,7 @@ PathToApi = typing_extensions.TypedDict(
 
 path_to_api = PathToApi(
     {
+    "/": Solidus,
     "/another-fake/dummy": AnotherFakeDummy,
     "/fake": Fake,
     "/fake/additional-properties-with-array-of-enums": FakeAdditionalPropertiesWithArrayOfEnums,
