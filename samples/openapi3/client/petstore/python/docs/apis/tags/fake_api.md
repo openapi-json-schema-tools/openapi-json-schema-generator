@@ -40,6 +40,7 @@ Method | Description
 [**redirection**](../../paths/fake_redirection/get.md) | operation with redirection responses
 [**ref_object_in_query**](../../paths/fake_ref_obj_in_query/get.md) | user list
 [**response_without_schema**](../../paths/fake_response_without_schema/get.md) | receives a response without schema
+[**slash_route**](../../paths/solidus/get.md) | slash route
 [**string**](../../paths/fake_refs_string/post.md) | 
 [**string_enum**](../../paths/fake_refs_enum/post.md) | 
 [**upload_download_file**](../../paths/fake_upload_download_file/post.md) | uploads a file and downloads a file using application/octet-stream

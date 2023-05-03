@@ -1692,6 +1692,15 @@ paths:
           description: see other
         3XX:
           description: 3XX response
+  /:
+    get:
+      operationId: slashRoute
+      summary: slash route
+      tags:
+        - fake
+      responses:
+        200:
+          $ref: '#/components/responses/SuccessDescriptionOnly'
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

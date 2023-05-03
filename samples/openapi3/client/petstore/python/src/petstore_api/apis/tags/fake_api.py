@@ -17,6 +17,7 @@ from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.opera
 from petstore_api.paths.fake_json_patch.patch.operation import JsonPatch
 from petstore_api.paths.fake_upload_files.post.operation import UploadFiles
 from petstore_api.paths.fake_json_form_data.get.operation import JsonFormData
+from petstore_api.paths.solidus.get.operation import SlashRoute
 from petstore_api.paths.fake_refs_string.post.operation import String
 from petstore_api.paths.fake_response_without_schema.get.operation import ResponseWithoutSchema
 from petstore_api.paths.fake_refs_object_model_with_ref_props.post.operation import ObjectModelWithRefProps
@@ -57,6 +58,7 @@ class FakeApi(
     JsonPatch,
     UploadFiles,
     JsonFormData,
+    SlashRoute,
     String,
     ResponseWithoutSchema,
     ObjectModelWithRefProps,

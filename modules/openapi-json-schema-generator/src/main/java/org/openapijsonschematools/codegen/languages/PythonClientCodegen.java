@@ -781,6 +781,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // camelize the model name
         // phone_number => PhoneNumber
         String camelizedName = camelize(nameWithPrefixSuffix);
+        if (camelizedName.isEmpty()) {
+            // happens with a name like "/"
+            camelizedName = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
+        }
 
         String[] pathPieces;
         boolean isComponent = false;
