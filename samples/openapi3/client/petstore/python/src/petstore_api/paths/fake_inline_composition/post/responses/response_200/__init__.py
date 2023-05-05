@@ -24,7 +24,7 @@ from .content.multipart_form_data import schema as multipart_form_data_schema
 
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         application_json_schema.Schema,
@@ -33,8 +33,8 @@ class _ApiResponse(api_client.ApiResponse):
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor200(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
+    response_cls = ApiResponseFor200
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
