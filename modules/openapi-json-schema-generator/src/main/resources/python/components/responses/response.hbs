@@ -11,6 +11,7 @@
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
+    {{#or content headers}}
 import datetime
 import decimal
 import io
@@ -19,6 +20,7 @@ import uuid
 
 import frozendict
 import typing_extensions
+    {{/or}}
 import urllib3
 
 from {{packageName}} import api_client
