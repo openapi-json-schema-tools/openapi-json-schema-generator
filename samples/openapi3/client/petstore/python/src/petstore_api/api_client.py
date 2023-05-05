@@ -29,7 +29,7 @@ from urllib3 import _collections, fields
 import frozendict
 
 from petstore_api import exceptions, rest, schemas, security_schemes
-from petstore_api.configurations import schema_configuration, api_configuration
+from petstore_api.configurations import api_configuration, schema_configuration as schema_configuration_
 
 
 class RequestField(fields.RequestField):
@@ -865,7 +865,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         }
 
     @classmethod
-    def deserialize(cls, response: urllib3.HTTPResponse, configuration: schema_configuration.SchemaConfiguration) -> T:
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: schema_configuration_.SchemaConfiguration) -> T:
         content_type = response.headers.get('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
@@ -917,6 +917,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         )
 
 
+@dataclasses.dataclass
 class ApiClient:
     """Generic API client for OpenAPI client library builds.
 
@@ -930,37 +931,25 @@ class ApiClient:
     Do not edit the class manually.
 
     :param configuration: api_configuration.ApiConfiguration object for this client
-    :param schema_configuration: schema_configuration.SchemaConfiguration object for this client
-    :param header_name: a header to pass when making calls to the API.
-    :param header_value: a header value to pass when making calls to
-        the API.
-    :param cookie: a cookie to include in the header when making calls
-        to the API
+    :param schema_configuration: schema_configuration_.SchemaConfiguration object for this client
+    :param default_headers: any default headers to include when making calls to the API.
     :param pool_threads: The number of threads to use for async requests
         to the API. More threads means more concurrent API requests.
     """
+    configuration: api_configuration.ApiConfiguration = dataclasses.field(
+        default_factory=lambda: api_configuration.ApiConfiguration())
+    schema_configuration: schema_configuration_.SchemaConfiguration = dataclasses.field(
+        default_factory=lambda: schema_configuration_.SchemaConfiguration())
+    default_headers: _collections.HTTPHeaderDict = dataclasses.field(
+        default_factory=lambda: _collections.HTTPHeaderDict())
+    pool_threads: int = 1
+    user_agent: str = dataclasses.field(init=False)
+    rest_client: rest.RESTClientObject = dataclasses.field(init=False)
 
-    _pool = None
-
-    def __init__(
-        self,
-        configuration: typing.Optional[api_configuration.ApiConfiguration] = None,
-        schema_config: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        header_name: typing.Optional[str] = None,
-        header_value: typing.Optional[str] = None,
-        cookie: typing.Optional[str] = None,
-        pool_threads: int = 1
-    ):
-        self.configuration: api_configuration.ApiConfiguration = configuration or api_configuration.ApiConfiguration()
-        self.schema_configuration: schema_configuration.SchemaConfiguration = schema_config or schema_configuration.SchemaConfiguration()
-        self.pool_threads = pool_threads
-        self.rest_client = rest.RESTClientObject(self.configuration)
-        self.default_headers = _collections.HTTPHeaderDict()
-        if header_name is not None:
-            self.default_headers[header_name] = header_value
-        self.cookie = cookie
-        # Set default User-Agent.
+    def __post_init__(self):
+        self._pool = None
         self.user_agent = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
+        self.rest_client = rest.RESTClientObject(self.configuration)
 
     def __enter__(self):
         return self
@@ -1004,17 +993,15 @@ class ApiClient:
         method: str,
         host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
-        body: typing.Optional[typing.Union[str, bytes]] = None,
+        body: typing.Union[str, bytes, None] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Union[int, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
 
         # header parameters
         used_headers = _collections.HTTPHeaderDict(self.default_headers)
-        if self.cookie:
-            headers['Cookie'] = self.cookie
 
         # auth setting
         self.update_params_for_auth(
@@ -1025,7 +1012,7 @@ class ApiClient:
             body
         )
 
-        # must happen after cookie setting and auth setting in case user is overriding those
+        # must happen after auth setting in case user is overriding those
         if headers:
             used_headers.update(headers)
 
@@ -1050,12 +1037,12 @@ class ApiClient:
         method: str,
         host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
-        body: typing.Optional[typing.Union[str, bytes]] = None,
+        body: typing.Union[str, bytes, None] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         async_req: typing.Optional[bool] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Union[int, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
@@ -1126,9 +1113,9 @@ class ApiClient:
         url: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        body: typing.Optional[typing.Union[str, bytes]] = None,
+        body: typing.Union[str, bytes, None] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Union[int, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request using RESTClient."""
         if method == "get":
@@ -1187,7 +1174,7 @@ class ApiClient:
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject],
         resource_path: str,
         method: str,
-        body: typing.Optional[typing.Union[str, bytes]] = None
+        body: typing.Union[str, bytes, None] = None
     ):
         """Updates header and query params based on authentication setting.
 
