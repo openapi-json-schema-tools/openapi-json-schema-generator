@@ -987,7 +987,7 @@ class ApiClient:
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
 
-    def __call_api(
+    def call_api(
         self,
         resource_path: str,
         method: str,
@@ -999,7 +999,32 @@ class ApiClient:
         stream: bool = False,
         timeout: typing.Union[int, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
+        """Makes the HTTP request (synchronous) and returns deserialized data.
 
+        :param resource_path: Path to method endpoint.
+        :param method: Method to call.
+        :param headers: Header parameters to be
+            placed in the request header.
+        :param body: Request body.
+        :param fields: Request post form parameters,
+            for `application/x-www-form-urlencoded`, `multipart/form-data`
+        :param security_requirement_object: The security requirement object, used to apply auth when making the call
+        :param async_req: execute request asynchronously
+        :param stream: if True, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Also when True, if the openapi spec describes a file download,
+                                 the data will be written to a local filesystem file and the schemas.BinarySchema
+                                 instance will also inherit from FileSchema and schemas.FileIO
+                                 Default is False.
+        :type stream: bool, optional
+        :param timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param host: api endpoint host
+        :return:
+            the method will return the response directly.
+        """
         # header parameters
         used_headers = _collections.HTTPHeaderDict(self.default_headers)
 
@@ -1030,82 +1055,6 @@ class ApiClient:
             timeout=timeout,
         )
         return response
-
-    def call_api(
-        self,
-        resource_path: str,
-        method: str,
-        host: str,
-        headers: typing.Optional[_collections.HTTPHeaderDict] = None,
-        body: typing.Union[str, bytes, None] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
-        security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
-        async_req: typing.Optional[bool] = None,
-        stream: bool = False,
-        timeout: typing.Union[int, typing.Tuple, None] = None,
-    ) -> urllib3.HTTPResponse:
-        """Makes the HTTP request (synchronous) and returns deserialized data.
-
-        To make an async_req request, set the async_req parameter.
-
-        :param resource_path: Path to method endpoint.
-        :param method: Method to call.
-        :param headers: Header parameters to be
-            placed in the request header.
-        :param body: Request body.
-        :param fields: Request post form parameters,
-            for `application/x-www-form-urlencoded`, `multipart/form-data`
-        :param security_requirement_object: The security requirement object, used to apply auth when making the call
-        :param async_req: execute request asynchronously
-        :type async_req: bool, optional TODO remove, unused
-        :param stream: if True, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Also when True, if the openapi spec describes a file download,
-                                 the data will be written to a local filesystem file and the schemas.BinarySchema
-                                 instance will also inherit from FileSchema and schemas.FileIO
-                                 Default is False.
-        :type stream: bool, optional
-        :param timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param host: api endpoint host
-        :return:
-            If async_req parameter is True,
-            the request will be called asynchronously.
-            The method will return the request thread.
-            If parameter async_req is False or missing,
-            then the method will return the response directly.
-        """
-
-        if not async_req:
-            return self.__call_api(
-                resource_path,
-                method,
-                host,
-                headers,
-                body,
-                fields,
-                security_requirement_object,
-                stream,
-                timeout,
-            )
-
-        return self.pool.apply_async(
-            self.__call_api,
-            (
-                resource_path,
-                method,
-                host,
-                headers,
-                body,
-                json,
-                fields,
-                security_requirement_object,
-                stream,
-                timeout,
-            )
-        )
 
     def request(
         self,
