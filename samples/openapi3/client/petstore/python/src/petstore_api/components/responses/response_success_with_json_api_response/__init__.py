@@ -59,14 +59,14 @@ class Header:
     ]
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiSuccessWithJsonApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_schema.Schema
     headers: Header.Params
 
 
-class SuccessWithJsonApiResponse(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiSuccessWithJsonApiResponse]):
+    response_cls = ApiSuccessWithJsonApiResponse
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):

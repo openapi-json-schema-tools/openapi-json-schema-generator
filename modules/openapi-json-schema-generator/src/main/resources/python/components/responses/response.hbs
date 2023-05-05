@@ -39,7 +39,7 @@ from .headers import {{jsonPathPiece.snakeCase}}
 
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     {{#and headers content}}
         {{#if hasContentSchema}}
@@ -99,8 +99,8 @@ class _ApiResponse(api_client.ApiResponse):
     {{/unless}}
 
 
-class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.camelCase}}]):
+    response_cls = Api{{jsonPathPiece.camelCase}}
     {{#each content}}
 
 
