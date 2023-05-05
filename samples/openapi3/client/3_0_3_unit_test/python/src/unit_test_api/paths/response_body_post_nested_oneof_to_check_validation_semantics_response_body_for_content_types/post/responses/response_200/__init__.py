@@ -23,14 +23,14 @@ from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
-class _ApiResponse(api_client.ApiResponse):
+class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_schema.Schema
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor200(api_client.OpenApiResponse[_ApiResponse]):
-    response_cls = _ApiResponse
+class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
+    response_cls = ApiResponseFor200
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):
