@@ -1310,6 +1310,7 @@ src/petstore_api/servers/server_1.py
 src/petstore_api/servers/server_2.py
 src/petstore_api/shared_imports/__init__.py
 src/petstore_api/shared_imports/response_imports.py
+src/petstore_api/shared_imports/schema_imports.py
 src/petstore_api/shared_imports/typing_imports.py
 src/petstore_api/signing.py
 test-requirements.txt
