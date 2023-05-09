@@ -1227,6 +1227,15 @@ class Api(TypedDictInputVerifier):
                 _body = serialized_data['body']
         return _fields, _body
 
+    @staticmethod
+    def _verify_response_status(api_response: 'ApiResponse'):
+        if not 200 <= api_response.response.status <= 399:
+            raise exceptions.ApiException(
+                status=api_response.response.status,
+                reason=api_response.response.reason,
+                api_response=api_response
+            )
+
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
     body: typing.Union[str, bytes]
