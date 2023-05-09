@@ -224,17 +224,12 @@ class BaseApi(api_client.Api):
             query_params=query_params
         )
 
-        _headers = HTTPHeaderDict()
-        for parameter in RequestHeaderParameters.parameters:
-            parameter_data = header_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _headers.extend(serialized_data)
+        _headers = self._get_headers(
+            header_parameters=RequestHeaderParameters.parameters,
+            header_params=header_params,
+            accept_content_types=accept_content_types,
+        )
         # TODO add cookie handling
-        if accept_content_types:
-            for accept_content_type in accept_content_types:
-                _headers.add('Accept', accept_content_type)
 
         _fields = None
         _body = None

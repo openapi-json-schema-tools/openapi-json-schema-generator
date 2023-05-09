@@ -171,13 +171,10 @@ class BaseApi(api_client.Api):
             query_params=query_params
         )
 
-        _headers = HTTPHeaderDict()
-        for parameter in RequestHeaderParameters.parameters:
-            parameter_data = header_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _headers.extend(serialized_data)
+        _headers = self._get_headers(
+            header_parameters=RequestHeaderParameters.parameters,
+            header_params=header_params,
+        )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
             'servers', server_index

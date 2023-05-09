@@ -1156,9 +1156,9 @@ class Api(TypedDictInputVerifier):
     def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
-        path_params: typing.Dict[str, typing.Any],
+        path_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
-        query_params: typing.Dict[str, typing.Any],
+        query_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
     ) -> str:
         path_params = {}
         for parameter in path_parameters:
@@ -1182,6 +1182,24 @@ class Api(TypedDictInputVerifier):
             for serialized_value in serialized_data.values():
                 used_path += serialized_value
         return used_path
+
+    @staticmethod
+    def _get_headers(
+        header_parameters: typing.Tuple[typing.Type[HeaderParameter], ...] = (),
+        header_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = (),
+    ) -> _collections.HTTPHeaderDict:
+        headers = _collections.HTTPHeaderDict()
+        for parameter in header_parameters:
+            parameter_data = header_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            headers.extend(serialized_data)
+        if accept_content_types:
+            for accept_content_type in accept_content_types:
+                headers.add('Accept', accept_content_type)
+        return headers
 
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):

@@ -126,7 +126,8 @@ class BaseApi(api_client.Api):
         """
         used_path = path
 
-        _headers = HTTPHeaderDict()
+        _headers = self._get_headers(
+        )
         # TODO add cookie handling
 
         if body is schemas.unset:

@@ -94,11 +94,10 @@ class BaseApi(api_client.Api):
         """
         used_path = path
 
-        _headers = HTTPHeaderDict()
+        _headers = self._get_headers(
+            accept_content_types=accept_content_types,
+        )
         # TODO add cookie handling
-        if accept_content_types:
-            for accept_content_type in accept_content_types:
-                _headers.add('Accept', accept_content_type)
         host = self.api_client.configuration.get_server_url(
             'servers', server_index
         )
