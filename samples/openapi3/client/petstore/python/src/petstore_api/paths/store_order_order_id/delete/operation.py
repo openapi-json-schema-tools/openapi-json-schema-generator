@@ -119,16 +119,9 @@ class BaseApi(api_client.Api):
         self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
         used_path = path
 
-        _path_params = {}
-        for parameter in RequestPathParameters.parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
+        used_path = self._update_used_path(
+            used_path,
+            path_parameters=RequestPathParameters.parameters
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
             'servers', server_index

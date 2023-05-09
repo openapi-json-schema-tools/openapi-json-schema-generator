@@ -175,16 +175,9 @@ class BaseApi(api_client.Api):
         self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
         used_path = path
 
-        prefix_separator_iterator = None
-        for parameter in RequestQueryParameters.parameters:
-            parameter_data = query_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            if prefix_separator_iterator is None:
-                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
-            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
-            for serialized_value in serialized_data.values():
-                used_path += serialized_value
+        used_path = self._update_used_path(
+            used_path,
+            query_parameters=RequestQueryParameters.parameters
 
         _headers = HTTPHeaderDict()
         for parameter in RequestHeaderParameters.parameters:

@@ -401,27 +401,10 @@ class BaseApi(api_client.Api):
         self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
         used_path = path
 
-        _path_params = {}
-        for parameter in RequestPathParameters.parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
-
-        prefix_separator_iterator = None
-        for parameter in RequestQueryParameters.parameters:
-            parameter_data = query_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            if prefix_separator_iterator is None:
-                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
-            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
-            for serialized_value in serialized_data.values():
-                used_path += serialized_value
+        used_path = self._update_used_path(
+            used_path,
+            path_parameters=RequestPathParameters.parameters,
+            query_parameters=RequestQueryParameters.parameters
 
         _headers = HTTPHeaderDict()
         for parameter in RequestHeaderParameters.parameters:
