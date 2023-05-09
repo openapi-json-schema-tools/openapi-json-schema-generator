@@ -10,38 +10,22 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-import dataclasses
-    {{#or content headers}}
-        {{#if headers}}
-import datetime
-import decimal
-import io
-        {{/if}}
-import typing
-        {{#if headers}}
-import uuid
-        {{/if}}
-
-        {{#if headers}}
-import frozendict
-        {{/if}}
-import typing_extensions
-    {{/or}}
-import urllib3
-
-from {{packageName}} import api_client
-from {{packageName}} import schemas
+from {{packageName}}.shared_imports.response_imports import *
     {{#if content}}
+
     {{#each content}}
         {{#with this.schema}}
 from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
         {{/with}}
     {{/each}}
     {{/if}}
-    {{#each headers}}
-from .headers import {{jsonPathPiece.snakeCase}}
-    {{/each}}
     {{#if headers}}
+        {{#unless content}}
+
+        {{/unless}}
+        {{#each headers}}
+from .headers import {{jsonPathPiece.snakeCase}}
+        {{/each}}
 {{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
     {{/if}}
 

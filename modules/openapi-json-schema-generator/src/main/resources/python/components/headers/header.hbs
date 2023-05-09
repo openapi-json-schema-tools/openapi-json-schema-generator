@@ -10,17 +10,15 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-    {{#if content}}
-import typing, typing_extensions
-
-    {{/if}}
-from {{packageName}} import api_client
+from {{packageName}}.shared_imports.header_imports import *
     {{#if schema}}
+
         {{#with schema}}
 from . import {{jsonPathPiece.snakeCase}}
         {{/with}}
     {{else}}
         {{#if content}}
+
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
