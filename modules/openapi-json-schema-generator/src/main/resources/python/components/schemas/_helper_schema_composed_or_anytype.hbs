@@ -67,4 +67,7 @@ class {{jsonPathPiece.camelCase}}(
 
     {{> components/schemas/_helper_property_type_hints }}
 
+{{#if hasMultipleTypes}}
     {{> components/schemas/_helper_new }}
+
+{{/if}}

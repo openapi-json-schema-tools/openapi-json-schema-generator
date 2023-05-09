@@ -11,7 +11,6 @@
 
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
@@ -45,13 +44,3 @@ class ComposedString(
             ]
 
 
-    def __new__(
-        cls,
-        arg_: str,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> 'ComposedString':
-        return super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )
