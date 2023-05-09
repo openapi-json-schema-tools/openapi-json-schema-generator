@@ -47,6 +47,13 @@ src/this_package/security_schemes.py
 src/this_package/server.py
 src/this_package/servers/__init__.py
 src/this_package/servers/server_0.py
+src/this_package/shared_imports/__init__.py
+src/this_package/shared_imports/header_imports.py
+src/this_package/shared_imports/operation_imports.py
+src/this_package/shared_imports/response_imports.py
+src/this_package/shared_imports/schema_imports.py
+src/this_package/shared_imports/security_scheme_imports.py
+src/this_package/shared_imports/server_imports.py
 test-requirements.txt
 test/__init__.py
 test/components/__init__.py
