@@ -14,6 +14,7 @@ import urllib3
 import petstore_api
 from petstore_api.paths.fake.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client
+from urllib3 import _collections
 
 from ... import ApiTestMixin
 
@@ -24,8 +25,9 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         To test enum parameters  # noqa: E501
     """
     used_api_client = api_client.ApiClient(
-        header_name='enum_header_string',
-        header_value='_abc'
+        default_headers=_collections.HTTPHeaderDict({
+            'enum_header_string': '_abc'
+        })
     )
 
     @patch.object(urllib3.PoolManager, 'request')

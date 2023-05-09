@@ -11,7 +11,6 @@
 
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
@@ -119,3 +118,4 @@ class Apple(
             configuration_=configuration_,
             **kwargs,
         )
+
