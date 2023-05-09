@@ -10,7 +10,7 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-from {{packageName}}.shared_imports.typing_imports import *
+from {{packageName}}.shared_imports.header_imports import *
 
     {{#each content}}
     {{#with this}}
