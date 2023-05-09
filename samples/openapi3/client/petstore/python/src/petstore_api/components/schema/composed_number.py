@@ -44,13 +44,3 @@ class ComposedNumber(
             ]
 
 
-    def __new__(
-        cls,
-        arg_: typing.Union[decimal.Decimal, int, float],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> 'ComposedNumber':
-        return super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )

@@ -44,13 +44,3 @@ class ComposedBool(
             ]
 
 
-    def __new__(
-        cls,
-        arg_: bool,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> 'ComposedBool':
-        return super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )

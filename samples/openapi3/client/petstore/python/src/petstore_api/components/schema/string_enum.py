@@ -89,3 +89,4 @@ class StringEnum(
             arg_,
             configuration_=configuration_,
         )
+

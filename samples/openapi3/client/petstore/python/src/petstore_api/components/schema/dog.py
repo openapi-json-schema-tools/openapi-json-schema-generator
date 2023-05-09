@@ -92,17 +92,5 @@ class Dog(
             ]
 
 
-    def __new__(
-        cls,
-        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-    ) -> 'Dog':
-        return super().__new__(
-            cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
-        )
 
 from petstore_api.components.schema import animal

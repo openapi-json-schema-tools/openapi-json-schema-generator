@@ -65,6 +65,7 @@ class HealthCheckResult(
                         arg_,
                         configuration_=configuration_,
                     )
+            
             __annotations__ = {
                 "NullableMessage": NullableMessage,
             }

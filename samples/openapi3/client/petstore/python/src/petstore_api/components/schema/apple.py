@@ -116,3 +116,4 @@ class Apple(
             configuration_=configuration_,
             **kwargs,
         )
+
