@@ -11,14 +11,22 @@
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 import dataclasses
+    {{#or content headers}}
+        {{#if headers}}
 import datetime
 import decimal
 import io
+        {{/if}}
 import typing
+        {{#if headers}}
 import uuid
+        {{/if}}
 
+        {{#if headers}}
 import frozendict
+        {{/if}}
 import typing_extensions
+    {{/or}}
 import urllib3
 
 from {{packageName}} import api_client

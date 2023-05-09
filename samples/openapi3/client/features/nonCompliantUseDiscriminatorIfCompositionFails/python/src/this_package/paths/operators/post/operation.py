@@ -14,7 +14,6 @@ from urllib3._collections import HTTPHeaderDict
 from this_package import api_client, exceptions
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
