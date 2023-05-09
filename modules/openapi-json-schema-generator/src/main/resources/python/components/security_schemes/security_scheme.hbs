@@ -10,11 +10,7 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
     {{else}}
-import dataclasses
-import typing
-import typing_extensions
-
-from {{packageName}} import security_schemes
+from {{packageName}}.shared_imports.security_scheme_imports import *
 
         {{#eq type "apiKey"}}
 @dataclasses.dataclass
