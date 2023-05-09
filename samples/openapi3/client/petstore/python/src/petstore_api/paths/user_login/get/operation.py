@@ -132,11 +132,11 @@ class BaseApi(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
-        used_path = path
 
-        used_path = self._update_used_path(
-            used_path,
+        used_path = self._get_used_path(
+            path,
             query_parameters=RequestQueryParameters.parameters
+        )
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling

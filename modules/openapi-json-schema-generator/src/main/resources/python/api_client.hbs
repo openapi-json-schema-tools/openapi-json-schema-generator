@@ -1153,7 +1153,7 @@ class Api(TypedDictInputVerifier):
     api_client: ApiClient = dataclasses.field(default_factory=lambda: ApiClient())
 
     @staticmethod
-    def _update_used_path(
+    def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = ()
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = ()

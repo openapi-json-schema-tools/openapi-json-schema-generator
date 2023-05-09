@@ -117,11 +117,11 @@ class BaseApi(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
-        used_path = path
 
-        used_path = self._update_used_path(
-            used_path,
+        used_path = self._get_used_path(
+            path,
             path_parameters=RequestPathParameters.parameters
+        )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
             'servers', server_index
