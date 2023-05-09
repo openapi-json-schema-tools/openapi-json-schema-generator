@@ -184,10 +184,7 @@ class BaseApi(api_client.Api):
             path_parameters=RequestPathParameters.parameters,
             path_params=path_params
         )
-
-        _headers = self._get_headers(
-            accept_content_types=accept_content_types,
-        )
+        _headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
 
         _fields = None

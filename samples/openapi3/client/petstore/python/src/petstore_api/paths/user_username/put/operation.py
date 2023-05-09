@@ -162,9 +162,7 @@ class BaseApi(api_client.Api):
             path_parameters=RequestPathParameters.parameters,
             path_params=path_params
         )
-
-        _headers = self._get_headers(
-        )
+        _headers = self._get_headers()
         # TODO add cookie handling
 
         if body is schemas.unset:

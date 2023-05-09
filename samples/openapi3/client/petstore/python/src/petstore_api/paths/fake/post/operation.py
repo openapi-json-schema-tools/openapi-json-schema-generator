@@ -146,9 +146,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         used_path = path
-
-        _headers = self._get_headers(
-        )
+        _headers = self._get_headers()
         # TODO add cookie handling
 
         _fields = None

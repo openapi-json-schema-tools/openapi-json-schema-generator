@@ -170,10 +170,9 @@ class BaseApi(api_client.Api):
             query_parameters=RequestQueryParameters.parameters,
             query_params=query_params
         )
-
         _headers = self._get_headers(
             header_parameters=RequestHeaderParameters.parameters,
-            header_params=header_params,
+            header_params=header_params
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(

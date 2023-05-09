@@ -230,16 +230,20 @@ class BaseApi(api_client.Api):
         used_path = path
     {{/or}}
     {{#or headerParams requestBody produces}}
-
-        _headers = self._get_headers(
         {{#if headerParams}}
+        _headers = self._get_headers(
+            {{#if produces}}
             header_parameters=RequestHeaderParameters.parameters,
             header_params=header_params,
-        {{/if}}
-        {{#if produces}}
-            accept_content_types=accept_content_types,
-        {{/if}}
+            accept_content_types=accept_content_types
+            {{else}}
+            header_parameters=RequestHeaderParameters.parameters,
+            header_params=header_params
+            {{/if}}
         )
+        {{else}}
+        _headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
+        {{/if}}
     {{/or}}
         # TODO add cookie handling
     {{#with requestBody}}
