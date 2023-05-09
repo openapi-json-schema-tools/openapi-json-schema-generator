@@ -54,10 +54,7 @@ class RequestQueryParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_0.Parameter0],
-        typing.Type[parameter_1.Parameter1],
-    ] = (
+    parameters = (
         parameter_0.Parameter0,
         parameter_1.Parameter1,
     )

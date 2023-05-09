@@ -14,7 +14,7 @@ from .content.application_json import schema as application_json_schema
 
 
 class Parameter0(api_client.QueryParameter):
-    name: typing_extensions.Literal["someParam"] = "someParam"
+    name = "someParam"
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):

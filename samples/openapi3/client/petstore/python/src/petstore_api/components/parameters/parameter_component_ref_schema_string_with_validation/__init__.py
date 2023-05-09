@@ -14,7 +14,7 @@ from .content.application_json import schema as application_json_schema
 
 
 class ComponentRefSchemaStringWithValidation(api_client.PathParameter):
-    name: typing_extensions.Literal["CRSstringWithValidation"] = "CRSstringWithValidation"
+    name = "CRSstringWithValidation"
 
 
     class __ApplicationJsonMediaType(api_client.MediaType):

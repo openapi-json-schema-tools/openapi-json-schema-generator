@@ -54,9 +54,7 @@ class RequestPathParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_0.Parameter0],
-    ] = (
+    parameters = (
         parameter_0.Parameter0,
     )
 _security: typing.List[security_schemes.SecurityRequirementObject] = [

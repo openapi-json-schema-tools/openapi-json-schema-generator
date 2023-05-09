@@ -74,13 +74,7 @@ class RequestQueryParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_0.Parameter0],
-        typing.Type[parameter_1.Parameter1],
-        typing.Type[parameter_2.Parameter2],
-        typing.Type[parameter_3.Parameter3],
-        typing.Type[parameter_4.Parameter4],
-    ] = (
+    parameters = (
         parameter_0.Parameter0,
         parameter_1.Parameter1,
         parameter_2.Parameter2,
@@ -110,12 +104,7 @@ class RequestHeaderParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_5.Parameter5],
-        typing.Type[parameter_6.Parameter6],
-        typing.Type[parameter_7.Parameter7],
-        typing.Type[parameter_8.Parameter8],
-    ] = (
+    parameters = (
         parameter_5.Parameter5,
         parameter_6.Parameter6,
         parameter_7.Parameter7,
@@ -145,13 +134,7 @@ class RequestPathParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_9.Parameter9],
-        typing.Type[parameter_10.Parameter10],
-        typing.Type[parameter_11.Parameter11],
-        typing.Type[parameter_12.Parameter12],
-        typing.Type[parameter_13.Parameter13],
-    ] = (
+    parameters = (
         parameter_9.Parameter9,
         parameter_10.Parameter10,
         parameter_11.Parameter11,
@@ -182,13 +165,7 @@ class RequestCookieParameters:
         pass
 
 
-    parameters : typing.Tuple[
-        typing.Type[parameter_14.Parameter14],
-        typing.Type[parameter_15.Parameter15],
-        typing.Type[parameter_16.Parameter16],
-        typing.Type[parameter_17.Parameter17],
-        typing.Type[parameter_18.Parameter18],
-    ] = (
+    parameters = (
         parameter_14.Parameter14,
         parameter_15.Parameter15,
         parameter_16.Parameter16,
