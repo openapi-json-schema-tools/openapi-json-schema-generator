@@ -155,10 +155,10 @@ class BaseApi(api_client.Api):
         """
         self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
         self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
-
         used_path = self._get_used_path(
             path,
-            path_parameters=RequestPathParameters.parameters
+            path_parameters=RequestPathParameters.parameters,
+            path_params=path_params
         )
 
         _headers = HTTPHeaderDict()

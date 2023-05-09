@@ -1155,8 +1155,10 @@ class Api(TypedDictInputVerifier):
     @staticmethod
     def _get_used_path(
         used_path: str,
-        path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = ()
-        query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = ()
+        path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
+        path_params: typing.Dict[str, typing.Any],
+        query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
+        query_params: typing.Dict[str, typing.Any],
     ) -> str:
         path_params = {}
         for parameter in path_parameters:

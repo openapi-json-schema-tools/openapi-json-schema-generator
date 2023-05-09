@@ -215,18 +215,18 @@ class BaseApi(api_client.Api):
         self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
     {{/if}}
     {{#or pathParams queryParams}}
-
         used_path = self._get_used_path(
             path,
         {{#if pathParams}}
-            path_parameters=RequestPathParameters.parameters{{#if queryParams}},{{/if}}
+            path_parameters=RequestPathParameters.parameters,
+            path_params=path_params{{#if queryParams}},{{/if}}
         {{/if}}
         {{#if queryParams}}
-            query_parameters=RequestQueryParameters.parameters
+            query_parameters=RequestQueryParameters.parameters,
+            query_params=query_params
         {{/if}}
         )
     {{else}}
-
         used_path = path
     {{/or}}
     {{#or headerParams requestBody produces}}
