@@ -11,7 +11,6 @@
 
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
@@ -75,6 +74,7 @@ class User(
                         configuration_=configuration_,
                         **kwargs,
                     )
+            
             AnyTypeProp = schemas.AnyTypeSchema
             
             
@@ -88,18 +88,6 @@ class User(
                     _Not = schemas.NoneSchema
             
             
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
-                ) -> 'User.Schema_.Properties.AnyTypeExceptNullProp':
-                    return super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
             AnyTypePropNullable = schemas.AnyTypeSchema
             __annotations__ = {
                 "id": Id,

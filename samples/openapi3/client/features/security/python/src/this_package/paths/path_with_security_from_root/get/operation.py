@@ -19,7 +19,6 @@ from this_package.security import (
 )
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401

@@ -26,7 +26,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
     """
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration()
-    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_configuration=schema_config)
     api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 
     response_status = 200

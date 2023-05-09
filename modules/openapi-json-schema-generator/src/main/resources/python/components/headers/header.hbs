@@ -10,9 +10,11 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
+    {{#if content}}
 import typing
 import typing_extensions
 
+    {{/if}}
 from {{packageName}} import api_client
     {{#if schema}}
         {{#with schema}}

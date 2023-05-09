@@ -41,7 +41,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
         security_scheme_info=security_scheme_info
     )
     schema_config = schema_configuration.SchemaConfiguration()
-    used_api_client = api_client.ApiClient(configuration=api_config, schema_config=schema_config)
+    used_api_client = api_client.ApiClient(configuration=api_config, schema_configuration=schema_config)
     api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 
     @patch.object(urllib3.PoolManager, 'request')
