@@ -1201,6 +1201,28 @@ class Api(TypedDictInputVerifier):
                 headers.add('Accept', accept_content_type)
         return headers
 
+    @staticmethod
+    def _get_field_and_body(
+        request_body: 'RequestBody',
+        body: typing.Any,
+        headers: _collections.HTTPHeaderDict,
+        content_type: str
+    ):
+        if request_body.required and body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
+        _fields = None
+        _body = None
+
+        if request_body.required or ((not request_body.required) and body is not schemas.unset):
+            serialized_data = request_body.serialize(body, content_type)
+            headers.add('Content-Type', content_type)
+            if 'fields' in serialized_data:
+                _fields = serialized_data['fields']
+            elif 'body' in serialized_data:
+                _body = serialized_data['body']
+        return _fields, _body
+
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
     body: typing.Union[str, bytes]

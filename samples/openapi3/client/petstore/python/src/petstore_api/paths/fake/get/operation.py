@@ -230,15 +230,12 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
 
-        _fields = None
-        _body = None
-        if body is not schemas.unset:
-            serialized_data = request_body.RequestBody.serialize(body, content_type)
-            _headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
+        _fields, _body = self._get_field_and_body(
+            request_body=request_body.RequestBody,
+            body=body,
+            headers=_headers,
+            content_type=content_type
+        )
         host = self.api_client.configuration.get_server_url(
             'servers', server_index
         )

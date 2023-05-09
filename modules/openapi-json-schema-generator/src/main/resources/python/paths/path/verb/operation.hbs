@@ -248,36 +248,12 @@ class BaseApi(api_client.Api):
         # TODO add cookie handling
     {{#with requestBody}}
 
-    {{#if refInfo}}
-        {{#if getDeepestRef.required}}
-        if body is schemas.unset:
-            raise exceptions.ApiValueError(
-                'The required body parameter has an invalid value of: unset. Set a valid value instead')
-        {{/if}}
-    {{else}}
-        {{#if required}}
-        if body is schemas.unset:
-            raise exceptions.ApiValueError(
-                'The required body parameter has an invalid value of: unset. Set a valid value instead')
-        {{/if}}
-    {{/if}}
-        _fields = None
-        _body = None
-    {{#if refInfo}}
-        {{#if getDeepestRef.required}}
-        {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{else}}
-        if body is not schemas.unset:
-            {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{/if}}
-    {{else}}
-        {{#if required}}
-        {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{else}}
-        if body is not schemas.unset:
-            {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{/if}}
-    {{/if}}
+        _fields, _body = self._get_field_and_body(
+            request_body=request_body.{{jsonPathPiece.camelCase}},
+            body=body,
+            headers=_headers,
+            content_type=content_type
+        )
     {{/with}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
