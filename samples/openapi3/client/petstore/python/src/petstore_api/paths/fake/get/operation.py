@@ -224,7 +224,7 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
 
-        _fields, _body = self._get_field_and_body(
+        _fields, _body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
             body=body,
             headers=_headers,

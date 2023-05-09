@@ -1206,7 +1206,7 @@ class Api(TypedDictInputVerifier):
         return headers
 
     @staticmethod
-    def _get_field_and_body(
+    def _get_fields_and_body(
         request_body: 'RequestBody',
         body: typing.Any,
         headers: _collections.HTTPHeaderDict,
