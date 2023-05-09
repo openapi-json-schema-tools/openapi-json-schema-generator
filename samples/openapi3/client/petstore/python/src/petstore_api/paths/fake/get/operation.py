@@ -63,12 +63,17 @@ class RequestQueryParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_2.Parameter2],
+        typing.Type[parameter_3.Parameter3],
+        typing.Type[parameter_4.Parameter4],
+        typing.Type[parameter_5.Parameter5],
+    ] = (
         parameter_2.Parameter2,
         parameter_3.Parameter3,
         parameter_4.Parameter4,
         parameter_5.Parameter5,
-    ]
+    )
 
 class RequestHeaderParameters:
     RequiredParams = typing_extensions.TypedDict(
@@ -90,10 +95,13 @@ class RequestHeaderParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_0.Parameter0],
+        typing.Type[parameter_1.Parameter1],
+    ] = (
         parameter_0.Parameter0,
         parameter_1.Parameter1,
-    ]
+    )
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',

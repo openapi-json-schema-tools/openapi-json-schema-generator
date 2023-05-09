@@ -56,8 +56,12 @@ class {{xParamsName}}:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+    {{#each xParams}}
+        typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+    {{/each}}
+    ] = (
     {{#each xParams}}
         {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
     {{/each}}
-    ]
+    )

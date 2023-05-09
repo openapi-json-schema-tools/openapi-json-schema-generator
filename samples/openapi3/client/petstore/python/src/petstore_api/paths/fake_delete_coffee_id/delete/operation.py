@@ -51,9 +51,11 @@ class RequestPathParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_0.Parameter0],
+    ] = (
         parameter_0.Parameter0,
-    ]
+    )
 
 default_response = response_default.Default
 __StatusCodeToResponse = typing_extensions.TypedDict(

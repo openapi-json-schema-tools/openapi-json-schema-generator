@@ -54,11 +54,15 @@ class RequestQueryParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_0.Parameter0],
+        typing.Type[parameter_1.Parameter1],
+        typing.Type[parameter_2.Parameter2],
+    ] = (
         parameter_0.Parameter0,
         parameter_1.Parameter1,
         parameter_2.Parameter2,
-    ]
+    )
 
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',

@@ -56,9 +56,11 @@ class RequestHeaderParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_0.Parameter0],
+    ] = (
         parameter_0.Parameter0,
-    ]
+    )
 
 class RequestPathParameters:
     RequiredParams = typing_extensions.TypedDict(
@@ -79,9 +81,11 @@ class RequestPathParameters:
         pass
 
 
-    parameters = [
+    parameters : typing.Tuple[
+        typing.Type[parameter_1.Parameter1],
+    ] = (
         parameter_1.Parameter1,
-    ]
+    )
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,
     security_requirement_object_1.security_requirement_object,
