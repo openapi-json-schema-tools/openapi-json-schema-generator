@@ -2,10 +2,6 @@
 
 {{> _helper_header }}
 
-import typing_extensions
-{{#with operation}}
-{{/with}}
-
 from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
@@ -24,7 +20,16 @@ from {{packageName}}.security import (
         {{/gt}}
     {{/neq}}
 {{/eq}}
-{{> _helper_imports_schema_types }}
+import datetime  # noqa: F401
+import decimal  # noqa: F401
+import io  # noqa: F401
+import typing  # noqa: F401
+import typing_extensions  # noqa: F401
+import uuid  # noqa: F401
+
+import frozendict  # noqa: F401
+
+from {{packageName}} import schemas  # noqa: F401
 {{#if imports}}
 
 {{/if}}
