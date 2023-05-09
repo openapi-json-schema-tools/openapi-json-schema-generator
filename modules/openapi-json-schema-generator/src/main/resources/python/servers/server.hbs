@@ -1,14 +1,8 @@
 # coding: utf-8
 {{> _helper_header }}
 
-import dataclasses
-import typing
-{{#if server.variables}}
-import typing_extensions
-{{/if}}
+from {{packageName}}.shared_imports.server_imports import *
 {{#with server}}
-
-from {{packageName}} import server{{#if variables}}, schemas{{/if}}
     {{#if variables}}
 
 

@@ -704,6 +704,15 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
 
         supportingFiles.add(new SupportingFile("exceptions.hbs", packagePath(), "exceptions.py"));
 
+        // shared_imports
+        supportingFiles.add(new SupportingFile("__init__.hbs", packagePath() + File.separator + "shared_imports", "__init__.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/header_imports.hbs", packagePath() + File.separator + "shared_imports", "header_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/response_imports.hbs", packagePath() + File.separator + "shared_imports", "response_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/schema_imports.hbs", packagePath() + File.separator + "shared_imports", "schema_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/security_scheme_imports.hbs", packagePath() + File.separator + "shared_imports", "security_scheme_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/server_imports.hbs", packagePath() + File.separator + "shared_imports", "server_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/operation_imports.hbs", packagePath() + File.separator + "shared_imports", "operation_imports.py"));
+
         if (Boolean.FALSE.equals(excludeTests)) {
             supportingFiles.add(new SupportingFile("__init__.hbs", testFolder, "__init__.py"));
             supportingFiles.add(new SupportingFile("__init__.hbs", testFolder + File.separator + modelPackage.replace('.', File.separatorChar), "__init__.py"));
