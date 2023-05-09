@@ -10,8 +10,7 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-import typing
-import typing_extensions
+import typing, typing_extensions
 
 from {{packageName}} import api_client
     {{#each content}}

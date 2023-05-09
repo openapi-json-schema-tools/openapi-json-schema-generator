@@ -56,8 +56,8 @@ class {{xParamsName}}:
         pass
 
 
-    parameters = [
+    parameters = (
     {{#each xParams}}
         {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
     {{/each}}
-    ]
+    )

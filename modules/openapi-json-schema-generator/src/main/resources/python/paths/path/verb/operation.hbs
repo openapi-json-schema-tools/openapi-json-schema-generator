@@ -2,16 +2,7 @@
 
 {{> _helper_header }}
 
-from dataclasses import dataclass
-import typing_extensions
-import urllib3
-{{#with operation}}
-{{#or headerParams requestBody produces}}
-from urllib3._collections import HTTPHeaderDict
-{{/or}}
-{{/with}}
-
-from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
@@ -29,7 +20,16 @@ from {{packageName}}.security import (
         {{/gt}}
     {{/neq}}
 {{/eq}}
-{{> _helper_imports_schema_types }}
+import datetime  # noqa: F401
+import decimal  # noqa: F401
+import io  # noqa: F401
+import typing  # noqa: F401
+import typing_extensions  # noqa: F401
+import uuid  # noqa: F401
+
+import frozendict  # noqa: F401
+
+from {{packageName}} import schemas  # noqa: F401
 {{#if imports}}
 
 {{/if}}
@@ -214,84 +214,46 @@ class BaseApi(api_client.Api):
     {{#if cookieParams}}
         self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
     {{/if}}
-        used_path = path
-    {{#if pathParams}}
-
-        _path_params = {}
-        for parameter in RequestPathParameters.parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
-    {{/if}}
-    {{#if queryParams}}
-
-        prefix_separator_iterator = None
-        for parameter in RequestQueryParameters.parameters:
-            parameter_data = query_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            if prefix_separator_iterator is None:
-                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
-            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
-            for serialized_value in serialized_data.values():
-                used_path += serialized_value
-    {{/if}}
-    {{#or headerParams requestBody produces}}
-
-        _headers = HTTPHeaderDict()
+    {{#or pathParams queryParams}}
+        used_path = self._get_used_path(
+            path,
+        {{#if pathParams}}
+            path_parameters=RequestPathParameters.parameters,
+            path_params=path_params{{#if queryParams}},{{/if}}
+        {{/if}}
+        {{#if queryParams}}
+            query_parameters=RequestQueryParameters.parameters,
+            query_params=query_params
+        {{/if}}
+        )
     {{else}}
+        used_path = path
     {{/or}}
-    {{#if headerParams}}
-        for parameter in RequestHeaderParameters.parameters:
-            parameter_data = header_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _headers.extend(serialized_data)
-    {{/if}}
+    {{#or headerParams requestBody produces}}
+        {{#if headerParams}}
+        _headers = self._get_headers(
+            {{#if produces}}
+            header_parameters=RequestHeaderParameters.parameters,
+            header_params=header_params,
+            accept_content_types=accept_content_types
+            {{else}}
+            header_parameters=RequestHeaderParameters.parameters,
+            header_params=header_params
+            {{/if}}
+        )
+        {{else}}
+        _headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
+        {{/if}}
+    {{/or}}
         # TODO add cookie handling
-    {{#if produces}}
-        if accept_content_types:
-            for accept_content_type in accept_content_types:
-                _headers.add('Accept', accept_content_type)
-    {{/if}}
     {{#with requestBody}}
 
-    {{#if refInfo}}
-        {{#if getDeepestRef.required}}
-        if body is schemas.unset:
-            raise exceptions.ApiValueError(
-                'The required body parameter has an invalid value of: unset. Set a valid value instead')
-        {{/if}}
-    {{else}}
-        {{#if required}}
-        if body is schemas.unset:
-            raise exceptions.ApiValueError(
-                'The required body parameter has an invalid value of: unset. Set a valid value instead')
-        {{/if}}
-    {{/if}}
-        _fields = None
-        _body = None
-    {{#if refInfo}}
-        {{#if getDeepestRef.required}}
-        {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{else}}
-        if body is not schemas.unset:
-            {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{/if}}
-    {{else}}
-        {{#if required}}
-        {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{else}}
-        if body is not schemas.unset:
-            {{> paths/path/verb/_helper_operation_body_serialization }}
-        {{/if}}
-    {{/if}}
+        _fields, _body = self._get_fields_and_body(
+            request_body=request_body.{{jsonPathPiece.camelCase}},
+            body=body,
+            headers=_headers,
+            content_type=content_type
+        )
     {{/with}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
@@ -405,12 +367,7 @@ class BaseApi(api_client.Api):
     {{/if}}
 {{/if}}
 
-        if not 200 <= response.status <= 399:
-            raise exceptions.ApiException(
-                status=response.status,
-                reason=response.reason,
-                api_response=api_response
-            )
+        self._verify_response_status(api_response)
 
         return api_response
 
