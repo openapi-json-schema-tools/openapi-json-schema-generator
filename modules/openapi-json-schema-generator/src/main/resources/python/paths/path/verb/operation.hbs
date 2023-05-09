@@ -2,16 +2,11 @@
 
 {{> _helper_header }}
 
-from dataclasses import dataclass
 import typing_extensions
-import urllib3
 {{#with operation}}
-{{#or headerParams requestBody produces}}
-from urllib3._collections import HTTPHeaderDict
-{{/or}}
 {{/with}}
 
-from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
