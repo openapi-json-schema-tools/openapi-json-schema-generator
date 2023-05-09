@@ -11,7 +11,6 @@
 
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
@@ -45,13 +44,3 @@ class ComposedNone(
             ]
 
 
-    def __new__(
-        cls,
-        arg_: None,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> 'ComposedNone':
-        return super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )

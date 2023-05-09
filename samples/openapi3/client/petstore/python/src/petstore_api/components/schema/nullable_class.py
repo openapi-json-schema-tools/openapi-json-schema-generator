@@ -11,7 +11,6 @@
 
 import datetime  # noqa: F401
 import decimal  # noqa: F401
-import functools  # noqa: F401
 import io  # noqa: F401
 import re  # noqa: F401
 import typing  # noqa: F401
@@ -67,6 +66,7 @@ class NullableClass(
                     )
             
             
+            
             class NumberProp(
                 schemas.NoneBase,
                 schemas.NumberBase,
@@ -92,6 +92,7 @@ class NullableClass(
                         arg_,
                         configuration_=configuration_,
                     )
+            
             
             
             class BooleanProp(
@@ -121,6 +122,7 @@ class NullableClass(
                     )
             
             
+            
             class StringProp(
                 schemas.NoneBase,
                 schemas.StrBase,
@@ -146,6 +148,7 @@ class NullableClass(
                         arg_,
                         configuration_=configuration_,
                     )
+            
             
             
             class DateProp(
@@ -177,6 +180,7 @@ class NullableClass(
                     )
             
             
+            
             class DatetimeProp(
                 schemas.NoneBase,
                 schemas.DateTimeBase,
@@ -206,6 +210,7 @@ class NullableClass(
                     )
             
             
+            
             class ArrayNullableProp(
                 schemas.NoneBase,
                 schemas.ListBase,
@@ -232,6 +237,7 @@ class NullableClass(
                         arg_,
                         configuration_=configuration_,
                     )
+            
             
             
             class ArrayAndItemsNullableProp(
@@ -276,6 +282,7 @@ class NullableClass(
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                    
             
             
                 def __new__(
@@ -288,6 +295,7 @@ class NullableClass(
                         arg_,
                         configuration_=configuration_,
                     )
+            
             
             
             class ArrayItemsNullable(
@@ -326,6 +334,7 @@ class NullableClass(
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                    
             
                 def __new__(
                     cls,
@@ -383,6 +392,7 @@ class NullableClass(
                     )
             
             
+            
             class ObjectAndItemsNullableProp(
                 schemas.NoneBase,
                 schemas.DictBase,
@@ -425,6 +435,7 @@ class NullableClass(
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                    
             
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
@@ -443,6 +454,7 @@ class NullableClass(
                         configuration_=configuration_,
                         **kwargs,
                     )
+            
             
             
             class ObjectItemsNullable(
@@ -481,6 +493,7 @@ class NullableClass(
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                    
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties:
                     # dict_instance[name] accessor
@@ -541,6 +554,7 @@ class NullableClass(
                     configuration_=configuration_,
                     **kwargs,
                 )
+        
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> Schema_.Properties.IntegerProp: ...
