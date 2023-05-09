@@ -707,6 +707,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // shared_imports
         supportingFiles.add(new SupportingFile("__init__.hbs", packagePath() + File.separator + "shared_imports", "__init__.py"));
         supportingFiles.add(new SupportingFile("shared_imports/typing_imports.hbs", packagePath() + File.separator + "shared_imports", "typing_imports.py"));
+        supportingFiles.add(new SupportingFile("shared_imports/response_imports.hbs", packagePath() + File.separator + "shared_imports", "response_imports.py"));
 
         if (Boolean.FALSE.equals(excludeTests)) {
             supportingFiles.add(new SupportingFile("__init__.hbs", testFolder, "__init__.py"));
