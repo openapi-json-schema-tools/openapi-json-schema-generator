@@ -11,10 +11,8 @@
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
     {{#if content}}
-import typing, typing_extensions
-
+from {{packageName}}.shared_imports.typing_imports import *
     {{/if}}
-from {{packageName}} import api_client
 
     {{#if schema}}
         {{#with schema}}
