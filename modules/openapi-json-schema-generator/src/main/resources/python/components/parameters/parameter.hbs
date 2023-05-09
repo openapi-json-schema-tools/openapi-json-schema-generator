@@ -10,16 +10,15 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-    {{#if content}}
 from {{packageName}}.shared_imports.typing_imports import *
-    {{/if}}
-
     {{#if schema}}
+
         {{#with schema}}
 from . import {{jsonPathPiece.snakeCase}}
         {{/with}}
     {{else}}
         {{#if content}}
+
             {{#each content}}
                 {{#with this}}
                     {{#with schema}}
