@@ -16,7 +16,7 @@ class {{jsonPathPiece.camelCase}}(
     schemas.DecimalBase,
         {{/eq}}
     {{/if}}
-    schemas.AnyTypeSchema,
+    schemas.AnyTypeSchema[schemas.T],
 {{else}}
     {{#if hasMultipleTypes}}
     {{> components/schemas/_helper_xbase_multiple_types }}
@@ -67,7 +67,7 @@ class {{jsonPathPiece.camelCase}}(
 
     {{> components/schemas/_helper_property_type_hints }}
 
-{{#if hasMultipleTypes}}
+{{#neq types null}}
     {{> components/schemas/_helper_new }}
 
-{{/if}}
+{{/neq}}

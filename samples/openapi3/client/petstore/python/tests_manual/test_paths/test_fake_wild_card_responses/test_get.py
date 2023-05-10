@@ -50,7 +50,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
 
         assert isinstance(api_response, get.response_200.ResponseFor200.response_cls)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
-        assert isinstance(api_response.body, get.response_200.ResponseFor200.content['application/json'].schema)
+        assert isinstance(api_response.body, get.response_200.ResponseFor200.content['application/json'].schema.__origin__)
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 200
 
@@ -72,7 +72,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
 
         assert isinstance(api_response, get.response_2xx.ResponseFor2XX.response_cls)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
-        assert isinstance(api_response.body, get.response_2xx.ResponseFor2XX.content['application/json'].schema)
+        assert isinstance(api_response.body, get.response_2xx.ResponseFor2XX.content['application/json'].schema.__origin__)
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 202
 

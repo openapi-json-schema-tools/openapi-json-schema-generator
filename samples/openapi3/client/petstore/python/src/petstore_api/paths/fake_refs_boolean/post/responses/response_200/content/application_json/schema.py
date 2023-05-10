@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import boolean
-Schema = boolean.Boolean
+Schema: typing_extensions.TypeAlias = boolean.Boolean[U]

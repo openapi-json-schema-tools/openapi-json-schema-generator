@@ -24,13 +24,13 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
         self.assertTrue(
             isinstance(
                 model["arg"],
-                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Arg
+                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Arg.__origin__
             )
         )
         self.assertTrue(
             isinstance(
                 model["args"],
-                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Args
+                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Args.__origin__
             )
         )
         self.assertTrue(isinstance(model["arg"], schemas.StrSchema))

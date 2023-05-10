@@ -36,9 +36,9 @@ class TestObjectModelWithRefProps(unittest.TestCase):
         assert inst["myNumber"] == 15.0
         assert isinstance(inst["myNumber"], NumberWithValidations)
         assert inst["myString"] == 'a'
-        assert isinstance(inst["myString"], ObjectModelWithRefProps.Schema_.Properties.my_string())
+        assert isinstance(inst["myString"], ObjectModelWithRefProps.Schema_.Properties.my_string().__origin__)
         assert bool(inst["myBoolean"]) is True
-        assert isinstance(inst["myBoolean"], ObjectModelWithRefProps.Schema_.Properties.my_boolean())
+        assert isinstance(inst["myBoolean"], ObjectModelWithRefProps.Schema_.Properties.my_boolean().__origin__)
         assert isinstance(inst["myBoolean"], BoolClass)
 
 

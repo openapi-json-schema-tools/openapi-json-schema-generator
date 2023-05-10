@@ -20,14 +20,14 @@ class ResponseFor3XX(api_client.OpenApiResponse[ApiResponseFor3XX]):
     response_cls = ApiResponseFor3XX
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
+    class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
         }
     )
-    content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
     }

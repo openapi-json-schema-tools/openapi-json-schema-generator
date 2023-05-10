@@ -92,7 +92,23 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{/with}}
-) -> '{{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}':
+{{#if types}}
+    {{#eq types.size 1}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+    {{else}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+    typing.Union[
+        {{> components/schemas/_helper_schema_python_base_types_newline }}
+    ]
+]:
+    {{/eq}}
+{{else}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+    typing.Union[
+        {{> components/schemas/_helper_schema_python_base_types_newline }}
+    ]
+]:
+{{/if}}
     return super().__new__(
         cls,
 {{#eq types null}}
