@@ -9,3 +9,5 @@ import uuid
 import frozendict
 
 from petstore_api import schemas
+
+U = typing.TypeVar('U')

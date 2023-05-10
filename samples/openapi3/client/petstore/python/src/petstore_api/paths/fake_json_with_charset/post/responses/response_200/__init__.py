@@ -20,14 +20,14 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
     response_cls = ApiResponseFor200
 
 
-    class __ApplicationJsonCharsetutf8MediaType(api_client.MediaType):
+    class ApplicationJsonCharsetutf8MediaType(api_client.MediaType):
         schema: typing.Type[application_json_charsetutf8_schema.Schema] = application_json_charsetutf8_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json; charset=utf-8': typing.Type[__ApplicationJsonCharsetutf8MediaType],
+            'application/json; charset=utf-8': typing.Type[ApplicationJsonCharsetutf8MediaType],
         }
     )
-    content: __Content = {
-        'application/json; charset=utf-8': __ApplicationJsonCharsetutf8MediaType,
+    content: Content = {
+        'application/json; charset=utf-8': ApplicationJsonCharsetutf8MediaType,
     }

@@ -4,16 +4,57 @@
         {{#if @key.isValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-{{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}'
+                    {{#with getDeepestRef}}
+                        {{#if types}}
+                            {{#eq types.size 1}}
+{{../@key.original}}: {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}]
+                            {{else}}
+{{../@key.original}}: {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                            {{/eq}}
+                        {{else}}
+{{../@key.original}}: {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                        {{/if}}
+                    {{/with}}
                 {{else}}
                     {{#if jsonPathPiece}}
                         {{#if schemaIsFromAdditionalProperties}}
-{{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}
+                            {{#if types}}
+                                {{#eq types.size 1}}
+{{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]
+                                {{else}}
+{{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                                {{/eq}}
+                            {{else}}
+{{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                            {{/if}}
                         {{else}}
-{{@key.original}}: Schema_.Properties.{{jsonPathPiece.camelCase}}
+                            {{#if types}}
+                                {{#eq types.size 1}}
+{{@key.original}}: Schema_.Properties.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]
+                                {{else}}
+{{@key.original}}: Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                                {{/eq}}
+                            {{else}}
+{{@key.original}}: Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
+                            {{/if}}
                         {{/if}}
                     {{else}}
-{{@key.original}}: schemas.AnyTypeSchema
+                        {{! for when additionalProperties is unset }}
+{{@key.original}}: schemas.UnsetAnyTypeSchema[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]
                     {{/if}}
                 {{/if}}
             {{/with}}

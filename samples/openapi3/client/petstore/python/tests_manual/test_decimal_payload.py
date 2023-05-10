@@ -24,14 +24,14 @@ class TestDecimalPayload(unittest.TestCase):
         """Test DecimalPayload"""
 
         m = DecimalPayload('12')
-        assert isinstance(m, DecimalPayload)
+        assert isinstance(m, DecimalPayload.__origin__)
         assert isinstance(m, DecimalSchema)
         assert isinstance(m, str)
         assert m == '12'
         assert m.as_decimal_ == decimal.Decimal('12')
 
         m = DecimalPayload('12.34')
-        assert isinstance(m, DecimalPayload)
+        assert isinstance(m, DecimalPayload.__origin__)
         assert isinstance(m, DecimalSchema)
         assert isinstance(m, str)
         assert m == '12.34'

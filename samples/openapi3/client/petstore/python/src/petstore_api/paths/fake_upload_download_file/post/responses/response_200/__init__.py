@@ -20,14 +20,14 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
     response_cls = ApiResponseFor200
 
 
-    class __ApplicationOctetStreamMediaType(api_client.MediaType):
+    class ApplicationOctetStreamMediaType(api_client.MediaType):
         schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/octet-stream': typing.Type[__ApplicationOctetStreamMediaType],
+            'application/octet-stream': typing.Type[ApplicationOctetStreamMediaType],
         }
     )
-    content: __Content = {
-        'application/octet-stream': __ApplicationOctetStreamMediaType,
+    content: Content = {
+        'application/octet-stream': ApplicationOctetStreamMediaType,
     }

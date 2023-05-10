@@ -10,7 +10,7 @@ class _Variables:
     
     
     class Version(
-        schemas.StrSchema
+        schemas.StrSchema[schemas.T]
     ):
     
     
