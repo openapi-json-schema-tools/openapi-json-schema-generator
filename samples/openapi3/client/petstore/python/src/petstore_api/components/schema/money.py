@@ -51,8 +51,13 @@ class Money(
                 "currency": currency,
             }
     
-    amount: Schema_.Properties.Amount
-    currency: 'currency.Currency'
+    @property
+    def amount(self) -> Schema_.Properties.Amount:
+        return self.__getitem__("amount")
+    
+    @property
+    def currency(self) -> 'currency.Currency':
+        return self.__getitem__("currency")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount: ...

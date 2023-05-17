@@ -58,7 +58,9 @@ class Category(
                 "name": Name,
             }
     
-    name: Schema_.Properties.Name
+    @property
+    def name(self) -> Schema_.Properties.Name:
+        return self.__getitem__("name")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...

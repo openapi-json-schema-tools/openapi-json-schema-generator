@@ -353,6 +353,8 @@ Class | Description
 [Number](docs/components/schema/number.md) |
 [NumberOnly](docs/components/schema/number_only.md) |
 [NumberWithValidations](docs/components/schema/number_with_validations.md) |
+[ObjWithRequiredProps](docs/components/schema/obj_with_required_props.md) |
+[ObjWithRequiredPropsBase](docs/components/schema/obj_with_required_props_base.md) |
 [ObjectInterface](docs/components/schema/object_interface.md) |
 [ObjectModelWithArgAndArgsProperties](docs/components/schema/object_model_with_arg_and_args_properties.md) |
 [ObjectModelWithRefProps](docs/components/schema/object_model_with_ref_props.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations

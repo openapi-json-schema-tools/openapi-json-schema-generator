@@ -60,7 +60,9 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                             "name": Name,
                         }
                 
-                test: schemas.AnyTypeSchema
+                @property
+                def test(self) -> schemas.AnyTypeSchema:
+                    return self.__getitem__("test")
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema: ...

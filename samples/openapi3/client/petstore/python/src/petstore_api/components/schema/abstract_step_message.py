@@ -69,9 +69,17 @@ class AbstractStepMessage(
             ]
 
     
-    description: schemas.AnyTypeSchema
-    discriminator: Schema_.Properties.Discriminator
-    sequenceNumber: schemas.AnyTypeSchema
+    @property
+    def description(self) -> schemas.AnyTypeSchema:
+        return self.__getitem__("description")
+    
+    @property
+    def discriminator(self) -> Schema_.Properties.Discriminator:
+        return self.__getitem__("discriminator")
+    
+    @property
+    def sequenceNumber(self) -> schemas.AnyTypeSchema:
+        return self.__getitem__("sequenceNumber")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema: ...

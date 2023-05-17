@@ -42,7 +42,9 @@ class Schema(
                 "file": File,
             }
     
-    file: Schema_.Properties.File
+    @property
+    def file(self) -> Schema_.Properties.File:
+        return self.__getitem__("file")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["file"]) -> Schema_.Properties.File: ...

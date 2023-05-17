@@ -1,19 +1,30 @@
 {{#if requiredProperties}}
-
     {{#each requiredProperties}}
         {{#if @key.isValid}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-{{@key.original}}: '{{> components/schemas/_helper_refclass_with_module }}'
+
+@property
+def {{@key.original}}(self) -> '{{> components/schemas/_helper_refclass_with_module }}':
+    return self.__getitem__("{{{@key.original}}}")
                 {{else}}
                     {{#if jsonPathPiece}}
                         {{#if schemaIsFromAdditionalProperties}}
-{{@key.original}}: Schema_.{{jsonPathPiece.camelCase}}
+
+@property
+def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}:
+    return self.__getitem__("{{{@key.original}}}")
                         {{else}}
-{{@key.original}}: Schema_.Properties.{{jsonPathPiece.camelCase}}
+
+@property
+def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}:
+    return self.__getitem__("{{{@key.original}}}")
                         {{/if}}
                     {{else}}
-{{@key.original}}: schemas.AnyTypeSchema
+
+@property
+def {{@key.original}}(self) -> schemas.AnyTypeSchema:
+    return self.__getitem__("{{{@key.original}}}")
                     {{/if}}
                 {{/if}}
             {{/with}}

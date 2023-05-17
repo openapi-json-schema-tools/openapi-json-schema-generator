@@ -54,7 +54,6 @@ class ObjectWithInvalidNamedRefedProperties(
                 "!reference": reference,
             }
     
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> 'array_with_validations_in_items.ArrayWithValidationsInItems': ...
     

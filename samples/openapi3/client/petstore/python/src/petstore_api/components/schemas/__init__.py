@@ -89,6 +89,8 @@ from petstore_api.components.schema.nullable_string import NullableString
 from petstore_api.components.schema.number import Number
 from petstore_api.components.schema.number_only import NumberOnly
 from petstore_api.components.schema.number_with_validations import NumberWithValidations
+from petstore_api.components.schema.obj_with_required_props import ObjWithRequiredProps
+from petstore_api.components.schema.obj_with_required_props_base import ObjWithRequiredPropsBase
 from petstore_api.components.schema.object_interface import ObjectInterface
 from petstore_api.components.schema.object_model_with_arg_and_args_properties import ObjectModelWithArgAndArgsProperties
 from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps

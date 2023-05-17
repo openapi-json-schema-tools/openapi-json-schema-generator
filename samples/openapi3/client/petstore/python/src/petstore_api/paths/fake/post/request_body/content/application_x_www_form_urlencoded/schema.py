@@ -183,10 +183,21 @@ class Schema(
                 "callback": Callback,
             }
     
-    byte: Schema_.Properties.Byte
-    double: Schema_.Properties.Double
-    number: Schema_.Properties.Number
-    pattern_without_delimiter: Schema_.Properties.PatternWithoutDelimiter
+    @property
+    def byte(self) -> Schema_.Properties.Byte:
+        return self.__getitem__("byte")
+    
+    @property
+    def double(self) -> Schema_.Properties.Double:
+        return self.__getitem__("double")
+    
+    @property
+    def number(self) -> Schema_.Properties.Number:
+        return self.__getitem__("number")
+    
+    @property
+    def pattern_without_delimiter(self) -> Schema_.Properties.PatternWithoutDelimiter:
+        return self.__getitem__("pattern_without_delimiter")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["byte"]) -> Schema_.Properties.Byte: ...

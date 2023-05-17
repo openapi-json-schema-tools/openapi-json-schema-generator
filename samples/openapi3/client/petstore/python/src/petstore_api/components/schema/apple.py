@@ -81,7 +81,9 @@ class Apple(
             }
 
     
-    cultivar: Schema_.Properties.Cultivar
+    @property
+    def cultivar(self) -> Schema_.Properties.Cultivar:
+        return self.__getitem__("cultivar")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar: ...

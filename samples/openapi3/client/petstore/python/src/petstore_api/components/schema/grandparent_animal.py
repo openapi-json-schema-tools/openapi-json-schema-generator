@@ -54,7 +54,9 @@ class GrandparentAnimal(
                 "pet_type": PetType,
             }
     
-    pet_type: Schema_.Properties.PetType
+    @property
+    def pet_type(self) -> Schema_.Properties.PetType:
+        return self.__getitem__("pet_type")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> Schema_.Properties.PetType: ...

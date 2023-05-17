@@ -117,6 +117,8 @@ docs/components/schema/nullable_string.md
 docs/components/schema/number.md
 docs/components/schema/number_only.md
 docs/components/schema/number_with_validations.md
+docs/components/schema/obj_with_required_props.md
+docs/components/schema/obj_with_required_props_base.md
 docs/components/schema/object_interface.md
 docs/components/schema/object_model_with_arg_and_args_properties.md
 docs/components/schema/object_model_with_ref_props.md
@@ -462,6 +464,8 @@ src/petstore_api/components/schema/nullable_string.py
 src/petstore_api/components/schema/number.py
 src/petstore_api/components/schema/number_only.py
 src/petstore_api/components/schema/number_with_validations.py
+src/petstore_api/components/schema/obj_with_required_props.py
+src/petstore_api/components/schema/obj_with_required_props_base.py
 src/petstore_api/components/schema/object_interface.py
 src/petstore_api/components/schema/object_model_with_arg_and_args_properties.py
 src/petstore_api/components/schema/object_model_with_ref_props.py

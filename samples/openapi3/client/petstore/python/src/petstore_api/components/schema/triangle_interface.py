@@ -66,8 +66,13 @@ class TriangleInterface(
             }
 
     
-    shapeType: Schema_.Properties.ShapeType
-    triangleType: Schema_.Properties.TriangleType
+    @property
+    def shapeType(self) -> Schema_.Properties.ShapeType:
+        return self.__getitem__("shapeType")
+    
+    @property
+    def triangleType(self) -> Schema_.Properties.TriangleType:
+        return self.__getitem__("triangleType")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType: ...

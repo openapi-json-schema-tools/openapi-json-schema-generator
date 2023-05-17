@@ -51,7 +51,6 @@ class ObjectWithDifficultlyNamedProps(
                 "123Number": _123Number,
             }
     
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List: ...
     

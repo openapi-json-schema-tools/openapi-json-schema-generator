@@ -66,7 +66,9 @@ class AllofWithBaseSchema(
                         }
             
                 
-                foo: Schema_.Properties.Foo
+                @property
+                def foo(self) -> Schema_.Properties.Foo:
+                    return self.__getitem__("foo")
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo: ...
@@ -131,7 +133,9 @@ class AllofWithBaseSchema(
                         }
             
                 
-                baz: Schema_.Properties.Baz
+                @property
+                def baz(self) -> Schema_.Properties.Baz:
+                    return self.__getitem__("baz")
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["baz"]) -> Schema_.Properties.Baz: ...
@@ -182,7 +186,9 @@ class AllofWithBaseSchema(
             ]
 
     
-    bar: Schema_.Properties.Bar
+    @property
+    def bar(self) -> Schema_.Properties.Bar:
+        return self.__getitem__("bar")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar: ...

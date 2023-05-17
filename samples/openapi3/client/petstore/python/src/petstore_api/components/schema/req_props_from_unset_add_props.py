@@ -40,7 +40,9 @@ class ReqPropsFromUnsetAddProps(
             "validName",
         }
     
-    validName: schemas.AnyTypeSchema
+    @property
+    def validName(self) -> schemas.AnyTypeSchema:
+        return self.__getitem__("validName")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.AnyTypeSchema: ...

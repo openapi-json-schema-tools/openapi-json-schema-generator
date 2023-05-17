@@ -54,8 +54,13 @@ class OneofWithRequired(
                     }
             
                 
-                bar: schemas.AnyTypeSchema
-                foo: schemas.AnyTypeSchema
+                @property
+                def bar(self) -> schemas.AnyTypeSchema:
+                    return self.__getitem__("bar")
+                
+                @property
+                def foo(self) -> schemas.AnyTypeSchema:
+                    return self.__getitem__("foo")
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["bar"]) -> schemas.AnyTypeSchema: ...
@@ -123,8 +128,13 @@ class OneofWithRequired(
                     }
             
                 
-                baz: schemas.AnyTypeSchema
-                foo: schemas.AnyTypeSchema
+                @property
+                def baz(self) -> schemas.AnyTypeSchema:
+                    return self.__getitem__("baz")
+                
+                @property
+                def foo(self) -> schemas.AnyTypeSchema:
+                    return self.__getitem__("foo")
                 
                 @typing.overload
                 def __getitem__(self, name: typing_extensions.Literal["baz"]) -> schemas.AnyTypeSchema: ...

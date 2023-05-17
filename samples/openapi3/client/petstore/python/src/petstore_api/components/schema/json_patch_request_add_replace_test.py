@@ -79,9 +79,17 @@ class JSONPatchRequestAddReplaceTest(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    op: Schema_.Properties.Op
-    path: Schema_.Properties.Path
-    value: Schema_.Properties.Value
+    @property
+    def op(self) -> Schema_.Properties.Op:
+        return self.__getitem__("op")
+    
+    @property
+    def path(self) -> Schema_.Properties.Path:
+        return self.__getitem__("path")
+    
+    @property
+    def value(self) -> Schema_.Properties.Value:
+        return self.__getitem__("value")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["op"]) -> Schema_.Properties.Op: ...
