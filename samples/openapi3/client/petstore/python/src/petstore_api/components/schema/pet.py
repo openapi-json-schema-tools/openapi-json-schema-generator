@@ -151,8 +151,11 @@ class Pet(
                 "status": Status,
             }
     
-    name: Schema_.Properties.Name
-    photoUrls: Schema_.Properties.PhotoUrls
+    def name(self) -> Schema_.Properties.Name:
+        return self.__getitem__("name")
+    
+    def photoUrls(self) -> Schema_.Properties.PhotoUrls:
+        return self.__getitem__("photoUrls")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name: ...

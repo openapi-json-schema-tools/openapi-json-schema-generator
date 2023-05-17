@@ -2004,22 +2004,6 @@ class DictBase:
         if not isinstance(self, FileIO):
             raise AttributeError('property setting not supported on immutable instances')
 
-    def __getattr__(self, name: str):
-        """
-        for instance.name access
-        Properties are only type hinted for required properties
-        so that hasattr(instance, 'optionalProp') is False when that key is not present
-        """
-        if not isinstance(self, frozendict.frozendict):
-            return super().__getattr__(name)
-        if name not in self.__class__.__annotations__:
-            raise AttributeError(f"{self} has no attribute '{name}'")
-        try:
-            value = self[name]
-            return value
-        except KeyError as ex:
-            raise AttributeError(str(ex))
-
     def get_item_(self, name: str) -> typing.Union['AnyTypeSchema', Unset]:
         # dict_instance[name] accessor
         if not isinstance(self, frozendict.frozendict):

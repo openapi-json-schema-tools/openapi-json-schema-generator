@@ -48,7 +48,8 @@ class NoAdditionalProperties(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    id: Schema_.Properties.Id
+    def id(self) -> Schema_.Properties.Id:
+        return self.__getitem__("id")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id: ...

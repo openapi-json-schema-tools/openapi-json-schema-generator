@@ -41,7 +41,8 @@ class ReqPropsFromExplicitAddProps(
         }
         AdditionalProperties = schemas.StrSchema
     
-    validName: Schema_.AdditionalProperties
+    def validName(self) -> Schema_.AdditionalProperties:
+        return self.__getitem__("validName")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties: ...

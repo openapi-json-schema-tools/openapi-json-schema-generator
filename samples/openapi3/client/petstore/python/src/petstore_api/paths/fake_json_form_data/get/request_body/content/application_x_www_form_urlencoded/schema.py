@@ -43,8 +43,11 @@ class Schema(
                 "param2": Param2,
             }
     
-    param: Schema_.Properties.Param
-    param2: Schema_.Properties.Param2
+    def param(self) -> Schema_.Properties.Param:
+        return self.__getitem__("param")
+    
+    def param2(self) -> Schema_.Properties.Param2:
+        return self.__getitem__("param2")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param: ...

@@ -66,8 +66,11 @@ class QuadrilateralInterface(
             }
 
     
-    quadrilateralType: Schema_.Properties.QuadrilateralType
-    shapeType: Schema_.Properties.ShapeType
+    def quadrilateralType(self) -> Schema_.Properties.QuadrilateralType:
+        return self.__getitem__("quadrilateralType")
+    
+    def shapeType(self) -> Schema_.Properties.ShapeType:
+        return self.__getitem__("shapeType")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> Schema_.Properties.QuadrilateralType: ...

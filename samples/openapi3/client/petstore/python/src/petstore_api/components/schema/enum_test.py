@@ -176,7 +176,8 @@ class EnumTest(
                 "IntegerEnumOneValue": integer_enum_one_value,
             }
     
-    enum_string_required: Schema_.Properties.EnumStringRequired
+    def enum_string_required(self) -> Schema_.Properties.EnumStringRequired:
+        return self.__getitem__("enum_string_required")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_string_required"]) -> Schema_.Properties.EnumStringRequired: ...

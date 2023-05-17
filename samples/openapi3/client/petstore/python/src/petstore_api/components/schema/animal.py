@@ -67,7 +67,8 @@ class Animal(
                 "color": Color,
             }
     
-    className: Schema_.Properties.ClassName
+    def className(self) -> Schema_.Properties.ClassName:
+        return self.__getitem__("className")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName: ...

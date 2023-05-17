@@ -48,8 +48,11 @@ class ObjectModelWithArgAndArgsProperties(
                 "args": Args,
             }
     
-    arg: Schema_.Properties.Arg
-    args: Schema_.Properties.Args
+    def arg(self) -> Schema_.Properties.Arg:
+        return self.__getitem__("arg")
+    
+    def args(self) -> Schema_.Properties.Args:
+        return self.__getitem__("args")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg: ...

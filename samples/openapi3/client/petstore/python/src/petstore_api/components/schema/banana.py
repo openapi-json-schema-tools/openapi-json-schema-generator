@@ -45,7 +45,8 @@ class Banana(
                 "lengthCm": LengthCm,
             }
     
-    lengthCm: Schema_.Properties.LengthCm
+    def lengthCm(self) -> Schema_.Properties.LengthCm:
+        return self.__getitem__("lengthCm")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm: ...
