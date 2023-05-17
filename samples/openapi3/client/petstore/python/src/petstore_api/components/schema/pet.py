@@ -151,9 +151,11 @@ class Pet(
                 "status": Status,
             }
     
+    @property
     def name(self) -> Schema_.Properties.Name:
         return self.__getitem__("name")
     
+    @property
     def photoUrls(self) -> Schema_.Properties.PhotoUrls:
         return self.__getitem__("photoUrls")
     

@@ -239,15 +239,19 @@ class FormatTest(
                 "noneProp": NoneProp,
             }
     
+    @property
     def byte(self) -> Schema_.Properties.Byte:
         return self.__getitem__("byte")
     
+    @property
     def date(self) -> Schema_.Properties.Date:
         return self.__getitem__("date")
     
+    @property
     def number(self) -> Schema_.Properties.Number:
         return self.__getitem__("number")
     
+    @property
     def password(self) -> Schema_.Properties.Password:
         return self.__getitem__("password")
     

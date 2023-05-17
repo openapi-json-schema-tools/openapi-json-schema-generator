@@ -176,6 +176,7 @@ class EnumTest(
                 "IntegerEnumOneValue": integer_enum_one_value,
             }
     
+    @property
     def enum_string_required(self) -> Schema_.Properties.EnumStringRequired:
         return self.__getitem__("enum_string_required")
     

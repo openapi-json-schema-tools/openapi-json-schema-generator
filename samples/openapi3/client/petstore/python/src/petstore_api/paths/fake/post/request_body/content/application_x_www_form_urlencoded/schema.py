@@ -183,15 +183,19 @@ class Schema(
                 "callback": Callback,
             }
     
+    @property
     def byte(self) -> Schema_.Properties.Byte:
         return self.__getitem__("byte")
     
+    @property
     def double(self) -> Schema_.Properties.Double:
         return self.__getitem__("double")
     
+    @property
     def number(self) -> Schema_.Properties.Number:
         return self.__getitem__("number")
     
+    @property
     def pattern_without_delimiter(self) -> Schema_.Properties.PatternWithoutDelimiter:
         return self.__getitem__("pattern_without_delimiter")
     

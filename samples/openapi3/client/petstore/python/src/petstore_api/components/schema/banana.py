@@ -45,6 +45,7 @@ class Banana(
                 "lengthCm": LengthCm,
             }
     
+    @property
     def lengthCm(self) -> Schema_.Properties.LengthCm:
         return self.__getitem__("lengthCm")
     

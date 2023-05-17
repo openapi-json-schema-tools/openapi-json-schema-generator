@@ -48,6 +48,7 @@ class NoAdditionalProperties(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
+    @property
     def id(self) -> Schema_.Properties.Id:
         return self.__getitem__("id")
     

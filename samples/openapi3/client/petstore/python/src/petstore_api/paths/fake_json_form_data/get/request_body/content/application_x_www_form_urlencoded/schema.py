@@ -43,9 +43,11 @@ class Schema(
                 "param2": Param2,
             }
     
+    @property
     def param(self) -> Schema_.Properties.Param:
         return self.__getitem__("param")
     
+    @property
     def param2(self) -> Schema_.Properties.Param2:
         return self.__getitem__("param2")
     

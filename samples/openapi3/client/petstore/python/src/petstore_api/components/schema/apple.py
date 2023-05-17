@@ -81,6 +81,7 @@ class Apple(
             }
 
     
+    @property
     def cultivar(self) -> Schema_.Properties.Cultivar:
         return self.__getitem__("cultivar")
     

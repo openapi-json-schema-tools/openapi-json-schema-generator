@@ -51,9 +51,11 @@ class Money(
                 "currency": currency,
             }
     
+    @property
     def amount(self) -> Schema_.Properties.Amount:
         return self.__getitem__("amount")
     
+    @property
     def currency(self) -> 'currency.Currency':
         return self.__getitem__("currency")
     

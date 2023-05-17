@@ -48,9 +48,11 @@ class ObjectModelWithArgAndArgsProperties(
                 "args": Args,
             }
     
+    @property
     def arg(self) -> Schema_.Properties.Arg:
         return self.__getitem__("arg")
     
+    @property
     def args(self) -> Schema_.Properties.Args:
         return self.__getitem__("args")
     

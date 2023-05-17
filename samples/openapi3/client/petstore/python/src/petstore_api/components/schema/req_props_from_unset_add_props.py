@@ -40,6 +40,7 @@ class ReqPropsFromUnsetAddProps(
             "validName",
         }
     
+    @property
     def validName(self) -> schemas.AnyTypeSchema:
         return self.__getitem__("validName")
     

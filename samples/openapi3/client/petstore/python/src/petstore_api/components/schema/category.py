@@ -58,6 +58,7 @@ class Category(
                 "name": Name,
             }
     
+    @property
     def name(self) -> Schema_.Properties.Name:
         return self.__getitem__("name")
     

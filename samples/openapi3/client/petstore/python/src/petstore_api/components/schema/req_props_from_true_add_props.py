@@ -41,6 +41,7 @@ class ReqPropsFromTrueAddProps(
         }
         AdditionalProperties = schemas.AnyTypeSchema
     
+    @property
     def validName(self) -> Schema_.AdditionalProperties:
         return self.__getitem__("validName")
     

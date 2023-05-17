@@ -3274,3 +3274,19 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/SelfReferencingArrayModel'
+    ObjWithRequiredPropsBase:
+      type: object
+      properties:
+        b:
+          type: string
+      required:
+        - b
+    ObjWithRequiredProps:
+      type: object
+      properties:
+        a:
+          type: string
+      required:
+        - a
+      allOf:
+        - $ref: '#/components/schemas/ObjWithRequiredPropsBase'

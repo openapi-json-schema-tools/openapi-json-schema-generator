@@ -66,9 +66,11 @@ class QuadrilateralInterface(
             }
 
     
+    @property
     def quadrilateralType(self) -> Schema_.Properties.QuadrilateralType:
         return self.__getitem__("quadrilateralType")
     
+    @property
     def shapeType(self) -> Schema_.Properties.ShapeType:
         return self.__getitem__("shapeType")
     

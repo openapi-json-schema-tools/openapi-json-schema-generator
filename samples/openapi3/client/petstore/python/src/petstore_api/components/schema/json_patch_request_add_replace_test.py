@@ -79,12 +79,15 @@ class JSONPatchRequestAddReplaceTest(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
+    @property
     def op(self) -> Schema_.Properties.Op:
         return self.__getitem__("op")
     
+    @property
     def path(self) -> Schema_.Properties.Path:
         return self.__getitem__("path")
     
+    @property
     def value(self) -> Schema_.Properties.Value:
         return self.__getitem__("value")
     

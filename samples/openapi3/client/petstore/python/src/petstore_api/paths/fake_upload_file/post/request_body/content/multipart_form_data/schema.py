@@ -42,6 +42,7 @@ class Schema(
                 "file": File,
             }
     
+    @property
     def file(self) -> Schema_.Properties.File:
         return self.__getitem__("file")
     

@@ -66,9 +66,11 @@ class TriangleInterface(
             }
 
     
+    @property
     def shapeType(self) -> Schema_.Properties.ShapeType:
         return self.__getitem__("shapeType")
     
+    @property
     def triangleType(self) -> Schema_.Properties.TriangleType:
         return self.__getitem__("triangleType")
     

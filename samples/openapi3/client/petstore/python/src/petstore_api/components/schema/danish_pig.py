@@ -62,6 +62,7 @@ class DanishPig(
                 "className": ClassName,
             }
     
+    @property
     def className(self) -> Schema_.Properties.ClassName:
         return self.__getitem__("className")
     

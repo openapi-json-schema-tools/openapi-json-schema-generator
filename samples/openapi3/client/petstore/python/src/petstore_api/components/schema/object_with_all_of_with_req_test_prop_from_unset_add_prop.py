@@ -60,6 +60,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                             "name": Name,
                         }
                 
+                @property
                 def test(self) -> schemas.AnyTypeSchema:
                     return self.__getitem__("test")
                 
