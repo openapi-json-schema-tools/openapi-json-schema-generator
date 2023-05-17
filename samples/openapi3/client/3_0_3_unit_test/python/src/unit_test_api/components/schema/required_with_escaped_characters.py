@@ -45,7 +45,6 @@ class RequiredWithEscapedCharacters(
         }
 
     
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.AnyTypeSchema: ...
     

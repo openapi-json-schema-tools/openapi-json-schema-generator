@@ -48,7 +48,9 @@ class RequiredValidation(
             }
 
     
-    foo: Schema_.Properties.Foo
+    @property
+    def foo(self) -> Schema_.Properties.Foo:
+        return self.__getitem__("foo")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo: ...

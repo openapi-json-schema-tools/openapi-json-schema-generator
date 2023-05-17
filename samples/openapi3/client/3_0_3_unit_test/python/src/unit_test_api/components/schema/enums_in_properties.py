@@ -81,7 +81,9 @@ class EnumsInProperties(
                 "bar": Bar,
             }
     
-    bar: Schema_.Properties.Bar
+    @property
+    def bar(self) -> Schema_.Properties.Bar:
+        return self.__getitem__("bar")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar: ...

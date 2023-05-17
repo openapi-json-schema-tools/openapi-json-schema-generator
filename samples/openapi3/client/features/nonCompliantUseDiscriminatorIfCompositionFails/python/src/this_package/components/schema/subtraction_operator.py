@@ -63,9 +63,17 @@ class SubtractionOperator(
             }
         AdditionalProperties = schemas.NotAnyTypeSchema
     
-    a: Schema_.Properties.A
-    b: Schema_.Properties.B
-    operator_id: Schema_.Properties.OperatorId
+    @property
+    def a(self) -> Schema_.Properties.A:
+        return self.__getitem__("a")
+    
+    @property
+    def b(self) -> Schema_.Properties.B:
+        return self.__getitem__("b")
+    
+    @property
+    def operator_id(self) -> Schema_.Properties.OperatorId:
+        return self.__getitem__("operator_id")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A: ...
