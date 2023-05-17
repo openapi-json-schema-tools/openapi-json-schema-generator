@@ -22,9 +22,9 @@ class TestObjWithRequiredProps(unittest.TestCase):
     obj = ObjWithRequiredProps(a='a', b='b')
     assert isinstance(obj, ObjWithRequiredProps) and isinstance(obj, ObjWithRequiredPropsBase)
     a = obj.a
-    assert isinstance(a, ObjWithRequiredProps.Schema_.Properties.A)
+    assert isinstance(a, ObjWithRequiredProps.Schema_.Properties.A.__origin__)
     b = obj.b
-    assert isinstance(a, ObjWithRequiredPropsBase.Schema_.Properties.B)
+    assert isinstance(a, ObjWithRequiredPropsBase.Schema_.Properties.B.__origin__)
 
 
 if __name__ == '__main__':
