@@ -1249,19 +1249,20 @@ class Schema(typing.Generic[T]):
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
     ):
         # We have a Dynamic class and we are making an instance of it
+        super_cls: typing.Type = super(Schema, cls)
         if issubclass(cls, frozendict.frozendict) and issubclass(cls, DictBase):
-            properties = cls._get_properties(arg, path_to_item, path_to_schemas)
-            return super(Schema, cls).__new__(cls, properties)
+            used_arg = cls._get_properties(arg, path_to_item, path_to_schemas)
         elif issubclass(cls, tuple) and issubclass(cls, ListBase):
-            items = cls._get_items(arg, path_to_item, path_to_schemas)
-            return super(Schema, cls).__new__(cls, items)
-        """
-        str = openapi str, datetime.date, and datetime.datetime
-        decimal.Decimal = openapi int and float
-        FileIO = openapi binary type and the user inputs a file
-        bytes = openapi binary type and the user inputs bytes
-        """
-        return super(Schema, cls).__new__(cls, arg)
+            used_arg = cls._get_items(arg, path_to_item, path_to_schemas)
+        else:
+            """
+            str = openapi str, datetime.date, and datetime.datetime
+            decimal.Decimal = openapi int and float
+            FileIO = openapi binary type and the user inputs a file
+            bytes = openapi binary type and the user inputs bytes
+            """
+            used_arg = arg
+        return super_cls.__new__(cls, used_arg)
 
     @classmethod
     def from_openapi_data_(
