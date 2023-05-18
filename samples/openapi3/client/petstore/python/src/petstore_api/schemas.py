@@ -82,7 +82,7 @@ class ValidationMetadata(frozendict.frozendict):
         configuration: schema_configuration.SchemaConfiguration,
         seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
         validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
-    ):
+    ) -> ValidationMetadata:
         """
         Args:
             path_to_item: the path to the current data being instantiated.
@@ -771,7 +771,7 @@ def validate_items(
     item_cls: typing.Type,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
-) -> PathToSchemasType:
+) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
     item_cls = _get_class(item_cls)
@@ -1107,6 +1107,7 @@ json_schema_keyword_to_validator = {
 }
 
 T = typing.TypeVar('T')
+U = typing.TypeVar('U')
 
 class Schema(typing.Generic[T]):
     """
@@ -2354,7 +2355,7 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     """
 
     class Schema_:
-        _not = AnyTypeSchema[T]
+        _not = AnyTypeSchema[U]
 
     def __new__(
         cls,
@@ -2380,8 +2381,13 @@ class DictSchema(
     def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, *args_: typing.Union[dict, frozendict.frozendict], **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, bool, None, bytes, Schema, Unset, ValidationMetadata]) -> DictSchema[frozendict.frozendict]:
-        return super().__new__(cls, *args_, **kwargs)
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, Schema, Unset, ValidationMetadata],
+    ) -> DictSchema[frozendict.frozendict]:
+        return super().__new__(cls, *args_, **kwargs, configuration_=configuration_)
 
 
 schema_type_classes = {NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema}
