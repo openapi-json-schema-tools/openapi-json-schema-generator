@@ -1832,9 +1832,8 @@ class NumberBase:
 class ListBase:
     Schema_: SchemaTyped
 
-    @classmethod
+    @staticmethod
     def _get_items(
-        cls: 'Schema',
         arg: typing.List[typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
@@ -1858,9 +1857,8 @@ class ListBase:
 
 
 class DictBase:
-    @classmethod
+    @staticmethod
     def _get_properties(
-        cls,
         arg: typing.Dict[str, typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
