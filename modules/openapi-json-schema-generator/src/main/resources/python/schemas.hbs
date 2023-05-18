@@ -1918,12 +1918,14 @@ class NumberBase:
                 so we can tell that the value came from a float and convert it back to a float
                 during later serialization
                 """
-                if self.as_tuple().exponent < 0:
-                    # this could be represented as an integer but should be represented as a float
-                    # because that's what it was serialized from
-                    raise exceptions.ApiValueError(f'{self} is not an integer')
-                self._as_int = int(self)
-                return self._as_int
+                exponent = self.as_tuple().exponent
+                if isinstance(exponent, int):
+                    if exponent < 0:
+                        # this could be represented as an integer but should be represented as a float
+                        # because that's what it was serialized from
+                        raise exceptions.ApiValueError(f'{self} is not an integer')
+                    self._as_int = int(self)
+                    return self._as_int
         raise ValueError('instance is not int')
 
     @property
