@@ -55,12 +55,17 @@ class ComposedOneOfDifferentTypes(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> ComposedOneOfDifferentTypes.Schema_.OneOf._4[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        ComposedOneOfDifferentTypes.Schema_.OneOf._4[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             
             
             class _5(
@@ -86,11 +91,16 @@ class ComposedOneOfDifferentTypes(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ComposedOneOfDifferentTypes.Schema_.OneOf._5[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        ComposedOneOfDifferentTypes.Schema_.OneOf._5[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
                     frozendict.frozendict,

@@ -38,9 +38,14 @@ class ComposedNumber(
         arg_: typing.Union[decimal.Decimal, int, float],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ComposedNumber[decimal.Decimal]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ComposedNumber[decimal.Decimal],
+            inst
+        )
+        return inst
 

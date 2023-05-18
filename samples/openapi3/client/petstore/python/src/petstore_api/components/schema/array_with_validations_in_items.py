@@ -50,11 +50,16 @@ class ArrayWithValidationsInItems(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ArrayWithValidationsInItems[tuple]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ArrayWithValidationsInItems[tuple],
+            inst
+        )
+        return inst
 
     def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
         return super().__getitem__(name)

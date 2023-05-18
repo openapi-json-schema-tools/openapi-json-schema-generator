@@ -37,11 +37,16 @@ class ComposedArray(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ComposedArray[tuple]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ComposedArray[tuple],
+            inst
+        )
+        return inst
 
     def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
         frozendict.frozendict,

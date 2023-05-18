@@ -60,10 +60,15 @@ class SelfReferencingObjectModel(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union['SelfReferencingObjectModel', dict, frozendict.frozendict],
     ) -> SelfReferencingObjectModel[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             selfRef=selfRef,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            SelfReferencingObjectModel[frozendict.frozendict],
+            inst
+        )
+        return inst

@@ -40,11 +40,16 @@ class AnimalFarm(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> AnimalFarm[tuple]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            AnimalFarm[tuple],
+            inst
+        )
+        return inst
 
     def __getitem__(self, name: int) -> animal.Animal[frozendict.frozendict]:
         return super().__getitem__(name)

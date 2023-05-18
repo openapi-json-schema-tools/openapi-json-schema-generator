@@ -53,11 +53,21 @@ class NullableClass(
                         decimal.Decimal
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.IntegerProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                decimal.Decimal
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -86,11 +96,21 @@ class NullableClass(
                         decimal.Decimal
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.NumberProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                decimal.Decimal
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -119,11 +139,21 @@ class NullableClass(
                         schemas.BoolClass
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.BooleanProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                schemas.BoolClass
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -152,11 +182,21 @@ class NullableClass(
                         str
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.StringProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                str
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -187,11 +227,21 @@ class NullableClass(
                         str
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.DateProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                str
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -222,11 +272,21 @@ class NullableClass(
                         str
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.DatetimeProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                str
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -256,11 +316,21 @@ class NullableClass(
                         tuple
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ArrayNullableProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                tuple
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -305,12 +375,22 @@ class NullableClass(
                                 frozendict.frozendict
                             ]
                         ]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 *args_,
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                            inst = typing.cast(
+                                NullableClass.Schema_.Properties.ArrayAndItemsNullableProp.Schema_.Items[
+                                    typing.Union[
+                                        schemas.NoneClass,
+                                        frozendict.frozendict
+                                    ]
+                                ],
+                                inst
+                            )
+                            return inst
                     
             
             
@@ -324,11 +404,21 @@ class NullableClass(
                         tuple
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ArrayAndItemsNullableProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                tuple
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -367,12 +457,22 @@ class NullableClass(
                                 frozendict.frozendict
                             ]
                         ]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 *args_,
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                            inst = typing.cast(
+                                NullableClass.Schema_.Properties.ArrayItemsNullable.Schema_.Items[
+                                    typing.Union[
+                                        schemas.NoneClass,
+                                        frozendict.frozendict
+                                    ]
+                                ],
+                                inst
+                            )
+                            return inst
                     
             
                 def __new__(
@@ -387,11 +487,16 @@ class NullableClass(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> NullableClass.Schema_.Properties.ArrayItemsNullable[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ArrayItemsNullable[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
                     schemas.NoneClass,
@@ -431,12 +536,22 @@ class NullableClass(
                         frozendict.frozendict
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ObjectNullableProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                frozendict.frozendict
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -481,12 +596,22 @@ class NullableClass(
                                 frozendict.frozendict
                             ]
                         ]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 *args_,
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                            inst = typing.cast(
+                                NullableClass.Schema_.Properties.ObjectAndItemsNullableProp.Schema_.AdditionalProperties[
+                                    typing.Union[
+                                        schemas.NoneClass,
+                                        frozendict.frozendict
+                                    ]
+                                ],
+                                inst
+                            )
+                            return inst
                     
             
                 
@@ -508,12 +633,22 @@ class NullableClass(
                         frozendict.frozendict
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ObjectAndItemsNullableProp[
+                            typing.Union[
+                                schemas.NoneClass,
+                                frozendict.frozendict
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             
             
@@ -552,12 +687,22 @@ class NullableClass(
                                 frozendict.frozendict
                             ]
                         ]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 *args_,
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                            inst = typing.cast(
+                                NullableClass.Schema_.Properties.ObjectItemsNullable.Schema_.AdditionalProperties[
+                                    typing.Union[
+                                        schemas.NoneClass,
+                                        frozendict.frozendict
+                                    ]
+                                ],
+                                inst
+                            )
+                            return inst
                     
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
@@ -573,12 +718,17 @@ class NullableClass(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict],
                 ) -> NullableClass.Schema_.Properties.ObjectItemsNullable[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        NullableClass.Schema_.Properties.ObjectItemsNullable[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             __annotations__ = {
                 "integer_prop": IntegerProp,
                 "number_prop": NumberProp,
@@ -621,12 +771,22 @@ class NullableClass(
                     frozendict.frozendict
                 ]
             ]:
-                return super().__new__(
+                inst = super().__new__(
                     cls,
                     *args_,
                     configuration_=configuration_,
                     **kwargs,
                 )
+                inst = typing.cast(
+                    NullableClass.Schema_.AdditionalProperties[
+                        typing.Union[
+                            schemas.NoneClass,
+                            frozendict.frozendict
+                        ]
+                    ],
+                    inst
+                )
+                return inst
         
     
     @typing.overload
@@ -740,7 +900,7 @@ class NullableClass(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict],
     ) -> NullableClass[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             integer_prop=integer_prop,
@@ -758,3 +918,8 @@ class NullableClass(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            NullableClass[frozendict.frozendict],
+            inst
+        )
+        return inst

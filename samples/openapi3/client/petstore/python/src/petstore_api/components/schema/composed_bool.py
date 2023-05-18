@@ -38,9 +38,14 @@ class ComposedBool(
         arg_: bool,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ComposedBool[schemas.BoolClass]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ComposedBool[schemas.BoolClass],
+            inst
+        )
+        return inst
 

@@ -40,11 +40,16 @@ class SelfReferencingArrayModel(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> SelfReferencingArrayModel[tuple]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            SelfReferencingArrayModel[tuple],
+            inst
+        )
+        return inst
 
     def __getitem__(self, name: int) -> SelfReferencingArrayModel[tuple]:
         return super().__getitem__(name)

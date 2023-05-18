@@ -114,11 +114,21 @@ class Apple(
             frozendict.frozendict
         ]
     ]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             origin=origin,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            Apple[
+                typing.Union[
+                    schemas.NoneClass,
+                    frozendict.frozendict
+                ]
+            ],
+            inst
+        )
+        return inst
 

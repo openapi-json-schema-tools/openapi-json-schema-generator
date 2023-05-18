@@ -55,12 +55,17 @@ class MapTest(
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                         ) -> MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 *args_,
                                 configuration_=configuration_,
                                 **kwargs,
                             )
+                            inst = typing.cast(
+                                MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict],
+                                inst
+                            )
+                            return inst
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties[frozendict.frozendict]:
                     # dict_instance[name] accessor
@@ -72,12 +77,17 @@ class MapTest(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
                 ) -> MapTest.Schema_.Properties.MapMapOfString[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        MapTest.Schema_.Properties.MapMapOfString[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             
             
             class MapOfEnumString(
@@ -121,12 +131,17 @@ class MapTest(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, str],
                 ) -> MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             
             
             class DirectMap(
@@ -148,12 +163,17 @@ class MapTest(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, bool],
                 ) -> MapTest.Schema_.Properties.DirectMap[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        MapTest.Schema_.Properties.DirectMap[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
         
             @staticmethod
             def indirect_map() -> typing.Type['string_boolean_map.StringBooleanMap']:
@@ -212,7 +232,7 @@ class MapTest(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> MapTest[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             map_map_of_string=map_map_of_string,
@@ -222,5 +242,10 @@ class MapTest(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            MapTest[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import string_boolean_map

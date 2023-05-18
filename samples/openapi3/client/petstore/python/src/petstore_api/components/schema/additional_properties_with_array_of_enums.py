@@ -49,11 +49,16 @@ class AdditionalPropertiesWithArrayOfEnums(
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
             ) -> AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties[tuple]:
-                return super().__new__(
+                inst = super().__new__(
                     cls,
                     arg_,
                     configuration_=configuration_,
                 )
+                inst = typing.cast(
+                    AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties[tuple],
+                    inst
+                )
+                return inst
         
             def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
                 return super().__getitem__(name)
@@ -68,11 +73,16 @@ class AdditionalPropertiesWithArrayOfEnums(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple],
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import enum_class

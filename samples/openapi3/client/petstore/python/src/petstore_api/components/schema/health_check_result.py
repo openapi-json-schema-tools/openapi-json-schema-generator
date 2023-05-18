@@ -54,11 +54,21 @@ class HealthCheckResult(
                         str
                     ]
                 ]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        HealthCheckResult.Schema_.Properties.NullableMessage[
+                            typing.Union[
+                                schemas.NoneClass,
+                                str
+                            ]
+                        ],
+                        inst
+                    )
+                    return inst
             
             __annotations__ = {
                 "NullableMessage": NullableMessage,
@@ -99,10 +109,15 @@ class HealthCheckResult(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> HealthCheckResult[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             NullableMessage=NullableMessage,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            HealthCheckResult[frozendict.frozendict],
+            inst
+        )
+        return inst

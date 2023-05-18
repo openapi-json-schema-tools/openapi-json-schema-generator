@@ -78,9 +78,19 @@ class StringEnum(
             str
         ]
     ]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            StringEnum[
+                typing.Union[
+                    schemas.NoneClass,
+                    str
+                ]
+            ],
+            inst
+        )
+        return inst
 

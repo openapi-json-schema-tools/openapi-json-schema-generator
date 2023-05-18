@@ -57,12 +57,17 @@ class AdditionalPropertiesValidator(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
                 ) -> AdditionalPropertiesValidator.Schema_.AllOf._0[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        AdditionalPropertiesValidator.Schema_.AllOf._0[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             
             
             class _1(
@@ -104,12 +109,17 @@ class AdditionalPropertiesValidator(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
                 ) -> AdditionalPropertiesValidator.Schema_.AllOf._1[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        AdditionalPropertiesValidator.Schema_.AllOf._1[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             
             
             class _2(
@@ -151,12 +161,17 @@ class AdditionalPropertiesValidator(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
                 ) -> AdditionalPropertiesValidator.Schema_.AllOf._2[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        AdditionalPropertiesValidator.Schema_.AllOf._2[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             classes = [
                 _0,
                 _1,
@@ -170,10 +185,15 @@ class AdditionalPropertiesValidator(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            AdditionalPropertiesValidator[frozendict.frozendict],
+            inst
+        )
+        return inst
 

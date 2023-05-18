@@ -48,11 +48,16 @@ class ArrayTest(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayOfString[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        ArrayTest.Schema_.Properties.ArrayOfString[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[str]:
                     return super().__getitem__(name)
@@ -88,11 +93,16 @@ class ArrayTest(
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items[tuple]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 arg_,
                                 configuration_=configuration_,
                             )
+                            inst = typing.cast(
+                                ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items[tuple],
+                                inst
+                            )
+                            return inst
                     
                         def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
                             return super().__getitem__(name)
@@ -109,11 +119,16 @@ class ArrayTest(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        ArrayTest.Schema_.Properties.ArrayArrayOfInteger[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[tuple]:
                     return super().__getitem__(name)
@@ -152,11 +167,16 @@ class ArrayTest(
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items[tuple]:
-                            return super().__new__(
+                            inst = super().__new__(
                                 cls,
                                 arg_,
                                 configuration_=configuration_,
                             )
+                            inst = typing.cast(
+                                ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items[tuple],
+                                inst
+                            )
+                            return inst
                     
                         def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirst[frozendict.frozendict]:
                             return super().__getitem__(name)
@@ -173,11 +193,16 @@ class ArrayTest(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        ArrayTest.Schema_.Properties.ArrayArrayOfModel[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[tuple]:
                     return super().__getitem__(name)
@@ -229,7 +254,7 @@ class ArrayTest(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> ArrayTest[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             array_of_string=array_of_string,
@@ -238,5 +263,10 @@ class ArrayTest(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            ArrayTest[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import read_only_first

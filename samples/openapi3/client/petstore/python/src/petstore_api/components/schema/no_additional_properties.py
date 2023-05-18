@@ -63,10 +63,15 @@ class NoAdditionalProperties(
         petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> NoAdditionalProperties[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             id=id,
             petId=petId,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            NoAdditionalProperties[frozendict.frozendict],
+            inst
+        )
+        return inst

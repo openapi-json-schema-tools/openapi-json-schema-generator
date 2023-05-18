@@ -63,10 +63,15 @@ class AppleReq(
         mealy: typing.Union[Schema_.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> AppleReq[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             cultivar=cultivar,
             mealy=mealy,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            AppleReq[frozendict.frozendict],
+            inst
+        )
+        return inst

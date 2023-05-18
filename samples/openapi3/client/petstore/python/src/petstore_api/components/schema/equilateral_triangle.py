@@ -94,13 +94,18 @@ class EquilateralTriangle(
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> EquilateralTriangle.Schema_.AllOf._1[frozendict.frozendict]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         *args_,
                         triangleType=triangleType,
                         configuration_=configuration_,
                         **kwargs,
                     )
+                    inst = typing.cast(
+                        EquilateralTriangle.Schema_.AllOf._1[frozendict.frozendict],
+                        inst
+                    )
+                    return inst
             classes = [
                 _0,
                 _1,

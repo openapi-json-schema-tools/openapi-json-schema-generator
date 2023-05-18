@@ -74,7 +74,7 @@ class Player(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Player[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             name=name,
@@ -82,3 +82,8 @@ class Player(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            Player[frozendict.frozendict],
+            inst
+        )
+        return inst

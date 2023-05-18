@@ -63,10 +63,15 @@ class BananaReq(
         sweet: typing.Union[Schema_.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> BananaReq[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             lengthCm=lengthCm,
             sweet=sweet,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            BananaReq[frozendict.frozendict],
+            inst
+        )
+        return inst

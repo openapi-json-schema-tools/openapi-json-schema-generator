@@ -38,9 +38,14 @@ class ComposedString(
         arg_: str,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ComposedString[str]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ComposedString[str],
+            inst
+        )
+        return inst
 

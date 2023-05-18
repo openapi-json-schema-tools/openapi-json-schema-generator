@@ -38,9 +38,14 @@ class ComposedNone(
         arg_: None,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ComposedNone[schemas.NoneClass]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
+        inst = typing.cast(
+            ComposedNone[schemas.NoneClass],
+            inst
+        )
+        return inst
 

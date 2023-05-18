@@ -48,11 +48,16 @@ class ArrayOfNumberOnly(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
                     return super().__getitem__(name)
@@ -92,10 +97,15 @@ class ArrayOfNumberOnly(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> ArrayOfNumberOnly[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             ArrayNumber=ArrayNumber,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            ArrayOfNumberOnly[frozendict.frozendict],
+            inst
+        )
+        return inst

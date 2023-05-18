@@ -55,11 +55,16 @@ class FileSchemaTestClass(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> FileSchemaTestClass.Schema_.Properties.Files[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        FileSchemaTestClass.Schema_.Properties.Files[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> file.File[frozendict.frozendict]:
                     return super().__getitem__(name)
@@ -105,7 +110,7 @@ class FileSchemaTestClass(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> FileSchemaTestClass[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             file=file,
@@ -113,5 +118,10 @@ class FileSchemaTestClass(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            FileSchemaTestClass[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import file

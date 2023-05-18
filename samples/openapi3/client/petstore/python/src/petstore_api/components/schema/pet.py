@@ -60,11 +60,16 @@ class Pet(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Pet.Schema_.Properties.PhotoUrls[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        Pet.Schema_.Properties.PhotoUrls[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> Schema_.Items[str]:
                     return super().__getitem__(name)
@@ -94,11 +99,16 @@ class Pet(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Pet.Schema_.Properties.Tags[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        Pet.Schema_.Properties.Tags[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> tag.Tag[frozendict.frozendict]:
                     return super().__getitem__(name)
@@ -204,7 +214,7 @@ class Pet(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Pet[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             name=name,
@@ -216,6 +226,11 @@ class Pet(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            Pet[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import category
 from petstore_api.components.schema import tag

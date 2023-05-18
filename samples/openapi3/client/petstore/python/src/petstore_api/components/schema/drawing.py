@@ -63,11 +63,16 @@ class Drawing(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Drawing.Schema_.Properties.Shapes[tuple]:
-                    return super().__new__(
+                    inst = super().__new__(
                         cls,
                         arg_,
                         configuration_=configuration_,
                     )
+                    inst = typing.cast(
+                        Drawing.Schema_.Properties.Shapes[tuple],
+                        inst
+                    )
+                    return inst
             
                 def __getitem__(self, name: int) -> shape.Shape[typing.Union[
                     frozendict.frozendict,
@@ -165,7 +170,7 @@ class Drawing(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union['fruit.Fruit', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
     ) -> Drawing[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             mainShape=mainShape,
@@ -175,6 +180,11 @@ class Drawing(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            Drawing[frozendict.frozendict],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import fruit
 from petstore_api.components.schema import nullable_shape

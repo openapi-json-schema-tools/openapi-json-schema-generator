@@ -121,7 +121,7 @@ class Zebra(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
     ) -> Zebra[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             className=className,
@@ -129,3 +129,8 @@ class Zebra(
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            Zebra[frozendict.frozendict],
+            inst
+        )
+        return inst

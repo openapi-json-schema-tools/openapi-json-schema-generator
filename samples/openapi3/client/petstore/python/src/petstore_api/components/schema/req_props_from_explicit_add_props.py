@@ -60,10 +60,15 @@ class ReqPropsFromExplicitAddProps(
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, str],
     ) -> ReqPropsFromExplicitAddProps[frozendict.frozendict]:
-        return super().__new__(
+        inst = super().__new__(
             cls,
             *args_,
             validName=validName,
             configuration_=configuration_,
             **kwargs,
         )
+        inst = typing.cast(
+            ReqPropsFromExplicitAddProps[frozendict.frozendict],
+            inst
+        )
+        return inst
