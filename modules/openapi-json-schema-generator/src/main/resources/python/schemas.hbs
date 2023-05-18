@@ -5,6 +5,7 @@
 from __future__ import annotations
 import collections
 import datetime
+import dataclasses
 import functools
 import decimal
 import io
@@ -67,39 +68,15 @@ def update(d: dict, u: dict):
             d[k] = d[k] | v
 
 
+@dataclasses.dataclass
 class ValidationMetadata(frozendict.frozendict):
     """
     A class storing metadata that is needed to validate OpenApi Schema payloads
     """
-    def __new__(
-        cls,
-        path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        configuration: schema_configuration.SchemaConfiguration,
-        seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
-        validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
-    ) -> ValidationMetadata:
-        """
-        Args:
-            path_to_item: the path to the current data being instantiated.
-                For {'a': [1]} if the code is handling, 1, then the path is ('args[0]', 'a', 0)
-                This changes from location to location
-            configuration: the schema_configuration.SchemaConfiguration instance to use
-                This is needed because in schema_configuration.SchemaConfiguration:
-                - one can disable validation checking
-                This does not change from location to location
-            seen_classes: when deserializing data that matches multiple schemas, this is used to store
-                the schemas that have been traversed. This is used to stop processing when a cycle is seen.
-                This changes from location to location
-            validated_path_to_schemas: stores the already validated schema classes for a given path location
-                This does not change from location to location
-        """
-        return super().__new__(
-            cls,
-            path_to_item=path_to_item,
-            configuration=configuration,
-            seen_classes=seen_classes,
-            validated_path_to_schemas=validated_path_to_schemas
-        )
+    path_to_item: typing.Tuple[typing.Union[str, int], ...]
+    configuration: schema_configuration.SchemaConfiguration
+    seen_classes: typing.FrozenSet[typing.Type] = frozenset()
+    validated_path_to_schemas: frozendict.frozendict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
 
     def validation_ran_earlier(self, cls: type) -> bool:
         validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
@@ -109,22 +86,6 @@ class ValidationMetadata(frozendict.frozendict):
         if cls in self.seen_classes:
             return True
         return False
-
-    @property
-    def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
-        return self['path_to_item']
-
-    @property
-    def configuration(self) -> schema_configuration.SchemaConfiguration:
-        return self['configuration']
-
-    @property
-    def seen_classes(self) -> typing.FrozenSet[typing.Type]:
-        return self['seen_classes']
-
-    @property
-    def validated_path_to_schemas(self) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]]:
-        return self['validated_path_to_schemas']
 
 
 def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_to_schemas: dict):
@@ -1304,23 +1265,34 @@ class Schema(typing.Generic[T]):
 
     @staticmethod
     def _process_schema_classes(
-        schema_classes: typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]
+        schema_classes: typing.Set[
+            typing.Union[
+                typing.Type[Schema],
+                typing.Type[str],
+                typing.Type[decimal.Decimal],
+                typing.Type[BoolClass],
+                typing.Type[NoneClass],
+                typing.Type[frozendict.frozendict],
+                typing.Type[tuple]
+            ]
+        ]
     ):
         """
         Processes and mutates schema_classes
-        If a SomeSchema is a subclass of DictSchema then remove DictSchema because it is already included
+        If a SomeSchema is a subclass of DictSchema
+        and the payload was also validated against DictSchema
+        remove DictSchema because it is already included
+        this removal is needed to not have a mro error in get_new_class
         """
-        if len(schema_classes) < 2:
-            return
         if len(schema_classes) > 2 and UnsetAnyTypeSchema in schema_classes:
             schema_classes.remove(UnsetAnyTypeSchema)
-        x_schema = schema_type_classes & schema_classes
+        x_schema = schema_classes & schema_type_classes
         if not x_schema:
+            # DictSchema inheritor cls whose payload is not also validated against a base schema class like DictSchema
             return
         # the only way len == 2 is to have one be AnyTypeSchema
         x_schema = x_schema.pop() if len(x_schema) == 1 else AnyTypeSchema
         if any(c is not x_schema and issubclass(c, x_schema) for c in schema_classes):
-            # needed to not have a mro error in get_new_class
             schema_classes.remove(x_schema)
 
     @staticmethod
@@ -1454,16 +1426,16 @@ class Schema(typing.Generic[T]):
         from_server = True
         validated_path_to_schemas = {}
         path_to_type = {}
-        arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
+        cast_arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
         validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
             configuration=configuration_ or schema_configuration.SchemaConfiguration(),
             validated_path_to_schemas=frozendict.frozendict(validated_path_to_schemas)
         )
-        path_to_schemas = cls.__get_new_cls(arg, validation_metadata, path_to_type)
+        path_to_schemas = cls.__get_new_cls(cast_arg, validation_metadata, path_to_type)
         new_cls = path_to_schemas[validation_metadata.path_to_item]
         new_inst = new_cls._get_new_instance_without_conversion(
-            arg,
+            cast_arg,
             validation_metadata.path_to_item,
             path_to_schemas
         )
@@ -1517,17 +1489,17 @@ class Schema(typing.Generic[T]):
         __from_server = False
         __validated_path_to_schemas = {}
         __path_to_type = {}
-        __arg = cast_to_allowed_types(
+        cast_arg = cast_to_allowed_types(
             __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
         __validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
             configuration=configuration_ or schema_configuration.SchemaConfiguration(),
             validated_path_to_schemas=frozendict.frozendict(__validated_path_to_schemas)
         )
-        __path_to_schemas = cls.__get_new_cls(__arg, __validation_metadata, __path_to_type)
+        __path_to_schemas = cls.__get_new_cls(cast_arg, __validation_metadata, __path_to_type)
         __new_cls = __path_to_schemas[__validation_metadata.path_to_item]
         return __new_cls._get_new_instance_without_conversion(
-            __arg,
+            cast_arg,
             __validation_metadata.path_to_item,
             __path_to_schemas
         )
@@ -2479,7 +2451,7 @@ class DictSchema(
         return super().__new__(cls, *args_, **kwargs, configuration_=configuration_)
 
 
-schema_type_classes = {NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema}
+schema_type_classes = frozenset({NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema})
 
 
 @functools.lru_cache()
