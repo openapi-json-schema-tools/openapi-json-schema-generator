@@ -77,7 +77,7 @@ class ValidationMetadata(frozendict.frozendict):
         configuration: schema_configuration.SchemaConfiguration,
         seen_classes: typing.FrozenSet[typing.Type] = frozenset(),
         validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
-    ):
+    ) -> ValidationMetadata:
         """
         Args:
             path_to_item: the path to the current data being instantiated.
