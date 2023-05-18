@@ -1822,10 +1822,12 @@ class NumberBase:
             try:
                 return self._as_float
             except AttributeError:
-                if self.as_tuple().exponent >= 0:
-                    raise exceptions.ApiValueError(f'{self} is not a float')
-                self._as_float = float(self)
-                return self._as_float
+                exponent = self.as_tuple().exponent
+                if isinstance(exponent, int):
+                    if exponent >= 0:
+                        raise exceptions.ApiValueError(f'{self} is not a float')
+                    self._as_float = float(self)
+                    return self._as_float
         raise ValueError('instance is not float')
 
 
