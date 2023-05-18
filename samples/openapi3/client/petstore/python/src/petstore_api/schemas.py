@@ -1728,7 +1728,9 @@ class StrBase:
 
     @property
     def as_str_(self) -> str:
-        return self
+        if isinstance(self, str):
+            return self
+        raise ValueError('instance is not str')
 
     @property
     def as_date_(self) -> datetime.date:
@@ -1751,21 +1753,27 @@ class UUIDBase:
     @property
     @functools.lru_cache()
     def as_uuid_(self) -> uuid.UUID:
-        return uuid.UUID(self)
+        if isinstance(self, str):
+            return uuid.UUID(self)
+        raise ValueError('instance is not uuid')
 
 
 class DateBase:
     @property
     @functools.lru_cache()
     def as_date_(self) -> datetime.date:
-        return DEFAULT_ISOPARSER.parse_isodate(self)
+        if isinstance(self, str):
+            return DEFAULT_ISOPARSER.parse_isodate(self)
+        raise ValueError('instance is not date')
 
 
 class DateTimeBase:
     @property
     @functools.lru_cache()
     def as_datetime_(self) -> datetime.datetime:
-        return DEFAULT_ISOPARSER.parse_isodatetime(self)
+        if isinstance(self, str):
+            DEFAULT_ISOPARSER.parse_isodatetime(self)
+        raise ValueError('instance is not datetime')
 
 
 class DecimalBase:
@@ -1778,7 +1786,9 @@ class DecimalBase:
     @property
     @functools.lru_cache()
     def as_decimal_(self) -> decimal.Decimal:
-        return decimal.Decimal(self)
+        if isinstance(self, str):
+            decimal.Decimal(self)
+        raise ValueError('instance is not decimal')
 
 
 class NumberBase:
@@ -1786,33 +1796,37 @@ class NumberBase:
 
     @property
     def as_int_(self) -> int:
-        try:
-            return self._as_int
-        except AttributeError:
-            """
-            Note: for some numbers like 9.0 they could be represented as an
-            integer but our code chooses to store them as
-            >>> Decimal('9.0').as_tuple()
-            DecimalTuple(sign=0, digits=(9, 0), exponent=-1)
-            so we can tell that the value came from a float and convert it back to a float
-            during later serialization
-            """
-            if self.as_tuple().exponent < 0:
-                # this could be represented as an integer but should be represented as a float
-                # because that's what it was serialized from
-                raise exceptions.ApiValueError(f'{self} is not an integer')
-            self._as_int = int(self)
-            return self._as_int
+        if isinstance(self, decimal.Decimal):
+            try:
+                return self._as_int
+            except AttributeError:
+                """
+                Note: for some numbers like 9.0 they could be represented as an
+                integer but our code chooses to store them as
+                >>> Decimal('9.0').as_tuple()
+                DecimalTuple(sign=0, digits=(9, 0), exponent=-1)
+                so we can tell that the value came from a float and convert it back to a float
+                during later serialization
+                """
+                if self.as_tuple().exponent < 0:
+                    # this could be represented as an integer but should be represented as a float
+                    # because that's what it was serialized from
+                    raise exceptions.ApiValueError(f'{self} is not an integer')
+                self._as_int = int(self)
+                return self._as_int
+        raise ValueError('instance is not int')
 
     @property
     def as_float_(self) -> float:
-        try:
-            return self._as_float
-        except AttributeError:
-            if self.as_tuple().exponent >= 0:
-                raise exceptions.ApiValueError(f'{self} is not a float')
-            self._as_float = float(self)
-            return self._as_float
+        if isinstance(self, decimal.Decimal):
+            try:
+                return self._as_float
+            except AttributeError:
+                if self.as_tuple().exponent >= 0:
+                    raise exceptions.ApiValueError(f'{self} is not a float')
+                self._as_float = float(self)
+                return self._as_float
+        raise ValueError('instance is not float')
 
 
 class ListBase:
