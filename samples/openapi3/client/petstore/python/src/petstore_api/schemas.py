@@ -2104,7 +2104,8 @@ class IntSchema(IntBase, NumberSchema[T]):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> IntSchema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(IntSchema[decimal.Decimal], inst)
 
 
 class Int32Schema(
@@ -2115,7 +2116,8 @@ class Int32Schema(
         format = 'int32'
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int32Schema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(Int32Schema[decimal.Decimal], inst)
 
 
 class Int64Schema(
@@ -2126,7 +2128,8 @@ class Int64Schema(
         format = 'int64'
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int64Schema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(Int64Schema[decimal.Decimal], inst)
 
 
 class Float32Schema(
@@ -2141,7 +2144,8 @@ class Float32Schema(
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float32Schema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(Float32Schema[decimal.Decimal], inst)
 
 
 class Float64Schema(
@@ -2156,7 +2160,8 @@ class Float64Schema(
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float64Schema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(Float64Schema[decimal.Decimal], inst)
 
 
 class StrSchema(
@@ -2186,8 +2191,9 @@ class UUIDSchema(UUIDBase, StrSchema[T]):
         types = {str}
         format = 'uuid'
 
-    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> StrSchema[str]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> UUIDSchema[str]:
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(UUIDSchema[str], inst)
 
 
 class DateSchema(DateBase, StrSchema[T]):
@@ -2196,7 +2202,8 @@ class DateSchema(DateBase, StrSchema[T]):
         format = 'date'
 
     def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: schema_configuration.SchemaConfiguration) -> DateSchema[str]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(DateSchema[str], inst)
 
 
 class DateTimeSchema(DateTimeBase, StrSchema[T]):
@@ -2205,7 +2212,8 @@ class DateTimeSchema(DateTimeBase, StrSchema[T]):
         format = 'date-time'
 
     def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: schema_configuration.SchemaConfiguration) -> DateTimeSchema[str]:
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(DateTimeSchema[str], inst)
 
 
 class DecimalSchema(DecimalBase, StrSchema[T]):
@@ -2222,7 +2230,8 @@ class DecimalSchema(DecimalBase, StrSchema[T]):
         if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
         where it should stay as Decimal.
         """
-        return super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg_, **kwargs)
+        return typing.cast(DecimalSchema[str], inst)
 
 
 class BytesSchema(
@@ -2350,11 +2359,8 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
         *args_,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ) -> NotAnyTypeSchema[T]:
-        return super().__new__(
-            cls,
-            *args_,
-            configuration_=configuration_,
-        )
+        inst = super().__new__(cls, *args_, configuration_=configuration_)
+        return typing.cast(NotAnyTypeSchema[T], inst)
 
 
 class DictSchema(
@@ -2389,8 +2395,8 @@ def get_new_class(
     """
     Returns a new class that is made with the subclass bases
     """
-    new_cls: typing.Type[Schema] = type(class_name, bases, {})
-    return new_cls
+    new_cls = type(class_name, bases, {})
+    return typing.cast(typing.Type[Schema], new_cls)
 
 
 LOG_CACHE_USAGE = False
