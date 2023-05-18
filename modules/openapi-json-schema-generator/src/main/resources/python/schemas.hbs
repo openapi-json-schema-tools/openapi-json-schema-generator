@@ -2172,11 +2172,13 @@ class NumberSchema(
 class IntBase:
     @property
     def as_int_(self) -> int:
-        try:
-            return self._as_int
-        except AttributeError:
-            self._as_int = int(self)
-            return self._as_int
+        if isinstance(self, decimal.Decimal):
+            try:
+                return self._as_int
+            except AttributeError:
+                self._as_int = int(self)
+                return self._as_int
+        raise ValueError('instance is not int')
 
 
 class IntSchema(IntBase, NumberSchema[T]):
