@@ -2249,7 +2249,8 @@ class BytesSchema(
         types = {bytes}
 
     def __new__(cls, arg_: bytes, **kwargs: schema_configuration.SchemaConfiguration) -> BytesSchema[bytes]:
-        return super(Schema, cls).__new__(cls, arg_)
+        super_cls: typing.Type = super(Schema, cls)
+        return super_cls.__new__(cls, arg_)
 
 
 class FileSchema(
