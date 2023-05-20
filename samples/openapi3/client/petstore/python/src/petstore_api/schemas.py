@@ -130,7 +130,8 @@ class Singleton:
                 inst = super().__new__(cls)
                 cls._instances[key] = inst
             else:
-                cls._instances[key] = super().__new__(cls, arg_)
+                super_inst: typing.Type = super()
+                cls._instances[key] = super_inst.__new__(cls, arg_)
         return cls._instances[key]
 
     def __repr__(self):
@@ -2277,7 +2278,8 @@ class FileSchema(
         types = {FileIO}
 
     def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: schema_configuration.SchemaConfiguration) -> FileSchema[FileIO]:
-        return super(Schema, cls).__new__(cls, arg_)
+        super_cls: typing.Type = super(Schema, cls)
+        return super_cls.__new__(cls, arg_)
 
 
 class BinarySchema(
