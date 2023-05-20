@@ -633,6 +633,24 @@ def __validate_numeric_format(
 
 
 class CustomIsoparser(parser.isoparser):
+    def __init__(self, sep: typing.Optional[str] = None):
+        """
+        :param sep:
+            A single character that separates date and time portions. If
+            ``None``, the parser will accept any single character.
+            For strict ISO-8601 adherence, pass ``'T'``.
+        """
+        if sep is not None:
+            if (len(sep) != 1 or ord(sep) >= 128 or sep in '0123456789'):
+                raise ValueError('Separator must be a single, non-numeric ' +
+                                 'ASCII character')
+
+            used_sep = sep.encode('ascii')
+        else:
+            used_sep = None
+
+        self._sep = used_sep
+
     def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
         components, pos = self._parse_isodate(dt_str)
         if len(dt_str) > pos:
