@@ -611,14 +611,17 @@ class CustomIsoparser(parser.isoparser):
 
         self._sep = used_sep
 
-    def __parse_isodate(self, dt_str: str):
-        return self._parse_isodate(dt_str)
+    def __parse_isodate(self, dt_str: str) -> typing.Tuple[typing.List[int], int]:
+        return self._parse_isodate(dt_str) # type: ignore
+
+    def __parse_isotime(self, dt_str: str) -> typing.List[int]:
+        return self._parse_isotime(dt_str) # type: ignore
 
     def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
         components, pos = self.__parse_isodate(dt_str)
         if len(dt_str) > pos:
             if self._sep is None or dt_str[pos:pos + 1] == self._sep:
-                components += self._parse_isotime(dt_str[pos + 1:])
+                components += self.__parse_isotime(dt_str[pos + 1:])
             else:
                 raise ValueError('String contains unknown ISO components')
 
