@@ -763,9 +763,9 @@ def validate_required(
 
 
 def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
-    if isinstance(item_cls, typing._GenericAlias):
+    if isinstance(item_cls, typing._GenericAlias): # type: ignore
         # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
-        return item_cls.__origin__
+        return item_cls.__origin__ # type: ignore
     elif isinstance(item_cls, types.FunctionType):
         # referenced schema
         return item_cls()
