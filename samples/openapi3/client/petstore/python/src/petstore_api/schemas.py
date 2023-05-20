@@ -20,7 +20,6 @@ import typing
 import uuid
 
 from dateutil import parser
-from dateutil.parser.isoparser import _takes_ascii
 import frozendict
 
 from petstore_api import exceptions
@@ -594,8 +593,7 @@ def __validate_numeric_format(
 
 
 class CustomIsoparser(parser.isoparser):
-    @_takes_ascii
-    def parse_isodatetime(self, dt_str):
+    def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
         components, pos = self._parse_isodate(dt_str)
         if len(dt_str) > pos:
             if self._sep is None or dt_str[pos:pos + 1] == self._sep:
@@ -612,8 +610,7 @@ class CustomIsoparser(parser.isoparser):
 
         return datetime.datetime(*components)
 
-    @_takes_ascii
-    def parse_isodate(self, datestr):
+    def parse_isodate(self, datestr: str) -> datetime.date:
         components, pos = self._parse_isodate(datestr)
 
         if len(datestr) > pos:
