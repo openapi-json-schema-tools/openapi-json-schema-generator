@@ -14,7 +14,7 @@ import types
 import typing
 import uuid
 
-from dateutil import parser
+from dateutil import parser, tz
 import frozendict
 
 from {{packageName}} import exceptions
@@ -651,26 +651,32 @@ class CustomIsoparser(parser.isoparser):
 
         self._sep = used_sep
 
-    def __parse_isodate(self, dt_str: str) -> typing.Tuple[typing.List[int], int]:
-        return self._parse_isodate(dt_str) # type: ignore
+    def __parse_isodate(self, dt_str: str) -> typing.Tuple[typing.Tuple[int, int, int], int]:
+        values = self._parse_isodate(dt_str) # type: ignore
+        components: typing.List[int] = values[0]
+        pos: int = values[1]
+        return tuple(components), pos
 
-    def __parse_isotime(self, dt_str: str) -> typing.List[int]:
-        return self._parse_isotime(dt_str) # type: ignore
+    def __parse_isotime(self, dt_str: str) -> typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]]:
+        values = self._parse_isotime(dt_str) # type: ignore
+        components: typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]] = tuple(values)
+        return tuple(components)
 
     def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
         components, pos = self.__parse_isodate(dt_str)
-        if len(dt_str) > pos:
-            if self._sep is None or dt_str[pos:pos + 1] == self._sep:
-                components += self.__parse_isotime(dt_str[pos + 1:])
-            else:
-                raise ValueError('String contains unknown ISO components')
-
-        if len(components) > 3 and components[3] == 24:
-            components[3] = 0
-            return datetime.datetime(*components) + datetime.timedelta(days=1)
-
-        if len(components) <= 3:
+        if len(dt_str) <= pos:
+            # len(components) <= 3
             raise ValueError('Value is not a datetime')
+        if self._sep is None or dt_str[pos:pos + 1] == self._sep:
+            hour, minute, second, microsecond, tzinfo = self.__parse_isotime(dt_str[pos + 1:])
+            if hour == 24:
+                hour = 0
+                components += (hour, minute, second, microsecond, tzinfo)
+                return datetime.datetime(*components) + datetime.timedelta(days=1)
+            else:
+                components += (hour, minute, second, microsecond, tzinfo)
+        else:
+            raise ValueError('String contains unknown ISO components')
 
         return datetime.datetime(*components)
 
