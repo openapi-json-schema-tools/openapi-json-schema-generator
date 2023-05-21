@@ -29,7 +29,7 @@ class ReqPropsFromUnsetAddProps(
         }
     
     @property
-    def validName(self) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def validName(self) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -42,7 +42,7 @@ class ReqPropsFromUnsetAddProps(
         return self.__getitem__("validName")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -54,7 +54,7 @@ class ReqPropsFromUnsetAddProps(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -66,7 +66,7 @@ class ReqPropsFromUnsetAddProps(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,

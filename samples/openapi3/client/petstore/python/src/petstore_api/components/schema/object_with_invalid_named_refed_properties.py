@@ -49,7 +49,7 @@ class ObjectWithInvalidNamedRefedProperties(
     def __getitem__(self, name: typing_extensions.Literal["from"]) -> from_schema.FromSchema[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,

@@ -58,7 +58,7 @@ class AbstractStepMessage(
 
     
     @property
-    def description(self) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def description(self) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -75,7 +75,7 @@ class AbstractStepMessage(
         return self.__getitem__("discriminator")
     
     @property
-    def sequenceNumber(self) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def sequenceNumber(self) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -88,7 +88,7 @@ class AbstractStepMessage(
         return self.__getitem__("sequenceNumber")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -103,7 +103,7 @@ class AbstractStepMessage(
     def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> Schema_.Properties.Discriminator[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -115,7 +115,7 @@ class AbstractStepMessage(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,

@@ -13,8 +13,8 @@
 {{> components/schemas/_helper_getitem_property propertyClass=".Properties" literal=true key=@key.original overload=true }}
         {{/if}}
     {{else}}
-        {{! for when additionalProperties is unset }}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.AnyTypeSchema[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]: ...
     {{/if}}
@@ -45,9 +45,10 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) ->
             {{/if}}
         {{/unless}}
     {{else}}
+        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
 
 @typing.overload
-def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
     frozendict.frozendict,
     str,
     decimal.Decimal,

@@ -222,7 +222,7 @@ class ArrayTest(
     def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> Schema_.Properties.ArrayArrayOfModel[tuple]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,

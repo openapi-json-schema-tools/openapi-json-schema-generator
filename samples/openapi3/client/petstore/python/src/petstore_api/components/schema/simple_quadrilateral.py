@@ -66,7 +66,7 @@ class SimpleQuadrilateral(
                 def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> Schema_.Properties.QuadrilateralType[str]: ...
                 
                 @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
                     frozendict.frozendict,
                     str,
                     decimal.Decimal,

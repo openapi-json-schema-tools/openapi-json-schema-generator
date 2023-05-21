@@ -77,10 +77,10 @@ def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}[ty
                             {{/if}}
                         {{/if}}
                     {{else}}
-                        {{! for when additionalProperties is unset }}
+                        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
 
 @property
-def {{@key.original}}(self) -> schemas.UnsetAnyTypeSchema[typing.Union[
+def {{@key.original}}(self) -> schemas.AnyTypeSchema[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]:
     return self.__getitem__("{{{@key.original}}}")

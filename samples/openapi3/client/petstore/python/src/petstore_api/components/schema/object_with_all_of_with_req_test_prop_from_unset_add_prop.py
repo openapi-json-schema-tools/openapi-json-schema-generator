@@ -49,7 +49,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                         }
                 
                 @property
-                def test(self) -> schemas.UnsetAnyTypeSchema[typing.Union[
+                def test(self) -> schemas.AnyTypeSchema[typing.Union[
                     frozendict.frozendict,
                     str,
                     decimal.Decimal,
@@ -62,7 +62,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                     return self.__getitem__("test")
                 
                 @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.UnsetAnyTypeSchema[typing.Union[
+                def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema[typing.Union[
                     frozendict.frozendict,
                     str,
                     decimal.Decimal,
@@ -74,7 +74,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
                 ]]: ...
                 
                 @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema[typing.Union[
+                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
                     frozendict.frozendict,
                     str,
                     decimal.Decimal,
