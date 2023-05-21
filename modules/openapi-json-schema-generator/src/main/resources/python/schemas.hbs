@@ -51,6 +51,10 @@ class FileIO(io.FileIO):
         raise exceptions.ApiValueError('FileIO must be passed arg_ which contains the open file')
 
     def __init__(self, arg_: typing.Union[io.FileIO, io.BufferedReader]):
+        """
+        if this does not exist, then classes with FileIO as a mixin (AnyType etc) will see
+        the io.FileIO __init__ signature rather than the __new__ one
+        """
         pass
 
 
@@ -2460,9 +2464,43 @@ class AnyTypeSchema(
 
     def __new__(
         cls,
-        *args_: typing.Any,
+        *args_: typing.Union[
+            str,
+            uuid.UUID,
+            datetime.date,
+            datetime.datetime,
+            int,
+            float,
+            decimal.Decimal,
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            None,
+            Schema,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any
+        **kwargs: typing.Union[
+            str,
+            uuid.UUID,
+            datetime.date,
+            datetime.datetime,
+            int,
+            float,
+            decimal.Decimal,
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            None,
+            Schema,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ]
     ) -> AnyTypeSchema[typing.Union[
         NoneClass,
         frozendict.frozendict,
@@ -2471,7 +2509,53 @@ class AnyTypeSchema(
         decimal.Decimal,
         BoolClass
     ]]:
-        return super().__new__(cls, *args_, **kwargs)
+        return super().__new__(cls, *args_, configuration_=configuration_, **kwargs)
+
+    def __init__(
+        self,
+        *args_: typing.Union[
+            str,
+            uuid.UUID,
+            datetime.date,
+            datetime.datetime,
+            int,
+            float,
+            decimal.Decimal,
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            None,
+            Schema,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            str,
+            uuid.UUID,
+            datetime.date,
+            datetime.datetime,
+            int,
+            float,
+            decimal.Decimal,
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            None,
+            Schema,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    ):
+        """
+        this exists to override the __init__ method form FileIO in NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
+        """
+        pass
+
 
 
 class UnsetAnyTypeSchema(AnyTypeSchema[T]):
