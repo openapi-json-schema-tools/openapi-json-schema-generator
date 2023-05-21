@@ -95,5 +95,44 @@ class ChildCat(
             ]
 
 
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+    ) -> ChildCat[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            ChildCat[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
 
 from petstore_api.components.schema import parent_pet

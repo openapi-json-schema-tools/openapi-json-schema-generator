@@ -48,4 +48,3 @@ class ComposedNumber(
             inst
         )
         return inst
-

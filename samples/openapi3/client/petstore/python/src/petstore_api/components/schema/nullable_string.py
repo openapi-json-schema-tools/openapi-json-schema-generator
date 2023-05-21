@@ -56,4 +56,3 @@ class NullableString(
             inst
         )
         return inst
-

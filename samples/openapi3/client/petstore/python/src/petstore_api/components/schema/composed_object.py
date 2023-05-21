@@ -50,4 +50,3 @@ class ComposedObject(
             inst
         )
         return inst
-

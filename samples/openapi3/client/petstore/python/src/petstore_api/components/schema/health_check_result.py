@@ -69,7 +69,6 @@ class HealthCheckResult(
                         inst
                     )
                     return inst
-            
             __annotations__ = {
                 "NullableMessage": NullableMessage,
             }

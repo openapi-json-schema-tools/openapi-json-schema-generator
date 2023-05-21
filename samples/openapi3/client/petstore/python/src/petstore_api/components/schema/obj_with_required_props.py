@@ -94,5 +94,4 @@ class ObjWithRequiredProps(
         )
         return inst
 
-
 from petstore_api.components.schema import obj_with_required_props_base

@@ -48,4 +48,3 @@ class ComposedBool(
             inst
         )
         return inst
-

@@ -161,4 +161,3 @@ class AbstractStepMessage(
             inst
         )
         return inst
-

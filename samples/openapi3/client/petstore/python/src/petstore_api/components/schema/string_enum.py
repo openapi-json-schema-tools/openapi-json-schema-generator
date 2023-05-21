@@ -93,4 +93,3 @@ class StringEnum(
             inst
         )
         return inst
-

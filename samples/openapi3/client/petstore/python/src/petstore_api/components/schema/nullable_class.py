@@ -70,7 +70,6 @@ class NullableClass(
                     return inst
             
             
-            
             class NumberProp(
                 schemas.NoneBase,
                 schemas.NumberBase,
@@ -111,7 +110,6 @@ class NullableClass(
                         inst
                     )
                     return inst
-            
             
             
             class BooleanProp(
@@ -156,7 +154,6 @@ class NullableClass(
                     return inst
             
             
-            
             class StringProp(
                 schemas.NoneBase,
                 schemas.StrBase,
@@ -197,7 +194,6 @@ class NullableClass(
                         inst
                     )
                     return inst
-            
             
             
             class DateProp(
@@ -244,7 +240,6 @@ class NullableClass(
                     return inst
             
             
-            
             class DatetimeProp(
                 schemas.NoneBase,
                 schemas.DateTimeBase,
@@ -289,7 +284,6 @@ class NullableClass(
                     return inst
             
             
-            
             class ArrayNullableProp(
                 schemas.NoneBase,
                 schemas.ListBase,
@@ -331,7 +325,6 @@ class NullableClass(
                         inst
                     )
                     return inst
-            
             
             
             class ArrayAndItemsNullableProp(
@@ -391,7 +384,6 @@ class NullableClass(
                                 inst
                             )
                             return inst
-                    
             
             
                 def __new__(
@@ -419,7 +411,6 @@ class NullableClass(
                         inst
                     )
                     return inst
-            
             
             
             class ArrayItemsNullable(
@@ -473,7 +464,6 @@ class NullableClass(
                                 inst
                             )
                             return inst
-                    
             
                 def __new__(
                     cls,
@@ -554,7 +544,6 @@ class NullableClass(
                     return inst
             
             
-            
             class ObjectAndItemsNullableProp(
                 schemas.NoneBase,
                 schemas.DictBase,
@@ -612,7 +601,6 @@ class NullableClass(
                                 inst
                             )
                             return inst
-                    
             
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
@@ -649,7 +637,6 @@ class NullableClass(
                         inst
                     )
                     return inst
-            
             
             
             class ObjectItemsNullable(
@@ -703,7 +690,6 @@ class NullableClass(
                                 inst
                             )
                             return inst
-                    
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
                     schemas.NoneClass,
@@ -787,7 +773,6 @@ class NullableClass(
                     inst
                 )
                 return inst
-        
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> Schema_.Properties.IntegerProp[typing.Union[

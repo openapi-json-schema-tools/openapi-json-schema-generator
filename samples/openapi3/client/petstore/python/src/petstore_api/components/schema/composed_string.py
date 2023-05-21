@@ -48,4 +48,3 @@ class ComposedString(
             inst
         )
         return inst
-

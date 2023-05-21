@@ -131,4 +131,3 @@ class Apple(
             inst
         )
         return inst
-
