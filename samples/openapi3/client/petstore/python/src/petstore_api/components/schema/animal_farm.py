@@ -25,7 +25,7 @@ class AnimalFarm(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['animal.Animal']:
+        def items() -> typing.Type[animal.Animal]:
             return animal.Animal
 
     def __new__(

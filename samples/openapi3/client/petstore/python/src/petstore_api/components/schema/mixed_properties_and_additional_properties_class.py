@@ -38,7 +38,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     types = {frozendict.frozendict}
                     
                     @staticmethod
-                    def additional_properties() -> typing.Type['animal.Animal']:
+                    def additional_properties() -> typing.Type[animal.Animal]:
                         return animal.Animal
                 
                 def __getitem__(self, name: str) -> animal.Animal[frozendict.frozendict]:

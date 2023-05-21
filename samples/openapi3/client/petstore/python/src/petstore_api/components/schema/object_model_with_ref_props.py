@@ -29,15 +29,15 @@ class ObjectModelWithRefProps(
         class Properties:
         
             @staticmethod
-            def my_number() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def my_number() -> typing.Type[number_with_validations.NumberWithValidations]:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def my_string() -> typing.Type['string.String']:
+            def my_string() -> typing.Type[string.String]:
                 return string.String
         
             @staticmethod
-            def my_boolean() -> typing.Type['boolean.Boolean']:
+            def my_boolean() -> typing.Type[boolean.Boolean]:
                 return boolean.Boolean
             __annotations__ = {
                 "myNumber": my_number,

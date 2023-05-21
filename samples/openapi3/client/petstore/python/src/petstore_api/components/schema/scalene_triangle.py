@@ -27,7 +27,7 @@ class ScaleneTriangle(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['triangle_interface.TriangleInterface']:
+            def _0() -> typing.Type[triangle_interface.TriangleInterface]:
                 return triangle_interface.TriangleInterface
             
             

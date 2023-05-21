@@ -34,7 +34,7 @@ class AdditionalPropertiesWithArrayOfEnums(
                 types = {tuple}
                 
                 @staticmethod
-                def items() -> typing.Type['enum_class.EnumClass']:
+                def items() -> typing.Type[enum_class.EnumClass]:
                     return enum_class.EnumClass
         
             def __new__(

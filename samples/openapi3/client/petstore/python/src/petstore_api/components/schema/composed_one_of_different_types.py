@@ -29,11 +29,11 @@ class ComposedOneOfDifferentTypes(
         class OneOf:
         
             @staticmethod
-            def _0() -> typing.Type['number_with_validations.NumberWithValidations']:
+            def _0() -> typing.Type[number_with_validations.NumberWithValidations]:
                 return number_with_validations.NumberWithValidations
         
             @staticmethod
-            def _1() -> typing.Type['animal.Animal']:
+            def _1() -> typing.Type[animal.Animal]:
                 return animal.Animal
             _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
             _3: typing_extensions.TypeAlias = schemas.DateSchema[U]

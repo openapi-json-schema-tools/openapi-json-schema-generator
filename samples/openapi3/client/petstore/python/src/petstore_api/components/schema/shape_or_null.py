@@ -39,11 +39,11 @@ class ShapeOrNull(
             _0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
         
             @staticmethod
-            def _1() -> typing.Type['triangle.Triangle']:
+            def _1() -> typing.Type[triangle.Triangle]:
                 return triangle.Triangle
         
             @staticmethod
-            def _2() -> typing.Type['quadrilateral.Quadrilateral']:
+            def _2() -> typing.Type[quadrilateral.Quadrilateral]:
                 return quadrilateral.Quadrilateral
             classes = [
                 _0,

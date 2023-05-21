@@ -20,7 +20,7 @@ class Schema(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['ref_pet.RefPet']:
+        def items() -> typing.Type[ref_pet.RefPet]:
             return ref_pet.RefPet
 
     def __new__(

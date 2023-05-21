@@ -134,23 +134,23 @@ class EnumTest(
                     return cls(-1.2)
         
             @staticmethod
-            def string_enum() -> typing.Type['string_enum.StringEnum']:
+            def string_enum() -> typing.Type[string_enum.StringEnum]:
                 return string_enum.StringEnum
         
             @staticmethod
-            def integer_enum() -> typing.Type['integer_enum.IntegerEnum']:
+            def integer_enum() -> typing.Type[integer_enum.IntegerEnum]:
                 return integer_enum.IntegerEnum
         
             @staticmethod
-            def string_enum_with_default_value() -> typing.Type['string_enum_with_default_value.StringEnumWithDefaultValue']:
+            def string_enum_with_default_value() -> typing.Type[string_enum_with_default_value.StringEnumWithDefaultValue]:
                 return string_enum_with_default_value.StringEnumWithDefaultValue
         
             @staticmethod
-            def integer_enum_with_default_value() -> typing.Type['integer_enum_with_default_value.IntegerEnumWithDefaultValue']:
+            def integer_enum_with_default_value() -> typing.Type[integer_enum_with_default_value.IntegerEnumWithDefaultValue]:
                 return integer_enum_with_default_value.IntegerEnumWithDefaultValue
         
             @staticmethod
-            def integer_enum_one_value() -> typing.Type['integer_enum_one_value.IntegerEnumOneValue']:
+            def integer_enum_one_value() -> typing.Type[integer_enum_one_value.IntegerEnumOneValue]:
                 return integer_enum_one_value.IntegerEnumOneValue
             __annotations__ = {
                 "enum_string": EnumString,

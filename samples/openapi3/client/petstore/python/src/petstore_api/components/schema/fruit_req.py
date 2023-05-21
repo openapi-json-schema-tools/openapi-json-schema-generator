@@ -28,11 +28,11 @@ class FruitReq(
             _0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
         
             @staticmethod
-            def _1() -> typing.Type['apple_req.AppleReq']:
+            def _1() -> typing.Type[apple_req.AppleReq]:
                 return apple_req.AppleReq
         
             @staticmethod
-            def _2() -> typing.Type['banana_req.BananaReq']:
+            def _2() -> typing.Type[banana_req.BananaReq]:
                 return banana_req.BananaReq
             classes = [
                 _0,

@@ -27,15 +27,15 @@ class Drawing(
         class Properties:
         
             @staticmethod
-            def main_shape() -> typing.Type['shape.Shape']:
+            def main_shape() -> typing.Type[shape.Shape]:
                 return shape.Shape
         
             @staticmethod
-            def shape_or_null() -> typing.Type['shape_or_null.ShapeOrNull']:
+            def shape_or_null() -> typing.Type[shape_or_null.ShapeOrNull]:
                 return shape_or_null.ShapeOrNull
         
             @staticmethod
-            def nullable_shape() -> typing.Type['nullable_shape.NullableShape']:
+            def nullable_shape() -> typing.Type[nullable_shape.NullableShape]:
                 return nullable_shape.NullableShape
             
             
@@ -48,7 +48,7 @@ class Drawing(
                     types = {tuple}
                     
                     @staticmethod
-                    def items() -> typing.Type['shape.Shape']:
+                    def items() -> typing.Type[shape.Shape]:
                         return shape.Shape
             
                 def __new__(
@@ -93,7 +93,7 @@ class Drawing(
             }
         
         @staticmethod
-        def additional_properties() -> typing.Type['fruit.Fruit']:
+        def additional_properties() -> typing.Type[fruit.Fruit]:
             return fruit.Fruit
     
     @typing.overload

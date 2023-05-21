@@ -27,7 +27,7 @@ class Cat(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['animal.Animal']:
+            def _0() -> typing.Type[animal.Animal]:
                 return animal.Animal
             
             

@@ -22,7 +22,7 @@ class Schema(
         class Properties:
         
             @staticmethod
-            def string() -> typing.Type['foo.Foo']:
+            def string() -> typing.Type[foo.Foo]:
                 return foo.Foo
             __annotations__ = {
                 "string": string,

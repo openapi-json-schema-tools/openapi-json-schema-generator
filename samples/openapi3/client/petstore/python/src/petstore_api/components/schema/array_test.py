@@ -152,7 +152,7 @@ class ArrayTest(
                             types = {tuple}
                             
                             @staticmethod
-                            def items() -> typing.Type['read_only_first.ReadOnlyFirst']:
+                            def items() -> typing.Type[read_only_first.ReadOnlyFirst]:
                                 return read_only_first.ReadOnlyFirst
                     
                         def __new__(

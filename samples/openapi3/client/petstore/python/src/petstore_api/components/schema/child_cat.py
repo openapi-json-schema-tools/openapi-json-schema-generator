@@ -27,7 +27,7 @@ class ChildCat(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['parent_pet.ParentPet']:
+            def _0() -> typing.Type[parent_pet.ParentPet]:
                 return parent_pet.ParentPet
             
             

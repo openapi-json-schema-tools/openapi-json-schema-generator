@@ -176,7 +176,7 @@ class MapTest(
                     return inst
         
             @staticmethod
-            def indirect_map() -> typing.Type['string_boolean_map.StringBooleanMap']:
+            def indirect_map() -> typing.Type[string_boolean_map.StringBooleanMap]:
                 return string_boolean_map.StringBooleanMap
             __annotations__ = {
                 "map_map_of_string": MapMapOfString,

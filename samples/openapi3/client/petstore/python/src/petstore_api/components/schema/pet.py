@@ -34,7 +34,7 @@ class Pet(
             Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
         
             @staticmethod
-            def category() -> typing.Type['category.Category']:
+            def category() -> typing.Type[category.Category]:
                 return category.Category
             Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
             
@@ -84,7 +84,7 @@ class Pet(
                     types = {tuple}
                     
                     @staticmethod
-                    def items() -> typing.Type['tag.Tag']:
+                    def items() -> typing.Type[tag.Tag]:
                         return tag.Tag
             
                 def __new__(

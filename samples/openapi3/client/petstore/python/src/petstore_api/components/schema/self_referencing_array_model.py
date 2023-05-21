@@ -25,7 +25,7 @@ class SelfReferencingArrayModel(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type['SelfReferencingArrayModel']:
+        def items() -> typing.Type[SelfReferencingArrayModel]:
             return SelfReferencingArrayModel
 
     def __new__(

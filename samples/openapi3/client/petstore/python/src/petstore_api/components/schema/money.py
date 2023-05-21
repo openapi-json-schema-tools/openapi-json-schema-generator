@@ -32,7 +32,7 @@ class Money(
             Amount: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
         
             @staticmethod
-            def currency() -> typing.Type['currency.Currency']:
+            def currency() -> typing.Type[currency.Currency]:
                 return currency.Currency
             __annotations__ = {
                 "amount": Amount,

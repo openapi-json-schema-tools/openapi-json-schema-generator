@@ -27,7 +27,7 @@ class SimpleQuadrilateral(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['quadrilateral_interface.QuadrilateralInterface']:
+            def _0() -> typing.Type[quadrilateral_interface.QuadrilateralInterface]:
                 return quadrilateral_interface.QuadrilateralInterface
             
             

@@ -30,7 +30,7 @@ class Player(
             Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
         
             @staticmethod
-            def enemy_player() -> typing.Type['Player']:
+            def enemy_player() -> typing.Type[Player]:
                 return Player
             __annotations__ = {
                 "name": Name,

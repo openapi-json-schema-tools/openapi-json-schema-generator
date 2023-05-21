@@ -27,12 +27,12 @@ class ObjectWithDecimalProperties(
         class Properties:
         
             @staticmethod
-            def length() -> typing.Type['decimal_payload.DecimalPayload']:
+            def length() -> typing.Type[decimal_payload.DecimalPayload]:
                 return decimal_payload.DecimalPayload
             Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
         
             @staticmethod
-            def cost() -> typing.Type['money.Money']:
+            def cost() -> typing.Type[money.Money]:
                 return money.Money
             __annotations__ = {
                 "length": length,

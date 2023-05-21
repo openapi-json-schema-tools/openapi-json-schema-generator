@@ -27,7 +27,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['object_with_optional_test_prop.ObjectWithOptionalTestProp']:
+            def _0() -> typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp]:
                 return object_with_optional_test_prop.ObjectWithOptionalTestProp
             
             

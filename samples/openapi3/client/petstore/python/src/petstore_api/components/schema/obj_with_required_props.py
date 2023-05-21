@@ -38,7 +38,7 @@ class ObjWithRequiredProps(
         class AllOf:
         
             @staticmethod
-            def _0() -> typing.Type['obj_with_required_props_base.ObjWithRequiredPropsBase']:
+            def _0() -> typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase]:
                 return obj_with_required_props_base.ObjWithRequiredPropsBase
             classes = [
                 _0,

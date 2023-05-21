@@ -29,11 +29,11 @@ class NullableShape(
         class OneOf:
         
             @staticmethod
-            def _0() -> typing.Type['triangle.Triangle']:
+            def _0() -> typing.Type[triangle.Triangle]:
                 return triangle.Triangle
         
             @staticmethod
-            def _1() -> typing.Type['quadrilateral.Quadrilateral']:
+            def _1() -> typing.Type[quadrilateral.Quadrilateral]:
                 return quadrilateral.Quadrilateral
             _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
             classes = [

@@ -36,15 +36,15 @@ class JSONPatchRequest(
                 class OneOf:
                 
                     @staticmethod
-                    def _0() -> typing.Type['json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest']:
+                    def _0() -> typing.Type[json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest]:
                         return json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest
                 
                     @staticmethod
-                    def _1() -> typing.Type['json_patch_request_remove.JSONPatchRequestRemove']:
+                    def _1() -> typing.Type[json_patch_request_remove.JSONPatchRequestRemove]:
                         return json_patch_request_remove.JSONPatchRequestRemove
                 
                     @staticmethod
-                    def _2() -> typing.Type['json_patch_request_move_copy.JSONPatchRequestMoveCopy']:
+                    def _2() -> typing.Type[json_patch_request_move_copy.JSONPatchRequestMoveCopy]:
                         return json_patch_request_move_copy.JSONPatchRequestMoveCopy
                     classes = [
                         _0,

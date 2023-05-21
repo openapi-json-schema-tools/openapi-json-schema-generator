@@ -27,7 +27,7 @@ class Foo(
         class Properties:
         
             @staticmethod
-            def bar() -> typing.Type['bar.Bar']:
+            def bar() -> typing.Type[bar.Bar]:
                 return bar.Bar
             __annotations__ = {
                 "bar": bar,
