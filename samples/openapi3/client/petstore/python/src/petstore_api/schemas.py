@@ -611,14 +611,26 @@ class CustomIsoparser(parser.isoparser):
 
         self._sep = used_sep
 
+    @staticmethod
+    def __get_ascii_bytes(str_in: str) -> bytes:
+        # If it's unicode, turn it into bytes, since ISO-8601 only covers ASCII
+        # ASCII is the same in UTF-8
+        try:
+            return str_in.encode('ascii')
+        except UnicodeEncodeError as e:
+            msg = 'ISO-8601 strings should contain only ASCII characters'
+            raise ValueError(msg) from e
+
     def __parse_isodate(self, dt_str: str) -> typing.Tuple[typing.Tuple[int, int, int], int]:
-        values = self._parse_isodate(dt_str) # type: ignore
+        dt_str_ascii = self.__get_ascii_bytes(dt_str)
+        values = self._parse_isodate(dt_str_ascii) # type: ignore
         components: typing.List[int] = values[0]
         pos: int = values[1]
         return tuple(components), pos
 
     def __parse_isotime(self, dt_str: str) -> typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]]:
-        values = self._parse_isotime(dt_str) # type: ignore
+        dt_str_ascii = self.__get_ascii_bytes(dt_str)
+        values = self._parse_isotime(dt_str_ascii) # type: ignore
         components: typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]] = tuple(values)
         return tuple(components)
 
@@ -1802,7 +1814,7 @@ class DateTimeBase:
     @functools.lru_cache()
     def as_datetime_(self) -> datetime.datetime:
         if isinstance(self, str):
-            DEFAULT_ISOPARSER.parse_isodatetime(self)
+            return DEFAULT_ISOPARSER.parse_isodatetime(self)
         raise ValueError('instance is not datetime')
 
 
@@ -1817,7 +1829,7 @@ class DecimalBase:
     @functools.lru_cache()
     def as_decimal_(self) -> decimal.Decimal:
         if isinstance(self, str):
-            decimal.Decimal(self)
+            return decimal.Decimal(self)
         raise ValueError('instance is not decimal')
 
 
