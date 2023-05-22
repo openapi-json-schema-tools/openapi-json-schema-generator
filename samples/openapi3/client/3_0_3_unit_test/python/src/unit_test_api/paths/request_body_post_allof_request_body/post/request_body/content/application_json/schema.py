@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import allof
-Schema = allof.Allof
+Schema: typing_extensions.TypeAlias = allof.Allof[U]
