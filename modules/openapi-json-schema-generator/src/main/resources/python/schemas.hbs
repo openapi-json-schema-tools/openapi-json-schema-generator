@@ -16,6 +16,7 @@ import uuid
 
 from dateutil import parser, tz
 import frozendict
+import typing_extensions
 
 from {{packageName}} import exceptions
 from {{packageName}}.configurations import schema_configuration
@@ -808,7 +809,10 @@ def validate_required(
 def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type['Schema']]) -> typing.Type['Schema']:
     if isinstance(item_cls, typing._GenericAlias): # type: ignore
         # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
-        return item_cls.__origin__ # type: ignore
+        origin_cls = typing_extensions.get_origin(item_cls)
+        if origin_cls is None:
+            raise ValueError('origin class must not be None')
+        return origin_cls
     elif isinstance(item_cls, types.FunctionType):
         # referenced schema
         return item_cls()
