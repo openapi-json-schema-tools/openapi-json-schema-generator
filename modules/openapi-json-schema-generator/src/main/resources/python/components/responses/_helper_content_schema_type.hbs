@@ -2,30 +2,30 @@
     {{#with getDeepestRef}}
         {{#if types}}
             {{#eq types.size 1}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]{{#unless includeBody}},{{/unless}}
+{{#if paramName}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]{{#unless paramName}},{{/unless}}
             {{else}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[typing.Union[
+{{#if paramName}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
-]]{{#unless includeBody}},{{/unless}}
+]]{{#unless paramName}},{{/unless}}
             {{/eq}}
         {{else}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[typing.Union[
+{{#if paramName}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
-]]{{#unless includeBody}},{{/unless}}
+]]{{#unless paramName}},{{/unless}}
         {{/if}}
     {{/with}}
 {{else}}
     {{#if types}}
         {{#eq types.size 1}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]{{#unless includeBody}},{{/unless}}
+{{#if paramName}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]{{#unless paramName}},{{/unless}}
         {{else}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[typing.Union[
+{{#if includeBody}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
-]]{{#unless includeBody}},{{/unless}}
+]]{{#unless paramName}},{{/unless}}
         {{/eq}}
     {{else}}
-{{#if includeBody}}body: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[typing.Union[
+{{#if paramName}}{{paramName}}: {{/if}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
-]]{{#unless includeBody}},{{/unless}}
+]]{{#unless paramName}},{{/unless}}
     {{/if}}
 {{/if}}
