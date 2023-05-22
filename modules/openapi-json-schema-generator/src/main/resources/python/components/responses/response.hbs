@@ -40,7 +40,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        {{> components/responses/_helper_content_schema_type includeBody=false }}
                         {{/with}}
                     {{else}}
         schemas.Unset,
@@ -48,7 +48,15 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{/each}}
     ]
             {{else}}
-    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
+    {{> components/responses/_helper_content_schema_type includeBody=true }}
+                        {{/with}}
+                    {{else}}
+    body: schemas.Unset
+                    {{/if}}
+                {{/each}}
             {{/gt}}
         {{else}}
     body: schemas.Unset = schemas.unset
@@ -66,15 +74,23 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
-                            {{/with}}
-                        {{else}}
+        {{> components/responses/_helper_content_schema_type includeBody=false }}
+                                {{/with}}
+                            {{else}}
         schemas.Unset,
                             {{/if}}
                         {{/each}}
     ]
                     {{else}}
-    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+                        {{#each content}}
+                            {{#if this.schema}}
+                                {{#with this.schema}}
+    {{> components/responses/_helper_content_schema_type includeBody=true }}
+                                {{/with}}
+                            {{else}}
+    body: schemas.Unset
+                            {{/if}}
+                        {{/each}}
                     {{/gt}}
                 {{else}}
     body: schemas.Unset = schemas.unset

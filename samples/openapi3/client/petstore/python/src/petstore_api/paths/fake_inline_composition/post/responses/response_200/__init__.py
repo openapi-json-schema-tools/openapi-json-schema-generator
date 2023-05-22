@@ -14,8 +14,17 @@ from .content.multipart_form_data import schema as multipart_form_data_schema
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_schema.Schema,
-        multipart_form_data_schema.Schema,
+        application_json_schema.Schema[typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]],
+        multipart_form_data_schema.Schema[frozendict.frozendict],
     ]
     headers: schemas.Unset = schemas.unset
 

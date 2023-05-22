@@ -12,7 +12,16 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 @dataclasses.dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_charsetutf8_schema.Schema
+    body: application_json_charsetutf8_schema.Schema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]
     headers: schemas.Unset = schemas.unset
 
 

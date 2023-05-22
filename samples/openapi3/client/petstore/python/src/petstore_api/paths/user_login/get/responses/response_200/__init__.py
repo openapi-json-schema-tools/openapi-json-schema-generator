@@ -56,8 +56,8 @@ class Header:
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml_schema.Schema,
-        application_json_schema.Schema,
+        application_xml_schema.Schema[str],
+        application_json_schema.Schema[str],
     ]
     headers: Header.Params
 

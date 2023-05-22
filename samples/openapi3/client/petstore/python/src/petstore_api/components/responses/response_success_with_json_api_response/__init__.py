@@ -48,7 +48,7 @@ class Header:
 @dataclasses.dataclass
 class ApiSuccessWithJsonApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema
+    body: application_json_schema.Schema[frozendict.frozendict]
     headers: Header.Params
 
 

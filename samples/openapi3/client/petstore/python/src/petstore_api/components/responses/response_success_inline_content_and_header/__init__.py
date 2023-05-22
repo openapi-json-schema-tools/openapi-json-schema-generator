@@ -36,7 +36,7 @@ class Header:
 @dataclasses.dataclass
 class ApiSuccessInlineContentAndHeader(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema
+    body: application_json_schema.Schema[frozendict.frozendict]
     headers: Header.Params
 
 
