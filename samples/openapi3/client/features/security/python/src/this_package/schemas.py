@@ -79,7 +79,7 @@ def update(d: dict, u: dict):
 
 
 @dataclasses.dataclass
-class ValidationMetadata(frozendict.frozendict):
+class ValidationMetadata:
     """
     A class storing metadata that is needed to validate OpenApi Schema payloads
     """
