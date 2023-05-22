@@ -25,11 +25,11 @@ class SuccessfulXmlAndJsonArrayOfPet(api_client.OpenApiResponse[ApiSuccessfulXml
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
+        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[tuple]
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[tuple]
     Content = typing_extensions.TypedDict(
         'Content',
         {

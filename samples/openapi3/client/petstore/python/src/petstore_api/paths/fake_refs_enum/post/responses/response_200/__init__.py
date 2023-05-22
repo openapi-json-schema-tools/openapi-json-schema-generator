@@ -24,7 +24,10 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
+            schemas.NoneClass,
+            str
+        ]]
     Content = typing_extensions.TypedDict(
         'Content',
         {

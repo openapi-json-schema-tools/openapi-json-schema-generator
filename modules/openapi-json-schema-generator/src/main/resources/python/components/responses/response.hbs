@@ -115,7 +115,7 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
     class {{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+        {{> components/responses/_helper_content_schema_type paramName="schema" }}
             {{else}}
         pass
             {{/with}}
