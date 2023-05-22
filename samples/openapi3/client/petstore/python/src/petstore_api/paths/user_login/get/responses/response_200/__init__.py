@@ -42,15 +42,15 @@ class Header:
         pass
 
 
-    parameters = [
-        header_ref_schema_header.RefSchemaHeader,
-        header_x_rate_limit.XRateLimit,
-        header_int32.Int32,
-        header_x_expires_after.XExpiresAfter,
-        header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.StringHeader,
-        header_number_header.NumberHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'ref-schema-header': header_ref_schema_header.RefSchemaHeader,
+        'X-Rate-Limit': header_x_rate_limit.XRateLimit,
+        'int32': header_int32.Int32,
+        'X-Expires-After': header_x_expires_after.XExpiresAfter,
+        'ref-content-schema-header': header_ref_content_schema_header.RefContentSchemaHeader,
+        'stringHeader': header_string_header.StringHeader,
+        'numberHeader': header_number_header.NumberHeader,
+    }
 
 @dataclasses.dataclass
 class ApiResponseFor200(api_client.ApiResponse):

@@ -37,13 +37,13 @@ class Header:
         pass
 
 
-    parameters = [
-        header_ref_schema_header.RefSchemaHeader,
-        header_int32.Int32,
-        header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.StringHeader,
-        header_number_header.NumberHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'ref-schema-header': header_ref_schema_header.RefSchemaHeader,
+        'int32': header_int32.Int32,
+        'ref-content-schema-header': header_ref_content_schema_header.RefContentSchemaHeader,
+        'stringHeader': header_string_header.StringHeader,
+        'numberHeader': header_number_header.NumberHeader,
+    }
 
 @dataclasses.dataclass
 class ApiSuccessWithJsonApiResponse(api_client.ApiResponse):

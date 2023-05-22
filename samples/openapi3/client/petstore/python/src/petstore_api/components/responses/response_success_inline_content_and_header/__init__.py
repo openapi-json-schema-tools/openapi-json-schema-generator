@@ -29,9 +29,9 @@ class Header:
         pass
 
 
-    parameters = [
-        header_some_header.SomeHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'someHeader': header_some_header.SomeHeader,
+    }
 
 @dataclasses.dataclass
 class ApiSuccessInlineContentAndHeader(api_client.ApiResponse):

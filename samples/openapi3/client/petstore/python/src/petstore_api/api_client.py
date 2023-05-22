@@ -784,7 +784,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
     response_cls: typing.Type[T]
     content: typing.Optional[typing.Dict[str, MediaType]] = None
-    headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None
+    headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
