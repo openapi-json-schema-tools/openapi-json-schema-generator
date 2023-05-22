@@ -40,7 +40,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-        {{> components/_helper_content_schema_type paramName=null }}
+        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
                         {{/with}}
                     {{else}}
         schemas.Unset,
@@ -51,7 +51,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-    {{> components/_helper_content_schema_type paramName="body" }}
+    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
                         {{/with}}
                     {{else}}
     body: schemas.Unset
@@ -74,7 +74,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-        {{> components/_helper_content_schema_type paramName=null }}
+        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
                                 {{/with}}
                             {{else}}
         schemas.Unset,
@@ -85,7 +85,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-    {{> components/_helper_content_schema_type paramName="body" }}
+    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
                                 {{/with}}
                             {{else}}
     body: schemas.Unset
@@ -115,7 +115,7 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
     class {{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        {{> components/_helper_content_schema_type paramName="schema" }}
+        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
             {{else}}
         pass
             {{/with}}

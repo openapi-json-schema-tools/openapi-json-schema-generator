@@ -27,7 +27,7 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+    {{> components/_helper_content_schema_type paramName="schema" modulePrefix=null }}
     {{/with}}
 {{/if}}
 {{#if content}}
@@ -37,7 +37,7 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
     class {{@key.camelCase}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        {{> components/_helper_content_schema_type paramName="schema" }}
+        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
         {{/with}}
     {{/with}}
 {{/each}}
