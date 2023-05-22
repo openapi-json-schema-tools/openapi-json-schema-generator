@@ -11,6 +11,8 @@
 
 import unittest
 
+import typing_extensions
+
 from petstore_api.components.schema.obj_with_required_props import ObjWithRequiredProps
 from petstore_api.components.schema.obj_with_required_props_base import ObjWithRequiredPropsBase
 from petstore_api.configurations import schema_configuration
@@ -22,9 +24,13 @@ class TestObjWithRequiredProps(unittest.TestCase):
     obj = ObjWithRequiredProps(a='a', b='b')
     assert isinstance(obj, ObjWithRequiredProps) and isinstance(obj, ObjWithRequiredPropsBase)
     a = obj.a
-    assert isinstance(a, ObjWithRequiredProps.Schema_.Properties.A.__origin__)
+    orgin_cls = typing_extensions.get_origin(ObjWithRequiredProps.Schema_.Properties.A)
+    assert orgin_cls is not None
+    assert isinstance(a, orgin_cls)
     b = obj.b
-    assert isinstance(a, ObjWithRequiredPropsBase.Schema_.Properties.B.__origin__)
+    orgin_cls = typing_extensions.get_origin(ObjWithRequiredProps.Schema_.Properties.B)
+    assert orgin_cls is not None
+    assert isinstance(a, orgin_cls)
 
 
 if __name__ == '__main__':

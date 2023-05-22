@@ -11,6 +11,8 @@
 
 import unittest
 
+import typing_extensions
+
 from petstore_api import schemas, exceptions
 from petstore_api.components.schema.object_model_with_arg_and_args_properties import ObjectModelWithArgAndArgsProperties
 
@@ -21,16 +23,20 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
     def test_ObjectModelWithArgAndArgsProperties(self):
         """Test ObjectModelWithArgAndArgsProperties"""
         model = ObjectModelWithArgAndArgsProperties(arg='a', args='as')
+        origin_cls = typing_extensions.get_origin(ObjectModelWithArgAndArgsProperties.Schema_.Properties.Arg)
+        assert origin_cls is not None
         self.assertTrue(
             isinstance(
                 model["arg"],
-                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Arg.__origin__
+                origin_cls
             )
         )
+        origin_cls = typing_extensions.get_origin(ObjectModelWithArgAndArgsProperties.Schema_.Properties.Args)
+        assert origin_cls is not None
         self.assertTrue(
             isinstance(
                 model["args"],
-                ObjectModelWithArgAndArgsProperties.Schema_.Properties.Args.__origin__
+                origin_cls
             )
         )
         self.assertTrue(isinstance(model["arg"], schemas.StrSchema))

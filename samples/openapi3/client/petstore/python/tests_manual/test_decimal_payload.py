@@ -11,6 +11,7 @@
 
 import decimal
 import unittest
+import typing_extensions
 
 import petstore_api
 from petstore_api.schemas import DecimalSchema
@@ -24,14 +25,16 @@ class TestDecimalPayload(unittest.TestCase):
         """Test DecimalPayload"""
 
         m = DecimalPayload('12')
-        assert isinstance(m, DecimalPayload.__origin__)
+        origin_cls = typing_extensions.get_origin(DecimalPayload)
+        assert origin_cls is not None
+        assert isinstance(m, origin_cls)
         assert isinstance(m, DecimalSchema)
         assert isinstance(m, str)
         assert m == '12'
         assert m.as_decimal_ == decimal.Decimal('12')
 
         m = DecimalPayload('12.34')
-        assert isinstance(m, DecimalPayload.__origin__)
+        assert isinstance(m, origin_cls)
         assert isinstance(m, DecimalSchema)
         assert isinstance(m, str)
         assert m == '12.34'
