@@ -48,8 +48,12 @@ class JSONEncoder(json.JSONEncoder):
         elif isinstance(obj, int):
             return int(obj)
         elif isinstance(obj, decimal.Decimal):
-            if obj.as_tuple().exponent >= 0:
-                return int(obj)
+            exponent = obj.as_tuple().exponent
+            if isinstance(exponent, int):
+                if exponent >= 0:
+                    return int(obj)
+            else:
+                raise ValueError(f'Decimal {obj} has an invalid non integer exponent')
             return float(obj)
         elif isinstance(obj, schemas.NoneClass):
             return None
