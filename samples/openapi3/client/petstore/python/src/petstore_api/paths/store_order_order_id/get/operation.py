@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
     def _get_order_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
     def _get_order_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
     def _get_order_by_id(
         self,
         path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

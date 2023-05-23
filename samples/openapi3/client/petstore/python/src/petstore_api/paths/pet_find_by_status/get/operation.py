@@ -73,7 +73,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_status(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -86,7 +86,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -97,7 +97,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_status(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -111,7 +111,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_status(
         self,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

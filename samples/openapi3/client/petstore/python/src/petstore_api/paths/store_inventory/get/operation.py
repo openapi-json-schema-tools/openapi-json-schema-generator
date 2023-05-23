@@ -36,7 +36,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_inventory(
         self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
     def _get_inventory(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_inventory(
         self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
 
     def _get_inventory(
         self,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

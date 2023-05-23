@@ -53,7 +53,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -84,7 +84,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -117,7 +117,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -147,7 +147,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -180,7 +180,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

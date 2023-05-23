@@ -115,7 +115,7 @@ T = typing.TypeVar('T', bound=api_response.ApiResponse)
 @dataclasses.dataclass
 class ApiException(OpenApiException, typing.Generic[T]):
     status: int
-    reason: str
+    reason: typing.Optional[str] = None
     api_response: typing.Optional[T] = None
 
     def __str__(self):

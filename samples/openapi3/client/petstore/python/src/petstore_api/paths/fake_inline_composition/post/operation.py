@@ -84,7 +84,7 @@ class BaseApi(api_client.Api):
             io.BufferedReader
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -102,7 +102,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -135,7 +135,7 @@ class BaseApi(api_client.Api):
             io.BufferedReader
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -170,7 +170,7 @@ class BaseApi(api_client.Api):
             io.BufferedReader
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -202,7 +202,7 @@ class BaseApi(api_client.Api):
             io.BufferedReader
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -237,7 +237,7 @@ class BaseApi(api_client.Api):
             io.BufferedReader
         ] = schemas.unset,
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

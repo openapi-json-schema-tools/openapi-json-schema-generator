@@ -21,7 +21,7 @@
     cookie_params: RequestCookieParameters.Params = frozendict.frozendict(),
 {{/if}}
 {{#if produces}}
-    accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+    accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
 {{/if}}
 {{#neq security null}}
     {{#gt security.size 0}}
