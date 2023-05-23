@@ -28,7 +28,7 @@ class TestObjWithRequiredProps(unittest.TestCase):
     assert orgin_cls is not None
     assert isinstance(a, orgin_cls)
     b = obj.b
-    orgin_cls = typing_extensions.get_origin(ObjWithRequiredProps.Schema_.Properties.B)
+    orgin_cls = typing_extensions.get_origin(ObjWithRequiredPropsBase.Schema_.Properties.B)
     assert orgin_cls is not None
     assert isinstance(a, orgin_cls)
 
