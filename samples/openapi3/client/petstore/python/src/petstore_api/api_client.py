@@ -26,7 +26,7 @@ from urllib3 import _collections, fields
 
 import frozendict
 
-from petstore_api import exceptions, rest, schemas, security_schemes
+from petstore_api import exceptions, rest, schemas, security_schemes, api_response
 from petstore_api.configurations import api_configuration, schema_configuration as schema_configuration_
 
 
@@ -717,20 +717,6 @@ class HeaderParameter(HeaderParameterWithoutName):
         )
 
 
-@dataclasses.dataclass
-class ApiResponse:
-    response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
-
-
-@dataclasses.dataclass
-class ApiResponseWithoutDeserialization(ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
-
-
 class TypedDictInputVerifier:
     @staticmethod
     def _verify_typed_dict_inputs(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
@@ -1226,12 +1212,12 @@ class Api(TypedDictInputVerifier):
         return _fields, _body
 
     @staticmethod
-    def _verify_response_status(api_response: 'ApiResponse'):
-        if not 200 <= api_response.response.status <= 399:
-            raise exceptions.ApiException(
-                status=api_response.response.status,
-                reason=api_response.response.reason,
-                api_response=api_response
+    def _verify_response_status(response: api_response.ApiResponse):
+        if not 200 <= response.response.status <= 399:
+            raise api_response.ApiException(
+                status=response.response.status,
+                reason=response.response.reason,
+                api_response=response
             )
 
 

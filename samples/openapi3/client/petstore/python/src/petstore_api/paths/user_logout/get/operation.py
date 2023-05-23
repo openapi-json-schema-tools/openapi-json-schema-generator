@@ -32,7 +32,7 @@ class BaseApi(api_client.Api):
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _logout_user(
@@ -43,7 +43,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = ...,
     ) -> typing.Union[
         response_default.Default.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
+        api_response.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _logout_user(
@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
             'servers', server_index
         )
 
-        response = self.api_client.call_api(
+        raw_response = self.api_client.call_api(
             resource_path=used_path,
             method='get',
             host=host,
@@ -74,13 +74,13 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         else:
-            api_response = default_response.deserialize(response, self.api_client.schema_configuration)
+            response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
 
-        self._verify_response_status(api_response)
+        self._verify_response_status(response)
 
-        return api_response
+        return response
 
 
 class LogoutUser(BaseApi):

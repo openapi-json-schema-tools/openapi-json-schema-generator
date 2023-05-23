@@ -16,7 +16,7 @@ import certifi
 import urllib3
 from urllib3._collections import HTTPHeaderDict
 
-from petstore_api.exceptions import ApiException, ApiValueError
+from petstore_api import exceptions, api_response
 
 
 logger = logging.getLogger(__name__)
@@ -115,7 +115,7 @@ class RESTClientObject(object):
                           'PATCH', 'OPTIONS']
 
         if fields and body:
-            raise ApiValueError(
+            raise exceptions.ApiValueError(
                 "body parameter cannot be used with fields parameter."
             )
 
@@ -176,7 +176,7 @@ class RESTClientObject(object):
                     msg = """Cannot prepare a request message for provided
                              arguments. Please check that your arguments match
                              declared content type."""
-                    raise ApiException(status=0, reason=msg)
+                    raise api_response.ApiException(status=0, reason=msg)
             # For `GET`, `HEAD`
             else:
                 r = self.pool_manager.request(method, url,
@@ -185,7 +185,7 @@ class RESTClientObject(object):
                                               headers=headers)
         except urllib3.exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
-            raise ApiException(status=0, reason=msg)
+            raise api_response.ApiException(status=0, reason=msg)
 
         if not stream:
             # log response body

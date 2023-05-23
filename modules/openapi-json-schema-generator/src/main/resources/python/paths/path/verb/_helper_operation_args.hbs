@@ -48,10 +48,10 @@
     skip_deserialization: bool = False,
     {{/if}}
 {{#eq skipDeserialization "True"}}
-) -> api_client.ApiResponseWithoutDeserialization: ...
+) -> api_response.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization "False"}}
-) -> {{#if getAllResponsesAreErrors}}api_client.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
+) -> {{#if getAllResponsesAreErrors}}api_response.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
 ]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}
@@ -60,7 +60,7 @@
 {{#if isOverload}}
 ) -> typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
-    api_client.ApiResponseWithoutDeserialization,
+    api_response.ApiResponseWithoutDeserialization,
 ]: ...
 {{else}}
 ):

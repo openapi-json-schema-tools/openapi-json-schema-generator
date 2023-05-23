@@ -720,6 +720,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
 
         supportingFiles.add(new SupportingFile("api_client.hbs", packagePath(), "api_client.py"));
+        supportingFiles.add(new SupportingFile("api_response.hbs", packagePath(), "api_response.py"));
         supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
         supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));

@@ -24,6 +24,6 @@ from petstore_api.exceptions import ApiAttributeError
 from petstore_api.exceptions import ApiTypeError
 from petstore_api.exceptions import ApiValueError
 from petstore_api.exceptions import ApiKeyError
-from petstore_api.exceptions import ApiException
+from petstore_api.api_response import ApiException
 
 __import__('sys').setrecursionlimit(1234)
