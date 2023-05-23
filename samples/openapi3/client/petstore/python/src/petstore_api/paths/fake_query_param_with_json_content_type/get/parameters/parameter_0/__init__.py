@@ -24,13 +24,8 @@ class Parameter0(api_client.QueryParameter):
             bytes,
             schemas.FileIO
         ]]
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json': typing.Type[ApplicationJsonMediaType],
-        }
+    content = (
+        'application/json',
+        ApplicationJsonMediaType,
     )
-    content: Content = {
-        'application/json': ApplicationJsonMediaType,
-    }
     required = True

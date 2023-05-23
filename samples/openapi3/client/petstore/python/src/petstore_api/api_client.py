@@ -388,6 +388,7 @@ class ParameterBase(JSONDetector):
         return json.dumps(in_data)
 
 
+@dataclasses.dataclass
 class PathParameter(ParameterBase, StyleSimpleSerializer):
     name: str
     required: bool = False
@@ -396,7 +397,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
 
     @classmethod
     def __serialize_label(
@@ -466,16 +467,19 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
                     return cls.__serialize_label(cast_in_data)
                 elif cls.style is ParameterStyle.MATRIX:
                     return cls.__serialize_matrix(cast_in_data)
-        # cls.content will be length one
-        for content_type, schema in cls.content.items():
-            cast_in_data = schema(in_data)
-            cast_in_data = cls._json_encoder.default(cast_in_data)
-            if cls._content_type_is_json(content_type):
-                value = cls._serialize_json(cast_in_data)
-                return cls._to_dict(cls.name, value)
+        assert cls.content is not None
+        content_type, media_type = cls.content
+        assert media_type.schema is not None
+        cast_in_data = media_type.schema(in_data)
+        cast_in_data = cls._json_encoder.default(cast_in_data)
+        if cls._content_type_is_json(content_type):
+            value = cls._serialize_json(cast_in_data)
+            return cls._to_dict(cls.name, value)
+        else:
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
+@dataclasses.dataclass
 class QueryParameter(ParameterBase, StyleFormSerializer):
     name: str
     required: bool = False
@@ -484,7 +488,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
 
     @classmethod
     def __serialize_space_delimited(
@@ -592,6 +596,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
+@dataclasses.dataclass
 class CookieParameter(ParameterBase, StyleFormSerializer):
     name: str
     required: bool = False
@@ -600,7 +605,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
 
     @classmethod
     def serialize(
@@ -638,6 +643,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
             raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
+@dataclasses.dataclass
 class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
     required: bool = False
     style: ParameterStyle = ParameterStyle.SIMPLE
@@ -645,7 +651,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
 
     @staticmethod
     def __to_headers(in_data: typing.Tuple[typing.Tuple[str, str], ...]) -> _collections.HTTPHeaderDict:
@@ -706,6 +712,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
 
 
+@dataclasses.dataclass
 class HeaderParameter(HeaderParameterWithoutName):
     name: str
 
