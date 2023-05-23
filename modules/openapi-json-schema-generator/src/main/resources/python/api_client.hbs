@@ -979,7 +979,7 @@ class ApiClient:
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
-        timeout: typing.Union[float, typing.Tuple, None] = None,
+        timeout: typing.Union[int, float, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
@@ -1046,7 +1046,7 @@ class ApiClient:
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         body: typing.Union[str, bytes, None] = None,
         stream: bool = False,
-        timeout: typing.Union[float, typing.Tuple, None] = None,
+        timeout: typing.Union[int, float, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request using RESTClient."""
         if method == "get":

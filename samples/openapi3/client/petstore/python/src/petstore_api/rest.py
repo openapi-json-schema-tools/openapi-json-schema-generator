@@ -93,7 +93,7 @@ class RESTClientObject(object):
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, typing.Any], ...]] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ) -> urllib3_response.BaseHTTPResponse:
         """Perform requests.
 
@@ -120,12 +120,11 @@ class RESTClientObject(object):
                 "body parameter cannot be used with fields parameter."
             )
 
-        fields = fields or {}
         headers = headers or HTTPHeaderDict()
 
         used_timeout: typing.Optional[urllib3.Timeout] = None
         if timeout:
-            if isinstance(timeout, float):
+            if isinstance(timeout, (int, float)):
                 used_timeout = urllib3.Timeout(total=timeout)
             elif (isinstance(timeout, tuple) and
                   len(timeout) == 2):
