@@ -501,7 +501,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
             in_data=in_data,
             explode=cls.explode,
             percent_encode=True,
-            prefix_separator_iterator=prefix_separator_iterator
+            prefix_separator_iterator=iterator
         )
         return cls._to_dict(cls.name, value)
 
@@ -540,13 +540,14 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         return cls._to_dict(cls.name, value)
 
     @classmethod
-    def get_prefix_separator_iterator(cls) -> typing.Optional[PrefixSeparatorIterator]:
+    def get_prefix_separator_iterator(cls) -> PrefixSeparatorIterator:
         if cls.style is ParameterStyle.FORM:
             return PrefixSeparatorIterator('?', '&')
         elif cls.style is ParameterStyle.SPACE_DELIMITED:
             return PrefixSeparatorIterator('', '%20')
         elif cls.style is ParameterStyle.PIPE_DELIMITED:
             return PrefixSeparatorIterator('', '|')
+        raise ValueError(f'No iterator possible for style={cls.style}')
 
     @classmethod
     def serialize(
@@ -579,19 +580,20 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
                     return cls.__serialize_space_delimited(cast_in_data, prefix_separator_iterator)
                 elif cls.style is ParameterStyle.PIPE_DELIMITED:
                     return cls.__serialize_pipe_delimited(cast_in_data, prefix_separator_iterator)
-        # cls.content will be length one
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
-        for content_type, media_type in cls.content.items():
-            cast_in_data = media_type.schema(in_data)
-            cast_in_data = cls._json_encoder.default(cast_in_data)
-            if cls._content_type_is_json(content_type):
-                value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
-                return cls._to_dict(
-                    cls.name,
-                    next(prefix_separator_iterator) + cls.name + '=' + parse.quote(value)
-                )
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        assert cls.content is not None
+        content_type, media_type = cls.content
+        assert media_type.schema is not None
+        cast_in_data = media_type.schema(in_data)
+        cast_in_data = cls._json_encoder.default(cast_in_data)
+        if cls._content_type_is_json(content_type):
+            value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
+            return cls._to_dict(
+                cls.name,
+                next(prefix_separator_iterator) + cls.name + '=' + parse.quote(value)
+            )
+        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
 @dataclasses.dataclass
@@ -631,14 +633,15 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                     prefix_separator_iterator=PrefixSeparatorIterator('', '&')
                 )
                 return cls._to_dict(cls.name, value)
-        # cls.content will be length one
-        for content_type, media_type in cls.content.items():
-            cast_in_data = media_type.schema(in_data)
-            cast_in_data = cls._json_encoder.default(cast_in_data)
-            if cls._content_type_is_json(content_type):
-                value = cls._serialize_json(cast_in_data)
-                return cls._to_dict(cls.name, value)
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        assert cls.content is not None
+        content_type, media_type = cls.content
+        cast_in_data = media_type.schema(in_data)
+        assert media_type.schema is not None
+        cast_in_data = cls._json_encoder.default(cast_in_data)
+        if cls._content_type_is_json(content_type):
+            value = cls._serialize_json(cast_in_data)
+            return cls._to_dict(cls.name, value)
+        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
 @dataclasses.dataclass
@@ -702,12 +705,13 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
                 return cls.schema.from_openapi_data_(extracted_data)
-        # cls.content will be length one
-        for content_type, media_type in cls.content.items():
-            if cls._content_type_is_json(content_type):
-                cast_in_data = json.loads(in_data)
-                return media_type.schema.from_openapi_data_(cast_in_data)
-            raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+        assert cls.content is not None
+        content_type, media_type = cls.content
+        if cls._content_type_is_json(content_type):
+            cast_in_data = json.loads(in_data)
+            assert media_type.schema is not None
+            return media_type.schema.from_openapi_data_(cast_in_data)
+        raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
 
 
 @dataclasses.dataclass
