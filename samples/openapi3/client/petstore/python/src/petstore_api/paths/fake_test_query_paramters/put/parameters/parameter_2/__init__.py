@@ -12,5 +12,5 @@ from . import schema
 class Parameter2(api_client.QueryParameter):
     name = "http"
     style = api_client.ParameterStyle.SPACE_DELIMITED
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[tuple]
     required = True

@@ -1,0 +1,43 @@
+{{#eq types null}}
+frozendict.frozendict,
+str,
+decimal.Decimal,
+schemas.BoolClass,
+schemas.NoneClass,
+tuple,
+bytes,
+schemas.FileIO
+{{else}}
+    {{#each types}}
+        {{#eq this "array"}}
+tuple{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "object"}}
+frozendict.frozendict{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "null"}}
+schemas.NoneClass{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "string" }}
+            {{#eq ../format null}}
+str{{#unless @last}},{{/unless}}
+            {{else}}
+                {{#eq ../format "binary"}}
+bytes,
+schemas.FileIO{{#unless @last}},{{/unless}}
+                {{else}}
+str{{#unless @last}},{{/unless}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#eq this "integer"}}
+decimal.Decimal{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "number"}}
+decimal.Decimal{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "boolean"}}
+schemas.BoolClass{{#unless @last}},{{/unless}}
+        {{/eq}}
+    {{/each}}
+{{/eq}}

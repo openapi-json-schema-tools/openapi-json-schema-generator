@@ -12,21 +12,21 @@ from .content.application_xml import schema as application_xml_schema
 class Pet(api_client.RequestBody):
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
+    class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
 
 
-    class __ApplicationXmlMediaType(api_client.MediaType):
+    class ApplicationXmlMediaType(api_client.MediaType):
         schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
-            'application/xml': typing.Type[__ApplicationXmlMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
+            'application/xml': typing.Type[ApplicationXmlMediaType],
         }
     )
-    content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
-        'application/xml': __ApplicationXmlMediaType,
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
+        'application/xml': ApplicationXmlMediaType,
     }
     required = True

@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import ipv6_format
-Schema = ipv6_format.Ipv6Format
+Schema: typing_extensions.TypeAlias = ipv6_format.Ipv6Format[U]

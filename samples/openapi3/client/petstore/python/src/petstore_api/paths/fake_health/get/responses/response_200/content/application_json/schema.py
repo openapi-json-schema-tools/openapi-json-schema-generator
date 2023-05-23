@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import health_check_result
-Schema = health_check_result.HealthCheckResult
+Schema: typing_extensions.TypeAlias = health_check_result.HealthCheckResult[U]

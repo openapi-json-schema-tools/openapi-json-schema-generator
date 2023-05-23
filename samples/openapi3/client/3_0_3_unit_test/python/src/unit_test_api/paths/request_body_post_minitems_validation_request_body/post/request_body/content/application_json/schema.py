@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import minitems_validation
-Schema = minitems_validation.MinitemsValidation
+Schema: typing_extensions.TypeAlias = minitems_validation.MinitemsValidation[U]

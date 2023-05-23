@@ -12,5 +12,5 @@ from . import schema
 class Parameter17(api_client.CookieParameter):
     name = "self"
     style = api_client.ParameterStyle.FORM
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[str]
     explode = True

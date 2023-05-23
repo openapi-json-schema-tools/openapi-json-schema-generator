@@ -4,51 +4,94 @@
 
 @typing.overload
 {{#if refInfo.refClass}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
+{{> components/schemas/_helper_getitem_refclass literal=true key=@key.original overload=true }}
 {{else}}
     {{#if jsonPathPiece}}
         {{#if schemaIsFromAdditionalProperties}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.{{jsonPathPiece.camelCase}}: ...
+{{> components/schemas/_helper_getitem_property propertyClass="" literal=true key=@key.original overload=true }}
         {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.Properties.{{jsonPathPiece.camelCase}}: ...
+{{> components/schemas/_helper_getitem_property propertyClass=".Properties" literal=true key=@key.original overload=true }}
         {{/if}}
     {{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.AnyTypeSchema: ...
+        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.AnyTypeSchema[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]]: ...
     {{/if}}
 {{/if}}
 {{/with}}
 {{/each}}
 {{/if}}
 {{#if optionalProperties}}
-{{#each optionalProperties}}
+    {{#each optionalProperties}}
 
 @typing.overload
-{{#if refInfo.refClass}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> '{{> components/schemas/_helper_refclass_with_module }}': ...
-{{else}}
-def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> Schema_.Properties.{{jsonPathPiece.camelCase}}: ...
-{{/if}}
-{{/each}}
+        {{#if refInfo.refClass}}
+{{> components/schemas/_helper_getitem_refclass literal=true key=@key.original overload=true }}
+        {{else}}
+{{> components/schemas/_helper_getitem_property propertyClass=".Properties" literal=true key=@key.original overload=true }}
+        {{/if}}
+    {{/each}}
 {{/if}}
 {{#or properties requiredProperties}}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
 @typing.overload
-def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}: ...
+            {{#if refInfo.refClass}}
+{{> components/schemas/_helper_getitem_refclass literal=false key="str" overload=true }}
+            {{else}}
+{{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="str" overload=true }}
+            {{/if}}
         {{/unless}}
     {{else}}
+        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
 
 @typing.overload
-def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
+def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+    frozendict.frozendict,
+    str,
+    decimal.Decimal,
+    schemas.BoolClass,
+    schemas.NoneClass,
+    tuple,
+    bytes,
+    schemas.FileIO
+]]: ...
     {{/with}}
 
-{{> components/schemas/_helper_getitem methodName="__getitem__" }}
+def __getitem__(
+    self,
+    name: typing.Union[
+    {{#each requiredProperties}}
+        {{#if this}}
+        typing_extensions.Literal["{{{@key.original}}}"],
+        {{/if}}
+    {{/each}}
+    {{#each optionalProperties}}
+        typing_extensions.Literal["{{{@key.original}}}"],
+    {{/each}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+        str
+        {{/unless}}
+    {{else}}
+        str
+    {{/with}}
+    ]
+):
+    # dict_instance[name] accessor
+    return super().__getitem__(name)
 {{else}}
+    {{! no properties or requiredProperties }}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-def __getitem__(self, name: str) -> {{#if refInfo.refClass}}'{{> components/schemas/_helper_refclass_with_module }}'{{else}}Schema_.{{jsonPathPiece.camelCase}}{{/if}}:
+            {{#if refInfo.refClass}}
+{{> components/schemas/_helper_getitem_refclass literal=false key="str" overload=false }}
+            {{else}}
+{{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="str" overload=false }}
+            {{/if}}
     # dict_instance[name] accessor
     return super().__getitem__(name)
         {{/unless}}
