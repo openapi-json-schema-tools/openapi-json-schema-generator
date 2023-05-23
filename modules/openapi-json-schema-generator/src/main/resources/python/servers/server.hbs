@@ -52,7 +52,7 @@ class {{jsonPathPiece.camelCase}}(server.Server):
     '''
     {{/if}}
     {{#if variables}}
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     {{/if}}
     _url: str = "{{url}}"

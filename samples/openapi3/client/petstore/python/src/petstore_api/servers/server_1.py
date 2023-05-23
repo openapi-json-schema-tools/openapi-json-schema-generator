@@ -62,6 +62,6 @@ class Server1(server.Server):
     '''
     The local server
     '''
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     _url: str = "https://localhost:8080/{version}"

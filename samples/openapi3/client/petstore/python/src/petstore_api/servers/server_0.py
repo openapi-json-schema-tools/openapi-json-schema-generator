@@ -98,6 +98,6 @@ class Server0(server.Server):
     '''
     petstore server
     '''
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     _url: str = "http://{server}.swagger.io:{port}/v2"

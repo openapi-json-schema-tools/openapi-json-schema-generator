@@ -59,6 +59,6 @@ def _default_variable_schemas() -> _VariablesSchemas:
 
 @dataclasses.dataclass
 class Server1(server.Server):
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     _url: str = "https://petstore.swagger.io/{version}"
