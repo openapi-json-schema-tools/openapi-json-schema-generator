@@ -47,7 +47,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> response_200.ResponseFor200.response_cls: ...
 
@@ -64,7 +64,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> response_200.ResponseFor200.response_cls: ...
 
@@ -83,7 +83,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
@@ -118,7 +118,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         """

@@ -36,7 +36,7 @@
 {{/neq}}
     server_index: typing.Optional[int] = None,
     stream: bool = False,
-    timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    timeout: typing.Optional[typing.Union[float, typing.Tuple]] = None,
     {{#if isOverload}}
         {{#eq skipDeserialization "False"}}
     skip_deserialization: typing_extensions.Literal[False] = ...,

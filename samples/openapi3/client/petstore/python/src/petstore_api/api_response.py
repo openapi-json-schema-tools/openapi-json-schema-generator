@@ -9,20 +9,20 @@
 import dataclasses
 import typing
 
-import urllib3
+from urllib3 import response as urllib3_response
 
 from petstore_api import schemas
 
 
 @dataclasses.dataclass
 class ApiResponse:
-    response: urllib3.HTTPResponse
+    response: urllib3_response.BaseHTTPResponse
     body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
     headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
 
 
 @dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
-    response: urllib3.HTTPResponse
+    response: urllib3_response.BaseHTTPResponse
     body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
     headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
