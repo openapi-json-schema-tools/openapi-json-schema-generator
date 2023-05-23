@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import enums_in_properties
-Schema = enums_in_properties.EnumsInProperties
+Schema: typing_extensions.TypeAlias = enums_in_properties.EnumsInProperties[U]

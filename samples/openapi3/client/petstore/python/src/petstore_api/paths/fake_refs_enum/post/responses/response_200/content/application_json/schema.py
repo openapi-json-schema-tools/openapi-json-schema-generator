@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import string_enum
-Schema = string_enum.StringEnum
+Schema: typing_extensions.TypeAlias = string_enum.StringEnum[U]

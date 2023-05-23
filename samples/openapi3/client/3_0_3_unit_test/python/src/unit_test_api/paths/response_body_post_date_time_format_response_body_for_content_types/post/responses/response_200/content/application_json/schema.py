@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import date_time_format
-Schema = date_time_format.DateTimeFormat
+Schema: typing_extensions.TypeAlias = date_time_format.DateTimeFormat[U]

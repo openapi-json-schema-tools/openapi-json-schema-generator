@@ -29,14 +29,14 @@ class Header:
         pass
 
 
-    parameters = [
-        header_some_header.SomeHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'someHeader': header_some_header.SomeHeader,
+    }
 
 @dataclasses.dataclass
 class ApiSuccessInlineContentAndHeader(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema
+    body: application_json_schema.Schema[frozendict.frozendict]
     headers: Header.Params
 
 
@@ -44,15 +44,15 @@ class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiSuccessInlineC
     response_cls = ApiSuccessInlineContentAndHeader
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    class ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[frozendict.frozendict]
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
         }
     )
-    content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
     }
     headers=Header.parameters

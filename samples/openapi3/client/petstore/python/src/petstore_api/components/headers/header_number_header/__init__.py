@@ -11,4 +11,4 @@ from . import schema
 
 class NumberHeader(api_client.HeaderParameterWithoutName):
     style = api_client.ParameterStyle.SIMPLE
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[str]

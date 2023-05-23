@@ -784,7 +784,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
     response_cls: typing.Type[T]
     content: typing.Optional[typing.Dict[str, MediaType]] = None
-    headers: typing.Optional[typing.Dict[str, HeaderParameterWithoutName]] = None
+    headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
@@ -1369,12 +1369,13 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         - encode_multipart and fields for multipart/form-data
         """
         media_type = cls.content[content_type]
-        if isinstance(in_data, media_type.schema):
+        schema = schemas._get_class(media_type.schema)
+        if isinstance(in_data, schema):
             cast_in_data = in_data
         elif isinstance(in_data, (dict, frozendict.frozendict)) and in_data:
-            cast_in_data = media_type.schema(**in_data)
+            cast_in_data = schema(**in_data)
         else:
-            cast_in_data = media_type.schema(in_data)
+            cast_in_data = schema(in_data)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):

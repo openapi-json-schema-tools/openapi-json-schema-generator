@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import boolean_type_matches_booleans
-Schema = boolean_type_matches_booleans.BooleanTypeMatchesBooleans
+Schema: typing_extensions.TypeAlias = boolean_type_matches_booleans.BooleanTypeMatchesBooleans[U]

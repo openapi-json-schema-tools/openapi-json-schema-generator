@@ -12,4 +12,4 @@ from . import schema
 class Parameter0(api_client.HeaderParameter):
     name = "api_key"
     style = api_client.ParameterStyle.SIMPLE
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[str]

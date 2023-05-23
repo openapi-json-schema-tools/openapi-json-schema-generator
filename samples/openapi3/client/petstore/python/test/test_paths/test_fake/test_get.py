@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import petstore_api
 from petstore_api.paths.fake.get import operation as get  # noqa: E501
