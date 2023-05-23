@@ -47,15 +47,15 @@ class Zebra(
                 
                 @schemas.classproperty
                 def PLAINS(cls):
-                    return cls("plains")
+                    return cls("plains") # type: ignore
                 
                 @schemas.classproperty
                 def MOUNTAIN(cls):
-                    return cls("mountain")
+                    return cls("mountain") # type: ignore
                 
                 @schemas.classproperty
                 def GREVYS(cls):
-                    return cls("grevys")
+                    return cls("grevys") # type: ignore
             
             
             class ClassName(
@@ -73,7 +73,7 @@ class Zebra(
                 
                 @schemas.classproperty
                 def ZEBRA(cls):
-                    return cls("zebra")
+                    return cls("zebra") # type: ignore
             __annotations__ = {
                 "type": Type,
                 "className": ClassName,

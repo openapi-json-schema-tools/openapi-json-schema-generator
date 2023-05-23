@@ -160,7 +160,7 @@ class classproperty:
 class NoneClass(Singleton):
     @classproperty
     def NONE(cls):
-        return cls(None)
+        return cls(None) # type: ignore
 
     def __bool__(self) -> bool:
         return False
@@ -169,11 +169,11 @@ class NoneClass(Singleton):
 class BoolClass(Singleton):
     @classproperty
     def TRUE(cls):
-        return cls(True)
+        return cls(True) # type: ignore
 
     @classproperty
     def FALSE(cls):
-        return cls(False)
+        return cls(False) # type: ignore
 
     @functools.lru_cache()
     def __bool__(self) -> bool:

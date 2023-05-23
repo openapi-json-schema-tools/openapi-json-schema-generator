@@ -47,7 +47,7 @@ class JSONPatchRequestRemove(
                 
                 @schemas.classproperty
                 def REMOVE(cls):
-                    return cls("remove")
+                    return cls("remove") # type: ignore
             __annotations__ = {
                 "path": Path,
                 "op": Op,

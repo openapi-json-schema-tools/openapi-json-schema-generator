@@ -31,4 +31,4 @@ class BooleanEnum(
     
     @schemas.classproperty
     def TRUE(cls):
-        return cls(True)
+        return cls(True) # type: ignore
