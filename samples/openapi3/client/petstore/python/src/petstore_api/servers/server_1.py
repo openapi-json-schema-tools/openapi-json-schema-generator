@@ -51,7 +51,7 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
-def _default_variable_schemas():
+def _default_variable_schemas() -> _VariablesSchemas:
     return {
         "version": _Variables.Version,
     }
@@ -62,6 +62,6 @@ class Server1(server.Server):
     '''
     The local server
     '''
-    _url: str = "https://localhost:8080/{version}"
     variables: Variables
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    _url: str = "https://localhost:8080/{version}"

@@ -51,7 +51,7 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
-def _default_variable_schemas():
+def _default_variable_schemas() -> _VariablesSchemas:
     return {
         "version": _Variables.Version,
     }
@@ -59,6 +59,6 @@ def _default_variable_schemas():
 
 @dataclasses.dataclass
 class Server1(server.Server):
-    _url: str = "https://petstore.swagger.io/{version}"
     variables: Variables
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    _url: str = "https://petstore.swagger.io/{version}"

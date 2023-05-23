@@ -86,7 +86,7 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
-def _default_variable_schemas():
+def _default_variable_schemas() -> _VariablesSchemas:
     return {
         "server": _Variables.Server,
         "port": _Variables.Port,
@@ -98,6 +98,6 @@ class Server0(server.Server):
     '''
     petstore server
     '''
-    _url: str = "http://{server}.swagger.io:{port}/v2"
     variables: Variables
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    _url: str = "http://{server}.swagger.io:{port}/v2"
