@@ -27,31 +27,31 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
 {{/if}}
 {{#if schema}}
     {{#with schema}}
-    schema = {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+    {{> components/_helper_content_schema_type paramName="schema" modulePrefix=null }}
     {{/with}}
 {{/if}}
 {{#if content}}
 {{#each content}}
 
 
-    class __{{@key.camelCase}}MediaType(api_client.MediaType):
+    class {{@key.camelCase}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
         {{/with}}
     {{/with}}
 {{/each}}
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
 {{#each content}}
-            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
+            '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
 {{/each}}
         }
     )
-    content: __Content = {
+    content: Content = {
 {{#each content}}
-        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
+        '{{{@key.original}}}': {{@key.camelCase}}MediaType,
 {{/each}}
     }
 {{/if}}

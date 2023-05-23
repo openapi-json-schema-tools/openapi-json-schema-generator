@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import required_default_validation
-Schema = required_default_validation.RequiredDefaultValidation
+Schema: typing_extensions.TypeAlias = required_default_validation.RequiredDefaultValidation[U]

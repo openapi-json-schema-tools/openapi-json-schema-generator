@@ -11,14 +11,14 @@ from .content.application_json_patchjson import schema as application_json_patch
 class RequestBody(api_client.RequestBody):
 
 
-    class __ApplicationJsonPatchjsonMediaType(api_client.MediaType):
+    class ApplicationJsonPatchjsonMediaType(api_client.MediaType):
         schema: typing.Type[application_json_patchjson_schema.Schema] = application_json_patchjson_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json-patch+json': typing.Type[__ApplicationJsonPatchjsonMediaType],
+            'application/json-patch+json': typing.Type[ApplicationJsonPatchjsonMediaType],
         }
     )
-    content: __Content = {
-        'application/json-patch+json': __ApplicationJsonPatchjsonMediaType,
+    content: Content = {
+        'application/json-patch+json': ApplicationJsonPatchjsonMediaType,
     }

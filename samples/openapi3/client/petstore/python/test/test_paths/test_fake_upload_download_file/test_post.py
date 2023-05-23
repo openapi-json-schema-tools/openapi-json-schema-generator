@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import petstore_api
 from petstore_api.paths.fake_upload_download_file.post import operation as post  # noqa: E501
@@ -28,7 +29,8 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
-    response_body_schema = post.response_200.ResponseFor200.content["application/octet-stream"].schema
+    response_body_schema = typing_extensions.get_origin(post.response_200.ResponseFor200.content["application/octet-stream"].schema)
+    assert response_body_schema is not None
 
 if __name__ == '__main__':
     unittest.main()

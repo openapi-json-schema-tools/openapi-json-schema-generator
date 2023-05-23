@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
-Schema = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty
+Schema: typing_extensions.TypeAlias = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty[U]

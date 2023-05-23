@@ -85,7 +85,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         with self.assertRaises(petstore_api.ApiException) as cm:
             api_response = api.get()
 
-        exc: petstore_api.ApiException[get.response_404.ResponseFor404] = cm.exception
+        exc: petstore_api.ApiException[get.response_404.ResponseFor404.response_cls] = cm.exception
         expected_status = 404
         expected_reason = '404'
         self.assertEqual(exc.status, expected_status)

@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import unit_test_api
 from unit_test_api.paths.response_body_post_enum_with1_does_not_match_true_response_body_for_content_types.post import operation as post  # noqa: E501
@@ -27,7 +28,8 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
-    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
+    response_body_schema = typing_extensions.get_origin(post.response_200.ResponseFor200.content["application/json"].schema)
+    assert response_body_schema is not None
     
     def test_true_is_invalid_fails(self):
         # true is invalid

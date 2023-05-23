@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import nested_allof_to_check_validation_semantics
-Schema = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics
+Schema: typing_extensions.TypeAlias = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics[U]
