@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import properties_with_escaped_characters
-Schema = properties_with_escaped_characters.PropertiesWithEscapedCharacters
+Schema: typing_extensions.TypeAlias = properties_with_escaped_characters.PropertiesWithEscapedCharacters[U]

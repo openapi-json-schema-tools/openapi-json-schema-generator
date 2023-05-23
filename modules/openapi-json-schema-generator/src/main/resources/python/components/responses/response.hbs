@@ -40,7 +40,7 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
                         {{/with}}
                     {{else}}
         schemas.Unset,
@@ -48,7 +48,15 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                 {{/each}}
     ]
             {{else}}
-    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
+    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
+                        {{/with}}
+                    {{else}}
+    body: schemas.Unset
+                    {{/if}}
+                {{/each}}
             {{/gt}}
         {{else}}
     body: schemas.Unset = schemas.unset
@@ -66,15 +74,23 @@ class Api{{jsonPathPiece.camelCase}}(api_client.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-        {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
-                            {{/with}}
-                        {{else}}
+        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
+                                {{/with}}
+                            {{else}}
         schemas.Unset,
                             {{/if}}
                         {{/each}}
     ]
                     {{else}}
-    body: {{#each content}}{{#if this.schema}}{{#with this.schema}}{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}{{/with}}{{else}}schemas.Unset{{/if}}{{/each}}
+                        {{#each content}}
+                            {{#if this.schema}}
+                                {{#with this.schema}}
+    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
+                                {{/with}}
+                            {{else}}
+    body: schemas.Unset
+                            {{/if}}
+                        {{/each}}
                     {{/gt}}
                 {{else}}
     body: schemas.Unset = schemas.unset
@@ -96,27 +112,27 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
     {{#each content}}
 
 
-    class __{{@key.camelCase}}MediaType(api_client.MediaType):
+    class {{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        schema: typing.Type[{{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}] = {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
             {{else}}
         pass
             {{/with}}
         {{/with}}
     {{/each}}
     {{#if content}}
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
         {{#each content}}
-            '{{{@key.original}}}': typing.Type[__{{@key.camelCase}}MediaType],
+            '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
         {{/each}}
         }
     )
-    content: __Content = {
+    content: Content = {
         {{#each content}}
-        '{{{@key.original}}}': __{{@key.camelCase}}MediaType,
+        '{{{@key.original}}}': {{@key.camelCase}}MediaType,
         {{/each}}
     }
     {{/if}}

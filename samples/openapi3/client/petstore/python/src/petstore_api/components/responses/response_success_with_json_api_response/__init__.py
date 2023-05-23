@@ -37,18 +37,18 @@ class Header:
         pass
 
 
-    parameters = [
-        header_ref_schema_header.RefSchemaHeader,
-        header_int32.Int32,
-        header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.StringHeader,
-        header_number_header.NumberHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'ref-schema-header': header_ref_schema_header.RefSchemaHeader,
+        'int32': header_int32.Int32,
+        'ref-content-schema-header': header_ref_content_schema_header.RefContentSchemaHeader,
+        'stringHeader': header_string_header.StringHeader,
+        'numberHeader': header_number_header.NumberHeader,
+    }
 
 @dataclasses.dataclass
 class ApiSuccessWithJsonApiResponse(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema
+    body: application_json_schema.Schema[frozendict.frozendict]
     headers: Header.Params
 
 
@@ -56,15 +56,15 @@ class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiSuccessWithJsonAp
     response_cls = ApiSuccessWithJsonApiResponse
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    class ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[frozendict.frozendict]
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
         }
     )
-    content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
     }
     headers=Header.parameters

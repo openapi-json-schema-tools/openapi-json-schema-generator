@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import unit_test_api
 from unit_test_api.paths.request_body_post_maxproperties0_means_the_object_is_empty_request_body.post import operation as post  # noqa: E501

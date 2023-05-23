@@ -42,22 +42,22 @@ class Header:
         pass
 
 
-    parameters = [
-        header_ref_schema_header.RefSchemaHeader,
-        header_x_rate_limit.XRateLimit,
-        header_int32.Int32,
-        header_x_expires_after.XExpiresAfter,
-        header_ref_content_schema_header.RefContentSchemaHeader,
-        header_string_header.StringHeader,
-        header_number_header.NumberHeader,
-    ]
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+        'ref-schema-header': header_ref_schema_header.RefSchemaHeader,
+        'X-Rate-Limit': header_x_rate_limit.XRateLimit,
+        'int32': header_int32.Int32,
+        'X-Expires-After': header_x_expires_after.XExpiresAfter,
+        'ref-content-schema-header': header_ref_content_schema_header.RefContentSchemaHeader,
+        'stringHeader': header_string_header.StringHeader,
+        'numberHeader': header_number_header.NumberHeader,
+    }
 
 @dataclasses.dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml_schema.Schema,
-        application_json_schema.Schema,
+        application_xml_schema.Schema[str],
+        application_json_schema.Schema[str],
     ]
     headers: Header.Params
 
@@ -66,21 +66,21 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
     response_cls = ApiResponseFor200
 
 
-    class __ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing.Type[application_xml_schema.Schema] = application_xml_schema.Schema
+    class ApplicationXmlMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[str]
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    class ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[str]
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/xml': typing.Type[__ApplicationXmlMediaType],
-            'application/json': typing.Type[__ApplicationJsonMediaType],
+            'application/xml': typing.Type[ApplicationXmlMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
         }
     )
-    content: __Content = {
-        'application/xml': __ApplicationXmlMediaType,
-        'application/json': __ApplicationJsonMediaType,
+    content: Content = {
+        'application/xml': ApplicationXmlMediaType,
+        'application/json': ApplicationJsonMediaType,
     }
     headers=Header.parameters

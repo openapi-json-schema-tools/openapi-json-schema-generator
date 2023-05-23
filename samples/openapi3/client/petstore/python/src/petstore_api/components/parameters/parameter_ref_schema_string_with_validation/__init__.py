@@ -12,5 +12,5 @@ from . import schema
 class RefSchemaStringWithValidation(api_client.PathParameter):
     name = "RSstringWithValidation"
     style = api_client.ParameterStyle.SIMPLE
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[str]
     required = True

@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import uniqueitems_false_validation
-Schema = uniqueitems_false_validation.UniqueitemsFalseValidation
+Schema: typing_extensions.TypeAlias = uniqueitems_false_validation.UniqueitemsFalseValidation[U]

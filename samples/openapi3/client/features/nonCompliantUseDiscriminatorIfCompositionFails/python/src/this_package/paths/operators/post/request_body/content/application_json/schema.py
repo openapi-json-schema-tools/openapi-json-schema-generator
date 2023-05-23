@@ -8,5 +8,6 @@
 """
 
 
+from this_package.shared_imports.schema_imports import *
 from this_package.components.schema import operator
-Schema = operator.Operator
+Schema: typing_extensions.TypeAlias = operator.Operator[U]

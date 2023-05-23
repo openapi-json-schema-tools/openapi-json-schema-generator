@@ -9,3 +9,5 @@ import uuid
 import frozendict
 
 from this_package import schemas
+
+U = typing.TypeVar('U')

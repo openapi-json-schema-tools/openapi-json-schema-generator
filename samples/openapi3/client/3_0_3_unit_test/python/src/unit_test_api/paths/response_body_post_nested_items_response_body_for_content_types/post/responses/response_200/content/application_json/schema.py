@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import nested_items
-Schema = nested_items.NestedItems
+Schema: typing_extensions.TypeAlias = nested_items.NestedItems[U]

@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import number_with_validations
-Schema = number_with_validations.NumberWithValidations
+Schema: typing_extensions.TypeAlias = number_with_validations.NumberWithValidations[U]

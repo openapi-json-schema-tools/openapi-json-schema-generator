@@ -1,7 +1,8 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = {{httpMethod.original}}.{{responseModuleName}}.{{responseClassName}}.content["{{{@key.original}}}"].schema
+response_body_schema = typing_extensions.get_origin({{httpMethod.original}}.{{responseModuleName}}.{{responseClassName}}.content["{{{@key.original}}}"].schema)
+assert response_body_schema is not None
     {{/if}}
 {{#if this.testCases}}
 {{#each testCases}}

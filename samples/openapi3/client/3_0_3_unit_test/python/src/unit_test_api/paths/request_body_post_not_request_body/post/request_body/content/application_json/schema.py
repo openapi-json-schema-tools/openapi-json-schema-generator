@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import _not
-Schema = _not._Not
+Schema: typing_extensions.TypeAlias = _not._Not[U]

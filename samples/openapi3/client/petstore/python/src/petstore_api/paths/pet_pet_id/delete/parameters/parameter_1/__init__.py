@@ -12,5 +12,5 @@ from . import schema
 class Parameter1(api_client.PathParameter):
     name = "petId"
     style = api_client.ParameterStyle.SIMPLE
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[decimal.Decimal]
     required = True

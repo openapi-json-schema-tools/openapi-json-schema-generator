@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import maxitems_validation
-Schema = maxitems_validation.MaxitemsValidation
+Schema: typing_extensions.TypeAlias = maxitems_validation.MaxitemsValidation[U]

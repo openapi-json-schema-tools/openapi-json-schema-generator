@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import nul_characters_in_strings
-Schema = nul_characters_in_strings.NulCharactersInStrings
+Schema: typing_extensions.TypeAlias = nul_characters_in_strings.NulCharactersInStrings[U]

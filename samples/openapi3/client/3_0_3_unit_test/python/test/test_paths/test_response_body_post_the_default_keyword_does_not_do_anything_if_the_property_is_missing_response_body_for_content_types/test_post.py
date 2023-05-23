@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import unit_test_api
 from unit_test_api.paths.response_body_post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types.post import operation as post  # noqa: E501
@@ -27,7 +28,8 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
-    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
+    response_body_schema = typing_extensions.get_origin(post.response_200.ResponseFor200.content["application/json"].schema)
+    assert response_body_schema is not None
     
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
         # missing properties are not filled in with the default

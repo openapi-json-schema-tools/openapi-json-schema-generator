@@ -10,7 +10,7 @@ class _Variables:
     
     
     class Server(
-        schemas.StrSchema
+        schemas.StrSchema[schemas.T]
     ):
     
     
@@ -39,7 +39,7 @@ class _Variables:
     
     
     class Port(
-        schemas.StrSchema
+        schemas.StrSchema[schemas.T]
     ):
     
     

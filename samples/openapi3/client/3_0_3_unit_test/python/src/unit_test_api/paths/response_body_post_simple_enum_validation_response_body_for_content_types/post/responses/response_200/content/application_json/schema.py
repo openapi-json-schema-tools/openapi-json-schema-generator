@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import simple_enum_validation
-Schema = simple_enum_validation.SimpleEnumValidation
+Schema: typing_extensions.TypeAlias = simple_enum_validation.SimpleEnumValidation[U]

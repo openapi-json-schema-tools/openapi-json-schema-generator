@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import uri_reference_format
-Schema = uri_reference_format.UriReferenceFormat
+Schema: typing_extensions.TypeAlias = uri_reference_format.UriReferenceFormat[U]

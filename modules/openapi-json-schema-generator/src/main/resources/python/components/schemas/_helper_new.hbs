@@ -92,8 +92,24 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{/with}}
-) -> '{{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}':
-    return super().__new__(
+{{#if types}}
+    {{#eq types.size 1}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+    {{else}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+    typing.Union[
+        {{> components/schemas/_helper_schema_python_base_types_newline }}
+    ]
+]:
+    {{/eq}}
+{{else}}
+) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+    typing.Union[
+        {{> components/schemas/_helper_schema_python_base_types_newline }}
+    ]
+]:
+{{/if}}
+    inst = super().__new__(
         cls,
 {{#eq types null}}
         *args_,
@@ -137,3 +153,24 @@ def __new__(
     {{/eq}}
 {{/with}}
     )
+    inst = typing.cast(
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}],
+    {{else}}
+        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+            typing.Union[
+                {{> components/schemas/_helper_schema_python_base_types_newline }}
+            ]
+        ],
+    {{/eq}}
+{{else}}
+        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+            typing.Union[
+                {{> components/schemas/_helper_schema_python_base_types_newline }}
+            ]
+        ],
+{{/if}}
+        inst
+    )
+    return inst

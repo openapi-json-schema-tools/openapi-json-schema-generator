@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import email_format
-Schema = email_format.EmailFormat
+Schema: typing_extensions.TypeAlias = email_format.EmailFormat[U]

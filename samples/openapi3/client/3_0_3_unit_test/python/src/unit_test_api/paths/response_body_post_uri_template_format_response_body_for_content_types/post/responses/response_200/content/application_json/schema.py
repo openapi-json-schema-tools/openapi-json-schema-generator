@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import uri_template_format
-Schema = uri_template_format.UriTemplateFormat
+Schema: typing_extensions.TypeAlias = uri_template_format.UriTemplateFormat[U]

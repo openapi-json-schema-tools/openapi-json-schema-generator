@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import oneof_with_empty_schema
-Schema = oneof_with_empty_schema.OneofWithEmptySchema
+Schema: typing_extensions.TypeAlias = oneof_with_empty_schema.OneofWithEmptySchema[U]

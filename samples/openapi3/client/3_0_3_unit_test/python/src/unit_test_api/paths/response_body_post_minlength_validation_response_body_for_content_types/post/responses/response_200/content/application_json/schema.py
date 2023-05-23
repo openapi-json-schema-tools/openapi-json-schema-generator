@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import minlength_validation
-Schema = minlength_validation.MinlengthValidation
+Schema: typing_extensions.TypeAlias = minlength_validation.MinlengthValidation[U]

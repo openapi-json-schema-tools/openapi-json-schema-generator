@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
-Schema = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
+Schema: typing_extensions.TypeAlias = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[U]

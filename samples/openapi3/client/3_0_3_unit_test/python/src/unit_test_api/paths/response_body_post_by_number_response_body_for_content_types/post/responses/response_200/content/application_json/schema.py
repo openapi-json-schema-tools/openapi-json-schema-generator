@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import by_number
-Schema = by_number.ByNumber
+Schema: typing_extensions.TypeAlias = by_number.ByNumber[U]

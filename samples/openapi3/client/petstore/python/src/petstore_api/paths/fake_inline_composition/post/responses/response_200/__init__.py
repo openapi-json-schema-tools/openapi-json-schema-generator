@@ -14,8 +14,17 @@ from .content.multipart_form_data import schema as multipart_form_data_schema
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_schema.Schema,
-        multipart_form_data_schema.Schema,
+        application_json_schema.Schema[typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]],
+        multipart_form_data_schema.Schema[frozendict.frozendict],
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -24,20 +33,29 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
     response_cls = ApiResponseFor200
 
 
-    class __ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing.Type[application_json_schema.Schema] = application_json_schema.Schema
+    class ApplicationJsonMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]]
 
 
-    class __MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    class MultipartFormDataMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema[frozendict.frozendict]
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/json': typing.Type[__ApplicationJsonMediaType],
-            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
+            'application/json': typing.Type[ApplicationJsonMediaType],
+            'multipart/form-data': typing.Type[MultipartFormDataMediaType],
         }
     )
-    content: __Content = {
-        'application/json': __ApplicationJsonMediaType,
-        'multipart/form-data': __MultipartFormDataMediaType,
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
+        'multipart/form-data': MultipartFormDataMediaType,
     }

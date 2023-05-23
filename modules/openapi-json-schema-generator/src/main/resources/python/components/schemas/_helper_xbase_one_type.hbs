@@ -1,32 +1,32 @@
 {{#each types}}
     {{#eq this "array"}}
-schemas.ListSchema
+schemas.ListSchema[schemas.T]
     {{/eq}}
     {{#eq this "object"}}
-schemas.DictSchema
+schemas.DictSchema[schemas.T]
     {{/eq}}
     {{#eq this "string"}}
         {{#eq ../format "date"}}
-schemas.DateSchema
+schemas.DateSchema[schemas.T]
         {{/eq}}
         {{#eq ../format "date-time"}}
-schemas.DateTimeSchema
+schemas.DateTimeSchema[schemas.T]
         {{/eq}}
         {{#eq ../format "uuid"}}
-schemas.UUIDSchema
+schemas.UUIDSchema[schemas.T]
         {{/eq}}
         {{#eq ../format "number"}}
-schemas.DecimalSchema
+schemas.DecimalSchema[schemas.T]
         {{/eq}}
         {{#eq ../format "binary"}}
-schemas.BinarySchema
+schemas.BinarySchema[schemas.T]
         {{/eq}}
         {{#neq ../format "date"}}
         {{#neq ../format "date-time"}}
         {{#neq ../format "uuid"}}
         {{#neq ../format "number"}}
         {{#neq ../format "binary"}}
-schemas.StrSchema
+schemas.StrSchema[schemas.T]
         {{/neq}}
         {{/neq}}
         {{/neq}}
@@ -35,34 +35,34 @@ schemas.StrSchema
     {{/eq}}
     {{#eq this "number"}}
         {{#eq ../format "float"}}
-schemas.Float32Schema
+schemas.Float32Schema[schemas.T]
         {{/eq}}
         {{#eq ../format "double"}}
-schemas.Float64Schema
+schemas.Float64Schema[schemas.T]
         {{/eq}}
         {{#neq ../format "float"}}
         {{#neq ../format "double"}}
-schemas.NumberSchema
+schemas.NumberSchema[schemas.T]
         {{/neq}}
         {{/neq}}
     {{/eq}}
     {{#eq this "integer"}}
         {{#eq ../format "int32"}}
-schemas.Int32Schema
+schemas.Int32Schema[schemas.T]
         {{/eq}}
         {{#eq ../format "int64"}}
-schemas.Int64Schema
+schemas.Int64Schema[schemas.T]
         {{/eq}}
         {{#neq ../format "int32"}}
         {{#neq ../format "int64"}}
-schemas.IntSchema
+schemas.IntSchema[schemas.T]
         {{/neq}}
         {{/neq}}
     {{/eq}}
     {{#eq this "boolean"}}
-schemas.BoolSchema
+schemas.BoolSchema[schemas.T]
     {{/eq}}
     {{#eq this "null"}}
-schemas.NoneSchema
+schemas.NoneSchema[schemas.T]
     {{/eq}}
 {{/each}}

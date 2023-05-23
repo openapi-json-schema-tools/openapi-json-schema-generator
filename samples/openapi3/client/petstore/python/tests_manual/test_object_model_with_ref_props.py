@@ -12,6 +12,7 @@
 import unittest
 
 import frozendict
+import typing_extensions
 
 from petstore_api.schemas import BoolClass
 from petstore_api.components.schema.object_model_with_ref_props import ObjectModelWithRefProps
@@ -36,9 +37,13 @@ class TestObjectModelWithRefProps(unittest.TestCase):
         assert inst["myNumber"] == 15.0
         assert isinstance(inst["myNumber"], NumberWithValidations)
         assert inst["myString"] == 'a'
-        assert isinstance(inst["myString"], ObjectModelWithRefProps.Schema_.Properties.my_string())
+        origin_cls = typing_extensions.get_origin(ObjectModelWithRefProps.Schema_.Properties.my_string())
+        assert origin_cls is not None
+        assert isinstance(inst["myString"], origin_cls)
         assert bool(inst["myBoolean"]) is True
-        assert isinstance(inst["myBoolean"], ObjectModelWithRefProps.Schema_.Properties.my_boolean())
+        origin_cls = typing_extensions.get_origin(ObjectModelWithRefProps.Schema_.Properties.my_boolean())
+        assert origin_cls is not None
+        assert isinstance(inst["myBoolean"], origin_cls)
         assert isinstance(inst["myBoolean"], BoolClass)
 
 

@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import unit_test_api
 from unit_test_api.paths.request_body_post_oneof_with_empty_schema_request_body.post import operation as post  # noqa: E501

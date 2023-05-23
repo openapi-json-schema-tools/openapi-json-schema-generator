@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import petstore_api
 from petstore_api.paths.user_username.put import operation as put  # noqa: E501

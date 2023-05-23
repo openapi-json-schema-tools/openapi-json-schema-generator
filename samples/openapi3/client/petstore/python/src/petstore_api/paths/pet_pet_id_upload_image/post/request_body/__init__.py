@@ -11,14 +11,14 @@ from .content.multipart_form_data import schema as multipart_form_data_schema
 class RequestBody(api_client.RequestBody):
 
 
-    class __MultipartFormDataMediaType(api_client.MediaType):
+    class MultipartFormDataMediaType(api_client.MediaType):
         schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'multipart/form-data': typing.Type[__MultipartFormDataMediaType],
+            'multipart/form-data': typing.Type[MultipartFormDataMediaType],
         }
     )
-    content: __Content = {
-        'multipart/form-data': __MultipartFormDataMediaType,
+    content: Content = {
+        'multipart/form-data': MultipartFormDataMediaType,
     }

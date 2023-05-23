@@ -24,8 +24,8 @@ class {{xParamsName}}:
         pass
 
 
-    parameters = [
+    parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
     {{#each xParams}}
-        {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
     {{/each}}
-    ]
+    }

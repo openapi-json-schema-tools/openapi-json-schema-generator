@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import maxlength_validation
-Schema = maxlength_validation.MaxlengthValidation
+Schema: typing_extensions.TypeAlias = maxlength_validation.MaxlengthValidation[U]

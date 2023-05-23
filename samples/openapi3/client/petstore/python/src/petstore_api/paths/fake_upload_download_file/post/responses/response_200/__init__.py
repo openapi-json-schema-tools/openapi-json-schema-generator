@@ -12,7 +12,7 @@ from .content.application_octet_stream import schema as application_octet_stream
 @dataclasses.dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_octet_stream_schema.Schema
+    body: application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
     headers: schemas.Unset = schemas.unset
 
 
@@ -20,14 +20,14 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
     response_cls = ApiResponseFor200
 
 
-    class __ApplicationOctetStreamMediaType(api_client.MediaType):
-        schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
-    __Content = typing_extensions.TypedDict(
-        '__Content',
+    class ApplicationOctetStreamMediaType(api_client.MediaType):
+        schema: typing_extensions.TypeAlias = application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
+    Content = typing_extensions.TypedDict(
+        'Content',
         {
-            'application/octet-stream': typing.Type[__ApplicationOctetStreamMediaType],
+            'application/octet-stream': typing.Type[ApplicationOctetStreamMediaType],
         }
     )
-    content: __Content = {
-        'application/octet-stream': __ApplicationOctetStreamMediaType,
+    content: Content = {
+        'application/octet-stream': ApplicationOctetStreamMediaType,
     }

@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import required_with_empty_array
-Schema = required_with_empty_array.RequiredWithEmptyArray
+Schema: typing_extensions.TypeAlias = required_with_empty_array.RequiredWithEmptyArray[U]

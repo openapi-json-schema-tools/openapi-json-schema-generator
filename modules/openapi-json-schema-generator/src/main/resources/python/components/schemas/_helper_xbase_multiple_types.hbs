@@ -33,5 +33,5 @@ schemas.BoolBase,
 schemas.NoneBase,
     {{/eq}}
 {{/each}}
-schemas.Schema,
+schemas.Schema[schemas.T],
 schemas.{{#each types}}{{#eq this "null"}}None{{/eq}}{{#eq this "object"}}FrozenDict{{/eq}}{{#eq this "array"}}Tuple{{/eq}}{{#eq this "string"}}Str{{/eq}}{{#eq this "number"}}Decimal{{/eq}}{{#eq this "integer"}}Decimal{{/eq}}{{#eq this "boolean"}}Bool{{/eq}}{{/each}}Mixin

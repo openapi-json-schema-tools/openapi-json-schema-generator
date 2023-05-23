@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import composed_one_of_different_types
-Schema = composed_one_of_different_types.ComposedOneOfDifferentTypes
+Schema: typing_extensions.TypeAlias = composed_one_of_different_types.ComposedOneOfDifferentTypes[U]

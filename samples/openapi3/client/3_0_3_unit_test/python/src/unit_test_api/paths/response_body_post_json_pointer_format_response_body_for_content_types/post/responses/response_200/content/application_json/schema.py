@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import json_pointer_format
-Schema = json_pointer_format.JsonPointerFormat
+Schema: typing_extensions.TypeAlias = json_pointer_format.JsonPointerFormat[U]

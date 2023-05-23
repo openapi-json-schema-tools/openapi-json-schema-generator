@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import typing_extensions
 
 import this_package
 from this_package.paths.operators.post import operation as post  # noqa: E501

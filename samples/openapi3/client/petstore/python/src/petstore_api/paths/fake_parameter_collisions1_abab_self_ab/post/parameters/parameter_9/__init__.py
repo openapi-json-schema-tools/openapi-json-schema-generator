@@ -12,5 +12,5 @@ from . import schema
 class Parameter9(api_client.PathParameter):
     name = "1"
     style = api_client.ParameterStyle.SIMPLE
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[str]
     required = True

@@ -12,5 +12,5 @@ from . import schema
 class Parameter0(api_client.QueryParameter):
     name = "status"
     style = api_client.ParameterStyle.FORM
-    schema = schema.Schema
+    schema: typing_extensions.TypeAlias = schema.Schema[tuple]
     required = True

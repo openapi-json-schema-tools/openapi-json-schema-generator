@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import pattern_is_not_anchored
-Schema = pattern_is_not_anchored.PatternIsNotAnchored
+Schema: typing_extensions.TypeAlias = pattern_is_not_anchored.PatternIsNotAnchored[U]

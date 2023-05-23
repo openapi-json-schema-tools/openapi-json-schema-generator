@@ -8,5 +8,6 @@
 """
 
 
+from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import mammal
-Schema = mammal.Mammal
+Schema: typing_extensions.TypeAlias = mammal.Mammal[U]

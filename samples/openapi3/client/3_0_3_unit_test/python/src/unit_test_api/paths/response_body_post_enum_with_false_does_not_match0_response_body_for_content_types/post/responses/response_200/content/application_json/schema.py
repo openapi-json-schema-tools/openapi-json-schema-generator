@@ -8,5 +8,6 @@
 """
 
 
+from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import enum_with_false_does_not_match0
-Schema = enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0
+Schema: typing_extensions.TypeAlias = enum_with_false_does_not_match0.EnumWithFalseDoesNotMatch0[U]
