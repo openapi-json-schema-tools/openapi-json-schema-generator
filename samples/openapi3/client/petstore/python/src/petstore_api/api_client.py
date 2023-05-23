@@ -503,7 +503,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
             in_data=in_data,
             explode=cls.explode,
             percent_encode=True,
-            prefix_separator_iterator=iterator
+            prefix_separator_iterator=prefix_separator_iterator
         )
         return cls._to_dict(cls.name, value)
 
@@ -637,6 +637,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                 return cls._to_dict(cls.name, value)
         assert cls.content is not None
         content_type, media_type = cls.content
+        assert media_type.schema is not None
         cast_in_data = media_type.schema(in_data)
         assert media_type.schema is not None
         cast_in_data = cls._json_encoder.default(cast_in_data)
@@ -646,15 +647,11 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
 
-@dataclasses.dataclass
-class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
-    required: bool = False
+class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
     style: ParameterStyle = ParameterStyle.SIMPLE
-    in_type: ParameterInType = ParameterInType.HEADER
-    explode: bool = False
-    allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
     content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    explode: bool = False
 
     @staticmethod
     def __to_headers(in_data: typing.Tuple[typing.Tuple[str, str], ...]) -> _collections.HTTPHeaderDict:
@@ -683,14 +680,15 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             if cls.style:
                 value = cls._serialize_simple(cast_in_data, name, cls.explode, False)
                 return cls.__to_headers(((name, value),))
-        # cls.content will be length one
-        for content_type, media_type in cls.content.items():
-            cast_in_data = media_type.schema(in_data)
-            cast_in_data = cls._json_encoder.default(cast_in_data)
-            if cls._content_type_is_json(content_type):
-                value = cls._serialize_json(cast_in_data)
-                return cls.__to_headers(((name, value),))
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        assert cls.content is not None
+        content_type, media_type = cls.content
+        assert media_type.schema is not None
+        cast_in_data = media_type.schema(in_data)
+        cast_in_data = cls._json_encoder.default(cast_in_data)
+        if cls._content_type_is_json(content_type):
+            value = cls._serialize_json(cast_in_data)
+            return cls.__to_headers(((name, value),))
+        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
 
     @classmethod
     def deserialize(
@@ -717,8 +715,26 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
 
 
 @dataclasses.dataclass
-class HeaderParameter(HeaderParameterWithoutName):
+class HeaderParameterWithoutName(__HeaderParameterBase):
+    required: bool = False
+    style: ParameterStyle = ParameterStyle.SIMPLE
+    in_type: ParameterInType = ParameterInType.HEADER
+    explode: bool = False
+    allow_reserved: typing.Optional[bool] = None
+    schema: typing.Optional[typing.Type[schemas.Schema]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+
+
+@dataclasses.dataclass
+class HeaderParameter(__HeaderParameterBase):
     name: str
+    required: bool = False
+    style: ParameterStyle = ParameterStyle.SIMPLE
+    in_type: ParameterInType = ParameterInType.HEADER
+    explode: bool = False
+    allow_reserved: typing.Optional[bool] = None
+    schema: typing.Optional[typing.Type[schemas.Schema]] = None
+    content: typing.Optional[typing.Tuple[str, MediaType]] = None
 
     @classmethod
     def serialize(
