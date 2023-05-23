@@ -506,14 +506,15 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def __serialize_space_delimited(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
             variable_name=cls.name,
             in_data=in_data,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
@@ -523,14 +524,15 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def __serialize_pipe_delimited(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
             variable_name=cls.name,
             in_data=in_data,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
@@ -540,14 +542,15 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def __serialize_form(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._serialize_form(
             in_data,
             name=cls.name,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
@@ -587,12 +590,13 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
             """
             if cls.style:
                 # TODO update query ones to omit setting values when [] {} or None is input
+                explode = cls.explode if cls.explode is not None else cls.style == ParameterStyle.FORM
                 if cls.style is ParameterStyle.FORM:
-                    return cls.__serialize_form(cast_in_data, prefix_separator_iterator)
+                    return cls.__serialize_form(cast_in_data, prefix_separator_iterator, explode)
                 elif cls.style is ParameterStyle.SPACE_DELIMITED:
-                    return cls.__serialize_space_delimited(cast_in_data, prefix_separator_iterator)
+                    return cls.__serialize_space_delimited(cast_in_data, prefix_separator_iterator, explode)
                 elif cls.style is ParameterStyle.PIPE_DELIMITED:
-                    return cls.__serialize_pipe_delimited(cast_in_data, prefix_separator_iterator)
+                    return cls.__serialize_pipe_delimited(cast_in_data, prefix_separator_iterator, explode)
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         assert cls.content is not None
@@ -637,9 +641,10 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                 TODO add escaping of comma, space, equals
                 or turn encoding on
                 """
+                explode = cls.explode if cls.explode is not None else cls.style == ParameterStyle.FORM
                 value = cls._serialize_form(
                     cast_in_data,
-                    explode=cls.explode,
+                    explode=explode,
                     name=cls.name,
                     percent_encode=False,
                     prefix_separator_iterator=PrefixSeparatorIterator('', '&')

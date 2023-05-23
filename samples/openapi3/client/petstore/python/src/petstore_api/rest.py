@@ -192,6 +192,8 @@ class RESTClientObject(object):
             # log response body
             logger.debug("response body: %s", r.data)
 
+        print(r)
+        print(type(r))
         return r
 
     def get(self, url, headers=None, stream=False,
