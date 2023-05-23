@@ -11,7 +11,7 @@ import typing
 
 import urllib3
 
-from petstore_api import exceptions, schemas
+from petstore_api import schemas
 
 
 @dataclasses.dataclass
@@ -20,31 +20,9 @@ class ApiResponse:
     body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
     headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
 
-T = typing.TypeVar('T', bound=ApiResponse)
-
 
 @dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
     headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
-
-
-@dataclasses.dataclass
-class ApiException(exceptions.OpenApiException, typing.Generic[T]):
-    status: int
-    reason: str
-    api_response: typing.Optional[T] = None
-
-    def __str__(self):
-        """Custom error messages for exception"""
-        error_message = "({0})\n"\
-                        "Reason: {1}\n".format(self.status, self.reason)
-        if self.api_response:
-            if self.api_response.response.headers:
-                error_message += "HTTP response headers: {0}\n".format(
-                    self.api_response.response.headers)
-            if self.api_response.response.data:
-                error_message += "HTTP response body: {0}\n".format(self.api_response.response.data)
-
-        return error_message

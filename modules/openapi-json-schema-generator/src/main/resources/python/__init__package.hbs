@@ -21,7 +21,7 @@ from {{packageName}}.exceptions import ApiAttributeError
 from {{packageName}}.exceptions import ApiTypeError
 from {{packageName}}.exceptions import ApiValueError
 from {{packageName}}.exceptions import ApiKeyError
-from {{packageName}}.api_response import ApiException
+from {{packageName}}.exceptions import ApiException
 {{#if recursionLimit}}
 
 __import__('sys').setrecursionlimit({{recursionLimit}})

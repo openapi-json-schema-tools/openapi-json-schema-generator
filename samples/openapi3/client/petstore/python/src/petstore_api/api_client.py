@@ -1214,7 +1214,7 @@ class Api(TypedDictInputVerifier):
     @staticmethod
     def _verify_response_status(response: api_response.ApiResponse):
         if not 200 <= response.response.status <= 399:
-            raise api_response.ApiException(
+            raise exceptions.ApiException(
                 status=response.response.status,
                 reason=response.response.reason,
                 api_response=response
