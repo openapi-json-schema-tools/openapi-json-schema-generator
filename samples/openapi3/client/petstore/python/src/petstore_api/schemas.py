@@ -192,6 +192,7 @@ class SchemaTyped:
     max_items: int
     min_items: int
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
+    default: typing.Union[str, int, BoolClass]
 
 
     class Properties:
