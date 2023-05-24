@@ -1397,7 +1397,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                 f'Unable to serialize {in_data} to application/x-www-form-urlencoded because it is not a dict of data')
         cast_in_data = cls.__json_encoder.default(in_data)
         value = cls._serialize_form(cast_in_data, name='', explode=True, percent_encode=True)
-        return dict(body=value)
+        return {'body': value}
 
     @classmethod
     def serialize(
