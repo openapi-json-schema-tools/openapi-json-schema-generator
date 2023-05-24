@@ -1305,7 +1305,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return {'body': json_str}
 
     @staticmethod
-    def __serialize_text_plain(in_data: typing.Any) -> typing.Dict[str, str]:
+    def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
         if isinstance(in_data, frozendict.frozendict):
             raise ValueError('Unable to serialize type frozendict.frozendict to text/plain')
         elif isinstance(in_data, tuple):
@@ -1314,7 +1314,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             raise ValueError('Unable to serialize type NoneClass to text/plain')
         elif isinstance(in_data, schemas.BoolClass):
             raise ValueError('Unable to serialize type BoolClass to text/plain')
-        return dict(body=str(in_data))
+        return {'body': str(in_data)}
 
     @classmethod
     def __multipart_json_item(cls, key: str, value: schemas.Schema) -> RequestField:
