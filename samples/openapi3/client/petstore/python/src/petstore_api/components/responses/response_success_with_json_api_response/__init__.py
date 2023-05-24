@@ -19,8 +19,8 @@ class Header:
         'RequiredParams',
         {
             'ref-schema-header': typing.Union[header_ref_schema_header.RefSchemaHeader.schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
-            'int32': typing.Union[header_int32.Int32.content[1].schema, decimal.Decimal, int],
-            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content[1].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+            'int32': typing.Union[header_int32.Int32.content["application/json"].schema, decimal.Decimal, int],
+            'ref-content-schema-header': typing.Union[header_ref_content_schema_header.RefContentSchemaHeader.content["application/json"].schema, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
             'stringHeader': typing.Union[header_string_header.StringHeader.schema, str],
         }
     )

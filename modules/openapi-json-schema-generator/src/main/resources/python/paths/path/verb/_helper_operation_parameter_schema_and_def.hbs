@@ -10,7 +10,7 @@ class {{xParamsName}}:
         {{#if getDeepestRef.schema}}
             '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.schema, {{#with getDeepestRef.schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content[{{#each getDeepestRef.content}}1].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content["{{#each getDeepestRef.content}}{{{@key.original}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{else}}
@@ -18,7 +18,7 @@ class {{xParamsName}}:
         {{#if schema}}
             '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.schema, {{#with schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content[{{#each content}}1].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content["{{#each content}}{{{@key.original}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/if}}
 {{/if}}
@@ -34,7 +34,7 @@ class {{xParamsName}}:
         {{#if getDeepestRef.schema}}
             '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.schema, {{#with getDeepestRef.schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content[{{#each getDeepestRef.content}}1].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{getDeepestRef.name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content["{{#each getDeepestRef.content}}{{{@key.original}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{else}}
@@ -42,7 +42,7 @@ class {{xParamsName}}:
         {{#if schema}}
             '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.schema, {{#with schema}}{{> _helper_schema_python_types }}{{/with}}],
         {{else}}
-            '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content[{{#each content}}1].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
+            '{{name}}': typing.Union[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}.content["{{#each content}}{{{@key.original}}}"].schema, {{#with this}}{{#with schema}}{{> _helper_schema_python_types }}{{/with}}{{/with}}{{/each}}],
         {{/if}}
     {{/unless}}
 {{/if}}

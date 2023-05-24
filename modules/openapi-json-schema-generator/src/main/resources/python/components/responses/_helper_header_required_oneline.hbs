@@ -7,7 +7,7 @@
                 {{/with}}
             {{else}}
                 {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../jsonPathPiece.snakeCase}}.{{../../../jsonPathPiece.camelCase}}.content[1].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../../../jsonPathPiece.snakeCase}}.{{../../../jsonPathPiece.camelCase}}.content["{{{../@key.original}}}"].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
                 {{/each}}
             {{/if}}
         {{/if}}
@@ -20,7 +20,7 @@
             {{/with}}
         {{else}}
             {{#each content}}
-            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}.content[1].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
+            '{{../@key}}': {{#with this}}{{#with schema}}typing.Union[{{../jsonPathPiece.snakeCase}}.{{../jsonPathPiece.camelCase}}.content["{{{../@key.original}}}"].{{jsonPathPiece.snakeCase}}, {{> _helper_schema_python_types }}],{{/with}}{{/with}}
             {{/each}}
         {{/if}}
     {{/if}}
