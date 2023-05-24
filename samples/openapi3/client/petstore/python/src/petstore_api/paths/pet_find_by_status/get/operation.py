@@ -72,7 +72,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _find_pets_by_status(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -85,7 +85,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_status(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -96,7 +96,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _find_pets_by_status(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -110,7 +110,7 @@ class BaseApi(api_client.Api):
 
     def _find_pets_by_status(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,

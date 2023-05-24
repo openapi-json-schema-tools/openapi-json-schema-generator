@@ -94,8 +94,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _group_parameters(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
-        header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
+        header_params: RequestHeaderParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -107,8 +107,8 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
-        header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
+        header_params: RequestHeaderParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -118,8 +118,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _group_parameters(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
-        header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
+        header_params: RequestHeaderParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -132,8 +132,8 @@ class BaseApi(api_client.Api):
 
     def _group_parameters(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
-        header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
+        header_params: RequestHeaderParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

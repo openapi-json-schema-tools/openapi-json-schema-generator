@@ -9,16 +9,32 @@
     {{/if}}
 {{/if}}
 {{#if queryParams}}
+    {{#if hasRequiredQueryParams}}
+    query_params: RequestQueryParameters.Params,
+    {{else}}
     query_params: typing.Optional[RequestQueryParameters.Params] = None,
+    {{/if}}
 {{/if}}
 {{#if headerParams}}
+    {{#if hasRequiredHeaderParams}}
+    header_params: RequestHeaderParameters.Params,
+    {{else}}
     header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+    {{/if}}
 {{/if}}
 {{#if pathParams}}
+    {{#if hasRequiredPathParams}}
+    path_params: RequestPathParameters.Params,
+    {{else}}
     path_params: typing.Optional[RequestPathParameters.Params] = None,
+    {{/if}}
 {{/if}}
 {{#if cookieParams}}
+    {{#if hasRequiredCookieParams}}
+    cookie_params: RequestCookieParameters.Params,
+    {{else}}
     cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
+    {{/if}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

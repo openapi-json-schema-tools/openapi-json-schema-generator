@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -110,7 +110,7 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -123,7 +123,7 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

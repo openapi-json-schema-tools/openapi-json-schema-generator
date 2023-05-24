@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -74,7 +74,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = ...,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -92,7 +92,7 @@ class BaseApi(api_client.Api):
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -107,7 +107,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = ...,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -125,7 +125,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = 'application/json',
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

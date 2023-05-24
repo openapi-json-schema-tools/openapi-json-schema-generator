@@ -68,7 +68,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -108,7 +108,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -126,7 +126,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -147,7 +147,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,

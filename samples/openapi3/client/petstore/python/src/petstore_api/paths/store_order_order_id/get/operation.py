@@ -64,7 +64,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_order_by_id(
         self,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -76,7 +76,7 @@ class BaseApi(api_client.Api):
     def _get_order_by_id(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -86,7 +86,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_order_by_id(
         self,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -99,7 +99,7 @@ class BaseApi(api_client.Api):
 
     def _get_order_by_id(
         self,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

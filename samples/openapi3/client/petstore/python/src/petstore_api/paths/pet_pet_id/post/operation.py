@@ -68,7 +68,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -85,7 +85,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -104,7 +104,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -121,7 +121,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -140,7 +140,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: typing.Optional[RequestPathParameters.Params] = None,
+        path_params: RequestPathParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

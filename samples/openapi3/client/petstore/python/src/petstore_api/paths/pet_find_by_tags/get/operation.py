@@ -65,7 +65,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _find_pets_by_tags(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -87,7 +87,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _find_pets_by_tags(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
 
     def _find_pets_by_tags(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

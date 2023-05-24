@@ -55,7 +55,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _query_param_with_json_content_type(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
     def _query_param_with_json_content_type(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -77,7 +77,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _query_param_with_json_content_type(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -90,7 +90,7 @@ class BaseApi(api_client.Api):
 
     def _query_param_with_json_content_type(
         self,
-        query_params: typing.Optional[RequestQueryParameters.Params] = None,
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
