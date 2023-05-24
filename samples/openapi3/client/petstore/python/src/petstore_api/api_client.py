@@ -30,8 +30,8 @@ import frozendict
 from petstore_api import exceptions, rest, schemas, security_schemes, api_response
 from petstore_api.configurations import api_configuration, schema_configuration as schema_configuration_
 
-_FieldValue: typing.TypeAlias = str | bytes
-_FieldValueTuple: typing.TypeAlias = _FieldValue | tuple[str, _FieldValue] | tuple[str, _FieldValue, str]
+_FieldValue: typing_extensions.TypeAlias = typing.Union[str, bytes]
+_FieldValueTuple: typing_extensions.TypeAlias = typing.Union[_FieldValue, typing.Tuple[str, _FieldValue], typing.Tuple[str, _FieldValue, str]]
 
 class RequestField(fields.RequestField):
     @classmethod
@@ -39,7 +39,7 @@ class RequestField(fields.RequestField):
         cls,
         fieldname: str,
         value: _FieldValueTuple,
-        header_formatter: typing.Callable[[str, _FieldValue], str] = ...
+        header_formatter: typing.Optional[typing.Callable[[str, _FieldValue], str]] = None
     ) -> RequestField:
         return super().from_tuples(fieldname, value, header_formatter) # type: ignore
 
