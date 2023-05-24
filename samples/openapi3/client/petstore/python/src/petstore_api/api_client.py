@@ -1184,9 +1184,9 @@ class Api(TypedDictInputVerifier):
     def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
-        path_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None,
+        path_params: typing.Optional[typing_extensions.TypedDict] = None,
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
-        query_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None
+        query_params: typing.Optional[typing_extensions.TypedDict] = None
     ) -> str:
         used_path_params = {}
         if path_params is not None:
@@ -1194,6 +1194,7 @@ class Api(TypedDictInputVerifier):
                 parameter_data = path_params.get(parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
+                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
                 serialized_data = parameter.serialize(parameter_data)
                 used_path_params.update(serialized_data)
 
@@ -1208,6 +1209,7 @@ class Api(TypedDictInputVerifier):
                     continue
                 if prefix_separator_iterator is None:
                     prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
                 serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
                 for serialized_value in serialized_data.values():
                     used_path += serialized_value
