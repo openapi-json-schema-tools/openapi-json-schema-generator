@@ -45,7 +45,7 @@ class EnumsInProperties(
                 
                 @schemas.classproperty
                 def FOO(cls):
-                    return cls("foo")
+                    return cls("foo") # type: ignore
             
             
             class Bar(
@@ -63,7 +63,7 @@ class EnumsInProperties(
                 
                 @schemas.classproperty
                 def BAR(cls):
-                    return cls("bar")
+                    return cls("bar") # type: ignore
             __annotations__ = {
                 "foo": Foo,
                 "bar": Bar,

@@ -48,11 +48,11 @@ class Schema(
                         
                         @schemas.classproperty
                         def GREATER_THAN_SIGN(cls):
-                            return cls(">")
+                            return cls(">") # type: ignore
                         
                         @schemas.classproperty
                         def DOLLAR_SIGN(cls):
-                            return cls("$")
+                            return cls("$") # type: ignore
             
                 def __new__(
                     cls,
@@ -99,15 +99,15 @@ class Schema(
                 
                 @schemas.classproperty
                 def _ABC(cls):
-                    return cls("_abc")
+                    return cls("_abc") # type: ignore
                 
                 @schemas.classproperty
                 def HYPHEN_MINUS_EFG(cls):
-                    return cls("-efg")
+                    return cls("-efg") # type: ignore
                 
                 @schemas.classproperty
                 def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
-                    return cls("(xyz)")
+                    return cls("(xyz)") # type: ignore
             __annotations__ = {
                 "enum_form_string_array": EnumFormStringArray,
                 "enum_form_string": EnumFormString,

@@ -105,7 +105,7 @@ security_index | typing.Optional[int] | default is None | Allows one to select a
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers){{#if servers}}. If not None, must be one of [{{#each servers}}{{@key}}{{#unless @last}}, {{/unless}}{{/each}}]{{else}}{{#if pathItem.servers}}. If not None, must be one of [{{#each pathItem.servers}}{{@key}}{{#unless @last}}, {{/unless}}{{/each}}]{{else}}. If not None, must be one of [{{#each ../servers}}{{@key}}{{#unless @last}}, {{/unless}}{{/each}}]{{/if}}{{/if}}
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
     {{#if requestBody}}
         {{#unless requestBody.refInfo}}
 
@@ -129,7 +129,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 {{#if defaultResponse}}
     {{#with defaultResponse}}
         {{#if refInfo}}

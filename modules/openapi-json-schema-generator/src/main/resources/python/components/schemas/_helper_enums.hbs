@@ -4,23 +4,23 @@
 @schemas.classproperty
 def {{this}}(cls):
     {{#eq @key.type "string"}}
-    return cls("{{{@key.value}}}")
+    return cls("{{{@key.value}}}") # type: ignore
     {{/eq}}
     {{#eq @key.type "number"}}
-    return cls({{{@key.value}}})
+    return cls({{{@key.value}}}) # type: ignore
     {{/eq}}
     {{#eq @key.type "integer"}}
-    return cls({{{@key.value}}})
+    return cls({{{@key.value}}}) # type: ignore
     {{/eq}}
     {{#eq @key.type "boolean"}}
         {{#if @key.value}}
-    return cls(True)
+    return cls(True) # type: ignore
         {{else}}
-    return cls(False)
+    return cls(False) # type: ignore
         {{/if}}
     {{/eq}}
     {{#eq @key.type "null"}}
-    return cls(None)
+    return cls(None) # type: ignore
     {{/eq}}
 {{/each}}
 {{/if}}

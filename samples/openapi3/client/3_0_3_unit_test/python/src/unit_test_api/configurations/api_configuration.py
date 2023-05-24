@@ -265,6 +265,6 @@ class ApiConfiguration(object):
                 used_index = self.server_index_info[key_prefix]
             except KeyError:
                 # fallback and use the default index
-                used_index = self.server_index_info["servers"]
+                used_index = self.server_index_info.get("servers", 0)
         server = self.server_info[f"{key_prefix}/{used_index}"]
         return server.url

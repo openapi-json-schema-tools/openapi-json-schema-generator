@@ -45,7 +45,7 @@ class BasquePig(
                 
                 @schemas.classproperty
                 def BASQUE_PIG(cls):
-                    return cls("BasquePig")
+                    return cls("BasquePig") # type: ignore
             __annotations__ = {
                 "className": ClassName,
             }

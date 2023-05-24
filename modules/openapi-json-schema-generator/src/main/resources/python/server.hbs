@@ -24,6 +24,7 @@ class Server(abc.ABC):
                 cast_value = schema(value)
             else:
                 cast_value = schema.Schema_.default
+            cast_value = typing.cast(str, cast_value)
             url = url.replace("{" + key + "}", cast_value)
         self.url = url
 

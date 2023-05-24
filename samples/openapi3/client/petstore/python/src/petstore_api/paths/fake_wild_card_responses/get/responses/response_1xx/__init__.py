@@ -10,7 +10,7 @@ from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
-class ApiResponseFor1XX(api_client.ApiResponse):
+class ApiResponseFor1XX(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_schema.Schema[typing.Union[
         frozendict.frozendict,
