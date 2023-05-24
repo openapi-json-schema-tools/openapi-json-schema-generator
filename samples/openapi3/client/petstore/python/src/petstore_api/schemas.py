@@ -86,7 +86,7 @@ class ValidationMetadata:
     path_to_item: typing.Tuple[typing.Union[str, int], ...]
     configuration: schema_configuration.SchemaConfiguration
     seen_classes: typing.FrozenSet[typing.Type] = frozenset()
-    validated_path_to_schemas: frozendict.frozendict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
+    validated_path_to_schemas: typing.Mapping[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
 
     def validation_ran_earlier(self, cls: type) -> bool:
         validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
@@ -210,7 +210,20 @@ class SchemaTyped:
     min_length: int
     items: typing.Type['Schema']
 
-PathToSchemasType = typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]
+PathToSchemasType = typing.Dict[
+    typing.Tuple[typing.Union[str, int], ...],
+    typing.Set[
+        typing.Union[
+            typing.Type['Schema'],
+            typing.Type[str],
+            typing.Type[decimal.Decimal],
+            typing.Type[BoolClass],
+            typing.Type[NoneClass],
+            typing.Type[frozendict.frozendict],
+            typing.Type[tuple]
+        ]
+    ]
+]
 
 
 def __get_valid_classes_phrase(input_classes):
