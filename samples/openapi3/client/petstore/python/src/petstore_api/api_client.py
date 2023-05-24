@@ -1273,7 +1273,7 @@ class Api(TypedDictInputVerifier):
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
     body: typing.Union[str, bytes]
-    fields: typing.Tuple[typing.Union[RequestField, typing.Tuple[str, str]], ...]
+    fields: typing.Tuple[RequestField, ...]
 
 
 class RequestBody(StyleFormSerializer, JSONDetector):
