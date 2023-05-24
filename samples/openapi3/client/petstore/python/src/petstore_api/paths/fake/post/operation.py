@@ -73,7 +73,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _endpoint_parameters(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
@@ -85,6 +84,8 @@ class BaseApi(api_client.Api):
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
+
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload

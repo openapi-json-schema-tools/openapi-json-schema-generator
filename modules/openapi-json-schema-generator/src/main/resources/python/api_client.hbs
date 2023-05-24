@@ -1239,7 +1239,7 @@ class Api(TypedDictInputVerifier):
 
     @staticmethod
     def _get_fields_and_body(
-        request_body: 'RequestBody',
+        request_body: typing.Type[RequestBody],
         body: typing.Any,
         headers: _collections.HTTPHeaderDict,
         content_type: str
