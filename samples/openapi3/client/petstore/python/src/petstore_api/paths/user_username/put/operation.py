@@ -63,7 +63,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: typing.Optional[RequestPathParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -78,7 +78,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = ...,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: typing.Optional[RequestPathParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -95,7 +95,7 @@ class BaseApi(api_client.Api):
         ],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: typing.Optional[RequestPathParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -110,7 +110,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = ...,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: typing.Optional[RequestPathParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -127,7 +127,7 @@ class BaseApi(api_client.Api):
                 frozendict.frozendict
         ],
         content_type: str = 'application/json',
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: typing.Optional[RequestPathParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

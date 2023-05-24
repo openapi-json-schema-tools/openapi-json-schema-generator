@@ -83,7 +83,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -101,7 +101,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -134,7 +134,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -169,7 +169,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -201,7 +201,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -236,7 +236,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

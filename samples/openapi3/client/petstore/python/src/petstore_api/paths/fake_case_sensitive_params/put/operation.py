@@ -59,7 +59,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _case_sensitive_params(
         self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -70,7 +70,7 @@ class BaseApi(api_client.Api):
     def _case_sensitive_params(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -79,7 +79,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _case_sensitive_params(
         self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -91,7 +91,7 @@ class BaseApi(api_client.Api):
 
     def _case_sensitive_params(
         self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: typing.Optional[RequestQueryParameters.Params] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

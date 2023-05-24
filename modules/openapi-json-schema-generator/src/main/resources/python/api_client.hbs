@@ -764,7 +764,10 @@ class HeaderParameter(__HeaderParameterBase):
 
 class TypedDictInputVerifier:
     @staticmethod
-    def _verify_typed_dict_inputs(tdict_cls: typing.Type[typing_extensions.TypedDict], data: typing.Mapping[str, typing.Any]):
+    def _verify_typed_dict_inputs(
+        tdict_cls: typing.Type[typing_extensions.TypedDict],
+        data: typing.Optional[typing.Mapping[str, typing.Any]]
+    ):
         """
         Ensures that:
         - required keys are present
@@ -775,7 +778,7 @@ class TypedDictInputVerifier:
         missing_required_keys = []
         required_keys_with_unset_values = []
         for required_key in tdict_cls.__required_keys__:
-            if required_key not in data:
+            if data is None or required_key not in data:
                 missing_required_keys.append(required_key)
                 continue
             value = data[required_key]
@@ -795,10 +798,11 @@ class TypedDictInputVerifier:
             )
 
         disallowed_additional_keys = []
-        for key in data:
-            if key in tdict_cls.__required_keys__ or key in tdict_cls.__optional_keys__:
-                continue
-            disallowed_additional_keys.append(key)
+        if data is not None:
+            for key in data:
+                if key in tdict_cls.__required_keys__ or key in tdict_cls.__optional_keys__:
+                    continue
+                disallowed_additional_keys.append(key)
         if disallowed_additional_keys:
             raise exceptions.ApiTypeError(
                 '{} got {} unexpected keyword arguments: {}'.format(
