@@ -1353,6 +1353,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         """
         fields = []
         for key, value in in_data.items():
+            key = typing.cast(str, key)
+            value = typing.cast(schemas.Schema, key)
             if isinstance(value, tuple):
                 if value:
                     # values use explode = True, so the code makes a RequestField for each item with name=key
