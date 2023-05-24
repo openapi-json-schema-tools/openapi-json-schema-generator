@@ -14,6 +14,7 @@ import typing
 
 import certifi
 import urllib3
+from urllib3 import fields
 from urllib3 import exceptions as urllib3_exceptions
 from urllib3._collections import HTTPHeaderDict
 
@@ -21,6 +22,13 @@ from petstore_api import exceptions
 
 
 logger = logging.getLogger(__name__)
+
+
+class RequestField(fields.RequestField):
+    def __eq__(self, other):
+        if not isinstance(other, fields.RequestField):
+            return False
+        return self.__dict__ == other.__dict__
 
 
 class RESTClientObject(object):
@@ -90,7 +98,7 @@ class RESTClientObject(object):
         method: str,
         url: str,
         headers: typing.Optional[HTTPHeaderDict] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, typing.Any], ...]] = None,
+        fields: typing.Optional[typing.Tuple[RequestField, ...]] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

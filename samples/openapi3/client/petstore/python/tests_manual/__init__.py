@@ -7,7 +7,7 @@ import unittest
 import urllib3
 from urllib3._collections import HTTPHeaderDict
 
-from petstore_api import api_client
+from petstore_api import api_client, rest
 
 ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serialization explode', defaults=[False])
 
@@ -24,7 +24,7 @@ class ApiTestMixin(unittest.TestCase):
         method: str = 'POST',
         body: typing.Optional[bytes] = None,
         content_type: typing.Optional[str] = 'application/json',
-        fields: typing.Optional[typing.Tuple[api_client.RequestField, ...]] = None,
+        fields: typing.Optional[typing.Tuple[rest.RequestField, ...]] = None,
         accept_content_type: typing.Optional[str] = 'application/json',
         stream: bool = False,
     ):

@@ -19,7 +19,7 @@ from unittest.mock import patch
 
 import urllib3
 import petstore_api
-from petstore_api import api_client, schemas, exceptions
+from petstore_api import api_client, schemas, exceptions, rest
 from petstore_api.apis.tags.fake_api import FakeApi  # noqa: E501
 from petstore_api.rest import RESTClientObject
 from petstore_api.configurations import api_configuration
@@ -467,7 +467,7 @@ class TestFakeApi(ApiTestMixin):
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFile',
                     fields=(
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='file',
                             data=file_bytes,
                             filename=file_name,
@@ -496,7 +496,7 @@ class TestFakeApi(ApiTestMixin):
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFile',
                 fields=(
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='file',
                         data=file_bytes,
                         headers={
@@ -554,7 +554,7 @@ class TestFakeApi(ApiTestMixin):
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFiles',
                     fields=(
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='files',
                             data=file_bytes,
                             filename=file_name,
@@ -564,7 +564,7 @@ class TestFakeApi(ApiTestMixin):
                                 "Content-Location": None
                             }
                         ),
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='files',
                             data=file_bytes,
                             filename=file_name,
@@ -595,7 +595,7 @@ class TestFakeApi(ApiTestMixin):
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFiles',
                 fields=(
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='files',
                         data=file_bytes,
                         headers={
@@ -604,7 +604,7 @@ class TestFakeApi(ApiTestMixin):
                             "Content-Location": None
                         }
                     ),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='files',
                         data=file_bytes,
                         headers={
@@ -684,7 +684,7 @@ class TestFakeApi(ApiTestMixin):
            accept_content_type=content_type,
            content_type=content_type,
            fields=(
-                api_client.RequestField(
+                rest.RequestField(
                     name='someProp',
                     data=single_char_str,
                     headers={
