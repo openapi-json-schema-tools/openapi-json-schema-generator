@@ -1299,12 +1299,12 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     def __serialize_json(
         cls,
         in_data: typing.Any
-    ) -> typing.Dict[str, bytes]:
+    ) -> SerializedRequestBody:
         in_data = cls.__json_encoder.default(in_data)
         json_str = json.dumps(in_data, separators=(",", ":"), ensure_ascii=False).encode(
             "utf-8"
         )
-        return dict(body=json_str)
+        return {'body': json_str}
 
     @staticmethod
     def __serialize_text_plain(in_data: typing.Any) -> typing.Dict[str, str]:
