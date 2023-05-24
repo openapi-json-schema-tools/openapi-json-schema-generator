@@ -1344,7 +1344,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     @classmethod
     def __serialize_multipart_form_data(
         cls, in_data: schemas.Schema
-    ) -> typing.Dict[str, typing.Tuple[RequestField, ...]]:
+    ) -> SerializedRequestBody:
         if not isinstance(in_data, frozendict.frozendict):
             raise ValueError(f'Unable to serialize {in_data} to multipart/form-data because it is not a dict of data')
         """
@@ -1376,7 +1376,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                 request_field = cls.__multipart_form_item(key=key, value=value)
                 fields.append(request_field)
 
-        return dict(fields=tuple(fields))
+        return {'fields': tuple(fields)}
 
     @staticmethod
     def __serialize_application_octet_stream(in_data: typing.Union[schemas.BytesSchema, schemas.FileSchema]) -> SerializedRequestBody:
