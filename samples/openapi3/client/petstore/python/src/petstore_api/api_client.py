@@ -1403,6 +1403,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         - encode_multipart and fields for multipart/form-data
         """
         media_type = cls.content[content_type]
+        assert media_type.schema is not None
         schema = schemas._get_class(media_type.schema)
         if isinstance(in_data, schema):
             cast_in_data = in_data
