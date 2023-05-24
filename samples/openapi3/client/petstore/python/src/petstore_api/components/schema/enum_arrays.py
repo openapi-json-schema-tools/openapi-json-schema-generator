@@ -43,11 +43,11 @@ class EnumArrays(
                 
                 @schemas.classproperty
                 def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
-                    return cls(">=")
+                    return cls(">=") # type: ignore
                 
                 @schemas.classproperty
                 def DOLLAR_SIGN(cls):
-                    return cls("$")
+                    return cls("$") # type: ignore
             
             
             class ArrayEnum(
@@ -75,11 +75,11 @@ class EnumArrays(
                         
                         @schemas.classproperty
                         def FISH(cls):
-                            return cls("fish")
+                            return cls("fish") # type: ignore
                         
                         @schemas.classproperty
                         def CRAB(cls):
-                            return cls("crab")
+                            return cls("crab") # type: ignore
             
                 def __new__(
                     cls,

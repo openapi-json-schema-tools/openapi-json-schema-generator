@@ -47,7 +47,7 @@ class Whale(
                 
                 @schemas.classproperty
                 def WHALE(cls):
-                    return cls("whale")
+                    return cls("whale") # type: ignore
             __annotations__ = {
                 "hasBaleen": HasBaleen,
                 "hasTeeth": HasTeeth,

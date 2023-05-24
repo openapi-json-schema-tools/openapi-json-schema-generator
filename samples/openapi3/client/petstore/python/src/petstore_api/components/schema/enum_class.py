@@ -36,20 +36,20 @@ class EnumClass(
     
     @schemas.classproperty
     def _ABC(cls):
-        return cls("_abc")
+        return cls("_abc") # type: ignore
     
     @schemas.classproperty
     def HYPHEN_MINUS_EFG(cls):
-        return cls("-efg")
+        return cls("-efg") # type: ignore
     
     @schemas.classproperty
     def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
-        return cls("(xyz)")
+        return cls("(xyz)") # type: ignore
     
     @schemas.classproperty
     def COUNT_1M(cls):
-        return cls("COUNT_1M")
+        return cls("COUNT_1M") # type: ignore
     
     @schemas.classproperty
     def COUNT_50M(cls):
-        return cls("COUNT_50M")
+        return cls("COUNT_50M") # type: ignore

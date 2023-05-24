@@ -32,8 +32,8 @@ class EnumWithEscapedCharacters(
     
     @schemas.classproperty
     def FOO_LINE_FEED_LF_BAR(cls):
-        return cls("foo\nbar")
+        return cls("foo\nbar") # type: ignore
     
     @schemas.classproperty
     def FOO_CARRIAGE_RETURN_CR_BAR(cls):
-        return cls("foo\rbar")
+        return cls("foo\rbar") # type: ignore

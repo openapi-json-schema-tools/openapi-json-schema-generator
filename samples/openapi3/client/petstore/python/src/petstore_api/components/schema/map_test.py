@@ -115,11 +115,11 @@ class MapTest(
                         
                         @schemas.classproperty
                         def UPPER(cls):
-                            return cls("UPPER")
+                            return cls("UPPER") # type: ignore
                         
                         @schemas.classproperty
                         def LOWER(cls):
-                            return cls("lower")
+                            return cls("lower") # type: ignore
                 
                 def __getitem__(self, name: str) -> Schema_.AdditionalProperties[str]:
                     # dict_instance[name] accessor

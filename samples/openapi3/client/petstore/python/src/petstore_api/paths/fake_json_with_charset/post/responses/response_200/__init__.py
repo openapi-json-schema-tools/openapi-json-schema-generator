@@ -10,7 +10,7 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_client.ApiResponse):
+class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_charsetutf8_schema.Schema[typing.Union[
         frozendict.frozendict,

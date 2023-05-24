@@ -38,15 +38,15 @@ class Schema(
             
             @schemas.classproperty
             def AVAILABLE(cls):
-                return cls("available")
+                return cls("available") # type: ignore
             
             @schemas.classproperty
             def PENDING(cls):
-                return cls("pending")
+                return cls("pending") # type: ignore
             
             @schemas.classproperty
             def SOLD(cls):
-                return cls("sold")
+                return cls("sold") # type: ignore
 
     def __new__(
         cls,

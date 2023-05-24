@@ -41,19 +41,17 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
         {{/with}}
     {{/with}}
 {{/each}}
+{{#each content}}
     Content = typing_extensions.TypedDict(
         'Content',
         {
-{{#each content}}
             '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
-{{/each}}
         }
     )
     content: Content = {
-{{#each content}}
         '{{{@key.original}}}': {{@key.camelCase}}MediaType,
-{{/each}}
     }
+{{/each}}
 {{/if}}
 {{#if required}}
     required = True

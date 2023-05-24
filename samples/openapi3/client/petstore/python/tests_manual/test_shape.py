@@ -83,7 +83,7 @@ class TestShape(unittest.TestCase):
 
         # data missing
         with self.assertRaisesRegex(
-                petstore_api.exceptions.ApiValueError,
+                petstore_api.ApiValueError,
                 r"Cannot deserialize input data due to missing discriminator. The discriminator "
                 r"property 'shapeType' is missing at path: \('args\[0\]',\)"
         ):

@@ -27,8 +27,8 @@ class Schema(
     
     @schemas.classproperty
     def TRUE(cls):
-        return cls("true")
+        return cls("true") # type: ignore
     
     @schemas.classproperty
     def FALSE(cls):
-        return cls("false")
+        return cls("false") # type: ignore

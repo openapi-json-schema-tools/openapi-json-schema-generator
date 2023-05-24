@@ -11,7 +11,7 @@ from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
-class ApiSuccessfulXmlAndJsonArrayOfPet(api_client.ApiResponse):
+class ApiSuccessfulXmlAndJsonArrayOfPet(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         application_xml_schema.Schema[tuple],

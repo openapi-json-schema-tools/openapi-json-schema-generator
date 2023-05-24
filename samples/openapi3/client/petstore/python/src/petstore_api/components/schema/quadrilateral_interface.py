@@ -46,7 +46,7 @@ class QuadrilateralInterface(
                 
                 @schemas.classproperty
                 def QUADRILATERAL(cls):
-                    return cls("Quadrilateral")
+                    return cls("Quadrilateral") # type: ignore
             QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
             __annotations__ = {
                 "shapeType": ShapeType,

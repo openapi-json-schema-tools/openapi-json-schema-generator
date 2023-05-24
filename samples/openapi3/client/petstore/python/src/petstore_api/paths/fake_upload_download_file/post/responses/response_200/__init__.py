@@ -10,7 +10,7 @@ from .content.application_octet_stream import schema as application_octet_stream
 
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_client.ApiResponse):
+class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
     headers: schemas.Unset = schemas.unset

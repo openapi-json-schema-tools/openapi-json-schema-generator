@@ -17,6 +17,7 @@ migration_other_python_generators.md
 pyproject.toml
 src/this_package/__init__.py
 src/this_package/api_client.py
+src/this_package/api_response.py
 src/this_package/apis/__init__.py
 src/this_package/apis/path_to_api.py
 src/this_package/apis/paths/__init__.py

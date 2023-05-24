@@ -41,31 +41,31 @@ class StringEnum(
     
     @schemas.classproperty
     def PLACED(cls):
-        return cls("placed")
+        return cls("placed") # type: ignore
     
     @schemas.classproperty
     def APPROVED(cls):
-        return cls("approved")
+        return cls("approved") # type: ignore
     
     @schemas.classproperty
     def DELIVERED(cls):
-        return cls("delivered")
+        return cls("delivered") # type: ignore
     
     @schemas.classproperty
     def SINGLE_QUOTED(cls):
-        return cls("single quoted")
+        return cls("single quoted") # type: ignore
     
     @schemas.classproperty
     def MULTIPLE_LINE_FEED_LF_LINES(cls):
-        return cls("multiple\nlines")
+        return cls("multiple\nlines") # type: ignore
     
     @schemas.classproperty
     def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls):
-        return cls("double quote \n with newline")
+        return cls("double quote \n with newline") # type: ignore
     
     @schemas.classproperty
     def NONE(cls):
-        return cls(None)
+        return cls(None) # type: ignore
 
 
     def __new__(

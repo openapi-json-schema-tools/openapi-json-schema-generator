@@ -48,15 +48,15 @@ class Order(
                 
                 @schemas.classproperty
                 def PLACED(cls):
-                    return cls("placed")
+                    return cls("placed") # type: ignore
                 
                 @schemas.classproperty
                 def APPROVED(cls):
-                    return cls("approved")
+                    return cls("approved") # type: ignore
                 
                 @schemas.classproperty
                 def DELIVERED(cls):
-                    return cls("delivered")
+                    return cls("delivered") # type: ignore
             
             
             class Complete(

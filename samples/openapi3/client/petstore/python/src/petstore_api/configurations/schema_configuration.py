@@ -67,7 +67,7 @@ class SchemaConfiguration:
 
     def __init__(
         self,
-        disabled_json_schema_keywords = frozenset(),
+        disabled_json_schema_keywords = set(),
     ):
         """Constructor
         """

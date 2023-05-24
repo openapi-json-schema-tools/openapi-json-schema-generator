@@ -17,7 +17,7 @@ import unittest
 import urllib3
 
 import petstore_api
-from petstore_api import api_client, schemas
+from petstore_api import api_client, schemas, api_response
 from petstore_api.configurations import schema_configuration
 
 
@@ -49,7 +49,7 @@ class DeserializationTests(unittest.TestCase):
         by traveling through 2 discriminators
         """
         from petstore_api.components.schema import shape, equilateral_triangle
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: shape.Shape
             headers: schemas.Unset
@@ -93,7 +93,7 @@ class DeserializationTests(unittest.TestCase):
         This is the swagger (v2) way of doing something like oneOf composition
         """
         from petstore_api.components.schema import animal, dog
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: animal.Animal
             headers: schemas.Unset
@@ -163,7 +163,7 @@ class DeserializationTests(unittest.TestCase):
 
         # whale test
         from petstore_api.components.schema import mammal, zebra, whale
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: mammal.Mammal
             headers: schemas.Unset
@@ -209,7 +209,7 @@ class DeserializationTests(unittest.TestCase):
         Deserialize floating point values.
         """
         from petstore_api.components.schema import banana
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: banana.Banana
             headers: schemas.Unset
@@ -251,7 +251,7 @@ class DeserializationTests(unittest.TestCase):
         fruitReq is a oneOf composed schema model with discriminator, including 'null' type.
         """
         from petstore_api.components.schema import fruit_req
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: fruit_req.FruitReq
             headers: schemas.Unset
@@ -291,7 +291,7 @@ class DeserializationTests(unittest.TestCase):
             'size': 'medium',
         }
         response = self.__response(data)
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: dog.Dog
             headers: schemas.Unset
@@ -324,7 +324,7 @@ class DeserializationTests(unittest.TestCase):
             'p2': ['a', 'b', 123],
         }
         response = self.__response(data)
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: mammal.Mammal
             headers: schemas.Unset
@@ -344,7 +344,7 @@ class DeserializationTests(unittest.TestCase):
 
         # The 'bananaReq' schema disallows additional properties by explicitly setting
         # additionalProperties: false
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: banana_req.BananaReq
             headers: schemas.Unset
@@ -374,7 +374,7 @@ class DeserializationTests(unittest.TestCase):
         and the schema is specified as a reference ($ref).
         """
         from petstore_api.components.schema import drawing
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: drawing.Drawing
             headers: schemas.Unset
@@ -450,7 +450,7 @@ class DeserializationTests(unittest.TestCase):
             'float': 62.4,
         }
         from petstore_api.components.schema import format_test
-        class ApiResponse(api_client.ApiResponse):
+        class ApiResponse(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: format_test.FormatTest
             headers: schemas.Unset

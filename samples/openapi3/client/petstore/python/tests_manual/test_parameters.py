@@ -76,13 +76,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.QueryParameter):
+            class ParameterA(api_client.QueryParameter):
                 name='color'
                 style=api_client.ParameterStyle.FORM
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -150,13 +150,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.CookieParameter):
+            class ParameterA(api_client.CookieParameter):
                 name='color'
                 style=api_client.ParameterStyle.FORM
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -224,13 +224,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.PathParameter):
+            class ParameterA(api_client.PathParameter):
                 name='color'
                 style=api_client.ParameterStyle.SIMPLE
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -298,13 +298,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.HeaderParameter):
+            class ParameterA(api_client.HeaderParameter):
                 name='color'
                 style=api_client.ParameterStyle.SIMPLE
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -372,13 +372,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.PathParameter):
+            class ParameterA(api_client.PathParameter):
                 name='color'
                 style=api_client.ParameterStyle.LABEL
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -446,13 +446,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.PathParameter):
+            class ParameterA(api_client.PathParameter):
                 name='color'
                 style=api_client.ParameterStyle.MATRIX
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -510,13 +510,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.QueryParameter):
+            class ParameterA(api_client.QueryParameter):
                 name='color'
                 style=api_client.ParameterStyle.SPACE_DELIMITED
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -574,13 +574,13 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.QueryParameter):
+            class ParameterA(api_client.QueryParameter):
                 name='color'
                 style=api_client.ParameterStyle.PIPE_DELIMITED
                 schema=schemas.AnyTypeSchema
                 explode=test_case.explode
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -638,11 +638,11 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.PathParameter):
+            class ParameterA(api_client.PathParameter):
                 name='color'
                 schema=schemas.AnyTypeSchema
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -697,11 +697,11 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.HeaderParameter):
+            class ParameterA(api_client.HeaderParameter):
                 name='color'
                 schema=schemas.AnyTypeSchema
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -756,11 +756,11 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.QueryParameter):
+            class ParameterA(api_client.QueryParameter):
                 name='color'
                 schema=schemas.AnyTypeSchema
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -815,11 +815,11 @@ class TestParameter(unittest.TestCase):
             ),
         )
         for test_case in test_cases:
-            class Parameter(api_client.CookieParameter):
+            class ParameterA(api_client.CookieParameter):
                 name='color'
                 schema=schemas.AnyTypeSchema
 
-            serialization = Parameter.serialize(test_case.payload)
+            serialization = ParameterA.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
 
         with self.assertRaises(exceptions.ApiValueError):
@@ -889,7 +889,7 @@ class TestParameter(unittest.TestCase):
                     schema = schemas.AnyTypeSchema
 
                 name='color'
-                content={'application/json': __MediaType}
+                content = {'application/json':  __MediaType}
 
             serialization = Parameter.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)

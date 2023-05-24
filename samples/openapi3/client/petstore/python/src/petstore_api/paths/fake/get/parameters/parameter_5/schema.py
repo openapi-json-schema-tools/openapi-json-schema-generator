@@ -28,8 +28,8 @@ class Schema(
     
     @schemas.classproperty
     def POSITIVE_1_PT_1(cls):
-        return cls(1.1)
+        return cls(1.1) # type: ignore
     
     @schemas.classproperty
     def NEGATIVE_1_PT_2(cls):
-        return cls(-1.2)
+        return cls(-1.2) # type: ignore

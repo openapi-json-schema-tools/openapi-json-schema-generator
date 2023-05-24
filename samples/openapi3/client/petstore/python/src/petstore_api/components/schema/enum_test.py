@@ -47,15 +47,15 @@ class EnumTest(
                 
                 @schemas.classproperty
                 def UPPER(cls):
-                    return cls("UPPER")
+                    return cls("UPPER") # type: ignore
                 
                 @schemas.classproperty
                 def LOWER(cls):
-                    return cls("lower")
+                    return cls("lower") # type: ignore
                 
                 @schemas.classproperty
                 def EMPTY(cls):
-                    return cls("")
+                    return cls("") # type: ignore
             
             
             class EnumStringRequired(
@@ -75,15 +75,15 @@ class EnumTest(
                 
                 @schemas.classproperty
                 def UPPER(cls):
-                    return cls("UPPER")
+                    return cls("UPPER") # type: ignore
                 
                 @schemas.classproperty
                 def LOWER(cls):
-                    return cls("lower")
+                    return cls("lower") # type: ignore
                 
                 @schemas.classproperty
                 def EMPTY(cls):
-                    return cls("")
+                    return cls("") # type: ignore
             
             
             class EnumInteger(
@@ -103,11 +103,11 @@ class EnumTest(
                 
                 @schemas.classproperty
                 def POSITIVE_1(cls):
-                    return cls(1)
+                    return cls(1) # type: ignore
                 
                 @schemas.classproperty
                 def NEGATIVE_1(cls):
-                    return cls(-1)
+                    return cls(-1) # type: ignore
             
             
             class EnumNumber(
@@ -127,11 +127,11 @@ class EnumTest(
                 
                 @schemas.classproperty
                 def POSITIVE_1_PT_1(cls):
-                    return cls(1.1)
+                    return cls(1.1) # type: ignore
                 
                 @schemas.classproperty
                 def NEGATIVE_1_PT_2(cls):
-                    return cls(-1.2)
+                    return cls(-1.2) # type: ignore
         
             @staticmethod
             def string_enum() -> typing.Type[string_enum.StringEnum]:

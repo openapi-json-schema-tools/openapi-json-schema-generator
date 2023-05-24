@@ -81,7 +81,7 @@ class ValidationMetadata:
     path_to_item: typing.Tuple[typing.Union[str, int], ...]
     configuration: schema_configuration.SchemaConfiguration
     seen_classes: typing.FrozenSet[typing.Type] = frozenset()
-    validated_path_to_schemas: frozendict.frozendict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
+    validated_path_to_schemas: typing.Mapping[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]] = frozendict.frozendict()
 
     def validation_ran_earlier(self, cls: type) -> bool:
         validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
@@ -155,7 +155,7 @@ class classproperty:
 class NoneClass(Singleton):
     @classproperty
     def NONE(cls):
-        return cls(None)
+        return cls(None) # type: ignore
 
     def __bool__(self) -> bool:
         return False
@@ -164,11 +164,11 @@ class NoneClass(Singleton):
 class BoolClass(Singleton):
     @classproperty
     def TRUE(cls):
-        return cls(True)
+        return cls(True) # type: ignore
 
     @classproperty
     def FALSE(cls):
-        return cls(False)
+        return cls(False) # type: ignore
 
     @functools.lru_cache()
     def __bool__(self) -> bool:
@@ -187,6 +187,7 @@ class SchemaTyped:
     max_items: int
     min_items: int
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
+    default: typing.Union[str, int, BoolClass]
 
 
     class Properties:
@@ -204,8 +205,20 @@ class SchemaTyped:
     min_length: int
     items: typing.Type['Schema']
 
-PathToSchemasType = typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]]
-
+PathToSchemasType = typing.Dict[
+    typing.Tuple[typing.Union[str, int], ...],
+    typing.Set[
+        typing.Union[
+            typing.Type['Schema'],
+            typing.Type[str],
+            typing.Type[decimal.Decimal],
+            typing.Type[BoolClass],
+            typing.Type[NoneClass],
+            typing.Type[frozendict.frozendict],
+            typing.Type[tuple]
+        ]
+    ]
+]
 
 def __get_valid_classes_phrase(input_classes):
     """Returns a string phrase describing what types are allowed"""

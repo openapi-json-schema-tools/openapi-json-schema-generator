@@ -11,9 +11,8 @@ from unittest.mock import patch
 
 import urllib3
 
-import petstore_api
 from petstore_api.paths.fake.get import operation as get  # noqa: E501
-from petstore_api import schemas, api_client
+from petstore_api import schemas, api_client, exceptions
 from urllib3 import _collections
 
 from ... import ApiTestMixin
@@ -82,15 +81,16 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         mock_request.return_value = self.response(response_body_bytes, status=404, reason='404')
 
         api = get.ApiForGet()
-        with self.assertRaises(petstore_api.ApiException) as cm:
-            api_response = api.get()
+        with self.assertRaises(exceptions.ApiException) as cm:
+            _response = api.get()
 
-        exc: petstore_api.ApiException[get.response_404.ResponseFor404.response_cls] = cm.exception
+        exc: exceptions.ApiException[get.response_404.ApiResponseFor404] = cm.exception
         expected_status = 404
         expected_reason = '404'
         self.assertEqual(exc.status, expected_status)
         self.assertEqual(exc.reason, expected_reason)
         expected_headers = {'content-type': 'application/json'}
+        assert exc.api_response is not None
         self.assertEqual(exc.api_response.response.status, expected_status)
         self.assertEqual(exc.api_response.response.reason, expected_reason)
         self.assertEqual(exc.api_response.response.data, response_body_bytes)

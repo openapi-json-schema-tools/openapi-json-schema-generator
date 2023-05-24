@@ -1,6 +1,7 @@
 # coding: utf-8
 {{> _helper_header }}
 
+from __future__ import annotations
 import datetime
 import dataclasses
 import decimal
@@ -24,13 +25,13 @@ import tornado.gen
 {{/if}}
 import frozendict
 
-from {{packageName}} import exceptions, rest, schemas, security_schemes
+from {{packageName}} import exceptions, rest, schemas, security_schemes, api_response
 from {{packageName}}.configurations import api_configuration, schema_configuration as schema_configuration_
 
 
 class RequestField(fields.RequestField):
     def __eq__(self, other):
-        if not isinstance(other, RequestField):
+        if not isinstance(other, fields.RequestField):
             return False
         return self.__dict__ == other.__dict__
 
@@ -46,8 +47,12 @@ class JSONEncoder(json.JSONEncoder):
         elif isinstance(obj, int):
             return int(obj)
         elif isinstance(obj, decimal.Decimal):
-            if obj.as_tuple().exponent >= 0:
-                return int(obj)
+            exponent = obj.as_tuple().exponent
+            if isinstance(exponent, int):
+                if exponent >= 0:
+                    return int(obj)
+            else:
+                raise ValueError(f'Decimal {obj} has an invalid non integer exponent')
             return float(obj)
         elif isinstance(obj, schemas.NoneClass):
             return None
@@ -352,7 +357,6 @@ class MediaType:
     encoding: typing.Optional[typing.Dict[str, Encoding]] = None
 
 
-@dataclasses.dataclass
 class ParameterBase(JSONDetector):
     in_type: ParameterInType
     required: bool
@@ -381,7 +385,23 @@ class ParameterBase(JSONDetector):
             return json.dumps(in_data, separators=cls._json_encoder.compact_separators)
         return json.dumps(in_data)
 
+_SERIALIZE_TYPES = typing.Union[
+    schemas.Schema,
+    decimal.Decimal,
+    int,
+    float,
+    str,
+    datetime.date,
+    datetime.datetime,
+    None,
+    bool,
+    list,
+    tuple,
+    dict,
+    frozendict.frozendict
+]
 
+@dataclasses.dataclass
 class PathParameter(ParameterBase, StyleSimpleSerializer):
     name: str
     required: bool = False
@@ -390,7 +410,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def __serialize_label(
@@ -438,8 +458,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     @classmethod
     def serialize(
         cls,
-        in_data: typing.Union[
-            schemas.Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+        in_data: _SERIALIZE_TYPES
     ) -> typing.Dict[str, str]:
         if cls.schema:
             cast_in_data = cls.schema(in_data)
@@ -460,16 +479,20 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
                     return cls.__serialize_label(cast_in_data)
                 elif cls.style is ParameterStyle.MATRIX:
                     return cls.__serialize_matrix(cast_in_data)
-        # cls.content will be length one
-        for content_type, schema in cls.content.items():
-            cast_in_data = schema(in_data)
+        assert cls.content is not None
+        for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
+            cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
                 return cls._to_dict(cls.name, value)
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
+@dataclasses.dataclass
 class QueryParameter(ParameterBase, StyleFormSerializer):
     name: str
     required: bool = False
@@ -478,20 +501,21 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def __serialize_space_delimited(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
             variable_name=cls.name,
             in_data=in_data,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
@@ -501,14 +525,15 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def __serialize_pipe_delimited(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._ref6570_expansion(
             variable_name=cls.name,
             in_data=in_data,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
@@ -518,33 +543,34 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     def __serialize_form(
         cls,
         in_data: typing.Union[None, int, float, str, bool, dict, list],
-        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator]
+        prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator],
+        explode: bool
     ) -> typing.Dict[str, str]:
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         value = cls._serialize_form(
             in_data,
             name=cls.name,
-            explode=cls.explode,
+            explode=explode,
             percent_encode=True,
             prefix_separator_iterator=prefix_separator_iterator
         )
         return cls._to_dict(cls.name, value)
 
     @classmethod
-    def get_prefix_separator_iterator(cls) -> typing.Optional[PrefixSeparatorIterator]:
+    def get_prefix_separator_iterator(cls) -> PrefixSeparatorIterator:
         if cls.style is ParameterStyle.FORM:
             return PrefixSeparatorIterator('?', '&')
         elif cls.style is ParameterStyle.SPACE_DELIMITED:
             return PrefixSeparatorIterator('', '%20')
         elif cls.style is ParameterStyle.PIPE_DELIMITED:
             return PrefixSeparatorIterator('', '|')
+        raise ValueError(f'No iterator possible for style={cls.style}')
 
     @classmethod
     def serialize(
         cls,
-        in_data: typing.Union[
-            schemas.Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+        in_data: _SERIALIZE_TYPES,
         prefix_separator_iterator: typing.Optional[PrefixSeparatorIterator] = None
     ) -> typing.Dict[str, str]:
         if cls.schema:
@@ -565,16 +591,18 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
             """
             if cls.style:
                 # TODO update query ones to omit setting values when [] {} or None is input
+                explode = cls.explode if cls.explode is not None else cls.style == ParameterStyle.FORM
                 if cls.style is ParameterStyle.FORM:
-                    return cls.__serialize_form(cast_in_data, prefix_separator_iterator)
+                    return cls.__serialize_form(cast_in_data, prefix_separator_iterator, explode)
                 elif cls.style is ParameterStyle.SPACE_DELIMITED:
-                    return cls.__serialize_space_delimited(cast_in_data, prefix_separator_iterator)
+                    return cls.__serialize_space_delimited(cast_in_data, prefix_separator_iterator, explode)
                 elif cls.style is ParameterStyle.PIPE_DELIMITED:
-                    return cls.__serialize_pipe_delimited(cast_in_data, prefix_separator_iterator)
-        # cls.content will be length one
+                    return cls.__serialize_pipe_delimited(cast_in_data, prefix_separator_iterator, explode)
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
+        assert cls.content is not None
         for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
             cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
@@ -583,9 +611,12 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
                     cls.name,
                     next(prefix_separator_iterator) + cls.name + '=' + parse.quote(value)
                 )
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
+@dataclasses.dataclass
 class CookieParameter(ParameterBase, StyleFormSerializer):
     name: str
     required: bool = False
@@ -594,13 +625,12 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def serialize(
         cls,
-        in_data: typing.Union[
-            schemas.Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+        in_data: _SERIALIZE_TYPES
     ) -> typing.Dict[str, str]:
         if cls.schema:
             cast_in_data = cls.schema(in_data)
@@ -614,32 +644,33 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                 TODO add escaping of comma, space, equals
                 or turn encoding on
                 """
+                explode = cls.explode if cls.explode is not None else cls.style == ParameterStyle.FORM
                 value = cls._serialize_form(
                     cast_in_data,
-                    explode=cls.explode,
+                    explode=explode,
                     name=cls.name,
                     percent_encode=False,
                     prefix_separator_iterator=PrefixSeparatorIterator('', '&')
                 )
                 return cls._to_dict(cls.name, value)
-        # cls.content will be length one
+        assert cls.content is not None
         for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
             cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
                 return cls._to_dict(cls.name, value)
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
-class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
-    required: bool = False
+class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
     style: ParameterStyle = ParameterStyle.SIMPLE
-    in_type: ParameterInType = ParameterInType.HEADER
-    explode: bool = False
-    allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Dict[str, typing.Type[schemas.Schema]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
+    explode: bool = False
 
     @staticmethod
     def __to_headers(in_data: typing.Tuple[typing.Tuple[str, str], ...]) -> _collections.HTTPHeaderDict:
@@ -653,8 +684,7 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
     @classmethod
     def serialize(
         cls,
-        in_data: typing.Union[
-            schemas.Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict],
+        in_data: _SERIALIZE_TYPES,
         name: str
     ) -> _collections.HTTPHeaderDict:
         if cls.schema:
@@ -668,14 +698,17 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             if cls.style:
                 value = cls._serialize_simple(cast_in_data, name, cls.explode, False)
                 return cls.__to_headers(((name, value),))
-        # cls.content will be length one
+        assert cls.content is not None
         for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
             cast_in_data = media_type.schema(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
                 return cls.__to_headers(((name, value),))
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
     @classmethod
     def deserialize(
@@ -692,22 +725,43 @@ class HeaderParameterWithoutName(ParameterBase, StyleSimpleSerializer):
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
                 return cls.schema.from_openapi_data_(extracted_data)
-        # cls.content will be length one
+        assert cls.content is not None
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data = json.loads(in_data)
+                assert media_type.schema is not None
                 return media_type.schema.from_openapi_data_(cast_in_data)
-            raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+            else:
+                raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
-class HeaderParameter(HeaderParameterWithoutName):
+@dataclasses.dataclass
+class HeaderParameterWithoutName(__HeaderParameterBase):
+    required: bool = False
+    style: ParameterStyle = ParameterStyle.SIMPLE
+    in_type: ParameterInType = ParameterInType.HEADER
+    explode: bool = False
+    allow_reserved: typing.Optional[bool] = None
+    schema: typing.Optional[typing.Type[schemas.Schema]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
+
+
+@dataclasses.dataclass
+class HeaderParameter(__HeaderParameterBase):
     name: str
+    required: bool = False
+    style: ParameterStyle = ParameterStyle.SIMPLE
+    in_type: ParameterInType = ParameterInType.HEADER
+    explode: bool = False
+    allow_reserved: typing.Optional[bool] = None
+    schema: typing.Optional[typing.Type[schemas.Schema]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def serialize(
         cls,
-        in_data: typing.Union[
-            schemas.Schema, decimal.Decimal, int, float, str, datetime.date, datetime.datetime, None, bool, list, tuple, dict, frozendict.frozendict]
+        in_data: _SERIALIZE_TYPES
     ) -> _collections.HTTPHeaderDict:
         return super().serialize(
             in_data,
@@ -715,23 +769,9 @@ class HeaderParameter(HeaderParameterWithoutName):
         )
 
 
-@dataclasses.dataclass
-class ApiResponse:
-    response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
-
-
-@dataclasses.dataclass
-class ApiResponseWithoutDeserialization(ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing.Dict[str, schemas.Schema]] = schemas.unset
-
-
 class TypedDictInputVerifier:
     @staticmethod
-    def _verify_typed_dict_inputs(cls: typing.Type[typing_extensions.TypedDict], data: typing.Dict[str, typing.Any]):
+    def _verify_typed_dict_inputs(tdict_cls: typing.Type[typing_extensions.TypedDict], data: typing.Mapping[str, typing.Any]):
         """
         Ensures that:
         - required keys are present
@@ -741,7 +781,7 @@ class TypedDictInputVerifier:
         """
         missing_required_keys = []
         required_keys_with_unset_values = []
-        for required_key in cls.__required_keys__:
+        for required_key in tdict_cls.__required_keys__:
             if required_key not in data:
                 missing_required_keys.append(required_key)
                 continue
@@ -751,30 +791,29 @@ class TypedDictInputVerifier:
         if missing_required_keys:
             raise exceptions.ApiTypeError(
                 '{} missing {} required arguments: {}'.format(
-                    cls.__name__, len(missing_required_keys), missing_required_keys
+                    tdict_cls.__name__, len(missing_required_keys), missing_required_keys
                  )
              )
         if required_keys_with_unset_values:
             raise exceptions.ApiValueError(
                 '{} contains invalid unset values for {} required keys: {}'.format(
-                    cls.__name__, len(required_keys_with_unset_values), required_keys_with_unset_values
+                    tdict_cls.__name__, len(required_keys_with_unset_values), required_keys_with_unset_values
                 )
             )
 
         disallowed_additional_keys = []
         for key in data:
-            if key in cls.__required_keys__ or key in cls.__optional_keys__:
+            if key in tdict_cls.__required_keys__ or key in tdict_cls.__optional_keys__:
                 continue
             disallowed_additional_keys.append(key)
         if disallowed_additional_keys:
             raise exceptions.ApiTypeError(
                 '{} got {} unexpected keyword arguments: {}'.format(
-                    cls.__name__, len(disallowed_additional_keys), disallowed_additional_keys
+                    tdict_cls.__name__, len(disallowed_additional_keys), disallowed_additional_keys
                 )
             )
 
-
-T = typing.TypeVar("T")
+T = typing.TypeVar("T", bound=api_response.ApiResponse)
 
 
 @dataclasses.dataclass
@@ -867,8 +906,8 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         streamed = response.supports_chunked_reads()
 
         deserialized_headers = schemas.unset
-        if cls.headers is not None:
-            cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
+        if cls.headers is not None and not isinstance(cls.response_cls.headers, schemas.Unset):
+            cls._verify_typed_dict_inputs(cls.response_cls.headers.__class__, response.headers)
             deserialized_headers = {}
             for header_name, header_param in cls.headers.items():
                 header_value = response.headers.get(header_name)
@@ -876,6 +915,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                     continue
                 header_value = header_param.deserialize(header_value, header_name)
                 deserialized_headers[header_name] = header_value
+            deserialized_headers = typing.cast(cls.response_cls.headers.__class__, deserialized_headers)
 
         if cls.content is not None:
             if content_type not in cls.content:
@@ -939,12 +979,11 @@ class ApiClient:
     default_headers: _collections.HTTPHeaderDict = dataclasses.field(
         default_factory=lambda: _collections.HTTPHeaderDict())
     pool_threads: int = 1
-    user_agent: str = dataclasses.field(init=False)
+    user_agent: str = '{{#if httpUserAgent}}{{{httpUserAgent}}}{{/if}}{{#unless httpUserAgent}}OpenAPI-JSON-Schema-Generator/{{{packageVersion}}}/python{{/unless}}'
     rest_client: rest.RESTClientObject = dataclasses.field(init=False)
 
     def __post_init__(self):
         self._pool = None
-        self.user_agent = '{{#if httpUserAgent}}{{{httpUserAgent}}}{{/if}}{{#unless httpUserAgent}}OpenAPI-JSON-Schema-Generator/{{{packageVersion}}}/python{{/unless}}'
         self.rest_client = rest.RESTClientObject(self.configuration)
 
     def __enter__(self):
@@ -971,15 +1010,6 @@ class ApiClient:
             self._pool = pool.ThreadPool(self.pool_threads)
         return self._pool
 
-    @property
-    def user_agent(self):
-        """User agent for this API client"""
-        return self.default_headers['User-Agent']
-
-    @user_agent.setter
-    def user_agent(self, value):
-        self.default_headers['User-Agent'] = value
-
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
 
@@ -993,7 +1023,7 @@ class ApiClient:
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
-        timeout: typing.Union[int, typing.Tuple, None] = None,
+        timeout: typing.Union[int, float, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
@@ -1023,6 +1053,9 @@ class ApiClient:
         """
         # header parameters
         used_headers = _collections.HTTPHeaderDict(self.default_headers)
+        user_agent_key = 'User-Agent'
+        if user_agent_key not in used_headers and self.user_agent:
+            used_headers[user_agent_key] = self.user_agent
 
         # auth setting
         self.update_params_for_auth(
@@ -1060,7 +1093,7 @@ class ApiClient:
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
         body: typing.Union[str, bytes, None] = None,
         stream: bool = False,
-        timeout: typing.Union[int, typing.Tuple, None] = None,
+        timeout: typing.Union[int, float, typing.Tuple, None] = None,
     ) -> urllib3.HTTPResponse:
         """Makes the HTTP request using RESTClient."""
         if method == "get":
@@ -1156,46 +1189,49 @@ class Api(TypedDictInputVerifier):
     def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
-        path_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
+        path_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None,
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
-        query_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
+        query_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None
     ) -> str:
         used_path_params = {}
-        for parameter in path_parameters:
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            used_path_params.update(serialized_data)
+        if path_params is not None:
+            for parameter in path_parameters:
+                parameter_data = path_params.get(parameter.name, schemas.unset)
+                if isinstance(parameter_data, schemas.Unset):
+                    continue
+                serialized_data = parameter.serialize(parameter_data)
+                used_path_params.update(serialized_data)
 
         for k, v in used_path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
 
-        prefix_separator_iterator = None
-        for parameter in query_parameters:
-            parameter_data = query_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            if prefix_separator_iterator is None:
-                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
-            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
-            for serialized_value in serialized_data.values():
-                used_path += serialized_value
+        if query_params is not None:
+            prefix_separator_iterator = None
+            for parameter in query_parameters:
+                parameter_data = query_params.get(parameter.name, schemas.unset)
+                if isinstance(parameter_data, schemas.Unset):
+                    continue
+                if prefix_separator_iterator is None:
+                    prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+                serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+                for serialized_value in serialized_data.values():
+                    used_path += serialized_value
         return used_path
 
     @staticmethod
     def _get_headers(
         header_parameters: typing.Tuple[typing.Type[HeaderParameter], ...] = (),
-        header_params: typing.Dict[str, typing.Any] = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = (),
+        header_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None,
+        accept_content_types: typing.Tuple[str, ...] = (),
     ) -> _collections.HTTPHeaderDict:
         headers = _collections.HTTPHeaderDict()
-        for parameter in header_parameters:
-            parameter_data = header_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            headers.extend(serialized_data)
+        if header_params is not None:
+            for parameter in header_parameters:
+                parameter_data = header_params.get(parameter.name, schemas.unset)
+                if isinstance(parameter_data, schemas.Unset):
+                    continue
+                serialized_data = parameter.serialize(parameter_data)
+                headers.extend(serialized_data)
         if accept_content_types:
             for accept_content_type in accept_content_types:
                 headers.add('Accept', accept_content_type)
@@ -1224,12 +1260,12 @@ class Api(TypedDictInputVerifier):
         return _fields, _body
 
     @staticmethod
-    def _verify_response_status(api_response: 'ApiResponse'):
-        if not 200 <= api_response.response.status <= 399:
+    def _verify_response_status(response: api_response.ApiResponse):
+        if not 200 <= response.response.status <= 399:
             raise exceptions.ApiException(
-                status=api_response.response.status,
-                reason=api_response.response.reason,
-                api_response=api_response
+                status=response.response.status,
+                reason=response.response.reason,
+                api_response=response
             )
 
 
@@ -1251,15 +1287,15 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     def __serialize_json(
         cls,
         in_data: typing.Any
-    ) -> typing.Dict[str, bytes]:
+    ) -> SerializedRequestBody:
         in_data = cls.__json_encoder.default(in_data)
         json_str = json.dumps(in_data, separators=(",", ":"), ensure_ascii=False).encode(
             "utf-8"
         )
-        return dict(body=json_str)
+        return {'body': json_str}
 
     @staticmethod
-    def __serialize_text_plain(in_data: typing.Any) -> typing.Dict[str, str]:
+    def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
         if isinstance(in_data, frozendict.frozendict):
             raise ValueError('Unable to serialize type frozendict.frozendict to text/plain')
         elif isinstance(in_data, tuple):
@@ -1268,7 +1304,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             raise ValueError('Unable to serialize type NoneClass to text/plain')
         elif isinstance(in_data, schemas.BoolClass):
             raise ValueError('Unable to serialize type BoolClass to text/plain')
-        return dict(body=str(in_data))
+        return {'body': str(in_data)}
 
     @classmethod
     def __multipart_json_item(cls, key: str, value: schemas.Schema) -> RequestField:
@@ -1287,7 +1323,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, schemas.FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = RequestField.from_tuples(key, (os.path.basename(value.name), value.read()))
+            request_field = RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
+            request_field = typing.cast(RequestField, request_field)
             value.close()
         else:
             request_field = cls.__multipart_json_item(key=key, value=value)
@@ -1296,7 +1333,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     @classmethod
     def __serialize_multipart_form_data(
         cls, in_data: schemas.Schema
-    ) -> typing.Dict[str, typing.Tuple[RequestField, ...]]:
+    ) -> SerializedRequestBody:
         if not isinstance(in_data, frozendict.frozendict):
             raise ValueError(f'Unable to serialize {in_data} to multipart/form-data because it is not a dict of data')
         """
@@ -1322,22 +1359,22 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                         fields.append(request_field)
                 else:
                     # send an empty array as json because exploding will not send it
-                    request_field = cls.__multipart_json_item(key=key, value=value)
+                    request_field = cls.__multipart_json_item(key=key, value=value) # type: ignore
                     fields.append(request_field)
             else:
                 request_field = cls.__multipart_form_item(key=key, value=value)
                 fields.append(request_field)
 
-        return dict(fields=tuple(fields))
+        return {'fields': tuple(fields)}
 
     @staticmethod
-    def __serialize_application_octet_stream(in_data: schemas.BinarySchema) -> typing.Dict[str, bytes]:
+    def __serialize_application_octet_stream(in_data: typing.Union[schemas.BytesSchema, schemas.FileSchema]) -> SerializedRequestBody:
         if isinstance(in_data, bytes):
-            return dict(body=in_data)
+            return {'body': in_data}
         # schemas.FileIO type
-        result = dict(body=in_data.read())
+        used_in_data = in_data.read()
         in_data.close()
-        return result
+        return {'body': used_in_data}
 
     @classmethod
     def __serialize_application_x_www_form_data(
@@ -1351,7 +1388,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                 f'Unable to serialize {in_data} to application/x-www-form-urlencoded because it is not a dict of data')
         cast_in_data = cls.__json_encoder.default(in_data)
         value = cls._serialize_form(cast_in_data, name='', explode=True, percent_encode=True)
-        return dict(body=value)
+        return {'body': value}
 
     @classmethod
     def serialize(
@@ -1367,6 +1404,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         - encode_multipart and fields for multipart/form-data
         """
         media_type = cls.content[content_type]
+        assert media_type.schema is not None
         schema = schemas._get_class(media_type.schema)
         if isinstance(in_data, schema):
             cast_in_data = in_data
@@ -1385,5 +1423,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         elif content_type == 'application/x-www-form-urlencoded':
             return cls.__serialize_application_x_www_form_data(cast_in_data)
         elif content_type == 'application/octet-stream':
+            if not isinstance(cast_in_data, (schemas.FileSchema, schemas.BytesSchema)):
+                raise ValueError(f'Invalid input data type. Data must be bytes or File for content_type={content_type}')
             return cls.__serialize_application_octet_stream(cast_in_data)
         raise NotImplementedError('Serialization has not yet been implemented for {}'.format(content_type))

@@ -72,9 +72,9 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _update_pet_with_form(
         self,
@@ -89,9 +89,9 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _update_pet_with_form(
@@ -108,8 +108,8 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _update_pet_with_form(
@@ -125,10 +125,10 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        api_client.ApiResponseWithoutDeserialization,
+        api_response.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _update_pet_with_form(
@@ -144,7 +144,7 @@ class BaseApi(api_client.Api):
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         """
@@ -177,7 +177,7 @@ class BaseApi(api_client.Api):
             security_index
         )
 
-        response = self.api_client.call_api(
+        raw_response = self.api_client.call_api(
             resource_path=used_path,
             method='post',
             host=host,
@@ -190,21 +190,21 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         else:
-            status = str(response.status)
+            status = str(raw_response.status)
             if status in _status_code_to_response:
                 status: typing_extensions.Literal[
                     '405',
                 ]
-                api_response = _status_code_to_response[status].deserialize(
-                    response, self.api_client.schema_configuration)
+                response = _status_code_to_response[status].deserialize(
+                    raw_response, self.api_client.schema_configuration)
             else:
-                api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
 
-        self._verify_response_status(api_response)
+        self._verify_response_status(response)
 
-        return api_response
+        return response
 
 
 class UpdatePetWithForm(BaseApi):

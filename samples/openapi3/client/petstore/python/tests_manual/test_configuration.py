@@ -61,7 +61,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
 
         with patch.object(ApiClient, 'request') as mock_request:
             mock_request.return_value = urllib3.HTTPResponse(status=200)
-            api.delete_pet(path_params=dict(petId=123456789))
+            api.delete_pet(path_params= {'petId': 123456789})
             mock_request.assert_called_with(
                 'delete',
                 'https://localhost:8080/v2/pet/123456789',
@@ -80,7 +80,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         server_info: api_configuration.ServerInfo = {
-            "paths//pet/findByStatus//servers/1": api_configuration.pet_find_by_status_server_1.Server1(
+            "paths//pet/findByStatus/servers/1": api_configuration.pet_find_by_status_server_1.Server1(
                 variables={'version': 'v2'}
             )
         }

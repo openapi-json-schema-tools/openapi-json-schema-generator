@@ -57,7 +57,7 @@ class ScaleneTriangle(
                             
                             @schemas.classproperty
                             def SCALENE_TRIANGLE(cls):
-                                return cls("ScaleneTriangle")
+                                return cls("ScaleneTriangle") # type: ignore
                         __annotations__ = {
                             "triangleType": TriangleType,
                         }

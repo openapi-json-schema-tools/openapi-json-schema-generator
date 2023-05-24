@@ -35,7 +35,7 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
-def _default_variable_schemas():
+def _default_variable_schemas() -> _VariablesSchemas:
     return {
         {{#each variables}}
         "{{{@key.original}}}": _Variables.{{jsonPathPiece.camelCase}},
@@ -51,9 +51,9 @@ class {{jsonPathPiece.camelCase}}(server.Server):
     {{description}}
     '''
     {{/if}}
-    _url: str = "{{url}}"
     {{#if variables}}
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
     {{/if}}
+    _url: str = "{{url}}"
 {{/with}}

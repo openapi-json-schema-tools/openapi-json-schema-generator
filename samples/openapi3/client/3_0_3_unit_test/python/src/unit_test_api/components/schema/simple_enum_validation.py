@@ -33,12 +33,12 @@ class SimpleEnumValidation(
     
     @schemas.classproperty
     def POSITIVE_1(cls):
-        return cls(1)
+        return cls(1) # type: ignore
     
     @schemas.classproperty
     def POSITIVE_2(cls):
-        return cls(2)
+        return cls(2) # type: ignore
     
     @schemas.classproperty
     def POSITIVE_3(cls):
-        return cls(3)
+        return cls(3) # type: ignore

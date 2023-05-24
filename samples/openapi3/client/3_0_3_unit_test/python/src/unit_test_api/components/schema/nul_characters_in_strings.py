@@ -31,4 +31,4 @@ class NulCharactersInStrings(
     
     @schemas.classproperty
     def HELLO_NULL_THERE(cls):
-        return cls("hello\x00there")
+        return cls("hello\x00there") # type: ignore

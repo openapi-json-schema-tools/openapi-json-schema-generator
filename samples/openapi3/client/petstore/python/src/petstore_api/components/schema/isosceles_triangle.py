@@ -57,7 +57,7 @@ class IsoscelesTriangle(
                             
                             @schemas.classproperty
                             def ISOSCELES_TRIANGLE(cls):
-                                return cls("IsoscelesTriangle")
+                                return cls("IsoscelesTriangle") # type: ignore
                         __annotations__ = {
                             "triangleType": TriangleType,
                         }

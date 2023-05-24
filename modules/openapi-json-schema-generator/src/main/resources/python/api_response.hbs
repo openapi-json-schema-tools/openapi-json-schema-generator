@@ -1,0 +1,24 @@
+# coding: utf-8
+{{> _helper_header }}
+
+import dataclasses
+import typing
+
+import typing_extensions
+import urllib3
+
+from {{packageName}} import schemas
+
+
+@dataclasses.dataclass
+class ApiResponse:
+    response: urllib3.HTTPResponse
+    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
+    headers: typing.Union[schemas.Unset, typing_extensions.TypedDict] = schemas.unset
+
+
+@dataclasses.dataclass
+class ApiResponseWithoutDeserialization(ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
+    headers: typing.Union[schemas.Unset, typing_extensions.TypedDict] = schemas.unset

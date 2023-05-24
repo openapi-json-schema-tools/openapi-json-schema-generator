@@ -53,7 +53,7 @@ class Header:
     }
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_client.ApiResponse):
+class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         application_xml_schema.Schema[str],

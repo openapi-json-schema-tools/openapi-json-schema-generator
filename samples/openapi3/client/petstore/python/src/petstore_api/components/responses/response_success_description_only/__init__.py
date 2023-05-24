@@ -8,7 +8,7 @@ from petstore_api.shared_imports.response_imports import *
 
 
 @dataclasses.dataclass
-class ApiSuccessDescriptionOnly(api_client.ApiResponse):
+class ApiSuccessDescriptionOnly(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset

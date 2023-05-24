@@ -31,4 +31,4 @@ class EnumWithTrueDoesNotMatch1(
     
     @schemas.classproperty
     def TRUE(cls):
-        return cls(True)
+        return cls(True) # type: ignore

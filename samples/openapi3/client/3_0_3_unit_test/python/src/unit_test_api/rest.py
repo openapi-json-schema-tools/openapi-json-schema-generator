@@ -14,9 +14,10 @@ import typing
 
 import certifi
 import urllib3
+from urllib3 import exceptions as urllib3_exceptions
 from urllib3._collections import HTTPHeaderDict
 
-from unit_test_api.exceptions import ApiException, ApiValueError
+from unit_test_api import exceptions
 
 
 logger = logging.getLogger(__name__)
@@ -92,7 +93,7 @@ class RESTClientObject(object):
         fields: typing.Optional[typing.Tuple[typing.Tuple[str, typing.Any], ...]] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ) -> urllib3.HTTPResponse:
         """Perform requests.
 
@@ -115,19 +116,19 @@ class RESTClientObject(object):
                           'PATCH', 'OPTIONS']
 
         if fields and body:
-            raise ApiValueError(
+            raise exceptions.ApiValueError(
                 "body parameter cannot be used with fields parameter."
             )
 
-        fields = fields or {}
-        headers = headers or {}
+        headers = headers or HTTPHeaderDict()
 
+        used_timeout: typing.Optional[urllib3.Timeout] = None
         if timeout:
-            if isinstance(timeout, (int, float)):  # noqa: E501,F821
-                timeout = urllib3.Timeout(total=timeout)
+            if isinstance(timeout, (int, float)):
+                used_timeout = urllib3.Timeout(total=timeout)
             elif (isinstance(timeout, tuple) and
                   len(timeout) == 2):
-                timeout = urllib3.Timeout(connect=timeout[0], read=timeout[1])
+                used_timeout = urllib3.Timeout(connect=timeout[0], read=timeout[1])
 
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
@@ -137,7 +138,7 @@ class RESTClientObject(object):
                         method,
                         url,
                         preload_content=not stream,
-                        timeout=timeout,
+                        timeout=used_timeout,
                         headers=headers
                     )
                 elif headers['Content-Type'] == 'application/x-www-form-urlencoded':  # noqa: E501
@@ -146,7 +147,7 @@ class RESTClientObject(object):
                         body=body,
                         encode_multipart=False,
                         preload_content=not stream,
-                        timeout=timeout,
+                        timeout=used_timeout,
                         headers=headers)
                 elif headers['Content-Type'] == 'multipart/form-data':
                     # must del headers['Content-Type'], or the correct
@@ -158,7 +159,7 @@ class RESTClientObject(object):
                         fields=fields,
                         encode_multipart=True,
                         preload_content=not stream,
-                        timeout=timeout,
+                        timeout=used_timeout,
                         headers=headers)
                 # Pass a `string` parameter directly in the body to support
                 # other content types than Json when `body` argument is
@@ -169,23 +170,23 @@ class RESTClientObject(object):
                         method, url,
                         body=request_body,
                         preload_content=not stream,
-                        timeout=timeout,
+                        timeout=used_timeout,
                         headers=headers)
                 else:
                     # Cannot generate the request from given parameters
                     msg = """Cannot prepare a request message for provided
                              arguments. Please check that your arguments match
                              declared content type."""
-                    raise ApiException(status=0, reason=msg)
+                    raise exceptions.ApiException(status=0, reason=msg)
             # For `GET`, `HEAD`
             else:
                 r = self.pool_manager.request(method, url,
                                               preload_content=not stream,
-                                              timeout=timeout,
+                                              timeout=used_timeout,
                                               headers=headers)
-        except urllib3.exceptions.SSLError as e:
+        except urllib3_exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
-            raise ApiException(status=0, reason=msg)
+            raise exceptions.ApiException(status=0, reason=msg)
 
         if not stream:
             # log response body

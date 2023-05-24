@@ -240,6 +240,7 @@ migration_other_python_generators.md
 pyproject.toml
 src/petstore_api/__init__.py
 src/petstore_api/api_client.py
+src/petstore_api/api_response.py
 src/petstore_api/apis/__init__.py
 src/petstore_api/apis/path_to_api.py
 src/petstore_api/apis/paths/__init__.py

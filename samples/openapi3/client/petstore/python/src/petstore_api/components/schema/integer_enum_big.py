@@ -34,12 +34,12 @@ class IntegerEnumBig(
     
     @schemas.classproperty
     def POSITIVE_10(cls):
-        return cls(10)
+        return cls(10) # type: ignore
     
     @schemas.classproperty
     def POSITIVE_11(cls):
-        return cls(11)
+        return cls(11) # type: ignore
     
     @schemas.classproperty
     def POSITIVE_12(cls):
-        return cls(12)
+        return cls(12) # type: ignore
