@@ -8,33 +8,37 @@
         {{/eq}}
     {{/if}}
 {{/if}}
-{{#if queryParams}}
-    {{#if hasRequiredQueryParams}}
+{{#if hasRequiredQueryParams}}
     query_params: RequestQueryParameters.Params,
-    {{else}}
+{{/if}}
+{{#if hasRequiredHeaderParams}}
+    header_params: RequestHeaderParameters.Params,
+{{/if}}
+{{#if hasRequiredPathParams}}
+    path_params: RequestPathParameters.Params,
+{{/if}}
+{{#if hasRequiredCookieParams}}
+    cookie_params: RequestCookieParameters.Params,
+{{/if}}
+{{#if queryParams}}
+    {{#unless hasRequiredQueryParams}}
     query_params: typing.Optional[RequestQueryParameters.Params] = None,
-    {{/if}}
+    {{/unless}}
 {{/if}}
 {{#if headerParams}}
-    {{#if hasRequiredHeaderParams}}
-    header_params: RequestHeaderParameters.Params,
-    {{else}}
+    {{#unless hasRequiredHeaderParams}}
     header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-    {{/if}}
+    {{/unless}}
 {{/if}}
 {{#if pathParams}}
-    {{#if hasRequiredPathParams}}
-    path_params: RequestPathParameters.Params,
-    {{else}}
+    {{#unless hasRequiredPathParams}}
     path_params: typing.Optional[RequestPathParameters.Params] = None,
-    {{/if}}
+    {{/unless}}
 {{/if}}
 {{#if cookieParams}}
-    {{#if hasRequiredCookieParams}}
-    cookie_params: RequestCookieParameters.Params,
-    {{else}}
+    {{#unless hasRequiredCookieParams}}
     cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
-    {{/if}}
+    {{/unless}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
