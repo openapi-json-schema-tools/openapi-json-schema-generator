@@ -1,6 +1,7 @@
 # coding: utf-8
 {{> _helper_header }}
 
+from __future__ import annotations
 import datetime
 import dataclasses
 import decimal
@@ -27,8 +28,19 @@ import frozendict
 from {{packageName}} import exceptions, rest, schemas, security_schemes, api_response
 from {{packageName}}.configurations import api_configuration, schema_configuration as schema_configuration_
 
+_FieldValue: typing.TypeAlias = str | bytes
+_FieldValueTuple: typing.TypeAlias = _FieldValue | tuple[str, _FieldValue] | tuple[str, _FieldValue, str]
 
 class RequestField(fields.RequestField):
+    @classmethod
+    def from_tuples(
+        cls,
+        fieldname: str,
+        value: _FieldValueTuple,
+        header_formatter: typing.Callable[[str, _FieldValue], str] = ...
+    ) -> RequestField:
+        return super().from_tuples(fieldname, value, header_formatter) # type: ignore
+
     def __eq__(self, other):
         if not isinstance(other, RequestField):
             return False
@@ -1365,7 +1377,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return dict(fields=tuple(fields))
 
     @staticmethod
-    def __serialize_application_octet_stream(in_data: schemas.BinarySchema) -> typing.Dict[str, bytes]:
+    def __serialize_application_octet_stream(in_data: typing.Union[schemas.BytesSchema, schemas.FileSchema]) -> typing.Dict[str, bytes]:
         if isinstance(in_data, bytes):
             return dict(body=in_data)
         # schemas.FileIO type
