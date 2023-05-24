@@ -50,11 +50,11 @@ class JSONPatchRequestMoveCopy(
                 
                 @schemas.classproperty
                 def MOVE(cls):
-                    return cls("move")
+                    return cls("move") # type: ignore
                 
                 @schemas.classproperty
                 def COPY(cls):
-                    return cls("copy")
+                    return cls("copy") # type: ignore
             __annotations__ = {
                 "from": _From,
                 "path": Path,

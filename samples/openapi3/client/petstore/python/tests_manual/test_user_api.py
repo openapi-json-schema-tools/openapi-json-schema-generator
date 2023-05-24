@@ -70,7 +70,7 @@ class TestUserApi(ApiTestMixin):
             )
 
             api_response = self.api.get_user_by_name(
-                path_params=dict(username='first last')
+                path_params={'username': 'first last'}
             )
             self.assert_request_called_with(
                 mock_request,

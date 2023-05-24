@@ -57,7 +57,7 @@ class ComplexQuadrilateral(
                             
                             @schemas.classproperty
                             def COMPLEX_QUADRILATERAL(cls):
-                                return cls("ComplexQuadrilateral")
+                                return cls("ComplexQuadrilateral") # type: ignore
                         __annotations__ = {
                             "quadrilateralType": QuadrilateralType,
                         }

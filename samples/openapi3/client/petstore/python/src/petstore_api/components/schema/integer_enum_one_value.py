@@ -32,4 +32,4 @@ class IntegerEnumOneValue(
     
     @schemas.classproperty
     def POSITIVE_0(cls):
-        return cls(0)
+        return cls(0) # type: ignore

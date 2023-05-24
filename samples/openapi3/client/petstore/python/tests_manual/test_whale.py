@@ -10,22 +10,14 @@
 """
 
 
-import sys
 import unittest
 
-import petstore_api
 from petstore_api.schemas import BoolClass
 from petstore_api.components.schema.whale import Whale
 
 
 class TestWhale(unittest.TestCase):
     """Whale unit test stubs"""
-
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
 
     def test_Whale(self):
         # test that the hasBaleen __bool__ method is working, True input

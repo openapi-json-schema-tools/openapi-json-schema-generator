@@ -57,7 +57,7 @@ class EquilateralTriangle(
                             
                             @schemas.classproperty
                             def EQUILATERAL_TRIANGLE(cls):
-                                return cls("EquilateralTriangle")
+                                return cls("EquilateralTriangle") # type: ignore
                         __annotations__ = {
                             "triangleType": TriangleType,
                         }

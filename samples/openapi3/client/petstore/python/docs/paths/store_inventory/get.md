@@ -31,13 +31,13 @@ accept_content_types | typing.Tuple[str] | default is ("application/json", ) | T
 server_index | typing.Optional[int] | default is None | Allows one to select a different server
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
-n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessInlineContentAndHeader.response_cls](../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
 
 ## Security

@@ -26,11 +26,11 @@ class _Variables:
         
         @schemas.classproperty
         def V1(cls):
-            return cls("v1")
+            return cls("v1") # type: ignore
         
         @schemas.classproperty
         def V2(cls):
-            return cls("v2")
+            return cls("v2") # type: ignore
 
 _VariablesSchemas = typing_extensions.TypedDict(
     '_VariablesSchemas',
@@ -51,7 +51,7 @@ Variables = typing_extensions.TypedDict(
     total=False
 )
 
-def _default_variable_schemas():
+def _default_variable_schemas() -> _VariablesSchemas:
     return {
         "version": _Variables.Version,
     }
@@ -62,6 +62,6 @@ class Server1(server.Server):
     '''
     The local server
     '''
-    _url: str = "https://localhost:8080/{version}"
-    variables: Variables
+    variables: typing.Optional[Variables] = None
     variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    _url: str = "https://localhost:8080/{version}"
