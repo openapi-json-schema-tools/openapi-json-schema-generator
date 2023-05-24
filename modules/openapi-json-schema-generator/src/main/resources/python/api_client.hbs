@@ -421,7 +421,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def __serialize_label(
@@ -491,15 +491,16 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
                 elif cls.style is ParameterStyle.MATRIX:
                     return cls.__serialize_matrix(cast_in_data)
         assert cls.content is not None
-        content_type, media_type = cls.content
-        assert media_type.schema is not None
-        cast_in_data = media_type.schema(in_data)
-        cast_in_data = cls._json_encoder.default(cast_in_data)
-        if cls._content_type_is_json(content_type):
-            value = cls._serialize_json(cast_in_data)
-            return cls._to_dict(cls.name, value)
-        else:
-            raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
+            cast_in_data = media_type.schema(in_data)
+            cast_in_data = cls._json_encoder.default(cast_in_data)
+            if cls._content_type_is_json(content_type):
+                value = cls._serialize_json(cast_in_data)
+                return cls._to_dict(cls.name, value)
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
 @dataclasses.dataclass
@@ -511,7 +512,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def __serialize_space_delimited(
@@ -611,17 +612,19 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         if prefix_separator_iterator is None:
             prefix_separator_iterator = cls.get_prefix_separator_iterator()
         assert cls.content is not None
-        content_type, media_type = cls.content
-        assert media_type.schema is not None
-        cast_in_data = media_type.schema(in_data)
-        cast_in_data = cls._json_encoder.default(cast_in_data)
-        if cls._content_type_is_json(content_type):
-            value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
-            return cls._to_dict(
-                cls.name,
-                next(prefix_separator_iterator) + cls.name + '=' + parse.quote(value)
-            )
-        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
+            cast_in_data = media_type.schema(in_data)
+            cast_in_data = cls._json_encoder.default(cast_in_data)
+            if cls._content_type_is_json(content_type):
+                value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
+                return cls._to_dict(
+                    cls.name,
+                    next(prefix_separator_iterator) + cls.name + '=' + parse.quote(value)
+                )
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
 @dataclasses.dataclass
@@ -633,7 +636,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def serialize(
@@ -662,21 +665,22 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
                 )
                 return cls._to_dict(cls.name, value)
         assert cls.content is not None
-        content_type, media_type = cls.content
-        assert media_type.schema is not None
-        cast_in_data = media_type.schema(in_data)
-        assert media_type.schema is not None
-        cast_in_data = cls._json_encoder.default(cast_in_data)
-        if cls._content_type_is_json(content_type):
-            value = cls._serialize_json(cast_in_data)
-            return cls._to_dict(cls.name, value)
-        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
+            cast_in_data = media_type.schema(in_data)
+            cast_in_data = cls._json_encoder.default(cast_in_data)
+            if cls._content_type_is_json(content_type):
+                value = cls._serialize_json(cast_in_data)
+                return cls._to_dict(cls.name, value)
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
 class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
     style: ParameterStyle = ParameterStyle.SIMPLE
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
     explode: bool = False
 
     @staticmethod
@@ -706,14 +710,16 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
                 value = cls._serialize_simple(cast_in_data, name, cls.explode, False)
                 return cls.__to_headers(((name, value),))
         assert cls.content is not None
-        content_type, media_type = cls.content
-        assert media_type.schema is not None
-        cast_in_data = media_type.schema(in_data)
-        cast_in_data = cls._json_encoder.default(cast_in_data)
-        if cls._content_type_is_json(content_type):
-            value = cls._serialize_json(cast_in_data)
-            return cls.__to_headers(((name, value),))
-        raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        for content_type, media_type in cls.content.items():
+            assert media_type.schema is not None
+            cast_in_data = media_type.schema(in_data)
+            cast_in_data = cls._json_encoder.default(cast_in_data)
+            if cls._content_type_is_json(content_type):
+                value = cls._serialize_json(cast_in_data)
+                return cls.__to_headers(((name, value),))
+            else:
+                raise NotImplementedError('Serialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
     @classmethod
     def deserialize(
@@ -731,12 +737,14 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
                 return cls.schema.from_openapi_data_(extracted_data)
         assert cls.content is not None
-        content_type, media_type = cls.content
-        if cls._content_type_is_json(content_type):
-            cast_in_data = json.loads(in_data)
-            assert media_type.schema is not None
-            return media_type.schema.from_openapi_data_(cast_in_data)
-        raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+        for content_type, media_type in cls.content.items():
+            if cls._content_type_is_json(content_type):
+                cast_in_data = json.loads(in_data)
+                assert media_type.schema is not None
+                return media_type.schema.from_openapi_data_(cast_in_data)
+            else:
+                raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
+        raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
 @dataclasses.dataclass
@@ -747,7 +755,7 @@ class HeaderParameterWithoutName(__HeaderParameterBase):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
 
 @dataclasses.dataclass
@@ -759,7 +767,7 @@ class HeaderParameter(__HeaderParameterBase):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def serialize(

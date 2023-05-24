@@ -225,7 +225,6 @@ PathToSchemasType = typing.Dict[
     ]
 ]
 
-
 def __get_valid_classes_phrase(input_classes):
     """Returns a string phrase describing what types are allowed"""
     all_classes = list(input_classes)

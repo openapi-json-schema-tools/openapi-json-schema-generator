@@ -15,8 +15,13 @@ class ComponentRefSchemaStringWithValidation(api_client.PathParameter):
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema[str]
-    content: typing.Tuple[str, typing.Type[ApplicationJsonMediaType]] = (
-        'application/json',
-        ApplicationJsonMediaType,
+    Content = typing_extensions.TypedDict(
+        'Content',
+        {
+            'application/json': typing.Type[ApplicationJsonMediaType],
+        }
     )
+    content: Content = {
+        'application/json': ApplicationJsonMediaType,
+    }
     required = True
