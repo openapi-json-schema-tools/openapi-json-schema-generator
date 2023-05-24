@@ -295,7 +295,7 @@ class ApiConfiguration(object):
                 used_index = self.server_index_info[key_prefix]
             except KeyError:
                 # fallback and use the default index
-                used_index = self.server_index_info["servers"]
+                used_index = self.server_index_info.get("servers", 0)
         server = self.server_info[f"{key_prefix}/{used_index}"]
         return server.url
 
@@ -316,5 +316,5 @@ class ApiConfiguration(object):
                 used_index = self.security_index_info[key_prefix]
             except KeyError:
                 # fallback and use the default index
-                used_index = self.security_index_info["security"]
+                used_index = self.security_index_info.get("security", 0)
         return security_requirement_objects[used_index]
