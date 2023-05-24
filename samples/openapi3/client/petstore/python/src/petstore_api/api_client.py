@@ -984,12 +984,11 @@ class ApiClient:
     default_headers: _collections.HTTPHeaderDict = dataclasses.field(
         default_factory=lambda: _collections.HTTPHeaderDict())
     pool_threads: int = 1
-    user_agent: str = dataclasses.field(init=False)
+    user_agent: str = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
     rest_client: rest.RESTClientObject = dataclasses.field(init=False)
 
     def __post_init__(self):
         self._pool = None
-        self.user_agent = 'OpenAPI-JSON-Schema-Generator/1.0.0/python'
         self.rest_client = rest.RESTClientObject(self.configuration)
 
     def __enter__(self):
@@ -1015,15 +1014,6 @@ class ApiClient:
             atexit.register(self.close)
             self._pool = pool.ThreadPool(self.pool_threads)
         return self._pool
-
-    @property
-    def user_agent(self):
-        """User agent for this API client"""
-        return self.default_headers['User-Agent']
-
-    @user_agent.setter
-    def user_agent(self, value):
-        self.default_headers['User-Agent'] = value
 
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
@@ -1068,6 +1058,9 @@ class ApiClient:
         """
         # header parameters
         used_headers = _collections.HTTPHeaderDict(self.default_headers)
+        user_agent_key = 'User-Agent'
+        if user_agent_key not in used_headers and self.user_agent:
+            used_headers[user_agent_key] = self.user_agent
 
         # auth setting
         self.update_params_for_auth(
