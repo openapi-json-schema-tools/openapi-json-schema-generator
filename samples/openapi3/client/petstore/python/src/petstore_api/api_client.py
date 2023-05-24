@@ -1379,13 +1379,13 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return dict(fields=tuple(fields))
 
     @staticmethod
-    def __serialize_application_octet_stream(in_data: typing.Union[schemas.BytesSchema, schemas.FileSchema]) -> typing.Dict[str, bytes]:
+    def __serialize_application_octet_stream(in_data: typing.Union[schemas.BytesSchema, schemas.FileSchema]) -> SerializedRequestBody:
         if isinstance(in_data, bytes):
-            return dict(body=in_data)
+            return {'body': in_data}
         # schemas.FileIO type
-        result = dict(body=in_data.read())
+        used_in_data = in_data.read()
         in_data.close()
-        return result
+        return {'body': used_in_data}
 
     @classmethod
     def __serialize_application_x_www_form_data(
