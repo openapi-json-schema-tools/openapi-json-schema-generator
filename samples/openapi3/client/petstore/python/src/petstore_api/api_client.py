@@ -1434,5 +1434,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         elif content_type == 'application/x-www-form-urlencoded':
             return cls.__serialize_application_x_www_form_data(cast_in_data)
         elif content_type == 'application/octet-stream':
+            if not isinstance(cast_in_data, (schemas.FileSchema, schemas.BytesSchema)):
+                raise ValueError(f'Invalid input data type. Data must be bytes or File for content_type={content_type}')
             return cls.__serialize_application_octet_stream(cast_in_data)
         raise NotImplementedError('Serialization has not yet been implemented for {}'.format(content_type))
