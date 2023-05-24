@@ -1328,7 +1328,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, schemas.FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = RequestField.from_tuples(key, (os.path.basename(value.name), value.read()))
+            request_field = RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
             value.close()
         else:
             request_field = cls.__multipart_json_item(key=key, value=value)
