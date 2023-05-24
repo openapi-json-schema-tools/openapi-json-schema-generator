@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> response_200.ResponseFor200.response_cls: ...
 
@@ -82,8 +82,8 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
-    ) -> api_client.ApiResponseWithoutDeserialization: ...
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
     def _query_parameter_collection_format(
@@ -91,11 +91,11 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
-        api_client.ApiResponseWithoutDeserialization,
+        api_response.ApiResponseWithoutDeserialization,
     ]: ...
 
     def _query_parameter_collection_format(
@@ -103,7 +103,7 @@ class BaseApi(api_client.Api):
         query_params: RequestQueryParameters.Params = frozendict.frozendict(),
         server_index: typing.Optional[int] = None,
         stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         """
@@ -122,7 +122,7 @@ class BaseApi(api_client.Api):
             'servers', server_index
         )
 
-        response = self.api_client.call_api(
+        raw_response = self.api_client.call_api(
             resource_path=used_path,
             method='put',
             host=host,
@@ -131,21 +131,21 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         else:
-            status = str(response.status)
+            status = str(raw_response.status)
             if status in _status_code_to_response:
                 status: typing_extensions.Literal[
                     '200',
                 ]
-                api_response = _status_code_to_response[status].deserialize(
-                    response, self.api_client.schema_configuration)
+                response = _status_code_to_response[status].deserialize(
+                    raw_response, self.api_client.schema_configuration)
             else:
-                api_response = api_client.ApiResponseWithoutDeserialization(response=response)
+                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
 
-        self._verify_response_status(api_response)
+        self._verify_response_status(response)
 
-        return api_response
+        return response
 
 
 class QueryParameterCollectionFormat(BaseApi):

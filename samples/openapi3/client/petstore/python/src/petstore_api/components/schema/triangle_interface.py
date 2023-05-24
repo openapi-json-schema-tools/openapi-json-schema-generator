@@ -46,7 +46,7 @@ class TriangleInterface(
                 
                 @schemas.classproperty
                 def TRIANGLE(cls):
-                    return cls("Triangle")
+                    return cls("Triangle") # type: ignore
             TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
             __annotations__ = {
                 "shapeType": ShapeType,

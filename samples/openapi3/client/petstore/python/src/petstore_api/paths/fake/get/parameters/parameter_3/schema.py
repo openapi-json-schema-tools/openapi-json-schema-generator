@@ -29,12 +29,12 @@ class Schema(
     
     @schemas.classproperty
     def _ABC(cls):
-        return cls("_abc")
+        return cls("_abc") # type: ignore
     
     @schemas.classproperty
     def HYPHEN_MINUS_EFG(cls):
-        return cls("-efg")
+        return cls("-efg") # type: ignore
     
     @schemas.classproperty
     def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
-        return cls("(xyz)")
+        return cls("(xyz)") # type: ignore
