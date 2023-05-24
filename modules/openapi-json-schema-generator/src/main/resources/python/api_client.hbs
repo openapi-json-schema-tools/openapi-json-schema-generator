@@ -898,7 +898,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
         deserialized_headers = schemas.unset
         if cls.headers is not None and not isinstance(cls.response_cls.headers, schemas.Unset):
-            cls._verify_typed_dict_inputs(cls.response_cls.headers, response.headers)
+            cls._verify_typed_dict_inputs(cls.response_cls.headers.__class__, response.headers)
             deserialized_headers = {}
             for header_name, header_param in cls.headers.items():
                 header_value = response.headers.get(header_name)
@@ -906,6 +906,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                     continue
                 header_value = header_param.deserialize(header_value, header_name)
                 deserialized_headers[header_name] = header_value
+            deserialized_headers = typing.cast(cls.response_cls.headers.__class__, deserialized_headers)
 
         if cls.content is not None:
             if content_type not in cls.content:
