@@ -41,8 +41,8 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
         {{/with}}
     {{/with}}
 {{/each}}
-    content = (
 {{#each content}}
+    content: typing.Tuple[str, typing.Type[{{@key.camelCase}}MediaType]] = (
         '{{{@key.original}}}',
         {{@key.camelCase}}MediaType,
 {{/each}}

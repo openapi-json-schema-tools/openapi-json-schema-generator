@@ -21,7 +21,7 @@ import tempfile
 import typing
 import typing_extensions
 from urllib import parse
-from urllib3 import response as urllib3_response
+import urllib3
 from urllib3 import _collections, fields
 
 import frozendict
@@ -358,7 +358,6 @@ class MediaType:
     encoding: typing.Optional[typing.Dict[str, Encoding]] = None
 
 
-@dataclasses.dataclass
 class ParameterBase(JSONDetector):
     in_type: ParameterInType
     required: bool
@@ -502,7 +501,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
     explode: typing.Optional[bool] = None
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def __serialize_space_delimited(
@@ -738,7 +737,7 @@ class HeaderParameterWithoutName(__HeaderParameterBase):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
 
 
 @dataclasses.dataclass
@@ -750,7 +749,7 @@ class HeaderParameter(__HeaderParameterBase):
     explode: bool = False
     allow_reserved: typing.Optional[bool] = None
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
-    content: typing.Optional[typing.Tuple[str, MediaType]] = None
+    content: typing.Optional[typing.Tuple[str, typing.Type[MediaType]]] = None
 
     @classmethod
     def serialize(
@@ -818,7 +817,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
     headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
 
     @staticmethod
-    def __deserialize_json(response: urllib3_response.BaseHTTPResponse) -> typing.Any:
+    def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
         # python must be >= 3.9 so we can pass in bytes into json.loads
         return json.loads(response.data)
 
@@ -846,7 +845,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
     @classmethod
     def __deserialize_application_octet_stream(
-        cls, response: urllib3_response.BaseHTTPResponse
+        cls, response: urllib3.HTTPResponse
     ) -> typing.Union[bytes, io.BufferedReader]:
         """
         urllib3 use cases:
@@ -881,7 +880,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
 
     @staticmethod
     def __deserialize_multipart_form_data(
-        response: urllib3_response.BaseHTTPResponse
+        response: urllib3.HTTPResponse
     ) -> typing.Dict[str, typing.Any]:
         msg = email.message_from_bytes(response.data)
         return {
@@ -894,7 +893,7 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
         }
 
     @classmethod
-    def deserialize(cls, response: urllib3_response.BaseHTTPResponse, configuration: schema_configuration_.SchemaConfiguration) -> T:
+    def deserialize(cls, response: urllib3.HTTPResponse, configuration: schema_configuration_.SchemaConfiguration) -> T:
         content_type = response.headers.get('content-type')
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
@@ -1027,7 +1026,7 @@ class ApiClient:
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
         timeout: typing.Union[int, float, typing.Tuple, None] = None,
-    ) -> urllib3_response.BaseHTTPResponse:
+    ) -> urllib3.HTTPResponse:
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
         :param resource_path: Path to method endpoint.
@@ -1039,7 +1038,7 @@ class ApiClient:
             for `application/x-www-form-urlencoded`, `multipart/form-data`
         :param security_requirement_object: The security requirement object, used to apply auth when making the call
         :param async_req: execute request asynchronously
-        :param stream: if True, the urllib3_response.BaseHTTPResponse object will
+        :param stream: if True, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Also when True, if the openapi spec describes a file download,
                                  the data will be written to a local filesystem file and the schemas.BinarySchema
@@ -1094,7 +1093,7 @@ class ApiClient:
         body: typing.Union[str, bytes, None] = None,
         stream: bool = False,
         timeout: typing.Union[int, float, typing.Tuple, None] = None,
-    ) -> urllib3_response.BaseHTTPResponse:
+    ) -> urllib3.HTTPResponse:
         """Makes the HTTP request using RESTClient."""
         if method == "get":
             return self.rest_client.get(url,

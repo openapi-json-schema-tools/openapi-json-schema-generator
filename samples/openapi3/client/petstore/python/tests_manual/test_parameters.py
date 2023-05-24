@@ -889,7 +889,7 @@ class TestParameter(unittest.TestCase):
                     schema = schemas.AnyTypeSchema
 
                 name='color'
-                content={'application/json': __MediaType}
+                content = ('application/json', __MediaType)
 
             serialization = Parameter.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
@@ -953,7 +953,7 @@ class TestParameter(unittest.TestCase):
                     schema = schemas.AnyTypeSchema
 
                 name='color'
-                content={'application/json': __MediaType}
+                content=('application/json', __MediaType)
 
             serialization = Parameter.serialize(test_case.payload)
             self.assertEqual(serialization, test_case.expected_serialization)
@@ -967,7 +967,7 @@ class TestParameter(unittest.TestCase):
                     schema = schemas.AnyTypeSchema
 
                 name='color'
-                content={'text/plain': __MediaType}
+                content=('text/plain', __MediaType)
 
             Parameter.serialize(None)
 

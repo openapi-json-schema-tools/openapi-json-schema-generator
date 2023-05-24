@@ -15,7 +15,7 @@ class Int32JsonContentTypeHeader(api_client.HeaderParameterWithoutName):
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema[decimal.Decimal]
-    content = (
+    content: typing.Tuple[str, typing.Type[ApplicationJsonMediaType]] = (
         'application/json',
         ApplicationJsonMediaType,
     )

@@ -24,7 +24,7 @@ class Parameter0(api_client.QueryParameter):
             bytes,
             schemas.FileIO
         ]]
-    content = (
+    content: typing.Tuple[str, typing.Type[ApplicationJsonMediaType]] = (
         'application/json',
         ApplicationJsonMediaType,
     )

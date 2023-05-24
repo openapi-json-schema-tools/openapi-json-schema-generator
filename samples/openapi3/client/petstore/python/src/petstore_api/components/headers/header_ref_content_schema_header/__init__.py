@@ -15,7 +15,7 @@ class RefContentSchemaHeader(api_client.HeaderParameterWithoutName):
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema[str]
-    content = (
+    content: typing.Tuple[str, typing.Type[ApplicationJsonMediaType]] = (
         'application/json',
         ApplicationJsonMediaType,
     )
