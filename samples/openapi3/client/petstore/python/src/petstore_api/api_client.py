@@ -30,21 +30,10 @@ import frozendict
 from petstore_api import exceptions, rest, schemas, security_schemes, api_response
 from petstore_api.configurations import api_configuration, schema_configuration as schema_configuration_
 
-_FieldValue: typing_extensions.TypeAlias = typing.Union[str, bytes]
-_FieldValueTuple: typing_extensions.TypeAlias = typing.Union[_FieldValue, typing.Tuple[str, _FieldValue], typing.Tuple[str, _FieldValue, str]]
 
 class RequestField(fields.RequestField):
-    @classmethod
-    def from_tuples(
-        cls,
-        fieldname: str,
-        value: _FieldValueTuple,
-        header_formatter: typing.Optional[typing.Callable[[str, _FieldValue], str]] = None
-    ) -> RequestField:
-        return super().from_tuples(fieldname, value, header_formatter) # type: ignore
-
     def __eq__(self, other):
-        if not isinstance(other, RequestField):
+        if not isinstance(other, fields.RequestField):
             return False
         return self.__dict__ == other.__dict__
 
@@ -1336,7 +1325,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, schemas.FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = RequestField(key, data=value.read(), filename=os.path.basename(str(value.name)))
+            request_field = RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
             value.close()
         else:
             request_field = cls.__multipart_json_item(key=key, value=value)
@@ -1363,8 +1352,6 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         """
         fields = []
         for key, value in in_data.items():
-            key = typing.cast(str, key)
-            value = typing.cast(schemas.Schema, key)
             if isinstance(value, tuple):
                 if value:
                     # values use explode = True, so the code makes a RequestField for each item with name=key
@@ -1373,7 +1360,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
                         fields.append(request_field)
                 else:
                     # send an empty array as json because exploding will not send it
-                    request_field = cls.__multipart_json_item(key=key, value=value)
+                    request_field = cls.__multipart_json_item(key=key, value=value) # type: ignore
                     fields.append(request_field)
             else:
                 request_field = cls.__multipart_form_item(key=key, value=value)
