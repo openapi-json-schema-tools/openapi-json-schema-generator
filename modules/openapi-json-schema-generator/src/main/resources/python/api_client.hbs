@@ -1020,7 +1020,7 @@ class ApiClient:
         host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Union[str, bytes, None] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
+        fields: typing.Optional[typing.Tuple[RequestField, ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
         timeout: typing.Union[int, float, typing.Tuple, None] = None,
