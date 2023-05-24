@@ -253,7 +253,7 @@ class BaseApi(api_client.Api):
     {{else}}
         {{#if pathItem.servers}}
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/' + '/servers', server_index
+            'paths/' + path + '/servers', server_index
         )
         {{else}}
         host = self.api_client.configuration.get_server_url(

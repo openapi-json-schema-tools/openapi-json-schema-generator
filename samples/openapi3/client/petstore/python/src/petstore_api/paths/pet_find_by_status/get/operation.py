@@ -133,7 +133,7 @@ class BaseApi(api_client.Api):
         _headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/' + '/servers', server_index
+            'paths/' + path + '/servers', server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             'paths/' + path + '/get/security',
