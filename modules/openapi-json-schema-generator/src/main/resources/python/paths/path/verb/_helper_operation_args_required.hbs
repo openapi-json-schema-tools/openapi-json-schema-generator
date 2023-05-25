@@ -1,0 +1,27 @@
+{{#if requestBody}}
+    {{#if requestBody.refInfo}}
+        {{#with requestBody.getDeepestRef}}
+            {{#if required}}
+body: typing.Union[
+            {{#each content}}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+    {{> _helper_schema_python_types_newline }}
+            {{/each}}
+],
+            {{/if}}
+        {{/with}}
+    {{else}}
+        {{#if required}}
+body: typing.Union[
+            {{#each content}}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+            {{/each}}
+            {{#each getContentSchemas}}
+    {{> _helper_schema_python_types_newline }}
+            {{/each}}
+],
+        {{/if}}
+    {{/if}}
+{{/if}}
