@@ -1,44 +1,22 @@
     self,
+    {{> paths/path/verb/_helper_operation_args_required }}
+    {{> paths/path/verb/_helper_operation_args_optional }}
 {{#if requestBody}}
-    {{> paths/path/verb/_helper_operation_args_request_body }}
-{{else}}
-    {{#if isOverload}}
-        {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
-        {{/eq}}
+    {{#if requestBody.refInfo}}
+        {{#with requestBody.getDeepestRef}}
+    content_type: typing.Literal[
+                {{#each content}}
+        "{{@key.original}}"
+                {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
+        {{/with}}
+    {{else}}
+    content_type: typing.Literal[
+        {{#each content}}
+        "{{@key.original}}"
+        {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
     {{/if}}
-{{/if}}
-{{#if hasRequiredQueryParams}}
-    query_params: RequestQueryParameters.Params,
-{{/if}}
-{{#if hasRequiredHeaderParams}}
-    header_params: RequestHeaderParameters.Params,
-{{/if}}
-{{#if hasRequiredPathParams}}
-    path_params: RequestPathParameters.Params,
-{{/if}}
-{{#if hasRequiredCookieParams}}
-    cookie_params: RequestCookieParameters.Params,
-{{/if}}
-{{#if queryParams}}
-    {{#unless hasRequiredQueryParams}}
-    query_params: typing.Optional[RequestQueryParameters.Params] = None,
-    {{/unless}}
-{{/if}}
-{{#if headerParams}}
-    {{#unless hasRequiredHeaderParams}}
-    header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-    {{/unless}}
-{{/if}}
-{{#if pathParams}}
-    {{#unless hasRequiredPathParams}}
-    path_params: typing.Optional[RequestPathParameters.Params] = None,
-    {{/unless}}
-{{/if}}
-{{#if cookieParams}}
-    {{#unless hasRequiredCookieParams}}
-    cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
-    {{/unless}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -60,6 +38,9 @@
     {{#if isOverload}}
         {{#eq skipDeserialization "False"}}
     skip_deserialization: typing_extensions.Literal[False] = ...,
+        {{/eq}}
+        {{#eq skipDeserialization "True"}}
+    skip_deserialization: typing_extensions.Literal[True] = ...,
         {{/eq}}
         {{#eq skipDeserialization "null"}}
     skip_deserialization: bool = ...,
