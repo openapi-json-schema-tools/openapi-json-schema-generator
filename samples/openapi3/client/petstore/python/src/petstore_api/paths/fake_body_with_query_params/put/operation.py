@@ -58,9 +58,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ],
         query_params: RequestQueryParameters.Params,
-        content_type: typing_extensions.Literal[
-            "application/json",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -76,9 +74,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ],
         query_params: RequestQueryParameters.Params,
-        content_type: typing_extensions.Literal[
-            "application/json",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -93,9 +89,7 @@ class BaseApi(api_client.Api):
             frozendict.frozendict
         ],
         query_params: RequestQueryParameters.Params,
-        content_type: typing_extensions.Literal[
-            "application/json",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -141,9 +135,12 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

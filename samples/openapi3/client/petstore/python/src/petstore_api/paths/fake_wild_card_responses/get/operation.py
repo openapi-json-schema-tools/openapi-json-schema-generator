@@ -112,9 +112,12 @@ class BaseApi(api_client.Api):
             status = str(raw_response.status)
             ranged_response_status_code = status[0]
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             elif ranged_response_status_code in _ranged_status_code_to_response:

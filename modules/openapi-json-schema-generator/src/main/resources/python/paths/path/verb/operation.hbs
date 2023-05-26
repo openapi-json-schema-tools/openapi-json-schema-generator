@@ -300,11 +300,14 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if statusCodeResponses}}
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
         {{#each statusCodeResponses}}
                     '{{@key}}',
         {{/each}}
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
         {{#if wildcardCodeResponses}}

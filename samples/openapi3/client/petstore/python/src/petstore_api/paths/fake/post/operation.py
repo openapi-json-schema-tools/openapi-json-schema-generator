@@ -44,9 +44,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        content_type: typing_extensions.Literal[
-            "application/x-www-form-urlencoded",
-        ] = "application/x-www-form-urlencoded",
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -63,9 +61,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        content_type: typing_extensions.Literal[
-            "application/x-www-form-urlencoded",
-        ] = "application/x-www-form-urlencoded",
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -81,9 +77,7 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        content_type: typing_extensions.Literal[
-            "application/x-www-form-urlencoded",
-        ] = "application/x-www-form-urlencoded",
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -132,10 +126,13 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
                     '404',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

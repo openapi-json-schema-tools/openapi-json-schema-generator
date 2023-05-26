@@ -5,18 +5,26 @@
     {{#with requestBody}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
+                {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{@key.original}}"{{/each}}] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
+                {{else}}
     content_type: typing_extensions.Literal[
                     {{#each content}}
         "{{@key.original}}",
                     {{/each}}
     ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
+                {{/eq}}
             {{/with}}
         {{else}}
+            {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{@key.original}}"{{/each}}] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
+            {{else}}
     content_type: typing_extensions.Literal[
             {{#each content}}
         "{{@key.original}}",
             {{/each}}
     ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
+            {{/eq}}
         {{/if}}
     {{/with}}
 {{/if}}
