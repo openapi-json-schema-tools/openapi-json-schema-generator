@@ -27,14 +27,14 @@ body: typing.Union[
         {{/if}}
     {{/with}}
 {{/if}}
+{{#if hasRequiredPathParams}}
+path_params: RequestPathParameters.Params,
+{{/if}}
 {{#if hasRequiredQueryParams}}
 query_params: RequestQueryParameters.Params,
 {{/if}}
 {{#if hasRequiredHeaderParams}}
 header_params: RequestHeaderParameters.Params,
-{{/if}}
-{{#if hasRequiredPathParams}}
-path_params: RequestPathParameters.Params,
 {{/if}}
 {{#if hasRequiredCookieParams}}
 cookie_params: RequestCookieParameters.Params,

@@ -29,6 +29,11 @@ body: typing.Union[
         {{/if}}
     {{/with}}
 {{/if}}
+{{#if pathParams}}
+    {{#unless hasRequiredPathParams}}
+path_params: typing.Optional[RequestPathParameters.Params] = None,
+    {{/unless}}
+{{/if}}
 {{#if queryParams}}
     {{#unless hasRequiredQueryParams}}
 query_params: typing.Optional[RequestQueryParameters.Params] = None,
@@ -37,11 +42,6 @@ query_params: typing.Optional[RequestQueryParameters.Params] = None,
 {{#if headerParams}}
     {{#unless hasRequiredHeaderParams}}
 header_params: typing.Optional[RequestHeaderParameters.Params] = None,
-    {{/unless}}
-{{/if}}
-{{#if pathParams}}
-    {{#unless hasRequiredPathParams}}
-path_params: typing.Optional[RequestPathParameters.Params] = None,
     {{/unless}}
 {{/if}}
 {{#if cookieParams}}
