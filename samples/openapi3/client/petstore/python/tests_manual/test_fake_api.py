@@ -230,7 +230,7 @@ class TestFakeApi(ApiTestMixin):
         from petstore_api.components.schema.user import User
         user = User({})
         # missing required query param
-        with self.assertRaises(petstore_api.ApiTypeError):
+        with self.assertRaises(TypeError):
             self.api.body_with_query_params(body=user)
         # required query param may not be unset
         with self.assertRaises(petstore_api.ApiValueError):

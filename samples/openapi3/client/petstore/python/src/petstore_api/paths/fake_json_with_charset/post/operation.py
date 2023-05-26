@@ -52,7 +52,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        content_type: typing_extensions.Literal["application/json; charset&#x3D;utf-8"] = "application/json; charset&#x3D;utf-8",
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -83,7 +83,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        content_type: typing_extensions.Literal["application/json; charset&#x3D;utf-8"] = "application/json; charset&#x3D;utf-8",
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -113,7 +113,7 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
-        content_type: typing_extensions.Literal["application/json; charset&#x3D;utf-8"] = "application/json; charset&#x3D;utf-8",
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
