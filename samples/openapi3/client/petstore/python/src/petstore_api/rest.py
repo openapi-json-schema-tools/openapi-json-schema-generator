@@ -22,9 +22,20 @@ from petstore_api import exceptions
 
 
 logger = logging.getLogger(__name__)
+_TYPE_FIELD_VALUE = typing.Union[str, bytes]
 
 
 class RequestField(fields.RequestField):
+    def __init__(
+        self,
+        name: str,
+        data: _TYPE_FIELD_VALUE,
+        filename: str | None = None,
+        headers: typing.Mapping[str, typing.Union[str, None]] | None = None,
+        header_formatter: typing.Callable[[str, _TYPE_FIELD_VALUE], str] | None = None,
+    ):
+        super().__init__(name, data, filename, headers, header_formatter) # type: ignore
+
     def __eq__(self, other):
         if not isinstance(other, fields.RequestField):
             return False

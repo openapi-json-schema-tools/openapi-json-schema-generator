@@ -1,5 +1,5 @@
 import collections
-import http
+from http import client
 import json
 import typing
 import unittest
@@ -88,7 +88,7 @@ class ApiTestMixin(unittest.TestCase):
     @classmethod
     def response(
         cls,
-        body: typing.Union[str, bytes, http.client.HTTPResponse],
+        body: typing.Union[str, bytes, client.HTTPResponse],
         status: int = 200,
         content_type: str = json_content_type,
         headers: typing.Optional[typing.Dict[str, str]] = None,

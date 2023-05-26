@@ -52,9 +52,6 @@
         {{#eq skipDeserialization "True"}}
     skip_deserialization: typing_extensions.Literal[True] = ...,
         {{/eq}}
-        {{#eq skipDeserialization "null"}}
-    skip_deserialization: bool = ...,
-        {{/eq}}
     {{else}}
     skip_deserialization: bool = False,
     {{/if}}
@@ -68,12 +65,12 @@
     {{/if}}
 {{/eq}}
 {{#eq skipDeserialization "null"}}
-{{#if isOverload}}
+    {{#if isOverload}}
 ) -> typing.Union[
+    {{! this is also the False case because False is default }}
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
-    api_response.ApiResponseWithoutDeserialization,
 ]: ...
-{{else}}
+    {{else}}
 ):
-{{/if}}
+    {{/if}}
 {{/eq}}
