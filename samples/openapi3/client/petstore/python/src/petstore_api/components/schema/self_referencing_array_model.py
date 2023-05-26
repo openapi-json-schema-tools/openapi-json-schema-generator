@@ -33,14 +33,14 @@ class SelfReferencingArrayModel(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    SelfReferencingArrayModel,
+                    SelfReferencingArrayModel[tuple],
                     list,
                     tuple
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    SelfReferencingArrayModel,
+                    SelfReferencingArrayModel[tuple],
                     list,
                     tuple
                 ]

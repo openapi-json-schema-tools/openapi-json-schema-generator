@@ -98,14 +98,14 @@ class Pet(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                tag.Tag,
+                                tag.Tag[frozendict.frozendict],
                                 dict,
                                 frozendict.frozendict
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                tag.Tag,
+                                tag.Tag[frozendict.frozendict],
                                 dict,
                                 frozendict.frozendict
                             ]

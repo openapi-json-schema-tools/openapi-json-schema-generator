@@ -28,14 +28,14 @@ class Schema(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    pet.Pet,
+                    pet.Pet[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    pet.Pet,
+                    pet.Pet[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ]

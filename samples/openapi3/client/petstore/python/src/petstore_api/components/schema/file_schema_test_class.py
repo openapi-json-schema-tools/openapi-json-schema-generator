@@ -48,14 +48,14 @@ class FileSchemaTestClass(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                file.File,
+                                file.File[frozendict.frozendict],
                                 dict,
                                 frozendict.frozendict
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                file.File,
+                                file.File[frozendict.frozendict],
                                 dict,
                                 frozendict.frozendict
                             ]

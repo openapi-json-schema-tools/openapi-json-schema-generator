@@ -33,14 +33,14 @@ class AnimalFarm(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    animal.Animal,
+                    animal.Animal[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    animal.Animal,
+                    animal.Animal[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ]

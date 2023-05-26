@@ -33,14 +33,20 @@ class ArrayOfEnums(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    string_enum.StringEnum,
+                    string_enum.StringEnum[
+                        schemas.NoneClass,
+                        str
+                    ],
                     None,
                     str
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    string_enum.StringEnum,
+                    string_enum.StringEnum[
+                        schemas.NoneClass,
+                        str
+                    ],
                     None,
                     str
                 ]

@@ -42,13 +42,13 @@ class AdditionalPropertiesWithArrayOfEnums(
                 arg_: typing.Union[
                     typing.Tuple[
                         typing.Union[
-                            enum_class.EnumClass,
+                            enum_class.EnumClass[str],
                             str
                         ], ...
                     ],
                     typing.List[
                         typing.Union[
-                            enum_class.EnumClass,
+                            enum_class.EnumClass[str],
                             str
                         ]
                     ],

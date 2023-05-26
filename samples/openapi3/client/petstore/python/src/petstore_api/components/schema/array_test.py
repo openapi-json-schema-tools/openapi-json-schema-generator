@@ -182,14 +182,14 @@ class ArrayTest(
                             arg_: typing.Union[
                                 typing.Tuple[
                                     typing.Union[
-                                        read_only_first.ReadOnlyFirst,
+                                        read_only_first.ReadOnlyFirst[frozendict.frozendict],
                                         dict,
                                         frozendict.frozendict
                                     ], ...
                                 ],
                                 typing.List[
                                     typing.Union[
-                                        read_only_first.ReadOnlyFirst,
+                                        read_only_first.ReadOnlyFirst[frozendict.frozendict],
                                         dict,
                                         frozendict.frozendict
                                     ]
