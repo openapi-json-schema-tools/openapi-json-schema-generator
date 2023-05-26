@@ -59,7 +59,12 @@ class BananaReq(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        lengthCm: typing.Union[Schema_.Properties.LengthCm, decimal.Decimal, int, float],
+        lengthCm: typing.Union[
+            Schema_.Properties.LengthCm,
+            decimal.Decimal,
+            int,
+            float
+        ],
         sweet: typing.Union[Schema_.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> BananaReq[frozendict.frozendict]:

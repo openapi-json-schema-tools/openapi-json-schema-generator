@@ -219,8 +219,15 @@ class Pet(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[Schema_.Properties.Name, str],
-        photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple],
+        name: typing.Union[
+            Schema_.Properties.Name,
+            str
+        ],
+        photoUrls: typing.Union[
+            Schema_.Properties.PhotoUrls,
+            list,
+            tuple
+        ],
         id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         category: typing.Union['category.Category', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,

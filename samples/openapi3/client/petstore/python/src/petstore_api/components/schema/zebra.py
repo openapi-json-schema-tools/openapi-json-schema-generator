@@ -116,7 +116,10 @@ class Zebra(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        className: typing.Union[Schema_.Properties.ClassName, str],
+        className: typing.Union[
+            Schema_.Properties.ClassName,
+            str
+        ],
         type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],

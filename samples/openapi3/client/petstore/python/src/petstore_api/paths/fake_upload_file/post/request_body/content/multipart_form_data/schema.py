@@ -66,7 +66,12 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        file: typing.Union[Schema_.Properties.File, bytes, io.FileIO, io.BufferedReader],
+        file: typing.Union[
+            Schema_.Properties.File,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
         additionalMetadata: typing.Union[Schema_.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
