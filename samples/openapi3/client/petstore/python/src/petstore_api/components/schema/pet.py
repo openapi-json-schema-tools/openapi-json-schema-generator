@@ -228,10 +228,29 @@ class Pet(
             list,
             tuple
         ],
-        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        category: typing.Union['category.Category', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
-        status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            Schema_.Properties.Id,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        category: typing.Union[
+            category.Category,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        tags: typing.Union[
+            Schema_.Properties.Tags,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        status: typing.Union[
+            Schema_.Properties.Status,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Pet[frozendict.frozendict]:

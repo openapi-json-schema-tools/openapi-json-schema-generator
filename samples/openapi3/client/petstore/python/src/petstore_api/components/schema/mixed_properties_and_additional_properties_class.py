@@ -104,9 +104,24 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        uuid: typing.Union[Schema_.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        map: typing.Union[Schema_.Properties.Map, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        uuid: typing.Union[
+            Schema_.Properties.Uuid,
+            schemas.Unset,
+            str,
+            uuid.UUID
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            Schema_.Properties.DateTime,
+            schemas.Unset,
+            str,
+            datetime.datetime
+        ] = schemas.unset,
+        map: typing.Union[
+            Schema_.Properties.Map,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:

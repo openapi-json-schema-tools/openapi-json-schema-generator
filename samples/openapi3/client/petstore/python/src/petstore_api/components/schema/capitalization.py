@@ -88,12 +88,36 @@ class Capitalization(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        smallCamel: typing.Union[Schema_.Properties.SmallCamel, str, schemas.Unset] = schemas.unset,
-        CapitalCamel: typing.Union[Schema_.Properties.CapitalCamel, str, schemas.Unset] = schemas.unset,
-        small_Snake: typing.Union[Schema_.Properties.SmallSnake, str, schemas.Unset] = schemas.unset,
-        Capital_Snake: typing.Union[Schema_.Properties.CapitalSnake, str, schemas.Unset] = schemas.unset,
-        SCA_ETH_Flow_Points: typing.Union[Schema_.Properties.SCAETHFlowPoints, str, schemas.Unset] = schemas.unset,
-        ATT_NAME: typing.Union[Schema_.Properties.ATTNAME, str, schemas.Unset] = schemas.unset,
+        smallCamel: typing.Union[
+            Schema_.Properties.SmallCamel,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        CapitalCamel: typing.Union[
+            Schema_.Properties.CapitalCamel,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        small_Snake: typing.Union[
+            Schema_.Properties.SmallSnake,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        Capital_Snake: typing.Union[
+            Schema_.Properties.CapitalSnake,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        SCA_ETH_Flow_Points: typing.Union[
+            Schema_.Properties.SCAETHFlowPoints,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        ATT_NAME: typing.Union[
+            Schema_.Properties.ATTNAME,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Capitalization[frozendict.frozendict]:

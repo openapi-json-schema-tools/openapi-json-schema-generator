@@ -298,14 +298,68 @@ class AdditionalPropertiesClass(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        map_property: typing.Union[Schema_.Properties.MapProperty, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        map_of_map_property: typing.Union[Schema_.Properties.MapOfMapProperty, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        anytype_1: typing.Union[Schema_.Properties.Anytype1, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        map_with_undeclared_properties_anytype_1: typing.Union[Schema_.Properties.MapWithUndeclaredPropertiesAnytype1, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        map_with_undeclared_properties_anytype_2: typing.Union[Schema_.Properties.MapWithUndeclaredPropertiesAnytype2, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        map_with_undeclared_properties_anytype_3: typing.Union[Schema_.Properties.MapWithUndeclaredPropertiesAnytype3, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        empty_map: typing.Union[Schema_.Properties.EmptyMap, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        map_with_undeclared_properties_string: typing.Union[Schema_.Properties.MapWithUndeclaredPropertiesString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        map_property: typing.Union[
+            Schema_.Properties.MapProperty,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        map_of_map_property: typing.Union[
+            Schema_.Properties.MapOfMapProperty,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        anytype_1: typing.Union[
+            Schema_.Properties.Anytype1,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
+        map_with_undeclared_properties_anytype_1: typing.Union[
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype1,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        map_with_undeclared_properties_anytype_2: typing.Union[
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype2,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        map_with_undeclared_properties_anytype_3: typing.Union[
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype3,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        empty_map: typing.Union[
+            Schema_.Properties.EmptyMap,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        map_with_undeclared_properties_string: typing.Union[
+            Schema_.Properties.MapWithUndeclaredPropertiesString,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:

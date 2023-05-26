@@ -65,7 +65,11 @@ class BananaReq(
             int,
             float
         ],
-        sweet: typing.Union[Schema_.Properties.Sweet, bool, schemas.Unset] = schemas.unset,
+        sweet: typing.Union[
+            Schema_.Properties.Sweet,
+            schemas.Unset,
+            bool
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> BananaReq[frozendict.frozendict]:
         inst = super().__new__(

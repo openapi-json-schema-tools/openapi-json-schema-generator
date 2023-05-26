@@ -86,7 +86,12 @@ class Category(
             Schema_.Properties.Name,
             str
         ],
-        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            Schema_.Properties.Id,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Category[frozendict.frozendict]:

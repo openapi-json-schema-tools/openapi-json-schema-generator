@@ -64,8 +64,17 @@ class FromSchema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        data: typing.Union[Schema_.Properties.Data, str, schemas.Unset] = schemas.unset,
-        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        data: typing.Union[
+            Schema_.Properties.Data,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        id: typing.Union[
+            Schema_.Properties.Id,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> FromSchema[frozendict.frozendict]:

@@ -64,7 +64,12 @@ class NoAdditionalProperties(
             decimal.Decimal,
             int
         ],
-        petId: typing.Union[Schema_.Properties.PetId, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        petId: typing.Union[
+            Schema_.Properties.PetId,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> NoAdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(

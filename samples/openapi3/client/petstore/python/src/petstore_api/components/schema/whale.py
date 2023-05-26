@@ -98,8 +98,16 @@ class Whale(
             Schema_.Properties.ClassName,
             str
         ],
-        hasBaleen: typing.Union[Schema_.Properties.HasBaleen, bool, schemas.Unset] = schemas.unset,
-        hasTeeth: typing.Union[Schema_.Properties.HasTeeth, bool, schemas.Unset] = schemas.unset,
+        hasBaleen: typing.Union[
+            Schema_.Properties.HasBaleen,
+            schemas.Unset,
+            bool
+        ] = schemas.unset,
+        hasTeeth: typing.Union[
+            Schema_.Properties.HasTeeth,
+            schemas.Unset,
+            bool
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Whale[frozendict.frozendict]:

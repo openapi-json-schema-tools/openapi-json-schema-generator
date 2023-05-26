@@ -70,9 +70,22 @@ class ApiResponse(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        code: typing.Union[Schema_.Properties.Code, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
-        message: typing.Union[Schema_.Properties.Message, str, schemas.Unset] = schemas.unset,
+        code: typing.Union[
+            Schema_.Properties.Code,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        type: typing.Union[
+            Schema_.Properties.Type,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        message: typing.Union[
+            Schema_.Properties.Message,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> ApiResponse[frozendict.frozendict]:

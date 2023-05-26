@@ -385,22 +385,102 @@ class FormatTest(
             Schema_.Properties.Password,
             str
         ],
-        integer: typing.Union[Schema_.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[Schema_.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32withValidations: typing.Union[Schema_.Properties.Int32withValidations, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[Schema_.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        float32: typing.Union[Schema_.Properties.Float32, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        float64: typing.Union[Schema_.Properties.Float64, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        arrayWithUniqueItems: typing.Union[Schema_.Properties.ArrayWithUniqueItems, list, tuple, schemas.Unset] = schemas.unset,
-        string: typing.Union[Schema_.Properties.String, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[Schema_.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        uuid: typing.Union[Schema_.Properties.Uuid, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        uuidNoExample: typing.Union[Schema_.Properties.UuidNoExample, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        pattern_with_digits: typing.Union[Schema_.Properties.PatternWithDigits, str, schemas.Unset] = schemas.unset,
-        pattern_with_digits_and_delimiter: typing.Union[Schema_.Properties.PatternWithDigitsAndDelimiter, str, schemas.Unset] = schemas.unset,
-        noneProp: typing.Union[Schema_.Properties.NoneProp, None, schemas.Unset] = schemas.unset,
+        integer: typing.Union[
+            Schema_.Properties.Integer,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        int32: typing.Union[
+            Schema_.Properties.Int32,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        int32withValidations: typing.Union[
+            Schema_.Properties.Int32withValidations,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        int64: typing.Union[
+            Schema_.Properties.Int64,
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        float32: typing.Union[
+            Schema_.Properties.Float32,
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ] = schemas.unset,
+        double: typing.Union[
+            Schema_.Properties.Double,
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ] = schemas.unset,
+        float64: typing.Union[
+            Schema_.Properties.Float64,
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ] = schemas.unset,
+        arrayWithUniqueItems: typing.Union[
+            Schema_.Properties.ArrayWithUniqueItems,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        string: typing.Union[
+            Schema_.Properties.String,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        binary: typing.Union[
+            Schema_.Properties.Binary,
+            schemas.Unset,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            Schema_.Properties.DateTime,
+            schemas.Unset,
+            str,
+            datetime.datetime
+        ] = schemas.unset,
+        uuid: typing.Union[
+            Schema_.Properties.Uuid,
+            schemas.Unset,
+            str,
+            uuid.UUID
+        ] = schemas.unset,
+        uuidNoExample: typing.Union[
+            Schema_.Properties.UuidNoExample,
+            schemas.Unset,
+            str,
+            uuid.UUID
+        ] = schemas.unset,
+        pattern_with_digits: typing.Union[
+            Schema_.Properties.PatternWithDigits,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        pattern_with_digits_and_delimiter: typing.Union[
+            Schema_.Properties.PatternWithDigitsAndDelimiter,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        noneProp: typing.Union[
+            Schema_.Properties.NoneProp,
+            schemas.Unset,
+            None
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> FormatTest[frozendict.frozendict]:

@@ -120,7 +120,11 @@ class Zebra(
             Schema_.Properties.ClassName,
             str
         ],
-        type: typing.Union[Schema_.Properties.Type, str, schemas.Unset] = schemas.unset,
+        type: typing.Union[
+            Schema_.Properties.Type,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
     ) -> Zebra[frozendict.frozendict]:

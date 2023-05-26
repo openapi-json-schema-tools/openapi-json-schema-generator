@@ -149,8 +149,17 @@ class EnumArrays(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        just_symbol: typing.Union[Schema_.Properties.JustSymbol, str, schemas.Unset] = schemas.unset,
-        array_enum: typing.Union[Schema_.Properties.ArrayEnum, list, tuple, schemas.Unset] = schemas.unset,
+        just_symbol: typing.Union[
+            Schema_.Properties.JustSymbol,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        array_enum: typing.Union[
+            Schema_.Properties.ArrayEnum,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> EnumArrays[frozendict.frozendict]:

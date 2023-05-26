@@ -76,9 +76,22 @@ class ObjectWithDecimalProperties(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        length: typing.Union['decimal_payload.DecimalPayload', str, schemas.Unset] = schemas.unset,
-        width: typing.Union[Schema_.Properties.Width, str, schemas.Unset] = schemas.unset,
-        cost: typing.Union['money.Money', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        length: typing.Union[
+            decimal_payload.DecimalPayload,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        width: typing.Union[
+            Schema_.Properties.Width,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        cost: typing.Union[
+            money.Money,
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:

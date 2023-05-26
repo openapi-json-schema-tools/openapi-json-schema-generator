@@ -90,7 +90,11 @@ class SimpleQuadrilateral(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
-                    quadrilateralType: typing.Union[Schema_.Properties.QuadrilateralType, str, schemas.Unset] = schemas.unset,
+                    quadrilateralType: typing.Union[
+                        Schema_.Properties.QuadrilateralType,
+                        schemas.Unset,
+                        str
+                    ] = schemas.unset,
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
                 ) -> SimpleQuadrilateral.Schema_.AllOf._1[frozendict.frozendict]:

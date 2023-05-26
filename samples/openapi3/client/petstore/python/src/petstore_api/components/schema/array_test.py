@@ -286,9 +286,24 @@ class ArrayTest(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
-        array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
-        array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,
+        array_of_string: typing.Union[
+            Schema_.Properties.ArrayOfString,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        array_array_of_integer: typing.Union[
+            Schema_.Properties.ArrayArrayOfInteger,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        array_array_of_model: typing.Union[
+            Schema_.Properties.ArrayArrayOfModel,
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> ArrayTest[frozendict.frozendict]:

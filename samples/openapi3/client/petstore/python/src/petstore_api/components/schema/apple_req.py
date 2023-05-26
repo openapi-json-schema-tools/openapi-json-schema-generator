@@ -63,7 +63,11 @@ class AppleReq(
             Schema_.Properties.Cultivar,
             str
         ],
-        mealy: typing.Union[Schema_.Properties.Mealy, bool, schemas.Unset] = schemas.unset,
+        mealy: typing.Union[
+            Schema_.Properties.Mealy,
+            schemas.Unset,
+            bool
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> AppleReq[frozendict.frozendict]:
         inst = super().__new__(

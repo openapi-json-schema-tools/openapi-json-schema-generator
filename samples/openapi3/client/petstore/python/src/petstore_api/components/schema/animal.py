@@ -95,7 +95,11 @@ class Animal(
             Schema_.Properties.ClassName,
             str
         ],
-        color: typing.Union[Schema_.Properties.Color, str, schemas.Unset] = schemas.unset,
+        color: typing.Union[
+            Schema_.Properties.Color,
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
     ) -> Animal[frozendict.frozendict]:
