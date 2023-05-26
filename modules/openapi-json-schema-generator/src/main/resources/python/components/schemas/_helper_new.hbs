@@ -8,8 +8,8 @@ def __new__(
             {{#with ../items}}
                 {{#if refInfo.refClass}}
             typing.Union[
-                {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
                     {{#with getDeepestRef}}
+                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}},
                 {{> _helper_schema_python_types_newline }}
                     {{/with}}
             ], ...
@@ -25,8 +25,8 @@ def __new__(
             {{#with ../items}}
                 {{#if refInfo.refClass}}
             typing.Union[
-                {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
                     {{#with getDeepestRef}}
+                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}},
                 {{> _helper_schema_python_types_newline }}
                     {{/with}}
             ]
