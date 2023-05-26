@@ -61,14 +61,16 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _upload_image(
         self,
-        content_type: typing_extensions.Literal["multipart/form-data"] = ...,
+        path_params: RequestPathParameters.Params,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: RequestPathParameters.Params,
+        content_type: typing_extensions.Literal[
+            "multipart/form-data",
+        ] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -80,74 +82,36 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _upload_image(
         self,
-        content_type: str = ...,
+        path_params: RequestPathParameters.Params,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: RequestPathParameters.Params,
+        content_type: typing_extensions.Literal[
+            "multipart/form-data",
+        ] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-
-    @typing.overload
-    def _upload_image(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[
-            request_body.RequestBody.content["multipart/form-data"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        path_params: RequestPathParameters.Params,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _upload_image(
         self,
-        content_type: str = ...,
+        path_params: RequestPathParameters.Params,
         body: typing.Union[
             request_body.RequestBody.content["multipart/form-data"].schema,
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
-        path_params: RequestPathParameters.Params,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _upload_image(
-        self,
-        content_type: str = 'multipart/form-data',
-        body: typing.Union[
-            request_body.RequestBody.content["multipart/form-data"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        path_params: RequestPathParameters.Params,
+        content_type: typing_extensions.Literal[
+            "multipart/form-data",
+        ] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,

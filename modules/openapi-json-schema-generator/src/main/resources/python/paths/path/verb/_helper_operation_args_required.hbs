@@ -1,39 +1,41 @@
 {{#if requestBody}}
-    {{#if requestBody.refInfo}}
-        {{#with requestBody.getDeepestRef}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#with getDeepestRef}}
+                {{#if required}}
+body: typing.Union[
+                    {{#each content}}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+                    {{/each}}
+                    {{#each getContentSchemas}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/each}}
+],
+                {{/if}}
+            {{/with}}
+        {{else}}
             {{#if required}}
 body: typing.Union[
-            {{#each content}}
+                {{#each content}}
     request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-            {{/each}}
-            {{#each getContentSchemas}}
+                {{/each}}
+                {{#each getContentSchemas}}
     {{> _helper_schema_python_types_newline }}
-            {{/each}}
+                {{/each}}
 ],
             {{/if}}
-        {{/with}}
-    {{else}}
-        {{#if required}}
-body: typing.Union[
-            {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-            {{/each}}
-            {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-            {{/each}}
-],
         {{/if}}
-    {{/if}}
+    {{/with}}
 {{/if}}
 {{#if hasRequiredQueryParams}}
-    query_params: RequestQueryParameters.Params,
+query_params: RequestQueryParameters.Params,
 {{/if}}
 {{#if hasRequiredHeaderParams}}
-    header_params: RequestHeaderParameters.Params,
+header_params: RequestHeaderParameters.Params,
 {{/if}}
 {{#if hasRequiredPathParams}}
-    path_params: RequestPathParameters.Params,
+path_params: RequestPathParameters.Params,
 {{/if}}
 {{#if hasRequiredCookieParams}}
-    cookie_params: RequestCookieParameters.Params,
+cookie_params: RequestCookieParameters.Params,
 {{/if}}

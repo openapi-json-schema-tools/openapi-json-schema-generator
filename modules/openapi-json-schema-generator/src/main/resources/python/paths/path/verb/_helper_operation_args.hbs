@@ -2,21 +2,23 @@
     {{> paths/path/verb/_helper_operation_args_required }}
     {{> paths/path/verb/_helper_operation_args_optional }}
 {{#if requestBody}}
-    {{#if requestBody.refInfo}}
-        {{#with requestBody.getDeepestRef}}
-    content_type: typing.Literal[
-                {{#each content}}
-        "{{@key.original}}"
-                {{/each}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#with getDeepestRef}}
+    content_type: typing_extensions.Literal[
+                    {{#each content}}
+        "{{@key.original}}",
+                    {{/each}}
     ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
-        {{/with}}
-    {{else}}
-    content_type: typing.Literal[
-        {{#each content}}
-        "{{@key.original}}"
-        {{/each}}
+            {{/with}}
+        {{else}}
+    content_type: typing_extensions.Literal[
+            {{#each content}}
+        "{{@key.original}}",
+            {{/each}}
     ] = {{#each content}}{{#if @first}}"{{@key.original}}"{{/if}}{{/each}},
-    {{/if}}
+        {{/if}}
+    {{/with}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

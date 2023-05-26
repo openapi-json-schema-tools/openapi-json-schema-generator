@@ -1,49 +1,51 @@
 {{#if requestBody}}
-    {{#if requestBody.refInfo}}
-        {{#with requestBody.getDeepestRef}}
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#with getDeepestRef}}
+                {{#unless required}}
+body: typing.Union[
+                    {{#each content}}
+    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
+                    {{/each}}
+    schemas.Unset,
+                    {{#each getContentSchemas}}
+    {{> _helper_schema_python_types_newline }}
+                    {{/each}}
+] = schemas.unset,
+                {{/unless}}
+            {{/with}}
+        {{else}}
             {{#unless required}}
 body: typing.Union[
-            {{#each content}}
+                {{#each content}}
     request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-            {{/each}}
+                {{/each}}
     schemas.Unset,
-            {{#each getContentSchemas}}
+                {{#each getContentSchemas}}
     {{> _helper_schema_python_types_newline }}
-            {{/each}}
+                {{/each}}
 ] = schemas.unset,
-            {{/if}}
-        {{/with}}
-    {{else}}
-        {{#if required}}
-body: typing.Union[
-            {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-            {{/each}}
-    schemas.Unset,
-            {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-            {{/each}}
-] = schemas.unset,
+            {{/unless}}
         {{/if}}
-    {{/if}}
+    {{/with}}
 {{/if}}
 {{#if queryParams}}
     {{#unless hasRequiredQueryParams}}
-    query_params: typing.Optional[RequestQueryParameters.Params] = None,
+query_params: typing.Optional[RequestQueryParameters.Params] = None,
     {{/unless}}
 {{/if}}
 {{#if headerParams}}
     {{#unless hasRequiredHeaderParams}}
-    header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+header_params: typing.Optional[RequestHeaderParameters.Params] = None,
     {{/unless}}
 {{/if}}
 {{#if pathParams}}
     {{#unless hasRequiredPathParams}}
-    path_params: typing.Optional[RequestPathParameters.Params] = None,
+path_params: typing.Optional[RequestPathParameters.Params] = None,
     {{/unless}}
 {{/if}}
 {{#if cookieParams}}
     {{#unless hasRequiredCookieParams}}
-    cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
+cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
     {{/unless}}
 {{/if}}

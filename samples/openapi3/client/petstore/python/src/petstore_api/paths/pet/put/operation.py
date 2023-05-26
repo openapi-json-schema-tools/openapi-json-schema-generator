@@ -47,25 +47,14 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: typing_extensions.Literal["application/json"] = ...,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> api_response.ApiResponseWithoutDeserialization: ...
-    @typing.overload
-    def _update_pet(
-        self,
-        body: typing.Union[
             request_body.RequestBody.content["application/xml"].schema,
             dict,
             frozendict.frozendict
         ],
-        content_type: typing_extensions.Literal["application/xml"],
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "application/xml",
+        ] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -81,15 +70,17 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        content_type: str = ...,
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "application/xml",
+        ] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _update_pet(
         self,
         body: typing.Union[
@@ -98,42 +89,10 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-    ) -> api_response.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def _update_pet(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["application/xml"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: str = ...,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _update_pet(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            request_body.RequestBody.content["application/xml"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "application/xml",
+        ] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

@@ -32,12 +32,14 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _boolean(
         self,
-        content_type: typing_extensions.Literal["application/json"] = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             schemas.Unset,
             bool
         ] = schemas.unset,
+        content_type: typing_extensions.Literal[
+            "application/json",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -48,63 +50,31 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _boolean(
         self,
-        content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             schemas.Unset,
             bool
         ] = schemas.unset,
+        content_type: typing_extensions.Literal[
+            "application/json",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-
-    @typing.overload
-    def _boolean(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _boolean(
         self,
-        content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
             schemas.Unset,
             bool
         ] = schemas.unset,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _boolean(
-        self,
-        content_type: str = 'application/json',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
+        content_type: typing_extensions.Literal[
+            "application/json",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

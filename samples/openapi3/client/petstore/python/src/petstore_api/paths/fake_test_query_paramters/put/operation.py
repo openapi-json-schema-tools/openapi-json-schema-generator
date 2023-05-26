@@ -78,25 +78,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _query_parameter_collection_format(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def _query_parameter_collection_format(
-        self,
-        query_params: RequestQueryParameters.Params,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
 
     def _query_parameter_collection_format(
         self,

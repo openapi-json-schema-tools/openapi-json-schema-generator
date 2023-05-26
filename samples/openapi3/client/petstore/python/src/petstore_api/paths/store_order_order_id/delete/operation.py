@@ -65,24 +65,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _delete_order(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
-
-    @typing.overload
-    def _delete_order(
-        self,
-        path_params: RequestPathParameters.Params,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
 
     def _delete_order(
         self,
