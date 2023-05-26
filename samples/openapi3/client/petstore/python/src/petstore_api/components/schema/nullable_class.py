@@ -529,7 +529,11 @@ class NullableClass(
                     cls,
                     *args_: typing.Union[None, dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties,
+                        dict,
+                        frozendict.frozendict
+                    ],
                 ) -> NullableClass.Schema_.Properties.ObjectNullableProp[
                     typing.Union[
                         schemas.NoneClass,
@@ -624,7 +628,12 @@ class NullableClass(
                     cls,
                     *args_: typing.Union[None, dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties,
+                        None,
+                        dict,
+                        frozendict.frozendict
+                    ],
                 ) -> NullableClass.Schema_.Properties.ObjectAndItemsNullableProp[
                     typing.Union[
                         schemas.NoneClass,
@@ -712,7 +721,12 @@ class NullableClass(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties,
+                        None,
+                        dict,
+                        frozendict.frozendict
+                    ],
                 ) -> NullableClass.Schema_.Properties.ObjectItemsNullable[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
@@ -962,7 +976,12 @@ class NullableClass(
             frozendict.frozendict
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, None, dict, frozendict.frozendict],
+        **kwargs: typing.Union[
+            Schema_.AdditionalProperties,
+            None,
+            dict,
+            frozendict.frozendict
+        ],
     ) -> NullableClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,

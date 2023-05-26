@@ -61,7 +61,10 @@ class ReqPropsFromExplicitAddProps(
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, str],
+        **kwargs: typing.Union[
+            Schema_.AdditionalProperties,
+            str
+        ],
     ) -> ReqPropsFromExplicitAddProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,

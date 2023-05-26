@@ -77,7 +77,11 @@ class AdditionalPropertiesWithArrayOfEnums(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple],
+        **kwargs: typing.Union[
+            Schema_.AdditionalProperties,
+            list,
+            tuple
+        ],
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,

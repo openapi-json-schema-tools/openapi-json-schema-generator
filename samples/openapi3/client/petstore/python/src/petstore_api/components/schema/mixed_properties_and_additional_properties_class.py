@@ -49,7 +49,11 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union['animal.Animal', dict, frozendict.frozendict],
+                    **kwargs: typing.Union[
+                                                animal.Animal,
+                        dict,
+                        frozendict.frozendict
+                    ],
                 ) -> MixedPropertiesAndAdditionalPropertiesClass.Schema_.Properties.Map[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
