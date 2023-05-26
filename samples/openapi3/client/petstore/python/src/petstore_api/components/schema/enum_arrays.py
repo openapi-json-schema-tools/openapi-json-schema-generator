@@ -85,10 +85,16 @@ class EnumArrays(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str], ...
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str]
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

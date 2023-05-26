@@ -32,10 +32,18 @@ class AnimalFarm(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                typing.Union['animal.Animal', dict, frozendict.frozendict], ...
+                typing.Union[
+                    animal.Animal,
+                    dict,
+                    frozendict.frozendict
+                ], ...
             ],
             typing.List[
-                typing.Union['animal.Animal', dict, frozendict.frozendict]
+                typing.Union[
+                    animal.Animal,
+                    dict,
+                    frozendict.frozendict
+                ]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

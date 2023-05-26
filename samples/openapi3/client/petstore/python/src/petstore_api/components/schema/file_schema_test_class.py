@@ -47,10 +47,18 @@ class FileSchemaTestClass(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union['file.File', dict, frozendict.frozendict], ...
+                            typing.Union[
+                                file.File,
+                                dict,
+                                frozendict.frozendict
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union['file.File', dict, frozendict.frozendict]
+                            typing.Union[
+                                file.File,
+                                dict,
+                                frozendict.frozendict
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

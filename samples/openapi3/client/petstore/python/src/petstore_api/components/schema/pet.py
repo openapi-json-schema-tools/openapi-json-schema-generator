@@ -52,10 +52,16 @@ class Pet(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str], ...
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str]
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -91,10 +97,18 @@ class Pet(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union['tag.Tag', dict, frozendict.frozendict], ...
+                            typing.Union[
+                                tag.Tag,
+                                dict,
+                                frozendict.frozendict
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union['tag.Tag', dict, frozendict.frozendict]
+                            typing.Union[
+                                tag.Tag,
+                                dict,
+                                frozendict.frozendict
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

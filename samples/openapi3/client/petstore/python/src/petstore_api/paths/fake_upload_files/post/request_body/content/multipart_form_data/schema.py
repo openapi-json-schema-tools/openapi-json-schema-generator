@@ -35,10 +35,20 @@ class Schema(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, bytes, io.FileIO, io.BufferedReader], ...
+                            typing.Union[
+                                Schema_.Items,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, bytes, io.FileIO, io.BufferedReader]
+                            typing.Union[
+                                Schema_.Items,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

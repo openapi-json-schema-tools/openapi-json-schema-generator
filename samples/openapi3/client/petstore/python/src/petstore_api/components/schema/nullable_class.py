@@ -469,10 +469,20 @@ class NullableClass(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, None, dict, frozendict.frozendict], ...
+                            typing.Union[
+                                Schema_.Items,
+                                None,
+                                dict,
+                                frozendict.frozendict
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, None, dict, frozendict.frozendict]
+                            typing.Union[
+                                Schema_.Items,
+                                None,
+                                dict,
+                                frozendict.frozendict
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

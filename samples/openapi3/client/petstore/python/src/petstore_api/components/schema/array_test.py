@@ -40,10 +40,16 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, str], ...
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, str]
+                            typing.Union[
+                                Schema_.Items,
+                                str
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -85,10 +91,18 @@ class ArrayTest(
                             cls,
                             arg_: typing.Union[
                                 typing.Tuple[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int], ...
+                                    typing.Union[
+                                        Schema_.Items,
+                                        decimal.Decimal,
+                                        int
+                                    ], ...
                                 ],
                                 typing.List[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int]
+                                    typing.Union[
+                                        Schema_.Items,
+                                        decimal.Decimal,
+                                        int
+                                    ]
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -111,10 +125,18 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple], ...
+                            typing.Union[
+                                Schema_.Items,
+                                list,
+                                tuple
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, list, tuple]
+                            typing.Union[
+                                Schema_.Items,
+                                list,
+                                tuple
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -159,10 +181,18 @@ class ArrayTest(
                             cls,
                             arg_: typing.Union[
                                 typing.Tuple[
-                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict], ...
+                                    typing.Union[
+                                        read_only_first.ReadOnlyFirst,
+                                        dict,
+                                        frozendict.frozendict
+                                    ], ...
                                 ],
                                 typing.List[
-                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict]
+                                    typing.Union[
+                                        read_only_first.ReadOnlyFirst,
+                                        dict,
+                                        frozendict.frozendict
+                                    ]
                                 ],
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -185,10 +215,18 @@ class ArrayTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple], ...
+                            typing.Union[
+                                Schema_.Items,
+                                list,
+                                tuple
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, list, tuple]
+                            typing.Union[
+                                Schema_.Items,
+                                list,
+                                tuple
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

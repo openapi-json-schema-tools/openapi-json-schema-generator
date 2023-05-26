@@ -41,10 +41,16 @@ class AdditionalPropertiesWithArrayOfEnums(
                 cls,
                 arg_: typing.Union[
                     typing.Tuple[
-                        typing.Union['enum_class.EnumClass', str], ...
+                        typing.Union[
+                            enum_class.EnumClass,
+                            str
+                        ], ...
                     ],
                     typing.List[
-                        typing.Union['enum_class.EnumClass', str]
+                        typing.Union[
+                            enum_class.EnumClass,
+                            str
+                        ]
                     ],
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

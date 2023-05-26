@@ -122,10 +122,20 @@ class FormatTest(
                     cls,
                     arg_: typing.Union[
                         typing.Tuple[
-                            typing.Union[Schema_.Items, decimal.Decimal, int, float], ...
+                            typing.Union[
+                                Schema_.Items,
+                                decimal.Decimal,
+                                int,
+                                float
+                            ], ...
                         ],
                         typing.List[
-                            typing.Union[Schema_.Items, decimal.Decimal, int, float]
+                            typing.Union[
+                                Schema_.Items,
+                                decimal.Decimal,
+                                int,
+                                float
+                            ]
                         ],
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

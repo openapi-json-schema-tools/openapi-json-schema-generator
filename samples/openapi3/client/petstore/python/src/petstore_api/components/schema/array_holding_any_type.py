@@ -29,10 +29,46 @@ class ArrayHoldingAnyType(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader], ...
+                typing.Union[
+                    Schema_.Items,
+                    dict,
+                    frozendict.frozendict,
+                    str,
+                    datetime.date,
+                    datetime.datetime,
+                    uuid.UUID,
+                    int,
+                    float,
+                    decimal.Decimal,
+                    bool,
+                    None,
+                    list,
+                    tuple,
+                    bytes,
+                    io.FileIO,
+                    io.BufferedReader
+                ], ...
             ],
             typing.List[
-                typing.Union[Schema_.Items, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader]
+                typing.Union[
+                    Schema_.Items,
+                    dict,
+                    frozendict.frozendict,
+                    str,
+                    datetime.date,
+                    datetime.datetime,
+                    uuid.UUID,
+                    int,
+                    float,
+                    decimal.Decimal,
+                    bool,
+                    None,
+                    list,
+                    tuple,
+                    bytes,
+                    io.FileIO,
+                    io.BufferedReader
+                ]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

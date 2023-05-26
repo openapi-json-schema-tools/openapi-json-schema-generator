@@ -32,10 +32,18 @@ class ArrayOfEnums(
         cls,
         arg_: typing.Union[
             typing.Tuple[
-                typing.Union['string_enum.StringEnum', None, str], ...
+                typing.Union[
+                    string_enum.StringEnum,
+                    None,
+                    str
+                ], ...
             ],
             typing.List[
-                typing.Union['string_enum.StringEnum', None, str]
+                typing.Union[
+                    string_enum.StringEnum,
+                    None,
+                    str
+                ]
             ],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
