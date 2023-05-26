@@ -30,9 +30,9 @@ class RequestField(fields.RequestField):
         self,
         name: str,
         data: _TYPE_FIELD_VALUE,
-        filename: str | None = None,
-        headers: typing.Mapping[str, typing.Union[str, None]] | None = None,
-        header_formatter: typing.Callable[[str, _TYPE_FIELD_VALUE], str] | None = None,
+        filename: typing.Optional[str] = None,
+        headers: typing.Optional[typing.Mapping[str, typing.Union[str, None]]] = None,
+        header_formatter: typing.Optional[typing.Callable[[str, _TYPE_FIELD_VALUE], str]] = None,
     ):
         super().__init__(name, data, filename, headers, header_formatter) # type: ignore
 
