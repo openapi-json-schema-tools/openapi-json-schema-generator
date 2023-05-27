@@ -77,11 +77,11 @@ class ObjectModelWithArgAndArgsProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         arg: typing.Union[
-            Schema_.Properties.Arg,
+            Schema_.Properties.Arg[str],
             str
         ],
         args: typing.Union[
-            Schema_.Properties.Args,
+            Schema_.Properties.Args[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

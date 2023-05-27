@@ -67,7 +67,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         requiredFile: typing.Union[
-            Schema_.Properties.RequiredFile,
+            Schema_.Properties.RequiredFile[typing.Union[bytes, schemas.FileIO]],
             bytes,
             io.FileIO,
             io.BufferedReader

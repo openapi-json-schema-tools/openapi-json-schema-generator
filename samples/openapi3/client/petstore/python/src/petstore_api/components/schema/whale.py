@@ -95,7 +95,7 @@ class Whale(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName,
+            Schema_.Properties.ClassName[str],
             str
         ],
         hasBaleen: typing.Union[

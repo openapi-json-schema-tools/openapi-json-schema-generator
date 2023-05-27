@@ -60,7 +60,7 @@ class AppleReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         cultivar: typing.Union[
-            Schema_.Properties.Cultivar,
+            Schema_.Properties.Cultivar[str],
             str
         ],
         mealy: typing.Union[

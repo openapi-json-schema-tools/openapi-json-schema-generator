@@ -82,11 +82,11 @@ class JSONPatchRequestRemove(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         op: typing.Union[
-            Schema_.Properties.Op,
+            Schema_.Properties.Op[str],
             str
         ],
         path: typing.Union[
-            Schema_.Properties.Path,
+            Schema_.Properties.Path[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

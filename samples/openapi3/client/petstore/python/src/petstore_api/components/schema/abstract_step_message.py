@@ -161,7 +161,7 @@ class AbstractStepMessage(
             io.BufferedReader
         ],
         discriminator: typing.Union[
-            Schema_.Properties.Discriminator,
+            Schema_.Properties.Discriminator[str],
             str
         ],
         sequenceNumber: typing.Union[

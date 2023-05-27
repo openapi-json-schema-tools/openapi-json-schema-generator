@@ -60,7 +60,7 @@ class BananaReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         lengthCm: typing.Union[
-            Schema_.Properties.LengthCm,
+            Schema_.Properties.LengthCm[decimal.Decimal],
             decimal.Decimal,
             int,
             float

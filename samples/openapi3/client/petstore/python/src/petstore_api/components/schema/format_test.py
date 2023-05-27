@@ -367,22 +367,22 @@ class FormatTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         byte: typing.Union[
-            Schema_.Properties.Byte,
+            Schema_.Properties.Byte[str],
             str
         ],
         date: typing.Union[
-            Schema_.Properties.Date,
+            Schema_.Properties.Date[str],
             str,
             datetime.date
         ],
         number: typing.Union[
-            Schema_.Properties.Number,
+            Schema_.Properties.Number[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         password: typing.Union[
-            Schema_.Properties.Password,
+            Schema_.Properties.Password[str],
             str
         ],
         integer: typing.Union[

@@ -232,7 +232,7 @@ class EnumTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         enum_string_required: typing.Union[
-            Schema_.Properties.EnumStringRequired,
+            Schema_.Properties.EnumStringRequired[str],
             str
         ],
         enum_string: typing.Union[

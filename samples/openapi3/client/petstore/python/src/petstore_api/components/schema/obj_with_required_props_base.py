@@ -66,7 +66,7 @@ class ObjWithRequiredPropsBase(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         b: typing.Union[
-            Schema_.Properties.B,
+            Schema_.Properties.B[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

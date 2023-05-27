@@ -268,23 +268,23 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         byte: typing.Union[
-            Schema_.Properties.Byte,
+            Schema_.Properties.Byte[str],
             str
         ],
         double: typing.Union[
-            Schema_.Properties.Double,
+            Schema_.Properties.Double[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         number: typing.Union[
-            Schema_.Properties.Number,
+            Schema_.Properties.Number[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         pattern_without_delimiter: typing.Union[
-            Schema_.Properties.PatternWithoutDelimiter,
+            Schema_.Properties.PatternWithoutDelimiter[str],
             str
         ],
         integer: typing.Union[

@@ -75,7 +75,7 @@ class GrandparentAnimal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         pet_type: typing.Union[
-            Schema_.Properties.PetType,
+            Schema_.Properties.PetType[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

@@ -150,17 +150,31 @@ def __new__(
                         {{else}}
                             {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
+                                    {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
         Schema_.{{jsonPathPiece.camelCase}},
         {{> _helper_schema_python_types_newline }}
     ],
                                 {{else}}
     {{@key.original}}: typing.Union[
-        Schema_.Properties.{{jsonPathPiece.camelCase}},
+                                    {{#if types}}
+                                        {{#eq types.size 1}}
+        Schema_.Properties.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
+                                        {{else}}
+        Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+            {{> components/schemas/_helper_schema_python_base_types_newline }}
+        ]],
+                                        {{/eq}}
+                                    {{else}}
+        Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+            {{> components/schemas/_helper_schema_python_base_types_newline }}
+        ]],
+                                    {{/if}}
         {{> _helper_schema_python_types_newline }}
     ],
                                 {{/if}}
                             {{else}}
+                                {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
         schemas.AnyTypeSchema,
         {{> _helper_schema_python_types_newline }}
@@ -176,6 +190,7 @@ def __new__(
 {{#each optionalProperties}}
     {{#if @key.isValid}}
         {{#if refInfo.refClass}}
+            {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
         {{> components/schemas/_helper_refclass_with_module }},
         schemas.Unset,
@@ -184,6 +199,7 @@ def __new__(
             {{/with}}
     ] = schemas.unset,
         {{else}}
+            {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
         Schema_.Properties.{{jsonPathPiece.camelCase}},
         schemas.Unset,
@@ -196,6 +212,7 @@ def __new__(
 {{#with additionalProperties}}
     {{#unless isBooleanSchemaFalse}}
         {{#if refInfo.refClass}}
+            {{! todo add parameterization here }}
     **kwargs: typing.Union[
         {{> components/schemas/_helper_refclass_with_module }},
             {{#with getDeepestRef}}
@@ -203,6 +220,7 @@ def __new__(
             {{/with}}
     ],
         {{else}}
+            {{! todo add parameterization here }}
     **kwargs: typing.Union[
         Schema_.{{jsonPathPiece.camelCase}},
         {{> _helper_schema_python_types_newline }}
@@ -211,9 +229,11 @@ def __new__(
     {{/unless}}
 {{else}}
     {{#eq types null}}
+        {{! todo add parameterization here }}
     **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
     {{else}}
         {{#contains types "object"}}
+            {{! todo add parameterization here }}
     **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
         {{/contains}}
     {{/eq}}

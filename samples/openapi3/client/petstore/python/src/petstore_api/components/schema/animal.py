@@ -92,7 +92,7 @@ class Animal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName,
+            Schema_.Properties.ClassName[str],
             str
         ],
         color: typing.Union[

@@ -72,11 +72,11 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         param: typing.Union[
-            Schema_.Properties.Param,
+            Schema_.Properties.Param[str],
             str
         ],
         param2: typing.Union[
-            Schema_.Properties.Param2,
+            Schema_.Properties.Param2[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

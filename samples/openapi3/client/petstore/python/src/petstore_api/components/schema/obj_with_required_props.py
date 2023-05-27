@@ -78,7 +78,7 @@ class ObjWithRequiredProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         a: typing.Union[
-            Schema_.Properties.A,
+            Schema_.Properties.A[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

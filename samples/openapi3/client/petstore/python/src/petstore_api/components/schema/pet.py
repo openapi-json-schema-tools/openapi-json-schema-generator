@@ -220,11 +220,11 @@ class Pet(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[str],
             str
         ],
         photoUrls: typing.Union[
-            Schema_.Properties.PhotoUrls,
+            Schema_.Properties.PhotoUrls[tuple],
             list,
             tuple
         ],

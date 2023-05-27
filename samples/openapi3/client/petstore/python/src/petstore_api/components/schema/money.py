@@ -80,7 +80,7 @@ class Money(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         amount: typing.Union[
-            Schema_.Properties.Amount,
+            Schema_.Properties.Amount[str],
             str
         ],
         currency: typing.Union[

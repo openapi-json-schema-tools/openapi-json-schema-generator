@@ -83,7 +83,7 @@ class DanishPig(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName,
+            Schema_.Properties.ClassName[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,

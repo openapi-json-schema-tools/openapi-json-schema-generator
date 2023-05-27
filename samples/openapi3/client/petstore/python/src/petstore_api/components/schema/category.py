@@ -83,7 +83,7 @@ class Category(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[str],
             str
         ],
         id: typing.Union[
