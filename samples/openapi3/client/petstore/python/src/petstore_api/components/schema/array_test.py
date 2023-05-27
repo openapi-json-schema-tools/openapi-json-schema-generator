@@ -41,13 +41,13 @@ class ArrayTest(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[str],
                                 str
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[str],
                                 str
                             ]
                         ],
@@ -92,14 +92,14 @@ class ArrayTest(
                             arg_: typing.Union[
                                 typing.Tuple[
                                     typing.Union[
-                                        Schema_.Items,
+                                        Schema_.Items[decimal.Decimal],
                                         decimal.Decimal,
                                         int
                                     ], ...
                                 ],
                                 typing.List[
                                     typing.Union[
-                                        Schema_.Items,
+                                        Schema_.Items[decimal.Decimal],
                                         decimal.Decimal,
                                         int
                                     ]
@@ -126,14 +126,14 @@ class ArrayTest(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ]
@@ -216,14 +216,14 @@ class ArrayTest(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ]

@@ -123,7 +123,7 @@ class FormatTest(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[decimal.Decimal],
                                 decimal.Decimal,
                                 int,
                                 float
@@ -131,7 +131,7 @@ class FormatTest(
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[decimal.Decimal],
                                 decimal.Decimal,
                                 int,
                                 float

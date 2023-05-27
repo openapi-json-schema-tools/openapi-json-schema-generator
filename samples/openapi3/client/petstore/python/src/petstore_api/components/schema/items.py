@@ -32,14 +32,14 @@ class Items(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[frozendict.frozendict],
                     dict,
                     frozendict.frozendict
                 ]

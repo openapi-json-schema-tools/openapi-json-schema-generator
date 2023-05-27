@@ -98,7 +98,16 @@ class JSONPatchRequest(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[typing.Union[
+                        frozendict.frozendict,
+                        str,
+                        decimal.Decimal,
+                        schemas.BoolClass,
+                        schemas.NoneClass,
+                        tuple,
+                        bytes,
+                        schemas.FileIO
+                    ]],
                     dict,
                     frozendict.frozendict,
                     str,
@@ -119,7 +128,16 @@ class JSONPatchRequest(
             ],
             typing.List[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[typing.Union[
+                        frozendict.frozendict,
+                        str,
+                        decimal.Decimal,
+                        schemas.BoolClass,
+                        schemas.NoneClass,
+                        tuple,
+                        bytes,
+                        schemas.FileIO
+                    ]],
                     dict,
                     frozendict.frozendict,
                     str,

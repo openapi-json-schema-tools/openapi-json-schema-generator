@@ -36,7 +36,7 @@ class Schema(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[typing.Union[bytes, schemas.FileIO]],
                                 bytes,
                                 io.FileIO,
                                 io.BufferedReader
@@ -44,7 +44,7 @@ class Schema(
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[typing.Union[bytes, schemas.FileIO]],
                                 bytes,
                                 io.FileIO,
                                 io.BufferedReader

@@ -470,7 +470,10 @@ class NullableClass(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[typing.Union[
+                                    schemas.NoneClass,
+                                    frozendict.frozendict
+                                ]],
                                 None,
                                 dict,
                                 frozendict.frozendict
@@ -478,7 +481,10 @@ class NullableClass(
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[typing.Union[
+                                    schemas.NoneClass,
+                                    frozendict.frozendict
+                                ]],
                                 None,
                                 dict,
                                 frozendict.frozendict

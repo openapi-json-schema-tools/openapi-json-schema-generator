@@ -50,7 +50,7 @@ class ArrayOfArrayOfNumberOnly(
                             arg_: typing.Union[
                                 typing.Tuple[
                                     typing.Union[
-                                        Schema_.Items,
+                                        Schema_.Items[decimal.Decimal],
                                         decimal.Decimal,
                                         int,
                                         float
@@ -58,7 +58,7 @@ class ArrayOfArrayOfNumberOnly(
                                 ],
                                 typing.List[
                                     typing.Union[
-                                        Schema_.Items,
+                                        Schema_.Items[decimal.Decimal],
                                         decimal.Decimal,
                                         int,
                                         float
@@ -86,14 +86,14 @@ class ArrayOfArrayOfNumberOnly(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ], ...
                         ],
                         typing.List[
                             typing.Union[
-                                Schema_.Items,
+                                Schema_.Items[tuple],
                                 list,
                                 tuple
                             ]

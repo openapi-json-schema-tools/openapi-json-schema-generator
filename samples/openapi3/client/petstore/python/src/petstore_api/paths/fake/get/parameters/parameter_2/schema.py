@@ -48,13 +48,13 @@ class Schema(
         arg_: typing.Union[
             typing.Tuple[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[str],
                     str
                 ], ...
             ],
             typing.List[
                 typing.Union[
-                    Schema_.Items,
+                    Schema_.Items[str],
                     str
                 ]
             ],

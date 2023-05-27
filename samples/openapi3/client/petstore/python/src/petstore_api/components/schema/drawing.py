@@ -56,7 +56,7 @@ class Drawing(
                     arg_: typing.Union[
                         typing.Tuple[
                             typing.Union[
-                                shape.Shape[
+                                shape.Shape[typing.Union[
                                     frozendict.frozendict,
                                     str,
                                     decimal.Decimal,
@@ -65,7 +65,7 @@ class Drawing(
                                     tuple,
                                     bytes,
                                     schemas.FileIO
-                                ],
+                                ]],
                                 dict,
                                 frozendict.frozendict,
                                 str,
@@ -86,7 +86,7 @@ class Drawing(
                         ],
                         typing.List[
                             typing.Union[
-                                shape.Shape[
+                                shape.Shape[typing.Union[
                                     frozendict.frozendict,
                                     str,
                                     decimal.Decimal,
@@ -95,7 +95,7 @@ class Drawing(
                                     tuple,
                                     bytes,
                                     schemas.FileIO
-                                ],
+                                ]],
                                 dict,
                                 frozendict.frozendict,
                                 str,
