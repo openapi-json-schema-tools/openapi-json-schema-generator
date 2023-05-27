@@ -57,7 +57,7 @@ class ReqPropsFromExplicitAddProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         validName: typing.Union[
-            Schema_.AdditionalProperties,
+            Schema_.AdditionalProperties[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
