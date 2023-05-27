@@ -142,7 +142,16 @@ class AbstractStepMessage(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         description: typing.Union[
-            schemas.AnyTypeSchema,
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             dict,
             frozendict.frozendict,
             str,
@@ -165,7 +174,16 @@ class AbstractStepMessage(
             str
         ],
         sequenceNumber: typing.Union[
-            schemas.AnyTypeSchema,
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             dict,
             frozendict.frozendict,
             str,

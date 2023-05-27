@@ -133,9 +133,10 @@ def __new__(
     ],
                                 {{/if}}
                             {{else}}
-                                {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
-        schemas.AnyTypeSchema,
+        schemas.AnyTypeSchema[typing.Union[
+            {{> components/schemas/_helper_schema_python_base_types_newline }}
+        ]],
         {{> _helper_schema_python_types_newline }}
     ],
                             {{/if}}
