@@ -130,9 +130,21 @@ def __new__(
                     {{#with this}}
                         {{#if refInfo.refClass}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_refclass_with_module }},
                             {{#with getDeepestRef}}
-        {{> _helper_schema_python_types }}
+                                {{#if types}}
+                                    {{#eq types.size 1}}
+        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}],
+                                    {{else}}
+        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
+            {{> components/schemas/_helper_schema_python_base_types_newline }}
+        ]],
+                                    {{/eq}}
+                                {{else}}
+        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
+            {{> components/schemas/_helper_schema_python_base_types_newline }}
+        ]],
+                                {{/if}}
+        {{> _helper_schema_python_types_newline }}
                             {{/with}}
     ],
                         {{else}}
