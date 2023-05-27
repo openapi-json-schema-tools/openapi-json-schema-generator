@@ -104,7 +104,11 @@ class Apple(
 
     def __new__(
         cls,
-        *args_: typing.Union[None, dict, frozendict.frozendict],
+        *args_: typing.Union[
+            None,
+            dict,
+            frozendict.frozendict
+        ],
         origin: typing.Union[
             Schema_.Properties.Origin,
             schemas.Unset,

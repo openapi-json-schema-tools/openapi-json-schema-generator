@@ -70,7 +70,10 @@ class StringEnum(
 
     def __new__(
         cls,
-        arg_: typing.Union[None, str],
+        arg_: typing.Union[
+            None,
+            str
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> StringEnum[
         typing.Union[

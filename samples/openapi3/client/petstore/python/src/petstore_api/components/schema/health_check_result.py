@@ -46,7 +46,10 @@ class HealthCheckResult(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[None, str],
+                    arg_: typing.Union[
+                        None,
+                        str
+                    ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> HealthCheckResult.Schema_.Properties.NullableMessage[
                     typing.Union[

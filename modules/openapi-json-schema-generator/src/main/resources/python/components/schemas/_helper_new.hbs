@@ -108,9 +108,13 @@ def __new__(
         {{/contains}}
     {{else}}
         {{#contains types "object"}}
-    *args_: typing.Union[{{> _helper_schema_python_types }}],
+    *args_: typing.Union[
+        {{> _helper_schema_python_types_newline }}
+    ],
         {{else}}
-    arg_: typing.Union[{{> _helper_schema_python_types }}],
+    arg_: typing.Union[
+        {{> _helper_schema_python_types_newline }}
+    ],
         {{/contains}}
     {{/eq}}
 {{else}}
