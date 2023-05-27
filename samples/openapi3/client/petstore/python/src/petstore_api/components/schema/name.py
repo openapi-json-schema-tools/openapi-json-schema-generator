@@ -79,7 +79,24 @@ class Name(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
         snake_case: typing.Union[
             Schema_.Properties.SnakeCase,
             schemas.Unset,

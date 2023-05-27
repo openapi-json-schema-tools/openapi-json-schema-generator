@@ -60,7 +60,24 @@ class ClassModel(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
         _class: typing.Union[
             Schema_.Properties._Class,
             schemas.Unset,
