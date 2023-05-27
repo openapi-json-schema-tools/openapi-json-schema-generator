@@ -1,0 +1,14 @@
+{{#if types}}
+    {{#eq types.size 1}}
+Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
+    {{else}}
+Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]],
+    {{/eq}}
+{{else}}
+Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[typing.Union[
+    {{> components/schemas/_helper_schema_python_base_types_newline }}
+]],
+{{/if}}
+{{> _helper_schema_python_types_newline }}

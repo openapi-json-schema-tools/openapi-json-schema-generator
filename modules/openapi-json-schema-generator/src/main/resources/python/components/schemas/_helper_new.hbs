@@ -27,20 +27,7 @@ def __new__(
             ], ...
                 {{else}}
             typing.Union[
-                    {{#if types}}
-                        {{#eq types.size 1}}
-                Schema_.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                        {{else}}
-                Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                        {{/eq}}
-                    {{else}}
-                Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                    {{/if}}
-                {{> _helper_schema_python_types_newline }}
+                {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
             ], ...
                 {{/if}}
             {{/with}}
@@ -68,20 +55,7 @@ def __new__(
             ]
                 {{else}}
             typing.Union[
-                    {{#if types}}
-                        {{#eq types.size 1}}
-                Schema_.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                        {{else}}
-                Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                        {{/eq}}
-                    {{else}}
-                Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                    {{/if}}
-                {{> _helper_schema_python_types_newline }}
+                {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
             ]
                 {{/if}}
             {{/with}}
@@ -151,37 +125,11 @@ def __new__(
                             {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
     {{@key.original}}: typing.Union[
-                                    {{#if types}}
-                                        {{#eq types.size 1}}
-        Schema_.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                                        {{else}}
-        Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                        {{/eq}}
-                                    {{else}}
-        Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                    {{/if}}
-        {{> _helper_schema_python_types_newline }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
     ],
                                 {{else}}
     {{@key.original}}: typing.Union[
-                                    {{#if types}}
-                                        {{#eq types.size 1}}
-        Schema_.Properties.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                                        {{else}}
-        Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                        {{/eq}}
-                                    {{else}}
-        Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                    {{/if}}
-        {{> _helper_schema_python_types_newline }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" }}
     ],
                                 {{/if}}
                             {{else}}
