@@ -115,12 +115,14 @@ def __new__(
     {{/unless}}
 {{else}}
     {{#eq types null}}
-        {{! todo add parameterization here }}
-    **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
+    **kwargs: typing.Union[
+        {{> components/schemas/_helper_types_all_incl_schema_newline }}
+    ],
     {{else}}
         {{#contains types "object"}}
-            {{! todo add parameterization here }}
-    **kwargs: typing.Union[{{> components/schemas/_helper_types_all_incl_schema_oneline }}],
+    **kwargs: typing.Union[
+        {{> components/schemas/_helper_types_all_incl_schema_newline }}
+    ],
         {{/contains}}
     {{/eq}}
 {{/with}}

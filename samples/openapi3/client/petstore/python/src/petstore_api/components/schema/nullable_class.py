@@ -392,7 +392,25 @@ class NullableClass(
                                 frozendict.frozendict
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                            **kwargs: typing.Union[
+                                dict,
+                                frozendict.frozendict,
+                                list,
+                                tuple,
+                                decimal.Decimal,
+                                float,
+                                int,
+                                str,
+                                datetime.date,
+                                datetime.datetime,
+                                uuid.UUID,
+                                bool,
+                                None,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader,
+                                schemas.Schema
+                            ],
                         ) -> NullableClass.Schema_.Properties.ArrayAndItemsNullableProp.Schema_.Items[
                             typing.Union[
                                 schemas.NoneClass,
@@ -480,7 +498,25 @@ class NullableClass(
                                 frozendict.frozendict
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                            **kwargs: typing.Union[
+                                dict,
+                                frozendict.frozendict,
+                                list,
+                                tuple,
+                                decimal.Decimal,
+                                float,
+                                int,
+                                str,
+                                datetime.date,
+                                datetime.datetime,
+                                uuid.UUID,
+                                bool,
+                                None,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader,
+                                schemas.Schema
+                            ],
                         ) -> NullableClass.Schema_.Properties.ArrayItemsNullable.Schema_.Items[
                             typing.Union[
                                 schemas.NoneClass,
@@ -632,7 +668,25 @@ class NullableClass(
                                 frozendict.frozendict
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                            **kwargs: typing.Union[
+                                dict,
+                                frozendict.frozendict,
+                                list,
+                                tuple,
+                                decimal.Decimal,
+                                float,
+                                int,
+                                str,
+                                datetime.date,
+                                datetime.datetime,
+                                uuid.UUID,
+                                bool,
+                                None,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader,
+                                schemas.Schema
+                            ],
                         ) -> NullableClass.Schema_.Properties.ObjectAndItemsNullableProp.Schema_.AdditionalProperties[
                             typing.Union[
                                 schemas.NoneClass,
@@ -737,7 +791,25 @@ class NullableClass(
                                 frozendict.frozendict
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                            **kwargs: typing.Union[
+                                dict,
+                                frozendict.frozendict,
+                                list,
+                                tuple,
+                                decimal.Decimal,
+                                float,
+                                int,
+                                str,
+                                datetime.date,
+                                datetime.datetime,
+                                uuid.UUID,
+                                bool,
+                                None,
+                                bytes,
+                                io.FileIO,
+                                io.BufferedReader,
+                                schemas.Schema
+                            ],
                         ) -> NullableClass.Schema_.Properties.ObjectItemsNullable.Schema_.AdditionalProperties[
                             typing.Union[
                                 schemas.NoneClass,
@@ -832,7 +904,25 @@ class NullableClass(
                     frozendict.frozendict
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                **kwargs: typing.Union[
+                    dict,
+                    frozendict.frozendict,
+                    list,
+                    tuple,
+                    decimal.Decimal,
+                    float,
+                    int,
+                    str,
+                    datetime.date,
+                    datetime.datetime,
+                    uuid.UUID,
+                    bool,
+                    None,
+                    bytes,
+                    io.FileIO,
+                    io.BufferedReader,
+                    schemas.Schema
+                ],
             ) -> NullableClass.Schema_.AdditionalProperties[
                 typing.Union[
                     schemas.NoneClass,

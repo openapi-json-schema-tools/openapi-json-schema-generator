@@ -59,7 +59,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Uuid[
                     typing.Union[
                         frozendict.frozendict,
@@ -128,7 +146,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Date[
                     typing.Union[
                         frozendict.frozendict,
@@ -197,7 +233,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.DateTime[
                     typing.Union[
                         frozendict.frozendict,
@@ -266,7 +320,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Number[
                     typing.Union[
                         frozendict.frozendict,
@@ -334,7 +406,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Binary[
                     typing.Union[
                         frozendict.frozendict,
@@ -402,7 +492,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Int32[
                     typing.Union[
                         frozendict.frozendict,
@@ -470,7 +578,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Int64[
                     typing.Union[
                         frozendict.frozendict,
@@ -538,7 +664,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties.Double[
                     typing.Union[
                         frozendict.frozendict,
@@ -606,7 +750,25 @@ class AnyTypeAndFormat(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> AnyTypeAndFormat.Schema_.Properties._Float[
                     typing.Union[
                         frozendict.frozendict,
@@ -998,7 +1160,25 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> AnyTypeAndFormat[frozendict.frozendict]:
         inst = super().__new__(
             cls,

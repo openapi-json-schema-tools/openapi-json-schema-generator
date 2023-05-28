@@ -69,7 +69,25 @@ class Schema(
                         io.BufferedReader
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> Schema.Schema_.Properties.SomeProp[
                     typing.Union[
                         frozendict.frozendict,
@@ -175,7 +193,25 @@ class Schema(
             io.BufferedReader
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
