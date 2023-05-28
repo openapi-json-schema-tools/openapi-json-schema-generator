@@ -960,14 +960,20 @@ class NullableClass(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         integer_prop: typing.Union[
-            Schema_.Properties.IntegerProp,
+            Schema_.Properties.IntegerProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
             schemas.Unset,
             None,
             decimal.Decimal,
             int
         ] = schemas.unset,
         number_prop: typing.Union[
-            Schema_.Properties.NumberProp,
+            Schema_.Properties.NumberProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
             schemas.Unset,
             None,
             decimal.Decimal,
@@ -975,67 +981,91 @@ class NullableClass(
             float
         ] = schemas.unset,
         boolean_prop: typing.Union[
-            Schema_.Properties.BooleanProp,
+            Schema_.Properties.BooleanProp[typing.Union[
+                schemas.NoneClass,
+                schemas.BoolClass
+            ]],
             schemas.Unset,
             None,
             bool
         ] = schemas.unset,
         string_prop: typing.Union[
-            Schema_.Properties.StringProp,
+            Schema_.Properties.StringProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
             schemas.Unset,
             None,
             str
         ] = schemas.unset,
         date_prop: typing.Union[
-            Schema_.Properties.DateProp,
+            Schema_.Properties.DateProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
             schemas.Unset,
             None,
             str,
             datetime.date
         ] = schemas.unset,
         datetime_prop: typing.Union[
-            Schema_.Properties.DatetimeProp,
+            Schema_.Properties.DatetimeProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
             schemas.Unset,
             None,
             str,
             datetime.datetime
         ] = schemas.unset,
         array_nullable_prop: typing.Union[
-            Schema_.Properties.ArrayNullableProp,
+            Schema_.Properties.ArrayNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
             schemas.Unset,
             None,
             list,
             tuple
         ] = schemas.unset,
         array_and_items_nullable_prop: typing.Union[
-            Schema_.Properties.ArrayAndItemsNullableProp,
+            Schema_.Properties.ArrayAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
             schemas.Unset,
             None,
             list,
             tuple
         ] = schemas.unset,
         array_items_nullable: typing.Union[
-            Schema_.Properties.ArrayItemsNullable,
+            Schema_.Properties.ArrayItemsNullable[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         object_nullable_prop: typing.Union[
-            Schema_.Properties.ObjectNullableProp,
+            Schema_.Properties.ObjectNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
             schemas.Unset,
             None,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         object_and_items_nullable_prop: typing.Union[
-            Schema_.Properties.ObjectAndItemsNullableProp,
+            Schema_.Properties.ObjectAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
             schemas.Unset,
             None,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         object_items_nullable: typing.Union[
-            Schema_.Properties.ObjectItemsNullable,
+            Schema_.Properties.ObjectItemsNullable[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

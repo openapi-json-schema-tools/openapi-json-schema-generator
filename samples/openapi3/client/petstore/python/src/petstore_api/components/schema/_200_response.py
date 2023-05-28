@@ -85,7 +85,7 @@ class _200Response(
             io.BufferedReader
         ],
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

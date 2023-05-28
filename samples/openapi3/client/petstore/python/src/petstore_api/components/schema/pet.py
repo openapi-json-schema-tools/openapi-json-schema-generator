@@ -229,7 +229,7 @@ class Pet(
             tuple
         ],
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -241,13 +241,13 @@ class Pet(
             frozendict.frozendict
         ] = schemas.unset,
         tags: typing.Union[
-            Schema_.Properties.Tags,
+            Schema_.Properties.Tags[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status,
+            Schema_.Properties.Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,

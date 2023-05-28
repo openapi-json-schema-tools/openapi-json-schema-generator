@@ -99,7 +99,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         files: typing.Union[
-            Schema_.Properties.Files,
+            Schema_.Properties.Files[tuple],
             schemas.Unset,
             list,
             tuple

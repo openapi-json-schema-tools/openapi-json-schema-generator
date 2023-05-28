@@ -99,12 +99,12 @@ class Whale(
             str
         ],
         hasBaleen: typing.Union[
-            Schema_.Properties.HasBaleen,
+            Schema_.Properties.HasBaleen[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
         hasTeeth: typing.Union[
-            Schema_.Properties.HasTeeth,
+            Schema_.Properties.HasTeeth[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,

@@ -146,7 +146,16 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            Schema_.Properties.SomeProp,
+            Schema_.Properties.SomeProp[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,

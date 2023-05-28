@@ -65,13 +65,13 @@ class Tag(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,

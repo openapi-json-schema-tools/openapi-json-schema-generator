@@ -121,7 +121,7 @@ class Zebra(
             str
         ],
         type: typing.Union[
-            Schema_.Properties.Type,
+            Schema_.Properties.Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,

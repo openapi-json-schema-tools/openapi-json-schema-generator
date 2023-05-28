@@ -59,7 +59,7 @@ class Client(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         client: typing.Union[
-            Schema_.Properties.Client,
+            Schema_.Properties.Client[str],
             schemas.Unset,
             str
         ] = schemas.unset,

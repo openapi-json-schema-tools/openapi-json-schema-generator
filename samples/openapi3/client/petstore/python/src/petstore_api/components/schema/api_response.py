@@ -71,18 +71,18 @@ class ApiResponse(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         code: typing.Union[
-            Schema_.Properties.Code,
+            Schema_.Properties.Code[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         type: typing.Union[
-            Schema_.Properties.Type,
+            Schema_.Properties.Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         message: typing.Union[
-            Schema_.Properties.Message,
+            Schema_.Properties.Message[str],
             schemas.Unset,
             str
         ] = schemas.unset,

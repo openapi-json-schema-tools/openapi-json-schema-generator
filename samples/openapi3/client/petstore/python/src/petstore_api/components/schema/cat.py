@@ -74,7 +74,7 @@ class Cat(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     declawed: typing.Union[
-                        Schema_.Properties.Declawed,
+                        Schema_.Properties.Declawed[schemas.BoolClass],
                         schemas.Unset,
                         bool
                     ] = schemas.unset,

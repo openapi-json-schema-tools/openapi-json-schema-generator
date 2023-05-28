@@ -110,7 +110,7 @@ class Apple(
             frozendict.frozendict
         ],
         origin: typing.Union[
-            Schema_.Properties.Origin,
+            Schema_.Properties.Origin[str],
             schemas.Unset,
             str
         ] = schemas.unset,

@@ -152,13 +152,13 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         enum_form_string_array: typing.Union[
-            Schema_.Properties.EnumFormStringArray,
+            Schema_.Properties.EnumFormStringArray[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         enum_form_string: typing.Union[
-            Schema_.Properties.EnumFormString,
+            Schema_.Properties.EnumFormString[str],
             schemas.Unset,
             str
         ] = schemas.unset,

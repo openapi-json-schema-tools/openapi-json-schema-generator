@@ -287,19 +287,19 @@ class ArrayTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         array_of_string: typing.Union[
-            Schema_.Properties.ArrayOfString,
+            Schema_.Properties.ArrayOfString[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         array_array_of_integer: typing.Union[
-            Schema_.Properties.ArrayArrayOfInteger,
+            Schema_.Properties.ArrayArrayOfInteger[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         array_array_of_model: typing.Union[
-            Schema_.Properties.ArrayArrayOfModel,
+            Schema_.Properties.ArrayArrayOfModel[tuple],
             schemas.Unset,
             list,
             tuple

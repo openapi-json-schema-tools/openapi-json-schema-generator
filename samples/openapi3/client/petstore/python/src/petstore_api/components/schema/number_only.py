@@ -59,7 +59,7 @@ class NumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         JustNumber: typing.Union[
-            Schema_.Properties.JustNumber,
+            Schema_.Properties.JustNumber[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,

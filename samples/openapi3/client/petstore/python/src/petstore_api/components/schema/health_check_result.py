@@ -108,7 +108,10 @@ class HealthCheckResult(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         NullableMessage: typing.Union[
-            Schema_.Properties.NullableMessage,
+            Schema_.Properties.NullableMessage[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
             schemas.Unset,
             None,
             str

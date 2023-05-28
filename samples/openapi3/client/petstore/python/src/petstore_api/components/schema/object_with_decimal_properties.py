@@ -82,7 +82,7 @@ class ObjectWithDecimalProperties(
             str
         ] = schemas.unset,
         width: typing.Union[
-            Schema_.Properties.Width,
+            Schema_.Properties.Width[str],
             schemas.Unset,
             str
         ] = schemas.unset,

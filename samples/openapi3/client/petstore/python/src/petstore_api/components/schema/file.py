@@ -61,7 +61,7 @@ class File(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         sourceURI: typing.Union[
-            Schema_.Properties.SourceURI,
+            Schema_.Properties.SourceURI[str],
             schemas.Unset,
             str
         ] = schemas.unset,

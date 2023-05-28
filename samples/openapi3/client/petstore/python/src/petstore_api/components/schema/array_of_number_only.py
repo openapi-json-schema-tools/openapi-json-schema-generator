@@ -104,7 +104,7 @@ class ArrayOfNumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         ArrayNumber: typing.Union[
-            Schema_.Properties.ArrayNumber,
+            Schema_.Properties.ArrayNumber[tuple],
             schemas.Unset,
             list,
             tuple

@@ -89,32 +89,32 @@ class Capitalization(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         smallCamel: typing.Union[
-            Schema_.Properties.SmallCamel,
+            Schema_.Properties.SmallCamel[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         CapitalCamel: typing.Union[
-            Schema_.Properties.CapitalCamel,
+            Schema_.Properties.CapitalCamel[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         small_Snake: typing.Union[
-            Schema_.Properties.SmallSnake,
+            Schema_.Properties.SmallSnake[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         Capital_Snake: typing.Union[
-            Schema_.Properties.CapitalSnake,
+            Schema_.Properties.CapitalSnake[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         SCA_ETH_Flow_Points: typing.Union[
-            Schema_.Properties.SCAETHFlowPoints,
+            Schema_.Properties.SCAETHFlowPoints[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         ATT_NAME: typing.Union[
-            Schema_.Properties.ATTNAME,
+            Schema_.Properties.ATTNAME[str],
             schemas.Unset,
             str
         ] = schemas.unset,

@@ -91,7 +91,7 @@ class IsoscelesTriangle(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     triangleType: typing.Union[
-                        Schema_.Properties.TriangleType,
+                        Schema_.Properties.TriangleType[str],
                         schemas.Unset,
                         str
                     ] = schemas.unset,

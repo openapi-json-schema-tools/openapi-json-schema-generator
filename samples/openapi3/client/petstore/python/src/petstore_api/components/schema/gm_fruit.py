@@ -91,7 +91,7 @@ class GmFruit(
             io.BufferedReader
         ],
         color: typing.Union[
-            Schema_.Properties.Color,
+            Schema_.Properties.Color[str],
             schemas.Unset,
             str
         ] = schemas.unset,

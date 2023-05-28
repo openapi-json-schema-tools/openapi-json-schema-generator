@@ -239,19 +239,19 @@ class MapTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         map_map_of_string: typing.Union[
-            Schema_.Properties.MapMapOfString,
+            Schema_.Properties.MapMapOfString[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_of_enum_string: typing.Union[
-            Schema_.Properties.MapOfEnumString,
+            Schema_.Properties.MapOfEnumString[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         direct_map: typing.Union[
-            Schema_.Properties.DirectMap,
+            Schema_.Properties.DirectMap[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

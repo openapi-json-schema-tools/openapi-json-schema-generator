@@ -120,7 +120,7 @@ class FileSchemaTestClass(
             frozendict.frozendict
         ] = schemas.unset,
         files: typing.Union[
-            Schema_.Properties.Files,
+            Schema_.Properties.Files[tuple],
             schemas.Unset,
             list,
             tuple

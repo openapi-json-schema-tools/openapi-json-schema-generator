@@ -65,12 +65,12 @@ class ReadOnlyFirst(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[
-            Schema_.Properties.Bar,
+            Schema_.Properties.Bar[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         baz: typing.Union[
-            Schema_.Properties.Baz,
+            Schema_.Properties.Baz[str],
             schemas.Unset,
             str
         ] = schemas.unset,

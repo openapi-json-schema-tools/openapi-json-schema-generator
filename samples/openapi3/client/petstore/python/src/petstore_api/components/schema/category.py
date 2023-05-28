@@ -87,7 +87,7 @@ class Category(
             str
         ],
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

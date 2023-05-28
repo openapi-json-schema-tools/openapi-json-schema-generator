@@ -60,12 +60,12 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status,
+            Schema_.Properties.Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,

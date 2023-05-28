@@ -150,12 +150,12 @@ class EnumArrays(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         just_symbol: typing.Union[
-            Schema_.Properties.JustSymbol,
+            Schema_.Properties.JustSymbol[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         array_enum: typing.Union[
-            Schema_.Properties.ArrayEnum,
+            Schema_.Properties.ArrayEnum[tuple],
             schemas.Unset,
             list,
             tuple

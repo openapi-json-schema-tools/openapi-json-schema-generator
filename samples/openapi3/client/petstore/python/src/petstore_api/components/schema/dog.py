@@ -74,7 +74,7 @@ class Dog(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     breed: typing.Union[
-                        Schema_.Properties.Breed,
+                        Schema_.Properties.Breed[str],
                         schemas.Unset,
                         str
                     ] = schemas.unset,

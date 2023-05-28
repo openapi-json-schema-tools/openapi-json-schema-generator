@@ -73,7 +73,7 @@ class Schema(
             io.BufferedReader
         ],
         additionalMetadata: typing.Union[
-            Schema_.Properties.AdditionalMetadata,
+            Schema_.Properties.AdditionalMetadata[str],
             schemas.Unset,
             str
         ] = schemas.unset,

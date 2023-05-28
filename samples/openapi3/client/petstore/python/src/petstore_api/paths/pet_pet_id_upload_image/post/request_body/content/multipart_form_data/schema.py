@@ -60,12 +60,12 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         additionalMetadata: typing.Union[
-            Schema_.Properties.AdditionalMetadata,
+            Schema_.Properties.AdditionalMetadata[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         file: typing.Union[
-            Schema_.Properties.File,
+            Schema_.Properties.File[typing.Union[bytes, schemas.FileIO]],
             schemas.Unset,
             bytes,
             io.FileIO,

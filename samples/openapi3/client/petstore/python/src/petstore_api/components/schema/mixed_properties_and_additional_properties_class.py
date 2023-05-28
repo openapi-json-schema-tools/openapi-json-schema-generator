@@ -109,19 +109,19 @@ class MixedPropertiesAndAdditionalPropertiesClass(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         uuid: typing.Union[
-            Schema_.Properties.Uuid,
+            Schema_.Properties.Uuid[str],
             schemas.Unset,
             str,
             uuid.UUID
         ] = schemas.unset,
         dateTime: typing.Union[
-            Schema_.Properties.DateTime,
+            Schema_.Properties.DateTime[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         map: typing.Union[
-            Schema_.Properties.Map,
+            Schema_.Properties.Map[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

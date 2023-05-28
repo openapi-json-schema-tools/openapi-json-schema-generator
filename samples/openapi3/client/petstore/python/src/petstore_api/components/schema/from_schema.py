@@ -65,12 +65,12 @@ class FromSchema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         data: typing.Union[
-            Schema_.Properties.Data,
+            Schema_.Properties.Data[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

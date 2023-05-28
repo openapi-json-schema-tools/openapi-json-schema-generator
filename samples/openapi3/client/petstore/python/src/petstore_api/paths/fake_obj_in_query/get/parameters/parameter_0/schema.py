@@ -54,7 +54,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         keyword: typing.Union[
-            Schema_.Properties.Keyword,
+            Schema_.Properties.Keyword[str],
             schemas.Unset,
             str
         ] = schemas.unset,

@@ -79,7 +79,7 @@ class ClassModel(
             io.BufferedReader
         ],
         _class: typing.Union[
-            Schema_.Properties._Class,
+            Schema_.Properties._Class[str],
             schemas.Unset,
             str
         ] = schemas.unset,

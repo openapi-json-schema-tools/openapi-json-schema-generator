@@ -98,7 +98,7 @@ class Name(
             io.BufferedReader
         ],
         snake_case: typing.Union[
-            Schema_.Properties.SnakeCase,
+            Schema_.Properties.SnakeCase[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

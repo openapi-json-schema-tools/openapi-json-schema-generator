@@ -61,7 +61,7 @@ class SpecialModelName(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         a: typing.Union[
-            Schema_.Properties.A,
+            Schema_.Properties.A[str],
             schemas.Unset,
             str
         ] = schemas.unset,

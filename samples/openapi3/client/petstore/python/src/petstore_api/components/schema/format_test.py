@@ -386,98 +386,98 @@ class FormatTest(
             str
         ],
         integer: typing.Union[
-            Schema_.Properties.Integer,
+            Schema_.Properties.Integer[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int32: typing.Union[
-            Schema_.Properties.Int32,
+            Schema_.Properties.Int32[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int32withValidations: typing.Union[
-            Schema_.Properties.Int32withValidations,
+            Schema_.Properties.Int32withValidations[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int64: typing.Union[
-            Schema_.Properties.Int64,
+            Schema_.Properties.Int64[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         float32: typing.Union[
-            Schema_.Properties.Float32,
+            Schema_.Properties.Float32[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
             float
         ] = schemas.unset,
         double: typing.Union[
-            Schema_.Properties.Double,
+            Schema_.Properties.Double[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
             float
         ] = schemas.unset,
         float64: typing.Union[
-            Schema_.Properties.Float64,
+            Schema_.Properties.Float64[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
             float
         ] = schemas.unset,
         arrayWithUniqueItems: typing.Union[
-            Schema_.Properties.ArrayWithUniqueItems,
+            Schema_.Properties.ArrayWithUniqueItems[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         string: typing.Union[
-            Schema_.Properties.String,
+            Schema_.Properties.String[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         binary: typing.Union[
-            Schema_.Properties.Binary,
+            Schema_.Properties.Binary[typing.Union[bytes, schemas.FileIO]],
             schemas.Unset,
             bytes,
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
         dateTime: typing.Union[
-            Schema_.Properties.DateTime,
+            Schema_.Properties.DateTime[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         uuid: typing.Union[
-            Schema_.Properties.Uuid,
+            Schema_.Properties.Uuid[str],
             schemas.Unset,
             str,
             uuid.UUID
         ] = schemas.unset,
         uuidNoExample: typing.Union[
-            Schema_.Properties.UuidNoExample,
+            Schema_.Properties.UuidNoExample[str],
             schemas.Unset,
             str,
             uuid.UUID
         ] = schemas.unset,
         pattern_with_digits: typing.Union[
-            Schema_.Properties.PatternWithDigits,
+            Schema_.Properties.PatternWithDigits[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         pattern_with_digits_and_delimiter: typing.Union[
-            Schema_.Properties.PatternWithDigitsAndDelimiter,
+            Schema_.Properties.PatternWithDigitsAndDelimiter[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         noneProp: typing.Union[
-            Schema_.Properties.NoneProp,
+            Schema_.Properties.NoneProp[schemas.NoneClass],
             schemas.Unset,
             None
         ] = schemas.unset,

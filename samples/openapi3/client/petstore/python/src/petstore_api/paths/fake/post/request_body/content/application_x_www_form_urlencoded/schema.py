@@ -288,54 +288,54 @@ class Schema(
             str
         ],
         integer: typing.Union[
-            Schema_.Properties.Integer,
+            Schema_.Properties.Integer[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int32: typing.Union[
-            Schema_.Properties.Int32,
+            Schema_.Properties.Int32[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int64: typing.Union[
-            Schema_.Properties.Int64,
+            Schema_.Properties.Int64[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         string: typing.Union[
-            Schema_.Properties.String,
+            Schema_.Properties.String[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         binary: typing.Union[
-            Schema_.Properties.Binary,
+            Schema_.Properties.Binary[typing.Union[bytes, schemas.FileIO]],
             schemas.Unset,
             bytes,
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
         date: typing.Union[
-            Schema_.Properties.Date,
+            Schema_.Properties.Date[str],
             schemas.Unset,
             str,
             datetime.date
         ] = schemas.unset,
         dateTime: typing.Union[
-            Schema_.Properties.DateTime,
+            Schema_.Properties.DateTime[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         password: typing.Union[
-            Schema_.Properties.Password,
+            Schema_.Properties.Password[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         callback: typing.Union[
-            Schema_.Properties.Callback,
+            Schema_.Properties.Callback[str],
             schemas.Unset,
             str
         ] = schemas.unset,

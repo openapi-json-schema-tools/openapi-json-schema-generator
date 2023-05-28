@@ -67,13 +67,13 @@ class ObjectWithCollidingProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            Schema_.Properties.SomeProp,
+            Schema_.Properties.SomeProp[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         someprop: typing.Union[
-            Schema_.Properties.Someprop,
+            Schema_.Properties.Someprop[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

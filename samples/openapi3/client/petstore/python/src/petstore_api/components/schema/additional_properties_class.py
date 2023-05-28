@@ -330,19 +330,28 @@ class AdditionalPropertiesClass(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         map_property: typing.Union[
-            Schema_.Properties.MapProperty,
+            Schema_.Properties.MapProperty[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_of_map_property: typing.Union[
-            Schema_.Properties.MapOfMapProperty,
+            Schema_.Properties.MapOfMapProperty[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         anytype_1: typing.Union[
-            Schema_.Properties.Anytype1,
+            Schema_.Properties.Anytype1[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -362,31 +371,31 @@ class AdditionalPropertiesClass(
             io.BufferedReader
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_1: typing.Union[
-            Schema_.Properties.MapWithUndeclaredPropertiesAnytype1,
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_2: typing.Union[
-            Schema_.Properties.MapWithUndeclaredPropertiesAnytype2,
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_3: typing.Union[
-            Schema_.Properties.MapWithUndeclaredPropertiesAnytype3,
+            Schema_.Properties.MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         empty_map: typing.Union[
-            Schema_.Properties.EmptyMap,
+            Schema_.Properties.EmptyMap[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_with_undeclared_properties_string: typing.Union[
-            Schema_.Properties.MapWithUndeclaredPropertiesString,
+            Schema_.Properties.MapWithUndeclaredPropertiesString[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

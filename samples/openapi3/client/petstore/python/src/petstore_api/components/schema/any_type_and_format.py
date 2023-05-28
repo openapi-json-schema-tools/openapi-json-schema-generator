@@ -795,7 +795,16 @@ class AnyTypeAndFormat(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         uuid: typing.Union[
-            Schema_.Properties.Uuid,
+            Schema_.Properties.Uuid[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -815,7 +824,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         date: typing.Union[
-            Schema_.Properties.Date,
+            Schema_.Properties.Date[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -835,7 +853,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         number: typing.Union[
-            Schema_.Properties.Number,
+            Schema_.Properties.Number[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -855,7 +882,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         binary: typing.Union[
-            Schema_.Properties.Binary,
+            Schema_.Properties.Binary[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -875,7 +911,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int32: typing.Union[
-            Schema_.Properties.Int32,
+            Schema_.Properties.Int32[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -895,7 +940,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int64: typing.Union[
-            Schema_.Properties.Int64,
+            Schema_.Properties.Int64[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -915,7 +969,16 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         double: typing.Union[
-            Schema_.Properties.Double,
+            Schema_.Properties.Double[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,

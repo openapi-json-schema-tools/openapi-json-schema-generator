@@ -8,26 +8,11 @@ def __new__(
             {{#with ../items}}
                 {{#if refInfo.refClass}}
             typing.Union[
-                    {{#with getDeepestRef}}
-                        {{#if types}}
-                            {{#eq types.size 1}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                            {{else}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                            {{/eq}}
-                        {{else}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                        {{/if}}
-                {{> _helper_schema_python_types_newline }}
-                    {{/with}}
+                {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
             ], ...
                 {{else}}
             typing.Union[
-                {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
+                {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
             ], ...
                 {{/if}}
             {{/with}}
@@ -36,26 +21,11 @@ def __new__(
             {{#with ../items}}
                 {{#if refInfo.refClass}}
             typing.Union[
-                    {{#with getDeepestRef}}
-                        {{#if types}}
-                            {{#eq types.size 1}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                            {{else}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                            {{/eq}}
-                        {{else}}
-                {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-                    {{> components/schemas/_helper_schema_python_base_types_newline }}
-                ]],
-                        {{/if}}
-                {{> _helper_schema_python_types_newline }}
-                    {{/with}}
+                {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
             ]
                 {{else}}
             typing.Union[
-                {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
+                {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
             ]
                 {{/if}}
             {{/with}}
@@ -104,32 +74,17 @@ def __new__(
                     {{#with this}}
                         {{#if refInfo.refClass}}
     {{@key.original}}: typing.Union[
-                            {{#with getDeepestRef}}
-                                {{#if types}}
-                                    {{#eq types.size 1}}
-        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}],
-                                    {{else}}
-        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                    {{/eq}}
-                                {{else}}
-        {{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-                                {{/if}}
-        {{> _helper_schema_python_types_newline }}
-                            {{/with}}
+        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
     ],
                         {{else}}
                             {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass=null }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
     ],
                                 {{else}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=false }}
     ],
                                 {{/if}}
                             {{else}}
@@ -159,11 +114,8 @@ def __new__(
             {{/with}}
     ] = schemas.unset,
         {{else}}
-            {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
-        Schema_.Properties.{{jsonPathPiece.camelCase}},
-        schemas.Unset,
-        {{> _helper_schema_python_types_newline }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=true }}
     ] = schemas.unset,
         {{/if}}
     {{/if}}

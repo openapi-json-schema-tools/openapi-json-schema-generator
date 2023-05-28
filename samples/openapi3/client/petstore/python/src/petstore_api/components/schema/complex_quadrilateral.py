@@ -91,7 +91,7 @@ class ComplexQuadrilateral(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     quadrilateralType: typing.Union[
-                        Schema_.Properties.QuadrilateralType,
+                        Schema_.Properties.QuadrilateralType[str],
                         schemas.Unset,
                         str
                     ] = schemas.unset,

@@ -275,62 +275,74 @@ class User(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         username: typing.Union[
-            Schema_.Properties.Username,
+            Schema_.Properties.Username[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         firstName: typing.Union[
-            Schema_.Properties.FirstName,
+            Schema_.Properties.FirstName[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         lastName: typing.Union[
-            Schema_.Properties.LastName,
+            Schema_.Properties.LastName[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         email: typing.Union[
-            Schema_.Properties.Email,
+            Schema_.Properties.Email[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         password: typing.Union[
-            Schema_.Properties.Password,
+            Schema_.Properties.Password[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         phone: typing.Union[
-            Schema_.Properties.Phone,
+            Schema_.Properties.Phone[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         userStatus: typing.Union[
-            Schema_.Properties.UserStatus,
+            Schema_.Properties.UserStatus[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         objectWithNoDeclaredProps: typing.Union[
-            Schema_.Properties.ObjectWithNoDeclaredProps,
+            Schema_.Properties.ObjectWithNoDeclaredProps[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         objectWithNoDeclaredPropsNullable: typing.Union[
-            Schema_.Properties.ObjectWithNoDeclaredPropsNullable,
+            Schema_.Properties.ObjectWithNoDeclaredPropsNullable[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
             schemas.Unset,
             None,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         anyTypeProp: typing.Union[
-            Schema_.Properties.AnyTypeProp,
+            Schema_.Properties.AnyTypeProp[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -350,7 +362,16 @@ class User(
             io.BufferedReader
         ] = schemas.unset,
         anyTypeExceptNullProp: typing.Union[
-            Schema_.Properties.AnyTypeExceptNullProp,
+            Schema_.Properties.AnyTypeExceptNullProp[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -370,7 +391,16 @@ class User(
             io.BufferedReader
         ] = schemas.unset,
         anyTypePropNullable: typing.Union[
-            Schema_.Properties.AnyTypePropNullable,
+            Schema_.Properties.AnyTypePropNullable[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,

@@ -65,7 +65,7 @@ class NoAdditionalProperties(
             int
         ],
         petId: typing.Union[
-            Schema_.Properties.PetId,
+            Schema_.Properties.PetId[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

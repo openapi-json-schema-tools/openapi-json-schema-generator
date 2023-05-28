@@ -64,7 +64,7 @@ class AppleReq(
             str
         ],
         mealy: typing.Union[
-            Schema_.Properties.Mealy,
+            Schema_.Properties.Mealy[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,

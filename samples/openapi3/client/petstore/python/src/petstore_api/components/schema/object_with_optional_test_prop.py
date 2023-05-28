@@ -59,7 +59,7 @@ class ObjectWithOptionalTestProp(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         test: typing.Union[
-            Schema_.Properties.Test,
+            Schema_.Properties.Test[str],
             schemas.Unset,
             str
         ] = schemas.unset,

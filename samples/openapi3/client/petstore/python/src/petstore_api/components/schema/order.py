@@ -127,36 +127,36 @@ class Order(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id,
+            Schema_.Properties.Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         petId: typing.Union[
-            Schema_.Properties.PetId,
+            Schema_.Properties.PetId[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         quantity: typing.Union[
-            Schema_.Properties.Quantity,
+            Schema_.Properties.Quantity[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         shipDate: typing.Union[
-            Schema_.Properties.ShipDate,
+            Schema_.Properties.ShipDate[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status,
+            Schema_.Properties.Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         complete: typing.Union[
-            Schema_.Properties.Complete,
+            Schema_.Properties.Complete[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,

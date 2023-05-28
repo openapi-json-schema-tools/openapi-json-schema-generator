@@ -70,7 +70,7 @@ class Player(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name,
+            Schema_.Properties.Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,

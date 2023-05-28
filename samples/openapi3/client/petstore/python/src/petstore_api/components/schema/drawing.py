@@ -278,7 +278,7 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         shapes: typing.Union[
-            Schema_.Properties.Shapes,
+            Schema_.Properties.Shapes[tuple],
             schemas.Unset,
             list,
             tuple

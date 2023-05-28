@@ -65,12 +65,12 @@ class HasOnlyReadOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[
-            Schema_.Properties.Bar,
+            Schema_.Properties.Bar[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         foo: typing.Union[
-            Schema_.Properties.Foo,
+            Schema_.Properties.Foo[str],
             schemas.Unset,
             str
         ] = schemas.unset,

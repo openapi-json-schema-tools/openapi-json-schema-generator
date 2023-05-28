@@ -236,18 +236,18 @@ class EnumTest(
             str
         ],
         enum_string: typing.Union[
-            Schema_.Properties.EnumString,
+            Schema_.Properties.EnumString[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         enum_integer: typing.Union[
-            Schema_.Properties.EnumInteger,
+            Schema_.Properties.EnumInteger[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         enum_number: typing.Union[
-            Schema_.Properties.EnumNumber,
+            Schema_.Properties.EnumNumber[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,

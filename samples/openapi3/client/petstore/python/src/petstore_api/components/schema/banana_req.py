@@ -66,7 +66,7 @@ class BananaReq(
             float
         ],
         sweet: typing.Union[
-            Schema_.Properties.Sweet,
+            Schema_.Properties.Sweet[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
