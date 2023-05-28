@@ -3,33 +3,18 @@ def __new__(
 {{#if types}}
     {{#eq types.size 1}}
         {{#contains types "array"}}
-    arg_: typing.Union[
-        typing.Tuple[
-            {{#with ../items}}
-                {{#if refInfo.refClass}}
-            typing.Union[
-                {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-            ], ...
-                {{else}}
-            typing.Union[
-                {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
-            ], ...
-                {{/if}}
-            {{/with}}
-        ],
-        typing.List[
-            {{#with ../items}}
-                {{#if refInfo.refClass}}
-            typing.Union[
-                {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-            ]
-                {{else}}
-            typing.Union[
-                {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
-            ]
-                {{/if}}
-            {{/with}}
-        ],
+    arg_: typing.Sequence[
+        {{#with ../items}}
+            {{#if refInfo.refClass}}
+        typing.Union[
+            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+        ]
+            {{else}}
+        typing.Union[
+            {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+        ]
+            {{/if}}
+        {{/with}}
     ],
         {{/contains}}
         {{#contains types "object"}}

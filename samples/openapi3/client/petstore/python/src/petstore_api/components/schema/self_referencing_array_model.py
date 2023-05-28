@@ -30,21 +30,12 @@ class SelfReferencingArrayModel(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union[
-                    SelfReferencingArrayModel[tuple],
-                    list,
-                    tuple
-                ], ...
-            ],
-            typing.List[
-                typing.Union[
-                    SelfReferencingArrayModel[tuple],
-                    list,
-                    tuple
-                ]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                SelfReferencingArrayModel[tuple],
+                list,
+                tuple
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> SelfReferencingArrayModel[tuple]:

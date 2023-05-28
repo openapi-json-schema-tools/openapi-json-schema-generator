@@ -25,21 +25,12 @@ class Schema(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union[
-                    user.User[frozendict.frozendict],
-                    dict,
-                    frozendict.frozendict
-                ], ...
-            ],
-            typing.List[
-                typing.Union[
-                    user.User[frozendict.frozendict],
-                    dict,
-                    frozendict.frozendict
-                ]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                user.User[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> Schema[tuple]:

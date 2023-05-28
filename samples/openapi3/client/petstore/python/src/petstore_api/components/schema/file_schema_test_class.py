@@ -45,21 +45,12 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[
-                                file.File[frozendict.frozendict],
-                                dict,
-                                frozendict.frozendict
-                            ], ...
-                        ],
-                        typing.List[
-                            typing.Union[
-                                file.File[frozendict.frozendict],
-                                dict,
-                                frozendict.frozendict
-                            ]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            file.File[frozendict.frozendict],
+                            dict,
+                            frozendict.frozendict
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> FileSchemaTestClass.Schema_.Properties.Files[tuple]:

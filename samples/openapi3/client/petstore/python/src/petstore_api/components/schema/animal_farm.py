@@ -30,21 +30,12 @@ class AnimalFarm(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union[
-                    animal.Animal[frozendict.frozendict],
-                    dict,
-                    frozendict.frozendict
-                ], ...
-            ],
-            typing.List[
-                typing.Union[
-                    animal.Animal[frozendict.frozendict],
-                    dict,
-                    frozendict.frozendict
-                ]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                animal.Animal[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> AnimalFarm[tuple]:

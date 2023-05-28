@@ -506,29 +506,16 @@ class NullableClass(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[
-                                Schema_.Items[typing.Union[
-                                    schemas.NoneClass,
-                                    frozendict.frozendict
-                                ]],
-                                None,
-                                dict,
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[typing.Union[
+                                schemas.NoneClass,
                                 frozendict.frozendict
-                            ], ...
-                        ],
-                        typing.List[
-                            typing.Union[
-                                Schema_.Items[typing.Union[
-                                    schemas.NoneClass,
-                                    frozendict.frozendict
-                                ]],
-                                None,
-                                dict,
-                                frozendict.frozendict
-                            ]
-                        ],
+                            ]],
+                            None,
+                            dict,
+                            frozendict.frozendict
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> NullableClass.Schema_.Properties.ArrayItemsNullable[tuple]:

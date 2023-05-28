@@ -38,23 +38,13 @@ class ArrayOfNumberOnly(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[
-                                Schema_.Items[decimal.Decimal],
-                                decimal.Decimal,
-                                int,
-                                float
-                            ], ...
-                        ],
-                        typing.List[
-                            typing.Union[
-                                Schema_.Items[decimal.Decimal],
-                                decimal.Decimal,
-                                int,
-                                float
-                            ]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[decimal.Decimal],
+                            decimal.Decimal,
+                            int,
+                            float
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple]:

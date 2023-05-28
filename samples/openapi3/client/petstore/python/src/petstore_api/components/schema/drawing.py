@@ -53,67 +53,35 @@ class Drawing(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[
-                                shape.Shape[typing.Union[
-                                    frozendict.frozendict,
-                                    str,
-                                    decimal.Decimal,
-                                    schemas.BoolClass,
-                                    schemas.NoneClass,
-                                    tuple,
-                                    bytes,
-                                    schemas.FileIO
-                                ]],
-                                dict,
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            shape.Shape[typing.Union[
                                 frozendict.frozendict,
                                 str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                int,
-                                float,
                                 decimal.Decimal,
-                                bool,
-                                None,
-                                list,
+                                schemas.BoolClass,
+                                schemas.NoneClass,
                                 tuple,
                                 bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ], ...
-                        ],
-                        typing.List[
-                            typing.Union[
-                                shape.Shape[typing.Union[
-                                    frozendict.frozendict,
-                                    str,
-                                    decimal.Decimal,
-                                    schemas.BoolClass,
-                                    schemas.NoneClass,
-                                    tuple,
-                                    bytes,
-                                    schemas.FileIO
-                                ]],
-                                dict,
-                                frozendict.frozendict,
-                                str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                int,
-                                float,
-                                decimal.Decimal,
-                                bool,
-                                None,
-                                list,
-                                tuple,
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ]
-                        ],
+                                schemas.FileIO
+                            ]],
+                            dict,
+                            frozendict.frozendict,
+                            str,
+                            datetime.date,
+                            datetime.datetime,
+                            uuid.UUID,
+                            int,
+                            float,
+                            decimal.Decimal,
+                            bool,
+                            None,
+                            list,
+                            tuple,
+                            bytes,
+                            io.FileIO,
+                            io.BufferedReader
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Drawing.Schema_.Properties.Shapes[tuple]:

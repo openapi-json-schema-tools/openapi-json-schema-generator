@@ -33,23 +33,13 @@ class Schema(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[
-                                Schema_.Items[typing.Union[bytes, schemas.FileIO]],
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ], ...
-                        ],
-                        typing.List[
-                            typing.Union[
-                                Schema_.Items[typing.Union[bytes, schemas.FileIO]],
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[typing.Union[bytes, schemas.FileIO]],
+                            bytes,
+                            io.FileIO,
+                            io.BufferedReader
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Schema.Schema_.Properties.Files[tuple]:
