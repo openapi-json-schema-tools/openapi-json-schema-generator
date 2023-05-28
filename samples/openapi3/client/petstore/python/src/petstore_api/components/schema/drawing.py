@@ -312,7 +312,16 @@ class Drawing(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-                        fruit.Fruit,
+            fruit.Fruit[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             dict,
             frozendict.frozendict,
             str,

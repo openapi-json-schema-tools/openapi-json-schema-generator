@@ -122,7 +122,16 @@ class ReqPropsFromTrueAddProps(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties,
+            Schema_.AdditionalProperties[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             dict,
             frozendict.frozendict,
             str,

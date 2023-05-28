@@ -50,7 +50,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                                                animal.Animal,
+                        animal.Animal[frozendict.frozendict],
                         dict,
                         frozendict.frozendict
                     ],

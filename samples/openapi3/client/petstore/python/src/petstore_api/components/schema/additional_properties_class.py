@@ -45,7 +45,7 @@ class AdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[str],
                         str
                     ],
                 ) -> AdditionalPropertiesClass.Schema_.Properties.MapProperty[frozendict.frozendict]:
@@ -89,7 +89,7 @@ class AdditionalPropertiesClass(
                             *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[
-                                Schema_.AdditionalProperties,
+                                Schema_.AdditionalProperties[str],
                                 str
                             ],
                         ) -> AdditionalPropertiesClass.Schema_.Properties.MapOfMapProperty.Schema_.AdditionalProperties[frozendict.frozendict]:
@@ -114,7 +114,7 @@ class AdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[frozendict.frozendict],
                         dict,
                         frozendict.frozendict
                     ],
@@ -162,7 +162,16 @@ class AdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[typing.Union[
+                            frozendict.frozendict,
+                            str,
+                            decimal.Decimal,
+                            schemas.BoolClass,
+                            schemas.NoneClass,
+                            tuple,
+                            bytes,
+                            schemas.FileIO
+                        ]],
                         dict,
                         frozendict.frozendict,
                         str,
@@ -238,7 +247,7 @@ class AdditionalPropertiesClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[str],
                         str
                     ],
                 ) -> AdditionalPropertiesClass.Schema_.Properties.MapWithUndeclaredPropertiesString[frozendict.frozendict]:

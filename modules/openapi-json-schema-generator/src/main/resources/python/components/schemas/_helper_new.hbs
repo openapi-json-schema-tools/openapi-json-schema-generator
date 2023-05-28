@@ -119,18 +119,12 @@ def __new__(
 {{#with additionalProperties}}
     {{#unless isBooleanSchemaFalse}}
         {{#if refInfo.refClass}}
-            {{! todo add parameterization here }}
     **kwargs: typing.Union[
-        {{> components/schemas/_helper_refclass_with_module }},
-            {{#with getDeepestRef}}
-        {{> _helper_schema_python_types_newline }}
-            {{/with}}
+        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
     ],
         {{else}}
-            {{! todo add parameterization here }}
     **kwargs: typing.Union[
-        Schema_.{{jsonPathPiece.camelCase}},
-        {{> _helper_schema_python_types_newline }}
+        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
     ],
         {{/if}}
     {{/unless}}

@@ -579,7 +579,7 @@ class NullableClass(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[frozendict.frozendict],
                         dict,
                         frozendict.frozendict
                     ],
@@ -686,7 +686,10 @@ class NullableClass(
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[typing.Union[
+                            schemas.NoneClass,
+                            frozendict.frozendict
+                        ]],
                         None,
                         dict,
                         frozendict.frozendict
@@ -783,7 +786,10 @@ class NullableClass(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[typing.Union[
+                            schemas.NoneClass,
+                            frozendict.frozendict
+                        ]],
                         None,
                         dict,
                         frozendict.frozendict
@@ -1072,7 +1078,10 @@ class NullableClass(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties,
+            Schema_.AdditionalProperties[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
             None,
             dict,
             frozendict.frozendict

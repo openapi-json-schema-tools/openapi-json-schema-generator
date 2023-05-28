@@ -54,7 +54,7 @@ class MapTest(
                             *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                             **kwargs: typing.Union[
-                                Schema_.AdditionalProperties,
+                                Schema_.AdditionalProperties[str],
                                 str
                             ],
                         ) -> MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict]:
@@ -79,7 +79,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[frozendict.frozendict],
                         dict,
                         frozendict.frozendict
                     ],
@@ -137,7 +137,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[str],
                         str
                     ],
                 ) -> MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict]:
@@ -172,7 +172,7 @@ class MapTest(
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                     **kwargs: typing.Union[
-                        Schema_.AdditionalProperties,
+                        Schema_.AdditionalProperties[schemas.BoolClass],
                         bool
                     ],
                 ) -> MapTest.Schema_.Properties.DirectMap[frozendict.frozendict]:

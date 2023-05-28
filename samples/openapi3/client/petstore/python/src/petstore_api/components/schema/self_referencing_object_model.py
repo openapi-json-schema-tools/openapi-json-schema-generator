@@ -64,7 +64,7 @@ class SelfReferencingObjectModel(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-                        SelfReferencingObjectModel,
+            SelfReferencingObjectModel[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],
