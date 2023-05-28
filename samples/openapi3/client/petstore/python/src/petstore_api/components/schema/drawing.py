@@ -218,7 +218,16 @@ class Drawing(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         mainShape: typing.Union[
-            shape.Shape,
+            shape.Shape[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -238,7 +247,16 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         shapeOrNull: typing.Union[
-            shape_or_null.ShapeOrNull,
+            shape_or_null.ShapeOrNull[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -258,7 +276,16 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         nullableShape: typing.Union[
-            nullable_shape.NullableShape,
+            nullable_shape.NullableShape[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
             schemas.Unset,
             dict,
             frozendict.frozendict,

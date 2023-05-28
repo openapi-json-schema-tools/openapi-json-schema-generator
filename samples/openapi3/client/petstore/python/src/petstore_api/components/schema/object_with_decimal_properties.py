@@ -77,7 +77,7 @@ class ObjectWithDecimalProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         length: typing.Union[
-            decimal_payload.DecimalPayload,
+            decimal_payload.DecimalPayload[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -87,7 +87,7 @@ class ObjectWithDecimalProperties(
             str
         ] = schemas.unset,
         cost: typing.Union[
-            money.Money,
+            money.Money[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

@@ -114,7 +114,7 @@ class FileSchemaTestClass(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         file: typing.Union[
-            file.File,
+            file.File[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

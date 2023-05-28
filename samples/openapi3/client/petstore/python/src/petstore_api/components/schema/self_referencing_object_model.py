@@ -57,7 +57,7 @@ class SelfReferencingObjectModel(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         selfRef: typing.Union[
-            SelfReferencingObjectModel,
+            SelfReferencingObjectModel[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

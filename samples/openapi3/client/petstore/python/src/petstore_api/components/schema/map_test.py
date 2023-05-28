@@ -257,7 +257,7 @@ class MapTest(
             frozendict.frozendict
         ] = schemas.unset,
         indirect_map: typing.Union[
-            string_boolean_map.StringBooleanMap,
+            string_boolean_map.StringBooleanMap[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

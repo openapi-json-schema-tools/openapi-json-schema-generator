@@ -105,13 +105,8 @@ def __new__(
 {{#each optionalProperties}}
     {{#if @key.isValid}}
         {{#if refInfo.refClass}}
-            {{! todo add parameterization here }}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_refclass_with_module }},
-        schemas.Unset,
-            {{#with getDeepestRef}}
-        {{> _helper_schema_python_types_newline }}
-            {{/with}}
+        {{> components/schemas/_helper_new_ref_property_value_type optional=true }}
     ] = schemas.unset,
         {{else}}
     {{@key.original}}: typing.Union[

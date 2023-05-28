@@ -82,19 +82,19 @@ class ObjectModelWithRefProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         myNumber: typing.Union[
-            number_with_validations.NumberWithValidations,
+            number_with_validations.NumberWithValidations[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
             float
         ] = schemas.unset,
         myString: typing.Union[
-            string.String,
+            string.String[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         myBoolean: typing.Union[
-            boolean.Boolean,
+            boolean.Boolean[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,

@@ -235,7 +235,7 @@ class Pet(
             int
         ] = schemas.unset,
         category: typing.Union[
-            category.Category,
+            category.Category[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

@@ -254,30 +254,33 @@ class EnumTest(
             float
         ] = schemas.unset,
         stringEnum: typing.Union[
-            string_enum.StringEnum,
+            string_enum.StringEnum[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
             schemas.Unset,
             None,
             str
         ] = schemas.unset,
         IntegerEnum: typing.Union[
-            integer_enum.IntegerEnum,
+            integer_enum.IntegerEnum[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         StringEnumWithDefaultValue: typing.Union[
-            string_enum_with_default_value.StringEnumWithDefaultValue,
+            string_enum_with_default_value.StringEnumWithDefaultValue[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         IntegerEnumWithDefaultValue: typing.Union[
-            integer_enum_with_default_value.IntegerEnumWithDefaultValue,
+            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         IntegerEnumOneValue: typing.Union[
-            integer_enum_one_value.IntegerEnumOneValue,
+            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int

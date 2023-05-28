@@ -75,7 +75,7 @@ class Player(
             str
         ] = schemas.unset,
         enemyPlayer: typing.Union[
-            Player,
+            Player[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

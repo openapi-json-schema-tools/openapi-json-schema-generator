@@ -57,7 +57,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         string: typing.Union[
-            foo.Foo,
+            foo.Foo[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict

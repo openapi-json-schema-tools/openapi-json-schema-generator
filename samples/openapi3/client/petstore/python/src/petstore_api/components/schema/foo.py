@@ -62,7 +62,7 @@ class Foo(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[
-            bar.Bar,
+            bar.Bar[str],
             schemas.Unset,
             str
         ] = schemas.unset,
