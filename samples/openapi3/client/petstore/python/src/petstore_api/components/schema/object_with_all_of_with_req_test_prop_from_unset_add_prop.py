@@ -10,6 +10,139 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
+class _1(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {frozendict.frozendict}
+        required = {
+            "test",
+        }
+        
+        @staticmethod
+        def properties():
+            return {
+                "name": Name,
+            }
+    
+    @property
+    def test(self) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        return self.__getitem__("test")
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["test"],
+            str
+        ]
+    ):
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        test: typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> _1[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            test=test,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _1[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
 
 class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     schemas.AnyTypeSchema[schemas.T],
@@ -24,145 +157,12 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     class Schema_:
         # any type
         
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp]:
-                return object_with_optional_test_prop.ObjectWithOptionalTestProp
-            
-            
-            class _1(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    required = {
-                        "test",
-                    }
-                    
-                    class Properties:
-                        Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-                        __annotations__ = {
-                            "name": Name,
-                        }
-                
-                @property
-                def test(self) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    return self.__getitem__("test")
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["test"]) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]: ...
-                
-                def __getitem__(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["test"],
-                        str
-                    ]
-                ):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    test: typing.Union[
-                        schemas.AnyTypeSchema[typing.Union[
-                            frozendict.frozendict,
-                            str,
-                            decimal.Decimal,
-                            schemas.BoolClass,
-                            schemas.NoneClass,
-                            tuple,
-                            bytes,
-                            schemas.FileIO
-                        ]],
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema_.AllOf._1[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        test=test,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema_.AllOf._1[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
+        @staticmethod
+        def all_of():
+            return (
+                object_with_optional_test_prop.ObjectWithOptionalTestProp,
                 _1,
-            ]
+            )
 
 
     def __new__(
@@ -239,5 +239,6 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import object_with_optional_test_prop

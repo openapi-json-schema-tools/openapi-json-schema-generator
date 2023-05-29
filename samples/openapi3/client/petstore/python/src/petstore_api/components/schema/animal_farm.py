@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class AnimalFarm(
     schemas.ListSchema[schemas.T]
 ):
@@ -25,7 +26,7 @@ class AnimalFarm(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type[animal.Animal]:
+        def items():
             return animal.Animal
 
     def __new__(
@@ -52,5 +53,6 @@ class AnimalFarm(
 
     def __getitem__(self, name: int) -> animal.Animal[frozendict.frozendict]:
         return super().__getitem__(name)
+
 
 from petstore_api.components.schema import animal

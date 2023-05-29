@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Color: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class Fruit(
     schemas.AnyTypeSchema[schemas.T],
@@ -24,29 +26,22 @@ class Fruit(
     class Schema_:
         # any type
         
-        class Properties:
-            Color: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "color": Color,
             }
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[apple.Apple]:
-                return apple.Apple
-        
-            @staticmethod
-            def _1() -> typing.Type[banana.Banana]:
-                return banana.Banana
-            classes = [
-                _0,
-                _1,
-            ]
+        @staticmethod
+        def one_of():
+            return (
+                apple.Apple,
+                banana.Banana,
+            )
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Schema_.Properties.Color[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Color[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -91,7 +86,7 @@ class Fruit(
             io.BufferedReader
         ],
         color: typing.Union[
-            Schema_.Properties.Color[str],
+            Color[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -150,6 +145,7 @@ class Fruit(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana

@@ -10,6 +10,54 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
+
+class Type(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "plains": "PLAINS",
+            "mountain": "MOUNTAIN",
+            "grevys": "GREVYS",
+        }
+    
+    @schemas.classproperty
+    def PLAINS(cls):
+        return cls("plains") # type: ignore
+    
+    @schemas.classproperty
+    def MOUNTAIN(cls):
+        return cls("mountain") # type: ignore
+    
+    @schemas.classproperty
+    def GREVYS(cls):
+        return cls("grevys") # type: ignore
+
+
+class ClassName(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "zebra": "ZEBRA",
+        }
+    
+    @schemas.classproperty
+    def ZEBRA(cls):
+        return cls("zebra") # type: ignore
+
 
 class Zebra(
     schemas.DictSchema[schemas.T]
@@ -27,71 +75,29 @@ class Zebra(
             "className",
         }
         
-        class Properties:
-            
-            
-            class Type(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "plains": "PLAINS",
-                        "mountain": "MOUNTAIN",
-                        "grevys": "GREVYS",
-                    }
-                
-                @schemas.classproperty
-                def PLAINS(cls):
-                    return cls("plains") # type: ignore
-                
-                @schemas.classproperty
-                def MOUNTAIN(cls):
-                    return cls("mountain") # type: ignore
-                
-                @schemas.classproperty
-                def GREVYS(cls):
-                    return cls("grevys") # type: ignore
-            
-            
-            class ClassName(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "zebra": "ZEBRA",
-                    }
-                
-                @schemas.classproperty
-                def ZEBRA(cls):
-                    return cls("zebra") # type: ignore
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "type": Type,
                 "className": ClassName,
             }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Schema_.Properties.Type[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Type[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -117,17 +123,17 @@ class Zebra(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         type: typing.Union[
-            Schema_.Properties.Type[str],
+            Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[typing.Union[
+            AdditionalProperties[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -168,3 +174,4 @@ class Zebra(
             inst
         )
         return inst
+

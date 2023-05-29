@@ -10,6 +10,87 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+
+
+class Items(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return Items
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[decimal.Decimal],
+                decimal.Decimal,
+                int,
+                float
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Items[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Items[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
+        return super().__getitem__(name)
+
+
+
+class ArrayArrayNumber(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return Items
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[tuple],
+                list,
+                tuple
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayArrayNumber[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayArrayNumber[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[tuple]:
+        return super().__getitem__(name)
+
+
 
 class ArrayOfArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
@@ -24,83 +105,14 @@ class ArrayOfArrayOfNumberOnly(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class ArrayArrayNumber(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    
-                    class Items(
-                        schemas.ListSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {tuple}
-                            Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-                    
-                        def __new__(
-                            cls,
-                            arg_: typing.Sequence[
-                                typing.Union[
-                                    Schema_.Items[decimal.Decimal],
-                                    decimal.Decimal,
-                                    int,
-                                    float
-                                ]
-                            ],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber.Schema_.Items[tuple]:
-                            inst = super().__new__(
-                                cls,
-                                arg_,
-                                configuration_=configuration_,
-                            )
-                            inst = typing.cast(
-                                ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber.Schema_.Items[tuple],
-                                inst
-                            )
-                            return inst
-                    
-                        def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
-                            return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[tuple],
-                            list,
-                            tuple
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayOfArrayOfNumberOnly.Schema_.Properties.ArrayArrayNumber[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[tuple]:
-                    return super().__getitem__(name)
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "ArrayArrayNumber": ArrayArrayNumber,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> Schema_.Properties.ArrayArrayNumber[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> ArrayArrayNumber[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -128,7 +140,7 @@ class ArrayOfArrayOfNumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         ArrayArrayNumber: typing.Union[
-            Schema_.Properties.ArrayArrayNumber[tuple],
+            ArrayArrayNumber[tuple],
             schemas.Unset,
             list,
             tuple
@@ -166,3 +178,4 @@ class ArrayOfArrayOfNumberOnly(
             inst
         )
         return inst
+

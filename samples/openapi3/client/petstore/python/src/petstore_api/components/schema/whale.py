@@ -10,6 +10,27 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+HasBaleen: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+
+
+class ClassName(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "whale": "WHALE",
+        }
+    
+    @schemas.classproperty
+    def WHALE(cls):
+        return cls("whale") # type: ignore
+
 
 class Whale(
     schemas.DictSchema[schemas.T]
@@ -27,45 +48,26 @@ class Whale(
             "className",
         }
         
-        class Properties:
-            HasBaleen: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            
-            
-            class ClassName(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "whale": "WHALE",
-                    }
-                
-                @schemas.classproperty
-                def WHALE(cls):
-                    return cls("whale") # type: ignore
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "hasBaleen": HasBaleen,
                 "hasTeeth": HasTeeth,
                 "className": ClassName,
             }
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> Schema_.Properties.HasBaleen[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> HasBaleen[schemas.BoolClass]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> Schema_.Properties.HasTeeth[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> HasTeeth[schemas.BoolClass]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -95,16 +97,16 @@ class Whale(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         hasBaleen: typing.Union[
-            Schema_.Properties.HasBaleen[schemas.BoolClass],
+            HasBaleen[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
         hasTeeth: typing.Union[
-            Schema_.Properties.HasTeeth[schemas.BoolClass],
+            HasTeeth[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
@@ -143,3 +145,4 @@ class Whale(
             inst
         )
         return inst
+

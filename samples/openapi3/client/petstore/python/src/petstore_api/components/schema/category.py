@@ -10,6 +10,20 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+
+
+class Name(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        default = "default-name"
+
 
 class Category(
     schemas.DictSchema[schemas.T]
@@ -27,34 +41,22 @@ class Category(
             "name",
         }
         
-        class Properties:
-            Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            
-            
-            class Name(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    default = "default-name"
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "id": Id,
                 "name": Name,
             }
     
     @property
-    def name(self) -> Schema_.Properties.Name[str]:
+    def name(self) -> Name[str]:
         return self.__getitem__("name")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -83,11 +85,11 @@ class Category(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name[str],
+            Name[str],
             str
         ],
         id: typing.Union[
-            Schema_.Properties.Id[decimal.Decimal],
+            Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -126,3 +128,4 @@ class Category(
             inst
         )
         return inst
+

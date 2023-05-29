@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Data: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Id: typing_extensions.TypeAlias = schemas.IntSchema[U]
+
 
 class FromSchema(
     schemas.DictSchema[schemas.T]
@@ -24,19 +27,18 @@ class FromSchema(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Data: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Id: typing_extensions.TypeAlias = schemas.IntSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "data": Data,
                 "id": Id,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["data"]) -> Schema_.Properties.Data[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["data"]) -> Data[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -65,12 +67,12 @@ class FromSchema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         data: typing.Union[
-            Schema_.Properties.Data[str],
+            Data[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         id: typing.Union[
-            Schema_.Properties.Id[decimal.Decimal],
+            Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -109,3 +111,4 @@ class FromSchema(
             inst
         )
         return inst
+

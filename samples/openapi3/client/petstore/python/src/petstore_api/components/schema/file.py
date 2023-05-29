@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SourceURI: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class File(
     schemas.DictSchema[schemas.T]
@@ -26,14 +28,14 @@ class File(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            SourceURI: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "sourceURI": SourceURI,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sourceURI"]) -> Schema_.Properties.SourceURI[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["sourceURI"]) -> SourceURI[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -61,7 +63,7 @@ class File(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         sourceURI: typing.Union[
-            Schema_.Properties.SourceURI[str],
+            SourceURI[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -98,3 +100,4 @@ class File(
             inst
         )
         return inst
+

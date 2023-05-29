@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+JustNumber: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+
 
 class NumberOnly(
     schemas.DictSchema[schemas.T]
@@ -24,14 +26,14 @@ class NumberOnly(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            JustNumber: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "JustNumber": JustNumber,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> Schema_.Properties.JustNumber[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> JustNumber[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -59,7 +61,7 @@ class NumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         JustNumber: typing.Union[
-            Schema_.Properties.JustNumber[decimal.Decimal],
+            JustNumber[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
@@ -98,3 +100,4 @@ class NumberOnly(
             inst
         )
         return inst
+

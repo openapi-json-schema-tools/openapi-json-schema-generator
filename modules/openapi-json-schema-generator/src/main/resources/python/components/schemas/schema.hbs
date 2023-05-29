@@ -13,7 +13,10 @@ from {{packageName}}.shared_imports.schema_imports import *
     {{else}}
 from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
+
+        {{#each getSchemas}}
 {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+        {{/each}}
         {{#if imports}}
 
         {{/if}}

@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
+
 
 class ObjectWithDecimalProperties(
     schemas.DictSchema[schemas.T]
@@ -24,27 +26,19 @@ class ObjectWithDecimalProperties(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-        
-            @staticmethod
-            def length() -> typing.Type[decimal_payload.DecimalPayload]:
-                return decimal_payload.DecimalPayload
-            Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
-        
-            @staticmethod
-            def cost() -> typing.Type[money.Money]:
-                return money.Money
-            __annotations__ = {
-                "length": length,
+        @staticmethod
+        def properties():
+            return {
+                "length": decimal_payload.DecimalPayload,
                 "width": Width,
-                "cost": cost,
+                "cost": money.Money,
             }
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["length"]) -> decimal_payload.DecimalPayload[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["width"]) -> Schema_.Properties.Width[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["width"]) -> Width[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cost"]) -> money.Money[frozendict.frozendict]: ...
@@ -82,7 +76,7 @@ class ObjectWithDecimalProperties(
             str
         ] = schemas.unset,
         width: typing.Union[
-            Schema_.Properties.Width[str],
+            Width[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -127,6 +121,7 @@ class ObjectWithDecimalProperties(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import decimal_payload
 from petstore_api.components.schema import money

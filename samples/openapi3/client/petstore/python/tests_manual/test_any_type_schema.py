@@ -12,6 +12,7 @@
 
 import unittest
 from decimal import Decimal
+import typing
 
 import frozendict
 
@@ -39,11 +40,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         DictSchema,
-                    ]
+                    )
 
         m = Model(a=1, b='hi')
         assert isinstance(m, Model)
@@ -56,11 +58,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         ListSchema,
-                    ]
+                    )
 
         m = Model([1, 'hi'])
         assert isinstance(m, Model)
@@ -73,11 +76,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         StrSchema,
-                    ]
+                    )
 
         m = Model('hi')
         assert isinstance(m, Model)
@@ -90,11 +94,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         NumberSchema,
-                    ]
+                    )
 
         m = Model(1)
         assert isinstance(m, Model)
@@ -114,11 +119,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         IntSchema,
-                    ]
+                    )
 
         m = Model(1)
         assert isinstance(m, Model)
@@ -127,7 +133,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert isinstance(m, Decimal)
         assert m == Decimal(1)
 
-        with self.assertRaises(petstore_api.exceptions.ApiValueError):
+        with self.assertRaises(petstore_api.ApiValueError):
             # can't pass in float into Int
             Model(3.14)
 
@@ -135,11 +141,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         BoolSchema,
-                    ]
+                    )
 
         m = Model(True)
         assert isinstance(m, Model)
@@ -159,11 +166,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         NoneSchema,
-                    ]
+                    )
 
         m = Model(None)
         self.assertTrue(m.is_none_())
@@ -176,11 +184,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         DateSchema,
-                    ]
+                    )
 
         m = Model('1970-01-01')
         assert isinstance(m, Model)
@@ -193,11 +202,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         DateTimeSchema,
-                    ]
+                    )
 
         m = Model('2020-01-01T00:00:00')
         assert isinstance(m, Model)
@@ -210,11 +220,12 @@ class TestAnyTypeSchema(unittest.TestCase):
         class Model(AnyTypeSchema):
             class Schema_:
 
-                class AllOf:
-                    classes = [
+                @staticmethod
+                def all_of():
+                    return (
                         AnyTypeSchema,
                         DecimalSchema,
-                    ]
+                    )
 
         m = Model('12.34')
         assert m == '12.34'

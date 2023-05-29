@@ -11,6 +11,26 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class ShapeType(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "Quadrilateral": "QUADRILATERAL",
+        }
+    
+    @schemas.classproperty
+    def QUADRILATERAL(cls):
+        return cls("Quadrilateral") # type: ignore
+QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
 class QuadrilateralInterface(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -28,45 +48,27 @@ class QuadrilateralInterface(
             "shapeType",
         }
         
-        class Properties:
-            
-            
-            class ShapeType(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "Quadrilateral": "QUADRILATERAL",
-                    }
-                
-                @schemas.classproperty
-                def QUADRILATERAL(cls):
-                    return cls("Quadrilateral") # type: ignore
-            QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "shapeType": ShapeType,
                 "quadrilateralType": QuadrilateralType,
             }
 
     
     @property
-    def quadrilateralType(self) -> Schema_.Properties.QuadrilateralType[str]:
+    def quadrilateralType(self) -> QuadrilateralType[str]:
         return self.__getitem__("quadrilateralType")
     
     @property
-    def shapeType(self) -> Schema_.Properties.ShapeType[str]:
+    def shapeType(self) -> ShapeType[str]:
         return self.__getitem__("shapeType")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> Schema_.Properties.QuadrilateralType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> QuadrilateralType[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> ShapeType[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -165,3 +167,4 @@ class QuadrilateralInterface(
             inst
         )
         return inst
+

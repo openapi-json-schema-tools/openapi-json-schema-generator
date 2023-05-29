@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Quadrilateral(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -33,19 +34,12 @@ class Quadrilateral(
                 }
             }
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[simple_quadrilateral.SimpleQuadrilateral]:
-                return simple_quadrilateral.SimpleQuadrilateral
-        
-            @staticmethod
-            def _1() -> typing.Type[complex_quadrilateral.ComplexQuadrilateral]:
-                return complex_quadrilateral.ComplexQuadrilateral
-            classes = [
-                _0,
-                _1,
-            ]
+        @staticmethod
+        def one_of():
+            return (
+                simple_quadrilateral.SimpleQuadrilateral,
+                complex_quadrilateral.ComplexQuadrilateral,
+            )
 
 
     def __new__(
@@ -122,6 +116,7 @@ class Quadrilateral(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import complex_quadrilateral
 from petstore_api.components.schema import simple_quadrilateral

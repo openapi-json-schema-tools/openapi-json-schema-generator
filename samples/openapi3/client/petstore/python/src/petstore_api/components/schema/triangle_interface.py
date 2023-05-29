@@ -11,6 +11,26 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class ShapeType(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "Triangle": "TRIANGLE",
+        }
+    
+    @schemas.classproperty
+    def TRIANGLE(cls):
+        return cls("Triangle") # type: ignore
+TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
 class TriangleInterface(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -28,45 +48,27 @@ class TriangleInterface(
             "triangleType",
         }
         
-        class Properties:
-            
-            
-            class ShapeType(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "Triangle": "TRIANGLE",
-                    }
-                
-                @schemas.classproperty
-                def TRIANGLE(cls):
-                    return cls("Triangle") # type: ignore
-            TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "shapeType": ShapeType,
                 "triangleType": TriangleType,
             }
 
     
     @property
-    def shapeType(self) -> Schema_.Properties.ShapeType[str]:
+    def shapeType(self) -> ShapeType[str]:
         return self.__getitem__("shapeType")
     
     @property
-    def triangleType(self) -> Schema_.Properties.TriangleType[str]:
+    def triangleType(self) -> TriangleType[str]:
         return self.__getitem__("triangleType")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> ShapeType[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> Schema_.Properties.TriangleType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> TriangleType[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -165,3 +167,4 @@ class TriangleInterface(
             inst
         )
         return inst
+

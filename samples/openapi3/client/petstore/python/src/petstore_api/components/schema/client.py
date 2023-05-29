@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Client: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class Client(
     schemas.DictSchema[schemas.T]
@@ -24,14 +26,14 @@ class Client(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Client: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "client": Client,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["client"]) -> Schema_.Properties.Client[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["client"]) -> Client[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -59,7 +61,7 @@ class Client(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         client: typing.Union[
-            Schema_.Properties.Client[str],
+            Client[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -96,3 +98,4 @@ class Client(
             inst
         )
         return inst
+

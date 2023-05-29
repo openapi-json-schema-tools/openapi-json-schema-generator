@@ -10,6 +10,48 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+
+
+class Files(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return Items
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[typing.Union[bytes, schemas.FileIO]],
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Files[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Files[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[typing.Union[bytes, schemas.FileIO]]:
+        return super().__getitem__(name)
+
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -19,49 +61,14 @@ class Schema(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class Files(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    Items: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[typing.Union[bytes, schemas.FileIO]],
-                            bytes,
-                            io.FileIO,
-                            io.BufferedReader
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> Schema.Schema_.Properties.Files[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        Schema.Schema_.Properties.Files[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[typing.Union[bytes, schemas.FileIO]]:
-                    return super().__getitem__(name)
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "files": Files,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["files"]) -> Schema_.Properties.Files[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["files"]) -> Files[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -89,7 +96,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         files: typing.Union[
-            Schema_.Properties.Files[tuple],
+            Files[tuple],
             schemas.Unset,
             list,
             tuple
@@ -127,3 +134,4 @@ class Schema(
             inst
         )
         return inst
+

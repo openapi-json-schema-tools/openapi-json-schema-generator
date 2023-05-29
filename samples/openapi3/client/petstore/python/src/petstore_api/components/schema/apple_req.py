@@ -10,6 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+Cultivar: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Mealy: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+
 
 class AppleReq(
     schemas.DictSchema[schemas.T]
@@ -27,24 +32,26 @@ class AppleReq(
             "cultivar",
         }
         
-        class Properties:
-            Cultivar: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Mealy: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "cultivar": Cultivar,
                 "mealy": Mealy,
             }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def cultivar(self) -> Schema_.Properties.Cultivar[str]:
+    def cultivar(self) -> Cultivar[str]:
         return self.__getitem__("cultivar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Cultivar[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> Schema_.Properties.Mealy[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> Mealy[schemas.BoolClass]: ...
     
     def __getitem__(
         self,
@@ -60,11 +67,11 @@ class AppleReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         cultivar: typing.Union[
-            Schema_.Properties.Cultivar[str],
+            Cultivar[str],
             str
         ],
         mealy: typing.Union[
-            Schema_.Properties.Mealy[schemas.BoolClass],
+            Mealy[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
@@ -82,3 +89,4 @@ class AppleReq(
             inst
         )
         return inst
+

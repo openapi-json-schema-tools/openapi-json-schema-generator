@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+_Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class _200Response(
     schemas.AnyTypeSchema[schemas.T],
@@ -26,20 +29,19 @@ class _200Response(
     class Schema_:
         # any type
         
-        class Properties:
-            Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            _Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "name": Name,
                 "class": _Class,
             }
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["class"]) -> Schema_.Properties._Class[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["class"]) -> _Class[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -85,7 +87,7 @@ class _200Response(
             io.BufferedReader
         ],
         name: typing.Union[
-            Schema_.Properties.Name[decimal.Decimal],
+            Name[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -145,3 +147,4 @@ class _200Response(
             inst
         )
         return inst
+

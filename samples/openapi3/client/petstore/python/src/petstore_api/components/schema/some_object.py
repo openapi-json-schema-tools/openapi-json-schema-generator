@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class SomeObject(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -24,14 +25,11 @@ class SomeObject(
     class Schema_:
         # any type
         
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[object_interface.ObjectInterface]:
-                return object_interface.ObjectInterface
-            classes = [
-                _0,
-            ]
+        @staticmethod
+        def all_of():
+            return (
+                object_interface.ObjectInterface,
+            )
 
 
     def __new__(
@@ -108,5 +106,6 @@ class SomeObject(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import object_interface

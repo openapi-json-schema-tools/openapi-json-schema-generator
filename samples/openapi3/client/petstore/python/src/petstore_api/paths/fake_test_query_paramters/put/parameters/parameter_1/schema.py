@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class Schema(
     schemas.ListSchema[schemas.T]
@@ -18,13 +20,16 @@ class Schema(
 
     class Schema_:
         types = {tuple}
-        Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+        
+        @staticmethod
+        def items():
+            return Items
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Schema_.Items[str],
+                Items[str],
                 str
             ]
         ],
@@ -41,5 +46,6 @@ class Schema(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Schema_.Items[str]:
+    def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
+

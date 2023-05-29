@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ClassModel(
     schemas.AnyTypeSchema[schemas.T],
@@ -26,15 +28,15 @@ class ClassModel(
     class Schema_:
         # any type
         
-        class Properties:
-            _Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "_class": _Class,
             }
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["_class"]) -> Schema_.Properties._Class[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["_class"]) -> _Class[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -79,7 +81,7 @@ class ClassModel(
             io.BufferedReader
         ],
         _class: typing.Union[
-            Schema_.Properties._Class[str],
+            _Class[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -138,3 +140,4 @@ class ClassModel(
             inst
         )
         return inst
+

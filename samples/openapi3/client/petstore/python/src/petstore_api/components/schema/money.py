@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Amount: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
+
 
 class Money(
     schemas.DictSchema[schemas.T]
@@ -28,19 +30,15 @@ class Money(
             "currency",
         }
         
-        class Properties:
-            Amount: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
-        
-            @staticmethod
-            def currency() -> typing.Type[currency.Currency]:
-                return currency.Currency
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "amount": Amount,
-                "currency": currency,
+                "currency": currency.Currency,
             }
     
     @property
-    def amount(self) -> Schema_.Properties.Amount[str]:
+    def amount(self) -> Amount[str]:
         return self.__getitem__("amount")
     
     @property
@@ -48,7 +46,7 @@ class Money(
         return self.__getitem__("currency")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Amount[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["currency"]) -> currency.Currency[str]: ...
@@ -80,7 +78,7 @@ class Money(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         amount: typing.Union[
-            Schema_.Properties.Amount[str],
+            Amount[str],
             str
         ],
         currency: typing.Union[
@@ -121,5 +119,6 @@ class Money(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import currency

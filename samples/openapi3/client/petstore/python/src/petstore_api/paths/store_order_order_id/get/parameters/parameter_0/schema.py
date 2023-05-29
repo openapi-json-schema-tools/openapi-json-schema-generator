@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.Int64Schema[schemas.T]
 ):

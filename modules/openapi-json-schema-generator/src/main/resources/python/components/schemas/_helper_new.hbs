@@ -11,7 +11,7 @@ def __new__(
         ]
             {{else}}
         typing.Union[
-            {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
         ]
             {{/if}}
         {{/with}}
@@ -65,11 +65,11 @@ def __new__(
                             {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
                                 {{else}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
                                 {{/if}}
                             {{else}}
@@ -95,7 +95,7 @@ def __new__(
     ] = schemas.unset,
         {{else}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=true }}
+        {{> components/schemas/_helper_new_property_value_type optional=true }}
     ] = schemas.unset,
         {{/if}}
     {{/if}}
@@ -109,7 +109,7 @@ def __new__(
     ],
         {{else}}
     **kwargs: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
         {{/if}}
     {{/unless}}

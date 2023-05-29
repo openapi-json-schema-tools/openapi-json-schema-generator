@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Status: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -19,19 +22,18 @@ class Schema(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Status: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "name": Name,
                 "status": Status,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Schema_.Properties.Status[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Status[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -60,12 +62,12 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name[str],
+            Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status[str],
+            Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -103,3 +105,4 @@ class Schema(
             inst
         )
         return inst
+

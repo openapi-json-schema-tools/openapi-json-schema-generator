@@ -10,6 +10,189 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
+class AdditionalProperties(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {frozendict.frozendict}
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
+    
+    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+    ) -> AdditionalProperties[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            AdditionalProperties[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
+
+class MapMapOfString(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {frozendict.frozendict}
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
+    
+    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+    ) -> MapMapOfString[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            MapMapOfString[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
+
+class AdditionalProperties(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "UPPER": "UPPER",
+            "lower": "LOWER",
+        }
+    
+    @schemas.classproperty
+    def UPPER(cls):
+        return cls("UPPER") # type: ignore
+    
+    @schemas.classproperty
+    def LOWER(cls):
+        return cls("lower") # type: ignore
+
+
+class MapOfEnumString(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {frozendict.frozendict}
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
+    
+    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+    ) -> MapOfEnumString[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            MapOfEnumString[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+
+
+class DirectMap(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {frozendict.frozendict}
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
+    
+    def __getitem__(self, name: str) -> AdditionalProperties[schemas.BoolClass]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties[schemas.BoolClass],
+            bool
+        ],
+    ) -> DirectMap[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            DirectMap[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
 
 class MapTest(
     schemas.DictSchema[schemas.T]
@@ -24,188 +207,23 @@ class MapTest(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class MapMapOfString(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    
-                    
-                    class AdditionalProperties(
-                        schemas.DictSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {frozendict.frozendict}
-                            AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
-                        
-                        def __getitem__(self, name: str) -> Schema_.AdditionalProperties[str]:
-                            # dict_instance[name] accessor
-                            return super().__getitem__(name)
-                    
-                        def __new__(
-                            cls,
-                            *args_: typing.Union[dict, frozendict.frozendict],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[
-                                Schema_.AdditionalProperties[str],
-                                str
-                            ],
-                        ) -> MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict]:
-                            inst = super().__new__(
-                                cls,
-                                *args_,
-                                configuration_=configuration_,
-                                **kwargs,
-                            )
-                            inst = typing.cast(
-                                MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict],
-                                inst
-                            )
-                            return inst
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[frozendict.frozendict]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[frozendict.frozendict],
-                        dict,
-                        frozendict.frozendict
-                    ],
-                ) -> MapTest.Schema_.Properties.MapMapOfString[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        MapTest.Schema_.Properties.MapMapOfString[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            
-            
-            class MapOfEnumString(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    
-                    
-                    class AdditionalProperties(
-                        schemas.StrSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {
-                                str,
-                            }
-                            enum_value_to_name = {
-                                "UPPER": "UPPER",
-                                "lower": "LOWER",
-                            }
-                        
-                        @schemas.classproperty
-                        def UPPER(cls):
-                            return cls("UPPER") # type: ignore
-                        
-                        @schemas.classproperty
-                        def LOWER(cls):
-                            return cls("lower") # type: ignore
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[str]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[str],
-                        str
-                    ],
-                ) -> MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            
-            
-            class DirectMap(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[schemas.BoolClass]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[schemas.BoolClass],
-                        bool
-                    ],
-                ) -> MapTest.Schema_.Properties.DirectMap[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        MapTest.Schema_.Properties.DirectMap[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-        
-            @staticmethod
-            def indirect_map() -> typing.Type[string_boolean_map.StringBooleanMap]:
-                return string_boolean_map.StringBooleanMap
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "map_map_of_string": MapMapOfString,
                 "map_of_enum_string": MapOfEnumString,
                 "direct_map": DirectMap,
-                "indirect_map": indirect_map,
+                "indirect_map": string_boolean_map.StringBooleanMap,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> Schema_.Properties.MapMapOfString[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfString[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_of_enum_string"]) -> Schema_.Properties.MapOfEnumString[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MapOfEnumString[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["direct_map"]) -> Schema_.Properties.DirectMap[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["direct_map"]) -> DirectMap[frozendict.frozendict]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMap[frozendict.frozendict]: ...
@@ -239,19 +257,19 @@ class MapTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         map_map_of_string: typing.Union[
-            Schema_.Properties.MapMapOfString[frozendict.frozendict],
+            MapMapOfString[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         map_of_enum_string: typing.Union[
-            Schema_.Properties.MapOfEnumString[frozendict.frozendict],
+            MapOfEnumString[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         direct_map: typing.Union[
-            Schema_.Properties.DirectMap[frozendict.frozendict],
+            DirectMap[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
@@ -298,5 +316,6 @@ class MapTest(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import string_boolean_map

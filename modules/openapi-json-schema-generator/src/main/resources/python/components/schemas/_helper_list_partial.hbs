@@ -1,8 +1,10 @@
 {{#with items}}
-{{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+@staticmethod
+def items():
+    {{#if refInfo.refClass}}
+    return {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+    {{else}}
+    return {{jsonPathPiece.camelCase}}
+    {{/if}}
 {{/with}}

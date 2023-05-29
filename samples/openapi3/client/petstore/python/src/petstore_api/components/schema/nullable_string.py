@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class NullableString(
     schemas.NoneBase,
     schemas.StrBase,
@@ -59,3 +60,4 @@ class NullableString(
             inst
         )
         return inst
+

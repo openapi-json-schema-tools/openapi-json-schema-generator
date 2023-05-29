@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
 
 class ReqPropsFromTrueAddProps(
     schemas.DictSchema[schemas.T]
@@ -27,10 +29,13 @@ class ReqPropsFromTrueAddProps(
             "invalid-name",
             "validName",
         }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def validName(self) -> Schema_.AdditionalProperties[typing.Union[
+    def validName(self) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -43,7 +48,7 @@ class ReqPropsFromTrueAddProps(
         return self.__getitem__("validName")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -55,7 +60,7 @@ class ReqPropsFromTrueAddProps(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> Schema_.AdditionalProperties[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -67,7 +72,7 @@ class ReqPropsFromTrueAddProps(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -93,7 +98,7 @@ class ReqPropsFromTrueAddProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         validName: typing.Union[
-            Schema_.AdditionalProperties[typing.Union[
+            AdditionalProperties[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -122,7 +127,7 @@ class ReqPropsFromTrueAddProps(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[typing.Union[
+            AdditionalProperties[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -162,3 +167,4 @@ class ReqPropsFromTrueAddProps(
             inst
         )
         return inst
+

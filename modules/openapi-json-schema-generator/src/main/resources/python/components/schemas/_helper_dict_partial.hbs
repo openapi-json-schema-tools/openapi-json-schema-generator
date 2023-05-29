@@ -25,30 +25,25 @@ def discriminator():
 {{/if}}
 {{#if properties}}
 
-class Properties:
-{{#each properties}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "Properties" jsonPathPiece.camelCase) }}
-{{/if}}
-{{/each}}
-    __annotations__ = {
-{{#each properties}}
-{{#if refInfo.refClass}}
-        "{{{@key.original}}}": {{jsonPathPiece.snakeCase}},
-{{else}}
+@staticmethod
+def properties():
+    return {
+    {{#each properties}}
+        {{#if refInfo.refClass}}
+        "{{{@key.original}}}": {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
         "{{{@key.original}}}": {{jsonPathPiece.camelCase}},
-{{/if}}
-{{/each}}
+        {{/if}}
+    {{/each}}
     }
 {{/if}}
 {{#with additionalProperties}}
-{{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+@staticmethod
+def additional_properties():
+    {{#if refInfo.refClass}}
+    return {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+    {{else}}
+    return {{jsonPathPiece.camelCase}}
+    {{/if}}
 {{/with}}

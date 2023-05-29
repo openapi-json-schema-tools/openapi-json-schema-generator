@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+PetType: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class GrandparentAnimal(
     schemas.DictSchema[schemas.T]
@@ -36,18 +38,18 @@ class GrandparentAnimal(
                 }
             }
         
-        class Properties:
-            PetType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "pet_type": PetType,
             }
     
     @property
-    def pet_type(self) -> Schema_.Properties.PetType[str]:
+    def pet_type(self) -> PetType[str]:
         return self.__getitem__("pet_type")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> Schema_.Properties.PetType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> PetType[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -75,7 +77,7 @@ class GrandparentAnimal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         pet_type: typing.Union[
-            Schema_.Properties.PetType[str],
+            PetType[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -111,6 +113,7 @@ class GrandparentAnimal(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import parent_pet

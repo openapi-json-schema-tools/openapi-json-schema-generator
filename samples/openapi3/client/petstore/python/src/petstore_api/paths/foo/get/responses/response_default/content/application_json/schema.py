@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
@@ -19,13 +20,10 @@ class Schema(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-        
-            @staticmethod
-            def string() -> typing.Type[foo.Foo]:
-                return foo.Foo
-            __annotations__ = {
-                "string": string,
+        @staticmethod
+        def properties():
+            return {
+                "string": foo.Foo,
             }
     
     @typing.overload
@@ -95,5 +93,6 @@ class Schema(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import foo

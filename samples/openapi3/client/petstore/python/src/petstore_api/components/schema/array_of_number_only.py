@@ -10,6 +10,48 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+
+
+class ArrayNumber(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return Items
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[decimal.Decimal],
+                decimal.Decimal,
+                int,
+                float
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayNumber[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayNumber[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
+        return super().__getitem__(name)
+
+
 
 class ArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
@@ -24,49 +66,14 @@ class ArrayOfNumberOnly(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class ArrayNumber(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[decimal.Decimal],
-                            decimal.Decimal,
-                            int,
-                            float
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
-                    return super().__getitem__(name)
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "ArrayNumber": ArrayNumber,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> Schema_.Properties.ArrayNumber[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> ArrayNumber[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -94,7 +101,7 @@ class ArrayOfNumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         ArrayNumber: typing.Union[
-            Schema_.Properties.ArrayNumber[tuple],
+            ArrayNumber[tuple],
             schemas.Unset,
             list,
             tuple
@@ -132,3 +139,4 @@ class ArrayOfNumberOnly(
             inst
         )
         return inst
+

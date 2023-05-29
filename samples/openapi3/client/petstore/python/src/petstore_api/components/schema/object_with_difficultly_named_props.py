@@ -10,6 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+_123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
+_123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
+
 
 class ObjectWithDifficultlyNamedProps(
     schemas.DictSchema[schemas.T]
@@ -29,24 +33,22 @@ class ObjectWithDifficultlyNamedProps(
             "123-list",
         }
         
-        class Properties:
-            SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            _123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            _123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "$special[property.name]": SpecialPropertyName,
                 "123-list": _123List,
                 "123Number": _123Number,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> _123List[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> Schema_.Properties.SpecialPropertyName[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> SpecialPropertyName[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> Schema_.Properties._123Number[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> _123Number[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -107,3 +109,4 @@ class ObjectWithDifficultlyNamedProps(
             inst
         )
         return inst
+

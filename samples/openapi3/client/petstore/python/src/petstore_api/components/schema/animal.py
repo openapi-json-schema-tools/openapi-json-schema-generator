@@ -10,6 +10,20 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+ClassName: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
+class Color(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        default = "red"
+
 
 class Animal(
     schemas.DictSchema[schemas.T]
@@ -36,34 +50,22 @@ class Animal(
                 }
             }
         
-        class Properties:
-            ClassName: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            
-            
-            class Color(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    default = "red"
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "className": ClassName,
                 "color": Color,
             }
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Schema_.Properties.Color[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Color[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -92,11 +94,11 @@ class Animal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         color: typing.Union[
-            Schema_.Properties.Color[str],
+            Color[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -134,6 +136,7 @@ class Animal(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import cat
 from petstore_api.components.schema import dog

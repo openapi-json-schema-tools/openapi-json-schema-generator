@@ -11,6 +11,20 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Items(
+    schemas.Int64Schema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            decimal.Decimal,
+        }
+        format = 'int64'
+        inclusive_maximum = 7
+
+
 class ArrayWithValidationsInItems(
     schemas.ListSchema[schemas.T]
 ):
@@ -25,24 +39,15 @@ class ArrayWithValidationsInItems(
         types = {tuple}
         max_items = 2
         
-        
-        class Items(
-            schemas.Int64Schema[schemas.T]
-        ):
-        
-        
-            class Schema_:
-                types = {
-                    decimal.Decimal,
-                }
-                format = 'int64'
-                inclusive_maximum = 7
+        @staticmethod
+        def items():
+            return Items
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Schema_.Items[decimal.Decimal],
+                Items[decimal.Decimal],
                 decimal.Decimal,
                 int
             ]
@@ -60,5 +65,6 @@ class ArrayWithValidationsInItems(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
+    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
         return super().__getitem__(name)
+

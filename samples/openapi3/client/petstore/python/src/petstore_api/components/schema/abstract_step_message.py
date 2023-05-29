@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Discriminator: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class AbstractStepMessage(
     schemas.DictSchema[schemas.T]
@@ -41,20 +43,17 @@ class AbstractStepMessage(
                 }
             }
         
-        class Properties:
-            Discriminator: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "discriminator": Discriminator,
             }
         
-        class AnyOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[AbstractStepMessage]:
-                return AbstractStepMessage
-            classes = [
-                _0,
-            ]
+        @staticmethod
+        def any_of():
+            return (
+                AbstractStepMessage,
+            )
 
     
     @property
@@ -71,7 +70,7 @@ class AbstractStepMessage(
         return self.__getitem__("description")
     
     @property
-    def discriminator(self) -> Schema_.Properties.Discriminator[str]:
+    def discriminator(self) -> Discriminator[str]:
         return self.__getitem__("discriminator")
     
     @property
@@ -100,7 +99,7 @@ class AbstractStepMessage(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> Schema_.Properties.Discriminator[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> Discriminator[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema[typing.Union[
@@ -170,7 +169,7 @@ class AbstractStepMessage(
             io.BufferedReader
         ],
         discriminator: typing.Union[
-            Schema_.Properties.Discriminator[str],
+            Discriminator[str],
             str
         ],
         sequenceNumber: typing.Union[
@@ -236,3 +235,4 @@ class AbstractStepMessage(
             inst
         )
         return inst
+

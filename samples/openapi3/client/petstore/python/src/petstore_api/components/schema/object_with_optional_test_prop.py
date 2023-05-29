@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Test: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ObjectWithOptionalTestProp(
     schemas.DictSchema[schemas.T]
@@ -24,14 +26,14 @@ class ObjectWithOptionalTestProp(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Test: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "test": Test,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["test"]) -> Schema_.Properties.Test[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["test"]) -> Test[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -59,7 +61,7 @@ class ObjectWithOptionalTestProp(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         test: typing.Union[
-            Schema_.Properties.Test[str],
+            Test[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -96,3 +98,4 @@ class ObjectWithOptionalTestProp(
             inst
         )
         return inst
+

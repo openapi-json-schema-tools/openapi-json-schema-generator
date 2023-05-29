@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Bar: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class HasOnlyReadOnly(
     schemas.DictSchema[schemas.T]
@@ -24,19 +27,18 @@ class HasOnlyReadOnly(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Bar: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "bar": Bar,
                 "foo": Foo,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -65,12 +67,12 @@ class HasOnlyReadOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[
-            Schema_.Properties.Bar[str],
+            Bar[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         foo: typing.Union[
-            Schema_.Properties.Foo[str],
+            Foo[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -108,3 +110,4 @@ class HasOnlyReadOnly(
             inst
         )
         return inst
+

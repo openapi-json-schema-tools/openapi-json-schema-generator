@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Shape(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -33,19 +34,12 @@ class Shape(
                 }
             }
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[triangle.Triangle]:
-                return triangle.Triangle
-        
-            @staticmethod
-            def _1() -> typing.Type[quadrilateral.Quadrilateral]:
-                return quadrilateral.Quadrilateral
-            classes = [
-                _0,
-                _1,
-            ]
+        @staticmethod
+        def one_of():
+            return (
+                triangle.Triangle,
+                quadrilateral.Quadrilateral,
+            )
 
 
     def __new__(
@@ -122,6 +116,7 @@ class Shape(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle

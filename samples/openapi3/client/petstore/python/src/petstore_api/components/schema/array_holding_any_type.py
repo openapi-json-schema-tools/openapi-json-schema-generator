@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
 
 class ArrayHoldingAnyType(
     schemas.ListSchema[schemas.T]
@@ -23,13 +25,16 @@ class ArrayHoldingAnyType(
 
     class Schema_:
         types = {tuple}
-        Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+        
+        @staticmethod
+        def items():
+            return Items
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Schema_.Items[typing.Union[
+                Items[typing.Union[
                     frozendict.frozendict,
                     str,
                     decimal.Decimal,
@@ -70,7 +75,7 @@ class ArrayHoldingAnyType(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
+    def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -81,3 +86,4 @@ class ArrayHoldingAnyType(
         schemas.FileIO
     ]]:
         return super().__getitem__(name)
+

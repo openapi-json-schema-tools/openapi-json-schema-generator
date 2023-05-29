@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
+
 
 class ObjectWithCollidingProperties(
     schemas.DictSchema[schemas.T]
@@ -26,19 +29,18 @@ class ObjectWithCollidingProperties(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "someProp": SomeProp,
                 "someprop": Someprop,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> Schema_.Properties.SomeProp[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Schema_.Properties.Someprop[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop[frozendict.frozendict]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -67,13 +69,13 @@ class ObjectWithCollidingProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            Schema_.Properties.SomeProp[frozendict.frozendict],
+            SomeProp[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         someprop: typing.Union[
-            Schema_.Properties.Someprop[frozendict.frozendict],
+            Someprop[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
@@ -112,3 +114,4 @@ class ObjectWithCollidingProperties(
             inst
         )
         return inst
+

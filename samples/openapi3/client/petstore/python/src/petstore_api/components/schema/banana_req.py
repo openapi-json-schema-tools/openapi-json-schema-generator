@@ -10,6 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Sweet: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+
 
 class BananaReq(
     schemas.DictSchema[schemas.T]
@@ -27,24 +32,26 @@ class BananaReq(
             "lengthCm",
         }
         
-        class Properties:
-            LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            Sweet: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "lengthCm": LengthCm,
                 "sweet": Sweet,
             }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def lengthCm(self) -> Schema_.Properties.LengthCm[decimal.Decimal]:
+    def lengthCm(self) -> LengthCm[decimal.Decimal]:
         return self.__getitem__("lengthCm")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> LengthCm[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> Schema_.Properties.Sweet[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> Sweet[schemas.BoolClass]: ...
     
     def __getitem__(
         self,
@@ -60,13 +67,13 @@ class BananaReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         lengthCm: typing.Union[
-            Schema_.Properties.LengthCm[decimal.Decimal],
+            LengthCm[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         sweet: typing.Union[
-            Schema_.Properties.Sweet[schemas.BoolClass],
+            Sweet[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
@@ -84,3 +91,4 @@ class BananaReq(
             inst
         )
         return inst
+

@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Not: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class AnyTypeNotString(
     schemas.AnyTypeSchema[schemas.T],
@@ -23,7 +25,10 @@ class AnyTypeNotString(
 
     class Schema_:
         # any type
-        _Not: typing_extensions.TypeAlias = schemas.StrSchema[U]
+        
+        @staticmethod
+        def not_():
+            return _Not
 
 
     def __new__(
@@ -100,3 +105,4 @@ class AnyTypeNotString(
             inst
         )
         return inst
+

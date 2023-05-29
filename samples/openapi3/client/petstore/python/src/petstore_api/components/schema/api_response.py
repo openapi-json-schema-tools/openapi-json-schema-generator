@@ -10,6 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Code: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Type: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Message: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ApiResponse(
     schemas.DictSchema[schemas.T]
@@ -24,24 +28,22 @@ class ApiResponse(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            Code: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            Type: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Message: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "code": Code,
                 "type": Type,
                 "message": Message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["code"]) -> Schema_.Properties.Code[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["code"]) -> Code[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Schema_.Properties.Type[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Type[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> Schema_.Properties.Message[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> Message[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -71,18 +73,18 @@ class ApiResponse(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         code: typing.Union[
-            Schema_.Properties.Code[decimal.Decimal],
+            Code[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         type: typing.Union[
-            Schema_.Properties.Type[str],
+            Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         message: typing.Union[
-            Schema_.Properties.Message[str],
+            Message[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -121,3 +123,4 @@ class ApiResponse(
             inst
         )
         return inst
+

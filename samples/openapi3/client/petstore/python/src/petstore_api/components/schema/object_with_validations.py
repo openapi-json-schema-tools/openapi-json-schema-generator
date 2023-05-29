@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectWithValidations(
     schemas.DictSchema[schemas.T]
 ):
@@ -60,3 +61,4 @@ class ObjectWithValidations(
             inst
         )
         return inst
+

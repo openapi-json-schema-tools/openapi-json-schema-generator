@@ -10,6 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+
 
 class NoAdditionalProperties(
     schemas.DictSchema[schemas.T]
@@ -27,24 +32,26 @@ class NoAdditionalProperties(
             "id",
         }
         
-        class Properties:
-            Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "id": Id,
                 "petId": PetId,
             }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def id(self) -> Schema_.Properties.Id[decimal.Decimal]:
+    def id(self) -> Id[decimal.Decimal]:
         return self.__getitem__("id")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> Schema_.Properties.PetId[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> PetId[decimal.Decimal]: ...
     
     def __getitem__(
         self,
@@ -60,12 +67,12 @@ class NoAdditionalProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id[decimal.Decimal],
+            Id[decimal.Decimal],
             decimal.Decimal,
             int
         ],
         petId: typing.Union[
-            Schema_.Properties.PetId[decimal.Decimal],
+            PetId[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -84,3 +91,4 @@ class NoAdditionalProperties(
             inst
         )
         return inst
+

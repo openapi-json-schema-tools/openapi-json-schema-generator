@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ArrayOfEnums(
     schemas.ListSchema[schemas.T]
 ):
@@ -25,7 +26,7 @@ class ArrayOfEnums(
         types = {tuple}
         
         @staticmethod
-        def items() -> typing.Type[string_enum.StringEnum]:
+        def items():
             return string_enum.StringEnum
 
     def __new__(
@@ -58,5 +59,6 @@ class ArrayOfEnums(
         str
     ]]:
         return super().__getitem__(name)
+
 
 from petstore_api.components.schema import string_enum

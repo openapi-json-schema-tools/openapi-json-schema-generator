@@ -11,6 +11,46 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Files(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return file.File
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                file.File[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Files[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Files[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> file.File[frozendict.frozendict]:
+        return super().__getitem__(name)
+
+
+
 class FileSchemaTestClass(
     schemas.DictSchema[schemas.T]
 ):
@@ -24,51 +64,10 @@ class FileSchemaTestClass(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-        
-            @staticmethod
-            def file() -> typing.Type[file.File]:
-                return file.File
-            
-            
-            class Files(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    @staticmethod
-                    def items() -> typing.Type[file.File]:
-                        return file.File
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            file.File[frozendict.frozendict],
-                            dict,
-                            frozendict.frozendict
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> FileSchemaTestClass.Schema_.Properties.Files[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        FileSchemaTestClass.Schema_.Properties.Files[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> file.File[frozendict.frozendict]:
-                    return super().__getitem__(name)
-            __annotations__ = {
-                "file": file,
+        @staticmethod
+        def properties():
+            return {
+                "file": file.File,
                 "files": Files,
             }
     
@@ -76,7 +75,7 @@ class FileSchemaTestClass(
     def __getitem__(self, name: typing_extensions.Literal["file"]) -> file.File[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["files"]) -> Schema_.Properties.Files[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["files"]) -> Files[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -111,7 +110,7 @@ class FileSchemaTestClass(
             frozendict.frozendict
         ] = schemas.unset,
         files: typing.Union[
-            Schema_.Properties.Files[tuple],
+            Files[tuple],
             schemas.Unset,
             list,
             tuple
@@ -150,5 +149,6 @@ class FileSchemaTestClass(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import file

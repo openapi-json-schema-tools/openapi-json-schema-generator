@@ -1,73 +1,54 @@
 {{#if allOf}}
 
-class AllOf:
-{{#each allOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "AllOf" jsonPathPiece) }}
-{{/if}}
-{{/each}}
-    classes = [
-{{#each allOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
+@staticmethod
+def all_of():
+    return (
+    {{#each allOf}}
+        {{#if refInfo.refClass}}
+        {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
         {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
+        {{/if}}
+    {{/each}}
+    )
 {{/if}}
 {{#if oneOf}}
 
-class OneOf:
-{{#each oneOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "OneOf" jsonPathPiece) }}
-{{/if}}
-{{/each}}
-    classes = [
-{{#each oneOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
+@staticmethod
+def one_of():
+    return (
+    {{#each oneOf}}
+        {{#if refInfo.refClass}}
+        {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
         {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
+        {{/if}}
+    {{/each}}
+    )
 {{/if}}
 {{#if anyOf}}
 
-class AnyOf:
-{{#each anyOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "AnyOf" jsonPathPiece) }}
-{{/if}}
-{{/each}}
-    classes = [
-{{#each anyOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
+@staticmethod
+def any_of():
+    return (
+    {{#each anyOf}}
+        {{#if refInfo.refClass}}
+        {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
         {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
+        {{/if}}
+    {{/each}}
+    )
 {{/if}}
 {{#if not}}
 {{#with not}}
-{{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+@staticmethod
+def not_():
+    {{#if refInfo.refClass}}
+    return {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+    {{else}}
+    return {{jsonPathPiece.camelCase}}
+    {{/if}}
 {{/with}}
 {{/if}}

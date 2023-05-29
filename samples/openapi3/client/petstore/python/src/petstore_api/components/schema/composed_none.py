@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
 
 class ComposedNone(
     schemas.NoneSchema[schemas.T]
@@ -26,11 +28,11 @@ class ComposedNone(
             schemas.NoneClass,
         }
         
-        class AllOf:
-            _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            classes = [
+        @staticmethod
+        def all_of():
+            return (
                 _0,
-            ]
+            )
 
 
     def __new__(
@@ -48,3 +50,4 @@ class ComposedNone(
             inst
         )
         return inst
+

@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+B: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ObjWithRequiredPropsBase(
     schemas.DictSchema[schemas.T]
@@ -27,18 +29,18 @@ class ObjWithRequiredPropsBase(
             "b",
         }
         
-        class Properties:
-            B: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "b": B,
             }
     
     @property
-    def b(self) -> Schema_.Properties.B[str]:
+    def b(self) -> B[str]:
         return self.__getitem__("b")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> B[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -66,7 +68,7 @@ class ObjWithRequiredPropsBase(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         b: typing.Union[
-            Schema_.Properties.B[str],
+            B[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -102,3 +104,4 @@ class ObjWithRequiredPropsBase(
             inst
         )
         return inst
+

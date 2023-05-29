@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+A: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ObjWithRequiredProps(
     schemas.DictSchema[schemas.T]
@@ -29,28 +31,25 @@ class ObjWithRequiredProps(
             "a",
         }
         
-        class Properties:
-            A: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "a": A,
             }
         
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase]:
-                return obj_with_required_props_base.ObjWithRequiredPropsBase
-            classes = [
-                _0,
-            ]
+        @staticmethod
+        def all_of():
+            return (
+                obj_with_required_props_base.ObjWithRequiredPropsBase,
+            )
 
     
     @property
-    def a(self) -> Schema_.Properties.A[str]:
+    def a(self) -> A[str]:
         return self.__getitem__("a")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> A[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -78,7 +77,7 @@ class ObjWithRequiredProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         a: typing.Union[
-            Schema_.Properties.A[str],
+            A[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -114,5 +113,6 @@ class ObjWithRequiredProps(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import obj_with_required_props_base

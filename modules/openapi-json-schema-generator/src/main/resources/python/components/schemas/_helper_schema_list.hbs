@@ -31,7 +31,8 @@ class {{jsonPathPiece.camelCase}}(
     {{#if refInfo.refClass}}
     {{> components/schemas/_helper_getitem_refclass literal=false key="int" overload=false }}
     {{else}}
-    {{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="int" overload=false }}
+    {{> components/schemas/_helper_getitem_property literal=false key="int" overload=false }}
     {{/if}}
         return super().__getitem__(name)
 {{/with}}
+

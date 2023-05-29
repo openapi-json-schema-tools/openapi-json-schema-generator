@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema[U]
+
 
 class Address(
     schemas.DictSchema[schemas.T]
@@ -23,9 +25,12 @@ class Address(
 
     class Schema_:
         types = {frozendict.frozendict}
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[decimal.Decimal]:
+    def __getitem__(self, name: str) -> AdditionalProperties[decimal.Decimal]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -34,7 +39,7 @@ class Address(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[decimal.Decimal],
+            AdditionalProperties[decimal.Decimal],
             decimal.Decimal,
             int
         ],
@@ -50,3 +55,4 @@ class Address(
             inst
         )
         return inst
+

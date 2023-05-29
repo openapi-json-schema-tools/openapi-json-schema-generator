@@ -15,8 +15,8 @@ import unittest
 import frozendict
 
 import petstore_api
-from petstore_api.components.schema.cat import Cat
-from petstore_api.components.schema.dog import Dog
+from petstore_api.components.schema import cat
+from petstore_api.components.schema import dog
 from petstore_api.components.schema.animal import Animal
 from petstore_api.schemas import StrSchema, BoolSchema
 
@@ -42,8 +42,8 @@ class TestAnimal(unittest.TestCase):
 
         animal = Animal(className='Cat', color='black')
         assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, Cat)
-        assert isinstance(animal, Cat.Schema_.AllOf.classes[1])
+        assert isinstance(animal, cat.Cat)
+        assert isinstance(animal, cat._1)
         assert isinstance(animal, Animal)
         assert set(animal.keys()) == {'className', 'color'}
         assert animal.className == 'Cat'
@@ -55,8 +55,8 @@ class TestAnimal(unittest.TestCase):
         animal = Animal(className='Cat', color='black', declawed=True)
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, Cat)
-        assert isinstance(animal, Cat.Schema_.AllOf.classes[1])
+        assert isinstance(animal, cat.Cat)
+        assert isinstance(animal, cat._1)
         assert set(animal.keys()) == {'className', 'color', 'declawed'}
         assert animal.className == 'Cat'
         assert animal["color"] == 'black'
@@ -69,8 +69,8 @@ class TestAnimal(unittest.TestCase):
         animal = Animal(className='Dog', color='black')
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, Dog)
-        assert isinstance(animal, Dog.Schema_.AllOf.classes[1])
+        assert isinstance(animal, dog.Dog)
+        assert isinstance(animal, dog._1)
         assert set(animal.keys()) == {'className', 'color'}
         assert animal.className == 'Dog'
         assert animal["color"] == 'black'
@@ -81,8 +81,8 @@ class TestAnimal(unittest.TestCase):
         animal = Animal(className='Dog', color='black', breed='Labrador')
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, Dog)
-        assert isinstance(animal, Dog.Schema_.AllOf.classes[1])
+        assert isinstance(animal, dog.Dog)
+        assert isinstance(animal, dog._1)
         assert set(animal.keys()) == {'className', 'color', 'breed'}
         assert animal.className == 'Dog'
         assert animal["color"] == 'black'

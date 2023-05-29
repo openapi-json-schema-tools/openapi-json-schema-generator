@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -124,6 +125,68 @@ public class CodegenSchema {
             refObject = refObject.refInfo.ref;
         }
         return refObject;
+    }
+
+    /**
+     * Returns all schemas in post order traversal, used by templates to write schema classes
+     * @param schemas the input list that stores this and all required schemas
+     * @return the list that stores this and all required schemas
+     */
+    private ArrayList<CodegenSchema> getAllSchemas(ArrayList<CodegenSchema> schemas, int level) {
+        /*
+        post order traversal using alphabetic json schema keywords as the order
+        keywords with schemas:
+        additionalProperties
+        allOf
+        anyOf
+        items
+        not
+        oneOf
+        properties
+
+        excluded:
+        $ref (because it is an import)
+         */
+        if (additionalProperties != null) {
+            additionalProperties.getAllSchemas(schemas, level + 1);
+        }
+        if (allOf != null) {
+            for (CodegenSchema someSchema: allOf) {
+                someSchema.getAllSchemas(schemas, level + 1);
+            }
+        }
+        if (anyOf != null) {
+            for (CodegenSchema someSchema: anyOf) {
+                someSchema.getAllSchemas(schemas, level + 1);
+            }
+        }
+        if (items != null) {
+            items.getAllSchemas(schemas, level + 1);
+        }
+        if (not != null) {
+            not.getAllSchemas(schemas, level + 1);
+        }
+        if (oneOf != null) {
+            for (CodegenSchema someSchema: oneOf) {
+                someSchema.getAllSchemas(schemas, level + 1);
+            }
+        }
+        if (properties != null) {
+            for (CodegenSchema someSchema: properties.values()) {
+                someSchema.getAllSchemas(schemas, level + 1);
+            }
+        }
+        if (refInfo != null && level > 0) {
+            // do not add ref to schemas
+            return schemas;
+        }
+        schemas.add(this);
+        return schemas;
+    }
+
+    public ArrayList<CodegenSchema> getSchemas() {
+        ArrayList<CodegenSchema> schemas = new ArrayList<>();
+        return getAllSchemas(schemas, 0);
     }
 
     public boolean isComplicated() {

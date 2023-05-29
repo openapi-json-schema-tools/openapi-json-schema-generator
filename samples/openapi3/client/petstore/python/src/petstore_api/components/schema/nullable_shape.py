@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+
 
 class NullableShape(
     schemas.AnyTypeSchema[schemas.T],
@@ -26,21 +28,13 @@ class NullableShape(
     class Schema_:
         # any type
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[triangle.Triangle]:
-                return triangle.Triangle
-        
-            @staticmethod
-            def _1() -> typing.Type[quadrilateral.Quadrilateral]:
-                return quadrilateral.Quadrilateral
-            _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-            classes = [
-                _0,
-                _1,
+        @staticmethod
+        def one_of():
+            return (
+                triangle.Triangle,
+                quadrilateral.Quadrilateral,
                 _2,
-            ]
+            )
 
 
     def __new__(
@@ -117,6 +111,7 @@ class NullableShape(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle

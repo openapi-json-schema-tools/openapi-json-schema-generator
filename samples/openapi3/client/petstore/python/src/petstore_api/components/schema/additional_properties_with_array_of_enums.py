@@ -11,6 +11,45 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class AdditionalProperties(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {tuple}
+        
+        @staticmethod
+        def items():
+            return enum_class.EnumClass
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                enum_class.EnumClass[str],
+                str
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> AdditionalProperties[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            AdditionalProperties[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
+        return super().__getitem__(name)
+
+
+
 class AdditionalPropertiesWithArrayOfEnums(
     schemas.DictSchema[schemas.T]
 ):
@@ -24,44 +63,11 @@ class AdditionalPropertiesWithArrayOfEnums(
     class Schema_:
         types = {frozendict.frozendict}
         
-        
-        class AdditionalProperties(
-            schemas.ListSchema[schemas.T]
-        ):
-        
-        
-            class Schema_:
-                types = {tuple}
-                
-                @staticmethod
-                def items() -> typing.Type[enum_class.EnumClass]:
-                    return enum_class.EnumClass
-        
-            def __new__(
-                cls,
-                arg_: typing.Sequence[
-                    typing.Union[
-                        enum_class.EnumClass[str],
-                        str
-                    ]
-                ],
-                configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-            ) -> AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties[tuple]:
-                inst = super().__new__(
-                    cls,
-                    arg_,
-                    configuration_=configuration_,
-                )
-                inst = typing.cast(
-                    AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties[tuple],
-                    inst
-                )
-                return inst
-        
-            def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
-                return super().__getitem__(name)
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[tuple]:
+    def __getitem__(self, name: str) -> AdditionalProperties[tuple]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -70,7 +76,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[tuple],
+            AdditionalProperties[tuple],
             list,
             tuple
         ],
@@ -86,5 +92,6 @@ class AdditionalPropertiesWithArrayOfEnums(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import enum_class

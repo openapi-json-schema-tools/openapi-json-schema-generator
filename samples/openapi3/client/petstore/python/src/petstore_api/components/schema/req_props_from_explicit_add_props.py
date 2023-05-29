@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ReqPropsFromExplicitAddProps(
     schemas.DictSchema[schemas.T]
@@ -27,20 +29,23 @@ class ReqPropsFromExplicitAddProps(
             "invalid-name",
             "validName",
         }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+        
+        @staticmethod
+        def additional_properties():
+            return AdditionalProperties
     
     @property
-    def validName(self) -> Schema_.AdditionalProperties[str]:
+    def validName(self) -> AdditionalProperties[str]:
         return self.__getitem__("validName")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> Schema_.AdditionalProperties[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> AdditionalProperties[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> Schema_.AdditionalProperties[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> AdditionalProperties[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[str]: ...
+    def __getitem__(self, name: str) -> AdditionalProperties[str]: ...
     
     def __getitem__(
         self,
@@ -57,12 +62,12 @@ class ReqPropsFromExplicitAddProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         validName: typing.Union[
-            Schema_.AdditionalProperties[str],
+            AdditionalProperties[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[str],
+            AdditionalProperties[str],
             str
         ],
     ) -> ReqPropsFromExplicitAddProps[frozendict.frozendict]:
@@ -78,3 +83,4 @@ class ReqPropsFromExplicitAddProps(
             inst
         )
         return inst
+

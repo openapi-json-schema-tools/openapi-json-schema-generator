@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Arg: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Args: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class ObjectModelWithArgAndArgsProperties(
     schemas.DictSchema[schemas.T]
@@ -28,27 +31,26 @@ class ObjectModelWithArgAndArgsProperties(
             "args",
         }
         
-        class Properties:
-            Arg: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Args: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "arg": Arg,
                 "args": Args,
             }
     
     @property
-    def arg(self) -> Schema_.Properties.Arg[str]:
+    def arg(self) -> Arg[str]:
         return self.__getitem__("arg")
     
     @property
-    def args(self) -> Schema_.Properties.Args[str]:
+    def args(self) -> Args[str]:
         return self.__getitem__("args")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Arg[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["args"]) -> Schema_.Properties.Args[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["args"]) -> Args[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -77,11 +79,11 @@ class ObjectModelWithArgAndArgsProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         arg: typing.Union[
-            Schema_.Properties.Arg[str],
+            Arg[str],
             str
         ],
         args: typing.Union[
-            Schema_.Properties.Args[str],
+            Args[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -118,3 +120,4 @@ class ObjectModelWithArgAndArgsProperties(
             inst
         )
         return inst
+

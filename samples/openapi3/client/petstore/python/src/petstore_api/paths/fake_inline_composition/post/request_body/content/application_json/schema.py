@@ -11,6 +11,19 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class _0(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        min_length = 1
+
+
 class Schema(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -19,22 +32,11 @@ class Schema(
     class Schema_:
         # any type
         
-        class AllOf:
-            
-            
-            class _0(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    min_length = 1
-            classes = [
+        @staticmethod
+        def all_of():
+            return (
                 _0,
-            ]
+            )
 
 
     def __new__(
@@ -111,3 +113,4 @@ class Schema(
             inst
         )
         return inst
+

@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
+File: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -22,23 +25,22 @@ class Schema(
             "file",
         }
         
-        class Properties:
-            AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            File: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "additionalMetadata": AdditionalMetadata,
                 "file": File,
             }
     
     @property
-    def file(self) -> Schema_.Properties.File[typing.Union[bytes, schemas.FileIO]]:
+    def file(self) -> File[typing.Union[bytes, schemas.FileIO]]:
         return self.__getitem__("file")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> Schema_.Properties.File[typing.Union[bytes, schemas.FileIO]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["file"]) -> File[typing.Union[bytes, schemas.FileIO]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> Schema_.Properties.AdditionalMetadata[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> AdditionalMetadata[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -67,13 +69,13 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         file: typing.Union[
-            Schema_.Properties.File[typing.Union[bytes, schemas.FileIO]],
+            File[typing.Union[bytes, schemas.FileIO]],
             bytes,
             io.FileIO,
             io.BufferedReader
         ],
         additionalMetadata: typing.Union[
-            Schema_.Properties.AdditionalMetadata[str],
+            AdditionalMetadata[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -111,3 +113,4 @@ class Schema(
             inst
         )
         return inst
+

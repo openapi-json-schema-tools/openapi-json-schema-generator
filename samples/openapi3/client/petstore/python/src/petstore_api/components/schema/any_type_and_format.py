@@ -11,6 +11,794 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Uuid(
+    schemas.UUIDBase,
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'uuid'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Uuid[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Uuid[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Date(
+    schemas.DateBase,
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'date'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Date[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Date[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class DateTime(
+    schemas.DateTimeBase,
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'date-time'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> DateTime[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            DateTime[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Number(
+    schemas.DecimalBase,
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'number'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Number[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Number[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Binary(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'binary'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Binary[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Binary[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Int32(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'int32'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Int32[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Int32[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Int64(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'int64'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Int64[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Int64[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class Double(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'double'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> Double[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            Double[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class _Float(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        format = 'float'
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> _Float[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _Float[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
 class AnyTypeAndFormat(
     schemas.DictSchema[schemas.T]
 ):
@@ -24,786 +812,9 @@ class AnyTypeAndFormat(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class Uuid(
-                schemas.UUIDBase,
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'uuid'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Uuid[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Uuid[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Date(
-                schemas.DateBase,
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'date'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Date[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Date[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class DateTime(
-                schemas.DateTimeBase,
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'date-time'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.DateTime[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.DateTime[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Number(
-                schemas.DecimalBase,
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'number'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Number[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Number[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Binary(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'binary'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Binary[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Binary[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Int32(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'int32'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Int32[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Int32[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Int64(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'int64'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Int64[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Int64[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class Double(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'double'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties.Double[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties.Double[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class _Float(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    format = 'float'
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AnyTypeAndFormat.Schema_.Properties._Float[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AnyTypeAndFormat.Schema_.Properties._Float[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "uuid": Uuid,
                 "date": Date,
                 "date-time": DateTime,
@@ -816,7 +827,7 @@ class AnyTypeAndFormat(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> Schema_.Properties.Uuid[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> Uuid[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -828,7 +839,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> Schema_.Properties.Date[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> Date[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -840,7 +851,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date-time"]) -> Schema_.Properties.DateTime[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["date-time"]) -> DateTime[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -852,7 +863,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> Schema_.Properties.Number[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> Number[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -864,7 +875,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> Schema_.Properties.Binary[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> Binary[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -876,7 +887,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> Schema_.Properties.Int32[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> Int32[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -888,7 +899,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> Schema_.Properties.Int64[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> Int64[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -900,7 +911,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> Schema_.Properties.Double[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> Double[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -912,7 +923,7 @@ class AnyTypeAndFormat(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> Schema_.Properties._Float[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> _Float[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -957,7 +968,7 @@ class AnyTypeAndFormat(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         uuid: typing.Union[
-            Schema_.Properties.Uuid[typing.Union[
+            Uuid[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -986,7 +997,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         date: typing.Union[
-            Schema_.Properties.Date[typing.Union[
+            Date[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1015,7 +1026,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         number: typing.Union[
-            Schema_.Properties.Number[typing.Union[
+            Number[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1044,7 +1055,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         binary: typing.Union[
-            Schema_.Properties.Binary[typing.Union[
+            Binary[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1073,7 +1084,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int32: typing.Union[
-            Schema_.Properties.Int32[typing.Union[
+            Int32[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1102,7 +1113,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int64: typing.Union[
-            Schema_.Properties.Int64[typing.Union[
+            Int64[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1131,7 +1142,7 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         double: typing.Union[
-            Schema_.Properties.Double[typing.Union[
+            Double[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -1198,3 +1209,4 @@ class AnyTypeAndFormat(
             inst
         )
         return inst
+

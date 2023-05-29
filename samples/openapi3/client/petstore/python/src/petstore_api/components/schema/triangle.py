@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Triangle(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -34,24 +35,13 @@ class Triangle(
                 }
             }
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[equilateral_triangle.EquilateralTriangle]:
-                return equilateral_triangle.EquilateralTriangle
-        
-            @staticmethod
-            def _1() -> typing.Type[isosceles_triangle.IsoscelesTriangle]:
-                return isosceles_triangle.IsoscelesTriangle
-        
-            @staticmethod
-            def _2() -> typing.Type[scalene_triangle.ScaleneTriangle]:
-                return scalene_triangle.ScaleneTriangle
-            classes = [
-                _0,
-                _1,
-                _2,
-            ]
+        @staticmethod
+        def one_of():
+            return (
+                equilateral_triangle.EquilateralTriangle,
+                isosceles_triangle.IsoscelesTriangle,
+                scalene_triangle.ScaleneTriangle,
+            )
 
 
     def __new__(
@@ -128,6 +118,7 @@ class Triangle(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import equilateral_triangle
 from petstore_api.components.schema import isosceles_triangle

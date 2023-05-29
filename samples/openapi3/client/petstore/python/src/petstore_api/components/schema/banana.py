@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+
 
 class Banana(
     schemas.DictSchema[schemas.T]
@@ -27,18 +29,18 @@ class Banana(
             "lengthCm",
         }
         
-        class Properties:
-            LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "lengthCm": LengthCm,
             }
     
     @property
-    def lengthCm(self) -> Schema_.Properties.LengthCm[decimal.Decimal]:
+    def lengthCm(self) -> LengthCm[decimal.Decimal]:
         return self.__getitem__("lengthCm")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> LengthCm[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -66,7 +68,7 @@ class Banana(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         lengthCm: typing.Union[
-            Schema_.Properties.LengthCm[decimal.Decimal],
+            LengthCm[decimal.Decimal],
             decimal.Decimal,
             int,
             float
@@ -104,3 +106,4 @@ class Banana(
             inst
         )
         return inst
+

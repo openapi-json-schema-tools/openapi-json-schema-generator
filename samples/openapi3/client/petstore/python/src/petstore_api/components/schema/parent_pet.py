@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ParentPet(
     schemas.DictSchema[schemas.T]
 ):
@@ -34,14 +35,11 @@ class ParentPet(
                 }
             }
         
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[grandparent_animal.GrandparentAnimal]:
-                return grandparent_animal.GrandparentAnimal
-            classes = [
-                _0,
-            ]
+        @staticmethod
+        def all_of():
+            return (
+                grandparent_animal.GrandparentAnimal,
+            )
 
 
     def __new__(
@@ -79,6 +77,7 @@ class ParentPet(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import grandparent_animal

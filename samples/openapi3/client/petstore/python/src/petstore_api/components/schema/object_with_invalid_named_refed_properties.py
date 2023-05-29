@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectWithInvalidNamedRefedProperties(
     schemas.DictSchema[schemas.T]
 ):
@@ -28,18 +29,11 @@ class ObjectWithInvalidNamedRefedProperties(
             "from",
         }
         
-        class Properties:
-        
-            @staticmethod
-            def _from() -> typing.Type[from_schema.FromSchema]:
-                return from_schema.FromSchema
-        
-            @staticmethod
-            def reference() -> typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems]:
-                return array_with_validations_in_items.ArrayWithValidationsInItems
-            __annotations__ = {
-                "from": _from,
-                "!reference": reference,
+        @staticmethod
+        def properties():
+            return {
+                "from": from_schema.FromSchema,
+                "!reference": array_with_validations_in_items.ArrayWithValidationsInItems,
             }
     
     @typing.overload
@@ -106,6 +100,7 @@ class ObjectWithInvalidNamedRefedProperties(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema

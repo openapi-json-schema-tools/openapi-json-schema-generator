@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Pig(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -33,19 +34,12 @@ class Pig(
                 }
             }
         
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[basque_pig.BasquePig]:
-                return basque_pig.BasquePig
-        
-            @staticmethod
-            def _1() -> typing.Type[danish_pig.DanishPig]:
-                return danish_pig.DanishPig
-            classes = [
-                _0,
-                _1,
-            ]
+        @staticmethod
+        def one_of():
+            return (
+                basque_pig.BasquePig,
+                danish_pig.DanishPig,
+            )
 
 
     def __new__(
@@ -122,6 +116,7 @@ class Pig(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import basque_pig
 from petstore_api.components.schema import danish_pig

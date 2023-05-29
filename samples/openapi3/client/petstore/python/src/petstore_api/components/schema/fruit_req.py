@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+
 
 class FruitReq(
     schemas.AnyTypeSchema[schemas.T],
@@ -24,21 +26,13 @@ class FruitReq(
     class Schema_:
         # any type
         
-        class OneOf:
-            _0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-        
-            @staticmethod
-            def _1() -> typing.Type[apple_req.AppleReq]:
-                return apple_req.AppleReq
-        
-            @staticmethod
-            def _2() -> typing.Type[banana_req.BananaReq]:
-                return banana_req.BananaReq
-            classes = [
+        @staticmethod
+        def one_of():
+            return (
                 _0,
-                _1,
-                _2,
-            ]
+                apple_req.AppleReq,
+                banana_req.BananaReq,
+            )
 
 
     def __new__(
@@ -115,6 +109,7 @@ class FruitReq(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import apple_req
 from petstore_api.components.schema import banana_req

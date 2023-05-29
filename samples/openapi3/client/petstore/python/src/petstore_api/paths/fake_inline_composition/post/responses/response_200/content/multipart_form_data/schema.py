@@ -11,6 +11,111 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class _0(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        min_length = 1
+
+
+class SomeProp(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    class Schema_:
+        # any type
+        
+        @staticmethod
+        def all_of():
+            return (
+                _0,
+            )
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
+    ) -> SomeProp[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            SomeProp[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
@@ -19,115 +124,14 @@ class Schema(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-            
-            
-            class SomeProp(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    
-                    class AllOf:
-                        
-                        
-                        class _0(
-                            schemas.StrSchema[schemas.T]
-                        ):
-                        
-                        
-                            class Schema_:
-                                types = {
-                                    str,
-                                }
-                                min_length = 1
-                        classes = [
-                            _0,
-                        ]
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> Schema.Schema_.Properties.SomeProp[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        Schema.Schema_.Properties.SomeProp[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "someProp": SomeProp,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> Schema_.Properties.SomeProp[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -164,7 +168,7 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            Schema_.Properties.SomeProp[typing.Union[
+            SomeProp[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -225,3 +229,4 @@ class Schema(
             inst
         )
         return inst
+

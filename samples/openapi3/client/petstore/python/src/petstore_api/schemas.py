@@ -13,6 +13,7 @@ import datetime
 import dataclasses
 import functools
 import decimal
+import inspect
 import io
 import re
 import types
@@ -193,22 +194,17 @@ class SchemaTyped:
     min_items: int
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
     default: typing.Union[str, int, BoolClass]
-
-
-    class Properties:
-        # to hold object properties
-        pass
-
-    additionalProperties: typing.Optional[typing.Type['Schema']]
+    properties: typing.Callable
+    additional_properties: typing.Callable
     max_properties: int
     min_properties: int
-    AllOf: typing.List[typing.Type['Schema']]
-    OneOf: typing.List[typing.Type['Schema']]
-    AnyOf: typing.List[typing.Type['Schema']]
-    _not: typing.Type['Schema']
+    all_of: typing.Callable
+    one_of: typing.Callable
+    any_of: typing.Callable
+    not_: typing.Callable
     max_length: int
     min_length: int
-    items: typing.Type['Schema']
+    items: typing.Callable
 
 PathToSchemasType = typing.Dict[
     typing.Tuple[typing.Union[str, int], ...],
@@ -786,18 +782,20 @@ def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.T
     elif isinstance(item_cls, staticmethod):
         # referenced schema
         return item_cls.__func__()
-    return item_cls
+    elif isinstance(item_cls, type):
+        return item_cls
+    raise ValueError('invalid class value passed in')
 
 
 def validate_items(
     arg: typing.Any,
-    item_cls: typing.Type,
+    item_cls_fn: typing.Callable,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    item_cls = _get_class(item_cls)
+    item_cls = _get_class(item_cls_fn.__func__())
     path_to_schemas = {}
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
@@ -816,17 +814,18 @@ def validate_items(
 
 def validate_properties(
     arg: typing.Any,
-    properties: typing.Type,
+    properties_fn: typing.Callable,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
     path_to_schemas = {}
-    present_properties = {k: v for k, v, in arg.items() if k in properties.__annotations__}
+    properties = properties_fn.__func__()
+    present_properties = {k: v for k, v, in arg.items() if k in properties}
     for property_name, value in present_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
-        schema = properties.__annotations__[property_name]
+        schema = properties[property_name]
         schema = _get_class(schema)
         arg_validation_metadata = ValidationMetadata(
             path_to_item=path_to_item,
@@ -843,16 +842,16 @@ def validate_properties(
 
 def validate_additional_properties(
     arg: typing.Any,
-    additional_properties_schema: typing.Type,
+    additional_properties_schema_fn: typing.Callable,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
-    schema = _get_class(additional_properties_schema)
+    schema = _get_class(additional_properties_schema_fn.__func__())
     path_to_schemas = {}
-    properties_annotations = cls.Schema_.Properties.__annotations__ if hasattr(cls.Schema_, 'Properties') else {}
-    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties_annotations}
+    properties = cls.Schema_.properties() if hasattr(cls.Schema_, 'properties') else {}
+    present_additional_properties = {k: v for k, v, in arg.items() if k not in properties}
     for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
         arg_validation_metadata = ValidationMetadata(
@@ -870,14 +869,15 @@ def validate_additional_properties(
 
 def validate_one_of(
     arg: typing.Any,
-    one_of_container_cls: typing.Type,
+    classes_fn: typing.Callable,
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     oneof_classes = []
     path_to_schemas = collections.defaultdict(set)
-    for one_of_cls in one_of_container_cls.classes:
-        schema = _get_class(one_of_cls)
+    classes = classes_fn.__func__()
+    for schema in classes:
+        schema = _get_class(schema)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
             oneof_classes.append(schema)
             continue
@@ -914,14 +914,15 @@ def validate_one_of(
 
 def validate_any_of(
     arg: typing.Any,
-    any_of_container_cls: typing.Type,
+    classes_fn: typing.Callable,
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas = collections.defaultdict(set)
-    for any_of_cls in any_of_container_cls.classes:
-        schema = _get_class(any_of_cls)
+    classes = classes_fn.__func__()
+    for schema in classes:
+        schema = _get_class(schema)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -951,13 +952,13 @@ def validate_any_of(
 
 def validate_all_of(
     arg: typing.Any,
-    all_of_cls: typing.Type,
+    classes_fn: typing.Callable,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     path_to_schemas = collections.defaultdict(set)
-    for allof_cls in all_of_cls.classes:
-        schema = _get_class(allof_cls)
+    classes = classes_fn.__func__()
+    for schema in classes:
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -974,11 +975,11 @@ def validate_all_of(
 
 def validate_not(
     arg: typing.Any,
-    not_cls: typing.Type,
+    not_cls_fn: typing.Callable,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> None:
-    not_schema = _get_class(not_cls)
+    not_schema = _get_class(not_cls_fn.__func__())
     other_path_to_schemas = None
     not_exception = exceptions.ApiValueError(
         "Invalid value '{}' was passed in to {}. Value is invalid because it is disallowed by {}".format(
@@ -1025,29 +1026,26 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     if discriminated_cls is not None:
         return discriminated_cls
     if not (
-        hasattr(cls.Schema_, 'AllOf') or
-        hasattr(cls.Schema_, 'OneOf') or
-        hasattr(cls.Schema_, 'AnyOf')
+        hasattr(cls.Schema_, 'all_of') or
+        hasattr(cls.Schema_, 'one_of') or
+        hasattr(cls.Schema_, 'any_of')
     ):
         return None
     # TODO stop traveling if a cycle is hit
-    if hasattr(cls.Schema_, 'AllOf'):
-        for allof_cls in cls.Schema_.AllOf.classes:
-            allof_cls = _get_class(allof_cls)
+    if hasattr(cls.Schema_, 'all_of'):
+        for allof_cls in cls.Schema_.all_of():
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.Schema_, 'OneOf'):
-        for oneof_cls in cls.Schema_.OneOf.classes:
-            oneof_cls = _get_class(oneof_cls)
+    if hasattr(cls.Schema_, 'one_of'):
+        for oneof_cls in cls.Schema_.one_of():
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.Schema_, 'AnyOf'):
-        for anyof_cls in cls.Schema_.AnyOf.classes:
-            anyof_cls = _get_class(anyof_cls)
+    if hasattr(cls.Schema_, 'any_of'):
+        for anyof_cls in cls.Schema_.any_of():
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
@@ -1116,16 +1114,12 @@ json_schema_keyword_to_validator = {
     'format': validate_format,
     'required': validate_required,
     'items': validate_items,
-    'Items': validate_items,
-    'Properties': validate_properties,
-    'AdditionalProperties': validate_additional_properties,
+    'properties': validate_properties,
     'additional_properties': validate_additional_properties,
-    'OneOf': validate_one_of,
-    'AnyOf': validate_any_of,
-    'AllOf': validate_all_of,
-    '_not': validate_not,
-    '_Not': validate_not,
-    'ModelNot': validate_not,
+    'one_of': validate_one_of,
+    'any_of': validate_any_of,
+    'all_of': validate_all_of,
+    'not_': validate_not,
     'discriminator': validate_discriminator
 }
 
@@ -2350,11 +2344,12 @@ class BinarySchema(
         types = {FileIO, bytes}
         format = 'binary'
 
-        class OneOf:
-            classes = [
+        @staticmethod
+        def one_of():
+            return (
                 BytesSchema,
                 FileSchema,
-            ]
+            )
 
     def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: schema_configuration.SchemaConfiguration) -> BinarySchema[typing.Union[FileIO, bytes]]:
         return super().__new__(cls, arg_)
@@ -2408,7 +2403,8 @@ class AnyTypeSchema(
             Schema,
             bytes,
             io.FileIO,
-            io.BufferedReader
+            io.BufferedReader,
+            Unset
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
@@ -2427,7 +2423,8 @@ class AnyTypeSchema(
             Schema,
             bytes,
             io.FileIO,
-            io.BufferedReader
+            io.BufferedReader,
+            Unset
         ]
     ) -> AnyTypeSchema[typing.Union[
         NoneClass,
@@ -2499,7 +2496,9 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     """
 
     class Schema_:
-        _not = AnyTypeSchema[U]
+        @staticmethod
+        def not_():
+            return AnyTypeSchema[U]
 
     def __new__(
         cls,

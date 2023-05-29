@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectModelWithRefProps(
     schemas.DictSchema[schemas.T]
 ):
@@ -26,23 +27,12 @@ class ObjectModelWithRefProps(
     class Schema_:
         types = {frozendict.frozendict}
         
-        class Properties:
-        
-            @staticmethod
-            def my_number() -> typing.Type[number_with_validations.NumberWithValidations]:
-                return number_with_validations.NumberWithValidations
-        
-            @staticmethod
-            def my_string() -> typing.Type[string.String]:
-                return string.String
-        
-            @staticmethod
-            def my_boolean() -> typing.Type[boolean.Boolean]:
-                return boolean.Boolean
-            __annotations__ = {
-                "myNumber": my_number,
-                "myString": my_string,
-                "myBoolean": my_boolean,
+        @staticmethod
+        def properties():
+            return {
+                "myNumber": number_with_validations.NumberWithValidations,
+                "myString": string.String,
+                "myBoolean": boolean.Boolean,
             }
     
     @typing.overload
@@ -133,6 +123,7 @@ class ObjectModelWithRefProps(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations

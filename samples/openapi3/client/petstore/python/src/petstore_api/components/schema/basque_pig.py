@@ -11,6 +11,25 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class ClassName(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    class Schema_:
+        types = {
+            str,
+        }
+        enum_value_to_name = {
+            "BasquePig": "BASQUE_PIG",
+        }
+    
+    @schemas.classproperty
+    def BASQUE_PIG(cls):
+        return cls("BasquePig") # type: ignore
+
+
 class BasquePig(
     schemas.DictSchema[schemas.T]
 ):
@@ -27,35 +46,18 @@ class BasquePig(
             "className",
         }
         
-        class Properties:
-            
-            
-            class ClassName(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "BasquePig": "BASQUE_PIG",
-                    }
-                
-                @schemas.classproperty
-                def BASQUE_PIG(cls):
-                    return cls("BasquePig") # type: ignore
-            __annotations__ = {
+        @staticmethod
+        def properties():
+            return {
                 "className": ClassName,
             }
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -83,7 +85,7 @@ class BasquePig(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -119,3 +121,4 @@ class BasquePig(
             inst
         )
         return inst
+
