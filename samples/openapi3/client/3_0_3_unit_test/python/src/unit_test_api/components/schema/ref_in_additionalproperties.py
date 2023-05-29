@@ -45,7 +45,34 @@ class RefInAdditionalproperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union['property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference', dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+        **kwargs: typing.Union[
+            property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ) -> RefInAdditionalproperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
