@@ -13,7 +13,7 @@ import collections
 import json
 import unittest
 
-from petstore_api import api_client, exceptions, schemas
+from petstore_api import api_client, exceptions, schemas, rest
 
 ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serialization')
 
@@ -65,49 +65,49 @@ class TestParameter(unittest.TestCase):
             serialization,
             dict(
                 fields=(
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_null', data='null', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_null\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_bool', data='true', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_bool\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_str', data='a', headers={
                             'Content-Type': 'text/plain',
                             "Content-Disposition": "form-data; name=\"some_str\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_int', data='1', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_int\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_float', data='3.14', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_float\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_list', data='[]', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_list\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_dict', data='{}', headers={
                             'Content-Type': 'application/json',
                             "Content-Disposition": "form-data; name=\"some_dict\"",
                             "Content-Location": None
                         }),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='some_bytes', data=b'abc', headers={
                             'Content-Type': 'application/octet-stream',
                             "Content-Disposition": "form-data; name=\"some_bytes\"",

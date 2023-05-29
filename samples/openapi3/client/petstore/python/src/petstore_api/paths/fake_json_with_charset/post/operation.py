@@ -32,7 +32,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_with_charset(
         self,
-        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json; charset=utf-8"].schema,
             schemas.Unset,
@@ -53,17 +52,17 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _json_with_charset(
         self,
-        content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json; charset=utf-8"].schema,
             schemas.Unset,
@@ -84,49 +83,16 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-
-    @typing.overload
-    def _json_with_charset(
-        self,
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json; charset=utf-8"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _json_with_charset(
         self,
-        content_type: str = ...,
         body: typing.Union[
             request_body.RequestBody.content["application/json; charset=utf-8"].schema,
             schemas.Unset,
@@ -147,44 +113,12 @@ class BaseApi(api_client.Api):
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
+        content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _json_with_charset(
-        self,
-        content_type: str = 'application/json; charset=utf-8',
-        body: typing.Union[
-            request_body.RequestBody.content["application/json; charset=utf-8"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         json with charset tx and rx
@@ -222,9 +156,12 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

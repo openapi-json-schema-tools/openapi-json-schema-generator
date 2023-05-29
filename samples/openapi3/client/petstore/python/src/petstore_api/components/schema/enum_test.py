@@ -231,17 +231,80 @@ class EnumTest(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        enum_string_required: typing.Union[Schema_.Properties.EnumStringRequired, str],
-        enum_string: typing.Union[Schema_.Properties.EnumString, str, schemas.Unset] = schemas.unset,
-        enum_integer: typing.Union[Schema_.Properties.EnumInteger, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        enum_number: typing.Union[Schema_.Properties.EnumNumber, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        stringEnum: typing.Union['string_enum.StringEnum', None, str, schemas.Unset] = schemas.unset,
-        IntegerEnum: typing.Union['integer_enum.IntegerEnum', decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        StringEnumWithDefaultValue: typing.Union['string_enum_with_default_value.StringEnumWithDefaultValue', str, schemas.Unset] = schemas.unset,
-        IntegerEnumWithDefaultValue: typing.Union['integer_enum_with_default_value.IntegerEnumWithDefaultValue', decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        IntegerEnumOneValue: typing.Union['integer_enum_one_value.IntegerEnumOneValue', decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        enum_string_required: typing.Union[
+            Schema_.Properties.EnumStringRequired[str],
+            str
+        ],
+        enum_string: typing.Union[
+            Schema_.Properties.EnumString[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        enum_integer: typing.Union[
+            Schema_.Properties.EnumInteger[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        enum_number: typing.Union[
+            Schema_.Properties.EnumNumber[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ] = schemas.unset,
+        stringEnum: typing.Union[
+            string_enum.StringEnum[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str
+        ] = schemas.unset,
+        IntegerEnum: typing.Union[
+            integer_enum.IntegerEnum[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        StringEnumWithDefaultValue: typing.Union[
+            string_enum_with_default_value.StringEnumWithDefaultValue[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        IntegerEnumWithDefaultValue: typing.Union[
+            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        IntegerEnumOneValue: typing.Union[
+            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> EnumTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,

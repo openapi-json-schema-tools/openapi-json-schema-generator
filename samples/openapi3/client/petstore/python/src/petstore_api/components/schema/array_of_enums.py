@@ -30,13 +30,15 @@ class ArrayOfEnums(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union['string_enum.StringEnum', None, str], ...
-            ],
-            typing.List[
-                typing.Union['string_enum.StringEnum', None, str]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                string_enum.StringEnum[typing.Union[
+                    schemas.NoneClass,
+                    str
+                ]],
+                None,
+                str
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ArrayOfEnums[tuple]:

@@ -29,13 +29,12 @@ class Items(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union[Schema_.Items, dict, frozendict.frozendict], ...
-            ],
-            typing.List[
-                typing.Union[Schema_.Items, dict, frozendict.frozendict]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                Schema_.Items[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> Items[tuple]:

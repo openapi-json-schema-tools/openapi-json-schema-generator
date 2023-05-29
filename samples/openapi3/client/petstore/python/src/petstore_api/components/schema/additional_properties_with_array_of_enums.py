@@ -39,13 +39,11 @@ class AdditionalPropertiesWithArrayOfEnums(
         
             def __new__(
                 cls,
-                arg_: typing.Union[
-                    typing.Tuple[
-                        typing.Union['enum_class.EnumClass', str], ...
-                    ],
-                    typing.List[
-                        typing.Union['enum_class.EnumClass', str]
-                    ],
+                arg_: typing.Sequence[
+                    typing.Union[
+                        enum_class.EnumClass[str],
+                        str
+                    ]
                 ],
                 configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
             ) -> AdditionalPropertiesWithArrayOfEnums.Schema_.AdditionalProperties[tuple]:
@@ -71,7 +69,11 @@ class AdditionalPropertiesWithArrayOfEnums(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, list, tuple],
+        **kwargs: typing.Union[
+            Schema_.AdditionalProperties[tuple],
+            list,
+            tuple
+        ],
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,

@@ -42,7 +42,7 @@ class BaseApi(api_client.Api):
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> typing.Union[
         response_3xx.ResponseFor3XX.response_cls,
         response_303.ResponseFor303.response_cls,
@@ -51,31 +51,18 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _redirection(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _redirection(
         self,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_3xx.ResponseFor3XX.response_cls,
-        response_303.ResponseFor303.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _redirection(
-        self,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         operation with redirection responses
@@ -103,9 +90,12 @@ class BaseApi(api_client.Api):
             status = str(raw_response.status)
             ranged_response_status_code = status[0]
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '303',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             elif ranged_response_status_code in _ranged_status_code_to_response:

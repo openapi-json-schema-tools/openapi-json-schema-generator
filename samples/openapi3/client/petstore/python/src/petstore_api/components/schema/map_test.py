@@ -53,7 +53,10 @@ class MapTest(
                             cls,
                             *args_: typing.Union[dict, frozendict.frozendict],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[Schema_.AdditionalProperties, str],
+                            **kwargs: typing.Union[
+                                Schema_.AdditionalProperties[str],
+                                str
+                            ],
                         ) -> MapTest.Schema_.Properties.MapMapOfString.Schema_.AdditionalProperties[frozendict.frozendict]:
                             inst = super().__new__(
                                 cls,
@@ -75,7 +78,11 @@ class MapTest(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, dict, frozendict.frozendict],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties[frozendict.frozendict],
+                        dict,
+                        frozendict.frozendict
+                    ],
                 ) -> MapTest.Schema_.Properties.MapMapOfString[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
@@ -129,7 +136,10 @@ class MapTest(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, str],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties[str],
+                        str
+                    ],
                 ) -> MapTest.Schema_.Properties.MapOfEnumString[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
@@ -161,7 +171,10 @@ class MapTest(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[Schema_.AdditionalProperties, bool],
+                    **kwargs: typing.Union[
+                        Schema_.AdditionalProperties[schemas.BoolClass],
+                        bool
+                    ],
                 ) -> MapTest.Schema_.Properties.DirectMap[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
@@ -225,12 +238,50 @@ class MapTest(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        map_map_of_string: typing.Union[Schema_.Properties.MapMapOfString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        map_of_enum_string: typing.Union[Schema_.Properties.MapOfEnumString, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        direct_map: typing.Union[Schema_.Properties.DirectMap, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        indirect_map: typing.Union['string_boolean_map.StringBooleanMap', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        map_map_of_string: typing.Union[
+            Schema_.Properties.MapMapOfString[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        map_of_enum_string: typing.Union[
+            Schema_.Properties.MapOfEnumString[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        direct_map: typing.Union[
+            Schema_.Properties.DirectMap[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        indirect_map: typing.Union[
+            string_boolean_map.StringBooleanMap[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> MapTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,

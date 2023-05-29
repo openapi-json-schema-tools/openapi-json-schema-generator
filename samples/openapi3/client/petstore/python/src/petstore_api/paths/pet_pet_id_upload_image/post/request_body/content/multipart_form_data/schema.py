@@ -59,10 +59,38 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        additionalMetadata: typing.Union[Schema_.Properties.AdditionalMetadata, str, schemas.Unset] = schemas.unset,
-        file: typing.Union[Schema_.Properties.File, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        additionalMetadata: typing.Union[
+            Schema_.Properties.AdditionalMetadata[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        file: typing.Union[
+            Schema_.Properties.File[typing.Union[bytes, schemas.FileIO]],
+            schemas.Unset,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
