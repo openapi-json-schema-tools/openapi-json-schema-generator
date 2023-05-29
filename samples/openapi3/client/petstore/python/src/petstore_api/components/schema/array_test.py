@@ -38,13 +38,11 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[Schema_.Items, str], ...
-                        ],
-                        typing.List[
-                            typing.Union[Schema_.Items, str]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[str],
+                            str
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayOfString[tuple]:
@@ -83,13 +81,12 @@ class ArrayTest(
                     
                         def __new__(
                             cls,
-                            arg_: typing.Union[
-                                typing.Tuple[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int], ...
-                                ],
-                                typing.List[
-                                    typing.Union[Schema_.Items, decimal.Decimal, int]
-                                ],
+                            arg_: typing.Sequence[
+                                typing.Union[
+                                    Schema_.Items[decimal.Decimal],
+                                    decimal.Decimal,
+                                    int
+                                ]
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items[tuple]:
@@ -109,13 +106,12 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple], ...
-                        ],
-                        typing.List[
-                            typing.Union[Schema_.Items, list, tuple]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[tuple],
+                            list,
+                            tuple
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger[tuple]:
@@ -157,13 +153,12 @@ class ArrayTest(
                     
                         def __new__(
                             cls,
-                            arg_: typing.Union[
-                                typing.Tuple[
-                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict], ...
-                                ],
-                                typing.List[
-                                    typing.Union['read_only_first.ReadOnlyFirst', dict, frozendict.frozendict]
-                                ],
+                            arg_: typing.Sequence[
+                                typing.Union[
+                                    read_only_first.ReadOnlyFirst[frozendict.frozendict],
+                                    dict,
+                                    frozendict.frozendict
+                                ]
                             ],
                             configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                         ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items[tuple]:
@@ -183,13 +178,12 @@ class ArrayTest(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[Schema_.Items, list, tuple], ...
-                        ],
-                        typing.List[
-                            typing.Union[Schema_.Items, list, tuple]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[tuple],
+                            list,
+                            tuple
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel[tuple]:
@@ -248,11 +242,44 @@ class ArrayTest(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        array_of_string: typing.Union[Schema_.Properties.ArrayOfString, list, tuple, schemas.Unset] = schemas.unset,
-        array_array_of_integer: typing.Union[Schema_.Properties.ArrayArrayOfInteger, list, tuple, schemas.Unset] = schemas.unset,
-        array_array_of_model: typing.Union[Schema_.Properties.ArrayArrayOfModel, list, tuple, schemas.Unset] = schemas.unset,
+        array_of_string: typing.Union[
+            Schema_.Properties.ArrayOfString[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        array_array_of_integer: typing.Union[
+            Schema_.Properties.ArrayArrayOfInteger[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        array_array_of_model: typing.Union[
+            Schema_.Properties.ArrayArrayOfModel[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> ArrayTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,

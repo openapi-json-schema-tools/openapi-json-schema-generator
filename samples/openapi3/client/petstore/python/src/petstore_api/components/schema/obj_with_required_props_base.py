@@ -65,9 +65,30 @@ class ObjWithRequiredPropsBase(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        b: typing.Union[Schema_.Properties.B, str],
+        b: typing.Union[
+            Schema_.Properties.B[str],
+            str
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> ObjWithRequiredPropsBase[frozendict.frozendict]:
         inst = super().__new__(
             cls,

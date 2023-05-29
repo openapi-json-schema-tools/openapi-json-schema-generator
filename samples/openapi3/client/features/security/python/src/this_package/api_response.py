@@ -25,5 +25,5 @@ class ApiResponse:
 @dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing_extensions.TypedDict] = schemas.unset
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset

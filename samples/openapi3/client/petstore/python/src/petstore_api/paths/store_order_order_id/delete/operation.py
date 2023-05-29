@@ -56,41 +56,29 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _delete_order(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: RequestPathParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> api_response.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _delete_order(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: RequestPathParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _delete_order(
         self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
+        path_params: RequestPathParameters.Params,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _delete_order(
-        self,
-        path_params: RequestPathParameters.Params = frozendict.frozendict(),
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         Delete purchase order by ID
@@ -122,10 +110,13 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '400',
                     '404',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

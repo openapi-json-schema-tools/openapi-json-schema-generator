@@ -25,11 +25,11 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        content_type: typing_extensions.Literal["application/json"] = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_default.Default.response_cls: ...
 
     @typing.overload
@@ -37,62 +37,28 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
+            dict,
+            frozendict.frozendict
         ],
-        content_type: str = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_default.Default.response_cls: ...
-
-
-    @typing.overload
-    def _create_user(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _create_user(
         self,
         body: typing.Union[
             request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
+            dict,
+            frozendict.frozendict
         ],
-        content_type: str = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_default.Default.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _create_user(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-                dict,
-                frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         Create user

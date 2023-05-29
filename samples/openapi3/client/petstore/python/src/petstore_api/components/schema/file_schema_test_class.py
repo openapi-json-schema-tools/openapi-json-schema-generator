@@ -45,13 +45,12 @@ class FileSchemaTestClass(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union['file.File', dict, frozendict.frozendict], ...
-                        ],
-                        typing.List[
-                            typing.Union['file.File', dict, frozendict.frozendict]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            file.File[frozendict.frozendict],
+                            dict,
+                            frozendict.frozendict
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> FileSchemaTestClass.Schema_.Properties.Files[tuple]:
@@ -105,10 +104,38 @@ class FileSchemaTestClass(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        file: typing.Union['file.File', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        files: typing.Union[Schema_.Properties.Files, list, tuple, schemas.Unset] = schemas.unset,
+        file: typing.Union[
+            file.File[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        files: typing.Union[
+            Schema_.Properties.Files[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> FileSchemaTestClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,

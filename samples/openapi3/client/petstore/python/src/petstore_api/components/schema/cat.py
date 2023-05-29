@@ -73,9 +73,31 @@ class Cat(
                 def __new__(
                     cls,
                     *args_: typing.Union[dict, frozendict.frozendict],
-                    declawed: typing.Union[Schema_.Properties.Declawed, bool, schemas.Unset] = schemas.unset,
+                    declawed: typing.Union[
+                        Schema_.Properties.Declawed[schemas.BoolClass],
+                        schemas.Unset,
+                        bool
+                    ] = schemas.unset,
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> Cat.Schema_.AllOf._1[frozendict.frozendict]:
                     inst = super().__new__(
                         cls,
@@ -97,9 +119,44 @@ class Cat(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+        *args_: typing.Union[
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> Cat[
         typing.Union[
             frozendict.frozendict,

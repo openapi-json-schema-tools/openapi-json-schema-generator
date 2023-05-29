@@ -40,13 +40,12 @@ class ArrayWithValidationsInItems(
 
     def __new__(
         cls,
-        arg_: typing.Union[
-            typing.Tuple[
-                typing.Union[Schema_.Items, decimal.Decimal, int], ...
-            ],
-            typing.List[
-                typing.Union[Schema_.Items, decimal.Decimal, int]
-            ],
+        arg_: typing.Sequence[
+            typing.Union[
+                Schema_.Items[decimal.Decimal],
+                decimal.Decimal,
+                int
+            ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> ArrayWithValidationsInItems[tuple]:
