@@ -14,6 +14,7 @@ import typing
 
 import certifi
 import urllib3
+from urllib3 import fields
 from urllib3 import exceptions as urllib3_exceptions
 from urllib3._collections import HTTPHeaderDict
 
@@ -21,6 +22,24 @@ from this_package import exceptions
 
 
 logger = logging.getLogger(__name__)
+_TYPE_FIELD_VALUE = typing.Union[str, bytes]
+
+
+class RequestField(fields.RequestField):
+    def __init__(
+        self,
+        name: str,
+        data: _TYPE_FIELD_VALUE,
+        filename: typing.Optional[str] = None,
+        headers: typing.Optional[typing.Mapping[str, typing.Union[str, None]]] = None,
+        header_formatter: typing.Optional[typing.Callable[[str, _TYPE_FIELD_VALUE], str]] = None,
+    ):
+        super().__init__(name, data, filename, headers, header_formatter) # type: ignore
+
+    def __eq__(self, other):
+        if not isinstance(other, fields.RequestField):
+            return False
+        return self.__dict__ == other.__dict__
 
 
 class RESTClientObject(object):
@@ -90,7 +109,7 @@ class RESTClientObject(object):
         method: str,
         url: str,
         headers: typing.Optional[HTTPHeaderDict] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, typing.Any], ...]] = None,
+        fields: typing.Optional[typing.Tuple[RequestField, ...]] = None,
         body: typing.Optional[typing.Union[str, bytes]] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,

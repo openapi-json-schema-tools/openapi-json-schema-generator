@@ -37,12 +37,12 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        content_type: typing_extensions.Literal["application/json"] = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
@@ -53,32 +53,14 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        content_type: str = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
-    ) -> response_200.ResponseFor200.response_cls: ...
-
-
-    @typing.overload
-    def _client_model(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: str = ...,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _client_model(
         self,
         body: typing.Union[
@@ -86,30 +68,12 @@ class BaseApi(api_client.Api):
             dict,
             frozendict.frozendict
         ],
-        content_type: str = ...,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _client_model(
-        self,
-        body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
-        ],
-        content_type: str = 'application/json',
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         To test \&quot;client\&quot; model
@@ -147,9 +111,12 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

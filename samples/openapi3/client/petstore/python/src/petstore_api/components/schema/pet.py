@@ -50,13 +50,11 @@ class Pet(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union[Schema_.Items, str], ...
-                        ],
-                        typing.List[
-                            typing.Union[Schema_.Items, str]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            Schema_.Items[str],
+                            str
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Pet.Schema_.Properties.PhotoUrls[tuple]:
@@ -89,13 +87,12 @@ class Pet(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[
-                        typing.Tuple[
-                            typing.Union['tag.Tag', dict, frozendict.frozendict], ...
-                        ],
-                        typing.List[
-                            typing.Union['tag.Tag', dict, frozendict.frozendict]
-                        ],
+                    arg_: typing.Sequence[
+                        typing.Union[
+                            tag.Tag[frozendict.frozendict],
+                            dict,
+                            frozendict.frozendict
+                        ]
                     ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> Pet.Schema_.Properties.Tags[tuple]:
@@ -205,14 +202,58 @@ class Pet(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[Schema_.Properties.Name, str],
-        photoUrls: typing.Union[Schema_.Properties.PhotoUrls, list, tuple],
-        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        category: typing.Union['category.Category', dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        tags: typing.Union[Schema_.Properties.Tags, list, tuple, schemas.Unset] = schemas.unset,
-        status: typing.Union[Schema_.Properties.Status, str, schemas.Unset] = schemas.unset,
+        name: typing.Union[
+            Schema_.Properties.Name[str],
+            str
+        ],
+        photoUrls: typing.Union[
+            Schema_.Properties.PhotoUrls[tuple],
+            list,
+            tuple
+        ],
+        id: typing.Union[
+            Schema_.Properties.Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        category: typing.Union[
+            category.Category[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        tags: typing.Union[
+            Schema_.Properties.Tags[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ] = schemas.unset,
+        status: typing.Union[
+            Schema_.Properties.Status[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> Pet[frozendict.frozendict]:
         inst = super().__new__(
             cls,

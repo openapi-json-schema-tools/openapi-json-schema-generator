@@ -10,7 +10,7 @@
 """
 from email.mime import multipart
 from email.mime import nonmultipart
-import http
+from http import client
 import io
 import sys
 import unittest
@@ -19,7 +19,7 @@ from unittest.mock import patch
 
 import urllib3
 import petstore_api
-from petstore_api import api_client, schemas, exceptions
+from petstore_api import api_client, schemas, exceptions, rest
 from petstore_api.apis.tags.fake_api import FakeApi  # noqa: E501
 from petstore_api.rest import RESTClientObject
 from petstore_api.configurations import api_configuration
@@ -230,11 +230,11 @@ class TestFakeApi(ApiTestMixin):
         from petstore_api.components.schema.user import User
         user = User({})
         # missing required query param
-        with self.assertRaises(petstore_api.ApiTypeError):
+        with self.assertRaises(TypeError):
             self.api.body_with_query_params(body=user)
         # required query param may not be unset
         with self.assertRaises(petstore_api.ApiValueError):
-            self.api.body_with_query_params(body=schemas.unset, query_params=dict(query=schemas.unset))
+            self.api.body_with_query_params(body={}, query_params={'query': schemas.unset})
 
     def test_body_with_query_params(self):
         from petstore_api.components.schema import user
@@ -253,7 +253,7 @@ class TestFakeApi(ApiTestMixin):
 
             api_response = self.api.body_with_query_params(
                 body=body,
-                query_params=dict(query='hi there')
+                query_params={'query': 'hi there'}
             )
             self.assert_request_called_with(
                 mock_request,
@@ -318,15 +318,15 @@ class TestFakeApi(ApiTestMixin):
             self.assertEqual(api_response.body, file_bytes)
 
     @staticmethod
-    def __get_streamable_body(file: io.FileIO):
+    def __get_streamable_body(file: typing.Union[io.BufferedReader, typing.BinaryIO]) -> client.HTTPResponse:
         class FileMaker:
             @staticmethod
             def makefile(mode: str):
                 return file
-        streamable_body = http.client.HTTPResponse(sock=FileMaker)
+        streamable_body = client.HTTPResponse(sock=FileMaker) # type: ignore
         # todo in the future have tests of chunked encoding and this like
         # https://github.com/urllib3/urllib3/blob/main/test/test_response.py
-        streamable_body.chunked = 0
+        streamable_body.chunked = False
         streamable_body.length = 67  # length of file
         return streamable_body
 
@@ -367,7 +367,7 @@ class TestFakeApi(ApiTestMixin):
         self.assertTrue(isinstance(api_response.body, schemas.FileIO))
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
-        os.unlink(api_response.body.name)
+        os.unlink(str(api_response.body.name))
 
         file1 = open(file_path1, "rb")
         streamable_body = self.__get_streamable_body(file1)
@@ -398,10 +398,10 @@ class TestFakeApi(ApiTestMixin):
         self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
         self.assertTrue(isinstance(api_response.body, schemas.FileSchema))
         self.assertTrue(isinstance(api_response.body, schemas.FileIO))
-        self.assertTrue(api_response.body.name.endswith(saved_file_name))
+        self.assertTrue(str(api_response.body.name).endswith(saved_file_name))
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
-        os.unlink(api_response.body.name)
+        os.unlink(str(api_response.body.name))
 
         """
         when streaming is used and the response contains the content disposition header without a filename
@@ -434,10 +434,10 @@ class TestFakeApi(ApiTestMixin):
         self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
         self.assertTrue(isinstance(api_response.body, schemas.FileSchema))
         self.assertTrue(isinstance(api_response.body, schemas.FileIO))
-        self.assertTrue(api_response.body.name.endswith(expected_filename))
+        self.assertTrue(str(api_response.body.name).endswith(expected_filename))
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
-        os.unlink(api_response.body.name)
+        os.unlink(str(api_response.body.name))
 
     def test_upload_file(self):
         """Test case for upload_file
@@ -467,7 +467,7 @@ class TestFakeApi(ApiTestMixin):
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFile',
                     fields=(
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='file',
                             data=file_bytes,
                             filename=file_name,
@@ -496,7 +496,7 @@ class TestFakeApi(ApiTestMixin):
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFile',
                 fields=(
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='file',
                         data=file_bytes,
                         headers={
@@ -512,12 +512,10 @@ class TestFakeApi(ApiTestMixin):
 
         # passing in an array of files to when file only allows one
         # raises an exceptions
-        try:
-            file = open(file_path1, "rb")
-            with self.assertRaises(petstore_api.ApiTypeError):
-                self.api.upload_file(body={'file': [file]})
-        finally:
-            file.close()
+        file = open(file_path1, "rb")
+        with self.assertRaises(petstore_api.ApiTypeError):
+            self.api.upload_file(body={'file': [file]})
+        file.close()
 
         # passing in a closed file raises an exception
         with self.assertRaises(ValueError):
@@ -554,7 +552,7 @@ class TestFakeApi(ApiTestMixin):
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFiles',
                     fields=(
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='files',
                             data=file_bytes,
                             filename=file_name,
@@ -564,7 +562,7 @@ class TestFakeApi(ApiTestMixin):
                                 "Content-Location": None
                             }
                         ),
-                        api_client.RequestField(
+                        rest.RequestField(
                             name='files',
                             data=file_bytes,
                             filename=file_name,
@@ -595,7 +593,7 @@ class TestFakeApi(ApiTestMixin):
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFiles',
                 fields=(
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='files',
                         data=file_bytes,
                         headers={
@@ -604,7 +602,7 @@ class TestFakeApi(ApiTestMixin):
                             "Content-Location": None
                         }
                     ),
-                    api_client.RequestField(
+                    rest.RequestField(
                         name='files',
                         data=file_bytes,
                         headers={
@@ -684,7 +682,7 @@ class TestFakeApi(ApiTestMixin):
            accept_content_type=content_type,
            content_type=content_type,
            fields=(
-                api_client.RequestField(
+                rest.RequestField(
                     name='someProp',
                     data=single_char_str,
                     headers={
@@ -782,7 +780,7 @@ class TestFakeApi(ApiTestMixin):
                 self.json_bytes(body),
             )
 
-            api_response = self.api.delete_coffee(path_params=dict(id='1'))
+            api_response = self.api.delete_coffee(path_params={'id': '1'})
             self.assert_pool_manager_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/deleteCoffee/1',

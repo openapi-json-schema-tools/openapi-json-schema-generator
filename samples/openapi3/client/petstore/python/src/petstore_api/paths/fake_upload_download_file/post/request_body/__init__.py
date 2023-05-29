@@ -12,7 +12,7 @@ class RequestBody(api_client.RequestBody):
 
 
     class ApplicationOctetStreamMediaType(api_client.MediaType):
-        schema: typing.Type[application_octet_stream_schema.Schema] = application_octet_stream_schema.Schema
+        schema: typing_extensions.TypeAlias = application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
     Content = typing_extensions.TypedDict(
         'Content',
         {

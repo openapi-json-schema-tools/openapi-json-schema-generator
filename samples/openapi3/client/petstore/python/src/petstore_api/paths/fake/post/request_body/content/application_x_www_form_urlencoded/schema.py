@@ -267,21 +267,98 @@ class Schema(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        byte: typing.Union[Schema_.Properties.Byte, str],
-        double: typing.Union[Schema_.Properties.Double, decimal.Decimal, int, float],
-        number: typing.Union[Schema_.Properties.Number, decimal.Decimal, int, float],
-        pattern_without_delimiter: typing.Union[Schema_.Properties.PatternWithoutDelimiter, str],
-        integer: typing.Union[Schema_.Properties.Integer, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[Schema_.Properties.Int32, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[Schema_.Properties.Int64, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        string: typing.Union[Schema_.Properties.String, str, schemas.Unset] = schemas.unset,
-        binary: typing.Union[Schema_.Properties.Binary, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        date: typing.Union[Schema_.Properties.Date, str, datetime.date, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[Schema_.Properties.DateTime, str, datetime.datetime, schemas.Unset] = schemas.unset,
-        password: typing.Union[Schema_.Properties.Password, str, schemas.Unset] = schemas.unset,
-        callback: typing.Union[Schema_.Properties.Callback, str, schemas.Unset] = schemas.unset,
+        byte: typing.Union[
+            Schema_.Properties.Byte[str],
+            str
+        ],
+        double: typing.Union[
+            Schema_.Properties.Double[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        number: typing.Union[
+            Schema_.Properties.Number[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        pattern_without_delimiter: typing.Union[
+            Schema_.Properties.PatternWithoutDelimiter[str],
+            str
+        ],
+        integer: typing.Union[
+            Schema_.Properties.Integer[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        int32: typing.Union[
+            Schema_.Properties.Int32[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        int64: typing.Union[
+            Schema_.Properties.Int64[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        string: typing.Union[
+            Schema_.Properties.String[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        binary: typing.Union[
+            Schema_.Properties.Binary[typing.Union[bytes, schemas.FileIO]],
+            schemas.Unset,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
+        date: typing.Union[
+            Schema_.Properties.Date[str],
+            schemas.Unset,
+            str,
+            datetime.date
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            Schema_.Properties.DateTime[str],
+            schemas.Unset,
+            str,
+            datetime.datetime
+        ] = schemas.unset,
+        password: typing.Union[
+            Schema_.Properties.Password[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        callback: typing.Union[
+            Schema_.Properties.Callback[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,

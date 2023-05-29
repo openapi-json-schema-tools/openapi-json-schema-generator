@@ -46,7 +46,10 @@ class HealthCheckResult(
             
                 def __new__(
                     cls,
-                    arg_: typing.Union[None, str],
+                    arg_: typing.Union[
+                        None,
+                        str
+                    ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
                 ) -> HealthCheckResult.Schema_.Properties.NullableMessage[
                     typing.Union[
@@ -104,9 +107,35 @@ class HealthCheckResult(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        NullableMessage: typing.Union[Schema_.Properties.NullableMessage, None, str, schemas.Unset] = schemas.unset,
+        NullableMessage: typing.Union[
+            Schema_.Properties.NullableMessage[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> HealthCheckResult[frozendict.frozendict]:
         inst = super().__new__(
             cls,

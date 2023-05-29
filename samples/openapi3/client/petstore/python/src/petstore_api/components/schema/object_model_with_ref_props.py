@@ -81,11 +81,43 @@ class ObjectModelWithRefProps(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        myNumber: typing.Union['number_with_validations.NumberWithValidations', decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
-        myString: typing.Union['string.String', str, schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union['boolean.Boolean', bool, schemas.Unset] = schemas.unset,
+        myNumber: typing.Union[
+            number_with_validations.NumberWithValidations[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ] = schemas.unset,
+        myString: typing.Union[
+            string.String[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        myBoolean: typing.Union[
+            boolean.Boolean[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> ObjectModelWithRefProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,

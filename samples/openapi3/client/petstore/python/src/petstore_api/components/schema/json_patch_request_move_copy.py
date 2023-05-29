@@ -93,8 +93,14 @@ class JSONPatchRequestMoveCopy(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        op: typing.Union[Schema_.Properties.Op, str],
-        path: typing.Union[Schema_.Properties.Path, str],
+        op: typing.Union[
+            Schema_.Properties.Op[str],
+            str
+        ],
+        path: typing.Union[
+            Schema_.Properties.Path[str],
+            str
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> JSONPatchRequestMoveCopy[frozendict.frozendict]:
         inst = super().__new__(

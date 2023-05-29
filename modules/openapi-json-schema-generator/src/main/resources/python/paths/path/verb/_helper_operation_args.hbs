@@ -1,24 +1,32 @@
     self,
+    {{> paths/path/verb/_helper_operation_args_required }}
+    {{> paths/path/verb/_helper_operation_args_optional }}
 {{#if requestBody}}
-    {{> paths/path/verb/_helper_operation_args_request_body }}
-{{else}}
-    {{#if isOverload}}
-        {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True],
-        {{/eq}}
-    {{/if}}
-{{/if}}
-{{#if queryParams}}
-    query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-{{/if}}
-{{#if headerParams}}
-    header_params: RequestHeaderParameters.Params = frozendict.frozendict(),
-{{/if}}
-{{#if pathParams}}
-    path_params: RequestPathParameters.Params = frozendict.frozendict(),
-{{/if}}
-{{#if cookieParams}}
-    cookie_params: RequestCookieParameters.Params = frozendict.frozendict(),
+    {{#with requestBody}}
+        {{#if refInfo}}
+            {{#with getDeepestRef}}
+                {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                {{else}}
+    content_type: typing_extensions.Literal[
+                    {{#each content}}
+        "{{{@key.original}}}",
+                    {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                {{/eq}}
+            {{/with}}
+        {{else}}
+            {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+            {{else}}
+    content_type: typing_extensions.Literal[
+            {{#each content}}
+        "{{{@key.original}}}",
+            {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+            {{/eq}}
+        {{/if}}
+    {{/with}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -37,32 +45,32 @@
     server_index: typing.Optional[int] = None,
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-    {{#if isOverload}}
-        {{#eq skipDeserialization "False"}}
-    skip_deserialization: typing_extensions.Literal[False] = ...,
-        {{/eq}}
-        {{#eq skipDeserialization "null"}}
-    skip_deserialization: bool = ...,
-        {{/eq}}
-    {{else}}
-    skip_deserialization: bool = False,
-    {{/if}}
-{{#eq skipDeserialization "True"}}
+{{#if isOverload}}
+    {{#eq skipDeserialization true}}
+    skip_deserialization: typing_extensions.Literal[True] = ...
+    {{/eq}}
+    {{#eq skipDeserialization false}}
+    skip_deserialization: typing_extensions.Literal[False] = False
+    {{/eq}}
+{{else}}
+    skip_deserialization: bool = False
+{{/if}}
+{{#eq skipDeserialization true}}
 ) -> api_response.ApiResponseWithoutDeserialization: ...
 {{/eq}}
-{{#eq skipDeserialization "False"}}
+{{#eq skipDeserialization false}}
 ) -> {{#if getAllResponsesAreErrors}}api_response.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
 ]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}
 {{/eq}}
-{{#eq skipDeserialization "null"}}
-{{#if isOverload}}
+{{#eq skipDeserialization null}}
+    {{#if isOverload}}
 ) -> typing.Union[
+    {{! this is also the False case because False is default }}
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
-    api_response.ApiResponseWithoutDeserialization,
 ]: ...
-{{else}}
+    {{else}}
 ):
-{{/if}}
+    {{/if}}
 {{/eq}}

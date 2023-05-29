@@ -12,7 +12,7 @@ class RequestBody(api_client.RequestBody):
 
 
     class ApplicationXWwwFormUrlencodedMediaType(api_client.MediaType):
-        schema: typing.Type[application_x_www_form_urlencoded_schema.Schema] = application_x_www_form_urlencoded_schema.Schema
+        schema: typing_extensions.TypeAlias = application_x_www_form_urlencoded_schema.Schema[frozendict.frozendict]
     Content = typing_extensions.TypedDict(
         'Content',
         {

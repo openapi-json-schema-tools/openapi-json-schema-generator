@@ -2104,10 +2104,10 @@ class ListSchema(
         types = {tuple}
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.List[typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def from_openapi_data_(cls, arg: typing.Sequence[typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[typing.List[typing.Any], typing.Tuple[typing.Any]], **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]) -> ListSchema[tuple]:
+    def __new__(cls, arg_: typing.Sequence[typing.Any], **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]) -> ListSchema[tuple]:
         return super().__new__(cls, arg_, **kwargs)
 
 

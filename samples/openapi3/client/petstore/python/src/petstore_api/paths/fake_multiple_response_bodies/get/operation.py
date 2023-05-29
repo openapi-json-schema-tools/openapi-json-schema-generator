@@ -40,7 +40,7 @@ class BaseApi(api_client.Api):
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> typing.Union[
         response_200.ResponseFor200.response_cls,
         response_202.ResponseFor202.response_cls,
@@ -49,34 +49,20 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _multiple_response_bodies(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _multiple_response_bodies(
         self,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_202.ResponseFor202.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _multiple_response_bodies(
-        self,
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         multiple responses have response bodies
@@ -105,10 +91,13 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
                     '202',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

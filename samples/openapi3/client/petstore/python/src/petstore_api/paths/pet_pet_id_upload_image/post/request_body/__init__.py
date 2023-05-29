@@ -12,7 +12,7 @@ class RequestBody(api_client.RequestBody):
 
 
     class MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing.Type[multipart_form_data_schema.Schema] = multipart_form_data_schema.Schema
+        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema[frozendict.frozendict]
     Content = typing_extensions.TypedDict(
         'Content',
         {

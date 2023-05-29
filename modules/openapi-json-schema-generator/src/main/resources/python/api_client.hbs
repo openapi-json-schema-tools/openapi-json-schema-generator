@@ -29,13 +29,6 @@ from {{packageName}} import exceptions, rest, schemas, security_schemes, api_res
 from {{packageName}}.configurations import api_configuration, schema_configuration as schema_configuration_
 
 
-class RequestField(fields.RequestField):
-    def __eq__(self, other):
-        if not isinstance(other, fields.RequestField):
-            return False
-        return self.__dict__ == other.__dict__
-
-
 class JSONEncoder(json.JSONEncoder):
     compact_separators = (',', ':')
 
@@ -771,7 +764,10 @@ class HeaderParameter(__HeaderParameterBase):
 
 class TypedDictInputVerifier:
     @staticmethod
-    def _verify_typed_dict_inputs(tdict_cls: typing.Type[typing_extensions.TypedDict], data: typing.Mapping[str, typing.Any]):
+    def _verify_typed_dict_inputs(
+        tdict_cls: typing.Type[typing_extensions.TypedDict],
+        data: typing.Optional[typing.Mapping[str, typing.Any]]
+    ):
         """
         Ensures that:
         - required keys are present
@@ -782,7 +778,7 @@ class TypedDictInputVerifier:
         missing_required_keys = []
         required_keys_with_unset_values = []
         for required_key in tdict_cls.__required_keys__:
-            if required_key not in data:
+            if data is None or required_key not in data:
                 missing_required_keys.append(required_key)
                 continue
             value = data[required_key]
@@ -802,10 +798,11 @@ class TypedDictInputVerifier:
             )
 
         disallowed_additional_keys = []
-        for key in data:
-            if key in tdict_cls.__required_keys__ or key in tdict_cls.__optional_keys__:
-                continue
-            disallowed_additional_keys.append(key)
+        if data is not None:
+            for key in data:
+                if key in tdict_cls.__required_keys__ or key in tdict_cls.__optional_keys__:
+                    continue
+                disallowed_additional_keys.append(key)
         if disallowed_additional_keys:
             raise exceptions.ApiTypeError(
                 '{} got {} unexpected keyword arguments: {}'.format(
@@ -1020,7 +1017,7 @@ class ApiClient:
         host: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Union[str, bytes, None] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
+        fields: typing.Optional[typing.Tuple[rest.RequestField, ...]] = None,
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject] = None,
         stream: bool = False,
         timeout: typing.Union[int, float, typing.Tuple, None] = None,
@@ -1090,7 +1087,7 @@ class ApiClient:
         method: str,
         url: str,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
-        fields: typing.Optional[typing.Tuple[typing.Tuple[str, str], ...]] = None,
+        fields: typing.Optional[typing.Tuple[rest.RequestField, ...]] = None,
         body: typing.Union[str, bytes, None] = None,
         stream: bool = False,
         timeout: typing.Union[int, float, typing.Tuple, None] = None,
@@ -1189,9 +1186,9 @@ class Api(TypedDictInputVerifier):
     def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
-        path_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None,
+        path_params: typing.Optional[typing_extensions.TypedDict] = None,
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
-        query_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None
+        query_params: typing.Optional[typing_extensions.TypedDict] = None
     ) -> str:
         used_path_params = {}
         if path_params is not None:
@@ -1199,6 +1196,7 @@ class Api(TypedDictInputVerifier):
                 parameter_data = path_params.get(parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
+                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
                 serialized_data = parameter.serialize(parameter_data)
                 used_path_params.update(serialized_data)
 
@@ -1213,6 +1211,7 @@ class Api(TypedDictInputVerifier):
                     continue
                 if prefix_separator_iterator is None:
                     prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
                 serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
                 for serialized_value in serialized_data.values():
                     used_path += serialized_value
@@ -1221,7 +1220,7 @@ class Api(TypedDictInputVerifier):
     @staticmethod
     def _get_headers(
         header_parameters: typing.Tuple[typing.Type[HeaderParameter], ...] = (),
-        header_params: typing.Optional[typing.Dict[str, _SERIALIZE_TYPES]] = None,
+        header_params: typing.Optional[typing_extensions.TypedDict] = None,
         accept_content_types: typing.Tuple[str, ...] = (),
     ) -> _collections.HTTPHeaderDict:
         headers = _collections.HTTPHeaderDict()
@@ -1230,6 +1229,7 @@ class Api(TypedDictInputVerifier):
                 parameter_data = header_params.get(parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
+                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
                 serialized_data = parameter.serialize(parameter_data)
                 headers.extend(serialized_data)
         if accept_content_types:
@@ -1239,7 +1239,7 @@ class Api(TypedDictInputVerifier):
 
     @staticmethod
     def _get_fields_and_body(
-        request_body: 'RequestBody',
+        request_body: typing.Type[RequestBody],
         body: typing.Any,
         headers: _collections.HTTPHeaderDict,
         content_type: str
@@ -1271,7 +1271,7 @@ class Api(TypedDictInputVerifier):
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
     body: typing.Union[str, bytes]
-    fields: typing.Tuple[typing.Union[RequestField, typing.Tuple[str, str]], ...]
+    fields: typing.Tuple[rest.RequestField, ...]
 
 
 class RequestBody(StyleFormSerializer, JSONDetector):
@@ -1307,24 +1307,24 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return {'body': str(in_data)}
 
     @classmethod
-    def __multipart_json_item(cls, key: str, value: schemas.Schema) -> RequestField:
+    def __multipart_json_item(cls, key: str, value: schemas.Schema) -> rest.RequestField:
         json_value = cls.__json_encoder.default(value)
-        request_field = RequestField(name=key, data=json.dumps(json_value))
+        request_field = rest.RequestField(name=key, data=json.dumps(json_value))
         request_field.make_multipart(content_type='application/json')
         return request_field
 
     @classmethod
-    def __multipart_form_item(cls, key: str, value: schemas.Schema) -> RequestField:
+    def __multipart_form_item(cls, key: str, value: schemas.Schema) -> rest.RequestField:
         if isinstance(value, str):
-            request_field = RequestField(name=key, data=str(value))
+            request_field = rest.RequestField(name=key, data=str(value))
             request_field.make_multipart(content_type='text/plain')
         elif isinstance(value, bytes):
-            request_field = RequestField(name=key, data=value)
+            request_field = rest.RequestField(name=key, data=value)
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, schemas.FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
-            request_field = typing.cast(RequestField, request_field)
+            request_field = rest.RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
+            request_field = typing.cast(rest.RequestField, request_field)
             value.close()
         else:
             request_field = cls.__multipart_json_item(key=key, value=value)
@@ -1353,7 +1353,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         for key, value in in_data.items():
             if isinstance(value, tuple):
                 if value:
-                    # values use explode = True, so the code makes a RequestField for each item with name=key
+                    # values use explode = True, so the code makes a rest.RequestField for each item with name=key
                     for item in value:
                         request_field = cls.__multipart_form_item(key=key, value=item)
                         fields.append(request_field)

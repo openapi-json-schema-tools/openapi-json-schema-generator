@@ -64,10 +64,36 @@ class ReadOnlyFirst(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        bar: typing.Union[Schema_.Properties.Bar, str, schemas.Unset] = schemas.unset,
-        baz: typing.Union[Schema_.Properties.Baz, str, schemas.Unset] = schemas.unset,
+        bar: typing.Union[
+            Schema_.Properties.Bar[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        baz: typing.Union[
+            Schema_.Properties.Baz[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> ReadOnlyFirst[frozendict.frozendict]:
         inst = super().__new__(
             cls,

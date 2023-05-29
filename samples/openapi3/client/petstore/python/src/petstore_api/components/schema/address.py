@@ -33,7 +33,11 @@ class Address(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[Schema_.AdditionalProperties, decimal.Decimal, int],
+        **kwargs: typing.Union[
+            Schema_.AdditionalProperties[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
     ) -> Address[frozendict.frozendict]:
         inst = super().__new__(
             cls,

@@ -36,39 +36,26 @@ class BaseApi(api_client.Api):
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _path_with_one_explicit_security(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _path_with_one_explicit_security(
         self,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _path_with_one_explicit_security(
-        self,
-        security_index: typing.Optional[int] = None,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         path with one explicit security
@@ -101,9 +88,12 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

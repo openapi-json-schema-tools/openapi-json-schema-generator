@@ -32,9 +32,13 @@ public class CodegenOperation {
     public final CodegenRequestBody requestBody;
     public final List<CodegenParameter> allParams;
     public final List<CodegenParameter> pathParams;
+    public final boolean hasRequiredPathParams;
     public final List<CodegenParameter> queryParams;
+    public final boolean hasRequiredQueryParams;
     public final List<CodegenParameter> headerParams;
+    public final boolean hasRequiredHeaderParams;
     public final List<CodegenParameter> cookieParams;
+    public final boolean hasRequiredCookieParams;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
     public final List<HashMap<String, CodegenSecurityRequirementValue>> security;
@@ -61,9 +65,57 @@ public class CodegenOperation {
         this.requestBody = requestBody;
         this.allParams = allParams;
         this.pathParams = pathParams;
+        if (pathParams == null) {
+            this.hasRequiredPathParams = false;
+        } else {
+            boolean val = false;
+            for (CodegenParameter p: pathParams) {
+                if (Boolean.TRUE.equals(p.required)) {
+                    val = true;
+                    break;
+                }
+            }
+            this.hasRequiredPathParams = val;
+        }
         this.queryParams = queryParams;
+        if (queryParams == null) {
+            this.hasRequiredQueryParams = false;
+        } else {
+            boolean val = false;
+            for (CodegenParameter p: queryParams) {
+                if (Boolean.TRUE.equals(p.required)) {
+                    val = true;
+                    break;
+                }
+            }
+            this.hasRequiredQueryParams = val;
+        }
         this.headerParams = headerParams;
+        if (headerParams == null) {
+            this.hasRequiredHeaderParams = false;
+        } else {
+            boolean val = false;
+            for (CodegenParameter p: headerParams) {
+                if (Boolean.TRUE.equals(p.required)) {
+                    val = true;
+                    break;
+                }
+            }
+            this.hasRequiredHeaderParams = val;
+        }
         this.cookieParams = cookieParams;
+        if (cookieParams == null) {
+            this.hasRequiredCookieParams = false;
+        } else {
+            boolean val = false;
+            for (CodegenParameter p: cookieParams) {
+                if (Boolean.TRUE.equals(p.required)) {
+                    val = true;
+                    break;
+                }
+            }
+            this.hasRequiredCookieParams = val;
+        }
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
         this.security = security;

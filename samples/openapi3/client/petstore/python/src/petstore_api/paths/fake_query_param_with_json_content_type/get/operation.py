@@ -55,47 +55,33 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _query_param_with_json_content_type(
         self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = ...,
+        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ResponseFor200.response_cls: ...
 
     @typing.overload
     def _query_param_with_json_content_type(
         self,
-        skip_deserialization: typing_extensions.Literal[True],
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    @typing.overload
     def _query_param_with_json_content_type(
         self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
+        query_params: RequestQueryParameters.Params,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = ...,
-    ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        api_response.ApiResponseWithoutDeserialization,
-    ]: ...
-
-    def _query_param_with_json_content_type(
-        self,
-        query_params: RequestQueryParameters.Params = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
-        server_index: typing.Optional[int] = None,
-        stream: bool = False,
-        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False,
+        skip_deserialization: bool = False
     ):
         """
         query param with json content-type
@@ -129,9 +115,12 @@ class BaseApi(api_client.Api):
         else:
             status = str(raw_response.status)
             if status in _status_code_to_response:
-                status: typing_extensions.Literal[
+                status = typing.cast(
+                    typing_extensions.Literal[
                     '200',
-                ]
+                    ],
+                    status
+                )
                 response = _status_code_to_response[status].deserialize(
                     raw_response, self.api_client.schema_configuration)
             else:

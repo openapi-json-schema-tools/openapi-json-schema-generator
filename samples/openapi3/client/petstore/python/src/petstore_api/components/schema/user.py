@@ -53,9 +53,31 @@ class User(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[None, dict, frozendict.frozendict],
+                    *args_: typing.Union[
+                        None,
+                        dict,
+                        frozendict.frozendict
+                    ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> User.Schema_.Properties.ObjectWithNoDeclaredPropsNullable[
                     typing.Union[
                         schemas.NoneClass,
@@ -93,9 +115,44 @@ class User(
             
                 def __new__(
                     cls,
-                    *args_: typing.Union[dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader],
+                    *args_: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        int,
+                        float,
+                        decimal.Decimal,
+                        bool,
+                        None,
+                        list,
+                        tuple,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader
+                    ],
                     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+                    **kwargs: typing.Union[
+                        dict,
+                        frozendict.frozendict,
+                        list,
+                        tuple,
+                        decimal.Decimal,
+                        float,
+                        int,
+                        str,
+                        datetime.date,
+                        datetime.datetime,
+                        uuid.UUID,
+                        bool,
+                        None,
+                        bytes,
+                        io.FileIO,
+                        io.BufferedReader,
+                        schemas.Schema
+                    ],
                 ) -> User.Schema_.Properties.AnyTypeExceptNullProp[
                     typing.Union[
                         frozendict.frozendict,
@@ -253,21 +310,171 @@ class User(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        id: typing.Union[Schema_.Properties.Id, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        username: typing.Union[Schema_.Properties.Username, str, schemas.Unset] = schemas.unset,
-        firstName: typing.Union[Schema_.Properties.FirstName, str, schemas.Unset] = schemas.unset,
-        lastName: typing.Union[Schema_.Properties.LastName, str, schemas.Unset] = schemas.unset,
-        email: typing.Union[Schema_.Properties.Email, str, schemas.Unset] = schemas.unset,
-        password: typing.Union[Schema_.Properties.Password, str, schemas.Unset] = schemas.unset,
-        phone: typing.Union[Schema_.Properties.Phone, str, schemas.Unset] = schemas.unset,
-        userStatus: typing.Union[Schema_.Properties.UserStatus, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        objectWithNoDeclaredProps: typing.Union[Schema_.Properties.ObjectWithNoDeclaredProps, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        objectWithNoDeclaredPropsNullable: typing.Union[Schema_.Properties.ObjectWithNoDeclaredPropsNullable, None, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        anyTypeProp: typing.Union[Schema_.Properties.AnyTypeProp, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        anyTypeExceptNullProp: typing.Union[Schema_.Properties.AnyTypeExceptNullProp, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
-        anyTypePropNullable: typing.Union[Schema_.Properties.AnyTypePropNullable, dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            Schema_.Properties.Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        username: typing.Union[
+            Schema_.Properties.Username[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        firstName: typing.Union[
+            Schema_.Properties.FirstName[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        lastName: typing.Union[
+            Schema_.Properties.LastName[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        email: typing.Union[
+            Schema_.Properties.Email[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        password: typing.Union[
+            Schema_.Properties.Password[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        phone: typing.Union[
+            Schema_.Properties.Phone[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        userStatus: typing.Union[
+            Schema_.Properties.UserStatus[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ] = schemas.unset,
+        objectWithNoDeclaredProps: typing.Union[
+            Schema_.Properties.ObjectWithNoDeclaredProps[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        objectWithNoDeclaredPropsNullable: typing.Union[
+            Schema_.Properties.ObjectWithNoDeclaredPropsNullable[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            schemas.Unset,
+            None,
+            dict,
+            frozendict.frozendict
+        ] = schemas.unset,
+        anyTypeProp: typing.Union[
+            Schema_.Properties.AnyTypeProp[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
+        anyTypeExceptNullProp: typing.Union[
+            Schema_.Properties.AnyTypeExceptNullProp[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
+        anyTypePropNullable: typing.Union[
+            Schema_.Properties.AnyTypePropNullable[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema],
+        **kwargs: typing.Union[
+            dict,
+            frozendict.frozendict,
+            list,
+            tuple,
+            decimal.Decimal,
+            float,
+            int,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            bool,
+            None,
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.Schema
+        ],
     ) -> User[frozendict.frozendict]:
         inst = super().__new__(
             cls,
