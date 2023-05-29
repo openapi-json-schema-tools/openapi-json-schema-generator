@@ -160,14 +160,14 @@ _all_accept_content_types = (
 class BaseApi(api_client.Api):
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="False"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=false}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization="True"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=true}}
 
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization="null"}}
+    {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization=null}}
         """
     {{#if summary}}
         {{summary}}

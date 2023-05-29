@@ -318,7 +318,7 @@ class TestFakeApi(ApiTestMixin):
             self.assertEqual(api_response.body, file_bytes)
 
     @staticmethod
-    def __get_streamable_body(file: io.BufferedReader) -> client.HTTPResponse:
+    def __get_streamable_body(file: typing.Union[io.BufferedReader, typing.BinaryIO]) -> client.HTTPResponse:
         class FileMaker:
             @staticmethod
             def makefile(mode: str):

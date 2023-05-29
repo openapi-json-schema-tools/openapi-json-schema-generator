@@ -45,26 +45,26 @@
     server_index: typing.Optional[int] = None,
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-    {{#if isOverload}}
-        {{#eq skipDeserialization "False"}}
-    skip_deserialization: typing_extensions.Literal[False] = ...,
-        {{/eq}}
-        {{#eq skipDeserialization "True"}}
-    skip_deserialization: typing_extensions.Literal[True] = ...,
-        {{/eq}}
-    {{else}}
-    skip_deserialization: bool = False,
-    {{/if}}
-{{#eq skipDeserialization "True"}}
+{{#if isOverload}}
+    {{#eq skipDeserialization true}}
+    skip_deserialization: typing_extensions.Literal[True] = ...
+    {{/eq}}
+    {{#eq skipDeserialization false}}
+    skip_deserialization: typing_extensions.Literal[False] = False
+    {{/eq}}
+{{else}}
+    skip_deserialization: bool = False
+{{/if}}
+{{#eq skipDeserialization true}}
 ) -> api_response.ApiResponseWithoutDeserialization: ...
 {{/eq}}
-{{#eq skipDeserialization "False"}}
+{{#eq skipDeserialization false}}
 ) -> {{#if getAllResponsesAreErrors}}api_response.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
 ]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}
 {{/eq}}
-{{#eq skipDeserialization "null"}}
+{{#eq skipDeserialization null}}
     {{#if isOverload}}
 ) -> typing.Union[
     {{! this is also the False case because False is default }}
