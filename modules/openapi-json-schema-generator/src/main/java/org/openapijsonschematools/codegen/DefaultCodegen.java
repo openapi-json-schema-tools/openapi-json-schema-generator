@@ -2271,7 +2271,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
         }
         property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath);
-        setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
+        setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
         if (currentJsonPath != null) {
