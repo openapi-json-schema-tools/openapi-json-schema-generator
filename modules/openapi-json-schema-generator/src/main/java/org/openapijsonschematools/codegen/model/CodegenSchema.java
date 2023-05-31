@@ -145,6 +145,7 @@ public class CodegenSchema {
         properties
 
         excluded:
+        discriminator (not actually applicable because all values would be refs and do not need to be defined)
         $ref (because it is an import)
          */
         if (additionalProperties != null) {

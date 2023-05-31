@@ -2210,7 +2210,6 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
 
         String ref = p.get$ref();
-        setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
         // put toExampleValue in a try-catch block to log the error as example values are not critical
         try {
             property.example = toExampleValue(p);
@@ -2220,6 +2219,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }
         if (ref != null) {
+            setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
             if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
                 // import from $ref
                 property.imports = new TreeSet<>();
@@ -2242,6 +2242,37 @@ public class DefaultCodegen implements CodegenConfig {
         ModelUtils.syncValidationProperties(p, property);
         property.format = p.getFormat();
         property.externalDocumentation = p.getExternalDocs();
+
+        /*
+         Note order of assigning properties must follow the order in
+         CodegenSchema.getAllSchemas
+         so that jsonPathPiece.camelCase names can be assigned correctly
+         */
+        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
+        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
+        if (allOfs != null && !allOfs.isEmpty()) {
+            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
+        }
+        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
+        }
+        // handle inner property
+        if (p.getItems() != null) {
+            property.items = fromSchema(
+                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
+        }
+        Schema notSchema = p.getNot();
+        if (notSchema != null) {
+            property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
+        }
+        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
+        if (oneOfs != null && !oneOfs.isEmpty()) {
+            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
+        }
+        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath);
+        setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
+        // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
         if (currentJsonPath != null) {
             String[] pathPieces = currentJsonPath.split("/");
@@ -2302,22 +2333,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.vendorExtensions = ((Schema<?>) p).getExtensions();
         }
 
-        Schema notSchema = p.getNot();
-        if (notSchema != null) {
-            property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
-        }
-        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
-        if (allOfs != null && !allOfs.isEmpty()) {
-            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
-        }
-        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
-        }
-        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
-        if (oneOfs != null && !oneOfs.isEmpty()) {
-            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
-        }
         if (ModelUtils.isAnyType(p)) {
             // The 'null' value is allowed when the OAS schema is 'any type'.
             // See https://github.com/OAI/OpenAPI-Specification/issues/1389
@@ -2326,13 +2341,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         property.patternInfo = getPatternInfo(p.getPattern());
-        // handle inner property
-        if (p.getItems() != null) {
-            property.items = fromSchema(
-                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
-        }
-        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
-        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath);
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<>(((Schema<?>) p).getRequired());
         property.optionalProperties = getOptionalProperties(property.properties, required);
@@ -2717,10 +2725,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/responses/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         Map<String, CodegenHeader> finalHeaders = headers;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
@@ -2826,10 +2831,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/headers/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(header.getDescription());
         String unescapedDescription = header.getDescription();
@@ -2910,10 +2912,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/parameters/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(parameter.getDescription());
         String unescapedDescription = parameter.getDescription();
@@ -3102,10 +3101,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, jsonPath);
         String[] pathPieces = jsonPath.split("/");
         // #/components/requestBodies/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && jsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && jsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String type = securityScheme.getType().toString();
         String description = securityScheme.getDescription();
@@ -4239,10 +4235,7 @@ public class DefaultCodegen implements CodegenConfig {
         CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/requestBodies/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(requestBody.getDescription());
         String unescapedDescription = requestBody.getDescription();
@@ -4479,7 +4472,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (specOperation != null) {
             operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
-        if (operations != null)
+        if (!operations.isEmpty())
             // sort them
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
