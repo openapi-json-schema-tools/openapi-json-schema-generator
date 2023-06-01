@@ -14,15 +14,18 @@ class _Variables:
     ):
     
     
+        @dataclasses.dataclass(frozen=True)
         class Schema_:
             types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
             })
-            default = "v1"
-            enum_value_to_name = {
-                "v1": "V1",
-                "v2": "V2",
-            }
+            default: str = "v1"
+            enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+                default_factory=lambda: {
+                    "v1": "V1",
+                    "v2": "V2",
+                }
+            )
         
         @schemas.classproperty
         def V1(cls):

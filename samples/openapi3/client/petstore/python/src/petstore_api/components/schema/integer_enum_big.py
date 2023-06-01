@@ -22,16 +22,19 @@ class IntegerEnumBig(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
         format = 'int'
-        enum_value_to_name = {
-            10: "POSITIVE_10",
-            11: "POSITIVE_11",
-            12: "POSITIVE_12",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                10: "POSITIVE_10",
+                11: "POSITIVE_11",
+                12: "POSITIVE_12",
+            }
+        )
     
     @schemas.classproperty
     def POSITIVE_10(cls):

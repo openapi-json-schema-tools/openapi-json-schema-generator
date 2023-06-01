@@ -22,8 +22,9 @@ class Bar(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "bar"
+        default: str = "bar"

@@ -18,11 +18,12 @@ class Name(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "default-name"
+        default: str = "default-name"
 
 
 class Category(
@@ -38,9 +39,9 @@ class Category(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "name",
-        }
+        })
         properties: CategoryProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(CategoryProperties)) # type: ignore
     
     @property

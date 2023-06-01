@@ -26,9 +26,9 @@ class ObjWithRequiredPropsBase(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "b",
-        }
+        })
         properties: ObjWithRequiredPropsBaseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsBaseProperties)) # type: ignore
     
     @property

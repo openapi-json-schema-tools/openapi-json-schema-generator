@@ -26,10 +26,10 @@ class Money(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "amount",
             "currency",
-        }
+        })
         properties: MoneyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MoneyProperties)) # type: ignore
     
     @property

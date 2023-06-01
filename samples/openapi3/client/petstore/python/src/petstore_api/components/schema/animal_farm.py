@@ -25,10 +25,7 @@ class AnimalFarm(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return animal.Animal
+        items: typing.Type[animal.Animal] = dataclasses.field(default_factory=lambda: animal.Animal) # type: ignore
 
     def __new__(
         cls,

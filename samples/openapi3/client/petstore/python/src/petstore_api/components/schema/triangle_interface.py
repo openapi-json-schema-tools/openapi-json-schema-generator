@@ -17,13 +17,16 @@ class ShapeType(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "Triangle": "TRIANGLE",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "Triangle": "TRIANGLE",
+            }
+        )
     
     @schemas.classproperty
     def TRIANGLE(cls):
@@ -44,10 +47,10 @@ class TriangleInterface(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "shapeType",
             "triangleType",
-        }
+        })
         properties: TriangleInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(TriangleInterfaceProperties)) # type: ignore
 
     

@@ -17,15 +17,18 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
         format = 'int32'
-        enum_value_to_name = {
-            1: "POSITIVE_1",
-            -2: "NEGATIVE_2",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                1: "POSITIVE_1",
+                -2: "NEGATIVE_2",
+            }
+        )
     
     @schemas.classproperty
     def POSITIVE_1(cls):

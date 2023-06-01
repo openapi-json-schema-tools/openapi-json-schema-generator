@@ -31,15 +31,17 @@ class StringEnum(
             schemas.NoneClass,
             str,
         })
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-            "single quoted": "SINGLE_QUOTED",
-            "multiple\nlines": "MULTIPLE_LINE_FEED_LF_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE",
-            schemas.NoneClass.NONE: "NONE",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+                "single quoted": "SINGLE_QUOTED",
+                "multiple\nlines": "MULTIPLE_LINE_FEED_LF_LINES",
+                "double quote \n with newline": "DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE",
+                schemas.NoneClass.NONE: "NONE",
+            }
+        )
     
     @schemas.classproperty
     def PLACED(cls):

@@ -22,13 +22,16 @@ class BooleanEnum(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
         })
-        enum_value_to_name = {
-            schemas.BoolClass.TRUE: "TRUE",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                schemas.BoolClass.TRUE: "TRUE",
+            }
+        )
     
     @schemas.classproperty
     def TRUE(cls):

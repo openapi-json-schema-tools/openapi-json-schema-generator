@@ -30,9 +30,9 @@ class Name(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "name",
-        }
+        })
         properties: NameProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NameProperties)) # type: ignore
 
     

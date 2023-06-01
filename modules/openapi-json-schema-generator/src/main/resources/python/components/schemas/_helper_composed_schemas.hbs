@@ -60,13 +60,6 @@ any_of: typing.Tuple[
 {{/if}}
 {{#if not}}
 {{#with not}}
-
-@staticmethod
-def not_():
-    {{#if refInfo.refClass}}
-    return {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
-    {{else}}
-    return {{jsonPathPiece.camelCase}}
-    {{/if}}
+not_: typing.Type[{{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}] = dataclasses.field(default_factory=lambda: {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}) # type: ignore
 {{/with}}
 {{/if}}

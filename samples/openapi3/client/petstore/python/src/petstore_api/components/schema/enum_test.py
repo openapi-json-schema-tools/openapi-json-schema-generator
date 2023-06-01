@@ -17,15 +17,18 @@ class EnumString(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "UPPER": "UPPER",
-            "lower": "LOWER",
-            "": "EMPTY",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "UPPER": "UPPER",
+                "lower": "LOWER",
+                "": "EMPTY",
+            }
+        )
     
     @schemas.classproperty
     def UPPER(cls):
@@ -45,15 +48,18 @@ class EnumStringRequired(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "UPPER": "UPPER",
-            "lower": "LOWER",
-            "": "EMPTY",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "UPPER": "UPPER",
+                "lower": "LOWER",
+                "": "EMPTY",
+            }
+        )
     
     @schemas.classproperty
     def UPPER(cls):
@@ -73,15 +79,18 @@ class EnumInteger(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
         format = 'int32'
-        enum_value_to_name = {
-            1: "POSITIVE_1",
-            -1: "NEGATIVE_1",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                1: "POSITIVE_1",
+                -1: "NEGATIVE_1",
+            }
+        )
     
     @schemas.classproperty
     def POSITIVE_1(cls):
@@ -97,15 +106,18 @@ class EnumNumber(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
         format = 'double'
-        enum_value_to_name = {
-            1.1: "POSITIVE_1_PT_1",
-            -1.2: "NEGATIVE_1_PT_2",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                1.1: "POSITIVE_1_PT_1",
+                -1.2: "NEGATIVE_1_PT_2",
+            }
+        )
     
     @schemas.classproperty
     def POSITIVE_1_PT_1(cls):
@@ -129,9 +141,9 @@ class EnumTest(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "enum_string_required",
-        }
+        })
         properties: EnumTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumTestProperties)) # type: ignore
     
     @property

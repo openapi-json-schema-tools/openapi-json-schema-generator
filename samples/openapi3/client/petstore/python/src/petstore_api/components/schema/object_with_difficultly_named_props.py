@@ -30,9 +30,9 @@ class ObjectWithDifficultlyNamedProps(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "123-list",
-        }
+        })
         properties: ObjectWithDifficultlyNamedPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithDifficultlyNamedPropsProperties)) # type: ignore
     
     @typing.overload

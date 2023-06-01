@@ -22,14 +22,17 @@ class Currency(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "eur": "EUR",
-            "usd": "USD",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "eur": "EUR",
+                "usd": "USD",
+            }
+        )
     
     @schemas.classproperty
     def EUR(cls):

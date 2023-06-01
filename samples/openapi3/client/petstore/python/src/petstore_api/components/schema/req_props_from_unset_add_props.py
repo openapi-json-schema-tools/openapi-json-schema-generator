@@ -25,10 +25,10 @@ class ReqPropsFromUnsetAddProps(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "invalid-name",
             "validName",
-        }
+        })
     
     @property
     def validName(self) -> schemas.AnyTypeSchema[typing.Union[

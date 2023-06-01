@@ -21,15 +21,18 @@ class Status(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+            }
+        )
     
     @schemas.classproperty
     def PLACED(cls):
@@ -49,11 +52,12 @@ class Complete(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
         })
-        default = schemas.BoolClass.FALSE
+        default: schemas.BoolClass = schemas.BoolClass.FALSE
 
 
 class Order(

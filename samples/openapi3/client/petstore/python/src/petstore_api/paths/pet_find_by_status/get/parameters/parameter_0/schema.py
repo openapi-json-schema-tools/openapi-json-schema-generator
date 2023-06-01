@@ -17,16 +17,19 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "available"
-        enum_value_to_name = {
-            "available": "AVAILABLE",
-            "pending": "PENDING",
-            "sold": "SOLD",
-        }
+        default: str = "available"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "available": "AVAILABLE",
+                "pending": "PENDING",
+                "sold": "SOLD",
+            }
+        )
     
     @schemas.classproperty
     def AVAILABLE(cls):
@@ -49,10 +52,7 @@ class Schema(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,

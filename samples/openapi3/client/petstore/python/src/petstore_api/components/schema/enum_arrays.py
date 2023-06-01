@@ -17,14 +17,17 @@ class JustSymbol(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
-            "$": "DOLLAR_SIGN",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
+                "$": "DOLLAR_SIGN",
+            }
+        )
     
     @schemas.classproperty
     def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
@@ -40,14 +43,17 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "fish": "FISH",
-            "crab": "CRAB",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "fish": "FISH",
+                "crab": "CRAB",
+            }
+        )
     
     @schemas.classproperty
     def FISH(cls):
@@ -66,10 +72,7 @@ class ArrayEnum(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,

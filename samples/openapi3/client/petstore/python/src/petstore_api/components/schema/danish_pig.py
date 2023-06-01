@@ -17,13 +17,16 @@ class ClassName(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "DanishPig": "DANISH_PIG",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "DanishPig": "DANISH_PIG",
+            }
+        )
     
     @schemas.classproperty
     def DANISH_PIG(cls):
@@ -43,9 +46,9 @@ class DanishPig(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
+        })
         properties: DanishPigProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DanishPigProperties)) # type: ignore
     
     @property

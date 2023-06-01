@@ -20,10 +20,7 @@ class Files(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return file.File
+        items: typing.Type[file.File] = dataclasses.field(default_factory=lambda: file.File) # type: ignore
 
     def __new__(
         cls,

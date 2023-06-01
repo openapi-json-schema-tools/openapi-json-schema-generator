@@ -26,9 +26,9 @@ class Banana(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "lengthCm",
-        }
+        })
         properties: BananaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaProperties)) # type: ignore
     
     @property

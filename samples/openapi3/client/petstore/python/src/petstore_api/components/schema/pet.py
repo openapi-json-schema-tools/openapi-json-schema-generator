@@ -23,10 +23,7 @@ class PhotoUrls(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -62,10 +59,7 @@ class Tags(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return tag.Tag
+        items: typing.Type[tag.Tag] = dataclasses.field(default_factory=lambda: tag.Tag) # type: ignore
 
     def __new__(
         cls,
@@ -99,15 +93,18 @@ class Status(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "available": "AVAILABLE",
-            "pending": "PENDING",
-            "sold": "SOLD",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "available": "AVAILABLE",
+                "pending": "PENDING",
+                "sold": "SOLD",
+            }
+        )
     
     @schemas.classproperty
     def AVAILABLE(cls):
@@ -137,10 +134,10 @@ class Pet(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "name",
             "photoUrls",
-        }
+        })
         properties: PetProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(PetProperties)) # type: ignore
     
     @property

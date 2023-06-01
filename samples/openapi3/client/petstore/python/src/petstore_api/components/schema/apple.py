@@ -17,6 +17,7 @@ class Cultivar(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -31,6 +32,7 @@ class Origin(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -60,9 +62,9 @@ class Apple(
             schemas.NoneClass,
             frozendict.frozendict,
         })
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "cultivar",
-        }
+        })
         properties: AppleProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AppleProperties)) # type: ignore
 
     

@@ -22,16 +22,19 @@ class StringEnumWithDefaultValue(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "placed"
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-        }
+        default: str = "placed"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+            }
+        )
     
     @schemas.classproperty
     def PLACED(cls):

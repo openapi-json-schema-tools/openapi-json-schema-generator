@@ -21,9 +21,9 @@ class _1(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "test",
-        }
+        })
         properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
     @property

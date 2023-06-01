@@ -17,15 +17,18 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "$"
-        enum_value_to_name = {
-            ">": "GREATER_THAN_SIGN",
-            "$": "DOLLAR_SIGN",
-        }
+        default: str = "$"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                ">": "GREATER_THAN_SIGN",
+                "$": "DOLLAR_SIGN",
+            }
+        )
     
     @schemas.classproperty
     def GREATER_THAN_SIGN(cls):
@@ -44,10 +47,7 @@ class Schema(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,

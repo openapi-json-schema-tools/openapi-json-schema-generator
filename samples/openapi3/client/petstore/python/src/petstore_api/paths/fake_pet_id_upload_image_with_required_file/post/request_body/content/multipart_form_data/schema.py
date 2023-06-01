@@ -22,9 +22,9 @@ class Schema(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "requiredFile",
-        }
+        })
         properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
     
     @property

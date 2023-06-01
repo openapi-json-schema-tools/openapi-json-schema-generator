@@ -20,10 +20,7 @@ class AdditionalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return enum_class.EnumClass
+        items: typing.Type[enum_class.EnumClass] = dataclasses.field(default_factory=lambda: enum_class.EnumClass) # type: ignore
 
     def __new__(
         cls,

@@ -21,10 +21,7 @@ class ArrayOfString(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -61,10 +58,7 @@ class Items(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -101,10 +95,7 @@ class ArrayArrayOfInteger(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -141,10 +132,7 @@ class Items(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return read_only_first.ReadOnlyFirst
+        items: typing.Type[read_only_first.ReadOnlyFirst] = dataclasses.field(default_factory=lambda: read_only_first.ReadOnlyFirst) # type: ignore
 
     def __new__(
         cls,
@@ -181,10 +169,7 @@ class ArrayArrayOfModel(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,

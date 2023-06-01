@@ -22,18 +22,21 @@ class EnumClass(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "-efg"
-        enum_value_to_name = {
-            "_abc": "_ABC",
-            "-efg": "HYPHEN_MINUS_EFG",
-            "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
-            "COUNT_1M": "COUNT_1M",
-            "COUNT_50M": "COUNT_50M",
-        }
+        default: str = "-efg"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "_abc": "_ABC",
+                "-efg": "HYPHEN_MINUS_EFG",
+                "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
+                "COUNT_1M": "COUNT_1M",
+                "COUNT_50M": "COUNT_50M",
+            }
+        )
     
     @schemas.classproperty
     def _ABC(cls):

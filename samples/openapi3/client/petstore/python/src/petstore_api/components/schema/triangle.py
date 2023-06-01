@@ -25,16 +25,15 @@ class Triangle(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'triangleType': {
                     'EquilateralTriangle': equilateral_triangle.EquilateralTriangle,
                     'IsoscelesTriangle': isosceles_triangle.IsoscelesTriangle,
                     'ScaleneTriangle': scalene_triangle.ScaleneTriangle,
                 }
             }
+        )
         
         one_of: typing.Tuple[
             typing.Type[equilateral_triangle.EquilateralTriangle],

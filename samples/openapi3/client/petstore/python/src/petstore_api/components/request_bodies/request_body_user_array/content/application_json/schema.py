@@ -20,10 +20,7 @@ class Schema(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return user.User
+        items: typing.Type[user.User] = dataclasses.field(default_factory=lambda: user.User) # type: ignore
 
     def __new__(
         cls,

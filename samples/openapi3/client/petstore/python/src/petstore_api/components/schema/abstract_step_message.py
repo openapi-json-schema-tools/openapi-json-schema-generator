@@ -30,19 +30,18 @@ class AbstractStepMessage(
         types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
         })
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "description",
             "discriminator",
             "sequenceNumber",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'discriminator': {
                     'AbstractStepMessage': AbstractStepMessage,
                 }
             }
+        )
         properties: AbstractStepMessageProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AbstractStepMessageProperties)) # type: ignore
         
         any_of: typing.Tuple[

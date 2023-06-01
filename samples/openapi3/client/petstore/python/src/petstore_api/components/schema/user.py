@@ -99,10 +99,7 @@ class AnyTypeExceptNullProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def not_():
-            return _Not
+        not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
 
     def __new__(

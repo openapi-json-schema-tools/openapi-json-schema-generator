@@ -29,9 +29,9 @@ class NoAdditionalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "id",
-        }
+        })
         properties: NoAdditionalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NoAdditionalPropertiesProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     

@@ -21,6 +21,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#or hasValidation enumValueToName format defaultValue}}
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
 {{#eq types null}}
         # any type
@@ -33,23 +34,23 @@ class {{jsonPathPiece.camelCase}}(
 {{#if defaultValue}}
     {{#with defaultValue}}
         {{#eq type "string"}}
-        default = "{{{value}}}"
+        default: str = "{{{value}}}"
         {{/eq}}
         {{#eq type "number"}}
-        default = {{{value}}}
+        default: typing.Union[int, float] = {{{value}}}
         {{/eq}}
         {{#eq type "integer"}}
-        default = {{{value}}}
+        default: int  = {{{value}}}
         {{/eq}}
         {{#eq type "boolean"}}
             {{#if value}}
-        default = schemas.BoolClass.TRUE
+        default: schemas.BoolClass = schemas.BoolClass.TRUE
             {{else}}
-        default = schemas.BoolClass.FALSE
+        default: schemas.BoolClass = schemas.BoolClass.FALSE
             {{/if}}
         {{/eq}}
         {{#eq type "null"}}
-        default = schemas.NoneClass.NONE
+        default: schemas.NoneClass = schemas.NoneClass.NONE
         {{/eq}}
     {{/with}}
 {{/if}}

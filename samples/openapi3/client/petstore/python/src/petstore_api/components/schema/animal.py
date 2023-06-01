@@ -18,11 +18,12 @@ class Color(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        default = "red"
+        default: str = "red"
 
 
 class Animal(
@@ -38,18 +39,17 @@ class Animal(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'className': {
                     'Cat': cat.Cat,
                     'Dog': dog.Dog,
                 }
             }
+        )
         properties: AnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnimalProperties)) # type: ignore
     
     @property

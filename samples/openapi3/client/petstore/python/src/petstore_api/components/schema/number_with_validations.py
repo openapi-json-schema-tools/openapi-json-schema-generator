@@ -22,6 +22,7 @@ class NumberWithValidations(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,

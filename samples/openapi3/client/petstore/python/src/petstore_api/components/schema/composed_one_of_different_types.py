@@ -74,10 +74,7 @@ class _5(
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         max_items: int = 4
         min_items: int = 4
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -143,6 +140,7 @@ class _6(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,

@@ -18,15 +18,18 @@ class Type(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "plains": "PLAINS",
-            "mountain": "MOUNTAIN",
-            "grevys": "GREVYS",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "plains": "PLAINS",
+                "mountain": "MOUNTAIN",
+                "grevys": "GREVYS",
+            }
+        )
     
     @schemas.classproperty
     def PLAINS(cls):
@@ -46,13 +49,16 @@ class ClassName(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "zebra": "ZEBRA",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "zebra": "ZEBRA",
+            }
+        )
     
     @schemas.classproperty
     def ZEBRA(cls):
@@ -72,9 +78,9 @@ class Zebra(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
+        })
         properties: ZebraProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ZebraProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     

@@ -20,13 +20,16 @@ class Op(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "remove": "REMOVE",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "remove": "REMOVE",
+            }
+        )
     
     @schemas.classproperty
     def REMOVE(cls):
@@ -46,10 +49,10 @@ class JSONPatchRequestRemove(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "op",
             "path",
-        }
+        })
         properties: JSONPatchRequestRemoveProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestRemoveProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     

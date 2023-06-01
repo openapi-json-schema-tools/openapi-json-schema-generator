@@ -28,9 +28,9 @@ class ObjWithRequiredProps(
         types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
         })
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "a",
-        }
+        })
         properties: ObjWithRequiredPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsProperties)) # type: ignore
         
         all_of: typing.Tuple[

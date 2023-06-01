@@ -25,15 +25,14 @@ class Quadrilateral(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'quadrilateralType': {
                     'ComplexQuadrilateral': complex_quadrilateral.ComplexQuadrilateral,
                     'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
                 }
             }
+        )
         
         one_of: typing.Tuple[
             typing.Type[simple_quadrilateral.SimpleQuadrilateral],

@@ -17,13 +17,16 @@ class TriangleType(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "IsoscelesTriangle": "ISOSCELES_TRIANGLE",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "IsoscelesTriangle": "ISOSCELES_TRIANGLE",
+            }
+        )
     
     @schemas.classproperty
     def ISOSCELES_TRIANGLE(cls):

@@ -17,6 +17,7 @@ class Integer(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
@@ -33,6 +34,7 @@ class Int32withValidations(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
@@ -48,6 +50,7 @@ class Number(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
@@ -62,6 +65,7 @@ class _Float(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
@@ -77,6 +81,7 @@ class Double(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
@@ -97,10 +102,7 @@ class ArrayWithUniqueItems(
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         unique_items: bool = True
-        
-        @staticmethod
-        def items():
-            return Items
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
@@ -135,6 +137,7 @@ class String(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -156,6 +159,7 @@ class Password(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -170,6 +174,7 @@ class PatternWithDigits(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -184,6 +189,7 @@ class PatternWithDigitsAndDelimiter(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
@@ -208,12 +214,12 @@ class FormatTest(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "byte",
             "date",
             "number",
             "password",
-        }
+        })
         properties: FormatTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FormatTestProperties)) # type: ignore
     
     @property

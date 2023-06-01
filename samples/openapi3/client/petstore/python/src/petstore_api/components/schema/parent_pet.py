@@ -27,14 +27,13 @@ class ParentPet(
         types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
         })
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'pet_type': {
                     'ChildCat': child_cat.ChildCat,
                 }
             }
+        )
         
         all_of: typing.Tuple[
             typing.Type[grandparent_animal.GrandparentAnimal],

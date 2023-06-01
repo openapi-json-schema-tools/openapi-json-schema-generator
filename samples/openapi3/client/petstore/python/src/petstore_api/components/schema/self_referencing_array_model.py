@@ -25,10 +25,7 @@ class SelfReferencingArrayModel(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return SelfReferencingArrayModel
+        items: typing.Type[SelfReferencingArrayModel] = dataclasses.field(default_factory=lambda: SelfReferencingArrayModel) # type: ignore
 
     def __new__(
         cls,

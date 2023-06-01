@@ -21,14 +21,17 @@ class Op(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "move": "MOVE",
-            "copy": "COPY",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "move": "MOVE",
+                "copy": "COPY",
+            }
+        )
     
     @schemas.classproperty
     def MOVE(cls):
@@ -52,11 +55,11 @@ class JSONPatchRequestMoveCopy(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "from",
             "op",
             "path",
-        }
+        })
         properties: JSONPatchRequestMoveCopyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestMoveCopyProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     

@@ -25,16 +25,15 @@ class Mammal(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'className': {
                     'Pig': pig.Pig,
                     'whale': whale.Whale,
                     'zebra': zebra.Zebra,
                 }
             }
+        )
         
         one_of: typing.Tuple[
             typing.Type[whale.Whale],

@@ -17,13 +17,16 @@ class QuadrilateralType(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "SimpleQuadrilateral": "SIMPLE_QUADRILATERAL",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "SimpleQuadrilateral": "SIMPLE_QUADRILATERAL",
+            }
+        )
     
     @schemas.classproperty
     def SIMPLE_QUADRILATERAL(cls):

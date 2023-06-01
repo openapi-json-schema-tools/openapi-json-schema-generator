@@ -17,13 +17,16 @@ class ShapeType(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "Quadrilateral": "QUADRILATERAL",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "Quadrilateral": "QUADRILATERAL",
+            }
+        )
     
     @schemas.classproperty
     def QUADRILATERAL(cls):
@@ -44,10 +47,10 @@ class QuadrilateralInterface(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "quadrilateralType",
             "shapeType",
-        }
+        })
         properties: QuadrilateralInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(QuadrilateralInterfaceProperties)) # type: ignore
 
     

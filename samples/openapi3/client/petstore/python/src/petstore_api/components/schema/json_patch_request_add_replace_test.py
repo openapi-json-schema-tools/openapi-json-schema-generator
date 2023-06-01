@@ -21,15 +21,18 @@ class Op(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        enum_value_to_name = {
-            "add": "ADD",
-            "replace": "REPLACE",
-            "test": "TEST",
-        }
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "add": "ADD",
+                "replace": "REPLACE",
+                "test": "TEST",
+            }
+        )
     
     @schemas.classproperty
     def ADD(cls):
@@ -57,11 +60,11 @@ class JSONPatchRequestAddReplaceTest(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "op",
             "path",
             "value",
-        }
+        })
         properties: JSONPatchRequestAddReplaceTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestAddReplaceTestProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     

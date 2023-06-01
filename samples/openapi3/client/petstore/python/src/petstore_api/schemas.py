@@ -185,27 +185,33 @@ class BoolClass(Singleton):
 
 
 class SchemaTyped:
-    types: typing.FrozenSet[typing.Type]
+    additional_properties: typing.Type[Schema]
+    all_of: typing.Tuple[typing.Type[Schema], ...]
+    any_of: typing.Tuple[typing.Type[Schema], ...]
+    discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[Schema]]]
+    default: typing.Union[str, int, float, BoolClass, NoneClass]
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, BoolClass, NoneClass], str]
     exclusive_maximum: typing.Union[int, float]
-    inclusive_maximum: typing.Union[int, float]
     exclusive_minimum: typing.Union[int, float]
+    format: str
+    inclusive_maximum: typing.Union[int, float]
     inclusive_minimum: typing.Union[int, float]
+    items: typing.Type[Schema]
     max_items: int
-    min_items: int
-    discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
-    default: typing.Union[str, int, BoolClass]
-    properties: typing.Mapping[str, Schema]
-    additional_properties: Schema
+    max_length: int
     max_properties: int
+    min_items: int
+    min_length: int
     min_properties: int
     multiple_of: typing.Union[int, float]
-    all_of: typing.Tuple[typing.Type[Schema], ...]
+    not_: typing.Type[Schema]
     one_of: typing.Tuple[typing.Type[Schema], ...]
-    any_of: typing.Tuple[typing.Type[Schema], ...]
-    not_: typing.Callable
-    max_length: int
-    min_length: int
-    items: typing.Callable
+    # pattern
+    properties: typing.Mapping[str, typing.Type[Schema]]
+    required: typing.FrozenSet[str]
+    types: typing.FrozenSet[typing.Type]
+    unique_items: bool
+
 
 PathToSchemasType = typing.Dict[
     typing.Tuple[typing.Union[str, int], ...],
@@ -790,13 +796,14 @@ def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.T
 
 def validate_items(
     arg: typing.Any,
-    item_cls_fn: typing.Callable,
+    item_cls: Schema,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    item_cls = _get_class(item_cls_fn.__func__())
+        schema = _get_class(additional_properties_cls)
+    item_cls = _get_class(item_cls)
     path_to_schemas = {}
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
@@ -974,11 +981,11 @@ def validate_all_of(
 
 def validate_not(
     arg: typing.Any,
-    not_cls_fn: typing.Callable,
+    not_cls: Schema,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> None:
-    not_schema = _get_class(not_cls_fn.__func__())
+    not_schema = _get_class(not_cls)
     other_path_to_schemas = None
     not_exception = exceptions.ApiValueError(
         "Invalid value '{}' was passed in to {}. Value is invalid because it is disallowed by {}".format(
@@ -1019,7 +1026,7 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     cls_schema = cls.Schema_()
     if not hasattr(cls_schema, 'discriminator'):
         return None
-    disc = cls_schema.discriminator()
+    disc = cls_schema.discriminator
     if disc_property_name not in disc:
         return None
     discriminated_cls = disc[disc_property_name].get(disc_payload_value)
@@ -1055,13 +1062,12 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
 
 def validate_discriminator(
     arg: typing.Any,
-    discriminator_fn: typing.Type,
+    discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[Schema]]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
-    discriminator = discriminator_fn.__func__()
     disc_prop_name = list(discriminator.keys())[0]
     __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
     discriminated_cls = __get_discriminated_class(

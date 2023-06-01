@@ -26,18 +26,17 @@ class GrandparentAnimal(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "pet_type",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'pet_type': {
                     'ChildCat': child_cat.ChildCat,
                     'ParentPet': parent_pet.ParentPet,
                 }
             }
+        )
         properties: GrandparentAnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GrandparentAnimalProperties)) # type: ignore
     
     @property

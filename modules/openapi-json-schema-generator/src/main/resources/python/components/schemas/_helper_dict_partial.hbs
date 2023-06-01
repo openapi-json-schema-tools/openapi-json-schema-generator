@@ -1,27 +1,22 @@
 {{#if requiredProperties}}
-required = {
+required: typing.FrozenSet[str] = frozenset({
 {{#each requiredProperties}}
     "{{{@key.original}}}",
 {{/each}}
-}
+})
 {{/if}}
 {{#if hasDiscriminatorWithNonEmptyMapping}}
-{{#with discriminator}}
-{{#each mappedModels}}
-{{#if @first}}
-
-@staticmethod
-def discriminator():
-    return {
+    {{#with discriminator}}
+discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+    default_factory=lambda: {
         '{{{propertyName.original}}}': {
-{{/if}}
+        {{#each mappedModels}}
             '{{mappingName}}': {{{modelName}}},
-{{#if @last}}
+        {{/each}}
         }
     }
-{{/if}}
-{{/each}}
-{{/with}}
+)
+    {{/with}}
 {{/if}}
 {{#if properties}}
 properties: {{jsonPathPiece.camelCase}}Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance({{jsonPathPiece.camelCase}}Properties)) # type: ignore

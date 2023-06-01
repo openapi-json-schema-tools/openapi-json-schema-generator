@@ -25,10 +25,7 @@ class ArrayOfEnums(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        
-        @staticmethod
-        def items():
-            return string_enum.StringEnum
+        items: typing.Type[string_enum.StringEnum] = dataclasses.field(default_factory=lambda: string_enum.StringEnum) # type: ignore
 
     def __new__(
         cls,

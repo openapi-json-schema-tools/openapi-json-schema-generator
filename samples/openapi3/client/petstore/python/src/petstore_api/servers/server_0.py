@@ -14,16 +14,19 @@ class _Variables:
     ):
     
     
+        @dataclasses.dataclass(frozen=True)
         class Schema_:
             types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
             })
-            default = "petstore"
-            enum_value_to_name = {
-                "petstore": "PETSTORE",
-                "qa-petstore": "QA_HYPHEN_MINUS_PETSTORE",
-                "dev-petstore": "DEV_HYPHEN_MINUS_PETSTORE",
-            }
+            default: str = "petstore"
+            enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+                default_factory=lambda: {
+                    "petstore": "PETSTORE",
+                    "qa-petstore": "QA_HYPHEN_MINUS_PETSTORE",
+                    "dev-petstore": "DEV_HYPHEN_MINUS_PETSTORE",
+                }
+            )
         
         @schemas.classproperty
         def PETSTORE(cls):
@@ -43,15 +46,18 @@ class _Variables:
     ):
     
     
+        @dataclasses.dataclass(frozen=True)
         class Schema_:
             types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
             })
-            default = "80"
-            enum_value_to_name = {
-                "80": "POSITIVE_80",
-                "8080": "POSITIVE_8080",
-            }
+            default: str = "80"
+            enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+                default_factory=lambda: {
+                    "80": "POSITIVE_80",
+                    "8080": "POSITIVE_8080",
+                }
+            )
         
         @schemas.classproperty
         def POSITIVE_80(cls):

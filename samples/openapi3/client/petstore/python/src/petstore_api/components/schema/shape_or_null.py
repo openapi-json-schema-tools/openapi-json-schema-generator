@@ -28,15 +28,14 @@ class ShapeOrNull(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'shapeType': {
                     'Quadrilateral': quadrilateral.Quadrilateral,
                     'Triangle': triangle.Triangle,
                 }
             }
+        )
         
         one_of: typing.Tuple[
             typing.Type[_0],
