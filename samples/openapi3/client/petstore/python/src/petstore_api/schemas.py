@@ -1403,9 +1403,11 @@ class Schema(typing.Generic[T]):
             bytes,
             io.FileIO,
             io.BufferedReader,
-            'Schema',        ],
+            'Schema',
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
+            Unset,
             dict,
             frozendict.frozendict,
             list,
@@ -1422,7 +1424,7 @@ class Schema(typing.Generic[T]):
             bytes,
             io.FileIO,
             io.BufferedReader,
-            'Schema',            Unset
+            'Schema',
         ]
     ):
         """
@@ -1978,7 +1980,8 @@ def cast_to_allowed_types(
         bytes,
         io.FileIO,
         io.BufferedReader,
-        'Schema',    ],
+        'Schema',
+    ],
     from_server: bool,
     validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, decimal.Decimal, BoolClass, NoneClass, frozendict.frozendict, tuple]]],
     path_to_item: typing.Tuple[typing.Union[str, int], ...],
@@ -2525,9 +2528,7 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     """
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        @staticmethod
-        def not_():
-            return AnyTypeSchema[U]
+        not_: typing.Type[Schema] = AnyTypeSchema
 
     def __new__(
         cls,

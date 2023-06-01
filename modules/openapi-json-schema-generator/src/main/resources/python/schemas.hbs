@@ -1532,8 +1532,8 @@ class Schema(typing.Generic[T]):
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
+            Unset,
             {{> _helper_types_all_incl_schema }}
-            Unset
         ]
     ):
         """
@@ -2615,9 +2615,7 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     """
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        @staticmethod
-        def not_():
-            return AnyTypeSchema[U]
+        not_: typing.Type[Schema] = AnyTypeSchema
 
     def __new__(
         cls,

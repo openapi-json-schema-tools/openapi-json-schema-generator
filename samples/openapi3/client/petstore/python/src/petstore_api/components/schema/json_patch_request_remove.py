@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
 

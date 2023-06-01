@@ -148,6 +148,11 @@ public class CodegenSchema {
         discriminator (not actually applicable because all values would be refs and do not need to be defined)
         $ref (because it is an import)
          */
+        if (isBooleanSchemaFalse) {
+            // return early for isBooleanSchemaFalse so not_ will not be written
+            schemas.add(this);
+            return schemas;
+        }
         if (additionalProperties != null) {
             additionalProperties.getAllSchemas(schemas, level + 1);
         }

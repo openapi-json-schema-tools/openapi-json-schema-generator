@@ -198,7 +198,6 @@ class MapWithUndeclaredPropertiesAnytype3(
         )
         return inst
 
-_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 
 
