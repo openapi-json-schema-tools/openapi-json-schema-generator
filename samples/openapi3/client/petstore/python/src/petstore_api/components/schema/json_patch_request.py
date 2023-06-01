@@ -17,6 +17,7 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         
@@ -116,6 +117,7 @@ class JSONPatchRequest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         

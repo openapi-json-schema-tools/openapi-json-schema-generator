@@ -93,6 +93,7 @@ class ArrayWithUniqueItems(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         unique_items = True
@@ -204,6 +205,7 @@ class FormatTest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -212,32 +214,7 @@ class FormatTest(
             "number",
             "password",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "integer": Integer,
-                "int32": Int32,
-                "int32withValidations": Int32withValidations,
-                "int64": Int64,
-                "number": Number,
-                "float": _Float,
-                "float32": Float32,
-                "double": Double,
-                "float64": Float64,
-                "arrayWithUniqueItems": ArrayWithUniqueItems,
-                "string": String,
-                "byte": Byte,
-                "binary": Binary,
-                "date": Date,
-                "dateTime": DateTime,
-                "uuid": Uuid,
-                "uuidNoExample": UuidNoExample,
-                "password": Password,
-                "pattern_with_digits": PatternWithDigits,
-                "pattern_with_digits_and_delimiter": PatternWithDigitsAndDelimiter,
-                "noneProp": NoneProp,
-            }
+        properties: FormatTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FormatTestProperties)) # type: ignore
     
     @property
     def byte(self) -> Byte[str]:

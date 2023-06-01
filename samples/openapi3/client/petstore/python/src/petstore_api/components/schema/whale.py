@@ -42,19 +42,13 @@ class Whale(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "className",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "hasBaleen": HasBaleen,
-                "hasTeeth": HasTeeth,
-                "className": ClassName,
-            }
+        properties: WhaleProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(WhaleProperties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:

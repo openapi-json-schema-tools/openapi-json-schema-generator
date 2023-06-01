@@ -25,14 +25,10 @@ class _Return(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def properties():
-            return {
-                "return": _Return,
-            }
+        properties: _ReturnProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_ReturnProperties)) # type: ignore
 
     
     @typing.overload

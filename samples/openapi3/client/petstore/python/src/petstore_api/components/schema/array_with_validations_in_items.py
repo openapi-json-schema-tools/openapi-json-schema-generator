@@ -35,6 +35,7 @@ class ArrayWithValidationsInItems(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         max_items = 2

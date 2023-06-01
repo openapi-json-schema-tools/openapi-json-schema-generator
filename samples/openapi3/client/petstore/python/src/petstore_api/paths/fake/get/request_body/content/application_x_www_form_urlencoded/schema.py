@@ -41,6 +41,7 @@ class EnumFormStringArray(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -108,15 +109,10 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "enum_form_string_array": EnumFormStringArray,
-                "enum_form_string": EnumFormString,
-            }
+        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArray[tuple]: ...

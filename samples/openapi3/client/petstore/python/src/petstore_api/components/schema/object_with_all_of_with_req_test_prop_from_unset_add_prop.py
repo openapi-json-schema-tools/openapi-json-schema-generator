@@ -18,17 +18,13 @@ class _1(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "test",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "name": Name,
-            }
+        properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
     @property
     def test(self) -> schemas.AnyTypeSchema[typing.Union[
@@ -154,6 +150,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

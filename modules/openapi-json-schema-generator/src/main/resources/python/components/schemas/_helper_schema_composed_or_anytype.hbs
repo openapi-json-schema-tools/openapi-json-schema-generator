@@ -38,6 +38,7 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
 {{#eq types null}}
         # any type

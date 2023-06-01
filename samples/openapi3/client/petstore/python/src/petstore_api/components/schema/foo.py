@@ -22,14 +22,10 @@ class Foo(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "bar": bar.Bar,
-            }
+        properties: FooProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FooProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> bar.Bar[str]: ...

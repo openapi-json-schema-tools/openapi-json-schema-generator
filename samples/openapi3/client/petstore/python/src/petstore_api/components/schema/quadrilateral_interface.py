@@ -41,19 +41,14 @@ class QuadrilateralInterface(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         required = {
             "quadrilateralType",
             "shapeType",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "shapeType": ShapeType,
-                "quadrilateralType": QuadrilateralType,
-            }
+        properties: QuadrilateralInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(QuadrilateralInterfaceProperties)) # type: ignore
 
     
     @property

@@ -27,19 +27,13 @@ class Name(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         required = {
             "name",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "name": Name,
-                "snake_case": SnakeCase,
-                "property": _Property,
-            }
+        properties: NameProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NameProperties)) # type: ignore
 
     
     @property

@@ -22,6 +22,7 @@ class Mammal(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

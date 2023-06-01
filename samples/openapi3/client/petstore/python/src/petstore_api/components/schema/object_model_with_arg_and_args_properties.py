@@ -24,19 +24,14 @@ class ObjectModelWithArgAndArgsProperties(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "arg",
             "args",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "arg": Arg,
-                "args": Args,
-            }
+        properties: ObjectModelWithArgAndArgsPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectModelWithArgAndArgsPropertiesProperties)) # type: ignore
     
     @property
     def arg(self) -> Arg[str]:

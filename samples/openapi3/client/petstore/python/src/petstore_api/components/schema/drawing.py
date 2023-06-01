@@ -17,6 +17,7 @@ class Shapes(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -93,17 +94,10 @@ class Drawing(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "mainShape": shape.Shape,
-                "shapeOrNull": shape_or_null.ShapeOrNull,
-                "nullableShape": nullable_shape.NullableShape,
-                "shapes": Shapes,
-            }
+        properties: DrawingProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DrawingProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

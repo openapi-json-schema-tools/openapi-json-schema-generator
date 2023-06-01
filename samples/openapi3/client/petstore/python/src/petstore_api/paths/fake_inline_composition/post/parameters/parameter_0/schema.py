@@ -29,6 +29,7 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

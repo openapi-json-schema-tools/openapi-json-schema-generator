@@ -17,6 +17,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -60,6 +61,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         

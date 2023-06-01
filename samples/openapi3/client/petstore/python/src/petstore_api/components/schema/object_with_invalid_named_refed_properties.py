@@ -22,19 +22,14 @@ class ObjectWithInvalidNamedRefedProperties(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "!reference",
             "from",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "from": from_schema.FromSchema,
-                "!reference": array_with_validations_in_items.ArrayWithValidationsInItems,
-            }
+        properties: ObjectWithInvalidNamedRefedPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithInvalidNamedRefedPropertiesProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItems[tuple]: ...

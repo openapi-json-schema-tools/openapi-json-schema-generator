@@ -20,6 +20,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -87,6 +88,7 @@ class IntegerProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -135,6 +137,7 @@ class NumberProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -183,6 +186,7 @@ class BooleanProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -229,6 +233,7 @@ class StringProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -276,6 +281,7 @@ class DateProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -325,6 +331,7 @@ class DatetimeProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -374,6 +381,7 @@ class ArrayNullableProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -425,6 +433,7 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -492,6 +501,7 @@ class ArrayAndItemsNullableProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -543,6 +553,7 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -607,6 +618,7 @@ class ArrayItemsNullable(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -657,6 +669,7 @@ class ObjectNullableProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -718,6 +731,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -785,6 +799,7 @@ class ObjectAndItemsNullableProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -853,6 +868,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -917,6 +933,7 @@ class ObjectItemsNullable(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -969,25 +986,10 @@ class NullableClass(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "integer_prop": IntegerProp,
-                "number_prop": NumberProp,
-                "boolean_prop": BooleanProp,
-                "string_prop": StringProp,
-                "date_prop": DateProp,
-                "datetime_prop": DatetimeProp,
-                "array_nullable_prop": ArrayNullableProp,
-                "array_and_items_nullable_prop": ArrayAndItemsNullableProp,
-                "array_items_nullable": ArrayItemsNullable,
-                "object_nullable_prop": ObjectNullableProp,
-                "object_and_items_nullable_prop": ObjectAndItemsNullableProp,
-                "object_items_nullable": ObjectItemsNullable,
-            }
+        properties: NullableClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NullableClassProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

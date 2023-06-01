@@ -19,19 +19,14 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "param",
             "param2",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "param": Param,
-                "param2": Param2,
-            }
+        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
     
     @property
     def param(self) -> Param[str]:

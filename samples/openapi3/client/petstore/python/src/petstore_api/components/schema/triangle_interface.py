@@ -41,19 +41,14 @@ class TriangleInterface(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         required = {
             "shapeType",
             "triangleType",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "shapeType": ShapeType,
-                "triangleType": TriangleType,
-            }
+        properties: TriangleInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(TriangleInterfaceProperties)) # type: ignore
 
     
     @property

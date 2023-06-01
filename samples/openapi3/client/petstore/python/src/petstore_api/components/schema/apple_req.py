@@ -26,18 +26,13 @@ class AppleReq(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "cultivar",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "cultivar": Cultivar,
-                "mealy": Mealy,
-            }
+        properties: AppleReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AppleReqProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

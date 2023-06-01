@@ -20,6 +20,7 @@ class PhotoUrls(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -58,6 +59,7 @@ class Tags(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -132,23 +134,14 @@ class Pet(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "name",
             "photoUrls",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "id": Id,
-                "category": category.Category,
-                "name": Name,
-                "photoUrls": PhotoUrls,
-                "tags": Tags,
-                "status": Status,
-            }
+        properties: PetProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(PetProperties)) # type: ignore
     
     @property
     def name(self) -> Name[str]:

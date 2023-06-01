@@ -26,18 +26,13 @@ class NoAdditionalProperties(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "id",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "id": Id,
-                "petId": PetId,
-            }
+        properties: NoAdditionalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NoAdditionalPropertiesProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

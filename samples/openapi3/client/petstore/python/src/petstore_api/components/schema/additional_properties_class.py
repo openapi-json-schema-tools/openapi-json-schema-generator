@@ -18,6 +18,7 @@ class MapProperty(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -58,6 +59,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -97,6 +99,7 @@ class MapOfMapProperty(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -141,6 +144,7 @@ class MapWithUndeclaredPropertiesAnytype3(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -215,6 +219,7 @@ class EmptyMap(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -246,6 +251,7 @@ class MapWithUndeclaredPropertiesString(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -290,21 +296,10 @@ class AdditionalPropertiesClass(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "map_property": MapProperty,
-                "map_of_map_property": MapOfMapProperty,
-                "anytype_1": Anytype1,
-                "map_with_undeclared_properties_anytype_1": MapWithUndeclaredPropertiesAnytype1,
-                "map_with_undeclared_properties_anytype_2": MapWithUndeclaredPropertiesAnytype2,
-                "map_with_undeclared_properties_anytype_3": MapWithUndeclaredPropertiesAnytype3,
-                "empty_map": EmptyMap,
-                "map_with_undeclared_properties_string": MapWithUndeclaredPropertiesString,
-            }
+        properties: AdditionalPropertiesClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AdditionalPropertiesClassProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_property"]) -> MapProperty[frozendict.frozendict]: ...

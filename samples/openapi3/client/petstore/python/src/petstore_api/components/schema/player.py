@@ -25,15 +25,10 @@ class Player(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "name": Name,
-                "enemyPlayer": Player,
-            }
+        properties: PlayerProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(PlayerProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...

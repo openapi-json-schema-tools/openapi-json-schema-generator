@@ -23,6 +23,7 @@ class ObjWithRequiredProps(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             frozendict.frozendict,
@@ -30,12 +31,7 @@ class ObjWithRequiredProps(
         required = {
             "a",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "a": A,
-            }
+        properties: ObjWithRequiredPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsProperties)) # type: ignore
         
         @staticmethod
         def all_of():

@@ -17,6 +17,7 @@ class Files(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -61,15 +62,10 @@ class FileSchemaTestClass(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "file": file.File,
-                "files": Files,
-            }
+        properties: FileSchemaTestClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FileSchemaTestClassProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["file"]) -> file.File[frozendict.frozendict]: ...

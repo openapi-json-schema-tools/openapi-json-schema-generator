@@ -23,6 +23,7 @@ class ComposedNone(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,

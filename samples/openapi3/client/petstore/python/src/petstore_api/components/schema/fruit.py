@@ -23,14 +23,10 @@ class Fruit(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def properties():
-            return {
-                "color": Color,
-            }
+        properties: FruitProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FruitProperties)) # type: ignore
         
         @staticmethod
         def one_of():

@@ -23,19 +23,14 @@ class Money(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "amount",
             "currency",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "amount": Amount,
-                "currency": currency.Currency,
-            }
+        properties: MoneyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MoneyProperties)) # type: ignore
     
     @property
     def amount(self) -> Amount[str]:

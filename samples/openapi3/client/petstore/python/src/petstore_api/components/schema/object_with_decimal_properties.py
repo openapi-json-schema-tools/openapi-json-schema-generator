@@ -23,16 +23,10 @@ class ObjectWithDecimalProperties(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "length": decimal_payload.DecimalPayload,
-                "width": Width,
-                "cost": money.Money,
-            }
+        properties: ObjectWithDecimalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithDecimalPropertiesProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["length"]) -> decimal_payload.DecimalPayload[str]: ...

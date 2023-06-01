@@ -18,14 +18,10 @@ class _1(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "name": Name,
-            }
+        properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
@@ -106,6 +102,7 @@ class ChildCat(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

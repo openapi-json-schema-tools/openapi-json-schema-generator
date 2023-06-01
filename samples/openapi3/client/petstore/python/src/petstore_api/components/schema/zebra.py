@@ -69,18 +69,13 @@ class Zebra(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "className",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "type": Type,
-                "className": ClassName,
-            }
+        properties: ZebraProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ZebraProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

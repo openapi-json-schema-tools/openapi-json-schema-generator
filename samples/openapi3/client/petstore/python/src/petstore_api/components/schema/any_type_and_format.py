@@ -18,6 +18,7 @@ class Uuid(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'uuid'
@@ -106,6 +107,7 @@ class Date(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'date'
@@ -194,6 +196,7 @@ class DateTime(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'date-time'
@@ -282,6 +285,7 @@ class Number(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'number'
@@ -369,6 +373,7 @@ class Binary(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'binary'
@@ -456,6 +461,7 @@ class Int32(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'int32'
@@ -543,6 +549,7 @@ class Int64(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'int64'
@@ -630,6 +637,7 @@ class Double(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'double'
@@ -717,6 +725,7 @@ class _Float(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         format = 'float'
@@ -809,22 +818,10 @@ class AnyTypeAndFormat(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "uuid": Uuid,
-                "date": Date,
-                "date-time": DateTime,
-                "number": Number,
-                "binary": Binary,
-                "int32": Int32,
-                "int64": Int64,
-                "double": Double,
-                "float": _Float,
-            }
+        properties: AnyTypeAndFormatProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnyTypeAndFormatProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> Uuid[typing.Union[

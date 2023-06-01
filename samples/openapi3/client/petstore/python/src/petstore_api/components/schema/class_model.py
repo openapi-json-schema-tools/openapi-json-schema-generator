@@ -25,14 +25,10 @@ class ClassModel(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def properties():
-            return {
-                "_class": _Class,
-            }
+        properties: ClassModelProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ClassModelProperties)) # type: ignore
 
     
     @typing.overload

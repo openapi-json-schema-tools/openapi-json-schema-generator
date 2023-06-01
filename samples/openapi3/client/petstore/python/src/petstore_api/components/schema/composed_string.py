@@ -23,6 +23,7 @@ class ComposedString(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             str,

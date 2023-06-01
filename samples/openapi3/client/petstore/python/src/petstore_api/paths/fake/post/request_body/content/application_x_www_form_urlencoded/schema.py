@@ -145,6 +145,7 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -153,25 +154,7 @@ class Schema(
             "number",
             "pattern_without_delimiter",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "integer": Integer,
-                "int32": Int32,
-                "int64": Int64,
-                "number": Number,
-                "float": _Float,
-                "double": Double,
-                "string": String,
-                "pattern_without_delimiter": PatternWithoutDelimiter,
-                "byte": Byte,
-                "binary": Binary,
-                "date": Date,
-                "dateTime": DateTime,
-                "password": Password,
-                "callback": Callback,
-            }
+        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
     
     @property
     def byte(self) -> Byte[str]:

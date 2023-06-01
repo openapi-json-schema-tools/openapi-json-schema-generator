@@ -24,16 +24,10 @@ class ObjectModelWithRefProps(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "myNumber": number_with_validations.NumberWithValidations,
-                "myString": string.String,
-                "myBoolean": boolean.Boolean,
-            }
+        properties: ObjectModelWithRefPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectModelWithRefPropsProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> number_with_validations.NumberWithValidations[decimal.Decimal]: ...

@@ -27,6 +27,7 @@ class _9(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -109,6 +110,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

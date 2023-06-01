@@ -23,14 +23,10 @@ class GmFruit(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def properties():
-            return {
-                "color": Color,
-            }
+        properties: GmFruitProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GmFruitProperties)) # type: ignore
         
         @staticmethod
         def any_of():

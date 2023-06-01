@@ -23,17 +23,13 @@ class ObjWithRequiredPropsBase(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "b",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "b": B,
-            }
+        properties: ObjWithRequiredPropsBaseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsBaseProperties)) # type: ignore
     
     @property
     def b(self) -> B[str]:

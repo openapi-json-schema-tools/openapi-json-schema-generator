@@ -18,6 +18,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -57,6 +58,7 @@ class MapMapOfString(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -120,6 +122,7 @@ class MapOfEnumString(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -160,6 +163,7 @@ class DirectMap(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -204,17 +208,10 @@ class MapTest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "map_map_of_string": MapMapOfString,
-                "map_of_enum_string": MapOfEnumString,
-                "direct_map": DirectMap,
-                "indirect_map": string_boolean_map.StringBooleanMap,
-            }
+        properties: MapTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MapTestProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfString[frozendict.frozendict]: ...

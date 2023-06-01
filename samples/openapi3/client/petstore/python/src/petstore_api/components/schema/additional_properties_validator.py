@@ -18,6 +18,7 @@ class _0(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -90,6 +91,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         min_length = 3
@@ -177,6 +179,7 @@ class _1(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -249,6 +252,7 @@ class AdditionalProperties(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         max_length = 5
@@ -336,6 +340,7 @@ class _2(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         
@@ -413,6 +418,7 @@ class AdditionalPropertiesValidator(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             frozendict.frozendict,

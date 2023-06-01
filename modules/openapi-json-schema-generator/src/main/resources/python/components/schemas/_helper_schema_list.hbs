@@ -17,6 +17,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#or items hasValidation}}
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
 {{#if hasValidation}}

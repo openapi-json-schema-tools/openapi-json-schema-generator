@@ -63,6 +63,7 @@ class ArrayEnum(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -106,15 +107,10 @@ class EnumArrays(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "just_symbol": JustSymbol,
-                "array_enum": ArrayEnum,
-            }
+        properties: EnumArraysProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumArraysProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> JustSymbol[str]: ...

@@ -25,16 +25,10 @@ class ApiResponse(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "code": Code,
-                "type": Type,
-                "message": Message,
-            }
+        properties: ApiResponseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ApiResponseProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["code"]) -> Code[decimal.Decimal]: ...

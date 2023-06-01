@@ -49,6 +49,7 @@ class JSONPatchRequestMoveCopy(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -56,14 +57,7 @@ class JSONPatchRequestMoveCopy(
             "op",
             "path",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "from": _From,
-                "path": Path,
-                "op": Op,
-            }
+        properties: JSONPatchRequestMoveCopyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestMoveCopyProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

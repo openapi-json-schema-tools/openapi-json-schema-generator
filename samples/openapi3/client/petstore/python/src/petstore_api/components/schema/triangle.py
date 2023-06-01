@@ -22,6 +22,7 @@ class Triangle(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

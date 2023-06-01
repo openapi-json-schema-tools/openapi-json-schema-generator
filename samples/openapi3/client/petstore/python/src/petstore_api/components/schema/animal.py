@@ -35,6 +35,7 @@ class Animal(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -49,13 +50,7 @@ class Animal(
                     'Dog': dog.Dog,
                 }
             }
-        
-        @staticmethod
-        def properties():
-            return {
-                "className": ClassName,
-                "color": Color,
-            }
+        properties: AnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnimalProperties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:

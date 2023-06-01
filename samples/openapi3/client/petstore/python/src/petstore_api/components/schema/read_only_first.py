@@ -24,15 +24,10 @@ class ReadOnlyFirst(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "bar": Bar,
-                "baz": Baz,
-            }
+        properties: ReadOnlyFirstProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ReadOnlyFirstProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[str]: ...

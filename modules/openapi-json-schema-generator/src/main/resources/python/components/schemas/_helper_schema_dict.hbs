@@ -17,6 +17,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation}}
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}

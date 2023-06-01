@@ -40,17 +40,13 @@ class BasquePig(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "className",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "className": ClassName,
-            }
+        properties: BasquePigProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BasquePigProperties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:

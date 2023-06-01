@@ -22,6 +22,7 @@ class AnimalFarm(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         

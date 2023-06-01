@@ -126,25 +126,13 @@ class EnumTest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "enum_string_required",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "enum_string": EnumString,
-                "enum_string_required": EnumStringRequired,
-                "enum_integer": EnumInteger,
-                "enum_number": EnumNumber,
-                "stringEnum": string_enum.StringEnum,
-                "IntegerEnum": integer_enum.IntegerEnum,
-                "StringEnumWithDefaultValue": string_enum_with_default_value.StringEnumWithDefaultValue,
-                "IntegerEnumWithDefaultValue": integer_enum_with_default_value.IntegerEnumWithDefaultValue,
-                "IntegerEnumOneValue": integer_enum_one_value.IntegerEnumOneValue,
-            }
+        properties: EnumTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumTestProperties)) # type: ignore
     
     @property
     def enum_string_required(self) -> EnumStringRequired[str]:

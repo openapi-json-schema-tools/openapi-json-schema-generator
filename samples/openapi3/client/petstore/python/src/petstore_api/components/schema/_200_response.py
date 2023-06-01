@@ -26,15 +26,10 @@ class _200Response(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        @staticmethod
-        def properties():
-            return {
-                "name": Name,
-                "class": _Class,
-            }
+        properties: _200ResponseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_200ResponseProperties)) # type: ignore
 
     
     @typing.overload

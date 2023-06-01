@@ -26,18 +26,13 @@ class BananaReq(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "lengthCm",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "lengthCm": LengthCm,
-                "sweet": Sweet,
-            }
+        properties: BananaReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaReqProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

@@ -23,6 +23,7 @@ class GrandparentAnimal(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -37,12 +38,7 @@ class GrandparentAnimal(
                     'ParentPet': parent_pet.ParentPet,
                 }
             }
-        
-        @staticmethod
-        def properties():
-            return {
-                "pet_type": PetType,
-            }
+        properties: GrandparentAnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GrandparentAnimalProperties)) # type: ignore
     
     @property
     def pet_type(self) -> PetType[str]:

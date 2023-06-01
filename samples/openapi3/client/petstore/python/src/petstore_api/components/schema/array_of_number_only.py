@@ -18,6 +18,7 @@ class ArrayNumber(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -63,14 +64,10 @@ class ArrayOfNumberOnly(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "ArrayNumber": ArrayNumber,
-            }
+        properties: ArrayOfNumberOnlyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ArrayOfNumberOnlyProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> ArrayNumber[tuple]: ...

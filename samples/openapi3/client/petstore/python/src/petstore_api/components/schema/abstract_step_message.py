@@ -25,6 +25,7 @@ class AbstractStepMessage(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             frozendict.frozendict,
@@ -42,12 +43,7 @@ class AbstractStepMessage(
                     'AbstractStepMessage': AbstractStepMessage,
                 }
             }
-        
-        @staticmethod
-        def properties():
-            return {
-                "discriminator": Discriminator,
-            }
+        properties: AbstractStepMessageProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AbstractStepMessageProperties)) # type: ignore
         
         @staticmethod
         def any_of():

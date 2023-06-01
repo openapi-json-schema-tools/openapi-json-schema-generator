@@ -29,6 +29,7 @@ class ObjectWithNoDeclaredPropsNullable(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -95,6 +96,7 @@ class AnyTypeExceptNullProp(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         
@@ -191,26 +193,10 @@ class User(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "id": Id,
-                "username": Username,
-                "firstName": FirstName,
-                "lastName": LastName,
-                "email": Email,
-                "password": Password,
-                "phone": Phone,
-                "userStatus": UserStatus,
-                "objectWithNoDeclaredProps": ObjectWithNoDeclaredProps,
-                "objectWithNoDeclaredPropsNullable": ObjectWithNoDeclaredPropsNullable,
-                "anyTypeProp": AnyTypeProp,
-                "anyTypeExceptNullProp": AnyTypeExceptNullProp,
-                "anyTypePropNullable": AnyTypePropNullable,
-            }
+        properties: UserProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(UserProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...

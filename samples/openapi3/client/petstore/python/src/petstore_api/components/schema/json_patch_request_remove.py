@@ -43,19 +43,14 @@ class JSONPatchRequestRemove(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "op",
             "path",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "path": Path,
-                "op": Op,
-            }
+        properties: JSONPatchRequestRemoveProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestRemoveProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

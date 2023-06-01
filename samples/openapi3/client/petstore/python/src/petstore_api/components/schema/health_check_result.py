@@ -20,6 +20,7 @@ class NullableMessage(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -70,14 +71,10 @@ class HealthCheckResult(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "NullableMessage": NullableMessage,
-            }
+        properties: HealthCheckResultProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(HealthCheckResultProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> NullableMessage[typing.Union[

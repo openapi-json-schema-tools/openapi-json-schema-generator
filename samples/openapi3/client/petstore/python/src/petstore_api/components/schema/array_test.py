@@ -18,6 +18,7 @@ class ArrayOfString(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -57,6 +58,7 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -96,6 +98,7 @@ class ArrayArrayOfInteger(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -135,6 +138,7 @@ class Items(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -174,6 +178,7 @@ class ArrayArrayOfModel(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         
@@ -218,16 +223,10 @@ class ArrayTest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
-        
-        @staticmethod
-        def properties():
-            return {
-                "array_of_string": ArrayOfString,
-                "array_array_of_integer": ArrayArrayOfInteger,
-                "array_array_of_model": ArrayArrayOfModel,
-            }
+        properties: ArrayTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ArrayTestProperties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfString[tuple]: ...

@@ -23,6 +23,7 @@ class ReqPropsFromExplicitAddProps(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {

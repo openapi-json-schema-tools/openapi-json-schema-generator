@@ -54,6 +54,7 @@ class JSONPatchRequestAddReplaceTest(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
@@ -61,14 +62,7 @@ class JSONPatchRequestAddReplaceTest(
             "path",
             "value",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "path": Path,
-                "value": Value,
-                "op": Op,
-            }
+        properties: JSONPatchRequestAddReplaceTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestAddReplaceTestProperties)) # type: ignore
         
         @staticmethod
         def additional_properties():

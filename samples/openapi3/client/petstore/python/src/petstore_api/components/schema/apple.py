@@ -54,6 +54,7 @@ class Apple(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,
@@ -62,13 +63,7 @@ class Apple(
         required = {
             "cultivar",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "cultivar": Cultivar,
-                "origin": Origin,
-            }
+        properties: AppleProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AppleProperties)) # type: ignore
 
     
     @property

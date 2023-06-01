@@ -19,6 +19,7 @@ class _4(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         max_properties = 4
@@ -68,6 +69,7 @@ class _5(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {tuple}
         max_items = 4
@@ -163,6 +165,7 @@ class ComposedOneOfDifferentTypes(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
         

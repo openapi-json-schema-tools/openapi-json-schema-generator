@@ -23,17 +23,13 @@ class Banana(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "lengthCm",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "lengthCm": LengthCm,
-            }
+        properties: BananaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaProperties)) # type: ignore
     
     @property
     def lengthCm(self) -> LengthCm[decimal.Decimal]:

@@ -23,6 +23,7 @@ class ComposedNumber(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             decimal.Decimal,

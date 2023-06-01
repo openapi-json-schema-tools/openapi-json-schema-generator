@@ -19,18 +19,13 @@ class Schema(
 ):
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "requiredFile",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "additionalMetadata": AdditionalMetadata,
-                "requiredFile": RequiredFile,
-            }
+        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
     
     @property
     def requiredFile(self) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]:

@@ -35,18 +35,13 @@ class Category(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         required = {
             "name",
         }
-        
-        @staticmethod
-        def properties():
-            return {
-                "id": Id,
-                "name": Name,
-            }
+        properties: CategoryProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(CategoryProperties)) # type: ignore
     
     @property
     def name(self) -> Name[str]:

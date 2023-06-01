@@ -25,6 +25,7 @@ class NullableString(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {
             schemas.NoneClass,

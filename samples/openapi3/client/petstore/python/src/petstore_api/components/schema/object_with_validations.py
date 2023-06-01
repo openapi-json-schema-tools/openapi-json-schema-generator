@@ -22,6 +22,7 @@ class ObjectWithValidations(
     """
 
 
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         types = {frozendict.frozendict}
         min_properties = 2
