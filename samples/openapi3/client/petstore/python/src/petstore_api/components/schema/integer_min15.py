@@ -27,5 +27,5 @@ class IntegerMin15(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int64'
+        format: str = 'int64'
         inclusive_minimum: typing.Union[int, float] = 15

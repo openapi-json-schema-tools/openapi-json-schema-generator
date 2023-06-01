@@ -27,5 +27,5 @@ class IntegerMax10(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int64'
+        format: str = 'int64'
         inclusive_maximum: typing.Union[int, float] = 10

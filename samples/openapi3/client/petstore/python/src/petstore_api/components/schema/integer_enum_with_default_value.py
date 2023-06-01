@@ -27,7 +27,7 @@ class IntegerEnumWithDefaultValue(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int'
+        format: str = 'int'
         default: int  = 0
         enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
             default_factory=lambda: {

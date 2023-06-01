@@ -27,7 +27,7 @@ class DateWithValidations(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        format = 'date'
+        format: str = 'date'
         regex={
             'pattern': r'^2020.*',  # noqa: E501
         }

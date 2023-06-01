@@ -27,7 +27,7 @@ class IntegerEnumOneValue(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int'
+        format: str = 'int'
         enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
             default_factory=lambda: {
                 0: "POSITIVE_0",

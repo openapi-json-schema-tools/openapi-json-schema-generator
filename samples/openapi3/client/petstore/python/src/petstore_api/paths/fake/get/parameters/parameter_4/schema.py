@@ -22,7 +22,7 @@ class Schema(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int32'
+        format: str = 'int32'
         enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
             default_factory=lambda: {
                 1: "POSITIVE_1",

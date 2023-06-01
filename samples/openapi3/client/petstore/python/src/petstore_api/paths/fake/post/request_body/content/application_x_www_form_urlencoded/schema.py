@@ -22,7 +22,7 @@ class Integer(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int'
+        format: str = 'int'
         inclusive_maximum: typing.Union[int, float] = 100
         inclusive_minimum: typing.Union[int, float] = 10
 
@@ -37,7 +37,7 @@ class Int32(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'int32'
+        format: str = 'int32'
         inclusive_maximum: typing.Union[int, float] = 200
         inclusive_minimum: typing.Union[int, float] = 20
 Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
@@ -67,7 +67,7 @@ class _Float(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'float'
+        format: str = 'float'
         inclusive_maximum: typing.Union[int, float] = 987.6
 
 
@@ -81,7 +81,7 @@ class Double(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        format = 'double'
+        format: str = 'double'
         inclusive_maximum: typing.Union[int, float] = 123.4
         inclusive_minimum: typing.Union[int, float] = 67.8
 
@@ -130,7 +130,7 @@ class DateTime(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        format = 'date-time'
+        format: str = 'date-time'
 
 
 class Password(
@@ -143,7 +143,7 @@ class Password(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        format = 'password'
+        format: str = 'password'
         max_length: int = 64
         min_length: int = 10
 Callback: typing_extensions.TypeAlias = schemas.StrSchema[U]

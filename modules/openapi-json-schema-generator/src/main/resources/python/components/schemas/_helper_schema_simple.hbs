@@ -28,7 +28,7 @@ class {{jsonPathPiece.camelCase}}(
 {{/eq}}
         {{> components/schemas/_helper_types }}
 {{#if format}}
-        format = '{{format}}'
+        format: str = '{{format}}'
 {{/if}}
         {{> components/schemas/_helper_validations }}
 {{#if defaultValue}}

@@ -27,5 +27,5 @@ class UUIDString(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        format = 'uuid'
+        format: str = 'uuid'
         min_length: int = 1
