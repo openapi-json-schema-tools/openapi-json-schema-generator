@@ -28,12 +28,7 @@ class ComposedObject(
         types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
         })
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: ComposedObjectAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedObjectAllOf)) # type: ignore
 
 
     def __new__(
@@ -72,3 +67,6 @@ class ComposedObject(
         )
         return inst
 
+ComposedObjectAllOf = typing.Tuple[
+    typing.Type[_0],
+]

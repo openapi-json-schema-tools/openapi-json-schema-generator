@@ -33,14 +33,7 @@ class Shape(
                 }
             }
         )
-        
-        one_of: typing.Tuple[
-            typing.Type[triangle.Triangle],
-            typing.Type[quadrilateral.Quadrilateral],
-        ] = dataclasses.field(default_factory=lambda: (
-            triangle.Triangle,
-            quadrilateral.Quadrilateral,
-        )) # type: ignore
+        one_of: ShapeOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ShapeOneOf)) # type: ignore
 
 
     def __new__(
@@ -121,3 +114,7 @@ class Shape(
 
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle
+ShapeOneOf = typing.Tuple[
+    typing.Type[triangle.Triangle],
+    typing.Type[quadrilateral.Quadrilateral],
+]

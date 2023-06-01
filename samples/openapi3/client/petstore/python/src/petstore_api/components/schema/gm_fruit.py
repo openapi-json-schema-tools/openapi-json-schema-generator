@@ -27,14 +27,7 @@ class GmFruit(
     class Schema_:
         # any type
         properties: GmFruitProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GmFruitProperties)) # type: ignore
-        
-        any_of: typing.Tuple[
-            typing.Type[apple.Apple],
-            typing.Type[banana.Banana],
-        ] = dataclasses.field(default_factory=lambda: (
-            apple.Apple,
-            banana.Banana,
-        )) # type: ignore
+        any_of: GmFruitAnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(GmFruitAnyOf)) # type: ignore
 
     
     @typing.overload
@@ -146,6 +139,10 @@ class GmFruit(
 
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana
+GmFruitAnyOf = typing.Tuple[
+    typing.Type[apple.Apple],
+    typing.Type[banana.Banana],
+]
 GmFruitProperties = typing_extensions.TypedDict(
     'GmFruitProperties',
     {

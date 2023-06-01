@@ -28,16 +28,7 @@ class NullableShape(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        one_of: typing.Tuple[
-            typing.Type[triangle.Triangle],
-            typing.Type[quadrilateral.Quadrilateral],
-            typing.Type[_2],
-        ] = dataclasses.field(default_factory=lambda: (
-            triangle.Triangle,
-            quadrilateral.Quadrilateral,
-            _2,
-        )) # type: ignore
+        one_of: NullableShapeOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(NullableShapeOneOf)) # type: ignore
 
 
     def __new__(
@@ -118,3 +109,8 @@ class NullableShape(
 
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle
+NullableShapeOneOf = typing.Tuple[
+    typing.Type[triangle.Triangle],
+    typing.Type[quadrilateral.Quadrilateral],
+    typing.Type[_2],
+]

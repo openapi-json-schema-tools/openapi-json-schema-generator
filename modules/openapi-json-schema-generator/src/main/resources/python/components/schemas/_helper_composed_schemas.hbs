@@ -1,62 +1,11 @@
 {{#if allOf}}
-
-all_of: typing.Tuple[
-    {{#each allOf}}
-        {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-        {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-        {{/if}}
-    {{/each}}
-] = dataclasses.field(default_factory=lambda: (
-    {{#each allOf}}
-        {{#if refInfo.refClass}}
-    {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
-        {{else}}
-    {{jsonPathPiece.camelCase}},
-        {{/if}}
-    {{/each}}
-)) # type: ignore
-{{/if}}
-{{#if oneOf}}
-
-one_of: typing.Tuple[
-    {{#each oneOf}}
-        {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-        {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-        {{/if}}
-    {{/each}}
-] = dataclasses.field(default_factory=lambda: (
-    {{#each oneOf}}
-        {{#if refInfo.refClass}}
-    {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
-        {{else}}
-    {{jsonPathPiece.camelCase}},
-        {{/if}}
-    {{/each}}
-)) # type: ignore
+all_of: {{jsonPathPiece.camelCase}}AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}AllOf)) # type: ignore
 {{/if}}
 {{#if anyOf}}
-
-any_of: typing.Tuple[
-    {{#each anyOf}}
-        {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-        {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-        {{/if}}
-    {{/each}}
-] = dataclasses.field(default_factory=lambda: (
-    {{#each anyOf}}
-        {{#if refInfo.refClass}}
-    {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
-        {{else}}
-    {{jsonPathPiece.camelCase}},
-        {{/if}}
-    {{/each}}
-)) # type: ignore
+any_of: {{jsonPathPiece.camelCase}}AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}AnyOf)) # type: ignore
+{{/if}}
+{{#if oneOf}}
+one_of: {{jsonPathPiece.camelCase}}OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}OneOf)) # type: ignore
 {{/if}}
 {{#if not}}
 {{#with not}}

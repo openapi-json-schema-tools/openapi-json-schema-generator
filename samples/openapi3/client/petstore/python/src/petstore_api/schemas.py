@@ -2594,3 +2594,14 @@ def typed_dict_to_instance(t_dict: typing.Type[W]) -> W:
             val_cls = typing_extensions.get_args(val)[0]
             res[key] = val_cls
     return res # type: ignore
+
+X = typing.TypeVar('X', bound=typing.Tuple)
+
+def tuple_to_instance(tup: typing.Type[X]) -> X:
+    res = []
+    for arg in typing_extensions.get_args(tup):
+        if isinstance(arg, typing._GenericAlias): # type: ignore
+            # typing.Type[Schema] -> Schema
+            arg_cls = typing_extensions.get_args(arg)[0]
+            res.append(arg_cls)
+    return tuple(res) # type: ignore

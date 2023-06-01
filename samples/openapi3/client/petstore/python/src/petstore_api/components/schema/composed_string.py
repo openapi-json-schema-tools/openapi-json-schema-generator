@@ -28,12 +28,7 @@ class ComposedString(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: ComposedStringAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedStringAllOf)) # type: ignore
 
 
     def __new__(
@@ -52,3 +47,6 @@ class ComposedString(
         )
         return inst
 
+ComposedStringAllOf = typing.Tuple[
+    typing.Type[_0],
+]

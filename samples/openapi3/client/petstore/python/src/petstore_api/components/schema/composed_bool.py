@@ -28,12 +28,7 @@ class ComposedBool(
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
         })
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: ComposedBoolAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedBoolAllOf)) # type: ignore
 
 
     def __new__(
@@ -52,3 +47,6 @@ class ComposedBool(
         )
         return inst
 
+ComposedBoolAllOf = typing.Tuple[
+    typing.Type[_0],
+]

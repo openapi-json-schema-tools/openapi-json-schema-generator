@@ -105,14 +105,7 @@ class Cat(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[animal.Animal],
-            typing.Type[_1],
-        ] = dataclasses.field(default_factory=lambda: (
-            animal.Animal,
-            _1,
-        )) # type: ignore
+        all_of: CatAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(CatAllOf)) # type: ignore
 
 
     def __new__(
@@ -198,3 +191,7 @@ _1Properties = typing_extensions.TypedDict(
         "declawed": typing.Type[Declawed],
     }
 )
+CatAllOf = typing.Tuple[
+    typing.Type[animal.Animal],
+    typing.Type[_1],
+]

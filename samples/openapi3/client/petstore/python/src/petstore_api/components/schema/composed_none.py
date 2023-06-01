@@ -28,12 +28,7 @@ class ComposedNone(
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
         })
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: ComposedNoneAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedNoneAllOf)) # type: ignore
 
 
     def __new__(
@@ -52,3 +47,6 @@ class ComposedNone(
         )
         return inst
 
+ComposedNoneAllOf = typing.Tuple[
+    typing.Type[_0],
+]

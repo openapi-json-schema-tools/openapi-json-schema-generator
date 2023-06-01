@@ -32,12 +32,7 @@ class ObjWithRequiredProps(
             "a",
         })
         properties: ObjWithRequiredPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsProperties)) # type: ignore
-        
-        all_of: typing.Tuple[
-            typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
-        ] = dataclasses.field(default_factory=lambda: (
-            obj_with_required_props_base.ObjWithRequiredPropsBase,
-        )) # type: ignore
+        all_of: ObjWithRequiredPropsAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ObjWithRequiredPropsAllOf)) # type: ignore
 
     
     @property
@@ -112,6 +107,9 @@ class ObjWithRequiredProps(
 
 
 from petstore_api.components.schema import obj_with_required_props_base
+ObjWithRequiredPropsAllOf = typing.Tuple[
+    typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
+]
 ObjWithRequiredPropsProperties = typing_extensions.TypedDict(
     'ObjWithRequiredPropsProperties',
     {

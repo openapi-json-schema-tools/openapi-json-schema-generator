@@ -28,12 +28,7 @@ class ComposedNumber(
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: ComposedNumberAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedNumberAllOf)) # type: ignore
 
 
     def __new__(
@@ -52,3 +47,6 @@ class ComposedNumber(
         )
         return inst
 
+ComposedNumberAllOf = typing.Tuple[
+    typing.Type[_0],
+]

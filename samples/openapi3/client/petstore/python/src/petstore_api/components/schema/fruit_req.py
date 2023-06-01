@@ -26,16 +26,7 @@ class FruitReq(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        one_of: typing.Tuple[
-            typing.Type[_0],
-            typing.Type[apple_req.AppleReq],
-            typing.Type[banana_req.BananaReq],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-            apple_req.AppleReq,
-            banana_req.BananaReq,
-        )) # type: ignore
+        one_of: FruitReqOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(FruitReqOneOf)) # type: ignore
 
 
     def __new__(
@@ -116,3 +107,8 @@ class FruitReq(
 
 from petstore_api.components.schema import apple_req
 from petstore_api.components.schema import banana_req
+FruitReqOneOf = typing.Tuple[
+    typing.Type[_0],
+    typing.Type[apple_req.AppleReq],
+    typing.Type[banana_req.BananaReq],
+]

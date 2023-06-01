@@ -33,12 +33,7 @@ class SomeProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[_0],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-        )) # type: ignore
+        all_of: SomePropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(SomePropAllOf)) # type: ignore
 
 
     def __new__(
@@ -233,6 +228,9 @@ class ObjectWithInlineCompositionProperty(
         )
         return inst
 
+SomePropAllOf = typing.Tuple[
+    typing.Type[_0],
+]
 ObjectWithInlineCompositionPropertyProperties = typing_extensions.TypedDict(
     'ObjectWithInlineCompositionPropertyProperties',
     {

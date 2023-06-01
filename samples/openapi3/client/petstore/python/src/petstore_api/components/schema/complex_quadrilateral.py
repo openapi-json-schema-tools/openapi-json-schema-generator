@@ -125,14 +125,7 @@ class ComplexQuadrilateral(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[quadrilateral_interface.QuadrilateralInterface],
-            typing.Type[_1],
-        ] = dataclasses.field(default_factory=lambda: (
-            quadrilateral_interface.QuadrilateralInterface,
-            _1,
-        )) # type: ignore
+        all_of: ComplexQuadrilateralAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComplexQuadrilateralAllOf)) # type: ignore
 
 
     def __new__(
@@ -218,3 +211,7 @@ _1Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
+ComplexQuadrilateralAllOf = typing.Tuple[
+    typing.Type[quadrilateral_interface.QuadrilateralInterface],
+    typing.Type[_1],
+]

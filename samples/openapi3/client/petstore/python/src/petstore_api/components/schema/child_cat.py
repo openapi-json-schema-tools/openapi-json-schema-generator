@@ -105,14 +105,7 @@ class ChildCat(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[parent_pet.ParentPet],
-            typing.Type[_1],
-        ] = dataclasses.field(default_factory=lambda: (
-            parent_pet.ParentPet,
-            _1,
-        )) # type: ignore
+        all_of: ChildCatAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ChildCatAllOf)) # type: ignore
 
 
     def __new__(
@@ -198,3 +191,7 @@ _1Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+ChildCatAllOf = typing.Tuple[
+    typing.Type[parent_pet.ParentPet],
+    typing.Type[_1],
+]

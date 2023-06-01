@@ -153,14 +153,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
-            typing.Type[_1],
-        ] = dataclasses.field(default_factory=lambda: (
-            object_with_optional_test_prop.ObjectWithOptionalTestProp,
-            _1,
-        )) # type: ignore
+        all_of: ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf)) # type: ignore
 
 
     def __new__(
@@ -246,3 +239,7 @@ _1Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf = typing.Tuple[
+    typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
+    typing.Type[_1],
+]

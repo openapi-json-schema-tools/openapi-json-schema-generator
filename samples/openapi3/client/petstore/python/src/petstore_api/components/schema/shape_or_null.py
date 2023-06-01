@@ -36,16 +36,7 @@ class ShapeOrNull(
                 }
             }
         )
-        
-        one_of: typing.Tuple[
-            typing.Type[_0],
-            typing.Type[triangle.Triangle],
-            typing.Type[quadrilateral.Quadrilateral],
-        ] = dataclasses.field(default_factory=lambda: (
-            _0,
-            triangle.Triangle,
-            quadrilateral.Quadrilateral,
-        )) # type: ignore
+        one_of: ShapeOrNullOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ShapeOrNullOneOf)) # type: ignore
 
 
     def __new__(
@@ -126,3 +117,8 @@ class ShapeOrNull(
 
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle
+ShapeOrNullOneOf = typing.Tuple[
+    typing.Type[_0],
+    typing.Type[triangle.Triangle],
+    typing.Type[quadrilateral.Quadrilateral],
+]

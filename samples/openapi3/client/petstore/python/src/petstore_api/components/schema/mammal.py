@@ -34,16 +34,7 @@ class Mammal(
                 }
             }
         )
-        
-        one_of: typing.Tuple[
-            typing.Type[whale.Whale],
-            typing.Type[zebra.Zebra],
-            typing.Type[pig.Pig],
-        ] = dataclasses.field(default_factory=lambda: (
-            whale.Whale,
-            zebra.Zebra,
-            pig.Pig,
-        )) # type: ignore
+        one_of: MammalOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(MammalOneOf)) # type: ignore
 
 
     def __new__(
@@ -125,3 +116,8 @@ class Mammal(
 from petstore_api.components.schema import pig
 from petstore_api.components.schema import whale
 from petstore_api.components.schema import zebra
+MammalOneOf = typing.Tuple[
+    typing.Type[whale.Whale],
+    typing.Type[zebra.Zebra],
+    typing.Type[pig.Pig],
+]

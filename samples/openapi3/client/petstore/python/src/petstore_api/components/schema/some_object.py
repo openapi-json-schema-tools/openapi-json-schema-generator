@@ -25,12 +25,7 @@ class SomeObject(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        
-        all_of: typing.Tuple[
-            typing.Type[object_interface.ObjectInterface],
-        ] = dataclasses.field(default_factory=lambda: (
-            object_interface.ObjectInterface,
-        )) # type: ignore
+        all_of: SomeObjectAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(SomeObjectAllOf)) # type: ignore
 
 
     def __new__(
@@ -110,3 +105,6 @@ class SomeObject(
 
 
 from petstore_api.components.schema import object_interface
+SomeObjectAllOf = typing.Tuple[
+    typing.Type[object_interface.ObjectInterface],
+]

@@ -24,6 +24,39 @@ from {{packageName}}.shared_imports.schema_imports import *
 {{> _helper_imports }}
         {{/if}}
         {{#each getSchemas}}
+            {{#if allOf}}
+{{jsonPathPiece.camelCase}}AllOf = typing.Tuple[
+                {{#each allOf}}
+                    {{#if refInfo.refClass}}
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+                    {{else}}
+    typing.Type[{{jsonPathPiece.camelCase}}],
+                    {{/if}}
+                {{/each}}
+]
+            {{/if}}
+            {{#if anyOf}}
+{{jsonPathPiece.camelCase}}AnyOf = typing.Tuple[
+                {{#each anyOf}}
+                    {{#if refInfo.refClass}}
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+                    {{else}}
+    typing.Type[{{jsonPathPiece.camelCase}}],
+                    {{/if}}
+                {{/each}}
+]
+            {{/if}}
+            {{#if oneOf}}
+{{jsonPathPiece.camelCase}}OneOf = typing.Tuple[
+                {{#each oneOf}}
+                    {{#if refInfo.refClass}}
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+                    {{else}}
+    typing.Type[{{jsonPathPiece.camelCase}}],
+                    {{/if}}
+                {{/each}}
+]
+            {{/if}}
             {{#if properties}}
 {{jsonPathPiece.camelCase}}Properties = typing_extensions.TypedDict(
     '{{jsonPathPiece.camelCase}}Properties',

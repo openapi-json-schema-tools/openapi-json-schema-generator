@@ -33,14 +33,7 @@ class Quadrilateral(
                 }
             }
         )
-        
-        one_of: typing.Tuple[
-            typing.Type[simple_quadrilateral.SimpleQuadrilateral],
-            typing.Type[complex_quadrilateral.ComplexQuadrilateral],
-        ] = dataclasses.field(default_factory=lambda: (
-            simple_quadrilateral.SimpleQuadrilateral,
-            complex_quadrilateral.ComplexQuadrilateral,
-        )) # type: ignore
+        one_of: QuadrilateralOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(QuadrilateralOneOf)) # type: ignore
 
 
     def __new__(
@@ -121,3 +114,7 @@ class Quadrilateral(
 
 from petstore_api.components.schema import complex_quadrilateral
 from petstore_api.components.schema import simple_quadrilateral
+QuadrilateralOneOf = typing.Tuple[
+    typing.Type[simple_quadrilateral.SimpleQuadrilateral],
+    typing.Type[complex_quadrilateral.ComplexQuadrilateral],
+]

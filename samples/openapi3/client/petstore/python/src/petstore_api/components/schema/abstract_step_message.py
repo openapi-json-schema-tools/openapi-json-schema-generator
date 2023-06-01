@@ -43,12 +43,7 @@ class AbstractStepMessage(
             }
         )
         properties: AbstractStepMessageProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AbstractStepMessageProperties)) # type: ignore
-        
-        any_of: typing.Tuple[
-            typing.Type[AbstractStepMessage],
-        ] = dataclasses.field(default_factory=lambda: (
-            AbstractStepMessage,
-        )) # type: ignore
+        any_of: AbstractStepMessageAnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AbstractStepMessageAnyOf)) # type: ignore
 
     
     @property
@@ -231,6 +226,9 @@ class AbstractStepMessage(
         )
         return inst
 
+AbstractStepMessageAnyOf = typing.Tuple[
+    typing.Type[AbstractStepMessage],
+]
 AbstractStepMessageProperties = typing_extensions.TypedDict(
     'AbstractStepMessageProperties',
     {
