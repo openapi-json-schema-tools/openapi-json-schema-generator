@@ -118,7 +118,7 @@ class BasquePig(
         )
         return inst
 
-BasquePigProperties = typing.TypedDict(
+BasquePigProperties = typing_extensions.TypedDict(
     'BasquePigProperties',
     {
         "className": ClassName,

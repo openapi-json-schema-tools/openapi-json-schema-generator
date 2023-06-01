@@ -155,7 +155,7 @@ class Apple(
         )
         return inst
 
-AppleProperties = typing.TypedDict(
+AppleProperties = typing_extensions.TypedDict(
     'AppleProperties',
     {
         "cultivar": Cultivar,

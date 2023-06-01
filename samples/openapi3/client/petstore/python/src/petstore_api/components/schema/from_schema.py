@@ -107,7 +107,7 @@ class FromSchema(
         )
         return inst
 
-FromSchemaProperties = typing.TypedDict(
+FromSchemaProperties = typing_extensions.TypedDict(
     'FromSchemaProperties',
     {
         "data": Data,

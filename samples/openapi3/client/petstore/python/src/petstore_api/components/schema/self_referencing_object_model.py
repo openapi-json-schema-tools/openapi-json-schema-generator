@@ -76,7 +76,7 @@ class SelfReferencingObjectModel(
         )
         return inst
 
-SelfReferencingObjectModelProperties = typing.TypedDict(
+SelfReferencingObjectModelProperties = typing_extensions.TypedDict(
     'SelfReferencingObjectModelProperties',
     {
         "selfRef": SelfReferencingObjectModel,

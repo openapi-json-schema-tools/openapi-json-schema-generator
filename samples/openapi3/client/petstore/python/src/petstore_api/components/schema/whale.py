@@ -140,7 +140,7 @@ class Whale(
         )
         return inst
 
-WhaleProperties = typing.TypedDict(
+WhaleProperties = typing_extensions.TypedDict(
     'WhaleProperties',
     {
         "hasBaleen": HasBaleen,

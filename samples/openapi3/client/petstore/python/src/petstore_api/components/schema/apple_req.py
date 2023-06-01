@@ -85,7 +85,7 @@ class AppleReq(
         )
         return inst
 
-AppleReqProperties = typing.TypedDict(
+AppleReqProperties = typing_extensions.TypedDict(
     'AppleReqProperties',
     {
         "cultivar": Cultivar,

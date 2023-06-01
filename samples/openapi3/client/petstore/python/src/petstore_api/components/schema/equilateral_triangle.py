@@ -208,7 +208,7 @@ class EquilateralTriangle(
 
 
 from petstore_api.components.schema import triangle_interface
-_1Properties = typing.TypedDict(
+_1Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
         "triangleType": TriangleType,

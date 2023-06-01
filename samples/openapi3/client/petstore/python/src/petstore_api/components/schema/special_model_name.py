@@ -97,7 +97,7 @@ class SpecialModelName(
         )
         return inst
 
-SpecialModelNameProperties = typing.TypedDict(
+SpecialModelNameProperties = typing_extensions.TypedDict(
     'SpecialModelNameProperties',
     {
         "a": A,

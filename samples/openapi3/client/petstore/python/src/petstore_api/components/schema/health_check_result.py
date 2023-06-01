@@ -150,7 +150,7 @@ class HealthCheckResult(
         )
         return inst
 
-HealthCheckResultProperties = typing.TypedDict(
+HealthCheckResultProperties = typing_extensions.TypedDict(
     'HealthCheckResultProperties',
     {
         "NullableMessage": NullableMessage,

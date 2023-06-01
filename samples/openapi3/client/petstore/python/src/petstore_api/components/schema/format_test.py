@@ -508,7 +508,7 @@ class FormatTest(
         )
         return inst
 
-FormatTestProperties = typing.TypedDict(
+FormatTestProperties = typing_extensions.TypedDict(
     'FormatTestProperties',
     {
         "integer": Integer,

@@ -316,7 +316,7 @@ class MapTest(
 
 
 from petstore_api.components.schema import string_boolean_map
-MapTestProperties = typing.TypedDict(
+MapTestProperties = typing_extensions.TypedDict(
     'MapTestProperties',
     {
         "map_map_of_string": MapMapOfString,

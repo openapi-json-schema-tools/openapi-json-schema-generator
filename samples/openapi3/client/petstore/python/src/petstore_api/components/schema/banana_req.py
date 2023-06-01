@@ -87,7 +87,7 @@ class BananaReq(
         )
         return inst
 
-BananaReqProperties = typing.TypedDict(
+BananaReqProperties = typing_extensions.TypedDict(
     'BananaReqProperties',
     {
         "lengthCm": LengthCm,

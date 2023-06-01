@@ -155,7 +155,7 @@ class Name(
         )
         return inst
 
-NameProperties = typing.TypedDict(
+NameProperties = typing_extensions.TypedDict(
     'NameProperties',
     {
         "name": Name,

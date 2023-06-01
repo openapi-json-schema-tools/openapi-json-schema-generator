@@ -122,7 +122,7 @@ class ObjectModelWithRefProps(
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations
 from petstore_api.components.schema import string
-ObjectModelWithRefPropsProperties = typing.TypedDict(
+ObjectModelWithRefPropsProperties = typing_extensions.TypedDict(
     'ObjectModelWithRefPropsProperties',
     {
         "myNumber": number_with_validations.NumberWithValidations,

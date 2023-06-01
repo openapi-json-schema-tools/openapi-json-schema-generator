@@ -784,6 +784,7 @@ def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.T
         return item_cls.__func__()
     elif isinstance(item_cls, type):
         return item_cls
+    print(item_cls)
     raise ValueError('invalid class value passed in')
 
 
@@ -2555,13 +2556,13 @@ def log_cache_usage(cache_fn):
         print(cache_fn.__name__, cache_fn.cache_info())
 
 
-W = typing.TypeVar('W', bound=typing.TypedDict)
+W = typing.TypeVar('W', bound=typing_extensions.TypedDict)
 
 def typed_dict_to_instance(t_dict: typing.Type[W]) -> W:
     res = {}
     for key, val in t_dict.__annotations__.items():
         if isinstance(val, typing._GenericAlias): # type: ignore
-            # for typing.Type
-            val_cls = typing.get_args(val)[0]
+            # typing.Type[W] -> W
+            val_cls = typing_extensions.get_args(val)[0]
             res[key] = val_cls
     return res # type: ignore

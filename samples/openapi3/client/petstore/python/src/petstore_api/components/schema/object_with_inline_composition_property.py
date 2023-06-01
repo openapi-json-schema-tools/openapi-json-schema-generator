@@ -232,7 +232,7 @@ class ObjectWithInlineCompositionProperty(
         )
         return inst
 
-ObjectWithInlineCompositionPropertyProperties = typing.TypedDict(
+ObjectWithInlineCompositionPropertyProperties = typing_extensions.TypedDict(
     'ObjectWithInlineCompositionPropertyProperties',
     {
         "someProp": SomeProp,

@@ -108,7 +108,7 @@ class Player(
         )
         return inst
 
-PlayerProperties = typing.TypedDict(
+PlayerProperties = typing_extensions.TypedDict(
     'PlayerProperties',
     {
         "name": Name,

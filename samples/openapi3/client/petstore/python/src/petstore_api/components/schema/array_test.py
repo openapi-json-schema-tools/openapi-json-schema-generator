@@ -320,7 +320,7 @@ class ArrayTest(
 
 
 from petstore_api.components.schema import read_only_first
-ArrayTestProperties = typing.TypedDict(
+ArrayTestProperties = typing_extensions.TypedDict(
     'ArrayTestProperties',
     {
         "array_of_string": ArrayOfString,

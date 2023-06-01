@@ -118,7 +118,7 @@ class DanishPig(
         )
         return inst
 
-DanishPigProperties = typing.TypedDict(
+DanishPigProperties = typing_extensions.TypedDict(
     'DanishPigProperties',
     {
         "className": ClassName,

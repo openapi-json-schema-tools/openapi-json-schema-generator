@@ -150,7 +150,7 @@ class Capitalization(
         )
         return inst
 
-CapitalizationProperties = typing.TypedDict(
+CapitalizationProperties = typing_extensions.TypedDict(
     'CapitalizationProperties',
     {
         "smallCamel": SmallCamel,

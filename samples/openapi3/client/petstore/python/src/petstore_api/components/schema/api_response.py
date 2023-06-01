@@ -118,7 +118,7 @@ class ApiResponse(
         )
         return inst
 
-ApiResponseProperties = typing.TypedDict(
+ApiResponseProperties = typing_extensions.TypedDict(
     'ApiResponseProperties',
     {
         "code": Code,

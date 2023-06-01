@@ -99,7 +99,7 @@ class ObjectWithInvalidNamedRefedProperties(
 
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema
-ObjectWithInvalidNamedRefedPropertiesProperties = typing.TypedDict(
+ObjectWithInvalidNamedRefedPropertiesProperties = typing_extensions.TypedDict(
     'ObjectWithInvalidNamedRefedPropertiesProperties',
     {
         "from": from_schema.FromSchema,

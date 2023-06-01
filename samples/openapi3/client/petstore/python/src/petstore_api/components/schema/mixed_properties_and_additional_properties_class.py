@@ -162,7 +162,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
 
 from petstore_api.components.schema import animal
-MixedPropertiesAndAdditionalPropertiesClassProperties = typing.TypedDict(
+MixedPropertiesAndAdditionalPropertiesClassProperties = typing_extensions.TypedDict(
     'MixedPropertiesAndAdditionalPropertiesClassProperties',
     {
         "uuid": Uuid,

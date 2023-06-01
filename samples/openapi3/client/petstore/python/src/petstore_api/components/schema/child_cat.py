@@ -191,7 +191,7 @@ class ChildCat(
 
 
 from petstore_api.components.schema import parent_pet
-_1Properties = typing.TypedDict(
+_1Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
         "name": Name,

@@ -124,7 +124,7 @@ class Category(
         )
         return inst
 
-CategoryProperties = typing.TypedDict(
+CategoryProperties = typing_extensions.TypedDict(
     'CategoryProperties',
     {
         "id": Id,

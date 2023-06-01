@@ -97,7 +97,7 @@ class NumberOnly(
         )
         return inst
 
-NumberOnlyProperties = typing.TypedDict(
+NumberOnlyProperties = typing_extensions.TypedDict(
     'NumberOnlyProperties',
     {
         "JustNumber": JustNumber,

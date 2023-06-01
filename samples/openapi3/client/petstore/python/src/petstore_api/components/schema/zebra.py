@@ -170,7 +170,7 @@ class Zebra(
         )
         return inst
 
-ZebraProperties = typing.TypedDict(
+ZebraProperties = typing_extensions.TypedDict(
     'ZebraProperties',
     {
         "type": Type,

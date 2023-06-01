@@ -135,7 +135,7 @@ class Animal(
 
 from petstore_api.components.schema import cat
 from petstore_api.components.schema import dog
-AnimalProperties = typing.TypedDict(
+AnimalProperties = typing_extensions.TypedDict(
     'AnimalProperties',
     {
         "className": ClassName,

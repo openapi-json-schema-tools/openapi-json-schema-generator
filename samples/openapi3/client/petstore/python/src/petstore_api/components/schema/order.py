@@ -192,7 +192,7 @@ class Order(
         )
         return inst
 
-OrderProperties = typing.TypedDict(
+OrderProperties = typing_extensions.TypedDict(
     'OrderProperties',
     {
         "id": Id,

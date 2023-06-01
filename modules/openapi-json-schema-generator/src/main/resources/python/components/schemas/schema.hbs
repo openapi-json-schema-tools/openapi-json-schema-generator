@@ -25,7 +25,7 @@ from {{packageName}}.shared_imports.schema_imports import *
         {{/if}}
         {{#each getSchemas}}
             {{#if properties}}
-{{jsonPathPiece.camelCase}}Properties = typing.TypedDict(
+{{jsonPathPiece.camelCase}}Properties = typing_extensions.TypedDict(
     '{{jsonPathPiece.camelCase}}Properties',
     {
                 {{#each properties}}

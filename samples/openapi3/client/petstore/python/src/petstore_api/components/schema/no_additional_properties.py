@@ -87,7 +87,7 @@ class NoAdditionalProperties(
         )
         return inst
 
-NoAdditionalPropertiesProperties = typing.TypedDict(
+NoAdditionalPropertiesProperties = typing_extensions.TypedDict(
     'NoAdditionalPropertiesProperties',
     {
         "id": Id,

@@ -478,7 +478,7 @@ class AdditionalPropertiesClass(
         )
         return inst
 
-AdditionalPropertiesClassProperties = typing.TypedDict(
+AdditionalPropertiesClassProperties = typing_extensions.TypedDict(
     'AdditionalPropertiesClassProperties',
     {
         "map_property": MapProperty,

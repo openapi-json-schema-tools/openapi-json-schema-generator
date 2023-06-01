@@ -232,7 +232,7 @@ class AbstractStepMessage(
         )
         return inst
 
-AbstractStepMessageProperties = typing.TypedDict(
+AbstractStepMessageProperties = typing_extensions.TypedDict(
     'AbstractStepMessageProperties',
     {
         "discriminator": Discriminator,
