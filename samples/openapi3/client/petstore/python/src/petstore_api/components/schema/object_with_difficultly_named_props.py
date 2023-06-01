@@ -29,7 +29,7 @@ class ObjectWithDifficultlyNamedProps(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "123-list",
         }

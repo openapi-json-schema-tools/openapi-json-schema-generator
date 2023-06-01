@@ -18,9 +18,9 @@ class ClassName(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "BasquePig": "BASQUE_PIG",
         }
@@ -42,7 +42,7 @@ class BasquePig(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "className",
         }

@@ -23,7 +23,7 @@ class DateTimeTest(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         format = 'date-time'

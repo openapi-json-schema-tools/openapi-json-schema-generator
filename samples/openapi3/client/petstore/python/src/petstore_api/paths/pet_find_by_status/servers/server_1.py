@@ -15,9 +15,9 @@ class _Variables:
     
     
         class Schema_:
-            types = {
+            types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
-            }
+            })
             default = "v1"
             enum_value_to_name = {
                 "v1": "V1",

@@ -18,9 +18,9 @@ class QuadrilateralType(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "SimpleQuadrilateral": "SIMPLE_QUADRILATERAL",
         }
@@ -37,7 +37,7 @@ class _1(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
     @typing.overload

@@ -22,9 +22,9 @@ class Status(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "placed": "PLACED",
             "approved": "APPROVED",
@@ -50,9 +50,9 @@ class Complete(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
-        }
+        })
         default = schemas.BoolClass.FALSE
 
 
@@ -68,7 +68,7 @@ class Order(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: OrderProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(OrderProperties)) # type: ignore
     
     @typing.overload

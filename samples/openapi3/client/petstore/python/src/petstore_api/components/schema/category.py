@@ -19,9 +19,9 @@ class Name(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         default = "default-name"
 
 
@@ -37,7 +37,7 @@ class Category(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "name",
         }

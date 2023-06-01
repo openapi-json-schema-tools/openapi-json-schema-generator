@@ -27,7 +27,7 @@ class File(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: FileProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FileProperties)) # type: ignore
     
     @typing.overload

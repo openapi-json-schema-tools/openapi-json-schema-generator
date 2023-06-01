@@ -19,7 +19,7 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():
@@ -63,11 +63,8 @@ class AdditionalPropertiesWithArrayOfEnums(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[tuple]:
         # dict_instance[name] accessor

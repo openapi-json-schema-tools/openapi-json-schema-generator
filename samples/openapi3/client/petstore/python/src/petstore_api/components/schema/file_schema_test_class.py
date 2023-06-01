@@ -19,7 +19,7 @@ class Files(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():
@@ -64,7 +64,7 @@ class FileSchemaTestClass(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: FileSchemaTestClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FileSchemaTestClassProperties)) # type: ignore
     
     @typing.overload

@@ -18,9 +18,9 @@ class ShapeType(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "Triangle": "TRIANGLE",
         }

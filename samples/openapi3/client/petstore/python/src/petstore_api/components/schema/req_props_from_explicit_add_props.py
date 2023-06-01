@@ -25,15 +25,12 @@ class ReqPropsFromExplicitAddProps(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "invalid-name",
             "validName",
         }
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def validName(self) -> AdditionalProperties[str]:

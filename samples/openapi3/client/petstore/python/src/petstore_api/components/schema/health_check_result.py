@@ -22,10 +22,10 @@ class NullableMessage(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
+        })
 
 
     def __new__(
@@ -73,7 +73,7 @@ class HealthCheckResult(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: HealthCheckResultProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(HealthCheckResultProperties)) # type: ignore
     
     @typing.overload

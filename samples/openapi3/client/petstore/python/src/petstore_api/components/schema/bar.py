@@ -23,7 +23,7 @@ class Bar(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         default = "bar"

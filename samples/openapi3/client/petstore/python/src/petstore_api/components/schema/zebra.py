@@ -19,9 +19,9 @@ class Type(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "plains": "PLAINS",
             "mountain": "MOUNTAIN",
@@ -47,9 +47,9 @@ class ClassName(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "zebra": "ZEBRA",
         }
@@ -71,15 +71,12 @@ class Zebra(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "className",
         }
         properties: ZebraProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ZebraProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:

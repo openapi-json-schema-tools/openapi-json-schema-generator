@@ -180,7 +180,7 @@ class BoolClass(Singleton):
 
 
 class SchemaTyped:
-    types: typing.Optional[typing.Set[typing.Type]]
+    types: typing.FrozenSet[typing.Type]
     exclusive_maximum: typing.Union[int, float]
     inclusive_maximum: typing.Union[int, float]
     exclusive_minimum: typing.Union[int, float]
@@ -190,9 +190,10 @@ class SchemaTyped:
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
     default: typing.Union[str, int, BoolClass]
     properties: typing.Mapping[str, Schema]
-    additional_properties: typing.Callable
+    additional_properties: Schema
     max_properties: int
     min_properties: int
+    multiple_of: typing.Union[int, float]
     all_of: typing.Tuple[Schema, ...]
     one_of: typing.Tuple[Schema, ...]
     any_of: typing.Tuple[Schema, ...]
@@ -893,7 +894,7 @@ def validate_properties(
 
 def validate_additional_properties(
     arg: typing.Any,
-    additional_properties_schema_fn: typing.Callable,
+    additional_properties_cls: Schema,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -902,10 +903,10 @@ def validate_additional_properties(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, frozendict.frozendict):
         return None
-    schema = _get_class(additional_properties_schema_fn.__func__())
+    schema = _get_class(additional_properties_cls)
     path_to_schemas = {}
     cls_schema = cls.Schema_()
-    properties = cls_schema.properties() if hasattr(cls_schema, 'properties') else {}
+    properties = cls_schema.properties if hasattr(cls_schema, 'properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties}
     for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
@@ -1284,6 +1285,7 @@ class Schema(typing.Generic[T]):
             not in validation_metadata.configuration.disabled_json_schema_python_keywords
         }
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+        print(f'json_schema_data {json_schema_data}')
         kwargs = {}
         if 'discriminator' in json_schema_data:
             discriminated_cls, ensure_discriminator_value_present_exc = _get_discriminated_class_and_exception(
@@ -2183,8 +2185,9 @@ class ListSchema(
     Schema[T],
     TupleMixin
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @classmethod
     def from_openapi_data_(cls, arg: typing.Sequence[typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2199,8 +2202,9 @@ class NoneSchema(
     Schema[T],
     NoneMixin
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {NoneClass}
+        types: typing.FrozenSet[typing.Type] = frozenset({NoneClass})
 
     @classmethod
     def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2219,8 +2223,9 @@ class NumberSchema(
     This is used for type: number with no format
     Both integers AND floats are accepted
     """
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
 
     @classmethod
     def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2243,9 +2248,10 @@ class IntBase:
 
 
 class IntSchema(IntBase, NumberSchema[T]):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
-        format = 'int'
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
+        format: str = 'int'
 
     @classmethod
     def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2259,9 +2265,10 @@ class IntSchema(IntBase, NumberSchema[T]):
 class Int32Schema(
     IntSchema[T]
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
-        format = 'int32'
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
+        format: str = 'int32'
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int32Schema[decimal.Decimal]:
         inst = super().__new__(cls, arg_, **kwargs)
@@ -2271,9 +2278,10 @@ class Int32Schema(
 class Int64Schema(
     IntSchema[T]
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
-        format = 'int64'
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
+        format: str = 'int64'
 
     def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int64Schema[decimal.Decimal]:
         inst = super().__new__(cls, arg_, **kwargs)
@@ -2283,9 +2291,10 @@ class Int64Schema(
 class Float32Schema(
     NumberSchema[T]
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
-        format = 'float'
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
+        format: str = 'float'
 
     @classmethod
     def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2299,9 +2308,10 @@ class Float32Schema(
 class Float64Schema(
     NumberSchema[T]
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {decimal.Decimal}
-        format = 'double'
+        types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
+        format: str = 'double'
 
     @classmethod
     def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2323,8 +2333,9 @@ class StrSchema(
     - type: string (format unset)
     - type: string, format: date
     """
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {str}
+        types: typing.FrozenSet[typing.Type] = frozenset({str})
 
     @classmethod
     def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None) -> StrSchema[str]:
@@ -2335,9 +2346,10 @@ class StrSchema(
 
 
 class UUIDSchema(UUIDBase, StrSchema[T]):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {str}
-        format = 'uuid'
+        types: typing.FrozenSet[typing.Type] = frozenset({str})
+        format: str = 'uuid'
 
     def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> UUIDSchema[str]:
         inst = super().__new__(cls, arg_, **kwargs)
@@ -2345,9 +2357,10 @@ class UUIDSchema(UUIDBase, StrSchema[T]):
 
 
 class DateSchema(DateBase, StrSchema[T]):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {str}
-        format = 'date'
+        types: typing.FrozenSet[typing.Type] = frozenset({str})
+        format: str = 'date'
 
     def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: schema_configuration.SchemaConfiguration) -> DateSchema[str]:
         inst = super().__new__(cls, arg_, **kwargs)
@@ -2355,9 +2368,10 @@ class DateSchema(DateBase, StrSchema[T]):
 
 
 class DateTimeSchema(DateTimeBase, StrSchema[T]):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {str}
-        format = 'date-time'
+        types: typing.FrozenSet[typing.Type] = frozenset({str})
+        format: str = 'date-time'
 
     def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: schema_configuration.SchemaConfiguration) -> DateTimeSchema[str]:
         inst = super().__new__(cls, arg_, **kwargs)
@@ -2365,9 +2379,10 @@ class DateTimeSchema(DateTimeBase, StrSchema[T]):
 
 
 class DecimalSchema(DecimalBase, StrSchema[T]):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {str}
-        format = 'number'
+        types: typing.FrozenSet[typing.Type] = frozenset({str})
+        format: str = 'number'
 
     def __new__(cls, arg_: str, **kwargs: schema_configuration.SchemaConfiguration) -> DecimalSchema[str]:
         """
@@ -2389,8 +2404,9 @@ class BytesSchema(
     """
     this class will subclass bytes and is immutable
     """
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {bytes}
+        types: typing.FrozenSet[typing.Type] = frozenset({bytes})
 
     def __new__(cls, arg_: bytes, **kwargs: schema_configuration.SchemaConfiguration) -> BytesSchema[bytes]:
         super_cls: typing.Type = super(Schema, cls)
@@ -2417,8 +2433,9 @@ class FileSchema(
     - to allow file reading and writing to disk
     - to be able to preserve file name info
     """
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {FileIO}
+        types: typing.FrozenSet[typing.Type] = frozenset({FileIO})
 
     def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: schema_configuration.SchemaConfiguration) -> FileSchema[FileIO]:
         super_cls: typing.Type = super(Schema, cls)
@@ -2429,9 +2446,10 @@ class BinarySchema(
     Schema[T],
     BinaryMixin
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {FileIO, bytes}
-        format = 'binary'
+        types: typing.FrozenSet[typing.Type] = frozenset({FileIO, bytes})
+        format: str = 'binary'
 
         one_of = (
             BytesSchema,
@@ -2447,8 +2465,9 @@ class BoolSchema(
     Schema[T],
     BoolMixin
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {BoolClass}
+        types: typing.FrozenSet[typing.Type] = frozenset({BoolClass})
 
     @classmethod
     def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -2469,6 +2488,7 @@ class AnyTypeSchema(
     NoneFrozenDictTupleStrDecimalBoolFileBytesMixin
 ):
     # Python representation of a schema defined as true or {}
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         pass
 
@@ -2581,7 +2601,7 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     Does not allow inputs in of AnyType
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
-
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
         @staticmethod
         def not_():
@@ -2601,8 +2621,9 @@ class DictSchema(
     Schema[T],
     FrozenDictMixin
 ):
+    @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
 
     @classmethod
     def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):

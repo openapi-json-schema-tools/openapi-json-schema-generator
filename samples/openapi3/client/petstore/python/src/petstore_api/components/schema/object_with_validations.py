@@ -24,8 +24,8 @@ class ObjectWithValidations(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        min_properties = 2
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        min_properties: int = 2
 
     def __new__(
         cls,

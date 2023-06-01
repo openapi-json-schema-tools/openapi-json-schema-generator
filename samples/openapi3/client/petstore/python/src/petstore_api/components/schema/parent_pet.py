@@ -24,9 +24,9 @@ class ParentPet(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
+        })
         
         @staticmethod
         def discriminator():

@@ -22,10 +22,10 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
 
 
     def __new__(
@@ -90,11 +90,11 @@ class IntegerProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             decimal.Decimal,
-        }
-        format = 'int'
+        })
+        format: str = 'int'
 
 
     def __new__(
@@ -139,10 +139,10 @@ class NumberProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             decimal.Decimal,
-        }
+        })
 
 
     def __new__(
@@ -188,10 +188,10 @@ class BooleanProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             schemas.BoolClass,
-        }
+        })
 
 
     def __new__(
@@ -235,10 +235,10 @@ class StringProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
+        })
 
 
     def __new__(
@@ -283,11 +283,11 @@ class DateProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
-        format = 'date'
+        })
+        format: str = 'date'
 
 
     def __new__(
@@ -333,11 +333,11 @@ class DatetimeProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
-        format = 'date-time'
+        })
+        format: str = 'date-time'
 
 
     def __new__(
@@ -383,10 +383,10 @@ class ArrayNullableProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             tuple,
-        }
+        })
         
         @staticmethod
         def items():
@@ -435,10 +435,10 @@ class Items(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
 
 
     def __new__(
@@ -503,10 +503,10 @@ class ArrayAndItemsNullableProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             tuple,
-        }
+        })
         
         @staticmethod
         def items():
@@ -555,10 +555,10 @@ class Items(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
 
 
     def __new__(
@@ -620,7 +620,7 @@ class ArrayItemsNullable(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():
@@ -671,14 +671,11 @@ class ObjectNullableProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        })
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
 
     
     def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
@@ -733,10 +730,10 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
 
 
     def __new__(
@@ -801,14 +798,11 @@ class ObjectAndItemsNullableProp(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        })
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
 
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
@@ -870,10 +864,10 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
 
 
     def __new__(
@@ -935,11 +929,8 @@ class ObjectItemsNullable(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         schemas.NoneClass,
@@ -988,12 +979,9 @@ class NullableClass(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: NullableClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NullableClassProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> IntegerProp[typing.Union[

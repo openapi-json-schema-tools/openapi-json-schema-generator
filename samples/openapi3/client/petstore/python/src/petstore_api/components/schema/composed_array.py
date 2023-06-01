@@ -25,7 +25,7 @@ class ComposedArray(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():

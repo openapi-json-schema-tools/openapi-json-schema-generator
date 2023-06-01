@@ -28,15 +28,12 @@ class BananaReq(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "lengthCm",
         }
         properties: BananaReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaReqProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def lengthCm(self) -> LengthCm[decimal.Decimal]:

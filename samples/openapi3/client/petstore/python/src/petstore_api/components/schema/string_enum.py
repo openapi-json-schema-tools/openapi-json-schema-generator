@@ -27,10 +27,10 @@ class StringEnum(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
+        })
         enum_value_to_name = {
             "placed": "PLACED",
             "approved": "APPROVED",

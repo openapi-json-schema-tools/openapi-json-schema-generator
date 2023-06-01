@@ -30,7 +30,7 @@ class Capitalization(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: CapitalizationProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(CapitalizationProperties)) # type: ignore
     
     @typing.overload

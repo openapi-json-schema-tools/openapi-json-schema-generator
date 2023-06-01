@@ -18,9 +18,9 @@ class Schema(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "true": "TRUE",
             "false": "FALSE",

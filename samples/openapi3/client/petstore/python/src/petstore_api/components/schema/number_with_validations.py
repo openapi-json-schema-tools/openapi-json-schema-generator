@@ -23,8 +23,8 @@ class NumberWithValidations(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        inclusive_maximum = 20
-        inclusive_minimum = 10
+        })
+        inclusive_maximum: typing.Union[int, float] = 20
+        inclusive_minimum: typing.Union[int, float] = 10

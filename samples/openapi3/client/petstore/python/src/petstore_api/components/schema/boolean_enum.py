@@ -23,9 +23,9 @@ class BooleanEnum(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
-        }
+        })
         enum_value_to_name = {
             schemas.BoolClass.TRUE: "TRUE",
         }

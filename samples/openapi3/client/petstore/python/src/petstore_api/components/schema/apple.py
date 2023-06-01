@@ -18,9 +18,9 @@ class Cultivar(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         regex={
             'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
         }
@@ -32,9 +32,9 @@ class Origin(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         regex={
             'pattern': r'^[A-Z\s]*$',  # noqa: E501
             'flags': re.I,
@@ -56,10 +56,10 @@ class Apple(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
+        })
         required = {
             "cultivar",
         }

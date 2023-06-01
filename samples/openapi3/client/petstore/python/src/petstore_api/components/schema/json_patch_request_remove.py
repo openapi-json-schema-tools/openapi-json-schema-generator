@@ -21,9 +21,9 @@ class Op(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "remove": "REMOVE",
         }
@@ -45,16 +45,13 @@ class JSONPatchRequestRemove(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "op",
             "path",
         }
         properties: JSONPatchRequestRemoveProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestRemoveProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def op(self) -> Op[str]:

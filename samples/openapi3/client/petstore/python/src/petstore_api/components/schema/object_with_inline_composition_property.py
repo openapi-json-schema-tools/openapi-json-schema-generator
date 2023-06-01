@@ -18,10 +18,10 @@ class _0(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        min_length = 1
+        })
+        min_length: int = 1
 
 
 class SomeProp(
@@ -129,7 +129,7 @@ class ObjectWithInlineCompositionProperty(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: ObjectWithInlineCompositionPropertyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithInlineCompositionPropertyProperties)) # type: ignore
     
     @typing.overload

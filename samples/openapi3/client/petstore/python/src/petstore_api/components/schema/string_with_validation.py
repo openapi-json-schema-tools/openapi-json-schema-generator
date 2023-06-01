@@ -23,7 +23,7 @@ class StringWithValidation(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        min_length = 7
+        })
+        min_length: int = 7

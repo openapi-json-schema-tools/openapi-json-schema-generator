@@ -19,7 +19,7 @@ class {{jsonPathPiece.camelCase}}(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
         {{> components/schemas/_helper_validations }}
 {{/or}}

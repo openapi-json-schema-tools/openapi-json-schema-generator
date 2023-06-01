@@ -20,11 +20,8 @@ class MapProperty(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[str]:
         # dict_instance[name] accessor
@@ -61,11 +58,8 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[str]:
         # dict_instance[name] accessor
@@ -101,11 +95,8 @@ class MapOfMapProperty(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
         # dict_instance[name] accessor
@@ -146,11 +137,8 @@ class MapWithUndeclaredPropertiesAnytype3(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
@@ -221,11 +209,8 @@ class EmptyMap(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
 
     def __new__(
         cls,
@@ -253,11 +238,8 @@ class MapWithUndeclaredPropertiesString(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[str]:
         # dict_instance[name] accessor
@@ -298,7 +280,7 @@ class AdditionalPropertiesClass(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: AdditionalPropertiesClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AdditionalPropertiesClassProperties)) # type: ignore
     
     @typing.overload

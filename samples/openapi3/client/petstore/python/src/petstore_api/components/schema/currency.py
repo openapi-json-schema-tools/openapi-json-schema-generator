@@ -23,9 +23,9 @@ class Currency(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "eur": "EUR",
             "usd": "USD",

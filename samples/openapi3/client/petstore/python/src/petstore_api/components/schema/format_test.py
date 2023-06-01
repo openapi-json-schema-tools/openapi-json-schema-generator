@@ -18,13 +18,13 @@ class Integer(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int'
-        inclusive_maximum = 100
-        inclusive_minimum = 10
-        multiple_of = 2
+        inclusive_maximum: typing.Union[int, float] = 100
+        inclusive_minimum: typing.Union[int, float] = 10
+        multiple_of: typing.Union[int, float] = 2
 Int32: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 
 
@@ -34,12 +34,12 @@ class Int32withValidations(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int32'
-        inclusive_maximum = 200
-        inclusive_minimum = 20
+        inclusive_maximum: typing.Union[int, float] = 200
+        inclusive_minimum: typing.Union[int, float] = 20
 Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 
 
@@ -49,12 +49,12 @@ class Number(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        inclusive_maximum = 543.2
-        inclusive_minimum = 32.1
-        multiple_of = 32.5
+        })
+        inclusive_maximum: typing.Union[int, float] = 543.2
+        inclusive_minimum: typing.Union[int, float] = 32.1
+        multiple_of: typing.Union[int, float] = 32.5
 
 
 class _Float(
@@ -63,12 +63,12 @@ class _Float(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'float'
-        inclusive_maximum = 987.6
-        inclusive_minimum = 54.3
+        inclusive_maximum: typing.Union[int, float] = 987.6
+        inclusive_minimum: typing.Union[int, float] = 54.3
 Float32: typing_extensions.TypeAlias = schemas.Float32Schema[U]
 
 
@@ -78,12 +78,12 @@ class Double(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'double'
-        inclusive_maximum = 123.4
-        inclusive_minimum = 67.8
+        inclusive_maximum: typing.Union[int, float] = 123.4
+        inclusive_minimum: typing.Union[int, float] = 67.8
 Float64: typing_extensions.TypeAlias = schemas.Float64Schema[U]
 Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 
@@ -95,8 +95,8 @@ class ArrayWithUniqueItems(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
-        unique_items = True
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        unique_items: bool = True
         
         @staticmethod
         def items():
@@ -136,9 +136,9 @@ class String(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         regex={
             'pattern': r'[a-z]',  # noqa: E501
             'flags': re.I,
@@ -157,12 +157,12 @@ class Password(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         format = 'password'
-        max_length = 64
-        min_length = 10
+        max_length: int = 64
+        min_length: int = 10
 
 
 class PatternWithDigits(
@@ -171,9 +171,9 @@ class PatternWithDigits(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         regex={
             'pattern': r'^\d{10}$',  # noqa: E501
         }
@@ -185,9 +185,9 @@ class PatternWithDigitsAndDelimiter(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         regex={
             'pattern': r'^image_\d{1,3}$',  # noqa: E501
             'flags': re.I,
@@ -207,7 +207,7 @@ class FormatTest(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "byte",
             "date",

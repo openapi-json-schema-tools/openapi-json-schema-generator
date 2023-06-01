@@ -23,9 +23,9 @@ class IntegerEnumBig(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int'
         enum_value_to_name = {
             10: "POSITIVE_10",

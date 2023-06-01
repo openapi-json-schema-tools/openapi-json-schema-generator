@@ -18,9 +18,9 @@ class Schema(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'double'
         enum_value_to_name = {
             1.1: "POSITIVE_1_PT_1",

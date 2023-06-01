@@ -28,15 +28,12 @@ class NoAdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "id",
         }
         properties: NoAdditionalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NoAdditionalPropertiesProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def id(self) -> Id[decimal.Decimal]:

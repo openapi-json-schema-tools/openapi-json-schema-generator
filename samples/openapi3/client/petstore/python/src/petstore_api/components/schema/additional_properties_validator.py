@@ -20,11 +20,8 @@ class _0(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
@@ -94,7 +91,7 @@ class AdditionalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        min_length = 3
+        min_length: int = 3
 
 
     def __new__(
@@ -181,11 +178,8 @@ class _1(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
@@ -255,7 +249,7 @@ class AdditionalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        max_length = 5
+        max_length: int = 5
 
 
     def __new__(
@@ -342,11 +336,8 @@ class _2(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
@@ -420,9 +411,9 @@ class AdditionalPropertiesValidator(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
+        })
         
         all_of: typing.Tuple[
             typing.Type[_0],

@@ -25,9 +25,9 @@ class ComposedBool(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
-        }
+        })
         
         all_of: typing.Tuple[
             typing.Type[_0],

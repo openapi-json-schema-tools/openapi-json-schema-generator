@@ -23,9 +23,9 @@ class StringEnumWithDefaultValue(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         default = "placed"
         enum_value_to_name = {
             "placed": "PLACED",

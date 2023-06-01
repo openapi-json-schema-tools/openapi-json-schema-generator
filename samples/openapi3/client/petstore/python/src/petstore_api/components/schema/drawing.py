@@ -19,7 +19,7 @@ class Shapes(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():
@@ -96,12 +96,9 @@ class Drawing(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: DrawingProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DrawingProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return fruit.Fruit
+        additional_properties: typing.Type[fruit.Fruit] = dataclasses.field(default_factory=lambda: fruit.Fruit) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> shape.Shape[typing.Union[

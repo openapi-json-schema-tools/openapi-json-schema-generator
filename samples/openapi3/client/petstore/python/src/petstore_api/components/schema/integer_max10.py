@@ -23,8 +23,8 @@ class IntegerMax10(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int64'
-        inclusive_maximum = 10
+        inclusive_maximum: typing.Union[int, float] = 10

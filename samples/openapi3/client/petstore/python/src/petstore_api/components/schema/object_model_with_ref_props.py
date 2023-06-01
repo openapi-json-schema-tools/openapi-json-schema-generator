@@ -26,7 +26,7 @@ class ObjectModelWithRefProps(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: ObjectModelWithRefPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectModelWithRefPropsProperties)) # type: ignore
     
     @typing.overload

@@ -25,9 +25,9 @@ class ObjWithRequiredProps(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
+        })
         required = {
             "a",
         }

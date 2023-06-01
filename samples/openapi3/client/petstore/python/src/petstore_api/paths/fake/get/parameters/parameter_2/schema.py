@@ -18,9 +18,9 @@ class Items(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         default = "$"
         enum_value_to_name = {
             ">": "GREATER_THAN_SIGN",
@@ -43,7 +43,7 @@ class Schema(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():

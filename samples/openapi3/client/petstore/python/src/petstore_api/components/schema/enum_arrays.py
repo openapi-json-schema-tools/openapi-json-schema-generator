@@ -18,9 +18,9 @@ class JustSymbol(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
             "$": "DOLLAR_SIGN",
@@ -41,9 +41,9 @@ class Items(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "fish": "FISH",
             "crab": "CRAB",
@@ -65,7 +65,7 @@ class ArrayEnum(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         
         @staticmethod
         def items():
@@ -109,7 +109,7 @@ class EnumArrays(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: EnumArraysProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumArraysProperties)) # type: ignore
     
     @typing.overload

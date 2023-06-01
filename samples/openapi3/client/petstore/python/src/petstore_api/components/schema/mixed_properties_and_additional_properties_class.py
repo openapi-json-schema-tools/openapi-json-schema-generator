@@ -21,11 +21,8 @@ class Map(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return animal.Animal
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[animal.Animal] = dataclasses.field(default_factory=lambda: animal.Animal) # type: ignore
     
     def __getitem__(self, name: str) -> animal.Animal[frozendict.frozendict]:
         # dict_instance[name] accessor
@@ -67,7 +64,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: MixedPropertiesAndAdditionalPropertiesClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MixedPropertiesAndAdditionalPropertiesClassProperties)) # type: ignore
     
     @typing.overload

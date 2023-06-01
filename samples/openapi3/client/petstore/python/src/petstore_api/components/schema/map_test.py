@@ -20,11 +20,8 @@ class AdditionalProperties(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[str]:
         # dict_instance[name] accessor
@@ -60,11 +57,8 @@ class MapMapOfString(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
         # dict_instance[name] accessor
@@ -100,9 +94,9 @@ class AdditionalProperties(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "UPPER": "UPPER",
             "lower": "LOWER",
@@ -124,11 +118,8 @@ class MapOfEnumString(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[str]:
         # dict_instance[name] accessor
@@ -165,11 +156,8 @@ class DirectMap(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     def __getitem__(self, name: str) -> AdditionalProperties[schemas.BoolClass]:
         # dict_instance[name] accessor
@@ -210,7 +198,7 @@ class MapTest(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: MapTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MapTestProperties)) # type: ignore
     
     @typing.overload

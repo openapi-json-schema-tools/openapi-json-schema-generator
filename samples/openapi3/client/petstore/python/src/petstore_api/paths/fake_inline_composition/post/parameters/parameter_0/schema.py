@@ -18,10 +18,10 @@ class _0(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        min_length = 1
+        })
+        min_length: int = 1
 
 
 class Schema(

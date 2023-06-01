@@ -21,9 +21,9 @@ class _4(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
-        max_properties = 4
-        min_properties = 4
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        max_properties: int = 4
+        min_properties: int = 4
 
     def __new__(
         cls,
@@ -71,9 +71,9 @@ class _5(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
-        max_items = 4
-        min_items = 4
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        max_items: int = 4
+        min_items: int = 4
         
         @staticmethod
         def items():
@@ -144,9 +144,9 @@ class _6(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         format = 'date-time'
         regex={
             'pattern': r'^2020.*',  # noqa: E501

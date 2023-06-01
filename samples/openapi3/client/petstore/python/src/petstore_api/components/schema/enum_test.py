@@ -18,9 +18,9 @@ class EnumString(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "UPPER": "UPPER",
             "lower": "LOWER",
@@ -46,9 +46,9 @@ class EnumStringRequired(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
+        })
         enum_value_to_name = {
             "UPPER": "UPPER",
             "lower": "LOWER",
@@ -74,9 +74,9 @@ class EnumInteger(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int32'
         enum_value_to_name = {
             1: "POSITIVE_1",
@@ -98,9 +98,9 @@ class EnumNumber(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'double'
         enum_value_to_name = {
             1.1: "POSITIVE_1_PT_1",
@@ -128,7 +128,7 @@ class EnumTest(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "enum_string_required",
         }

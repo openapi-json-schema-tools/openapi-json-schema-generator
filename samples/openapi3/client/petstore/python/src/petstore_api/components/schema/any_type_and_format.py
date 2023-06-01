@@ -21,7 +21,7 @@ class Uuid(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'uuid'
+        format: str = 'uuid'
 
 
     def __new__(
@@ -110,7 +110,7 @@ class Date(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'date'
+        format: str = 'date'
 
 
     def __new__(
@@ -199,7 +199,7 @@ class DateTime(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'date-time'
+        format: str = 'date-time'
 
 
     def __new__(
@@ -288,7 +288,7 @@ class Number(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'number'
+        format: str = 'number'
 
 
     def __new__(
@@ -376,7 +376,7 @@ class Binary(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'binary'
+        format: str = 'binary'
 
 
     def __new__(
@@ -464,7 +464,7 @@ class Int32(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'int32'
+        format: str = 'int32'
 
 
     def __new__(
@@ -552,7 +552,7 @@ class Int64(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'int64'
+        format: str = 'int64'
 
 
     def __new__(
@@ -640,7 +640,7 @@ class Double(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'double'
+        format: str = 'double'
 
 
     def __new__(
@@ -728,7 +728,7 @@ class _Float(
     @dataclasses.dataclass(frozen=True)
     class Schema_:
         # any type
-        format = 'float'
+        format: str = 'float'
 
 
     def __new__(
@@ -820,7 +820,7 @@ class AnyTypeAndFormat(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: AnyTypeAndFormatProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnyTypeAndFormatProperties)) # type: ignore
     
     @typing.overload

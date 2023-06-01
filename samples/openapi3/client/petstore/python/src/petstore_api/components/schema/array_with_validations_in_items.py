@@ -18,11 +18,11 @@ class Items(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int64'
-        inclusive_maximum = 7
+        inclusive_maximum: typing.Union[int, float] = 7
 
 
 class ArrayWithValidationsInItems(
@@ -37,8 +37,8 @@ class ArrayWithValidationsInItems(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {tuple}
-        max_items = 2
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        max_items: int = 2
         
         @staticmethod
         def items():

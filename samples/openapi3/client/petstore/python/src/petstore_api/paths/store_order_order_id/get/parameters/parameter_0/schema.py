@@ -18,9 +18,9 @@ class Schema(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int64'
-        inclusive_maximum = 5
-        inclusive_minimum = 1
+        inclusive_maximum: typing.Union[int, float] = 5
+        inclusive_minimum: typing.Union[int, float] = 1

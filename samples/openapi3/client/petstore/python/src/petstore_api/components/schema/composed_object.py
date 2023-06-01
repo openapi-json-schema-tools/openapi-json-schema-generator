@@ -25,9 +25,9 @@ class ComposedObject(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
+        })
         
         all_of: typing.Tuple[
             typing.Type[_0],

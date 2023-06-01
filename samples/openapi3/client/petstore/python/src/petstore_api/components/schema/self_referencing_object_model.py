@@ -24,12 +24,9 @@ class SelfReferencingObjectModel(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: SelfReferencingObjectModelProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SelfReferencingObjectModelProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return SelfReferencingObjectModel
+        additional_properties: typing.Type[SelfReferencingObjectModel] = dataclasses.field(default_factory=lambda: SelfReferencingObjectModel) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> SelfReferencingObjectModel[frozendict.frozendict]: ...

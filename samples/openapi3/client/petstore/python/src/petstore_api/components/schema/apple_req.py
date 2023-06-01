@@ -28,15 +28,12 @@ class AppleReq(
 
     @dataclasses.dataclass(frozen=True)
     class Schema_:
-        types = {frozendict.frozendict}
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required = {
             "cultivar",
         }
         properties: AppleReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AppleReqProperties)) # type: ignore
-        
-        @staticmethod
-        def additional_properties():
-            return AdditionalProperties
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
     def cultivar(self) -> Cultivar[str]:

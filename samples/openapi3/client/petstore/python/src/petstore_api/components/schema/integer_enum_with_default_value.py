@@ -23,9 +23,9 @@ class IntegerEnumWithDefaultValue(
 
 
     class Schema_:
-        types = {
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
+        })
         format = 'int'
         default = 0
         enum_value_to_name = {

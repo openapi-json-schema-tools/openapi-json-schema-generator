@@ -1,29 +1,29 @@
 {{#neq uniqueItems null}}
-unique_items = {{#if uniqueItems}}True{{else}}False{{/if}}
+unique_items: bool = {{#if uniqueItems}}True{{else}}False{{/if}}
 {{/neq}}
 {{#neq maxLength null}}
-max_length = {{maxLength}}
+max_length: int = {{maxLength}}
 {{/neq}}
 {{#neq minLength null}}
-min_length = {{minLength}}
+min_length: int = {{minLength}}
 {{/neq}}
 {{#neq maxItems null}}
-max_items = {{maxItems}}
+max_items: int = {{maxItems}}
 {{/neq}}
 {{#neq minItems null}}
-min_items = {{minItems}}
+min_items: int = {{minItems}}
 {{/neq}}
 {{#neq maxProperties null }}
-max_properties = {{maxProperties}}
+max_properties: int = {{maxProperties}}
 {{/neq}}
 {{#neq minProperties null}}
-min_properties = {{minProperties}}
+min_properties: int = {{minProperties}}
 {{/neq}}
 {{#neq maximum null}}
-{{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}} = {{maximum}}
+{{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}}: typing.Union[int, float] = {{maximum}}
 {{/neq}}
 {{#neq minimum null}}
-{{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}} = {{minimum}}
+{{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}}: typing.Union[int, float] = {{minimum}}
 {{/neq}}
 {{#neq patternInfo null}}
 regex={
@@ -55,5 +55,5 @@ regex={
 }
 {{/neq}}
 {{#neq multipleOf null}}
-multiple_of = {{multipleOf}}
+multiple_of: typing.Union[int, float] = {{multipleOf}}
 {{/neq}}
