@@ -1235,3 +1235,20 @@ class NullableClass(
         )
         return inst
 
+NullableClassProperties = typing.TypedDict(
+    'NullableClassProperties',
+    {
+        "integer_prop": IntegerProp,
+        "number_prop": NumberProp,
+        "boolean_prop": BooleanProp,
+        "string_prop": StringProp,
+        "date_prop": DateProp,
+        "datetime_prop": DatetimeProp,
+        "array_nullable_prop": ArrayNullableProp,
+        "array_and_items_nullable_prop": ArrayAndItemsNullableProp,
+        "array_items_nullable": ArrayItemsNullable,
+        "object_nullable_prop": ObjectNullableProp,
+        "object_and_items_nullable_prop": ObjectAndItemsNullableProp,
+        "object_items_nullable": ObjectItemsNullable,
+    }
+)

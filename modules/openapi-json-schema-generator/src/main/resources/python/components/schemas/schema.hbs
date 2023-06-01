@@ -23,5 +23,21 @@ from {{packageName}}.shared_imports.schema_imports import *
 
 {{> _helper_imports }}
         {{/if}}
+        {{#each getSchemas}}
+            {{#if properties}}
+{{jsonPathPiece.camelCase}}Properties = typing.TypedDict(
+    '{{jsonPathPiece.camelCase}}Properties',
+    {
+                {{#each properties}}
+                    {{#if refInfo.refClass}}
+        "{{{@key.original}}}": {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+                    {{else}}
+        "{{{@key.original}}}": {{jsonPathPiece.camelCase}},
+                    {{/if}}
+                {{/each}}
+    }
+)
+            {{/if}}
+        {{/each}}
     {{/if}}
 {{/with}}

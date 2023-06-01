@@ -153,3 +153,9 @@ class HealthCheckResult(
         )
         return inst
 
+HealthCheckResultProperties = typing.TypedDict(
+    'HealthCheckResultProperties',
+    {
+        "NullableMessage": NullableMessage,
+    }
+)

@@ -194,3 +194,9 @@ class Dog(
 
 
 from petstore_api.components.schema import animal
+_1Properties = typing.TypedDict(
+    '_1Properties',
+    {
+        "breed": Breed,
+    }
+)

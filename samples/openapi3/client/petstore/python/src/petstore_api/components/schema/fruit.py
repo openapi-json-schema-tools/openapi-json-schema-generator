@@ -149,3 +149,9 @@ class Fruit(
 
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana
+FruitProperties = typing.TypedDict(
+    'FruitProperties',
+    {
+        "color": Color,
+    }
+)

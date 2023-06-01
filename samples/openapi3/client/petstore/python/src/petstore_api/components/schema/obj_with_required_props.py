@@ -116,3 +116,9 @@ class ObjWithRequiredProps(
 
 
 from petstore_api.components.schema import obj_with_required_props_base
+ObjWithRequiredPropsProperties = typing.TypedDict(
+    'ObjWithRequiredPropsProperties',
+    {
+        "a": A,
+    }
+)

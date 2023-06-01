@@ -175,3 +175,10 @@ class Zebra(
         )
         return inst
 
+ZebraProperties = typing.TypedDict(
+    'ZebraProperties',
+    {
+        "type": Type,
+        "className": ClassName,
+    }
+)

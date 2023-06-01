@@ -1210,3 +1210,17 @@ class AnyTypeAndFormat(
         )
         return inst
 
+AnyTypeAndFormatProperties = typing.TypedDict(
+    'AnyTypeAndFormatProperties',
+    {
+        "uuid": Uuid,
+        "date": Date,
+        "date-time": DateTime,
+        "number": Number,
+        "binary": Binary,
+        "int32": Int32,
+        "int64": Int64,
+        "double": Double,
+        "float": _Float,
+    }
+)

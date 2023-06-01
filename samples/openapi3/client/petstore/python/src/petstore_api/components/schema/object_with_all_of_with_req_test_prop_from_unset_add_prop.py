@@ -242,3 +242,9 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
 
 from petstore_api.components.schema import object_with_optional_test_prop
+_1Properties = typing.TypedDict(
+    '_1Properties',
+    {
+        "name": Name,
+    }
+)

@@ -387,3 +387,22 @@ class Schema(
         )
         return inst
 
+SchemaProperties = typing.TypedDict(
+    'SchemaProperties',
+    {
+        "integer": Integer,
+        "int32": Int32,
+        "int64": Int64,
+        "number": Number,
+        "float": _Float,
+        "double": Double,
+        "string": String,
+        "pattern_without_delimiter": PatternWithoutDelimiter,
+        "byte": Byte,
+        "binary": Binary,
+        "date": Date,
+        "dateTime": DateTime,
+        "password": Password,
+        "callback": Callback,
+    }
+)

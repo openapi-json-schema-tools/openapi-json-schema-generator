@@ -194,3 +194,10 @@ class EnumArrays(
         )
         return inst
 
+EnumArraysProperties = typing.TypedDict(
+    'EnumArraysProperties',
+    {
+        "just_symbol": JustSymbol,
+        "array_enum": ArrayEnum,
+    }
+)

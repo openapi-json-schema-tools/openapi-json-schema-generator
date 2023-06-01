@@ -107,3 +107,9 @@ class Banana(
         )
         return inst
 
+BananaProperties = typing.TypedDict(
+    'BananaProperties',
+    {
+        "lengthCm": LengthCm,
+    }
+)

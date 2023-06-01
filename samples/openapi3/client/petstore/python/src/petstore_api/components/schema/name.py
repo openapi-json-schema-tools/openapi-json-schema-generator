@@ -161,3 +161,11 @@ class Name(
         )
         return inst
 
+NameProperties = typing.TypedDict(
+    'NameProperties',
+    {
+        "name": Name,
+        "snake_case": SnakeCase,
+        "property": _Property,
+    }
+)

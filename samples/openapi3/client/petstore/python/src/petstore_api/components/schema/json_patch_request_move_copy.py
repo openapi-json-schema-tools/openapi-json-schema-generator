@@ -123,3 +123,11 @@ class JSONPatchRequestMoveCopy(
         )
         return inst
 
+JSONPatchRequestMoveCopyProperties = typing.TypedDict(
+    'JSONPatchRequestMoveCopyProperties',
+    {
+        "from": _From,
+        "path": Path,
+        "op": Op,
+    }
+)

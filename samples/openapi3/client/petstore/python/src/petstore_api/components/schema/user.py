@@ -509,3 +509,21 @@ class User(
         )
         return inst
 
+UserProperties = typing.TypedDict(
+    'UserProperties',
+    {
+        "id": Id,
+        "username": Username,
+        "firstName": FirstName,
+        "lastName": LastName,
+        "email": Email,
+        "password": Password,
+        "phone": Phone,
+        "userStatus": UserStatus,
+        "objectWithNoDeclaredProps": ObjectWithNoDeclaredProps,
+        "objectWithNoDeclaredPropsNullable": ObjectWithNoDeclaredPropsNullable,
+        "anyTypeProp": AnyTypeProp,
+        "anyTypeExceptNullProp": AnyTypeExceptNullProp,
+        "anyTypePropNullable": AnyTypePropNullable,
+    }
+)

@@ -108,3 +108,10 @@ class Schema(
         )
         return inst
 
+SchemaProperties = typing.TypedDict(
+    'SchemaProperties',
+    {
+        "additionalMetadata": AdditionalMetadata,
+        "file": File,
+    }
+)

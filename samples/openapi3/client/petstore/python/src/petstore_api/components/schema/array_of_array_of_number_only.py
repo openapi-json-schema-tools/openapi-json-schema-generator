@@ -179,3 +179,9 @@ class ArrayOfArrayOfNumberOnly(
         )
         return inst
 
+ArrayOfArrayOfNumberOnlyProperties = typing.TypedDict(
+    'ArrayOfArrayOfNumberOnlyProperties',
+    {
+        "ArrayArrayNumber": ArrayArrayNumber,
+    }
+)

@@ -92,3 +92,10 @@ class NoAdditionalProperties(
         )
         return inst
 
+NoAdditionalPropertiesProperties = typing.TypedDict(
+    'NoAdditionalPropertiesProperties',
+    {
+        "id": Id,
+        "petId": PetId,
+    }
+)

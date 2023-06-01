@@ -159,3 +159,14 @@ class Capitalization(
         )
         return inst
 
+CapitalizationProperties = typing.TypedDict(
+    'CapitalizationProperties',
+    {
+        "smallCamel": SmallCamel,
+        "CapitalCamel": CapitalCamel,
+        "small_Snake": SmallSnake,
+        "Capital_Snake": CapitalSnake,
+        "SCA_ETH_Flow_Points": SCAETHFlowPoints,
+        "ATT_NAME": ATTNAME,
+    }
+)

@@ -235,3 +235,9 @@ class ObjectWithInlineCompositionProperty(
         )
         return inst
 
+ObjectWithInlineCompositionPropertyProperties = typing.TypedDict(
+    'ObjectWithInlineCompositionPropertyProperties',
+    {
+        "someProp": SomeProp,
+    }
+)

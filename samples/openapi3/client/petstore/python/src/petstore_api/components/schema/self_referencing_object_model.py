@@ -80,3 +80,9 @@ class SelfReferencingObjectModel(
         )
         return inst
 
+SelfReferencingObjectModelProperties = typing.TypedDict(
+    'SelfReferencingObjectModelProperties',
+    {
+        "selfRef": SelfReferencingObjectModel,
+    }
+)

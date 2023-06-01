@@ -196,3 +196,10 @@ class Schema(
         )
         return inst
 
+SchemaProperties = typing.TypedDict(
+    'SchemaProperties',
+    {
+        "enum_form_string_array": EnumFormStringArray,
+        "enum_form_string": EnumFormString,
+    }
+)

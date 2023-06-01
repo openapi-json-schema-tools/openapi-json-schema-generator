@@ -146,3 +146,11 @@ class Whale(
         )
         return inst
 
+WhaleProperties = typing.TypedDict(
+    'WhaleProperties',
+    {
+        "hasBaleen": HasBaleen,
+        "hasTeeth": HasTeeth,
+        "className": ClassName,
+    }
+)

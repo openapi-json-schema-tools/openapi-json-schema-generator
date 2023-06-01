@@ -101,3 +101,9 @@ class NumberOnly(
         )
         return inst
 
+NumberOnlyProperties = typing.TypedDict(
+    'NumberOnlyProperties',
+    {
+        "JustNumber": JustNumber,
+    }
+)

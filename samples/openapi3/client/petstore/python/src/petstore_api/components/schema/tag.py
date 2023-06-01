@@ -112,3 +112,10 @@ class Tag(
         )
         return inst
 
+TagProperties = typing.TypedDict(
+    'TagProperties',
+    {
+        "id": Id,
+        "name": Name,
+    }
+)

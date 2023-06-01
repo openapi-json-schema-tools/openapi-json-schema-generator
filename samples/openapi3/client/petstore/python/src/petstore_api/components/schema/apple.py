@@ -160,3 +160,10 @@ class Apple(
         )
         return inst
 
+AppleProperties = typing.TypedDict(
+    'AppleProperties',
+    {
+        "cultivar": Cultivar,
+        "origin": Origin,
+    }
+)

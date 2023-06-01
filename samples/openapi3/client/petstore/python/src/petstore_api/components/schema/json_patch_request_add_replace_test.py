@@ -179,3 +179,11 @@ class JSONPatchRequestAddReplaceTest(
         )
         return inst
 
+JSONPatchRequestAddReplaceTestProperties = typing.TypedDict(
+    'JSONPatchRequestAddReplaceTestProperties',
+    {
+        "path": Path,
+        "value": Value,
+        "op": Op,
+    }
+)

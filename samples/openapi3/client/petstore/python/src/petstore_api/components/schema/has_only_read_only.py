@@ -111,3 +111,10 @@ class HasOnlyReadOnly(
         )
         return inst
 
+HasOnlyReadOnlyProperties = typing.TypedDict(
+    'HasOnlyReadOnlyProperties',
+    {
+        "bar": Bar,
+        "foo": Foo,
+    }
+)

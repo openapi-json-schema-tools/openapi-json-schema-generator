@@ -115,3 +115,10 @@ class ObjectWithCollidingProperties(
         )
         return inst
 
+ObjectWithCollidingPropertiesProperties = typing.TypedDict(
+    'ObjectWithCollidingPropertiesProperties',
+    {
+        "someProp": SomeProp,
+        "someprop": Someprop,
+    }
+)

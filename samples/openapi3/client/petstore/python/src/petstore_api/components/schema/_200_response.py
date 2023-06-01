@@ -148,3 +148,10 @@ class _200Response(
         )
         return inst
 
+_200ResponseProperties = typing.TypedDict(
+    '_200ResponseProperties',
+    {
+        "name": Name,
+        "class": _Class,
+    }
+)

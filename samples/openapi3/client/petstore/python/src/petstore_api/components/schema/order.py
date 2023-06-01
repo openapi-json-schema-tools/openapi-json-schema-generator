@@ -201,3 +201,14 @@ class Order(
         )
         return inst
 
+OrderProperties = typing.TypedDict(
+    'OrderProperties',
+    {
+        "id": Id,
+        "petId": PetId,
+        "quantity": Quantity,
+        "shipDate": ShipDate,
+        "status": Status,
+        "complete": Complete,
+    }
+)

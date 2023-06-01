@@ -122,3 +122,10 @@ class Money(
 
 
 from petstore_api.components.schema import currency
+MoneyProperties = typing.TypedDict(
+    'MoneyProperties',
+    {
+        "amount": Amount,
+        "currency": currency.Currency,
+    }
+)

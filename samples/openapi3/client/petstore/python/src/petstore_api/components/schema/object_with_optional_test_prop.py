@@ -99,3 +99,9 @@ class ObjectWithOptionalTestProp(
         )
         return inst
 
+ObjectWithOptionalTestPropProperties = typing.TypedDict(
+    'ObjectWithOptionalTestPropProperties',
+    {
+        "test": Test,
+    }
+)

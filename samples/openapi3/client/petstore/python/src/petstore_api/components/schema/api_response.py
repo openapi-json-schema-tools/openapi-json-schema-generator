@@ -124,3 +124,11 @@ class ApiResponse(
         )
         return inst
 
+ApiResponseProperties = typing.TypedDict(
+    'ApiResponseProperties',
+    {
+        "code": Code,
+        "type": Type,
+        "message": Message,
+    }
+)

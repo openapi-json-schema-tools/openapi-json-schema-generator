@@ -101,3 +101,9 @@ class SpecialModelName(
         )
         return inst
 
+SpecialModelNameProperties = typing.TypedDict(
+    'SpecialModelNameProperties',
+    {
+        "a": A,
+    }
+)

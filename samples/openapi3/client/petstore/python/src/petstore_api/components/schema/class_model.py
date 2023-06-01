@@ -141,3 +141,9 @@ class ClassModel(
         )
         return inst
 
+ClassModelProperties = typing.TypedDict(
+    'ClassModelProperties',
+    {
+        "_class": _Class,
+    }
+)

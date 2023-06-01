@@ -112,3 +112,10 @@ class FromSchema(
         )
         return inst
 
+FromSchemaProperties = typing.TypedDict(
+    'FromSchemaProperties',
+    {
+        "data": Data,
+        "id": Id,
+    }
+)

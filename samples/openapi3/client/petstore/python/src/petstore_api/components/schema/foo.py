@@ -100,3 +100,9 @@ class Foo(
 
 
 from petstore_api.components.schema import bar
+FooProperties = typing.TypedDict(
+    'FooProperties',
+    {
+        "bar": bar.Bar,
+    }
+)

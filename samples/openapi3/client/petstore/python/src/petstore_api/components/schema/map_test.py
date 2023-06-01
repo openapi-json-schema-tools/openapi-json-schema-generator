@@ -319,3 +319,12 @@ class MapTest(
 
 
 from petstore_api.components.schema import string_boolean_map
+MapTestProperties = typing.TypedDict(
+    'MapTestProperties',
+    {
+        "map_map_of_string": MapMapOfString,
+        "map_of_enum_string": MapOfEnumString,
+        "direct_map": DirectMap,
+        "indirect_map": string_boolean_map.StringBooleanMap,
+    }
+)

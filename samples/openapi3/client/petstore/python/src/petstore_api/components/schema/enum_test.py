@@ -315,3 +315,17 @@ from petstore_api.components.schema import integer_enum_one_value
 from petstore_api.components.schema import integer_enum_with_default_value
 from petstore_api.components.schema import string_enum
 from petstore_api.components.schema import string_enum_with_default_value
+EnumTestProperties = typing.TypedDict(
+    'EnumTestProperties',
+    {
+        "enum_string": EnumString,
+        "enum_string_required": EnumStringRequired,
+        "enum_integer": EnumInteger,
+        "enum_number": EnumNumber,
+        "stringEnum": string_enum.StringEnum,
+        "IntegerEnum": integer_enum.IntegerEnum,
+        "StringEnumWithDefaultValue": string_enum_with_default_value.StringEnumWithDefaultValue,
+        "IntegerEnumWithDefaultValue": integer_enum_with_default_value.IntegerEnumWithDefaultValue,
+        "IntegerEnumOneValue": integer_enum_one_value.IntegerEnumOneValue,
+    }
+)

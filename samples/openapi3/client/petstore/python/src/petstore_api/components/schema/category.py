@@ -129,3 +129,10 @@ class Category(
         )
         return inst
 
+CategoryProperties = typing.TypedDict(
+    'CategoryProperties',
+    {
+        "id": Id,
+        "name": Name,
+    }
+)

@@ -90,3 +90,10 @@ class AppleReq(
         )
         return inst
 
+AppleReqProperties = typing.TypedDict(
+    'AppleReqProperties',
+    {
+        "cultivar": Cultivar,
+        "mealy": Mealy,
+    }
+)

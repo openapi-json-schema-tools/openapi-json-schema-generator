@@ -105,3 +105,9 @@ class ObjWithRequiredPropsBase(
         )
         return inst
 
+ObjWithRequiredPropsBaseProperties = typing.TypedDict(
+    'ObjWithRequiredPropsBaseProperties',
+    {
+        "b": B,
+    }
+)

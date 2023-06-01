@@ -236,3 +236,9 @@ class AbstractStepMessage(
         )
         return inst
 
+AbstractStepMessageProperties = typing.TypedDict(
+    'AbstractStepMessageProperties',
+    {
+        "discriminator": Discriminator,
+    }
+)

@@ -99,3 +99,9 @@ class Client(
         )
         return inst
 
+ClientProperties = typing.TypedDict(
+    'ClientProperties',
+    {
+        "client": Client,
+    }
+)

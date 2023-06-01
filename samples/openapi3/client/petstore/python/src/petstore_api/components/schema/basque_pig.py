@@ -122,3 +122,9 @@ class BasquePig(
         )
         return inst
 
+BasquePigProperties = typing.TypedDict(
+    'BasquePigProperties',
+    {
+        "className": ClassName,
+    }
+)

@@ -113,3 +113,10 @@ class Player(
         )
         return inst
 
+PlayerProperties = typing.TypedDict(
+    'PlayerProperties',
+    {
+        "name": Name,
+        "enemyPlayer": Player,
+    }
+)

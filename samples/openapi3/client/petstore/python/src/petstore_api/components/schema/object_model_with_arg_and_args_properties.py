@@ -121,3 +121,10 @@ class ObjectModelWithArgAndArgsProperties(
         )
         return inst
 
+ObjectModelWithArgAndArgsPropertiesProperties = typing.TypedDict(
+    'ObjectModelWithArgAndArgsPropertiesProperties',
+    {
+        "arg": Arg,
+        "args": Args,
+    }
+)

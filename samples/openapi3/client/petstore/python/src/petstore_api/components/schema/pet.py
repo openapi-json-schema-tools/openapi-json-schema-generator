@@ -280,3 +280,14 @@ class Pet(
 
 from petstore_api.components.schema import category
 from petstore_api.components.schema import tag
+PetProperties = typing.TypedDict(
+    'PetProperties',
+    {
+        "id": Id,
+        "category": category.Category,
+        "name": Name,
+        "photoUrls": PhotoUrls,
+        "tags": Tags,
+        "status": Status,
+    }
+)

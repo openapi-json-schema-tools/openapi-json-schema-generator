@@ -135,3 +135,9 @@ class _Return(
         )
         return inst
 
+_ReturnProperties = typing.TypedDict(
+    '_ReturnProperties',
+    {
+        "return": _Return,
+    }
+)

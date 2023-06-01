@@ -116,3 +116,10 @@ class Schema(
         )
         return inst
 
+SchemaProperties = typing.TypedDict(
+    'SchemaProperties',
+    {
+        "param": Param,
+        "param2": Param2,
+    }
+)
