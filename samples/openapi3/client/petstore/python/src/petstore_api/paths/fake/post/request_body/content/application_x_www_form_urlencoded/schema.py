@@ -96,10 +96,10 @@ class String(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        regex={
-            'pattern': r'[a-z]',  # noqa: E501
-            'flags': re.I,
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'[a-z]',  # noqa: E501
+            flags=re.I,
+        )
 
 
 class PatternWithoutDelimiter(
@@ -112,9 +112,9 @@ class PatternWithoutDelimiter(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        regex={
-            'pattern': r'^[A-Z].*',  # noqa: E501
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[A-Z].*'  # noqa: E501
+        )
 Byte: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Binary: typing_extensions.TypeAlias = schemas.BinarySchema[U]
 Date: typing_extensions.TypeAlias = schemas.DateSchema[U]

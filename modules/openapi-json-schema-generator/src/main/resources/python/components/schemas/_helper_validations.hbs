@@ -26,14 +26,14 @@ min_properties: int = {{minProperties}}
 {{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}}: typing.Union[int, float] = {{minimum}}
 {{/neq}}
 {{#neq patternInfo null}}
-regex={
+pattern: schemas.PatternInfo = schemas.PatternInfo(
     {{#with patternInfo}}
-    'pattern': r'{{{pattern}}}',  # noqa: E501
+    pattern=r'{{{pattern}}}'{{#if flags}},{{/if}}  # noqa: E501
         {{#if flags}}
             {{#eq flags.size 1}}
-    'flags': {{#each flags}}re.{{#eq this "i"}}I{{/eq}}{{#eq this "m"}}M{{/eq}}{{#eq this "s"}}S{{/eq}}{{#eq this "u"}}U{{/eq}}{{/each}},
+    flags={{#each flags}}re.{{#eq this "i"}}I{{/eq}}{{#eq this "m"}}M{{/eq}}{{#eq this "s"}}S{{/eq}}{{#eq this "u"}}U{{/eq}}{{/each}},
             {{else}}
-    'flags': (
+    flags=(
                 {{#each flags}}
                     {{#eq this "i"}}
         re.I{{#unless @last}} |{{/unless}}
@@ -52,7 +52,7 @@ regex={
             {{/eq}}
         {{/if}}
     {{/with}}
-}
+)
 {{/neq}}
 {{#neq multipleOf null}}
 multiple_of: typing.Union[int, float] = {{multipleOf}}

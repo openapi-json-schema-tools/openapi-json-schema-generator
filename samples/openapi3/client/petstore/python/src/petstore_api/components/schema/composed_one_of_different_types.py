@@ -146,9 +146,9 @@ class _6(
             str,
         })
         format: str = 'date-time'
-        regex={
-            'pattern': r'^2020.*',  # noqa: E501
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^2020.*'  # noqa: E501
+        )
 
 
 class ComposedOneOfDifferentTypes(

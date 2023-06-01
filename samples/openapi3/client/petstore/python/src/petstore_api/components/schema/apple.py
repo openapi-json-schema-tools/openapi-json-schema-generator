@@ -22,9 +22,9 @@ class Cultivar(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        regex={
-            'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[a-zA-Z\s]*$'  # noqa: E501
+        )
 
 
 class Origin(
@@ -37,10 +37,10 @@ class Origin(
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
-        regex={
-            'pattern': r'^[A-Z\s]*$',  # noqa: E501
-            'flags': re.I,
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[A-Z\s]*$',  # noqa: E501
+            flags=re.I,
+        )
 
 
 class Apple(

@@ -179,6 +179,12 @@ class BoolClass(Singleton):
         raise ValueError('Unable to find the boolean value of this instance')
 
 
+@dataclasses.dataclass(frozen=True)
+class PatternInfo:
+    pattern: str
+    flags: typing.Optional[re.RegexFlag] = None
+
+
 class SchemaTyped:
     additional_properties: typing.Type[Schema]
     all_of: typing.Tuple[typing.Type[Schema], ...]
@@ -201,7 +207,7 @@ class SchemaTyped:
     multiple_of: typing.Union[int, float]
     not_: typing.Type[Schema]
     one_of: typing.Tuple[typing.Type[Schema], ...]
-    # pattern
+    pattern: PatternInfo
     properties: typing.Mapping[str, typing.Type[Schema]]
     required: typing.FrozenSet[str]
     types: typing.FrozenSet[typing.Type]
@@ -570,9 +576,9 @@ def validate_multiple_of(
     return None
 
 
-def validate_regex(
+def validate_pattern(
     arg: typing.Any,
-    regex_dict: typing.Dict,
+    pattern_info: PatternInfo,
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -581,22 +587,22 @@ def validate_regex(
 ) -> None:
     if not isinstance(arg, str):
         return None
-    flags = regex_dict.get('flags', 0)
-    if not re.search(regex_dict['pattern'], arg, flags=flags):
+    flags = pattern_info.flags if pattern_info.flags is not None else 0
+    if not re.search(pattern_info.pattern, arg, flags=flags):
         if flags != 0:
             # Don't print the regex flags if the flags are not
             # specified in the OAS document.
             _raise_validation_error_message(
                 value=arg,
                 constraint_msg="must match regular expression",
-                constraint_value=regex_dict['pattern'],
+                constraint_value=pattern_info.pattern,
                 path_to_item=validation_metadata.path_to_item,
                 additional_txt=" with flags=`{}`".format(flags)
             )
         _raise_validation_error_message(
             value=arg,
             constraint_msg="must match regular expression",
-            constraint_value=regex_dict['pattern'],
+            constraint_value=pattern_info.pattern,
             path_to_item=validation_metadata.path_to_item
         )
     return None
@@ -1240,7 +1246,7 @@ json_schema_keyword_to_validator = {
     'inclusive_maximum': validate_inclusive_maximum,
     'exclusive_maximum': validate_exclusive_maximum,
     'multiple_of': validate_multiple_of,
-    'regex': validate_regex,
+    'pattern': validate_pattern,
     'format': validate_format,
     'required': validate_required,
     'items': validate_items,
