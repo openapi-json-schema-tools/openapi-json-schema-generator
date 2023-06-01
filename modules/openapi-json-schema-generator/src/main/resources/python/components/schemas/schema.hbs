@@ -9,7 +9,9 @@
 from {{packageName}}.shared_imports.schema_imports import *
         {{/if}}
 {{> _helper_imports }}
+        {{#each getSchemas}}
 {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+        {{/each}}
     {{else}}
 from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
@@ -19,7 +21,7 @@ from {{packageName}}.shared_imports.schema_imports import *
         {{/each}}
         {{#if imports}}
 
-        {{/if}}
 {{> _helper_imports }}
+        {{/if}}
     {{/if}}
 {{/with}}
