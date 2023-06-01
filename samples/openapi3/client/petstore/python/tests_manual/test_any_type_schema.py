@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     OpenAPI Petstore
@@ -10,13 +9,15 @@
 """
 
 
-import unittest
+import dataclasses
 from decimal import Decimal
 import typing
+import unittest
 
 import frozendict
 
 import petstore_api
+from petstore_api import schemas
 from petstore_api.schemas import (
     AnyTypeSchema,
     DictSchema,
@@ -38,14 +39,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        DictSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    DictSchema,
+                )
 
         m = Model(a=1, b='hi')
         assert isinstance(m, Model)
@@ -56,14 +56,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testListSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        ListSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    ListSchema,
+                )
 
         m = Model([1, 'hi'])
         assert isinstance(m, Model)
@@ -74,14 +73,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testStrSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        StrSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    StrSchema,
+                )
 
         m = Model('hi')
         assert isinstance(m, Model)
@@ -92,14 +90,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNumberSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        NumberSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    NumberSchema,
+                )
 
         m = Model(1)
         assert isinstance(m, Model)
@@ -117,14 +114,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testIntSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        IntSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    IntSchema,
+                )
 
         m = Model(1)
         assert isinstance(m, Model)
@@ -139,14 +135,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testBoolSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        BoolSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    BoolSchema,
+                )
 
         m = Model(True)
         assert isinstance(m, Model)
@@ -164,14 +159,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testNoneSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        NoneSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    NoneSchema,
+                )
 
         m = Model(None)
         self.assertTrue(m.is_none_())
@@ -182,14 +176,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        DateSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    DateSchema,
+                )
 
         m = Model('1970-01-01')
         assert isinstance(m, Model)
@@ -200,14 +193,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDateTimeSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        DateTimeSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    DateTimeSchema,
+                )
 
         m = Model('2020-01-01T00:00:00')
         assert isinstance(m, Model)
@@ -218,14 +210,13 @@ class TestAnyTypeSchema(unittest.TestCase):
 
     def testDecimalSchema(self):
         class Model(AnyTypeSchema):
+            @dataclasses.dataclass(frozen=True)
             class Schema_:
 
-                @staticmethod
-                def all_of():
-                    return (
-                        AnyTypeSchema,
-                        DecimalSchema,
-                    )
+                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                    AnyTypeSchema,
+                    DecimalSchema,
+                )
 
         m = Model('12.34')
         assert m == '12.34'

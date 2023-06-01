@@ -199,9 +199,9 @@ class SchemaTyped:
     max_properties: int
     min_properties: int
     multiple_of: typing.Union[int, float]
-    all_of: typing.Tuple[Schema, ...]
-    one_of: typing.Tuple[Schema, ...]
-    any_of: typing.Tuple[Schema, ...]
+    all_of: typing.Tuple[typing.Type[Schema], ...]
+    one_of: typing.Tuple[typing.Type[Schema], ...]
+    any_of: typing.Tuple[typing.Type[Schema], ...]
     not_: typing.Callable
     max_length: int
     min_length: int
@@ -2361,7 +2361,7 @@ class BinarySchema(
         types: typing.FrozenSet[typing.Type] = frozenset({FileIO, bytes})
         format: str = 'binary'
 
-        one_of = (
+        one_of: typing.Tuple[typing.Type[Schema], ...] = (
             BytesSchema,
             FileSchema,
         )
