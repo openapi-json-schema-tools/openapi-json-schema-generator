@@ -20,31 +20,43 @@ all_of: typing.Tuple[
 {{/if}}
 {{#if oneOf}}
 
-@staticmethod
-def one_of():
-    return (
+one_of: typing.Tuple[
     {{#each oneOf}}
         {{#if refInfo.refClass}}
-        {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
         {{else}}
-        {{jsonPathPiece.camelCase}},
+    typing.Type[{{jsonPathPiece.camelCase}}],
         {{/if}}
     {{/each}}
-    )
+] = dataclasses.field(default_factory=lambda: (
+    {{#each oneOf}}
+        {{#if refInfo.refClass}}
+    {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
+    {{jsonPathPiece.camelCase}},
+        {{/if}}
+    {{/each}}
+)) # type: ignore
 {{/if}}
 {{#if anyOf}}
 
-@staticmethod
-def any_of():
-    return (
+any_of: typing.Tuple[
     {{#each anyOf}}
         {{#if refInfo.refClass}}
-        {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
         {{else}}
-        {{jsonPathPiece.camelCase}},
+    typing.Type[{{jsonPathPiece.camelCase}}],
         {{/if}}
     {{/each}}
-    )
+] = dataclasses.field(default_factory=lambda: (
+    {{#each anyOf}}
+        {{#if refInfo.refClass}}
+    {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}},
+        {{else}}
+    {{jsonPathPiece.camelCase}},
+        {{/if}}
+    {{/each}}
+)) # type: ignore
 {{/if}}
 {{#if not}}
 {{#with not}}

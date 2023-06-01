@@ -169,17 +169,23 @@ class ComposedOneOfDifferentTypes(
     class Schema_:
         # any type
         
-        @staticmethod
-        def one_of():
-            return (
-                number_with_validations.NumberWithValidations,
-                animal.Animal,
-                _2,
-                _3,
-                _4,
-                _5,
-                _6,
-            )
+        one_of: typing.Tuple[
+            typing.Type[number_with_validations.NumberWithValidations],
+            typing.Type[animal.Animal],
+            typing.Type[_2],
+            typing.Type[_3],
+            typing.Type[_4],
+            typing.Type[_5],
+            typing.Type[_6],
+        ] = dataclasses.field(default_factory=lambda: (
+            number_with_validations.NumberWithValidations,
+            animal.Animal,
+            _2,
+            _3,
+            _4,
+            _5,
+            _6,
+        )) # type: ignore
 
 
     def __new__(

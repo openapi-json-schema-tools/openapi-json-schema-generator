@@ -29,13 +29,15 @@ class NullableShape(
     class Schema_:
         # any type
         
-        @staticmethod
-        def one_of():
-            return (
-                triangle.Triangle,
-                quadrilateral.Quadrilateral,
-                _2,
-            )
+        one_of: typing.Tuple[
+            typing.Type[triangle.Triangle],
+            typing.Type[quadrilateral.Quadrilateral],
+            typing.Type[_2],
+        ] = dataclasses.field(default_factory=lambda: (
+            triangle.Triangle,
+            quadrilateral.Quadrilateral,
+            _2,
+        )) # type: ignore
 
 
     def __new__(

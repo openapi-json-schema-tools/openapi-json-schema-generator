@@ -27,13 +27,15 @@ class FruitReq(
     class Schema_:
         # any type
         
-        @staticmethod
-        def one_of():
-            return (
-                _0,
-                apple_req.AppleReq,
-                banana_req.BananaReq,
-            )
+        one_of: typing.Tuple[
+            typing.Type[_0],
+            typing.Type[apple_req.AppleReq],
+            typing.Type[banana_req.BananaReq],
+        ] = dataclasses.field(default_factory=lambda: (
+            _0,
+            apple_req.AppleReq,
+            banana_req.BananaReq,
+        )) # type: ignore
 
 
     def __new__(

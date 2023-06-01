@@ -35,12 +35,13 @@ class Pig(
                 }
             }
         
-        @staticmethod
-        def one_of():
-            return (
-                basque_pig.BasquePig,
-                danish_pig.DanishPig,
-            )
+        one_of: typing.Tuple[
+            typing.Type[basque_pig.BasquePig],
+            typing.Type[danish_pig.DanishPig],
+        ] = dataclasses.field(default_factory=lambda: (
+            basque_pig.BasquePig,
+            danish_pig.DanishPig,
+        )) # type: ignore
 
 
     def __new__(

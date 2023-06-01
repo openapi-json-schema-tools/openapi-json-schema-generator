@@ -38,13 +38,15 @@ class ShapeOrNull(
                 }
             }
         
-        @staticmethod
-        def one_of():
-            return (
-                _0,
-                triangle.Triangle,
-                quadrilateral.Quadrilateral,
-            )
+        one_of: typing.Tuple[
+            typing.Type[_0],
+            typing.Type[triangle.Triangle],
+            typing.Type[quadrilateral.Quadrilateral],
+        ] = dataclasses.field(default_factory=lambda: (
+            _0,
+            triangle.Triangle,
+            quadrilateral.Quadrilateral,
+        )) # type: ignore
 
 
     def __new__(

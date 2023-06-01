@@ -36,13 +36,15 @@ class Mammal(
                 }
             }
         
-        @staticmethod
-        def one_of():
-            return (
-                whale.Whale,
-                zebra.Zebra,
-                pig.Pig,
-            )
+        one_of: typing.Tuple[
+            typing.Type[whale.Whale],
+            typing.Type[zebra.Zebra],
+            typing.Type[pig.Pig],
+        ] = dataclasses.field(default_factory=lambda: (
+            whale.Whale,
+            zebra.Zebra,
+            pig.Pig,
+        )) # type: ignore
 
 
     def __new__(

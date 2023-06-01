@@ -45,11 +45,11 @@ class AbstractStepMessage(
             }
         properties: AbstractStepMessageProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AbstractStepMessageProperties)) # type: ignore
         
-        @staticmethod
-        def any_of():
-            return (
-                AbstractStepMessage,
-            )
+        any_of: typing.Tuple[
+            typing.Type[AbstractStepMessage],
+        ] = dataclasses.field(default_factory=lambda: (
+            AbstractStepMessage,
+        )) # type: ignore
 
     
     @property

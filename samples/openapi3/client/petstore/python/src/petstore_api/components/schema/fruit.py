@@ -28,12 +28,13 @@ class Fruit(
         # any type
         properties: FruitProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FruitProperties)) # type: ignore
         
-        @staticmethod
-        def one_of():
-            return (
-                apple.Apple,
-                banana.Banana,
-            )
+        one_of: typing.Tuple[
+            typing.Type[apple.Apple],
+            typing.Type[banana.Banana],
+        ] = dataclasses.field(default_factory=lambda: (
+            apple.Apple,
+            banana.Banana,
+        )) # type: ignore
 
     
     @typing.overload

@@ -28,12 +28,13 @@ class GmFruit(
         # any type
         properties: GmFruitProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GmFruitProperties)) # type: ignore
         
-        @staticmethod
-        def any_of():
-            return (
-                apple.Apple,
-                banana.Banana,
-            )
+        any_of: typing.Tuple[
+            typing.Type[apple.Apple],
+            typing.Type[banana.Banana],
+        ] = dataclasses.field(default_factory=lambda: (
+            apple.Apple,
+            banana.Banana,
+        )) # type: ignore
 
     
     @typing.overload

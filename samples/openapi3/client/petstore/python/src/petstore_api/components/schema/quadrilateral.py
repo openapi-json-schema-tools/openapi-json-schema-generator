@@ -35,12 +35,13 @@ class Quadrilateral(
                 }
             }
         
-        @staticmethod
-        def one_of():
-            return (
-                simple_quadrilateral.SimpleQuadrilateral,
-                complex_quadrilateral.ComplexQuadrilateral,
-            )
+        one_of: typing.Tuple[
+            typing.Type[simple_quadrilateral.SimpleQuadrilateral],
+            typing.Type[complex_quadrilateral.ComplexQuadrilateral],
+        ] = dataclasses.field(default_factory=lambda: (
+            simple_quadrilateral.SimpleQuadrilateral,
+            complex_quadrilateral.ComplexQuadrilateral,
+        )) # type: ignore
 
 
     def __new__(

@@ -36,13 +36,15 @@ class Triangle(
                 }
             }
         
-        @staticmethod
-        def one_of():
-            return (
-                equilateral_triangle.EquilateralTriangle,
-                isosceles_triangle.IsoscelesTriangle,
-                scalene_triangle.ScaleneTriangle,
-            )
+        one_of: typing.Tuple[
+            typing.Type[equilateral_triangle.EquilateralTriangle],
+            typing.Type[isosceles_triangle.IsoscelesTriangle],
+            typing.Type[scalene_triangle.ScaleneTriangle],
+        ] = dataclasses.field(default_factory=lambda: (
+            equilateral_triangle.EquilateralTriangle,
+            isosceles_triangle.IsoscelesTriangle,
+            scalene_triangle.ScaleneTriangle,
+        )) # type: ignore
 
 
     def __new__(

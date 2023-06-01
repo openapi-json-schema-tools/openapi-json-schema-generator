@@ -194,13 +194,13 @@ class SchemaTyped:
     min_items: int
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
     default: typing.Union[str, int, BoolClass]
-    properties: typing.Callable
+    properties: typing.Mapping[str, Schema]
     additional_properties: typing.Callable
     max_properties: int
     min_properties: int
-    all_of: typing.Callable
-    one_of: typing.Callable
-    any_of: typing.Callable
+    all_of: typing.Tuple[Schema, ...]
+    one_of: typing.Tuple[Schema, ...]
+    any_of: typing.Tuple[Schema, ...]
     not_: typing.Callable
     max_length: int
     min_length: int
@@ -869,13 +869,12 @@ def validate_additional_properties(
 
 def validate_one_of(
     arg: typing.Any,
-    classes_fn: typing.Callable,
+    classes: typing.Tuple[Schema, ...],
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     oneof_classes = []
     path_to_schemas = collections.defaultdict(set)
-    classes = classes_fn.__func__()
     for schema in classes:
         schema = _get_class(schema)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
@@ -914,13 +913,12 @@ def validate_one_of(
 
 def validate_any_of(
     arg: typing.Any,
-    classes_fn: typing.Callable,
+    classes: typing.Tuple[Schema, ...],
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas = collections.defaultdict(set)
-    classes = classes_fn.__func__()
     for schema in classes:
         schema = _get_class(schema)
         if schema is cls:
@@ -1040,13 +1038,13 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
             if discriminated_cls is not None:
                 return discriminated_cls
     if hasattr(cls_schema, 'one_of'):
-        for oneof_cls in cls_schema.one_of():
+        for oneof_cls in cls_schema.one_of:
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
     if hasattr(cls_schema, 'any_of'):
-        for anyof_cls in cls_schema.any_of():
+        for anyof_cls in cls_schema.any_of:
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
@@ -2346,12 +2344,10 @@ class BinarySchema(
         types = {FileIO, bytes}
         format = 'binary'
 
-        @staticmethod
-        def one_of():
-            return (
-                BytesSchema,
-                FileSchema,
-            )
+        one_of = (
+            BytesSchema,
+            FileSchema,
+        )
 
     def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: schema_configuration.SchemaConfiguration) -> BinarySchema[typing.Union[FileIO, bytes]]:
         return super().__new__(cls, arg_)

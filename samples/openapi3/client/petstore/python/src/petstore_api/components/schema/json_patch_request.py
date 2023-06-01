@@ -21,13 +21,15 @@ class Items(
     class Schema_:
         # any type
         
-        @staticmethod
-        def one_of():
-            return (
-                json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest,
-                json_patch_request_remove.JSONPatchRequestRemove,
-                json_patch_request_move_copy.JSONPatchRequestMoveCopy,
-            )
+        one_of: typing.Tuple[
+            typing.Type[json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest],
+            typing.Type[json_patch_request_remove.JSONPatchRequestRemove],
+            typing.Type[json_patch_request_move_copy.JSONPatchRequestMoveCopy],
+        ] = dataclasses.field(default_factory=lambda: (
+            json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest,
+            json_patch_request_remove.JSONPatchRequestRemove,
+            json_patch_request_move_copy.JSONPatchRequestMoveCopy,
+        )) # type: ignore
 
 
     def __new__(

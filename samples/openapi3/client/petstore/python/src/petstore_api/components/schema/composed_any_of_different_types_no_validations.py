@@ -114,26 +114,41 @@ class ComposedAnyOfDifferentTypesNoValidations(
     class Schema_:
         # any type
         
-        @staticmethod
-        def any_of():
-            return (
-                _0,
-                _1,
-                _2,
-                _3,
-                _4,
-                _5,
-                _6,
-                _7,
-                _8,
-                _9,
-                _10,
-                _11,
-                _12,
-                _13,
-                _14,
-                _15,
-            )
+        any_of: typing.Tuple[
+            typing.Type[_0],
+            typing.Type[_1],
+            typing.Type[_2],
+            typing.Type[_3],
+            typing.Type[_4],
+            typing.Type[_5],
+            typing.Type[_6],
+            typing.Type[_7],
+            typing.Type[_8],
+            typing.Type[_9],
+            typing.Type[_10],
+            typing.Type[_11],
+            typing.Type[_12],
+            typing.Type[_13],
+            typing.Type[_14],
+            typing.Type[_15],
+        ] = dataclasses.field(default_factory=lambda: (
+            _0,
+            _1,
+            _2,
+            _3,
+            _4,
+            _5,
+            _6,
+            _7,
+            _8,
+            _9,
+            _10,
+            _11,
+            _12,
+            _13,
+            _14,
+            _15,
+        )) # type: ignore
 
 
     def __new__(
