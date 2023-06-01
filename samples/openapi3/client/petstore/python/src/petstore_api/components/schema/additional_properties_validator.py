@@ -424,13 +424,15 @@ class AdditionalPropertiesValidator(
             frozendict.frozendict,
         }
         
-        @staticmethod
-        def all_of():
-            return (
-                _0,
-                _1,
-                _2,
-            )
+        all_of: typing.Tuple[
+            typing.Type[_0],
+            typing.Type[_1],
+            typing.Type[_2],
+        ] = dataclasses.field(default_factory=lambda: (
+            _0,
+            _1,
+            _2,
+        )) # type: ignore
 
 
     def __new__(

@@ -33,11 +33,11 @@ class ObjWithRequiredProps(
         }
         properties: ObjWithRequiredPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsProperties)) # type: ignore
         
-        @staticmethod
-        def all_of():
-            return (
-                obj_with_required_props_base.ObjWithRequiredPropsBase,
-            )
+        all_of: typing.Tuple[
+            typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
+        ] = dataclasses.field(default_factory=lambda: (
+            obj_with_required_props_base.ObjWithRequiredPropsBase,
+        )) # type: ignore
 
     
     @property

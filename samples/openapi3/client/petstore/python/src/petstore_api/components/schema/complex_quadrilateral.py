@@ -123,12 +123,13 @@ class ComplexQuadrilateral(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                quadrilateral_interface.QuadrilateralInterface,
-                _1,
-            )
+        all_of: typing.Tuple[
+            typing.Type[quadrilateral_interface.QuadrilateralInterface],
+            typing.Type[_1],
+        ] = dataclasses.field(default_factory=lambda: (
+            quadrilateral_interface.QuadrilateralInterface,
+            _1,
+        )) # type: ignore
 
 
     def __new__(

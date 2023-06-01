@@ -952,13 +952,13 @@ def validate_any_of(
 
 def validate_all_of(
     arg: typing.Any,
-    classes_fn: typing.Callable,
+    classes: typing.Tuple[Schema, ...],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 ) -> PathToSchemasType:
     path_to_schemas = collections.defaultdict(set)
-    classes = classes_fn.__func__()
     for schema in classes:
+        schema = _get_class(schema)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -1034,7 +1034,7 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
         return None
     # TODO stop traveling if a cycle is hit
     if hasattr(cls_schema, 'all_of'):
-        for allof_cls in cls_schema.all_of():
+        for allof_cls in cls_schema.all_of:
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:

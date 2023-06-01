@@ -154,12 +154,13 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                object_with_optional_test_prop.ObjectWithOptionalTestProp,
-                _1,
-            )
+        all_of: typing.Tuple[
+            typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
+            typing.Type[_1],
+        ] = dataclasses.field(default_factory=lambda: (
+            object_with_optional_test_prop.ObjectWithOptionalTestProp,
+            _1,
+        )) # type: ignore
 
 
     def __new__(

@@ -106,12 +106,13 @@ class Cat(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                animal.Animal,
-                _1,
-            )
+        all_of: typing.Tuple[
+            typing.Type[animal.Animal],
+            typing.Type[_1],
+        ] = dataclasses.field(default_factory=lambda: (
+            animal.Animal,
+            _1,
+        )) # type: ignore
 
 
     def __new__(

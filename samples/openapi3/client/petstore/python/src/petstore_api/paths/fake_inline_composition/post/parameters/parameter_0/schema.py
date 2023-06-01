@@ -33,11 +33,11 @@ class Schema(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                _0,
-            )
+        all_of: typing.Tuple[
+            typing.Type[_0],
+        ] = dataclasses.field(default_factory=lambda: (
+            _0,
+        )) # type: ignore
 
 
     def __new__(

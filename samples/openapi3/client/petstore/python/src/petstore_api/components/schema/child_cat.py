@@ -106,12 +106,13 @@ class ChildCat(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                parent_pet.ParentPet,
-                _1,
-            )
+        all_of: typing.Tuple[
+            typing.Type[parent_pet.ParentPet],
+            typing.Type[_1],
+        ] = dataclasses.field(default_factory=lambda: (
+            parent_pet.ParentPet,
+            _1,
+        )) # type: ignore
 
 
     def __new__(

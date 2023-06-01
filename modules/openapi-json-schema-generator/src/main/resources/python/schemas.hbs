@@ -189,11 +189,11 @@ class SchemaTyped:
     min_items: int
     discriminator: typing.Dict[str, typing.Dict[str, typing.Type['Schema']]]
     default: typing.Union[str, int, BoolClass]
-    properties: typing.Callable
+    properties: typing.Mapping[str, Schema]
     additional_properties: typing.Callable
     max_properties: int
     min_properties: int
-    all_of: typing.Callable
+    all_of: typing.Tuple[Schema, ...]
     one_of: typing.Callable
     any_of: typing.Callable
     not_: typing.Callable
@@ -1039,7 +1039,7 @@ def validate_any_of(
 
 def validate_all_of(
     arg: typing.Any,
-    classes_fn: typing.Callable,
+    classes: typing.Tuple[Schema, ...],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1047,8 +1047,8 @@ def validate_all_of(
 {{/if}}
 ) -> PathToSchemasType:
     path_to_schemas = collections.defaultdict(set)
-    classes = classes_fn.__func__()
     for schema in classes:
+        schema = _get_class(schema)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
@@ -1127,7 +1127,7 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
         return None
     # TODO stop traveling if a cycle is hit
     if hasattr(cls_schema, 'all_of'):
-        for allof_cls in cls_schema.all_of():
+        for allof_cls in cls_schema.all_of:
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:

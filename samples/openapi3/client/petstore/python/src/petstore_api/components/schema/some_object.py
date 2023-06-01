@@ -26,11 +26,11 @@ class SomeObject(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                object_interface.ObjectInterface,
-            )
+        all_of: typing.Tuple[
+            typing.Type[object_interface.ObjectInterface],
+        ] = dataclasses.field(default_factory=lambda: (
+            object_interface.ObjectInterface,
+        )) # type: ignore
 
 
     def __new__(

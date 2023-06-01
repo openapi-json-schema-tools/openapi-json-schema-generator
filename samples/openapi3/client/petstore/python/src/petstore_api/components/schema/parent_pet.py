@@ -36,11 +36,11 @@ class ParentPet(
                 }
             }
         
-        @staticmethod
-        def all_of():
-            return (
-                grandparent_animal.GrandparentAnimal,
-            )
+        all_of: typing.Tuple[
+            typing.Type[grandparent_animal.GrandparentAnimal],
+        ] = dataclasses.field(default_factory=lambda: (
+            grandparent_animal.GrandparentAnimal,
+        )) # type: ignore
 
 
     def __new__(

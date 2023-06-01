@@ -123,12 +123,13 @@ class EquilateralTriangle(
     class Schema_:
         # any type
         
-        @staticmethod
-        def all_of():
-            return (
-                triangle_interface.TriangleInterface,
-                _1,
-            )
+        all_of: typing.Tuple[
+            typing.Type[triangle_interface.TriangleInterface],
+            typing.Type[_1],
+        ] = dataclasses.field(default_factory=lambda: (
+            triangle_interface.TriangleInterface,
+            _1,
+        )) # type: ignore
 
 
     def __new__(
