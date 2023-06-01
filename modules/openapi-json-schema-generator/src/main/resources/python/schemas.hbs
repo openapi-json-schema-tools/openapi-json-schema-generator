@@ -863,7 +863,7 @@ def validate_items(
 
 def validate_properties(
     arg: typing.Any,
-    properties_fn: typing.Callable,
+    properties: typing.Mapping[str, Schema],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -873,7 +873,6 @@ def validate_properties(
     if not isinstance(arg, frozendict.frozendict):
         return None
     path_to_schemas = {}
-    properties = properties_fn.__func__()
     present_properties = {k: v for k, v, in arg.items() if k in properties}
     for property_name, value in present_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
@@ -905,7 +904,8 @@ def validate_additional_properties(
         return None
     schema = _get_class(additional_properties_schema_fn.__func__())
     path_to_schemas = {}
-    properties = cls.Schema_.properties() if hasattr(cls.Schema_, 'properties') else {}
+    cls_schema = cls.Schema_()
+    properties = cls_schema.properties() if hasattr(cls_schema, 'properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties}
     for property_name, value in present_additional_properties.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
@@ -1110,35 +1110,36 @@ def __get_discriminated_class(cls, disc_property_name: str, disc_payload_value: 
     """
     Used in schemas with discriminators
     """
-    if not hasattr(cls.Schema_, 'discriminator'):
+    cls_schema = cls.Schema_()
+    if not hasattr(cls_schema, 'discriminator'):
         return None
-    disc = cls.Schema_.discriminator()
+    disc = cls_schema.discriminator()
     if disc_property_name not in disc:
         return None
     discriminated_cls = disc[disc_property_name].get(disc_payload_value)
     if discriminated_cls is not None:
         return discriminated_cls
     if not (
-        hasattr(cls.Schema_, 'all_of') or
-        hasattr(cls.Schema_, 'one_of') or
-        hasattr(cls.Schema_, 'any_of')
+        hasattr(cls_schema, 'all_of') or
+        hasattr(cls_schema, 'one_of') or
+        hasattr(cls_schema, 'any_of')
     ):
         return None
     # TODO stop traveling if a cycle is hit
-    if hasattr(cls.Schema_, 'all_of'):
-        for allof_cls in cls.Schema_.all_of():
+    if hasattr(cls_schema, 'all_of'):
+        for allof_cls in cls_schema.all_of():
             discriminated_cls = __get_discriminated_class(
                 allof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.Schema_, 'one_of'):
-        for oneof_cls in cls.Schema_.one_of():
+    if hasattr(cls_schema, 'one_of'):
+        for oneof_cls in cls_schema.one_of():
             discriminated_cls = __get_discriminated_class(
                 oneof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
                 return discriminated_cls
-    if hasattr(cls.Schema_, 'any_of'):
-        for anyof_cls in cls.Schema_.any_of():
+    if hasattr(cls_schema, 'any_of'):
+        for anyof_cls in cls_schema.any_of():
             discriminated_cls = __get_discriminated_class(
                 anyof_cls, disc_property_name=disc_property_name, disc_payload_value=disc_payload_value)
             if discriminated_cls is not None:
@@ -1153,7 +1154,7 @@ def _get_discriminated_class_and_exception(
 ) -> typing.Tuple[typing.Optional['Schema'], typing.Optional[Exception]]:
     if not isinstance(arg, frozendict.frozendict):
         return None, None
-    discriminator = cls.Schema_.discriminator()
+    discriminator = cls_schema().discriminator()
     disc_prop_name = list(discriminator.keys())[0]
     try:
         __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
@@ -1276,9 +1277,10 @@ class Schema(typing.Generic[T]):
         All keyword validation except for type checking was done in calling stack frames
         If those validations passed, the validated classes are collected in path_to_schemas
         """
+        cls_schema = cls.Schema_()
         json_schema_data = {
             k: v
-            for k, v in vars(cls.Schema_).items()
+            for k, v in vars(cls_schema).items()
             if k not in cls.__excluded_cls_properties
             and k
             not in validation_metadata.configuration.disabled_json_schema_python_keywords
@@ -1410,7 +1412,7 @@ class Schema(typing.Generic[T]):
             """
             cls._process_schema_classes(schema_classes)
             enum_schema = any(
-                issubclass(this_cls, Schema) and hasattr(this_cls.Schema_, "enum_value_to_name")
+                issubclass(this_cls, Schema) and hasattr(this_cls.Schema_(), "enum_value_to_name")
                 for this_cls in schema_classes
             )
             inheritable_primitive_type = schema_classes.intersection(cls.__inheritable_primitive_types_set)
@@ -2640,3 +2642,15 @@ LOG_CACHE_USAGE = False
 def log_cache_usage(cache_fn):
     if LOG_CACHE_USAGE:
         print(cache_fn.__name__, cache_fn.cache_info())
+
+
+W = typing.TypeVar('W', bound=typing.TypedDict)
+
+def typed_dict_to_instance(t_dict: typing.Type[W]) -> W:
+    res = {}
+    for key, val in t_dict.__annotations__.items():
+        if isinstance(val, typing._GenericAlias): # type: ignore
+            # for typing.Type
+            val_cls = typing.get_args(val)[0]
+            res[key] = val_cls
+    return res # type: ignore
