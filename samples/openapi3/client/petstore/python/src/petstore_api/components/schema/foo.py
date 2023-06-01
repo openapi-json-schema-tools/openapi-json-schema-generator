@@ -99,6 +99,6 @@ from petstore_api.components.schema import bar
 FooProperties = typing_extensions.TypedDict(
     'FooProperties',
     {
-        "bar": bar.Bar,
+        "bar": typing.Type[bar.Bar],
     }
 )

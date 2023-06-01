@@ -90,7 +90,7 @@ class BananaReq(
 BananaReqProperties = typing_extensions.TypedDict(
     'BananaReqProperties',
     {
-        "lengthCm": LengthCm,
-        "sweet": Sweet,
+        "lengthCm": typing.Type[LengthCm],
+        "sweet": typing.Type[Sweet],
     }
 )

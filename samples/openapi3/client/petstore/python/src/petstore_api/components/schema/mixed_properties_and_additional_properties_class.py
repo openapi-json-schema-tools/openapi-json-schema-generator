@@ -165,8 +165,8 @@ from petstore_api.components.schema import animal
 MixedPropertiesAndAdditionalPropertiesClassProperties = typing_extensions.TypedDict(
     'MixedPropertiesAndAdditionalPropertiesClassProperties',
     {
-        "uuid": Uuid,
-        "dateTime": DateTime,
-        "map": Map,
+        "uuid": typing.Type[Uuid],
+        "dateTime": typing.Type[DateTime],
+        "map": typing.Type[Map],
     }
 )

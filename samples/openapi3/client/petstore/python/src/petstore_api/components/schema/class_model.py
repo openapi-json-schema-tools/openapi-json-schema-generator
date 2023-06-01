@@ -140,6 +140,6 @@ class ClassModel(
 ClassModelProperties = typing_extensions.TypedDict(
     'ClassModelProperties',
     {
-        "_class": _Class,
+        "_class": typing.Type[_Class],
     }
 )

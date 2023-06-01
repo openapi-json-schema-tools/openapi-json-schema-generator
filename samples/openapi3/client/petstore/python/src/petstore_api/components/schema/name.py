@@ -158,8 +158,8 @@ class Name(
 NameProperties = typing_extensions.TypedDict(
     'NameProperties',
     {
-        "name": Name,
-        "snake_case": SnakeCase,
-        "property": _Property,
+        "name": typing.Type[Name],
+        "snake_case": typing.Type[SnakeCase],
+        "property": typing.Type[_Property],
     }
 )

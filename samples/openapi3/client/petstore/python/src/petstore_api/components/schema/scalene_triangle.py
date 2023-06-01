@@ -211,6 +211,6 @@ from petstore_api.components.schema import triangle_interface
 _1Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
-        "triangleType": TriangleType,
+        "triangleType": typing.Type[TriangleType],
     }
 )

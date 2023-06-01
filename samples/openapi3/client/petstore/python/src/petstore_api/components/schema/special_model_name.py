@@ -100,6 +100,6 @@ class SpecialModelName(
 SpecialModelNameProperties = typing_extensions.TypedDict(
     'SpecialModelNameProperties',
     {
-        "a": A,
+        "a": typing.Type[A],
     }
 )

@@ -242,6 +242,6 @@ from petstore_api.components.schema import object_with_optional_test_prop
 _1Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
-        "name": Name,
+        "name": typing.Type[Name],
     }
 )

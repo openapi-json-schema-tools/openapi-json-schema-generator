@@ -173,7 +173,7 @@ class Zebra(
 ZebraProperties = typing_extensions.TypedDict(
     'ZebraProperties',
     {
-        "type": Type,
-        "className": ClassName,
+        "type": typing.Type[Type],
+        "className": typing.Type[ClassName],
     }
 )

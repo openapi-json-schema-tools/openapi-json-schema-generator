@@ -211,6 +211,6 @@ from petstore_api.components.schema import quadrilateral_interface
 _1Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
-        "quadrilateralType": QuadrilateralType,
+        "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )

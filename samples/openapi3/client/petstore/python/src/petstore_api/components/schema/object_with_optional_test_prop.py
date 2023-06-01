@@ -98,6 +98,6 @@ class ObjectWithOptionalTestProp(
 ObjectWithOptionalTestPropProperties = typing_extensions.TypedDict(
     'ObjectWithOptionalTestPropProperties',
     {
-        "test": Test,
+        "test": typing.Type[Test],
     }
 )

@@ -235,6 +235,6 @@ class AbstractStepMessage(
 AbstractStepMessageProperties = typing_extensions.TypedDict(
     'AbstractStepMessageProperties',
     {
-        "discriminator": Discriminator,
+        "discriminator": typing.Type[Discriminator],
     }
 )

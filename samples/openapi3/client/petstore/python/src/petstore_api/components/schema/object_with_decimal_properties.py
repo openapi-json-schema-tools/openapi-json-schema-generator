@@ -122,8 +122,8 @@ from petstore_api.components.schema import money
 ObjectWithDecimalPropertiesProperties = typing_extensions.TypedDict(
     'ObjectWithDecimalPropertiesProperties',
     {
-        "length": decimal_payload.DecimalPayload,
-        "width": Width,
-        "cost": money.Money,
+        "length": typing.Type[decimal_payload.DecimalPayload],
+        "width": typing.Type[Width],
+        "cost": typing.Type[money.Money],
     }
 )

@@ -119,7 +119,7 @@ class ObjectModelWithArgAndArgsProperties(
 ObjectModelWithArgAndArgsPropertiesProperties = typing_extensions.TypedDict(
     'ObjectModelWithArgAndArgsPropertiesProperties',
     {
-        "arg": Arg,
-        "args": Args,
+        "arg": typing.Type[Arg],
+        "args": typing.Type[Args],
     }
 )

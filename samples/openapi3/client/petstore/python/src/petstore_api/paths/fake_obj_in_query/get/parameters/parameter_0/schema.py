@@ -93,6 +93,6 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "keyword": Keyword,
+        "keyword": typing.Type[Keyword],
     }
 )

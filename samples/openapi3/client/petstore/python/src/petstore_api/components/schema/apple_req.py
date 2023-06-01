@@ -88,7 +88,7 @@ class AppleReq(
 AppleReqProperties = typing_extensions.TypedDict(
     'AppleReqProperties',
     {
-        "cultivar": Cultivar,
-        "mealy": Mealy,
+        "cultivar": typing.Type[Cultivar],
+        "mealy": typing.Type[Mealy],
     }
 )

@@ -784,7 +784,6 @@ def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.T
         return item_cls.__func__()
     elif isinstance(item_cls, type):
         return item_cls
-    print(item_cls)
     raise ValueError('invalid class value passed in')
 
 

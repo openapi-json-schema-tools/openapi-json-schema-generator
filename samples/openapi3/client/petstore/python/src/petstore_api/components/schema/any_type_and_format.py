@@ -1210,14 +1210,14 @@ class AnyTypeAndFormat(
 AnyTypeAndFormatProperties = typing_extensions.TypedDict(
     'AnyTypeAndFormatProperties',
     {
-        "uuid": Uuid,
-        "date": Date,
-        "date-time": DateTime,
-        "number": Number,
-        "binary": Binary,
-        "int32": Int32,
-        "int64": Int64,
-        "double": Double,
-        "float": _Float,
+        "uuid": typing.Type[Uuid],
+        "date": typing.Type[Date],
+        "date-time": typing.Type[DateTime],
+        "number": typing.Type[Number],
+        "binary": typing.Type[Binary],
+        "int32": typing.Type[Int32],
+        "int64": typing.Type[Int64],
+        "double": typing.Type[Double],
+        "float": typing.Type[_Float],
     }
 )

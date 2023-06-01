@@ -111,7 +111,7 @@ class Player(
 PlayerProperties = typing_extensions.TypedDict(
     'PlayerProperties',
     {
-        "name": Name,
-        "enemyPlayer": Player,
+        "name": typing.Type[Name],
+        "enemyPlayer": typing.Type[Player],
     }
 )

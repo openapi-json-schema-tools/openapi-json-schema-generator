@@ -143,8 +143,8 @@ class Whale(
 WhaleProperties = typing_extensions.TypedDict(
     'WhaleProperties',
     {
-        "hasBaleen": HasBaleen,
-        "hasTeeth": HasTeeth,
-        "className": ClassName,
+        "hasBaleen": typing.Type[HasBaleen],
+        "hasTeeth": typing.Type[HasTeeth],
+        "className": typing.Type[ClassName],
     }
 )

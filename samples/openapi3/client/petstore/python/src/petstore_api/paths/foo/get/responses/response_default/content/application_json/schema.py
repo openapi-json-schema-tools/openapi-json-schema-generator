@@ -95,6 +95,6 @@ from petstore_api.components.schema import foo
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "string": foo.Foo,
+        "string": typing.Type[foo.Foo],
     }
 )

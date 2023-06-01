@@ -323,8 +323,8 @@ from petstore_api.components.schema import read_only_first
 ArrayTestProperties = typing_extensions.TypedDict(
     'ArrayTestProperties',
     {
-        "array_of_string": ArrayOfString,
-        "array_array_of_integer": ArrayArrayOfInteger,
-        "array_array_of_model": ArrayArrayOfModel,
+        "array_of_string": typing.Type[ArrayOfString],
+        "array_array_of_integer": typing.Type[ArrayArrayOfInteger],
+        "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )

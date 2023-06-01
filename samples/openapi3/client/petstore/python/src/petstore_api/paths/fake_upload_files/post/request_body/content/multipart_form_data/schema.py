@@ -135,6 +135,6 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "files": Files,
+        "files": typing.Type[Files],
     }
 )

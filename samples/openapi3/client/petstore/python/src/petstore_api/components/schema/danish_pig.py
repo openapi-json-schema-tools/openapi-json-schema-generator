@@ -121,6 +121,6 @@ class DanishPig(
 DanishPigProperties = typing_extensions.TypedDict(
     'DanishPigProperties',
     {
-        "className": ClassName,
+        "className": typing.Type[ClassName],
     }
 )

@@ -481,13 +481,13 @@ class AdditionalPropertiesClass(
 AdditionalPropertiesClassProperties = typing_extensions.TypedDict(
     'AdditionalPropertiesClassProperties',
     {
-        "map_property": MapProperty,
-        "map_of_map_property": MapOfMapProperty,
-        "anytype_1": Anytype1,
-        "map_with_undeclared_properties_anytype_1": MapWithUndeclaredPropertiesAnytype1,
-        "map_with_undeclared_properties_anytype_2": MapWithUndeclaredPropertiesAnytype2,
-        "map_with_undeclared_properties_anytype_3": MapWithUndeclaredPropertiesAnytype3,
-        "empty_map": EmptyMap,
-        "map_with_undeclared_properties_string": MapWithUndeclaredPropertiesString,
+        "map_property": typing.Type[MapProperty],
+        "map_of_map_property": typing.Type[MapOfMapProperty],
+        "anytype_1": typing.Type[Anytype1],
+        "map_with_undeclared_properties_anytype_1": typing.Type[MapWithUndeclaredPropertiesAnytype1],
+        "map_with_undeclared_properties_anytype_2": typing.Type[MapWithUndeclaredPropertiesAnytype2],
+        "map_with_undeclared_properties_anytype_3": typing.Type[MapWithUndeclaredPropertiesAnytype3],
+        "empty_map": typing.Type[EmptyMap],
+        "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )

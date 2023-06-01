@@ -98,6 +98,6 @@ class Client(
 ClientProperties = typing_extensions.TypedDict(
     'ClientProperties',
     {
-        "client": Client,
+        "client": typing.Type[Client],
     }
 )

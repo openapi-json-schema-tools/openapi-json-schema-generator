@@ -120,7 +120,7 @@ from petstore_api.components.schema import currency
 MoneyProperties = typing_extensions.TypedDict(
     'MoneyProperties',
     {
-        "amount": Amount,
-        "currency": currency.Currency,
+        "amount": typing.Type[Amount],
+        "currency": typing.Type[currency.Currency],
     }
 )

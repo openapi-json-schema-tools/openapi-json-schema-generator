@@ -193,7 +193,7 @@ class EnumArrays(
 EnumArraysProperties = typing_extensions.TypedDict(
     'EnumArraysProperties',
     {
-        "just_symbol": JustSymbol,
-        "array_enum": ArrayEnum,
+        "just_symbol": typing.Type[JustSymbol],
+        "array_enum": typing.Type[ArrayEnum],
     }
 )

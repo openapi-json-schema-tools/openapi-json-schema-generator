@@ -148,6 +148,6 @@ from petstore_api.components.schema import banana
 FruitProperties = typing_extensions.TypedDict(
     'FruitProperties',
     {
-        "color": Color,
+        "color": typing.Type[Color],
     }
 )

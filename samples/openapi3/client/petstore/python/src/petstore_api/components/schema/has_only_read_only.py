@@ -109,7 +109,7 @@ class HasOnlyReadOnly(
 HasOnlyReadOnlyProperties = typing_extensions.TypedDict(
     'HasOnlyReadOnlyProperties',
     {
-        "bar": Bar,
-        "foo": Foo,
+        "bar": typing.Type[Bar],
+        "foo": typing.Type[Foo],
     }
 )

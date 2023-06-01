@@ -100,6 +100,6 @@ class File(
 FileProperties = typing_extensions.TypedDict(
     'FileProperties',
     {
-        "sourceURI": SourceURI,
+        "sourceURI": typing.Type[SourceURI],
     }
 )

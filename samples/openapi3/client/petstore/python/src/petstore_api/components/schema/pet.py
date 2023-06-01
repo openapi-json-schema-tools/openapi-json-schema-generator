@@ -276,11 +276,11 @@ from petstore_api.components.schema import tag
 PetProperties = typing_extensions.TypedDict(
     'PetProperties',
     {
-        "id": Id,
-        "category": category.Category,
-        "name": Name,
-        "photoUrls": PhotoUrls,
-        "tags": Tags,
-        "status": Status,
+        "id": typing.Type[Id],
+        "category": typing.Type[category.Category],
+        "name": typing.Type[Name],
+        "photoUrls": typing.Type[PhotoUrls],
+        "tags": typing.Type[Tags],
+        "status": typing.Type[Status],
     }
 )

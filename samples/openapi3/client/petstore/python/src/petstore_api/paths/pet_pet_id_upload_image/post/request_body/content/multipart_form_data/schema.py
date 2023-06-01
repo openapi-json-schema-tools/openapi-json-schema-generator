@@ -106,7 +106,7 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "additionalMetadata": AdditionalMetadata,
-        "file": File,
+        "additionalMetadata": typing.Type[AdditionalMetadata],
+        "file": typing.Type[File],
     }
 )

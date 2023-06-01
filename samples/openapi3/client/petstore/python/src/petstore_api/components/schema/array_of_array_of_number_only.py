@@ -180,6 +180,6 @@ class ArrayOfArrayOfNumberOnly(
 ArrayOfArrayOfNumberOnlyProperties = typing_extensions.TypedDict(
     'ArrayOfArrayOfNumberOnlyProperties',
     {
-        "ArrayArrayNumber": ArrayArrayNumber,
+        "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
     }
 )

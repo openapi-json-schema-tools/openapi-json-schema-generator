@@ -166,7 +166,7 @@ class TriangleInterface(
 TriangleInterfaceProperties = typing_extensions.TypedDict(
     'TriangleInterfaceProperties',
     {
-        "shapeType": ShapeType,
-        "triangleType": TriangleType,
+        "shapeType": typing.Type[ShapeType],
+        "triangleType": typing.Type[TriangleType],
     }
 )

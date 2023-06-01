@@ -125,8 +125,8 @@ from petstore_api.components.schema import string
 ObjectModelWithRefPropsProperties = typing_extensions.TypedDict(
     'ObjectModelWithRefPropsProperties',
     {
-        "myNumber": number_with_validations.NumberWithValidations,
-        "myString": string.String,
-        "myBoolean": boolean.Boolean,
+        "myNumber": typing.Type[number_with_validations.NumberWithValidations],
+        "myString": typing.Type[string.String],
+        "myBoolean": typing.Type[boolean.Boolean],
     }
 )

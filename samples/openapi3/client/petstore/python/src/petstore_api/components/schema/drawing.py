@@ -317,9 +317,9 @@ from petstore_api.components.schema import shape_or_null
 DrawingProperties = typing_extensions.TypedDict(
     'DrawingProperties',
     {
-        "mainShape": shape.Shape,
-        "shapeOrNull": shape_or_null.ShapeOrNull,
-        "nullableShape": nullable_shape.NullableShape,
-        "shapes": Shapes,
+        "mainShape": typing.Type[shape.Shape],
+        "shapeOrNull": typing.Type[shape_or_null.ShapeOrNull],
+        "nullableShape": typing.Type[nullable_shape.NullableShape],
+        "shapes": typing.Type[Shapes],
     }
 )

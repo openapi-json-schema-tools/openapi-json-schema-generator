@@ -306,14 +306,14 @@ from petstore_api.components.schema import string_enum_with_default_value
 EnumTestProperties = typing_extensions.TypedDict(
     'EnumTestProperties',
     {
-        "enum_string": EnumString,
-        "enum_string_required": EnumStringRequired,
-        "enum_integer": EnumInteger,
-        "enum_number": EnumNumber,
-        "stringEnum": string_enum.StringEnum,
-        "IntegerEnum": integer_enum.IntegerEnum,
-        "StringEnumWithDefaultValue": string_enum_with_default_value.StringEnumWithDefaultValue,
-        "IntegerEnumWithDefaultValue": integer_enum_with_default_value.IntegerEnumWithDefaultValue,
-        "IntegerEnumOneValue": integer_enum_one_value.IntegerEnumOneValue,
+        "enum_string": typing.Type[EnumString],
+        "enum_string_required": typing.Type[EnumStringRequired],
+        "enum_integer": typing.Type[EnumInteger],
+        "enum_number": typing.Type[EnumNumber],
+        "stringEnum": typing.Type[string_enum.StringEnum],
+        "IntegerEnum": typing.Type[integer_enum.IntegerEnum],
+        "StringEnumWithDefaultValue": typing.Type[string_enum_with_default_value.StringEnumWithDefaultValue],
+        "IntegerEnumWithDefaultValue": typing.Type[integer_enum_with_default_value.IntegerEnumWithDefaultValue],
+        "IntegerEnumOneValue": typing.Type[integer_enum_one_value.IntegerEnumOneValue],
     }
 )

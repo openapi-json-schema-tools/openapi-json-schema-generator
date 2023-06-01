@@ -235,6 +235,6 @@ class ObjectWithInlineCompositionProperty(
 ObjectWithInlineCompositionPropertyProperties = typing_extensions.TypedDict(
     'ObjectWithInlineCompositionPropertyProperties',
     {
-        "someProp": SomeProp,
+        "someProp": typing.Type[SomeProp],
     }
 )

@@ -153,6 +153,6 @@ class HealthCheckResult(
 HealthCheckResultProperties = typing_extensions.TypedDict(
     'HealthCheckResultProperties',
     {
-        "NullableMessage": NullableMessage,
+        "NullableMessage": typing.Type[NullableMessage],
     }
 )

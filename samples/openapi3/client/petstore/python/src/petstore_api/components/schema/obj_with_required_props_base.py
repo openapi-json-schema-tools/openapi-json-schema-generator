@@ -104,6 +104,6 @@ class ObjWithRequiredPropsBase(
 ObjWithRequiredPropsBaseProperties = typing_extensions.TypedDict(
     'ObjWithRequiredPropsBaseProperties',
     {
-        "b": B,
+        "b": typing.Type[B],
     }
 )

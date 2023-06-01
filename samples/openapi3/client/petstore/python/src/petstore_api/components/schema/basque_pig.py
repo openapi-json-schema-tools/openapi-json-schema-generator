@@ -121,6 +121,6 @@ class BasquePig(
 BasquePigProperties = typing_extensions.TypedDict(
     'BasquePigProperties',
     {
-        "className": ClassName,
+        "className": typing.Type[ClassName],
     }
 )

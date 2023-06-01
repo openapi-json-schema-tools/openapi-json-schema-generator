@@ -127,7 +127,7 @@ class Category(
 CategoryProperties = typing_extensions.TypedDict(
     'CategoryProperties',
     {
-        "id": Id,
-        "name": Name,
+        "id": typing.Type[Id],
+        "name": typing.Type[Name],
     }
 )

@@ -120,8 +120,8 @@ class JSONPatchRequestMoveCopy(
 JSONPatchRequestMoveCopyProperties = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyProperties',
     {
-        "from": _From,
-        "path": Path,
-        "op": Op,
+        "from": typing.Type[_From],
+        "path": typing.Type[Path],
+        "op": typing.Type[Op],
     }
 )

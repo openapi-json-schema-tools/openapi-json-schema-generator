@@ -114,7 +114,7 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "param": Param,
-        "param2": Param2,
+        "param": typing.Type[Param],
+        "param2": typing.Type[Param2],
     }
 )

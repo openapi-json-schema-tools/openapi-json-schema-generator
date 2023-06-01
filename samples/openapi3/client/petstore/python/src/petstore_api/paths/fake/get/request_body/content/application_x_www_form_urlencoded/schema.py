@@ -195,7 +195,7 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "enum_form_string_array": EnumFormStringArray,
-        "enum_form_string": EnumFormString,
+        "enum_form_string_array": typing.Type[EnumFormStringArray],
+        "enum_form_string": typing.Type[EnumFormString],
     }
 )

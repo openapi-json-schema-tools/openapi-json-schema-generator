@@ -106,6 +106,6 @@ class Banana(
 BananaProperties = typing_extensions.TypedDict(
     'BananaProperties',
     {
-        "lengthCm": LengthCm,
+        "lengthCm": typing.Type[LengthCm],
     }
 )

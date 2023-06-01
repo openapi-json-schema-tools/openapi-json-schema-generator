@@ -195,11 +195,11 @@ class Order(
 OrderProperties = typing_extensions.TypedDict(
     'OrderProperties',
     {
-        "id": Id,
-        "petId": PetId,
-        "quantity": Quantity,
-        "shipDate": ShipDate,
-        "status": Status,
-        "complete": Complete,
+        "id": typing.Type[Id],
+        "petId": typing.Type[PetId],
+        "quantity": typing.Type[Quantity],
+        "shipDate": typing.Type[ShipDate],
+        "status": typing.Type[Status],
+        "complete": typing.Type[Complete],
     }
 )

@@ -230,6 +230,6 @@ class Schema(
 SchemaProperties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
-        "someProp": SomeProp,
+        "someProp": typing.Type[SomeProp],
     }
 )
