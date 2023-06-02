@@ -143,6 +143,8 @@ class Singleton:
             return f'<{self.__class__.__name__}: False>'
         return f'<{self.__class__.__name__}: {super().__repr__()}>'
 
+T = typing.TypeVar('T')
+
 
 class classproperty(typing.Generic[T]):
     def __init__(self, method: typing.Callable[..., T]):
@@ -700,8 +702,8 @@ class CustomIsoparser(parser.isoparser):
     def __parse_isotime(self, dt_str: str) -> typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]]:
         dt_str_ascii = self.__get_ascii_bytes(dt_str)
         values = self._parse_isotime(dt_str_ascii) # type: ignore
-        components: typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]] = tuple(values)
-        return tuple(components)
+        components: typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]] = tuple(values) # type: ignore
+        return components
 
     def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
         components, pos = self.__parse_isodate(dt_str)
@@ -850,7 +852,7 @@ def _get_class(item_cls: typing.Union[types.FunctionType, staticmethod, typing.T
 
 def validate_items(
     arg: typing.Any,
-    item_cls: Schema,
+    item_cls: typing.Type[Schema],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -879,7 +881,7 @@ def validate_items(
 
 def validate_properties(
     arg: typing.Any,
-    properties: typing.Mapping[str, Schema],
+    properties: typing.Mapping[str, typing.Type[Schema]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -909,7 +911,7 @@ def validate_properties(
 
 def validate_additional_properties(
     arg: typing.Any,
-    additional_properties_cls: Schema,
+    additional_properties_cls: typing.Type[Schema],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -940,7 +942,7 @@ def validate_additional_properties(
 
 def validate_one_of(
     arg: typing.Any,
-    classes: typing.Tuple[Schema, ...],
+    classes: typing.Tuple[typing.Type[Schema], ...],
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1004,7 +1006,7 @@ def validate_one_of(
 
 def validate_any_of(
     arg: typing.Any,
-    classes: typing.Tuple[Schema, ...],
+    classes: typing.Tuple[typing.Type[Schema], ...],
     cls: 'Schema',
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1053,7 +1055,7 @@ def validate_any_of(
 
 def validate_all_of(
     arg: typing.Any,
-    classes: typing.Tuple[Schema, ...],
+    classes: typing.Tuple[typing.Type[Schema], ...],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1079,7 +1081,7 @@ def validate_all_of(
 
 def validate_not(
     arg: typing.Any,
-    not_cls: Schema,
+    not_cls: typing.Type[Schema],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1261,7 +1263,6 @@ json_schema_keyword_to_validator = {
     'discriminator': validate_discriminator
 }
 
-T = typing.TypeVar('T')
 U = typing.TypeVar('U')
 
 class Schema(typing.Generic[T]):
@@ -2524,8 +2525,7 @@ class AnyTypeSchema(
             Schema,
             bytes,
             io.FileIO,
-            io.BufferedReader,
-            Unset
+            io.BufferedReader
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
