@@ -31,9 +31,9 @@ class Schema(
         )
     
     @schemas.classproperty
-    def POSITIVE_1_PT_1(cls):
+    def POSITIVE_1_PT_1(cls) -> Schema[decimal.Decimal]:
         return cls(1.1) # type: ignore
     
     @schemas.classproperty
-    def NEGATIVE_1_PT_2(cls):
+    def NEGATIVE_1_PT_2(cls) -> Schema[decimal.Decimal]:
         return cls(-1.2) # type: ignore

@@ -35,9 +35,9 @@ class Currency(
         )
     
     @schemas.classproperty
-    def EUR(cls):
+    def EUR(cls) -> Currency[str]:
         return cls("eur") # type: ignore
     
     @schemas.classproperty
-    def USD(cls):
+    def USD(cls) -> Currency[str]:
         return cls("usd") # type: ignore

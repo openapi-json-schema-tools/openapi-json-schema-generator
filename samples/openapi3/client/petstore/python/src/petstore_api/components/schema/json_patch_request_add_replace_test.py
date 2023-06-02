@@ -34,15 +34,15 @@ class Op(
         )
     
     @schemas.classproperty
-    def ADD(cls):
+    def ADD(cls) -> Op[str]:
         return cls("add") # type: ignore
     
     @schemas.classproperty
-    def REPLACE(cls):
+    def REPLACE(cls) -> Op[str]:
         return cls("replace") # type: ignore
     
     @schemas.classproperty
-    def TEST(cls):
+    def TEST(cls) -> Op[str]:
         return cls("test") # type: ignore
 
 

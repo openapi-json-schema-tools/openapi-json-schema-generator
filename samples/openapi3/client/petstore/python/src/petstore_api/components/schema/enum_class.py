@@ -39,21 +39,21 @@ class EnumClass(
         )
     
     @schemas.classproperty
-    def _ABC(cls):
+    def _ABC(cls) -> EnumClass[str]:
         return cls("_abc") # type: ignore
     
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls):
+    def HYPHEN_MINUS_EFG(cls) -> EnumClass[str]:
         return cls("-efg") # type: ignore
     
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> EnumClass[str]:
         return cls("(xyz)") # type: ignore
     
     @schemas.classproperty
-    def COUNT_1M(cls):
+    def COUNT_1M(cls) -> EnumClass[str]:
         return cls("COUNT_1M") # type: ignore
     
     @schemas.classproperty
-    def COUNT_50M(cls):
+    def COUNT_50M(cls) -> EnumClass[str]:
         return cls("COUNT_50M") # type: ignore

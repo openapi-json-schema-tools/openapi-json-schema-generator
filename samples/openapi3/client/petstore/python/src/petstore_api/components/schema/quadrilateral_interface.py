@@ -29,7 +29,7 @@ class ShapeType(
         )
     
     @schemas.classproperty
-    def QUADRILATERAL(cls):
+    def QUADRILATERAL(cls) -> ShapeType[str]:
         return cls("Quadrilateral") # type: ignore
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
 

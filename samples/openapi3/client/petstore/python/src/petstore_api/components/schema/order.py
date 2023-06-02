@@ -35,15 +35,15 @@ class Status(
         )
     
     @schemas.classproperty
-    def PLACED(cls):
+    def PLACED(cls) -> Status[str]:
         return cls("placed") # type: ignore
     
     @schemas.classproperty
-    def APPROVED(cls):
+    def APPROVED(cls) -> Status[str]:
         return cls("approved") # type: ignore
     
     @schemas.classproperty
-    def DELIVERED(cls):
+    def DELIVERED(cls) -> Status[str]:
         return cls("delivered") # type: ignore
 
 

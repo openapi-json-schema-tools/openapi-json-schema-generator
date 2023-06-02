@@ -29,15 +29,15 @@ class _Variables:
             )
         
         @schemas.classproperty
-        def PETSTORE(cls):
+        def PETSTORE(cls) -> Server[str]:
             return cls("petstore") # type: ignore
         
         @schemas.classproperty
-        def QA_HYPHEN_MINUS_PETSTORE(cls):
+        def QA_HYPHEN_MINUS_PETSTORE(cls) -> Server[str]:
             return cls("qa-petstore") # type: ignore
         
         @schemas.classproperty
-        def DEV_HYPHEN_MINUS_PETSTORE(cls):
+        def DEV_HYPHEN_MINUS_PETSTORE(cls) -> Server[str]:
             return cls("dev-petstore") # type: ignore
     
     
@@ -60,11 +60,11 @@ class _Variables:
             )
         
         @schemas.classproperty
-        def POSITIVE_80(cls):
+        def POSITIVE_80(cls) -> Port[str]:
             return cls("80") # type: ignore
         
         @schemas.classproperty
-        def POSITIVE_8080(cls):
+        def POSITIVE_8080(cls) -> Port[str]:
             return cls("8080") # type: ignore
 
 _VariablesSchemas = typing_extensions.TypedDict(

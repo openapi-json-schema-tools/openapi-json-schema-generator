@@ -107,15 +107,15 @@ class Status(
         )
     
     @schemas.classproperty
-    def AVAILABLE(cls):
+    def AVAILABLE(cls) -> Status[str]:
         return cls("available") # type: ignore
     
     @schemas.classproperty
-    def PENDING(cls):
+    def PENDING(cls) -> Status[str]:
         return cls("pending") # type: ignore
     
     @schemas.classproperty
-    def SOLD(cls):
+    def SOLD(cls) -> Status[str]:
         return cls("sold") # type: ignore
 
 

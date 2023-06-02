@@ -31,7 +31,7 @@ class ClassName(
         )
     
     @schemas.classproperty
-    def WHALE(cls):
+    def WHALE(cls) -> ClassName[str]:
         return cls("whale") # type: ignore
 
 

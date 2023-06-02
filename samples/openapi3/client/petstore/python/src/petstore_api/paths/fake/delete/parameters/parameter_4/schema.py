@@ -30,9 +30,9 @@ class Schema(
         )
     
     @schemas.classproperty
-    def TRUE(cls):
+    def TRUE(cls) -> Schema[str]:
         return cls("true") # type: ignore
     
     @schemas.classproperty
-    def FALSE(cls):
+    def FALSE(cls) -> Schema[str]:
         return cls("false") # type: ignore

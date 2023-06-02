@@ -29,7 +29,7 @@ class TriangleType(
         )
     
     @schemas.classproperty
-    def EQUILATERAL_TRIANGLE(cls):
+    def EQUILATERAL_TRIANGLE(cls) -> TriangleType[str]:
         return cls("EquilateralTriangle") # type: ignore
 
 

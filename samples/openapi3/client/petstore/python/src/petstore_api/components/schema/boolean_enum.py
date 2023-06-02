@@ -34,5 +34,5 @@ class BooleanEnum(
         )
     
     @schemas.classproperty
-    def TRUE(cls):
+    def TRUE(cls) -> BooleanEnum[schemas.BoolClass]:
         return cls(True) # type: ignore

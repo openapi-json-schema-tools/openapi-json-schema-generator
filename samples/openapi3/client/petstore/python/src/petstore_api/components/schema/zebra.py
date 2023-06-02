@@ -32,15 +32,15 @@ class Type(
         )
     
     @schemas.classproperty
-    def PLAINS(cls):
+    def PLAINS(cls) -> Type[str]:
         return cls("plains") # type: ignore
     
     @schemas.classproperty
-    def MOUNTAIN(cls):
+    def MOUNTAIN(cls) -> Type[str]:
         return cls("mountain") # type: ignore
     
     @schemas.classproperty
-    def GREVYS(cls):
+    def GREVYS(cls) -> Type[str]:
         return cls("grevys") # type: ignore
 
 
@@ -61,7 +61,7 @@ class ClassName(
         )
     
     @schemas.classproperty
-    def ZEBRA(cls):
+    def ZEBRA(cls) -> ClassName[str]:
         return cls("zebra") # type: ignore
 
 

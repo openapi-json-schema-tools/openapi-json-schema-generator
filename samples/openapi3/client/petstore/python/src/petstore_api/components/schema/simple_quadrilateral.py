@@ -29,7 +29,7 @@ class QuadrilateralType(
         )
     
     @schemas.classproperty
-    def SIMPLE_QUADRILATERAL(cls):
+    def SIMPLE_QUADRILATERAL(cls) -> QuadrilateralType[str]:
         return cls("SimpleQuadrilateral") # type: ignore
 
 

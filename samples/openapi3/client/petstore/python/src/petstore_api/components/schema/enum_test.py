@@ -31,15 +31,15 @@ class EnumString(
         )
     
     @schemas.classproperty
-    def UPPER(cls):
+    def UPPER(cls) -> EnumString[str]:
         return cls("UPPER") # type: ignore
     
     @schemas.classproperty
-    def LOWER(cls):
+    def LOWER(cls) -> EnumString[str]:
         return cls("lower") # type: ignore
     
     @schemas.classproperty
-    def EMPTY(cls):
+    def EMPTY(cls) -> EnumString[str]:
         return cls("") # type: ignore
 
 
@@ -62,15 +62,15 @@ class EnumStringRequired(
         )
     
     @schemas.classproperty
-    def UPPER(cls):
+    def UPPER(cls) -> EnumStringRequired[str]:
         return cls("UPPER") # type: ignore
     
     @schemas.classproperty
-    def LOWER(cls):
+    def LOWER(cls) -> EnumStringRequired[str]:
         return cls("lower") # type: ignore
     
     @schemas.classproperty
-    def EMPTY(cls):
+    def EMPTY(cls) -> EnumStringRequired[str]:
         return cls("") # type: ignore
 
 
@@ -93,11 +93,11 @@ class EnumInteger(
         )
     
     @schemas.classproperty
-    def POSITIVE_1(cls):
+    def POSITIVE_1(cls) -> EnumInteger[decimal.Decimal]:
         return cls(1) # type: ignore
     
     @schemas.classproperty
-    def NEGATIVE_1(cls):
+    def NEGATIVE_1(cls) -> EnumInteger[decimal.Decimal]:
         return cls(-1) # type: ignore
 
 
@@ -120,11 +120,11 @@ class EnumNumber(
         )
     
     @schemas.classproperty
-    def POSITIVE_1_PT_1(cls):
+    def POSITIVE_1_PT_1(cls) -> EnumNumber[decimal.Decimal]:
         return cls(1.1) # type: ignore
     
     @schemas.classproperty
-    def NEGATIVE_1_PT_2(cls):
+    def NEGATIVE_1_PT_2(cls) -> EnumNumber[decimal.Decimal]:
         return cls(-1.2) # type: ignore
 
 

@@ -38,13 +38,13 @@ class IntegerEnumWithDefaultValue(
         )
     
     @schemas.classproperty
-    def POSITIVE_0(cls):
+    def POSITIVE_0(cls) -> IntegerEnumWithDefaultValue[decimal.Decimal]:
         return cls(0) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_1(cls):
+    def POSITIVE_1(cls) -> IntegerEnumWithDefaultValue[decimal.Decimal]:
         return cls(1) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_2(cls):
+    def POSITIVE_2(cls) -> IntegerEnumWithDefaultValue[decimal.Decimal]:
         return cls(2) # type: ignore

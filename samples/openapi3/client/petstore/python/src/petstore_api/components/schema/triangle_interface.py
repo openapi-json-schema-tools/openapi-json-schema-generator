@@ -29,7 +29,7 @@ class ShapeType(
         )
     
     @schemas.classproperty
-    def TRIANGLE(cls):
+    def TRIANGLE(cls) -> ShapeType[str]:
         return cls("Triangle") # type: ignore
 TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
 

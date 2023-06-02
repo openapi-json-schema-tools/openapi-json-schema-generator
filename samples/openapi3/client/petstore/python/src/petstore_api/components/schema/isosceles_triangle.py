@@ -29,7 +29,7 @@ class TriangleType(
         )
     
     @schemas.classproperty
-    def ISOSCELES_TRIANGLE(cls):
+    def ISOSCELES_TRIANGLE(cls) -> TriangleType[str]:
         return cls("IsoscelesTriangle") # type: ignore
 
 

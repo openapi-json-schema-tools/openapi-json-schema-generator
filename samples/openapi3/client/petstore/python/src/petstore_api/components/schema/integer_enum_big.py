@@ -37,13 +37,13 @@ class IntegerEnumBig(
         )
     
     @schemas.classproperty
-    def POSITIVE_10(cls):
+    def POSITIVE_10(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(10) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_11(cls):
+    def POSITIVE_11(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(11) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_12(cls):
+    def POSITIVE_12(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(12) # type: ignore

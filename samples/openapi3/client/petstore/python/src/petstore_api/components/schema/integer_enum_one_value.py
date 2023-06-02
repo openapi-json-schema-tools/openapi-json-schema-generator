@@ -35,5 +35,5 @@ class IntegerEnumOneValue(
         )
     
     @schemas.classproperty
-    def POSITIVE_0(cls):
+    def POSITIVE_0(cls) -> IntegerEnumOneValue[decimal.Decimal]:
         return cls(0) # type: ignore

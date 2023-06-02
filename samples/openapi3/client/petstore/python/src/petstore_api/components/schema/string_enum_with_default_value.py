@@ -37,13 +37,13 @@ class StringEnumWithDefaultValue(
         )
     
     @schemas.classproperty
-    def PLACED(cls):
+    def PLACED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("placed") # type: ignore
     
     @schemas.classproperty
-    def APPROVED(cls):
+    def APPROVED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("approved") # type: ignore
     
     @schemas.classproperty
-    def DELIVERED(cls):
+    def DELIVERED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("delivered") # type: ignore

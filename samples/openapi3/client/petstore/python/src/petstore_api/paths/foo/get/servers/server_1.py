@@ -28,11 +28,11 @@ class _Variables:
             )
         
         @schemas.classproperty
-        def V1(cls):
+        def V1(cls) -> Version[str]:
             return cls("v1") # type: ignore
         
         @schemas.classproperty
-        def V2(cls):
+        def V2(cls) -> Version[str]:
             return cls("v2") # type: ignore
 
 _VariablesSchemas = typing_extensions.TypedDict(

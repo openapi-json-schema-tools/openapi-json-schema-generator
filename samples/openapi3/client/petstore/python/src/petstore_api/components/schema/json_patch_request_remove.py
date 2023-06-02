@@ -31,7 +31,7 @@ class Op(
         )
     
     @schemas.classproperty
-    def REMOVE(cls):
+    def REMOVE(cls) -> Op[str]:
         return cls("remove") # type: ignore
 
 

@@ -33,11 +33,11 @@ class Op(
         )
     
     @schemas.classproperty
-    def MOVE(cls):
+    def MOVE(cls) -> Op[str]:
         return cls("move") # type: ignore
     
     @schemas.classproperty
-    def COPY(cls):
+    def COPY(cls) -> Op[str]:
         return cls("copy") # type: ignore
 
 

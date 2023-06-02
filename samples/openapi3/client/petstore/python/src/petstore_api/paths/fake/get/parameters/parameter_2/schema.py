@@ -31,11 +31,11 @@ class Items(
         )
     
     @schemas.classproperty
-    def GREATER_THAN_SIGN(cls):
+    def GREATER_THAN_SIGN(cls) -> Items[str]:
         return cls(">") # type: ignore
     
     @schemas.classproperty
-    def DOLLAR_SIGN(cls):
+    def DOLLAR_SIGN(cls) -> Items[str]:
         return cls("$") # type: ignore
 
 

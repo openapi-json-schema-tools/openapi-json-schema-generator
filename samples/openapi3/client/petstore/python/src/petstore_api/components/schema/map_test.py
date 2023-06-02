@@ -106,11 +106,11 @@ class AdditionalProperties(
         )
     
     @schemas.classproperty
-    def UPPER(cls):
+    def UPPER(cls) -> AdditionalProperties[str]:
         return cls("UPPER") # type: ignore
     
     @schemas.classproperty
-    def LOWER(cls):
+    def LOWER(cls) -> AdditionalProperties[str]:
         return cls("lower") # type: ignore
 
 

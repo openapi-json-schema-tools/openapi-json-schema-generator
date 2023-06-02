@@ -30,11 +30,11 @@ class JustSymbol(
         )
     
     @schemas.classproperty
-    def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
+    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> JustSymbol[str]:
         return cls(">=") # type: ignore
     
     @schemas.classproperty
-    def DOLLAR_SIGN(cls):
+    def DOLLAR_SIGN(cls) -> JustSymbol[str]:
         return cls("$") # type: ignore
 
 
@@ -56,11 +56,11 @@ class Items(
         )
     
     @schemas.classproperty
-    def FISH(cls):
+    def FISH(cls) -> Items[str]:
         return cls("fish") # type: ignore
     
     @schemas.classproperty
-    def CRAB(cls):
+    def CRAB(cls) -> Items[str]:
         return cls("crab") # type: ignore
 
 

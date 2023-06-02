@@ -32,15 +32,15 @@ class Items(
         )
     
     @schemas.classproperty
-    def AVAILABLE(cls):
+    def AVAILABLE(cls) -> Items[str]:
         return cls("available") # type: ignore
     
     @schemas.classproperty
-    def PENDING(cls):
+    def PENDING(cls) -> Items[str]:
         return cls("pending") # type: ignore
     
     @schemas.classproperty
-    def SOLD(cls):
+    def SOLD(cls) -> Items[str]:
         return cls("sold") # type: ignore
 
 

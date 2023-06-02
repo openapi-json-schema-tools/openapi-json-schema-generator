@@ -29,7 +29,7 @@ class ClassName(
         )
     
     @schemas.classproperty
-    def BASQUE_PIG(cls):
+    def BASQUE_PIG(cls) -> ClassName[str]:
         return cls("BasquePig") # type: ignore
 
 

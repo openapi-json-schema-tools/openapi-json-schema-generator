@@ -32,13 +32,13 @@ class Schema(
         )
     
     @schemas.classproperty
-    def _ABC(cls):
+    def _ABC(cls) -> Schema[str]:
         return cls("_abc") # type: ignore
     
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls):
+    def HYPHEN_MINUS_EFG(cls) -> Schema[str]:
         return cls("-efg") # type: ignore
     
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> Schema[str]:
         return cls("(xyz)") # type: ignore

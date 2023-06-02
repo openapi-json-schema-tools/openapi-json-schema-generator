@@ -31,11 +31,11 @@ class Items(
         )
     
     @schemas.classproperty
-    def GREATER_THAN_SIGN(cls):
+    def GREATER_THAN_SIGN(cls) -> Items[str]:
         return cls(">") # type: ignore
     
     @schemas.classproperty
-    def DOLLAR_SIGN(cls):
+    def DOLLAR_SIGN(cls) -> Items[str]:
         return cls("$") # type: ignore
 
 
@@ -95,15 +95,15 @@ class EnumFormString(
         )
     
     @schemas.classproperty
-    def _ABC(cls):
+    def _ABC(cls) -> EnumFormString[str]:
         return cls("_abc") # type: ignore
     
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls):
+    def HYPHEN_MINUS_EFG(cls) -> EnumFormString[str]:
         return cls("-efg") # type: ignore
     
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> EnumFormString[str]:
         return cls("(xyz)") # type: ignore
 
 
