@@ -2289,12 +2289,9 @@ public class DefaultCodegen implements CodegenConfig {
                             property.schemaIsFromAdditionalProperties = true;
                         }
                     }
-                } else {
+                } else if (currentJsonPath.startsWith("#/components/schemas/"))  {
                     // component schema use case
-                    // TODO set discriminator on any schema instances in the future not just these
-                    if (!currentJsonPath.startsWith("#/components/schemas/")) {
-                        throw new RuntimeException("Invalid currentJsonPath "+ currentJsonPath);
-                    }
+                    // TODO set discriminator on any schema instances in the future not just component schemas
 
                     property.discriminator = createDiscriminator(usedName, p, this.openAPI, currentJsonPath);
                     if (p instanceof ComposedSchema) {

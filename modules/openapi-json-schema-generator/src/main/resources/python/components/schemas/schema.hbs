@@ -16,61 +16,6 @@ from {{packageName}}.shared_imports.schema_imports import *
 from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
 
-        {{#each getSchemas}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-        {{/each}}
-        {{#if imports}}
-
-{{> _helper_imports }}
-        {{/if}}
-        {{#each getSchemas}}
-            {{#if allOf}}
-{{jsonPathPiece.camelCase}}AllOf = typing.Tuple[
-                {{#each allOf}}
-                    {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-                    {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-                    {{/if}}
-                {{/each}}
-]
-            {{/if}}
-            {{#if anyOf}}
-{{jsonPathPiece.camelCase}}AnyOf = typing.Tuple[
-                {{#each anyOf}}
-                    {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-                    {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-                    {{/if}}
-                {{/each}}
-]
-            {{/if}}
-            {{#if oneOf}}
-{{jsonPathPiece.camelCase}}OneOf = typing.Tuple[
-                {{#each oneOf}}
-                    {{#if refInfo.refClass}}
-    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-                    {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
-                    {{/if}}
-                {{/each}}
-]
-            {{/if}}
-            {{#if properties}}
-{{jsonPathPiece.camelCase}}Properties = typing_extensions.TypedDict(
-    '{{jsonPathPiece.camelCase}}Properties',
-    {
-                {{#each properties}}
-                    {{#if refInfo.refClass}}
-        "{{{@key.original}}}": typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
-                    {{else}}
-        "{{{@key.original}}}": typing.Type[{{jsonPathPiece.camelCase}}],
-                    {{/if}}
-                {{/each}}
-    }
-)
-            {{/if}}
-        {{/each}}
+{{> components/schemas/_helper_getschemas }}
     {{/if}}
 {{/with}}

@@ -1,22 +1,26 @@
 # coding: utf-8
 {{> _helper_header }}
 
-from {{packageName}}.shared_imports.server_imports import *
 {{#with server}}
     {{#if variables}}
+from __future__ import annotations
+from {{packageName}}.shared_imports.schema_imports import *
+    {{/if}}
+from {{packageName}}.shared_imports.server_imports import *
+    {{#if variables}}
+        {{#with variables}}
+{{> components/schemas/_helper_getschemas identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
+        {{/with}}
 
-
-class _Variables:
-        {{#each variables}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "_Variables" jsonPathPiece.camelCase) }}
-        {{/each}}
 
 _VariablesSchemas = typing_extensions.TypedDict(
     '_VariablesSchemas',
     {
-        {{#each variables}}
+        {{#with variables}}
+            {{#each properties}}
         "{{{@key.original}}}": typing.Type[_Variables.{{jsonPathPiece.camelCase}}],
-        {{/each}}
+            {{/each}}
+        {{/with}}
     },
     total=False
 )
@@ -24,13 +28,15 @@ _VariablesSchemas = typing_extensions.TypedDict(
 Variables = typing_extensions.TypedDict(
     'Variables',
     {
-        {{#each variables}}
+        {{#with variables}}
+            {{#each properties}}
         "{{{@key.original}}}": {{#unless enumValueToName}}typing_extensions.Literal["{{defaultValue.value}}"],{{else}}typing_extensions.Literal[
                 {{#each enumValueToName}}
             "{{{@key.value}}}",
                 {{/each}}
         ],{{/unless}}
-        {{/each}}
+            {{/each}}
+        {{/with}}
     },
     total=False
 )
