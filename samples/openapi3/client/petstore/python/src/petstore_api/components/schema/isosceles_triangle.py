@@ -18,7 +18,7 @@ class TriangleType(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -39,7 +39,7 @@ class _1(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
@@ -123,7 +123,7 @@ class IsoscelesTriangle(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         all_of: IsoscelesTriangleAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(IsoscelesTriangleAllOf)) # type: ignore
 

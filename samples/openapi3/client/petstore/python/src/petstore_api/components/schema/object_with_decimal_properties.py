@@ -24,7 +24,7 @@ class ObjectWithDecimalProperties(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: ObjectWithDecimalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithDecimalPropertiesProperties)) # type: ignore
     

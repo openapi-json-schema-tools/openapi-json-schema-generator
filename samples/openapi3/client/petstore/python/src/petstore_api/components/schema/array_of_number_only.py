@@ -19,7 +19,7 @@ class ArrayNumber(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
@@ -62,7 +62,7 @@ class ArrayOfNumberOnly(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: ArrayOfNumberOnlyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ArrayOfNumberOnlyProperties)) # type: ignore
     

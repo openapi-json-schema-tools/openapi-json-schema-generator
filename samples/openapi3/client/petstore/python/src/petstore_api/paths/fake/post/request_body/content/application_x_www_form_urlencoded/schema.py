@@ -18,7 +18,7 @@ class Integer(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -33,7 +33,7 @@ class Int32(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -49,7 +49,7 @@ class Number(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -63,7 +63,7 @@ class _Float(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -77,7 +77,7 @@ class Double(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -92,7 +92,7 @@ class String(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -108,7 +108,7 @@ class PatternWithoutDelimiter(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -126,7 +126,7 @@ class DateTime(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -139,7 +139,7 @@ class Password(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -155,7 +155,7 @@ class Schema(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required: typing.FrozenSet[str] = frozenset({
             "byte",

@@ -20,7 +20,7 @@ class _4(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         max_properties: int = 4
         min_properties: int = 4
@@ -70,7 +70,7 @@ class _5(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         max_items: int = 4
         min_items: int = 4
@@ -141,7 +141,7 @@ class _6(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -164,7 +164,7 @@ class ComposedOneOfDifferentTypes(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         one_of: ComposedOneOfDifferentTypesOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedOneOfDifferentTypesOneOf)) # type: ignore
 

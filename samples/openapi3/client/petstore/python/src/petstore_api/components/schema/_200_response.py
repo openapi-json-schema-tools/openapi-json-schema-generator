@@ -27,7 +27,7 @@ class _200Response(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         properties: _200ResponseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_200ResponseProperties)) # type: ignore
 

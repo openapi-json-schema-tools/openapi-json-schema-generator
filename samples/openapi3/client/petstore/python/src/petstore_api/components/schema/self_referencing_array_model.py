@@ -23,7 +23,7 @@ class SelfReferencingArrayModel(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[SelfReferencingArrayModel] = dataclasses.field(default_factory=lambda: SelfReferencingArrayModel) # type: ignore
 

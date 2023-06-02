@@ -112,6 +112,20 @@ def add_deeper_validated_schemas(validation_metadata: ValidationMetadata, path_t
     update(path_to_schemas, other_path_to_schemas)
 
 
+class SchemaBase(type):
+    """
+    A singleton class for schemas
+    Schemas are frozen classes that are never instantiated with init args
+    All args come from defaults
+    """
+    __instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls.__instances[cls] = super().__call__(*args, **kwargs)
+        return cls.__instances[cls]
+
+
 class Singleton:
     """
     Enums and singletons are the same
@@ -2114,7 +2128,7 @@ class ListSchema(
     TupleMixin
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @classmethod
@@ -2131,7 +2145,7 @@ class NoneSchema(
     NoneMixin
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({NoneClass})
 
     @classmethod
@@ -2152,7 +2166,7 @@ class NumberSchema(
     Both integers AND floats are accepted
     """
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
 
     @classmethod
@@ -2177,7 +2191,7 @@ class IntBase:
 
 class IntSchema(IntBase, NumberSchema[T]):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'int'
 
@@ -2194,7 +2208,7 @@ class Int32Schema(
     IntSchema[T]
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'int32'
 
@@ -2207,7 +2221,7 @@ class Int64Schema(
     IntSchema[T]
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'int64'
 
@@ -2220,7 +2234,7 @@ class Float32Schema(
     NumberSchema[T]
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'float'
 
@@ -2237,7 +2251,7 @@ class Float64Schema(
     NumberSchema[T]
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'double'
 
@@ -2262,7 +2276,7 @@ class StrSchema(
     - type: string, format: date
     """
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
 
     @classmethod
@@ -2275,7 +2289,7 @@ class StrSchema(
 
 class UUIDSchema(UUIDBase, StrSchema[T]):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'uuid'
 
@@ -2286,7 +2300,7 @@ class UUIDSchema(UUIDBase, StrSchema[T]):
 
 class DateSchema(DateBase, StrSchema[T]):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'date'
 
@@ -2297,7 +2311,7 @@ class DateSchema(DateBase, StrSchema[T]):
 
 class DateTimeSchema(DateTimeBase, StrSchema[T]):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'date-time'
 
@@ -2308,7 +2322,7 @@ class DateTimeSchema(DateTimeBase, StrSchema[T]):
 
 class DecimalSchema(DecimalBase, StrSchema[T]):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'number'
 
@@ -2333,7 +2347,7 @@ class BytesSchema(
     this class will subclass bytes and is immutable
     """
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({bytes})
 
     def __new__(cls, arg_: bytes, **kwargs: schema_configuration.SchemaConfiguration) -> BytesSchema[bytes]:
@@ -2362,7 +2376,7 @@ class FileSchema(
     - to be able to preserve file name info
     """
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({FileIO})
 
     def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: schema_configuration.SchemaConfiguration) -> FileSchema[FileIO]:
@@ -2375,7 +2389,7 @@ class BinarySchema(
     BinaryMixin
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({FileIO, bytes})
         format: str = 'binary'
 
@@ -2394,7 +2408,7 @@ class BoolSchema(
     BoolMixin
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({BoolClass})
 
     @classmethod
@@ -2417,7 +2431,7 @@ class AnyTypeSchema(
 ):
     # Python representation of a schema defined as true or {}
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         pass
 
     def __new__(
@@ -2529,7 +2543,7 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     Note: validations on this class are never run because the code knows that no inputs will ever validate
     """
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         not_: typing.Type[Schema] = AnyTypeSchema
 
     def __new__(
@@ -2547,7 +2561,7 @@ class DictSchema(
     FrozenDictMixin
 ):
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
 
     @classmethod

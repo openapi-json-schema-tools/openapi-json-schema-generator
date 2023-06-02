@@ -18,7 +18,7 @@ class _0(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -31,7 +31,7 @@ class Schema(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         all_of: SchemaAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(SchemaAllOf)) # type: ignore
 

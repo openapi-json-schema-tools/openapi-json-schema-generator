@@ -26,7 +26,7 @@ class ClassModel(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         properties: ClassModelProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ClassModelProperties)) # type: ignore
 

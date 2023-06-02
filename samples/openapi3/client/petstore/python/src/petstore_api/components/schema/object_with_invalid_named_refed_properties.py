@@ -23,7 +23,7 @@ class ObjectWithInvalidNamedRefedProperties(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required: typing.FrozenSet[str] = frozenset({
             "!reference",

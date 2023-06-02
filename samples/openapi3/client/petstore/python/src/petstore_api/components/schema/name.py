@@ -28,7 +28,7 @@ class Name(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         required: typing.FrozenSet[str] = frozenset({
             "name",

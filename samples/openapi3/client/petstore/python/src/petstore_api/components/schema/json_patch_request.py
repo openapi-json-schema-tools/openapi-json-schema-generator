@@ -18,7 +18,7 @@ class Items(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         one_of: ItemsOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ItemsOneOf)) # type: ignore
 
@@ -111,7 +111,7 @@ class JSONPatchRequest(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 

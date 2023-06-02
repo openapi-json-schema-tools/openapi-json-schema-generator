@@ -18,7 +18,7 @@ class _0(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -31,7 +31,7 @@ class SomeProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         all_of: SomePropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(SomePropAllOf)) # type: ignore
 
@@ -124,7 +124,7 @@ class ObjectWithInlineCompositionProperty(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: ObjectWithInlineCompositionPropertyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithInlineCompositionPropertyProperties)) # type: ignore
     

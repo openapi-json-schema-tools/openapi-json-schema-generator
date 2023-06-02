@@ -19,7 +19,7 @@ class _1(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
     
@@ -103,7 +103,7 @@ class Cat(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         all_of: CatAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(CatAllOf)) # type: ignore
 

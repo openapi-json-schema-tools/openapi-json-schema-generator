@@ -15,7 +15,7 @@ class _Variables:
     
     
         @dataclasses.dataclass(frozen=True)
-        class Schema_:
+        class Schema_(metaclass=schemas.SchemaBase):
             types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
             })
@@ -47,7 +47,7 @@ class _Variables:
     
     
         @dataclasses.dataclass(frozen=True)
-        class Schema_:
+        class Schema_(metaclass=schemas.SchemaBase):
             types: typing.FrozenSet[typing.Type] = frozenset({
                 str,
             })

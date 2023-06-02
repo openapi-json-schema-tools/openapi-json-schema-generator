@@ -25,7 +25,7 @@ class HasOnlyReadOnly(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: HasOnlyReadOnlyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(HasOnlyReadOnlyProperties)) # type: ignore
     

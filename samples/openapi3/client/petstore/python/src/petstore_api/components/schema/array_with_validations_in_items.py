@@ -18,7 +18,7 @@ class Items(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
         })
@@ -37,7 +37,7 @@ class ArrayWithValidationsInItems(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         max_items: int = 2
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore

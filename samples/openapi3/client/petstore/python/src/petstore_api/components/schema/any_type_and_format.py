@@ -19,7 +19,7 @@ class Uuid(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'uuid'
 
@@ -108,7 +108,7 @@ class Date(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'date'
 
@@ -197,7 +197,7 @@ class DateTime(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'date-time'
 
@@ -286,7 +286,7 @@ class Number(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'number'
 
@@ -374,7 +374,7 @@ class Binary(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'binary'
 
@@ -462,7 +462,7 @@ class Int32(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'int32'
 
@@ -550,7 +550,7 @@ class Int64(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'int64'
 
@@ -638,7 +638,7 @@ class Double(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'double'
 
@@ -726,7 +726,7 @@ class _Float(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         format: str = 'float'
 
@@ -819,7 +819,7 @@ class AnyTypeAndFormat(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: AnyTypeAndFormatProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnyTypeAndFormatProperties)) # type: ignore
     

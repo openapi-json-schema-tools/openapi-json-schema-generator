@@ -30,7 +30,7 @@ class ObjectWithNoDeclaredPropsNullable(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -97,7 +97,7 @@ class AnyTypeExceptNullProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
@@ -191,7 +191,7 @@ class User(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: UserProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(UserProperties)) # type: ignore
     

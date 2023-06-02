@@ -23,7 +23,7 @@ class BooleanEnum(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
         })

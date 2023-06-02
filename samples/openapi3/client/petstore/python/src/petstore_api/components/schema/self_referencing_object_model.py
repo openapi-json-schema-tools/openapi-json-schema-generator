@@ -23,7 +23,7 @@ class SelfReferencingObjectModel(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: SelfReferencingObjectModelProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SelfReferencingObjectModelProperties)) # type: ignore
         additional_properties: typing.Type[SelfReferencingObjectModel] = dataclasses.field(default_factory=lambda: SelfReferencingObjectModel) # type: ignore

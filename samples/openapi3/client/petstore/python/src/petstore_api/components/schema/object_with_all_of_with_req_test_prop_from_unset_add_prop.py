@@ -19,7 +19,7 @@ class _1(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required: typing.FrozenSet[str] = frozenset({
             "test",
@@ -151,7 +151,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         all_of: ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf)) # type: ignore
 

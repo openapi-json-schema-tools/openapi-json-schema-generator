@@ -18,7 +18,7 @@ class ShapeType(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -45,7 +45,7 @@ class TriangleInterface(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         required: typing.FrozenSet[str] = frozenset({
             "shapeType",

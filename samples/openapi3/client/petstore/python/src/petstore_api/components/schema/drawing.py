@@ -18,7 +18,7 @@ class Shapes(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[shape.Shape] = dataclasses.field(default_factory=lambda: shape.Shape) # type: ignore
 
@@ -92,7 +92,7 @@ class Drawing(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: DrawingProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DrawingProperties)) # type: ignore
         additional_properties: typing.Type[fruit.Fruit] = dataclasses.field(default_factory=lambda: fruit.Fruit) # type: ignore

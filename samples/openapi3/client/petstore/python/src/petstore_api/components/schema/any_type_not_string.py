@@ -24,7 +24,7 @@ class AnyTypeNotString(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_:
+    class Schema_(metaclass=schemas.SchemaBase):
         # any type
         not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
