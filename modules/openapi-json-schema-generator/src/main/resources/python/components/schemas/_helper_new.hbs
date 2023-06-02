@@ -128,16 +128,16 @@ def __new__(
 {{/with}}
 {{#if types}}
     {{#eq types.size 1}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
     {{else}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+) -> {{jsonPathPiece.camelCase}}[
     typing.Union[
         {{> components/schemas/_helper_schema_python_base_types_newline }}
     ]
 ]:
     {{/eq}}
 {{else}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+) -> {{jsonPathPiece.camelCase}}[
     typing.Union[
         {{> components/schemas/_helper_schema_python_base_types_newline }}
     ]
@@ -190,16 +190,16 @@ def __new__(
     inst = typing.cast(
 {{#if types}}
     {{#eq types.size 1}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}],
+        {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
     {{else}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+        {{jsonPathPiece.camelCase}}[
             typing.Union[
                 {{> components/schemas/_helper_schema_python_base_types_newline }}
             ]
         ],
     {{/eq}}
 {{else}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+        {{jsonPathPiece.camelCase}}[
             typing.Union[
                 {{> components/schemas/_helper_schema_python_base_types_newline }}
             ]

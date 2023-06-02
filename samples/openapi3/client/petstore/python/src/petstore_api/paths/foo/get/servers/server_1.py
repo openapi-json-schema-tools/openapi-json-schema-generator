@@ -98,7 +98,7 @@ class Variables(
             io.BufferedReader,
             schemas.Schema
         ],
-    ) -> [frozendict.frozendict]:
+    ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
@@ -107,7 +107,7 @@ class Variables(
             **kwargs,
         )
         inst = typing.cast(
-            [frozendict.frozendict],
+            Variables[frozendict.frozendict],
             inst
         )
         return inst
