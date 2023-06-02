@@ -4512,12 +4512,12 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public LinkedHashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
+    public CodegenSchema fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
         if (serverVariables == null) {
             return null;
         }
 
-        LinkedHashMap<CodegenKey, CodegenSchema> variables = new LinkedHashMap<>();
+        LinkedHashMap<String, Schema> properties = new LinkedHashMap<>();
         for (Entry<String, ServerVariable> entry: serverVariables.entrySet()) {
             String variableName = entry.getKey();
             ServerVariable variable = entry.getValue();
@@ -4529,11 +4529,11 @@ public class DefaultCodegen implements CodegenConfig {
             if (variable.getEnum() != null) {
                 schema.setEnum(variable.getEnum());
             }
-            String schemaJsonPath = jsonPath + "/" + variableName;
-            CodegenSchema codegenSchema = fromSchema(schema, jsonPath, schemaJsonPath);
-            CodegenKey key = getKey(variableName);
-            variables.put(key, codegenSchema);
+            properties.put(variableName, schema);
         }
+        ObjectSchema variablesSchema = new ObjectSchema();
+        variablesSchema.setProperties(properties);
+        CodegenSchema variables = fromSchema(variablesSchema, jsonPath, jsonPath);
         return variables;
     }
 
