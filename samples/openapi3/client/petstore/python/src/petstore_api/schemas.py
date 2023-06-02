@@ -149,13 +149,15 @@ class Singleton:
         return f'<{self.__class__.__name__}: {super().__repr__()}>'
 
 
-class classproperty:
+class classproperty(typing.Generic[T]):
+    def __init__(self, method: typing.Callable[..., T]):
+        self.__method = method
+        functools.update_wrapper(self, method) # type: ignore
 
-    def __init__(self, fget):
-        self.fget = fget
-
-    def __get__(self, owner_self, owner_cls):
-        return self.fget(owner_cls)
+    def __get__(self, obj, cls=None) -> T:
+        if cls is None:
+            cls = type(obj)
+        return self.__method.__get__(cls, cls)
 
 
 class NoneClass(Singleton):
