@@ -11,42 +11,6 @@ from {{packageName}}.shared_imports.server_imports import *
         {{#with variables}}
 {{> components/schemas/_helper_getschemas identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
         {{/with}}
-
-
-_VariablesSchemas = typing_extensions.TypedDict(
-    '_VariablesSchemas',
-    {
-        {{#with variables}}
-            {{#each properties}}
-        "{{{@key.original}}}": typing.Type[_Variables.{{jsonPathPiece.camelCase}}],
-            {{/each}}
-        {{/with}}
-    },
-    total=False
-)
-
-Variables = typing_extensions.TypedDict(
-    'Variables',
-    {
-        {{#with variables}}
-            {{#each properties}}
-        "{{{@key.original}}}": {{#unless enumValueToName}}typing_extensions.Literal["{{defaultValue.value}}"],{{else}}typing_extensions.Literal[
-                {{#each enumValueToName}}
-            "{{{@key.value}}}",
-                {{/each}}
-        ],{{/unless}}
-            {{/each}}
-        {{/with}}
-    },
-    total=False
-)
-
-def _default_variable_schemas() -> _VariablesSchemas:
-    return {
-        {{#each variables}}
-        "{{{@key.original}}}": _Variables.{{jsonPathPiece.camelCase}},
-        {{/each}}
-    }
     {{/if}}
 
 
@@ -58,8 +22,7 @@ class {{jsonPathPiece.camelCase}}(server.Server):
     '''
     {{/if}}
     {{#if variables}}
-    variables: typing.Optional[Variables] = None
-    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    variables: Variables = Variables()
     {{/if}}
     _url: str = "{{url}}"
 {{/with}}

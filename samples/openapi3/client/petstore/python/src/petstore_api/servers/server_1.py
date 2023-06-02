@@ -6,6 +6,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.shared_imports.server_imports import *
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 
 
 class Version(
@@ -44,27 +45,15 @@ class Variables(
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: VariablesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(VariablesProperties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["version"]) -> Version[str]: ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
     
     def __getitem__(
         self,
         name: typing.Union[
             typing_extensions.Literal["version"],
-            str
         ]
     ):
         # dict_instance[name] accessor
@@ -79,32 +68,12 @@ class Variables(
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
             version=version,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Variables[frozendict.frozendict],
@@ -120,97 +89,10 @@ VariablesProperties = typing_extensions.TypedDict(
 )
 
 
-_VariablesSchemas = typing_extensions.TypedDict(
-    '_VariablesSchemas',
-    {
-        "version": typing.Type[_Variables.Version],
-    },
-    total=False
-)
-
-Variables = typing_extensions.TypedDict(
-    'Variables',
-    {
-        "version": typing_extensions.Literal[
-            "v1",
-            "v2",
-        ],
-    },
-    total=False
-)
-
-def _default_variable_schemas() -> _VariablesSchemas:
-    return {
-        "": _Variables.Variables,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Variables,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-        "": _Variables.Server1,
-    }
-
-
 @dataclasses.dataclass
 class Server1(server.Server):
     '''
     The local server
     '''
-    variables: typing.Optional[Variables] = None
-    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
+    variables: Variables = Variables()
     _url: str = "https://localhost:8080/{version}"
