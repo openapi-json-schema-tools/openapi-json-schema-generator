@@ -90,6 +90,7 @@ VariablesProperties = typing_extensions.TypedDict(
 
 
 @dataclasses.dataclass
-class Server1(server.Server):
-    variables: Variables = Variables()
+class Server1(server.ServerWithVariables):
+    variables: Variables[frozendict.frozendict] = Variables()
+    variables_cls: typing.Type[Variables] = Variables
     _url: str = "https://petstore.swagger.io/{version}"

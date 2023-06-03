@@ -4530,6 +4530,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         ObjectSchema variablesSchema = new ObjectSchema();
         variablesSchema.setProperties(properties);
+        // TODO make all properties required
         // only listed variables are allowed
         variablesSchema.setAdditionalProperties(Boolean.FALSE);
         CodegenSchema variables = fromSchema(variablesSchema, jsonPath, jsonPath);

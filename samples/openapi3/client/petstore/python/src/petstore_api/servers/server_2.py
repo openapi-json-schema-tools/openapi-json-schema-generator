@@ -7,8 +7,8 @@ from petstore_api.shared_imports.server_imports import *
 
 
 @dataclasses.dataclass
-class Server2(server.Server):
+class Server2(server.ServerWithoutVariables):
     '''
     staging server with no variables
     '''
-    _url: str = "https://localhost:8080"
+    url: str = "https://localhost:8080"

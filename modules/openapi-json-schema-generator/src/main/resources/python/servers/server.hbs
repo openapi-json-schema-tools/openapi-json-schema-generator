@@ -15,14 +15,17 @@ from {{packageName}}.shared_imports.server_imports import *
 
 
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(server.Server):
+class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}Without{{/if}}Variables):
     {{#if description}}
     '''
     {{description}}
     '''
     {{/if}}
     {{#if variables}}
-    variables: Variables = Variables()
-    {{/if}}
+    variables: Variables[frozendict.frozendict] = Variables()
+    variables_cls: typing.Type[Variables] = Variables
     _url: str = "{{url}}"
+    {{else}}
+    url: str = "{{url}}"
+    {{/if}}
 {{/with}}

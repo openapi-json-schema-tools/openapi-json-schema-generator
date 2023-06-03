@@ -90,9 +90,10 @@ VariablesProperties = typing_extensions.TypedDict(
 
 
 @dataclasses.dataclass
-class Server1(server.Server):
+class Server1(server.ServerWithVariables):
     '''
     The local server
     '''
-    variables: Variables = Variables()
+    variables: Variables[frozendict.frozendict] = Variables()
+    variables_cls: typing.Type[Variables] = Variables
     _url: str = "https://localhost:8080/{version}"
