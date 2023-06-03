@@ -28,7 +28,7 @@ class ServerWithVariables(abc.ABC):
         url = self._url
         assert isinstance (self.variables, self.variables_cls)
         for (key, value) in self.variables.items():
-            cast_value = typing.cast(str, cast_value)
+            cast_value = typing.cast(str, value)
             url = url.replace("{" + key + "}", cast_value)
         self.url = url
 

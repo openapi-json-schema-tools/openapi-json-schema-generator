@@ -118,12 +118,12 @@ class SchemaBase(type):
     Schemas are frozen classes that are never instantiated with init args
     All args come from defaults
     """
-    __instances = {}
+    _instances = {}
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
-            cls.__instances[cls] = super().__call__(*args, **kwargs)
-        return cls.__instances[cls]
+            cls._instances[cls] = super().__call__(*args, **kwargs)
+        return cls._instances[cls]
 
 
 class Singleton:
@@ -173,7 +173,7 @@ class classproperty(typing.Generic[T]):
     def __get__(self, obj, cls=None) -> T:
         if cls is None:
             cls = type(obj)
-        return self.__method.__get__(cls, cls)
+        return self.__method(cls)
 
 
 class NoneClass(Singleton):
