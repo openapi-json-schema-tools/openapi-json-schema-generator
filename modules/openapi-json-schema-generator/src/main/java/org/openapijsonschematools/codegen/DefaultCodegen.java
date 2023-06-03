@@ -4515,8 +4515,10 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         LinkedHashMap<String, Schema> properties = new LinkedHashMap<>();
+        ArrayList<String> required = new ArrayList<>();
         for (Entry<String, ServerVariable> entry: serverVariables.entrySet()) {
             String variableName = entry.getKey();
+            required.add(variableName);
             ServerVariable variable = entry.getValue();
             StringSchema schema = new StringSchema();
             if (variable.getDescription() != null) {
@@ -4530,7 +4532,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         ObjectSchema variablesSchema = new ObjectSchema();
         variablesSchema.setProperties(properties);
-        // TODO make all properties required
+        variablesSchema.setRequired(required);
         // only listed variables are allowed
         variablesSchema.setAdditionalProperties(Boolean.FALSE);
         CodegenSchema variables = fromSchema(variablesSchema, jsonPath, jsonPath);

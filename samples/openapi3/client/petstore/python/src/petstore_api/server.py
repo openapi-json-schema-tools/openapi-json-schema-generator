@@ -26,11 +26,8 @@ class ServerWithVariables(abc.ABC):
 
     def __post_init__(self):
         url = self._url
+        assert isinstance (self.variables, self.variables_cls)
         for (key, value) in self.variables.items():
-            if value == schemas.unset:
-                cast_value = self.variables_cls.Schema_.properties[key].Schema_.default
-            else:
-                cast_value = value
             cast_value = typing.cast(str, cast_value)
             url = url.replace("{" + key + "}", cast_value)
         self.url = url

@@ -76,20 +76,32 @@ class Variables(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
+            "port",
+            "server",
+        })
         properties: VariablesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(VariablesProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["server"]) -> Server[str]: ...
+    @property
+    def port(self) -> Port[str]:
+        return self.__getitem__("port")
+    
+    @property
+    def server(self) -> Server[str]:
+        return self.__getitem__("server")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["port"]) -> Port[str]: ...
     
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["server"]) -> Server[str]: ...
+    
     def __getitem__(
         self,
         name: typing.Union[
-            typing_extensions.Literal["server"],
             typing_extensions.Literal["port"],
+            typing_extensions.Literal["server"],
         ]
     ):
         # dict_instance[name] accessor
@@ -98,23 +110,21 @@ class Variables(
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
-        server: typing.Union[
-            Server[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
         port: typing.Union[
             Port[str],
-            schemas.Unset,
             str
-        ] = schemas.unset,
+        ],
+        server: typing.Union[
+            Server[str],
+            str
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
-            server=server,
             port=port,
+            server=server,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -137,6 +147,9 @@ class Server0(server.ServerWithVariables):
     '''
     petstore server
     '''
-    variables: Variables[frozendict.frozendict] = Variables()
+    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+        "server": Server.Schema_.default,
+        "port": Port.Schema_.default,
+    })
     variables_cls: typing.Type[Variables] = Variables
     _url: str = "http://{server}.swagger.io:{port}/v2"

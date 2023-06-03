@@ -44,8 +44,15 @@ class Variables(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
+            "version",
+        })
         properties: VariablesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(VariablesProperties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    
+    @property
+    def version(self) -> Version[str]:
+        return self.__getitem__("version")
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["version"]) -> Version[str]: ...
@@ -64,9 +71,8 @@ class Variables(
         *args_: typing.Union[dict, frozendict.frozendict],
         version: typing.Union[
             Version[str],
-            schemas.Unset,
             str
-        ] = schemas.unset,
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
@@ -94,6 +100,8 @@ class Server1(server.ServerWithVariables):
     '''
     The local server
     '''
-    variables: Variables[frozendict.frozendict] = Variables()
+    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+        "version": Version.Schema_.default,
+    })
     variables_cls: typing.Type[Variables] = Variables
     _url: str = "https://localhost:8080/{version}"
