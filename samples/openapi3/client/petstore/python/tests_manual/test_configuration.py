@@ -32,7 +32,9 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
         server_info: api_configuration.ServerInfo = {
-            'servers/1': api_configuration.server_1.Server1(variables={'version': 'v2'})
+            'servers/1': api_configuration.server_1.Server1(
+                variables=api_configuration.server_1.Variables(version='v2')
+            )
         }
         server_index_info: api_configuration.ServerIndexInfo = {
             'servers': 1
@@ -81,7 +83,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         )
         server_info: api_configuration.ServerInfo = {
             "paths//pet/findByStatus/servers/1": api_configuration.pet_find_by_status_server_1.Server1(
-                variables={'version': 'v2'}
+                variables=api_configuration.pet_find_by_status_server_1.Variables(version='v2')
             )
         }
         configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info)
@@ -120,7 +122,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
     def test_operation_servers(self):
         server_info: api_configuration.ServerInfo = {
             "paths//foo/get/servers/1": api_configuration.foo_get_server_1.Server1(
-                variables={'version': 'v2'}
+                variables=api_configuration.foo_get_server_1.Variables(version='v2')
             )
         }
         config = api_configuration.ApiConfiguration(server_info=server_info)
