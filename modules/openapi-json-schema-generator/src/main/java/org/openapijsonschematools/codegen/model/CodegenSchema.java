@@ -92,6 +92,7 @@ public class CodegenSchema {
      * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
      */
     public String instanceType;
+    private ArrayList<CodegenSchema> allSchemas = null;
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
@@ -220,8 +221,11 @@ public class CodegenSchema {
     }
 
     public ArrayList<CodegenSchema> getSchemas() {
-        ArrayList<CodegenSchema> schemas = new ArrayList<>();
-        return getAllSchemas(schemas, 0);
+        if (allSchemas == null) {
+            ArrayList<CodegenSchema> schemas = new ArrayList<>();
+            allSchemas = getAllSchemas(schemas, 0);
+        }
+        return allSchemas;
     }
 
     public boolean isComplicated() {
