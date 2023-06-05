@@ -12,7 +12,13 @@ from petstore_api.shared_imports.schema_imports import *
 
 SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
 Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "someProp": typing.Type[SomeProp],
+        "someprop": typing.Type[Someprop],
+    }
+)
 
 class ObjectWithCollidingProperties(
     schemas.DictSchema[schemas.T]
@@ -110,10 +116,3 @@ class ObjectWithCollidingProperties(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "someProp": typing.Type[SomeProp],
-        "someprop": typing.Type[Someprop],
-    }
-)

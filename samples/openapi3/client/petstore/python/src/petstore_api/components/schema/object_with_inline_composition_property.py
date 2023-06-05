@@ -23,7 +23,9 @@ class _0(
             str,
         })
         min_length: int = 1
-
+AllOf = typing.Tuple[
+    typing.Type[_0],
+]
 
 class SomeProp(
     schemas.AnyTypeSchema[schemas.T],
@@ -111,7 +113,12 @@ class SomeProp(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "someProp": typing.Type[SomeProp],
+    }
+)
 
 class ObjectWithInlineCompositionProperty(
     schemas.DictSchema[schemas.T]
@@ -228,12 +235,3 @@ class ObjectWithInlineCompositionProperty(
         )
         return inst
 
-AllOf = typing.Tuple[
-    typing.Type[_0],
-]
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "someProp": typing.Type[SomeProp],
-    }
-)

@@ -44,7 +44,14 @@ class Op(
     @schemas.classproperty
     def TEST(cls) -> Op[str]:
         return cls("test") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "path": typing.Type[Path],
+        "value": typing.Type[Value],
+        "op": typing.Type[Op],
+    }
+)
 
 class JSONPatchRequestAddReplaceTest(
     schemas.DictSchema[schemas.T]
@@ -172,11 +179,3 @@ class JSONPatchRequestAddReplaceTest(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "path": typing.Type[Path],
-        "value": typing.Type[Value],
-        "op": typing.Type[Op],
-    }
-)

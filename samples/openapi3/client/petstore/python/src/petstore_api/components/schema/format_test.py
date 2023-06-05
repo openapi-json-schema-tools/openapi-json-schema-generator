@@ -199,7 +199,32 @@ class PatternWithDigitsAndDelimiter(
             flags=re.I,
         )
 NoneProp: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "integer": typing.Type[Integer],
+        "int32": typing.Type[Int32],
+        "int32withValidations": typing.Type[Int32withValidations],
+        "int64": typing.Type[Int64],
+        "number": typing.Type[Number],
+        "float": typing.Type[_Float],
+        "float32": typing.Type[Float32],
+        "double": typing.Type[Double],
+        "float64": typing.Type[Float64],
+        "arrayWithUniqueItems": typing.Type[ArrayWithUniqueItems],
+        "string": typing.Type[String],
+        "byte": typing.Type[Byte],
+        "binary": typing.Type[Binary],
+        "date": typing.Type[Date],
+        "dateTime": typing.Type[DateTime],
+        "uuid": typing.Type[Uuid],
+        "uuidNoExample": typing.Type[UuidNoExample],
+        "password": typing.Type[Password],
+        "pattern_with_digits": typing.Type[PatternWithDigits],
+        "pattern_with_digits_and_delimiter": typing.Type[PatternWithDigitsAndDelimiter],
+        "noneProp": typing.Type[NoneProp],
+    }
+)
 
 class FormatTest(
     schemas.DictSchema[schemas.T]
@@ -514,29 +539,3 @@ class FormatTest(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "integer": typing.Type[Integer],
-        "int32": typing.Type[Int32],
-        "int32withValidations": typing.Type[Int32withValidations],
-        "int64": typing.Type[Int64],
-        "number": typing.Type[Number],
-        "float": typing.Type[_Float],
-        "float32": typing.Type[Float32],
-        "double": typing.Type[Double],
-        "float64": typing.Type[Float64],
-        "arrayWithUniqueItems": typing.Type[ArrayWithUniqueItems],
-        "string": typing.Type[String],
-        "byte": typing.Type[Byte],
-        "binary": typing.Type[Binary],
-        "date": typing.Type[Date],
-        "dateTime": typing.Type[DateTime],
-        "uuid": typing.Type[Uuid],
-        "uuidNoExample": typing.Type[UuidNoExample],
-        "password": typing.Type[Password],
-        "pattern_with_digits": typing.Type[PatternWithDigits],
-        "pattern_with_digits_and_delimiter": typing.Type[PatternWithDigitsAndDelimiter],
-        "noneProp": typing.Type[NoneProp],
-    }
-)

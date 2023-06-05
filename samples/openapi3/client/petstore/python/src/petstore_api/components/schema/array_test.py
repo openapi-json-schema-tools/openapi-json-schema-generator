@@ -196,7 +196,14 @@ class ArrayArrayOfModel(
     def __getitem__(self, name: int) -> Items[tuple]:
         return super().__getitem__(name)
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "array_of_string": typing.Type[ArrayOfString],
+        "array_array_of_integer": typing.Type[ArrayArrayOfInteger],
+        "array_array_of_model": typing.Type[ArrayArrayOfModel],
+    }
+)
 
 class ArrayTest(
     schemas.DictSchema[schemas.T]
@@ -305,11 +312,3 @@ class ArrayTest(
 
 
 from petstore_api.components.schema import read_only_first
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "array_of_string": typing.Type[ArrayOfString],
-        "array_array_of_integer": typing.Type[ArrayArrayOfInteger],
-        "array_array_of_model": typing.Type[ArrayArrayOfModel],
-    }
-)

@@ -66,7 +66,13 @@ class Port(
     @schemas.classproperty
     def POSITIVE_8080(cls) -> Port[str]:
         return cls("8080") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "server": typing.Type[Server],
+        "port": typing.Type[Port],
+    }
+)
 
 class Variables(
     schemas.DictSchema[schemas.T]
@@ -133,13 +139,6 @@ class Variables(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "server": typing.Type[Server],
-        "port": typing.Type[Port],
-    }
-)
 
 
 @dataclasses.dataclass

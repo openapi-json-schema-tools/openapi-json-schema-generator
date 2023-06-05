@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 Color: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "color": typing.Type[Color],
+    }
+)
 
 class Fruit(
     schemas.AnyTypeSchema[schemas.T],
@@ -143,9 +148,3 @@ OneOf = typing.Tuple[
     typing.Type[apple.Apple],
     typing.Type[banana.Banana],
 ]
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "color": typing.Type[Color],
-    }
-)

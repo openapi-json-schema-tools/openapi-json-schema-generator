@@ -24,7 +24,13 @@ class Name(
             str,
         })
         default: str = "default-name"
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "name": typing.Type[Name],
+    }
+)
 
 class Category(
     schemas.DictSchema[schemas.T]
@@ -125,10 +131,3 @@ class Category(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "id": typing.Type[Id],
-        "name": typing.Type[Name],
-    }
-)

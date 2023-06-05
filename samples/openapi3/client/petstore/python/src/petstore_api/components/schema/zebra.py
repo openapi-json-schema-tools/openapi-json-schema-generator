@@ -63,7 +63,13 @@ class ClassName(
     @schemas.classproperty
     def ZEBRA(cls) -> ClassName[str]:
         return cls("zebra") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "type": typing.Type[Type],
+        "className": typing.Type[ClassName],
+    }
+)
 
 class Zebra(
     schemas.DictSchema[schemas.T]
@@ -173,10 +179,3 @@ class Zebra(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "type": typing.Type[Type],
-        "className": typing.Type[ClassName],
-    }
-)

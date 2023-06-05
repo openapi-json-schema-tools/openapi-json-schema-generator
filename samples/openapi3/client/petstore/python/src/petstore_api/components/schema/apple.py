@@ -41,7 +41,13 @@ class Origin(
             pattern=r'^[A-Z\s]*$',  # noqa: E501
             flags=re.I,
         )
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "cultivar": typing.Type[Cultivar],
+        "origin": typing.Type[Origin],
+    }
+)
 
 class Apple(
     schemas.NoneBase,
@@ -157,10 +163,3 @@ class Apple(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "cultivar": typing.Type[Cultivar],
-        "origin": typing.Type[Origin],
-    }
-)

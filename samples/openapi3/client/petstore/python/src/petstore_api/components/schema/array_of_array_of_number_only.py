@@ -86,7 +86,12 @@ class ArrayArrayNumber(
     def __getitem__(self, name: int) -> Items[tuple]:
         return super().__getitem__(name)
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
+    }
+)
 
 class ArrayOfArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
@@ -171,9 +176,3 @@ class ArrayOfArrayOfNumberOnly(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
-    }
-)

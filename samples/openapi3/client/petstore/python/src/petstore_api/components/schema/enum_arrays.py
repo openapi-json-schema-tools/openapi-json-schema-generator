@@ -98,7 +98,13 @@ class ArrayEnum(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "just_symbol": typing.Type[JustSymbol],
+        "array_enum": typing.Type[ArrayEnum],
+    }
+)
 
 class EnumArrays(
     schemas.DictSchema[schemas.T]
@@ -193,10 +199,3 @@ class EnumArrays(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "just_symbol": typing.Type[JustSymbol],
-        "array_enum": typing.Type[ArrayEnum],
-    }
-)

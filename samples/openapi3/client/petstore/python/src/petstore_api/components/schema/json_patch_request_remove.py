@@ -33,7 +33,13 @@ class Op(
     @schemas.classproperty
     def REMOVE(cls) -> Op[str]:
         return cls("remove") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "path": typing.Type[Path],
+        "op": typing.Type[Op],
+    }
+)
 
 class JSONPatchRequestRemove(
     schemas.DictSchema[schemas.T]
@@ -105,10 +111,3 @@ class JSONPatchRequestRemove(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "path": typing.Type[Path],
-        "op": typing.Type[Op],
-    }
-)

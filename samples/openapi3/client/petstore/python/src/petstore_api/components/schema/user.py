@@ -178,7 +178,24 @@ class AnyTypeExceptNullProp(
         return inst
 
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "username": typing.Type[Username],
+        "firstName": typing.Type[FirstName],
+        "lastName": typing.Type[LastName],
+        "email": typing.Type[Email],
+        "password": typing.Type[Password],
+        "phone": typing.Type[Phone],
+        "userStatus": typing.Type[UserStatus],
+        "objectWithNoDeclaredProps": typing.Type[ObjectWithNoDeclaredProps],
+        "objectWithNoDeclaredPropsNullable": typing.Type[ObjectWithNoDeclaredPropsNullable],
+        "anyTypeProp": typing.Type[AnyTypeProp],
+        "anyTypeExceptNullProp": typing.Type[AnyTypeExceptNullProp],
+        "anyTypePropNullable": typing.Type[AnyTypePropNullable],
+    }
+)
 
 class User(
     schemas.DictSchema[schemas.T]
@@ -492,21 +509,3 @@ class User(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "id": typing.Type[Id],
-        "username": typing.Type[Username],
-        "firstName": typing.Type[FirstName],
-        "lastName": typing.Type[LastName],
-        "email": typing.Type[Email],
-        "password": typing.Type[Password],
-        "phone": typing.Type[Phone],
-        "userStatus": typing.Type[UserStatus],
-        "objectWithNoDeclaredProps": typing.Type[ObjectWithNoDeclaredProps],
-        "objectWithNoDeclaredPropsNullable": typing.Type[ObjectWithNoDeclaredPropsNullable],
-        "anyTypeProp": typing.Type[AnyTypeProp],
-        "anyTypeExceptNullProp": typing.Type[AnyTypeExceptNullProp],
-        "anyTypePropNullable": typing.Type[AnyTypePropNullable],
-    }
-)

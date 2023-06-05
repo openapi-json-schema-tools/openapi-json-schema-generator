@@ -14,36 +14,36 @@
                 {{else}}
                     {{#eq instanceType "propertiesType" }}
 {{> components/schemas/_helper_properties_type }}
-                    {{else}}
-                    {{/eq}
-                {{/eq}
-            {{/eq}
-        {{/eq}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
     {{/eq}}
 {{/each}}
 {{#if imports}}
 
 {{> _helper_imports }}
-    {{#each getSchemas}}
-        {{#if allOf}}
-            {{#unless allOf.allAreInline}}
-{{> components/schemas/_helper_allof_type }}
-            {{/unless}}
-        {{/if}}
-        {{#if anyOf}}
-            {{#unless anyOf.allAreInline}}
-{{> components/schemas/_helper_anyof_type }}
-            {{/unless}}
-        {{/if}}
-        {{#if oneOf}}
-            {{#unless oneOf.allAreInline}}
-{{> components/schemas/_helper_oneof_type }}
-            {{/unless}}
-        {{/if}}
-        {{#if properties}}
-            {{#unless properties.allAreInline}}
-{{> components/schemas/_helper_properties_type }}
-            {{/unless}}
-        {{/if}}
-    {{/each}}
 {{/if}}
+{{! need these after imports because if variable uses itself it has no imports but it can need to write extra self types }}
+{{#each getSchemas}}
+    {{#if allOf}}
+        {{#unless allOf.allAreInline}}
+{{> components/schemas/_helper_allof_type }}
+        {{/unless}}
+    {{/if}}
+    {{#if anyOf}}
+        {{#unless anyOf.allAreInline}}
+{{> components/schemas/_helper_anyof_type }}
+        {{/unless}}
+    {{/if}}
+    {{#if oneOf}}
+        {{#unless oneOf.allAreInline}}
+{{> components/schemas/_helper_oneof_type }}
+        {{/unless}}
+    {{/if}}
+    {{#if properties}}
+        {{#unless properties.allAreInline}}
+{{> components/schemas/_helper_properties_type }}
+        {{/unless}}
+    {{/if}}
+{{/each}}

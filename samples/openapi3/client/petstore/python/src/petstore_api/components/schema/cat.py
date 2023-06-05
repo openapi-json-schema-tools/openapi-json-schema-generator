@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 Declawed: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "declawed": typing.Type[Declawed],
+    }
+)
 
 class _1(
     schemas.DictSchema[schemas.T]
@@ -185,12 +190,6 @@ class Cat(
 
 
 from petstore_api.components.schema import animal
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "declawed": typing.Type[Declawed],
-    }
-)
 AllOf = typing.Tuple[
     typing.Type[animal.Animal],
     typing.Type[_1],

@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 _Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "_class": typing.Type[_Class],
+    }
+)
 
 class ClassModel(
     schemas.AnyTypeSchema[schemas.T],
@@ -137,9 +142,3 @@ class ClassModel(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "_class": typing.Type[_Class],
-    }
-)

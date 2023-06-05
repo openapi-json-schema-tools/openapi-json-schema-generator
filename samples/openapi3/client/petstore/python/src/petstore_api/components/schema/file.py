@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 SourceURI: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "sourceURI": typing.Type[SourceURI],
+    }
+)
 
 class File(
     schemas.DictSchema[schemas.T]
@@ -97,9 +102,3 @@ class File(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "sourceURI": typing.Type[SourceURI],
-    }
-)

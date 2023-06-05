@@ -31,7 +31,12 @@ class QuadrilateralType(
     @schemas.classproperty
     def COMPLEX_QUADRILATERAL(cls) -> QuadrilateralType[str]:
         return cls("ComplexQuadrilateral") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "quadrilateralType": typing.Type[QuadrilateralType],
+    }
+)
 
 class _1(
     schemas.DictSchema[schemas.T]
@@ -205,12 +210,6 @@ class ComplexQuadrilateral(
 
 
 from petstore_api.components.schema import quadrilateral_interface
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "quadrilateralType": typing.Type[QuadrilateralType],
-    }
-)
 AllOf = typing.Tuple[
     typing.Type[quadrilateral_interface.QuadrilateralInterface],
     typing.Type[_1],

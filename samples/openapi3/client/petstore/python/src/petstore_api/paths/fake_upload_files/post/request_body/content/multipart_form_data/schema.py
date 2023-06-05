@@ -49,7 +49,12 @@ class Files(
     def __getitem__(self, name: int) -> Items[typing.Union[bytes, schemas.FileIO]]:
         return super().__getitem__(name)
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "files": typing.Type[Files],
+    }
+)
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -129,9 +134,3 @@ class Schema(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "files": typing.Type[Files],
-    }
-)

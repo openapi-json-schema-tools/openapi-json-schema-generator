@@ -11,7 +11,9 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-
+AllOf = typing.Tuple[
+    typing.Type[_0],
+]
 
 class ComposedBool(
     schemas.BoolSchema[schemas.T]
@@ -47,6 +49,3 @@ class ComposedBool(
         )
         return inst
 
-AllOf = typing.Tuple[
-    typing.Type[_0],
-]

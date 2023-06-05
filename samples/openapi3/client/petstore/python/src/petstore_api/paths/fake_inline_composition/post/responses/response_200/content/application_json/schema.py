@@ -23,7 +23,9 @@ class _0(
             str,
         })
         min_length: int = 1
-
+AllOf = typing.Tuple[
+    typing.Type[_0],
+]
 
 class Schema(
     schemas.AnyTypeSchema[schemas.T],
@@ -111,6 +113,3 @@ class Schema(
         )
         return inst
 
-AllOf = typing.Tuple[
-    typing.Type[_0],
-]

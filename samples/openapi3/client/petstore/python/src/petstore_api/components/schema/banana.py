@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "lengthCm": typing.Type[LengthCm],
+    }
+)
 
 class Banana(
     schemas.DictSchema[schemas.T]
@@ -103,9 +108,3 @@ class Banana(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "lengthCm": typing.Type[LengthCm],
-    }
-)

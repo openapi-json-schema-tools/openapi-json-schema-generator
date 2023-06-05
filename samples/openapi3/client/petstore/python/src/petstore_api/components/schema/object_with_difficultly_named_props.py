@@ -13,7 +13,14 @@ from petstore_api.shared_imports.schema_imports import *
 SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 _123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
 _123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "$special[property.name]": typing.Type[SpecialPropertyName],
+        "123-list": typing.Type[_123List],
+        "123Number": typing.Type[_123Number],
+    }
+)
 
 class ObjectWithDifficultlyNamedProps(
     schemas.DictSchema[schemas.T]
@@ -104,11 +111,3 @@ class ObjectWithDifficultlyNamedProps(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "$special[property.name]": typing.Type[SpecialPropertyName],
-        "123-list": typing.Type[_123List],
-        "123Number": typing.Type[_123Number],
-    }
-)

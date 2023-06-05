@@ -33,7 +33,14 @@ class ClassName(
     @schemas.classproperty
     def WHALE(cls) -> ClassName[str]:
         return cls("whale") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "hasBaleen": typing.Type[HasBaleen],
+        "hasTeeth": typing.Type[HasTeeth],
+        "className": typing.Type[ClassName],
+    }
+)
 
 class Whale(
     schemas.DictSchema[schemas.T]
@@ -143,11 +150,3 @@ class Whale(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "hasBaleen": typing.Type[HasBaleen],
-        "hasTeeth": typing.Type[HasTeeth],
-        "className": typing.Type[ClassName],
-    }
-)

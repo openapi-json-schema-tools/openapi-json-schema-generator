@@ -34,7 +34,12 @@ class Version(
     @schemas.classproperty
     def V2(cls) -> Version[str]:
         return cls("v2") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "version": typing.Type[Version],
+    }
+)
 
 class Variables(
     schemas.DictSchema[schemas.T]
@@ -87,12 +92,6 @@ class Variables(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "version": typing.Type[Version],
-    }
-)
 
 
 @dataclasses.dataclass

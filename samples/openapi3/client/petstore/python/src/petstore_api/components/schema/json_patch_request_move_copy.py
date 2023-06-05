@@ -39,7 +39,14 @@ class Op(
     @schemas.classproperty
     def COPY(cls) -> Op[str]:
         return cls("copy") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "from": typing.Type[_From],
+        "path": typing.Type[Path],
+        "op": typing.Type[Op],
+    }
+)
 
 class JSONPatchRequestMoveCopy(
     schemas.DictSchema[schemas.T]
@@ -116,11 +123,3 @@ class JSONPatchRequestMoveCopy(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "from": typing.Type[_From],
-        "path": typing.Type[Path],
-        "op": typing.Type[Op],
-    }
-)

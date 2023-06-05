@@ -58,7 +58,17 @@ class Complete(
             schemas.BoolClass,
         })
         default: schemas.BoolClass = schemas.BoolClass.FALSE
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "petId": typing.Type[PetId],
+        "quantity": typing.Type[Quantity],
+        "shipDate": typing.Type[ShipDate],
+        "status": typing.Type[Status],
+        "complete": typing.Type[Complete],
+    }
+)
 
 class Order(
     schemas.DictSchema[schemas.T]
@@ -196,14 +206,3 @@ class Order(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "id": typing.Type[Id],
-        "petId": typing.Type[PetId],
-        "quantity": typing.Type[Quantity],
-        "shipDate": typing.Type[ShipDate],
-        "status": typing.Type[Status],
-        "complete": typing.Type[Complete],
-    }
-)

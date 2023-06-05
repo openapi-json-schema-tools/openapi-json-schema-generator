@@ -13,7 +13,14 @@ from petstore_api.shared_imports.schema_imports import *
 Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 _Property: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "name": typing.Type[Name],
+        "snake_case": typing.Type[SnakeCase],
+        "property": typing.Type[_Property],
+    }
+)
 
 class Name(
     schemas.AnyTypeSchema[schemas.T],
@@ -155,11 +162,3 @@ class Name(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "name": typing.Type[Name],
-        "snake_case": typing.Type[SnakeCase],
-        "property": typing.Type[_Property],
-    }
-)

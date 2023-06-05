@@ -24,7 +24,13 @@ class Color(
             str,
         })
         default: str = "red"
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "className": typing.Type[ClassName],
+        "color": typing.Type[Color],
+    }
+)
 
 class Animal(
     schemas.DictSchema[schemas.T]
@@ -135,10 +141,3 @@ class Animal(
 
 from petstore_api.components.schema import cat
 from petstore_api.components.schema import dog
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "className": typing.Type[ClassName],
-        "color": typing.Type[Color],
-    }
-)

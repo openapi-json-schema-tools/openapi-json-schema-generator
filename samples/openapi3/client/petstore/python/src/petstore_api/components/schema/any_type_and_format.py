@@ -806,7 +806,20 @@ class _Float(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "uuid": typing.Type[Uuid],
+        "date": typing.Type[Date],
+        "date-time": typing.Type[DateTime],
+        "number": typing.Type[Number],
+        "binary": typing.Type[Binary],
+        "int32": typing.Type[Int32],
+        "int64": typing.Type[Int64],
+        "double": typing.Type[Double],
+        "float": typing.Type[_Float],
+    }
+)
 
 class AnyTypeAndFormat(
     schemas.DictSchema[schemas.T]
@@ -1207,17 +1220,3 @@ class AnyTypeAndFormat(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "uuid": typing.Type[Uuid],
-        "date": typing.Type[Date],
-        "date-time": typing.Type[DateTime],
-        "number": typing.Type[Number],
-        "binary": typing.Type[Binary],
-        "int32": typing.Type[Int32],
-        "int64": typing.Type[Int64],
-        "double": typing.Type[Double],
-        "float": typing.Type[_Float],
-    }
-)

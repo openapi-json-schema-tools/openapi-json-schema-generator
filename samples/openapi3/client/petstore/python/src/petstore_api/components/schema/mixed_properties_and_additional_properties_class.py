@@ -50,7 +50,14 @@ class Map(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "uuid": typing.Type[Uuid],
+        "dateTime": typing.Type[DateTime],
+        "map": typing.Type[Map],
+    }
+)
 
 class MixedPropertiesAndAdditionalPropertiesClass(
     schemas.DictSchema[schemas.T]
@@ -159,11 +166,3 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
 
 from petstore_api.components.schema import animal
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "uuid": typing.Type[Uuid],
-        "dateTime": typing.Type[DateTime],
-        "map": typing.Type[Map],
-    }
-)

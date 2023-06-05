@@ -12,7 +12,13 @@ from petstore_api.shared_imports.schema_imports import *
 
 AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
 RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "additionalMetadata": typing.Type[AdditionalMetadata],
+        "requiredFile": typing.Type[RequiredFile],
+    }
+)
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -109,10 +115,3 @@ class Schema(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "additionalMetadata": typing.Type[AdditionalMetadata],
-        "requiredFile": typing.Type[RequiredFile],
-    }
-)

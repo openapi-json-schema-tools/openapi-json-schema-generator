@@ -31,7 +31,12 @@ class ClassName(
     @schemas.classproperty
     def DANISH_PIG(cls) -> ClassName[str]:
         return cls("DanishPig") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "className": typing.Type[ClassName],
+    }
+)
 
 class DanishPig(
     schemas.DictSchema[schemas.T]
@@ -121,9 +126,3 @@ class DanishPig(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "className": typing.Type[ClassName],
-    }
-)

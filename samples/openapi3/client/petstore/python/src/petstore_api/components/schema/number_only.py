@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 JustNumber: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "JustNumber": typing.Type[JustNumber],
+    }
+)
 
 class NumberOnly(
     schemas.DictSchema[schemas.T]
@@ -97,9 +102,3 @@ class NumberOnly(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "JustNumber": typing.Type[JustNumber],
-    }
-)

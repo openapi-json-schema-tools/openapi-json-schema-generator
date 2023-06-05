@@ -16,7 +16,17 @@ SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
 CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
 SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema[U]
 ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "smallCamel": typing.Type[SmallCamel],
+        "CapitalCamel": typing.Type[CapitalCamel],
+        "small_Snake": typing.Type[SmallSnake],
+        "Capital_Snake": typing.Type[CapitalSnake],
+        "SCA_ETH_Flow_Points": typing.Type[SCAETHFlowPoints],
+        "ATT_NAME": typing.Type[ATTNAME],
+    }
+)
 
 class Capitalization(
     schemas.DictSchema[schemas.T]
@@ -150,14 +160,3 @@ class Capitalization(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "smallCamel": typing.Type[SmallCamel],
-        "CapitalCamel": typing.Type[CapitalCamel],
-        "small_Snake": typing.Type[SmallSnake],
-        "Capital_Snake": typing.Type[CapitalSnake],
-        "SCA_ETH_Flow_Points": typing.Type[SCAETHFlowPoints],
-        "ATT_NAME": typing.Type[ATTNAME],
-    }
-)

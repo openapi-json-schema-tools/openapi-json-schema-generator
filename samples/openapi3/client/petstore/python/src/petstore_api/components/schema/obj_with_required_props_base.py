@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 B: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "b": typing.Type[B],
+    }
+)
 
 class ObjWithRequiredPropsBase(
     schemas.DictSchema[schemas.T]
@@ -101,9 +106,3 @@ class ObjWithRequiredPropsBase(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "b": typing.Type[B],
-    }
-)

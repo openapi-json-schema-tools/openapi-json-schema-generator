@@ -956,7 +956,23 @@ class ObjectItemsNullable(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "integer_prop": typing.Type[IntegerProp],
+        "number_prop": typing.Type[NumberProp],
+        "boolean_prop": typing.Type[BooleanProp],
+        "string_prop": typing.Type[StringProp],
+        "date_prop": typing.Type[DateProp],
+        "datetime_prop": typing.Type[DatetimeProp],
+        "array_nullable_prop": typing.Type[ArrayNullableProp],
+        "array_and_items_nullable_prop": typing.Type[ArrayAndItemsNullableProp],
+        "array_items_nullable": typing.Type[ArrayItemsNullable],
+        "object_nullable_prop": typing.Type[ObjectNullableProp],
+        "object_and_items_nullable_prop": typing.Type[ObjectAndItemsNullableProp],
+        "object_items_nullable": typing.Type[ObjectItemsNullable],
+    }
+)
 
 class NullableClass(
     schemas.DictSchema[schemas.T]
@@ -1216,20 +1232,3 @@ class NullableClass(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "integer_prop": typing.Type[IntegerProp],
-        "number_prop": typing.Type[NumberProp],
-        "boolean_prop": typing.Type[BooleanProp],
-        "string_prop": typing.Type[StringProp],
-        "date_prop": typing.Type[DateProp],
-        "datetime_prop": typing.Type[DatetimeProp],
-        "array_nullable_prop": typing.Type[ArrayNullableProp],
-        "array_and_items_nullable_prop": typing.Type[ArrayAndItemsNullableProp],
-        "array_items_nullable": typing.Type[ArrayItemsNullable],
-        "object_nullable_prop": typing.Type[ObjectNullableProp],
-        "object_and_items_nullable_prop": typing.Type[ObjectAndItemsNullableProp],
-        "object_items_nullable": typing.Type[ObjectItemsNullable],
-    }
-)

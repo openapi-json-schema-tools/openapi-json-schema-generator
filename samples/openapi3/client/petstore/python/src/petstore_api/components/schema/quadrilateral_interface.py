@@ -32,7 +32,13 @@ class ShapeType(
     def QUADRILATERAL(cls) -> ShapeType[str]:
         return cls("Quadrilateral") # type: ignore
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "shapeType": typing.Type[ShapeType],
+        "quadrilateralType": typing.Type[QuadrilateralType],
+    }
+)
 
 class QuadrilateralInterface(
     schemas.AnyTypeSchema[schemas.T],
@@ -166,10 +172,3 @@ class QuadrilateralInterface(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "shapeType": typing.Type[ShapeType],
-        "quadrilateralType": typing.Type[QuadrilateralType],
-    }
-)

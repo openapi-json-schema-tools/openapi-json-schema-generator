@@ -13,7 +13,13 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "petId": typing.Type[PetId],
+    }
+)
 
 class NoAdditionalProperties(
     schemas.DictSchema[schemas.T]
@@ -83,10 +89,3 @@ class NoAdditionalProperties(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "id": typing.Type[Id],
-        "petId": typing.Type[PetId],
-    }
-)

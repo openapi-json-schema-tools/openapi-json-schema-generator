@@ -204,6 +204,12 @@ public class CodegenSchema {
             for (CodegenSchema someSchema: properties.values()) {
                 someSchema.getAllSchemas(schemas, level + 1);
             }
+            if (properties.allAreInline()) {
+                CodegenSchema extraSchema = new CodegenSchema();
+                extraSchema.instanceType = "propertiesType";
+                extraSchema.properties = properties;
+                schemas.add(extraSchema);
+            }
         }
         if (refInfo != null && level > 0) {
             // do not add ref to schemas

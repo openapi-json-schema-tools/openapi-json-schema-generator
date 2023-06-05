@@ -13,7 +13,13 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 Sweet: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "lengthCm": typing.Type[LengthCm],
+        "sweet": typing.Type[Sweet],
+    }
+)
 
 class BananaReq(
     schemas.DictSchema[schemas.T]
@@ -83,10 +89,3 @@ class BananaReq(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "lengthCm": typing.Type[LengthCm],
-        "sweet": typing.Type[Sweet],
-    }
-)

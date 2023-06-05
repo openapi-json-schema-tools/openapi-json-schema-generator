@@ -147,7 +147,25 @@ class Password(
         max_length: int = 64
         min_length: int = 10
 Callback: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "integer": typing.Type[Integer],
+        "int32": typing.Type[Int32],
+        "int64": typing.Type[Int64],
+        "number": typing.Type[Number],
+        "float": typing.Type[_Float],
+        "double": typing.Type[Double],
+        "string": typing.Type[String],
+        "pattern_without_delimiter": typing.Type[PatternWithoutDelimiter],
+        "byte": typing.Type[Byte],
+        "binary": typing.Type[Binary],
+        "date": typing.Type[Date],
+        "dateTime": typing.Type[DateTime],
+        "password": typing.Type[Password],
+        "callback": typing.Type[Callback],
+    }
+)
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -379,22 +397,3 @@ class Schema(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "integer": typing.Type[Integer],
-        "int32": typing.Type[Int32],
-        "int64": typing.Type[Int64],
-        "number": typing.Type[Number],
-        "float": typing.Type[_Float],
-        "double": typing.Type[Double],
-        "string": typing.Type[String],
-        "pattern_without_delimiter": typing.Type[PatternWithoutDelimiter],
-        "byte": typing.Type[Byte],
-        "binary": typing.Type[Binary],
-        "date": typing.Type[Date],
-        "dateTime": typing.Type[DateTime],
-        "password": typing.Type[Password],
-        "callback": typing.Type[Callback],
-    }
-)

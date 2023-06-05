@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 A: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "a": typing.Type[A],
+    }
+)
 
 class ObjWithRequiredProps(
     schemas.DictSchema[schemas.T]
@@ -110,9 +115,3 @@ from petstore_api.components.schema import obj_with_required_props_base
 AllOf = typing.Tuple[
     typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
 ]
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "a": typing.Type[A],
-    }
-)

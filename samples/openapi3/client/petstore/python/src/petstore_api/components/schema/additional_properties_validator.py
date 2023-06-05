@@ -397,7 +397,11 @@ class _2(
         )
         return inst
 
-
+AllOf = typing.Tuple[
+    typing.Type[_0],
+    typing.Type[_1],
+    typing.Type[_2],
+]
 
 class AdditionalPropertiesValidator(
     schemas.DictSchema[schemas.T]
@@ -453,8 +457,3 @@ class AdditionalPropertiesValidator(
         )
         return inst
 
-AllOf = typing.Tuple[
-    typing.Type[_0],
-    typing.Type[_1],
-    typing.Type[_2],
-]

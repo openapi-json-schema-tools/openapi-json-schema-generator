@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "name": typing.Type[Name],
+    }
+)
 
 class _1(
     schemas.DictSchema[schemas.T]
@@ -233,12 +238,6 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
 
 from petstore_api.components.schema import object_with_optional_test_prop
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "name": typing.Type[Name],
-    }
-)
 AllOf = typing.Tuple[
     typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
     typing.Type[_1],

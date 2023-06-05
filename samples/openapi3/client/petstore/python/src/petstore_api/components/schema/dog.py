@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 Breed: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "breed": typing.Type[Breed],
+    }
+)
 
 class _1(
     schemas.DictSchema[schemas.T]
@@ -185,12 +190,6 @@ class Dog(
 
 
 from petstore_api.components.schema import animal
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "breed": typing.Type[Breed],
-    }
-)
 AllOf = typing.Tuple[
     typing.Type[animal.Animal],
     typing.Type[_1],

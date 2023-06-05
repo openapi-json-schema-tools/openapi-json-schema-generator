@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 PetType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "pet_type": typing.Type[PetType],
+    }
+)
 
 class GrandparentAnimal(
     schemas.DictSchema[schemas.T]
@@ -112,9 +117,3 @@ class GrandparentAnimal(
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import parent_pet
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "pet_type": typing.Type[PetType],
-    }
-)

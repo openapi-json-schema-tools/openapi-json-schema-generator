@@ -13,7 +13,13 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 Cultivar: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Mealy: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "cultivar": typing.Type[Cultivar],
+        "mealy": typing.Type[Mealy],
+    }
+)
 
 class AppleReq(
     schemas.DictSchema[schemas.T]
@@ -81,10 +87,3 @@ class AppleReq(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "cultivar": typing.Type[Cultivar],
-        "mealy": typing.Type[Mealy],
-    }
-)

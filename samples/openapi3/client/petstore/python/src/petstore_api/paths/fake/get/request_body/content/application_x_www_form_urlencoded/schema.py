@@ -105,7 +105,13 @@ class EnumFormString(
     @schemas.classproperty
     def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> EnumFormString[str]:
         return cls("(xyz)") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "enum_form_string_array": typing.Type[EnumFormStringArray],
+        "enum_form_string": typing.Type[EnumFormString],
+    }
+)
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -195,10 +201,3 @@ class Schema(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "enum_form_string_array": typing.Type[EnumFormStringArray],
-        "enum_form_string": typing.Type[EnumFormString],
-    }
-)

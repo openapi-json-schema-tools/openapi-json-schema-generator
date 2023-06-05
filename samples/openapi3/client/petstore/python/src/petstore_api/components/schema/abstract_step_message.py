@@ -11,7 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 Discriminator: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "discriminator": typing.Type[Discriminator],
+    }
+)
 
 class AbstractStepMessage(
     schemas.DictSchema[schemas.T]
@@ -229,9 +234,3 @@ class AbstractStepMessage(
 AnyOf = typing.Tuple[
     typing.Type[AbstractStepMessage],
 ]
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "discriminator": typing.Type[Discriminator],
-    }
-)

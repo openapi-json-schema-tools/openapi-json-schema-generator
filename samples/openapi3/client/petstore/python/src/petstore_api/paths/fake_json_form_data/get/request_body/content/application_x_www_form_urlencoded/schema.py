@@ -12,7 +12,13 @@ from petstore_api.shared_imports.schema_imports import *
 
 Param: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Param2: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "param": typing.Type[Param],
+        "param2": typing.Type[Param2],
+    }
+)
 
 class Schema(
     schemas.DictSchema[schemas.T]
@@ -111,10 +117,3 @@ class Schema(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "param": typing.Type[Param],
-        "param2": typing.Type[Param2],
-    }
-)

@@ -31,7 +31,12 @@ class TriangleType(
     @schemas.classproperty
     def EQUILATERAL_TRIANGLE(cls) -> TriangleType[str]:
         return cls("EquilateralTriangle") # type: ignore
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "triangleType": typing.Type[TriangleType],
+    }
+)
 
 class _1(
     schemas.DictSchema[schemas.T]
@@ -205,12 +210,6 @@ class EquilateralTriangle(
 
 
 from petstore_api.components.schema import triangle_interface
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "triangleType": typing.Type[TriangleType],
-    }
-)
 AllOf = typing.Tuple[
     typing.Type[triangle_interface.TriangleInterface],
     typing.Type[_1],

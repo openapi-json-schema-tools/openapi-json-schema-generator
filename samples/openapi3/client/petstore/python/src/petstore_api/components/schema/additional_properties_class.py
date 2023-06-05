@@ -265,7 +265,19 @@ class MapWithUndeclaredPropertiesString(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "map_property": typing.Type[MapProperty],
+        "map_of_map_property": typing.Type[MapOfMapProperty],
+        "anytype_1": typing.Type[Anytype1],
+        "map_with_undeclared_properties_anytype_1": typing.Type[MapWithUndeclaredPropertiesAnytype1],
+        "map_with_undeclared_properties_anytype_2": typing.Type[MapWithUndeclaredPropertiesAnytype2],
+        "map_with_undeclared_properties_anytype_3": typing.Type[MapWithUndeclaredPropertiesAnytype3],
+        "empty_map": typing.Type[EmptyMap],
+        "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
+    }
+)
 
 class AdditionalPropertiesClass(
     schemas.DictSchema[schemas.T]
@@ -459,16 +471,3 @@ class AdditionalPropertiesClass(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "map_property": typing.Type[MapProperty],
-        "map_of_map_property": typing.Type[MapOfMapProperty],
-        "anytype_1": typing.Type[Anytype1],
-        "map_with_undeclared_properties_anytype_1": typing.Type[MapWithUndeclaredPropertiesAnytype1],
-        "map_with_undeclared_properties_anytype_2": typing.Type[MapWithUndeclaredPropertiesAnytype2],
-        "map_with_undeclared_properties_anytype_3": typing.Type[MapWithUndeclaredPropertiesAnytype3],
-        "empty_map": typing.Type[EmptyMap],
-        "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
-    }
-)

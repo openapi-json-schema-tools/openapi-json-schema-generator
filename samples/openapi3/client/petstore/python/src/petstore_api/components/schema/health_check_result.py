@@ -57,7 +57,12 @@ class NullableMessage(
         )
         return inst
 
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "NullableMessage": typing.Type[NullableMessage],
+    }
+)
 
 class HealthCheckResult(
     schemas.DictSchema[schemas.T]
@@ -150,9 +155,3 @@ class HealthCheckResult(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "NullableMessage": typing.Type[NullableMessage],
-    }
-)

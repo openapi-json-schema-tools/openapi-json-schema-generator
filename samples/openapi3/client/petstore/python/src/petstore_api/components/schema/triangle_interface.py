@@ -32,7 +32,13 @@ class ShapeType(
     def TRIANGLE(cls) -> ShapeType[str]:
         return cls("Triangle") # type: ignore
 TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "shapeType": typing.Type[ShapeType],
+        "triangleType": typing.Type[TriangleType],
+    }
+)
 
 class TriangleInterface(
     schemas.AnyTypeSchema[schemas.T],
@@ -166,10 +172,3 @@ class TriangleInterface(
         )
         return inst
 
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "shapeType": typing.Type[ShapeType],
-        "triangleType": typing.Type[TriangleType],
-    }
-)
