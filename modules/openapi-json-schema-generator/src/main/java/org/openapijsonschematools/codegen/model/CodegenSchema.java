@@ -165,10 +165,22 @@ public class CodegenSchema {
             for (CodegenSchema someSchema: allOf) {
                 someSchema.getAllSchemas(schemas, level + 1);
             }
+            if (allOf.allAreInline()) {
+                CodegenSchema extraSchema = new CodegenSchema();
+                extraSchema.instanceType = "allOfType";
+                extraSchema.allOf = allOf;
+                schemas.add(extraSchema);
+            }
         }
         if (anyOf != null) {
             for (CodegenSchema someSchema: anyOf) {
                 someSchema.getAllSchemas(schemas, level + 1);
+            }
+            if (anyOf.allAreInline()) {
+                CodegenSchema extraSchema = new CodegenSchema();
+                extraSchema.instanceType = "anyOfType";
+                extraSchema.anyOf = anyOf;
+                schemas.add(extraSchema);
             }
         }
         if (items != null) {
@@ -180,6 +192,12 @@ public class CodegenSchema {
         if (oneOf != null) {
             for (CodegenSchema someSchema: oneOf) {
                 someSchema.getAllSchemas(schemas, level + 1);
+            }
+            if (oneOf.allAreInline()) {
+                CodegenSchema extraSchema = new CodegenSchema();
+                extraSchema.instanceType = "oneOfType";
+                extraSchema.oneOf = oneOf;
+                schemas.add(extraSchema);
             }
         }
         if (properties != null) {
@@ -260,6 +278,7 @@ public class CodegenSchema {
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
         sb.append(", testCases=").append(testCases);
+        sb.append(", instanceType=").append(instanceType);
     }
 
     @Override

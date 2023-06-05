@@ -1,7 +1,7 @@
 package org.openapijsonschematools.codegen.model;
 
 public interface InlineContext {
-    public boolean getAllAreInline();
+    public boolean allAreInline();
 
     public void setAllAreInline(boolean allAreInline);
 

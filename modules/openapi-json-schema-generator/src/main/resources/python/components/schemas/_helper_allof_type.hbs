@@ -1,0 +1,9 @@
+{{allOf.jsonPathPiece.camelCase}} = typing.Tuple[
+        {{#each allOf}}
+            {{#if refInfo.refClass}}
+    typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+            {{else}}
+    typing.Type[{{jsonPathPiece.camelCase}}],
+            {{/if}}
+        {{/each}}
+]

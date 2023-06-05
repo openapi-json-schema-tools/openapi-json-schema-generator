@@ -6,14 +6,14 @@ import java.util.ArrayList;
  * A class to store inline codegenschema definitions
  */
 public class ArrayListWithContext<E> extends ArrayList<E> implements InlineContext {
-    private boolean allAreInline = false;
+    private boolean internalallAreInline = false;
     private CodegenKey internalJsonPathPiece = null;
-    public boolean getAllAreInline() {
-        return allAreInline;
+    public boolean allAreInline() {
+        return internalallAreInline;
     }
 
     public void setAllAreInline(boolean allAreInline) {
-        this.allAreInline = allAreInline;
+        this.internalallAreInline = allAreInline;
     }
 
     public CodegenKey jsonPathPiece() {
