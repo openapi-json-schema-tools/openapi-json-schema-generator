@@ -43,6 +43,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.ArrayListWithContext;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
@@ -64,6 +65,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
+import org.openapijsonschematools.codegen.model.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
@@ -3242,19 +3244,23 @@ public class DefaultCodegen implements CodegenConfig {
      * @param currentJsonPath the current json path
      * @return the properties
      */
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
         if (properties == null || properties.isEmpty()) {
             return null;
         }
 
-        LinkedHashMap<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMap<>();
+        LinkedHashMapWithContext<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMapWithContext<>();
 
+        boolean allAreInline = true;
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String propertyName = entry.getKey();
             final Schema prop = entry.getValue();
             if (prop == null) {
                 LOGGER.warn("Please report the issue. There shouldn't be null property for {}", propertyName);
             } else {
+                if (prop.get$ref() != null) {
+                    allAreInline = false;
+                }
                 final CodegenSchema cp;
 
                 String propertyJsonPath = currentJsonPath + "/properties/" + ModelUtils.encodeSlashes(propertyName);
@@ -3264,6 +3270,9 @@ public class DefaultCodegen implements CodegenConfig {
                 propertiesMap.put(key, cp);
             }
         }
+        propertiesMap.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey("properties");
+        propertiesMap.setJsonPathPiece(jsonPathPiece);
         return propertiesMap;
     }
 
@@ -4735,17 +4744,24 @@ public class DefaultCodegen implements CodegenConfig {
         return mime != null && JSON_VENDOR_MIME_PATTERN.matcher(mime).matches();
     }
 
-    private List<CodegenSchema> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath, String currentJsonPath) {
+    private ArrayListWithContext<CodegenSchema> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath, String currentJsonPath) {
         if (xOfCollection == null) {
             return null;
         }
-        List<CodegenSchema> xOf = new ArrayList<>();
+        ArrayListWithContext<CodegenSchema> xOf = new ArrayListWithContext<>();
         int i = 0;
+        boolean allAreInline = true;
         for (Schema xOfSchema : xOfCollection) {
+            if (xOfSchema.get$ref() != null) {
+                allAreInline = false;
+            }
             CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + i);
             xOf.add(cp);
             i += 1;
         }
+        xOf.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey(collectionName);
+        xOf.setJsonPathPiece(jsonPathPiece);
         return xOf;
     }
 

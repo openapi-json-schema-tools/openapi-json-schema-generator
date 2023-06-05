@@ -47,12 +47,12 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
     public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
     public String type;
-    public List<CodegenSchema> allOf = null;
-    public List<CodegenSchema> anyOf = null;
-    public List<CodegenSchema> oneOf = null;
+    public ArrayListWithContext<CodegenSchema> allOf = null;
+    public ArrayListWithContext<CodegenSchema> anyOf = null;
+    public ArrayListWithContext<CodegenSchema> oneOf = null;
     public CodegenSchema not = null;
     public CodegenSchema items;
-    public LinkedHashMap<CodegenKey, CodegenSchema> properties;
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties;
     public CodegenSchema additionalProperties;
     public String description;
     public String format;
@@ -87,7 +87,11 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
-    public String instanceType;  // schema/allOfType/anyOfType/oneOfType/propertiesType
+    /**
+     * schema/allOfType/anyOfType/oneOfType/propertiesType
+     * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
+     */
+    public String instanceType;
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
@@ -104,28 +108,6 @@ public class CodegenSchema {
         if (discriminator.mappedModels == null) {
             return false;
         } else return !discriminator.mappedModels.isEmpty();
-    }
-
-    public Boolean isInlineDefinition() {
-        if (instanceType == null || instanceType == "schema") {
-            return null;
-        }
-        Boolean res = null;
-        switch (instanceType) {
-            case "allOfType":
-                res = this.allOf instanceof InlineArrayList;
-                break;
-            case "anyOfType":
-                res = this.anyOf instanceof InlineArrayList;
-                break;
-            case "oneOfType":
-                res = this.oneOf instanceof InlineArrayList;
-                break;
-            case "propertiesType":
-                res = this.properties instanceof InlineLinkedHashMap;
-                break;
-        }
-        return res;
     }
 
     public CodegenSchema getDeepestRef() {
