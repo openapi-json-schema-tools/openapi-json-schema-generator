@@ -47,9 +47,7 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{else}}
-    *args_: typing.Union[
-        {{> _helper_schema_python_types_newline }}
-    ],
+    *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
 {{/if}}
 {{#if types}}
     {{#eq types.size 1}}
