@@ -87,6 +87,7 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
+    public String instanceType;  // schema/allOfType/anyOfType/oneOfType/propertiesType
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
@@ -103,6 +104,28 @@ public class CodegenSchema {
         if (discriminator.mappedModels == null) {
             return false;
         } else return !discriminator.mappedModels.isEmpty();
+    }
+
+    public Boolean isInlineDefinition() {
+        if (instanceType == null || instanceType == "schema") {
+            return null;
+        }
+        Boolean res = null;
+        switch (instanceType) {
+            case "allOfType":
+                res = this.allOf instanceof InlineArrayList;
+                break;
+            case "anyOfType":
+                res = this.anyOf instanceof InlineArrayList;
+                break;
+            case "oneOfType":
+                res = this.oneOf instanceof InlineArrayList;
+                break;
+            case "propertiesType":
+                res = this.properties instanceof InlineLinkedHashMap;
+                break;
+        }
+        return res;
     }
 
     public CodegenSchema getDeepestRef() {
