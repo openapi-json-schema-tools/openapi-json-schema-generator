@@ -88,7 +88,7 @@ class Variables(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'VariablesProperties',
+    'Properties',
     {
         "version": typing.Type[Version],
     }

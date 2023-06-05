@@ -306,7 +306,7 @@ class ArrayTest(
 
 from petstore_api.components.schema import read_only_first
 Properties = typing_extensions.TypedDict(
-    'ArrayTestProperties',
+    'Properties',
     {
         "array_of_string": typing.Type[ArrayOfString],
         "array_array_of_integer": typing.Type[ArrayArrayOfInteger],

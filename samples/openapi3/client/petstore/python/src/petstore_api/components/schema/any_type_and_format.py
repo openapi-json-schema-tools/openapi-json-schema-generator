@@ -1208,7 +1208,7 @@ class AnyTypeAndFormat(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'AnyTypeAndFormatProperties',
+    'Properties',
     {
         "uuid": typing.Type[Uuid],
         "date": typing.Type[Date],

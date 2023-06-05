@@ -144,7 +144,7 @@ AnyOf = typing.Tuple[
     typing.Type[banana.Banana],
 ]
 Properties = typing_extensions.TypedDict(
-    'GmFruitProperties',
+    'Properties',
     {
         "color": typing.Type[Color],
     }

@@ -113,7 +113,7 @@ class GrandparentAnimal(
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import parent_pet
 Properties = typing_extensions.TypedDict(
-    'GrandparentAnimalProperties',
+    'Properties',
     {
         "pet_type": typing.Type[PetType],
     }

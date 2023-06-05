@@ -130,7 +130,7 @@ class Schema(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'SchemaProperties',
+    'Properties',
     {
         "files": typing.Type[Files],
     }

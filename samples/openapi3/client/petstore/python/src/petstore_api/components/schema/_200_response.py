@@ -144,7 +144,7 @@ class _200Response(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    '_200ResponseProperties',
+    'Properties',
     {
         "name": typing.Type[Name],
         "class": typing.Type[_Class],

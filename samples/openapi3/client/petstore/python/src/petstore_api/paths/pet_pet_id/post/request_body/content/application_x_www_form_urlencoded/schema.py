@@ -102,7 +102,7 @@ class Schema(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'SchemaProperties',
+    'Properties',
     {
         "name": typing.Type[Name],
         "status": typing.Type[Status],

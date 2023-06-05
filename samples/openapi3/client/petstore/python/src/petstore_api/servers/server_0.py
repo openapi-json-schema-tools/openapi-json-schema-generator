@@ -134,7 +134,7 @@ class Variables(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'VariablesProperties',
+    'Properties',
     {
         "server": typing.Type[Server],
         "port": typing.Type[Port],

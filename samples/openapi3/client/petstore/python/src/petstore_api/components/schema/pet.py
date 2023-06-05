@@ -271,7 +271,7 @@ class Pet(
 from petstore_api.components.schema import category
 from petstore_api.components.schema import tag
 Properties = typing_extensions.TypedDict(
-    'PetProperties',
+    'Properties',
     {
         "id": typing.Type[Id],
         "category": typing.Type[category.Category],

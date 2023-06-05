@@ -460,7 +460,7 @@ class AdditionalPropertiesClass(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'AdditionalPropertiesClassProperties',
+    'Properties',
     {
         "map_property": typing.Type[MapProperty],
         "map_of_map_property": typing.Type[MapOfMapProperty],

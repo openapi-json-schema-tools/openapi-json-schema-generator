@@ -104,7 +104,7 @@ class Banana(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'BananaProperties',
+    'Properties',
     {
         "lengthCm": typing.Type[LengthCm],
     }

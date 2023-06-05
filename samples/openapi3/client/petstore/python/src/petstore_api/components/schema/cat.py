@@ -186,7 +186,7 @@ class Cat(
 
 from petstore_api.components.schema import animal
 Properties = typing_extensions.TypedDict(
-    '_1Properties',
+    'Properties',
     {
         "declawed": typing.Type[Declawed],
     }

@@ -108,7 +108,7 @@ class Tag(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'TagProperties',
+    'Properties',
     {
         "id": typing.Type[Id],
         "name": typing.Type[Name],

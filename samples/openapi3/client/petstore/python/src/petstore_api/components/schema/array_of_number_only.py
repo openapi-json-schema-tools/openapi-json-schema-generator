@@ -135,7 +135,7 @@ class ArrayOfNumberOnly(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'ArrayOfNumberOnlyProperties',
+    'Properties',
     {
         "ArrayNumber": typing.Type[ArrayNumber],
     }

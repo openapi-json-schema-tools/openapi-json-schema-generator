@@ -232,7 +232,7 @@ AllOf = typing.Tuple[
     typing.Type[_0],
 ]
 Properties = typing_extensions.TypedDict(
-    'ObjectWithInlineCompositionPropertyProperties',
+    'Properties',
     {
         "someProp": typing.Type[SomeProp],
     }

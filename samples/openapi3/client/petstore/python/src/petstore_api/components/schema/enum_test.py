@@ -316,7 +316,7 @@ from petstore_api.components.schema import integer_enum_with_default_value
 from petstore_api.components.schema import string_enum
 from petstore_api.components.schema import string_enum_with_default_value
 Properties = typing_extensions.TypedDict(
-    'EnumTestProperties',
+    'Properties',
     {
         "enum_string": typing.Type[EnumString],
         "enum_string_required": typing.Type[EnumStringRequired],

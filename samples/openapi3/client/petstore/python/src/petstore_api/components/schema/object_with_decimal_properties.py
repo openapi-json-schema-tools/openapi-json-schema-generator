@@ -120,7 +120,7 @@ class ObjectWithDecimalProperties(
 from petstore_api.components.schema import decimal_payload
 from petstore_api.components.schema import money
 Properties = typing_extensions.TypedDict(
-    'ObjectWithDecimalPropertiesProperties',
+    'Properties',
     {
         "length": typing.Type[decimal_payload.DecimalPayload],
         "width": typing.Type[Width],

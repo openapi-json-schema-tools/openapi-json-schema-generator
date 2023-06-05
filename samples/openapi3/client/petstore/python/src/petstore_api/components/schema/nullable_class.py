@@ -1217,7 +1217,7 @@ class NullableClass(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'NullableClassProperties',
+    'Properties',
     {
         "integer_prop": typing.Type[IntegerProp],
         "number_prop": typing.Type[NumberProp],

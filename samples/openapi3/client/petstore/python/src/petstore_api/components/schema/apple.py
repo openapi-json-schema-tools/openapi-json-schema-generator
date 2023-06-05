@@ -158,7 +158,7 @@ class Apple(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'AppleProperties',
+    'Properties',
     {
         "cultivar": typing.Type[Cultivar],
         "origin": typing.Type[Origin],

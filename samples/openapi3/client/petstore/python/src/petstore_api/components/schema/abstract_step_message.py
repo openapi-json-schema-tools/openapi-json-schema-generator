@@ -230,7 +230,7 @@ AnyOf = typing.Tuple[
     typing.Type[AbstractStepMessage],
 ]
 Properties = typing_extensions.TypedDict(
-    'AbstractStepMessageProperties',
+    'Properties',
     {
         "discriminator": typing.Type[Discriminator],
     }

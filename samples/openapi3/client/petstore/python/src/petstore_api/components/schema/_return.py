@@ -132,7 +132,7 @@ class _Return(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    '_ReturnProperties',
+    'Properties',
     {
         "return": typing.Type[_Return],
     }

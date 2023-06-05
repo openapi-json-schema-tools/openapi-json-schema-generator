@@ -515,7 +515,7 @@ class FormatTest(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'FormatTestProperties',
+    'Properties',
     {
         "integer": typing.Type[Integer],
         "int32": typing.Type[Int32],

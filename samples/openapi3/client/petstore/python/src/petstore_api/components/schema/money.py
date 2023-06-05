@@ -118,7 +118,7 @@ class Money(
 
 from petstore_api.components.schema import currency
 Properties = typing_extensions.TypedDict(
-    'MoneyProperties',
+    'Properties',
     {
         "amount": typing.Type[Amount],
         "currency": typing.Type[currency.Currency],

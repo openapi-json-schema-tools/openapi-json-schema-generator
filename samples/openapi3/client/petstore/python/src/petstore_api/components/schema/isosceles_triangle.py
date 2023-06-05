@@ -206,7 +206,7 @@ class IsoscelesTriangle(
 
 from petstore_api.components.schema import triangle_interface
 Properties = typing_extensions.TypedDict(
-    '_1Properties',
+    'Properties',
     {
         "triangleType": typing.Type[TriangleType],
     }

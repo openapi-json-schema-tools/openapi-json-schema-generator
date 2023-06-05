@@ -105,7 +105,7 @@ class ObjectWithDifficultlyNamedProps(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'ObjectWithDifficultlyNamedPropsProperties',
+    'Properties',
     {
         "$special[property.name]": typing.Type[SpecialPropertyName],
         "123-list": typing.Type[_123List],

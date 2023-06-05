@@ -111,7 +111,7 @@ AllOf = typing.Tuple[
     typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
 ]
 Properties = typing_extensions.TypedDict(
-    'ObjWithRequiredPropsProperties',
+    'Properties',
     {
         "a": typing.Type[A],
     }

@@ -107,7 +107,7 @@ class ReadOnlyFirst(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'ReadOnlyFirstProperties',
+    'Properties',
     {
         "bar": typing.Type[Bar],
         "baz": typing.Type[Baz],

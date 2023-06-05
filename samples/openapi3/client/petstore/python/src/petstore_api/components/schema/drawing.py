@@ -309,7 +309,7 @@ from petstore_api.components.schema import nullable_shape
 from petstore_api.components.schema import shape
 from petstore_api.components.schema import shape_or_null
 Properties = typing_extensions.TypedDict(
-    'DrawingProperties',
+    'Properties',
     {
         "mainShape": typing.Type[shape.Shape],
         "shapeOrNull": typing.Type[shape_or_null.ShapeOrNull],

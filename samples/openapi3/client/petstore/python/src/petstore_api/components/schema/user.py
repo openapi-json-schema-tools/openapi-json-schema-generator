@@ -493,7 +493,7 @@ class User(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'UserProperties',
+    'Properties',
     {
         "id": typing.Type[Id],
         "username": typing.Type[Username],

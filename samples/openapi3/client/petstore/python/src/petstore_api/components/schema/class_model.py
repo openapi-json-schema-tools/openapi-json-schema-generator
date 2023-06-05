@@ -138,7 +138,7 @@ class ClassModel(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'ClassModelProperties',
+    'Properties',
     {
         "_class": typing.Type[_Class],
     }

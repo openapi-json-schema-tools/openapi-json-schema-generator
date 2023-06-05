@@ -122,7 +122,7 @@ class BasquePig(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'BasquePigProperties',
+    'Properties',
     {
         "className": typing.Type[ClassName],
     }

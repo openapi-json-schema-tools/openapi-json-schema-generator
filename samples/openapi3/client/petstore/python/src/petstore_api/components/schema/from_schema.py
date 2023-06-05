@@ -108,7 +108,7 @@ class FromSchema(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'FromSchemaProperties',
+    'Properties',
     {
         "data": typing.Type[Data],
         "id": typing.Type[Id],

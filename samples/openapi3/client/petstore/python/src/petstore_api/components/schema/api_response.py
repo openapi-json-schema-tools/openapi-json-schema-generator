@@ -119,7 +119,7 @@ class ApiResponse(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'ApiResponseProperties',
+    'Properties',
     {
         "code": typing.Type[Code],
         "type": typing.Type[Type],

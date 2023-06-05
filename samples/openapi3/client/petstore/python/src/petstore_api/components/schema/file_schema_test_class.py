@@ -146,7 +146,7 @@ class FileSchemaTestClass(
 
 from petstore_api.components.schema import file
 Properties = typing_extensions.TypedDict(
-    'FileSchemaTestClassProperties',
+    'Properties',
     {
         "file": typing.Type[file.File],
         "files": typing.Type[Files],

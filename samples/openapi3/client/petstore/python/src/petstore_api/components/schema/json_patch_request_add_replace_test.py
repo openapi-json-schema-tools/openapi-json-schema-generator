@@ -173,7 +173,7 @@ class JSONPatchRequestAddReplaceTest(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'JSONPatchRequestAddReplaceTestProperties',
+    'Properties',
     {
         "path": typing.Type[Path],
         "value": typing.Type[Value],

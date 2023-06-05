@@ -206,7 +206,7 @@ class ComplexQuadrilateral(
 
 from petstore_api.components.schema import quadrilateral_interface
 Properties = typing_extensions.TypedDict(
-    '_1Properties',
+    'Properties',
     {
         "quadrilateralType": typing.Type[QuadrilateralType],
     }

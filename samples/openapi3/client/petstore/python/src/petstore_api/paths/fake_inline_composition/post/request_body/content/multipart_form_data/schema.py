@@ -227,7 +227,7 @@ AllOf = typing.Tuple[
     typing.Type[_0],
 ]
 Properties = typing_extensions.TypedDict(
-    'SchemaProperties',
+    'Properties',
     {
         "someProp": typing.Type[SomeProp],
     }

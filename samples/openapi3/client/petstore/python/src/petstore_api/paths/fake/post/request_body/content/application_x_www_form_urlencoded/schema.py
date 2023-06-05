@@ -380,7 +380,7 @@ class Schema(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'SchemaProperties',
+    'Properties',
     {
         "integer": typing.Type[Integer],
         "int32": typing.Type[Int32],

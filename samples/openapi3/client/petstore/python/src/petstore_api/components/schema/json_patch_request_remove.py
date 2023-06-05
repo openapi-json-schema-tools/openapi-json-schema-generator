@@ -106,7 +106,7 @@ class JSONPatchRequestRemove(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'JSONPatchRequestRemoveProperties',
+    'Properties',
     {
         "path": typing.Type[Path],
         "op": typing.Type[Op],

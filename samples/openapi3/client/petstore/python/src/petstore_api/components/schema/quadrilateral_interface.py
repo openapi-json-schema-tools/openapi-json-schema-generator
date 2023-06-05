@@ -167,7 +167,7 @@ class QuadrilateralInterface(
         return inst
 
 Properties = typing_extensions.TypedDict(
-    'QuadrilateralInterfaceProperties',
+    'Properties',
     {
         "shapeType": typing.Type[ShapeType],
         "quadrilateralType": typing.Type[QuadrilateralType],

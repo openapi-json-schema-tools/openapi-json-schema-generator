@@ -41,7 +41,7 @@
     {{/if}}
     {{#if properties}}
 {{properties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
-    '{{jsonPathPiece.camelCase}}Properties',
+    '{{properties.jsonPathPiece.camelCase}}',
     {
         {{#each properties}}
             {{#if refInfo.refClass}}
