@@ -88,7 +88,7 @@ public class CodegenSchema {
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
-     * schema/allOfType/anyOfType/oneOfType/propertiesType
+     * schema/allOfType/anyOfType/oneOfType/propertiesType/importsType
      * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
      */
     public String instanceType;
@@ -135,10 +135,10 @@ public class CodegenSchema {
 
     /**
      * Returns all schemas in post order traversal, used by templates to write schema classes
-     * @param schemas the input list that stores this and all required schemas
+     * @param schemasBeforeImports the input list that stores this and all required schemas
      * @return the list that stores this and all required schemas
      */
-    private ArrayList<CodegenSchema> getAllSchemas(ArrayList<CodegenSchema> schemas, int level) {
+    private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level) {
         /*
         post order traversal using alphabetic json schema keywords as the order
         keywords with schemas:
@@ -156,74 +156,90 @@ public class CodegenSchema {
          */
         if (isBooleanSchemaFalse) {
             // return early for isBooleanSchemaFalse so not_ will not be written
-            schemas.add(this);
-            return schemas;
+            schemasBeforeImports.add(this);
+            return;
         }
         if (additionalProperties != null) {
-            additionalProperties.getAllSchemas(schemas, level + 1);
+            additionalProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (allOf != null) {
             for (CodegenSchema someSchema: allOf) {
-                someSchema.getAllSchemas(schemas, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "allOfType";
+            extraSchema.allOf = allOf;
             if (allOf.allAreInline()) {
-                CodegenSchema extraSchema = new CodegenSchema();
-                extraSchema.instanceType = "allOfType";
-                extraSchema.allOf = allOf;
-                schemas.add(extraSchema);
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
             }
         }
         if (anyOf != null) {
             for (CodegenSchema someSchema: anyOf) {
-                someSchema.getAllSchemas(schemas, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports,level + 1);
             }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "anyOfType";
+            extraSchema.anyOf = anyOf;
             if (anyOf.allAreInline()) {
-                CodegenSchema extraSchema = new CodegenSchema();
-                extraSchema.instanceType = "anyOfType";
-                extraSchema.anyOf = anyOf;
-                schemas.add(extraSchema);
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
             }
         }
         if (items != null) {
-            items.getAllSchemas(schemas, level + 1);
+            items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (not != null) {
-            not.getAllSchemas(schemas, level + 1);
+            not.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (oneOf != null) {
             for (CodegenSchema someSchema: oneOf) {
-                someSchema.getAllSchemas(schemas, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "oneOfType";
+            extraSchema.oneOf = oneOf;
             if (oneOf.allAreInline()) {
-                CodegenSchema extraSchema = new CodegenSchema();
-                extraSchema.instanceType = "oneOfType";
-                extraSchema.oneOf = oneOf;
-                schemas.add(extraSchema);
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
             }
         }
         if (properties != null) {
             for (CodegenSchema someSchema: properties.values()) {
-                someSchema.getAllSchemas(schemas, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "propertiesType";
+            extraSchema.properties = properties;
             if (properties.allAreInline()) {
-                CodegenSchema extraSchema = new CodegenSchema();
-                extraSchema.instanceType = "propertiesType";
-                extraSchema.properties = properties;
-                schemas.add(extraSchema);
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
             }
         }
         if (refInfo != null && level > 0) {
             // do not add ref to schemas
-            return schemas;
+            return;
         }
-        schemas.add(this);
-        return schemas;
+        schemasBeforeImports.add(this);
+        if (level == 0 && imports != null && !imports.isEmpty()) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "importsType";
+            extraSchema.imports = imports;
+            schemasBeforeImports.add(extraSchema);
+        }
     }
 
     public ArrayList<CodegenSchema> getSchemas() {
         if (allSchemas == null) {
-            ArrayList<CodegenSchema> schemas = new ArrayList<>();
-            allSchemas = getAllSchemas(schemas, 0);
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            allSchemas = schemasBeforeImports;
         }
         return allSchemas;
     }
