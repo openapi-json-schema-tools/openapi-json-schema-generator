@@ -2621,3 +2621,23 @@ def tuple_to_instance(tup: typing.Type[X]) -> X:
             arg_cls = typing_extensions.get_args(arg)[0]
             res.append(arg_cls)
     return tuple(res) # type: ignore
+
+INPUT_TYPES_ALL_INCL_SCHEMA = typing.Union[
+    dict,
+    frozendict.frozendict,
+    list,
+    tuple,
+    decimal.Decimal,
+    float,
+    int,
+    str,
+    datetime.date,
+    datetime.datetime,
+    uuid.UUID,
+    bool,
+    None,
+    bytes,
+    io.FileIO,
+    io.BufferedReader,
+    Schema
+]
