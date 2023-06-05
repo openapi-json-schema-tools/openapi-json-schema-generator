@@ -24,7 +24,7 @@ class ComposedArray(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 

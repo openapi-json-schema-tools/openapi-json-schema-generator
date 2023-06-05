@@ -28,7 +28,7 @@ class _9(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
@@ -125,7 +125,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
 

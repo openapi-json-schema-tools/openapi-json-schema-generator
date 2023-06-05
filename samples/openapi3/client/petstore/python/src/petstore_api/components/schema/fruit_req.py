@@ -24,7 +24,7 @@ class FruitReq(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 

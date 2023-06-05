@@ -15,7 +15,7 @@ class Server(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -47,7 +47,7 @@ class Port(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -80,7 +80,7 @@ class Variables(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required: typing.FrozenSet[str] = frozenset({
             "port",

@@ -21,7 +21,7 @@ class AdditionalProperties(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -71,7 +71,7 @@ class IntegerProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             decimal.Decimal,
@@ -120,7 +120,7 @@ class NumberProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             decimal.Decimal,
@@ -169,7 +169,7 @@ class BooleanProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             schemas.BoolClass,
@@ -216,7 +216,7 @@ class StringProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
@@ -264,7 +264,7 @@ class DateProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
@@ -314,7 +314,7 @@ class DatetimeProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
@@ -364,7 +364,7 @@ class ArrayNullableProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             tuple,
@@ -413,7 +413,7 @@ class Items(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -463,7 +463,7 @@ class ArrayAndItemsNullableProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             tuple,
@@ -512,7 +512,7 @@ class Items(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -559,7 +559,7 @@ class ArrayItemsNullable(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
@@ -607,7 +607,7 @@ class ObjectNullableProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -666,7 +666,7 @@ class AdditionalProperties(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -716,7 +716,7 @@ class ObjectAndItemsNullableProp(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -782,7 +782,7 @@ class AdditionalProperties(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
@@ -829,7 +829,7 @@ class ObjectItemsNullable(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
@@ -895,7 +895,7 @@ class NullableClass(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore

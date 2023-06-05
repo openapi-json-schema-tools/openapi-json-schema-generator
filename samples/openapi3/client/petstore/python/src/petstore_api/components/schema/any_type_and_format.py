@@ -19,7 +19,7 @@ class Uuid(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'uuid'
 
@@ -73,7 +73,7 @@ class Date(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'date'
 
@@ -127,7 +127,7 @@ class DateTime(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'date-time'
 
@@ -181,7 +181,7 @@ class Number(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'number'
 
@@ -234,7 +234,7 @@ class Binary(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'binary'
 
@@ -287,7 +287,7 @@ class Int32(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'int32'
 
@@ -340,7 +340,7 @@ class Int64(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'int64'
 
@@ -393,7 +393,7 @@ class Double(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'double'
 
@@ -446,7 +446,7 @@ class _Float(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         format: str = 'float'
 
@@ -517,7 +517,7 @@ class AnyTypeAndFormat(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     

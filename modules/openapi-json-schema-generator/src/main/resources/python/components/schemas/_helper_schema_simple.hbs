@@ -22,7 +22,7 @@ class {{jsonPathPiece.camelCase}}(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
 {{#eq types null}}
         # any type
 {{/eq}}

@@ -32,7 +32,7 @@ class AppleReq(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         required: typing.FrozenSet[str] = frozenset({
             "cultivar",

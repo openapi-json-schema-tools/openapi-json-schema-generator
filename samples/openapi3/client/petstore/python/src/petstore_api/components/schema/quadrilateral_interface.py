@@ -18,7 +18,7 @@ class ShapeType(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({
             str,
         })
@@ -51,7 +51,7 @@ class QuadrilateralInterface(
 
 
     @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SchemaBase):
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
         required: typing.FrozenSet[str] = frozenset({
             "quadrilateralType",
