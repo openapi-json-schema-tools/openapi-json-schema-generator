@@ -81,7 +81,7 @@ class Zebra(
         required: typing.FrozenSet[str] = frozenset({
             "className",
         })
-        properties: ZebraProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ZebraProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -173,7 +173,7 @@ class Zebra(
         )
         return inst
 
-ZebraProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ZebraProperties',
     {
         "type": typing.Type[Type],

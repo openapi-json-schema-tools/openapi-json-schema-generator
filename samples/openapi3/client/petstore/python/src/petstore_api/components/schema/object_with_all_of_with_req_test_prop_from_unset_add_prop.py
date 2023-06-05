@@ -24,7 +24,7 @@ class _1(
         required: typing.FrozenSet[str] = frozenset({
             "test",
         })
-        properties: _1Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_1Properties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def test(self) -> schemas.AnyTypeSchema[typing.Union[
@@ -153,7 +153,7 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        all_of: ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
@@ -233,13 +233,13 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
 
 from petstore_api.components.schema import object_with_optional_test_prop
-_1Properties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     '_1Properties',
     {
         "name": typing.Type[Name],
     }
 )
-ObjectWithAllOfWithReqTestPropFromUnsetAddPropAllOf = typing.Tuple[
+AllOf = typing.Tuple[
     typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
     typing.Type[_1],
 ]

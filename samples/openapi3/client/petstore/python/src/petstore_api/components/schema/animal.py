@@ -50,7 +50,7 @@ class Animal(
                 }
             }
         )
-        properties: AnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AnimalProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:
@@ -135,7 +135,7 @@ class Animal(
 
 from petstore_api.components.schema import cat
 from petstore_api.components.schema import dog
-AnimalProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'AnimalProperties',
     {
         "className": typing.Type[ClassName],

@@ -113,7 +113,7 @@ class EnumArrays(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: EnumArraysProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumArraysProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> JustSymbol[str]: ...
@@ -193,7 +193,7 @@ class EnumArrays(
         )
         return inst
 
-EnumArraysProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'EnumArraysProperties',
     {
         "just_symbol": typing.Type[JustSymbol],

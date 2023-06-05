@@ -414,7 +414,7 @@ class AdditionalPropertiesValidator(
         types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
         })
-        all_of: AdditionalPropertiesValidatorAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AdditionalPropertiesValidatorAllOf)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
@@ -453,7 +453,7 @@ class AdditionalPropertiesValidator(
         )
         return inst
 
-AdditionalPropertiesValidatorAllOf = typing.Tuple[
+AllOf = typing.Tuple[
     typing.Type[_0],
     typing.Type[_1],
     typing.Type[_2],

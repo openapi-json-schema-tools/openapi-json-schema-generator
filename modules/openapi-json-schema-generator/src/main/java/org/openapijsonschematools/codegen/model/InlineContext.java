@@ -5,7 +5,7 @@ public interface InlineContext {
 
     public void setAllAreInline(boolean allAreInline);
 
-    public CodegenKey getJsonPathPiece();
+    public CodegenKey jsonPathPiece();
 
     public void setJsonPathPiece(CodegenKey jsonPathPiece);
 }

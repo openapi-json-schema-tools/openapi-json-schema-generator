@@ -202,7 +202,7 @@ class MapTest(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: MapTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MapTestProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfString[frozendict.frozendict]: ...
@@ -307,7 +307,7 @@ class MapTest(
 
 
 from petstore_api.components.schema import string_boolean_map
-MapTestProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'MapTestProperties',
     {
         "map_map_of_string": typing.Type[MapMapOfString],

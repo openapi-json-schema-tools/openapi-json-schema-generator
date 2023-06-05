@@ -144,7 +144,7 @@ class EnumTest(
         required: typing.FrozenSet[str] = frozenset({
             "enum_string_required",
         })
-        properties: EnumTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(EnumTestProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def enum_string_required(self) -> EnumStringRequired[str]:
@@ -315,7 +315,7 @@ from petstore_api.components.schema import integer_enum_one_value
 from petstore_api.components.schema import integer_enum_with_default_value
 from petstore_api.components.schema import string_enum
 from petstore_api.components.schema import string_enum_with_default_value
-EnumTestProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'EnumTestProperties',
     {
         "enum_string": typing.Type[EnumString],

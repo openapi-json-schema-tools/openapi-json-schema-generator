@@ -29,7 +29,7 @@ class Banana(
         required: typing.FrozenSet[str] = frozenset({
             "lengthCm",
         })
-        properties: BananaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def lengthCm(self) -> LengthCm[decimal.Decimal]:
@@ -103,7 +103,7 @@ class Banana(
         )
         return inst
 
-BananaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'BananaProperties',
     {
         "lengthCm": typing.Type[LengthCm],

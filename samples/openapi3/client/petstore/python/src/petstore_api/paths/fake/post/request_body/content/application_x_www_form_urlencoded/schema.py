@@ -163,7 +163,7 @@ class Schema(
             "number",
             "pattern_without_delimiter",
         })
-        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def byte(self) -> Byte[str]:
@@ -379,7 +379,7 @@ class Schema(
         )
         return inst
 
-SchemaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
         "integer": typing.Type[Integer],

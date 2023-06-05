@@ -29,7 +29,7 @@ class ObjWithRequiredPropsBase(
         required: typing.FrozenSet[str] = frozenset({
             "b",
         })
-        properties: ObjWithRequiredPropsBaseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsBaseProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def b(self) -> B[str]:
@@ -101,7 +101,7 @@ class ObjWithRequiredPropsBase(
         )
         return inst
 
-ObjWithRequiredPropsBaseProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjWithRequiredPropsBaseProperties',
     {
         "b": typing.Type[B],

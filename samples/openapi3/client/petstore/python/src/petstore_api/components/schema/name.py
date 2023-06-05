@@ -33,7 +33,7 @@ class Name(
         required: typing.FrozenSet[str] = frozenset({
             "name",
         })
-        properties: NameProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NameProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @property
@@ -155,7 +155,7 @@ class Name(
         )
         return inst
 
-NameProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'NameProperties',
     {
         "name": typing.Type[Name],

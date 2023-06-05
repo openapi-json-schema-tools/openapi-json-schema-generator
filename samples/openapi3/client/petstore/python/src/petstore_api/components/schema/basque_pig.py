@@ -49,7 +49,7 @@ class BasquePig(
         required: typing.FrozenSet[str] = frozenset({
             "className",
         })
-        properties: BasquePigProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BasquePigProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:
@@ -121,7 +121,7 @@ class BasquePig(
         )
         return inst
 
-BasquePigProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'BasquePigProperties',
     {
         "className": typing.Type[ClassName],

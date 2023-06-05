@@ -31,7 +31,7 @@ class BananaReq(
         required: typing.FrozenSet[str] = frozenset({
             "lengthCm",
         })
-        properties: BananaReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(BananaReqProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -83,7 +83,7 @@ class BananaReq(
         )
         return inst
 
-BananaReqProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'BananaReqProperties',
     {
         "lengthCm": typing.Type[LengthCm],

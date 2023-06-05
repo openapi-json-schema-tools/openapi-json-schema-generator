@@ -27,7 +27,7 @@ class FromSchema(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: FromSchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FromSchemaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["data"]) -> Data[str]: ...
@@ -107,7 +107,7 @@ class FromSchema(
         )
         return inst
 
-FromSchemaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'FromSchemaProperties',
     {
         "data": typing.Type[Data],

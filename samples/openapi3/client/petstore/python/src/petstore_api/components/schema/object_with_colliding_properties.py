@@ -29,7 +29,7 @@ class ObjectWithCollidingProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ObjectWithCollidingPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithCollidingPropertiesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[frozendict.frozendict]: ...
@@ -110,7 +110,7 @@ class ObjectWithCollidingProperties(
         )
         return inst
 
-ObjectWithCollidingPropertiesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithCollidingPropertiesProperties',
     {
         "someProp": typing.Type[SomeProp],

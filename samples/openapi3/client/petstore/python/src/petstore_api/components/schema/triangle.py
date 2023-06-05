@@ -34,7 +34,7 @@ class Triangle(
                 }
             }
         )
-        one_of: TriangleOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(TriangleOneOf)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
@@ -116,7 +116,7 @@ class Triangle(
 from petstore_api.components.schema import equilateral_triangle
 from petstore_api.components.schema import isosceles_triangle
 from petstore_api.components.schema import scalene_triangle
-TriangleOneOf = typing.Tuple[
+OneOf = typing.Tuple[
     typing.Type[equilateral_triangle.EquilateralTriangle],
     typing.Type[isosceles_triangle.IsoscelesTriangle],
     typing.Type[scalene_triangle.ScaleneTriangle],

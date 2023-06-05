@@ -101,7 +101,7 @@ class ArrayOfArrayOfNumberOnly(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ArrayOfArrayOfNumberOnlyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ArrayOfArrayOfNumberOnlyProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> ArrayArrayNumber[tuple]: ...
@@ -171,7 +171,7 @@ class ArrayOfArrayOfNumberOnly(
         )
         return inst
 
-ArrayOfArrayOfNumberOnlyProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ArrayOfArrayOfNumberOnlyProperties',
     {
         "ArrayArrayNumber": typing.Type[ArrayArrayNumber],

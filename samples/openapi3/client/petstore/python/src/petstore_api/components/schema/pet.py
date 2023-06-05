@@ -138,7 +138,7 @@ class Pet(
             "name",
             "photoUrls",
         })
-        properties: PetProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(PetProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def name(self) -> Name[str]:
@@ -270,7 +270,7 @@ class Pet(
 
 from petstore_api.components.schema import category
 from petstore_api.components.schema import tag
-PetProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'PetProperties',
     {
         "id": typing.Type[Id],

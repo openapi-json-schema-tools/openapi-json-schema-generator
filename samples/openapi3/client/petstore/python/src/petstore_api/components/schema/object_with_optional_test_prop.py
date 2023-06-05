@@ -26,7 +26,7 @@ class ObjectWithOptionalTestProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ObjectWithOptionalTestPropProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithOptionalTestPropProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["test"]) -> Test[str]: ...
@@ -95,7 +95,7 @@ class ObjectWithOptionalTestProp(
         )
         return inst
 
-ObjectWithOptionalTestPropProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithOptionalTestPropProperties',
     {
         "test": typing.Type[Test],

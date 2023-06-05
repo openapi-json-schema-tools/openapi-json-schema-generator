@@ -1,11 +1,11 @@
 {{#if allOf}}
-all_of: {{jsonPathPiece.camelCase}}AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}AllOf)) # type: ignore
+all_of: {{allOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{allOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#if anyOf}}
-any_of: {{jsonPathPiece.camelCase}}AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}AnyOf)) # type: ignore
+any_of: {{anyOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{anyOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#if oneOf}}
-one_of: {{jsonPathPiece.camelCase}}OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{jsonPathPiece.camelCase}}OneOf)) # type: ignore
+one_of: {{oneOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{oneOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#if not}}
 {{#with not}}

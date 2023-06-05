@@ -31,7 +31,7 @@ class ObjectModelWithArgAndArgsProperties(
             "arg",
             "args",
         })
-        properties: ObjectModelWithArgAndArgsPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectModelWithArgAndArgsPropertiesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def arg(self) -> Arg[str]:
@@ -116,7 +116,7 @@ class ObjectModelWithArgAndArgsProperties(
         )
         return inst
 
-ObjectModelWithArgAndArgsPropertiesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectModelWithArgAndArgsPropertiesProperties',
     {
         "arg": typing.Type[Arg],

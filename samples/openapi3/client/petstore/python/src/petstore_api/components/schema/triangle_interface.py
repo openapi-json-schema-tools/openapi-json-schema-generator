@@ -51,7 +51,7 @@ class TriangleInterface(
             "shapeType",
             "triangleType",
         })
-        properties: TriangleInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(TriangleInterfaceProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @property
@@ -166,7 +166,7 @@ class TriangleInterface(
         )
         return inst
 
-TriangleInterfaceProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'TriangleInterfaceProperties',
     {
         "shapeType": typing.Type[ShapeType],

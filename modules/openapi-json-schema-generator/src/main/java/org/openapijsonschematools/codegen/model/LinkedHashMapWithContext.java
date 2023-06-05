@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 
 public class LinkedHashMapWithContext<K, V> extends LinkedHashMap<K, V> implements InlineContext {
     private boolean allAreInline = false;
-    private CodegenKey jsonPathPiece = null;
+    private CodegenKey internalJsonPathPiece = null;
     public boolean getAllAreInline() {
         return allAreInline;
     }
@@ -13,11 +13,11 @@ public class LinkedHashMapWithContext<K, V> extends LinkedHashMap<K, V> implemen
         this.allAreInline = allAreInline;
     }
 
-    public CodegenKey getJsonPathPiece() {
-        return jsonPathPiece;
+    public CodegenKey jsonPathPiece() {
+        return internalJsonPathPiece;
     }
 
     public void setJsonPathPiece(CodegenKey jsonPathPiece) {
-        this.jsonPathPiece = jsonPathPiece;
+        this.internalJsonPathPiece = jsonPathPiece;
     }
 }

@@ -193,7 +193,7 @@ class User(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: UserProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(UserProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
@@ -492,7 +492,7 @@ class User(
         )
         return inst
 
-UserProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'UserProperties',
     {
         "id": typing.Type[Id],

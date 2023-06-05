@@ -220,7 +220,7 @@ class FormatTest(
             "number",
             "password",
         })
-        properties: FormatTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(FormatTestProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def byte(self) -> Byte[str]:
@@ -514,7 +514,7 @@ class FormatTest(
         )
         return inst
 
-FormatTestProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'FormatTestProperties',
     {
         "integer": typing.Type[Integer],

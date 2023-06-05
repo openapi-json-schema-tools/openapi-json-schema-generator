@@ -37,7 +37,7 @@ class GrandparentAnimal(
                 }
             }
         )
-        properties: GrandparentAnimalProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(GrandparentAnimalProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def pet_type(self) -> PetType[str]:
@@ -112,7 +112,7 @@ class GrandparentAnimal(
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import parent_pet
-GrandparentAnimalProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'GrandparentAnimalProperties',
     {
         "pet_type": typing.Type[PetType],

@@ -971,7 +971,7 @@ class NullableClass(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: NullableClassProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NullableClassProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @typing.overload
@@ -1216,7 +1216,7 @@ class NullableClass(
         )
         return inst
 
-NullableClassProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'NullableClassProperties',
     {
         "integer_prop": typing.Type[IntegerProp],

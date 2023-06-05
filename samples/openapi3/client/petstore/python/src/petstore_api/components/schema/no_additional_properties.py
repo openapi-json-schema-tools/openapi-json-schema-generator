@@ -31,7 +31,7 @@ class NoAdditionalProperties(
         required: typing.FrozenSet[str] = frozenset({
             "id",
         })
-        properties: NoAdditionalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NoAdditionalPropertiesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -83,7 +83,7 @@ class NoAdditionalProperties(
         )
         return inst
 
-NoAdditionalPropertiesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'NoAdditionalPropertiesProperties',
     {
         "id": typing.Type[Id],

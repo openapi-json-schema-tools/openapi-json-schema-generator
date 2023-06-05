@@ -26,7 +26,7 @@ class Schema(
             "param",
             "param2",
         })
-        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def param(self) -> Param[str]:
@@ -111,7 +111,7 @@ class Schema(
         )
         return inst
 
-SchemaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
         "param": typing.Type[Param],

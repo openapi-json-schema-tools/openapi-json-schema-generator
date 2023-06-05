@@ -20,7 +20,7 @@ class Schema(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string"]) -> foo.Foo[frozendict.frozendict]: ...
@@ -92,7 +92,7 @@ class Schema(
 
 
 from petstore_api.components.schema import foo
-SchemaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
         "string": typing.Type[foo.Foo],

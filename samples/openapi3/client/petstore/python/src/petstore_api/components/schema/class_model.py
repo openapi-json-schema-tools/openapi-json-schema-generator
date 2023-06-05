@@ -28,7 +28,7 @@ class ClassModel(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        properties: ClassModelProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ClassModelProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
@@ -137,7 +137,7 @@ class ClassModel(
         )
         return inst
 
-ClassModelProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ClassModelProperties',
     {
         "_class": typing.Type[_Class],

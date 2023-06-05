@@ -166,7 +166,7 @@ class ComposedOneOfDifferentTypes(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        one_of: ComposedOneOfDifferentTypesOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedOneOfDifferentTypesOneOf)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
@@ -247,7 +247,7 @@ class ComposedOneOfDifferentTypes(
 
 from petstore_api.components.schema import animal
 from petstore_api.components.schema import number_with_validations
-ComposedOneOfDifferentTypesOneOf = typing.Tuple[
+OneOf = typing.Tuple[
     typing.Type[number_with_validations.NumberWithValidations],
     typing.Type[animal.Animal],
     typing.Type[_2],

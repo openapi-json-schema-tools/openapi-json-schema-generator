@@ -29,7 +29,7 @@ class ObjectWithInvalidNamedRefedProperties(
             "!reference",
             "from",
         })
-        properties: ObjectWithInvalidNamedRefedPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithInvalidNamedRefedPropertiesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItems[tuple]: ...
@@ -99,7 +99,7 @@ class ObjectWithInvalidNamedRefedProperties(
 
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema
-ObjectWithInvalidNamedRefedPropertiesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithInvalidNamedRefedPropertiesProperties',
     {
         "from": typing.Type[from_schema.FromSchema],

@@ -110,7 +110,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        any_of: ComposedAnyOfDifferentTypesNoValidationsAnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ComposedAnyOfDifferentTypesNoValidationsAnyOf)) # type: ignore
+        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
 
 
     def __new__(
@@ -188,7 +188,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
         )
         return inst
 
-ComposedAnyOfDifferentTypesNoValidationsAnyOf = typing.Tuple[
+AnyOf = typing.Tuple[
     typing.Type[_0],
     typing.Type[_1],
     typing.Type[_2],

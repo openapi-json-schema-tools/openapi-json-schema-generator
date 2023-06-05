@@ -33,7 +33,7 @@ class ObjectWithDifficultlyNamedProps(
         required: typing.FrozenSet[str] = frozenset({
             "123-list",
         })
-        properties: ObjectWithDifficultlyNamedPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithDifficultlyNamedPropsProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> _123List[str]: ...
@@ -104,7 +104,7 @@ class ObjectWithDifficultlyNamedProps(
         )
         return inst
 
-ObjectWithDifficultlyNamedPropsProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithDifficultlyNamedPropsProperties',
     {
         "$special[property.name]": typing.Type[SpecialPropertyName],

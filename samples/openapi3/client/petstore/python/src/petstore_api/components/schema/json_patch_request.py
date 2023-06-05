@@ -20,7 +20,7 @@ class Items(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        one_of: ItemsOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ItemsOneOf)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
@@ -176,7 +176,7 @@ class JSONPatchRequest(
 from petstore_api.components.schema import json_patch_request_add_replace_test
 from petstore_api.components.schema import json_patch_request_move_copy
 from petstore_api.components.schema import json_patch_request_remove
-ItemsOneOf = typing.Tuple[
+OneOf = typing.Tuple[
     typing.Type[json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest],
     typing.Type[json_patch_request_remove.JSONPatchRequestRemove],
     typing.Type[json_patch_request_move_copy.JSONPatchRequestMoveCopy],

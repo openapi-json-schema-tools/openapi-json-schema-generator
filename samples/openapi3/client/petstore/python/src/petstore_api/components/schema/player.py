@@ -28,7 +28,7 @@ class Player(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: PlayerProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(PlayerProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
@@ -108,7 +108,7 @@ class Player(
         )
         return inst
 
-PlayerProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'PlayerProperties',
     {
         "name": typing.Type[Name],

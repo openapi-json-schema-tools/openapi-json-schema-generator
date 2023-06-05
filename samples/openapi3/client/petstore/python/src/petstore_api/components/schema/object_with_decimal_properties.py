@@ -26,7 +26,7 @@ class ObjectWithDecimalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ObjectWithDecimalPropertiesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithDecimalPropertiesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["length"]) -> decimal_payload.DecimalPayload[str]: ...
@@ -119,7 +119,7 @@ class ObjectWithDecimalProperties(
 
 from petstore_api.components.schema import decimal_payload
 from petstore_api.components.schema import money
-ObjectWithDecimalPropertiesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithDecimalPropertiesProperties',
     {
         "length": typing.Type[decimal_payload.DecimalPayload],

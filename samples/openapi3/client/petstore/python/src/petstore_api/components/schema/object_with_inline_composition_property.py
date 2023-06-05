@@ -33,7 +33,7 @@ class SomeProp(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        all_of: SomePropAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(SomePropAllOf)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
@@ -126,7 +126,7 @@ class ObjectWithInlineCompositionProperty(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ObjectWithInlineCompositionPropertyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectWithInlineCompositionPropertyProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[typing.Union[
@@ -228,10 +228,10 @@ class ObjectWithInlineCompositionProperty(
         )
         return inst
 
-SomePropAllOf = typing.Tuple[
+AllOf = typing.Tuple[
     typing.Type[_0],
 ]
-ObjectWithInlineCompositionPropertyProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectWithInlineCompositionPropertyProperties',
     {
         "someProp": typing.Type[SomeProp],

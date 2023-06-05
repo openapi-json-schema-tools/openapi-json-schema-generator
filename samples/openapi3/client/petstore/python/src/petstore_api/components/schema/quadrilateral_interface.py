@@ -51,7 +51,7 @@ class QuadrilateralInterface(
             "quadrilateralType",
             "shapeType",
         })
-        properties: QuadrilateralInterfaceProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(QuadrilateralInterfaceProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @property
@@ -166,7 +166,7 @@ class QuadrilateralInterface(
         )
         return inst
 
-QuadrilateralInterfaceProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'QuadrilateralInterfaceProperties',
     {
         "shapeType": typing.Type[ShapeType],

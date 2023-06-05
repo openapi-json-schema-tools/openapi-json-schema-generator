@@ -31,7 +31,7 @@ class Capitalization(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: CapitalizationProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(CapitalizationProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> SmallCamel[str]: ...
@@ -150,7 +150,7 @@ class Capitalization(
         )
         return inst
 
-CapitalizationProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'CapitalizationProperties',
     {
         "smallCamel": typing.Type[SmallCamel],

@@ -51,7 +51,7 @@ class Whale(
         required: typing.FrozenSet[str] = frozenset({
             "className",
         })
-        properties: WhaleProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(WhaleProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:
@@ -143,7 +143,7 @@ class Whale(
         )
         return inst
 
-WhaleProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'WhaleProperties',
     {
         "hasBaleen": typing.Type[HasBaleen],

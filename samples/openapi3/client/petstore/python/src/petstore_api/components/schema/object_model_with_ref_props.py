@@ -27,7 +27,7 @@ class ObjectModelWithRefProps(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ObjectModelWithRefPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjectModelWithRefPropsProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> number_with_validations.NumberWithValidations[decimal.Decimal]: ...
@@ -122,7 +122,7 @@ class ObjectModelWithRefProps(
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations
 from petstore_api.components.schema import string
-ObjectModelWithRefPropsProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjectModelWithRefPropsProperties',
     {
         "myNumber": typing.Type[number_with_validations.NumberWithValidations],

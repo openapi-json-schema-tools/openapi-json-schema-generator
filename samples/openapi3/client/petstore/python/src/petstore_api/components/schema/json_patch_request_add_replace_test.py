@@ -64,7 +64,7 @@ class JSONPatchRequestAddReplaceTest(
             "path",
             "value",
         })
-        properties: JSONPatchRequestAddReplaceTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestAddReplaceTestProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -172,7 +172,7 @@ class JSONPatchRequestAddReplaceTest(
         )
         return inst
 
-JSONPatchRequestAddReplaceTestProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestProperties',
     {
         "path": typing.Type[Path],

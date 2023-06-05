@@ -49,7 +49,7 @@ class DanishPig(
         required: typing.FrozenSet[str] = frozenset({
             "className",
         })
-        properties: DanishPigProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DanishPigProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def className(self) -> ClassName[str]:
@@ -121,7 +121,7 @@ class DanishPig(
         )
         return inst
 
-DanishPigProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'DanishPigProperties',
     {
         "className": typing.Type[ClassName],

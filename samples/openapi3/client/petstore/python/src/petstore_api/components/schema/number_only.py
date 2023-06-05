@@ -26,7 +26,7 @@ class NumberOnly(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: NumberOnlyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(NumberOnlyProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> JustNumber[decimal.Decimal]: ...
@@ -97,7 +97,7 @@ class NumberOnly(
         )
         return inst
 
-NumberOnlyProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'NumberOnlyProperties',
     {
         "JustNumber": typing.Type[JustNumber],

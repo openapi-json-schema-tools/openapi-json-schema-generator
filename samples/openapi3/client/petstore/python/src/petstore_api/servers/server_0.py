@@ -80,7 +80,7 @@ class Variables(
             "port",
             "server",
         })
-        properties: VariablesProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(VariablesProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -133,7 +133,7 @@ class Variables(
         )
         return inst
 
-VariablesProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'VariablesProperties',
     {
         "server": typing.Type[Server],

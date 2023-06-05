@@ -211,7 +211,7 @@ class ArrayTest(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: ArrayTestProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ArrayTestProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfString[tuple]: ...
@@ -305,7 +305,7 @@ class ArrayTest(
 
 
 from petstore_api.components.schema import read_only_first
-ArrayTestProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ArrayTestProperties',
     {
         "array_of_string": typing.Type[ArrayOfString],

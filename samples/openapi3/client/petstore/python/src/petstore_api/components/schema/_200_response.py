@@ -29,7 +29,7 @@ class _200Response(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         # any type
-        properties: _200ResponseProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(_200ResponseProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
@@ -143,7 +143,7 @@ class _200Response(
         )
         return inst
 
-_200ResponseProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     '_200ResponseProperties',
     {
         "name": typing.Type[Name],

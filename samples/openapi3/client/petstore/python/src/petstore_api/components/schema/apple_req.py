@@ -31,7 +31,7 @@ class AppleReq(
         required: typing.FrozenSet[str] = frozenset({
             "cultivar",
         })
-        properties: AppleReqProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(AppleReqProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -81,7 +81,7 @@ class AppleReq(
         )
         return inst
 
-AppleReqProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'AppleReqProperties',
     {
         "cultivar": typing.Type[Cultivar],

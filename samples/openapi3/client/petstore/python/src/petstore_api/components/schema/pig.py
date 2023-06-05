@@ -33,7 +33,7 @@ class Pig(
                 }
             }
         )
-        one_of: PigOneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(PigOneOf)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
@@ -114,7 +114,7 @@ class Pig(
 
 from petstore_api.components.schema import basque_pig
 from petstore_api.components.schema import danish_pig
-PigOneOf = typing.Tuple[
+OneOf = typing.Tuple[
     typing.Type[basque_pig.BasquePig],
     typing.Type[danish_pig.DanishPig],
 ]

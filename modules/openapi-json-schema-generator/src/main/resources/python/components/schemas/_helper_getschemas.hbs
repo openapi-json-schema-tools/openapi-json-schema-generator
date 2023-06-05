@@ -7,7 +7,7 @@
 {{/if}}
 {{#each getSchemas}}
     {{#if allOf}}
-{{jsonPathPiece.camelCase}}AllOf = typing.Tuple[
+{{allOf.jsonPathPiece.camelCase}} = typing.Tuple[
         {{#each allOf}}
             {{#if refInfo.refClass}}
     typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
@@ -18,7 +18,7 @@
 ]
     {{/if}}
     {{#if anyOf}}
-{{jsonPathPiece.camelCase}}AnyOf = typing.Tuple[
+{{anyOf.jsonPathPiece.camelCase}} = typing.Tuple[
         {{#each anyOf}}
             {{#if refInfo.refClass}}
     typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
@@ -29,7 +29,7 @@
 ]
     {{/if}}
     {{#if oneOf}}
-{{jsonPathPiece.camelCase}}OneOf = typing.Tuple[
+{{oneOf.jsonPathPiece.camelCase}} = typing.Tuple[
         {{#each oneOf}}
             {{#if refInfo.refClass}}
     typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
@@ -40,7 +40,7 @@
 ]
     {{/if}}
     {{#if properties}}
-{{jsonPathPiece.camelCase}}Properties = typing_extensions.TypedDict(
+{{properties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
     '{{jsonPathPiece.camelCase}}Properties',
     {
         {{#each properties}}

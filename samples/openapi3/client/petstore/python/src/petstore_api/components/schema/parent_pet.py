@@ -34,7 +34,7 @@ class ParentPet(
                 }
             }
         )
-        all_of: ParentPetAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ParentPetAllOf)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
@@ -76,6 +76,6 @@ class ParentPet(
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import grandparent_animal
-ParentPetAllOf = typing.Tuple[
+AllOf = typing.Tuple[
     typing.Type[grandparent_animal.GrandparentAnimal],
 ]

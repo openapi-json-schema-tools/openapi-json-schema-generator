@@ -31,8 +31,8 @@ class ObjWithRequiredProps(
         required: typing.FrozenSet[str] = frozenset({
             "a",
         })
-        properties: ObjWithRequiredPropsProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(ObjWithRequiredPropsProperties)) # type: ignore
-        all_of: ObjWithRequiredPropsAllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(ObjWithRequiredPropsAllOf)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
     
     @property
@@ -107,10 +107,10 @@ class ObjWithRequiredProps(
 
 
 from petstore_api.components.schema import obj_with_required_props_base
-ObjWithRequiredPropsAllOf = typing.Tuple[
+AllOf = typing.Tuple[
     typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
 ]
-ObjWithRequiredPropsProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'ObjWithRequiredPropsProperties',
     {
         "a": typing.Type[A],

@@ -59,7 +59,7 @@ class JSONPatchRequestMoveCopy(
             "op",
             "path",
         })
-        properties: JSONPatchRequestMoveCopyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(JSONPatchRequestMoveCopyProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
         additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
@@ -116,7 +116,7 @@ class JSONPatchRequestMoveCopy(
         )
         return inst
 
-JSONPatchRequestMoveCopyProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyProperties',
     {
         "from": typing.Type[_From],

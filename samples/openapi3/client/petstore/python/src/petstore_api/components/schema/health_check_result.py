@@ -74,7 +74,7 @@ class HealthCheckResult(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: HealthCheckResultProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(HealthCheckResultProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> NullableMessage[typing.Union[
@@ -150,7 +150,7 @@ class HealthCheckResult(
         )
         return inst
 
-HealthCheckResultProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'HealthCheckResultProperties',
     {
         "NullableMessage": typing.Type[NullableMessage],

@@ -25,7 +25,7 @@ class Schema(
         required: typing.FrozenSet[str] = frozenset({
             "requiredFile",
         })
-        properties: SchemaProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(SchemaProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def requiredFile(self) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]:
@@ -109,7 +109,7 @@ class Schema(
         )
         return inst
 
-SchemaProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'SchemaProperties',
     {
         "additionalMetadata": typing.Type[AdditionalMetadata],

@@ -30,7 +30,7 @@ class Money(
             "amount",
             "currency",
         })
-        properties: MoneyProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(MoneyProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
     def amount(self) -> Amount[str]:
@@ -117,7 +117,7 @@ class Money(
 
 
 from petstore_api.components.schema import currency
-MoneyProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'MoneyProperties',
     {
         "amount": typing.Type[Amount],

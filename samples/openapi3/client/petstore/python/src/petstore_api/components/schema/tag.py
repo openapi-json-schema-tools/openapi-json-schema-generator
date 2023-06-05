@@ -27,7 +27,7 @@ class Tag(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SchemaBase):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: TagProperties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(TagProperties)) # type: ignore
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
@@ -107,7 +107,7 @@ class Tag(
         )
         return inst
 
-TagProperties = typing_extensions.TypedDict(
+Properties = typing_extensions.TypedDict(
     'TagProperties',
     {
         "id": typing.Type[Id],
