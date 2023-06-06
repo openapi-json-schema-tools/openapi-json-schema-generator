@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class RequiredDefaultValidation(
     schemas.AnyTypeSchema[schemas.T],
 ):

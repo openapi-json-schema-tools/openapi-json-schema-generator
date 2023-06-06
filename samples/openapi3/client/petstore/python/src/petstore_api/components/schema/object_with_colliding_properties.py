@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ObjectWithCollidingProperties(
     schemas.DictSchema[schemas.T]
 ):

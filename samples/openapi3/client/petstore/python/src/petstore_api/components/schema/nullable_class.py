@@ -884,6 +884,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class NullableClass(
     schemas.DictSchema[schemas.T]
 ):

@@ -17,6 +17,7 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class AllofWithTheLastEmptySchema(
     schemas.AnyTypeSchema[schemas.T],
 ):

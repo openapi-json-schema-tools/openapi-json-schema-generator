@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -130,6 +131,7 @@ class _0(
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
+
 
 class AdditionalpropertiesShouldNotLookInApplicators(
     schemas.AnyTypeSchema[schemas.T],

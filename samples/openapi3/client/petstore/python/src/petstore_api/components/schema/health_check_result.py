@@ -64,6 +64,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class HealthCheckResult(
     schemas.DictSchema[schemas.T]
 ):

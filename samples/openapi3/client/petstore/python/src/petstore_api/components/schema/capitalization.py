@@ -28,6 +28,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Capitalization(
     schemas.DictSchema[schemas.T]
 ):

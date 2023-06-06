@@ -205,6 +205,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ArrayTest(
     schemas.DictSchema[schemas.T]
 ):

@@ -18,6 +18,7 @@ Properties2 = typing_extensions.TypedDict(
     }
 )
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -109,6 +110,7 @@ Properties3 = typing_extensions.TypedDict(
     }
 )
 
+
 class _1(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -195,13 +197,15 @@ class _1(
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
     typing.Type[_1[schemas.U]],
-]Bar: typing_extensions.TypeAlias = schemas.IntSchema[U]
+]
+Bar: typing_extensions.TypeAlias = schemas.IntSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
         "bar": typing.Type[Bar],
     }
 )
+
 
 class AllofWithBaseSchema(
     schemas.AnyTypeSchema[schemas.T],

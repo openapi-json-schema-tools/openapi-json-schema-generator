@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class GmFruit(
     schemas.AnyTypeSchema[schemas.T],
 ):

@@ -56,6 +56,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
 ):

@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Banana(
     schemas.DictSchema[schemas.T]
 ):

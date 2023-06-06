@@ -15,6 +15,7 @@ AllOf = typing.Tuple[
     typing.Type[_02[schemas.U]],
 ]
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -69,6 +70,7 @@ class _0(
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
+
 
 class NestedAllofToCheckValidationSemantics(
     schemas.AnyTypeSchema[schemas.T],

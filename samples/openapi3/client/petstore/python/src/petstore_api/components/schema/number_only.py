@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class NumberOnly(
     schemas.DictSchema[schemas.T]
 ):

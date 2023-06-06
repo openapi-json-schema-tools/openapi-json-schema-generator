@@ -27,6 +27,7 @@ AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
 
+
 class SomeProp(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -84,6 +85,7 @@ Properties = typing_extensions.TypedDict(
         "someProp": typing.Type[SomeProp],
     }
 )
+
 
 class Schema(
     schemas.DictSchema[schemas.T]

@@ -40,6 +40,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class TriangleInterface(
     schemas.AnyTypeSchema[schemas.T],
 ):

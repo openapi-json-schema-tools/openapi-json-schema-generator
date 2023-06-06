@@ -67,6 +67,7 @@ AllOf = typing.Tuple[
     typing.Type[_03[schemas.U]],
 ]
 
+
 class _02(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -122,6 +123,7 @@ AnyOf = typing.Tuple[
     typing.Type[_02[schemas.U]],
 ]
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -176,6 +178,7 @@ class _0(
 OneOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
+
 
 class AllofCombinedWithAnyofOneof(
     schemas.AnyTypeSchema[schemas.T],

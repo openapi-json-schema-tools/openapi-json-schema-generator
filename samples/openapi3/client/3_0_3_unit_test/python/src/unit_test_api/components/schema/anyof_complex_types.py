@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -109,6 +110,7 @@ Properties2 = typing_extensions.TypedDict(
     }
 )
 
+
 class _1(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -196,6 +198,7 @@ AnyOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
     typing.Type[_1[schemas.U]],
 ]
+
 
 class AnyofComplexTypes(
     schemas.AnyTypeSchema[schemas.T],

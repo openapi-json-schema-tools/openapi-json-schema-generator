@@ -32,6 +32,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Animal(
     schemas.DictSchema[schemas.T]
 ):

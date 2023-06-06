@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Fruit(
     schemas.AnyTypeSchema[schemas.T],
 ):

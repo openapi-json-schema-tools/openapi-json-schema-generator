@@ -35,6 +35,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class SubtractionOperator(
     schemas.DictSchema[schemas.T]
 ):

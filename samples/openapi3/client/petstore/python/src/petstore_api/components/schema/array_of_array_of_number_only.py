@@ -93,6 +93,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ArrayOfArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
 ):

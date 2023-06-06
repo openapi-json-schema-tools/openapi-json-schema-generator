@@ -38,6 +38,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class BasquePig(
     schemas.DictSchema[schemas.T]
 ):

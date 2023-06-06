@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ForbiddenProperty(
     schemas.AnyTypeSchema[schemas.T],
 ):

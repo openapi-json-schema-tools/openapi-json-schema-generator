@@ -121,6 +121,7 @@ AnyOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class AnyofWithBaseSchema(
     schemas.StrSchema[schemas.T]
 ):

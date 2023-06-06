@@ -38,6 +38,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class _1(
     schemas.DictSchema[schemas.T]
 ):

@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ObjWithRequiredPropsBase(
     schemas.DictSchema[schemas.T]
 ):

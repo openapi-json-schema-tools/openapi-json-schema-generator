@@ -272,6 +272,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AdditionalPropertiesClass(
     schemas.DictSchema[schemas.T]
 ):

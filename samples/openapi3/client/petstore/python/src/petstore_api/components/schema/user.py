@@ -144,6 +144,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class User(
     schemas.DictSchema[schemas.T]
 ):

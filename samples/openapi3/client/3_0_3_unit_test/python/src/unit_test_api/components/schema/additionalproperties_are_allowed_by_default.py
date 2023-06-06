@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AdditionalpropertiesAreAllowedByDefault(
     schemas.AnyTypeSchema[schemas.T],
 ):

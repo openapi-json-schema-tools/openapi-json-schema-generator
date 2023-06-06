@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class _Return(
     schemas.AnyTypeSchema[schemas.T],
 ):

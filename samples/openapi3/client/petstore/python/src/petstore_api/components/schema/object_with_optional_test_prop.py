@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ObjectWithOptionalTestProp(
     schemas.DictSchema[schemas.T]
 ):

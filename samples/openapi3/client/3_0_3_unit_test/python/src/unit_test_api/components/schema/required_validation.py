@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class RequiredValidation(
     schemas.AnyTypeSchema[schemas.T],
 ):

@@ -38,6 +38,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class DanishPig(
     schemas.DictSchema[schemas.T]
 ):

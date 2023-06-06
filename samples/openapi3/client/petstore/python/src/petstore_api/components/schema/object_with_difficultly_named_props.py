@@ -22,6 +22,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ObjectWithDifficultlyNamedProps(
     schemas.DictSchema[schemas.T]
 ):

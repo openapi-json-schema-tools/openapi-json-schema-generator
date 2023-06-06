@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AdditionalpropertiesAllowsASchemaWhichShouldValidate(
     schemas.DictSchema[schemas.T]
 ):

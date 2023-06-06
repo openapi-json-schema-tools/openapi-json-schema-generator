@@ -15,6 +15,7 @@ OneOf = typing.Tuple[
     typing.Type[_02[schemas.U]],
 ]
 
+
 class _0(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -69,6 +70,7 @@ class _0(
 OneOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
+
 
 class NestedOneofToCheckValidationSemantics(
     schemas.AnyTypeSchema[schemas.T],

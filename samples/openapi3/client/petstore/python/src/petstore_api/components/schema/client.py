@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Client(
     schemas.DictSchema[schemas.T]
 ):

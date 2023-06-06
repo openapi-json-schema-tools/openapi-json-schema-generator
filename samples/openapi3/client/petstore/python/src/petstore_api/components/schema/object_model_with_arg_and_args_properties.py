@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ObjectModelWithArgAndArgsProperties(
     schemas.DictSchema[schemas.T]
 ):

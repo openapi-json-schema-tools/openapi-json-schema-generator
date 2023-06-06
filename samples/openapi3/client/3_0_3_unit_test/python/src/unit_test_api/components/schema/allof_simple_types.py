@@ -121,6 +121,7 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class AllofSimpleTypes(
     schemas.AnyTypeSchema[schemas.T],
 ):

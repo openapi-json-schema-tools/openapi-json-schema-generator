@@ -42,6 +42,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Whale(
     schemas.DictSchema[schemas.T]
 ):

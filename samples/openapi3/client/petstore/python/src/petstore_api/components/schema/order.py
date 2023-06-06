@@ -70,6 +70,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Order(
     schemas.DictSchema[schemas.T]
 ):

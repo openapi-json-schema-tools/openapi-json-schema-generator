@@ -32,6 +32,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Category(
     schemas.DictSchema[schemas.T]
 ):

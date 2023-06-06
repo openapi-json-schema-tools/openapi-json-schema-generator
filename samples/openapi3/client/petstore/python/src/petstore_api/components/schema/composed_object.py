@@ -15,6 +15,7 @@ AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
 
+
 class ComposedObject(
     schemas.DictSchema[schemas.T]
 ):

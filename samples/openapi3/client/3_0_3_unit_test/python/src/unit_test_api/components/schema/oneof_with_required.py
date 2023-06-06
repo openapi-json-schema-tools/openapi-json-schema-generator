@@ -273,6 +273,7 @@ OneOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class OneofWithRequired(
     schemas.DictSchema[schemas.T]
 ):

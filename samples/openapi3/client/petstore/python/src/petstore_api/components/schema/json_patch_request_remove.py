@@ -41,6 +41,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class JSONPatchRequestRemove(
     schemas.DictSchema[schemas.T]
 ):

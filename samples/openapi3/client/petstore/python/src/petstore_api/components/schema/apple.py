@@ -49,6 +49,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Apple(
     schemas.NoneBase,
     schemas.DictBase,

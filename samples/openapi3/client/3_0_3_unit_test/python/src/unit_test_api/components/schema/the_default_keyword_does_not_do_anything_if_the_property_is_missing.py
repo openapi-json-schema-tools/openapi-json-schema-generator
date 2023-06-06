@@ -31,6 +31,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
     schemas.DictSchema[schemas.T]
 ):

@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ReadOnlyFirst(
     schemas.DictSchema[schemas.T]
 ):

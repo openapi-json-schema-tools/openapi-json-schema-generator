@@ -60,6 +60,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class EnumsInProperties(
     schemas.DictSchema[schemas.T]
 ):

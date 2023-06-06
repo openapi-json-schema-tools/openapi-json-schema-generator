@@ -69,6 +69,7 @@ AnyOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class Anyof(
     schemas.AnyTypeSchema[schemas.T],
 ):

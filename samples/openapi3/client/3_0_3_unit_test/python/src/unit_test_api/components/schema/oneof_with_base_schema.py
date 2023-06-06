@@ -121,6 +121,7 @@ OneOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class OneofWithBaseSchema(
     schemas.StrSchema[schemas.T]
 ):

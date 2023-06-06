@@ -22,6 +22,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Name(
     schemas.AnyTypeSchema[schemas.T],
 ):

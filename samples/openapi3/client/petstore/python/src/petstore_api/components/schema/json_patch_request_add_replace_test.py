@@ -53,6 +53,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class JSONPatchRequestAddReplaceTest(
     schemas.DictSchema[schemas.T]
 ):

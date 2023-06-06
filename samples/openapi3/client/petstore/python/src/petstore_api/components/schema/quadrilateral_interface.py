@@ -40,6 +40,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class QuadrilateralInterface(
     schemas.AnyTypeSchema[schemas.T],
 ):

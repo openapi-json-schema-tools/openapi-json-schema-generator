@@ -48,6 +48,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class JSONPatchRequestMoveCopy(
     schemas.DictSchema[schemas.T]
 ):

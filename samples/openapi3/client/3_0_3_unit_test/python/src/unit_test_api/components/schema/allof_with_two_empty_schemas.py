@@ -17,6 +17,7 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class AllofWithTwoEmptySchemas(
     schemas.AnyTypeSchema[schemas.T],
 ):

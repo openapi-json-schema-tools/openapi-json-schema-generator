@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AppleReq(
     schemas.DictSchema[schemas.T]
 ):

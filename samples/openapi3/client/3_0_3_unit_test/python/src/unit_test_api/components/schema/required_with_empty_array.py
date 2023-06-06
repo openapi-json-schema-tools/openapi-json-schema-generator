@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class RequiredWithEmptyArray(
     schemas.AnyTypeSchema[schemas.T],
 ):

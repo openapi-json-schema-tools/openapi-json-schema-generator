@@ -226,6 +226,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class FormatTest(
     schemas.DictSchema[schemas.T]
 ):

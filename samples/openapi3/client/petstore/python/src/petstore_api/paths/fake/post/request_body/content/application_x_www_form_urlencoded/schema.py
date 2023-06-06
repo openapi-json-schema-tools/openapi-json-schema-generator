@@ -167,6 +167,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Schema(
     schemas.DictSchema[schemas.T]
 ):

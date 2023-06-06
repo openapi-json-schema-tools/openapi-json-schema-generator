@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Tag(
     schemas.DictSchema[schemas.T]
 ):

@@ -106,6 +106,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class EnumArrays(
     schemas.DictSchema[schemas.T]
 ):

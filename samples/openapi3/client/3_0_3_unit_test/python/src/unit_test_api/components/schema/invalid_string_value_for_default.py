@@ -31,6 +31,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class InvalidStringValueForDefault(
     schemas.AnyTypeSchema[schemas.T],
 ):

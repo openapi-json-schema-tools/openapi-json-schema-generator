@@ -28,6 +28,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class PropertiesWithEscapedCharacters(
     schemas.AnyTypeSchema[schemas.T],
 ):

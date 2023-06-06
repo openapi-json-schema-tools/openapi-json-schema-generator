@@ -35,6 +35,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AdditionOperator(
     schemas.DictSchema[schemas.T]
 ):

@@ -59,6 +59,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class MixedPropertiesAndAdditionalPropertiesClass(
     schemas.DictSchema[schemas.T]
 ):

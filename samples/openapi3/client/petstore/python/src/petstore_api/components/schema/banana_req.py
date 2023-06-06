@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class BananaReq(
     schemas.DictSchema[schemas.T]
 ):

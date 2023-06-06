@@ -506,6 +506,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class AnyTypeAndFormat(
     schemas.DictSchema[schemas.T]
 ):

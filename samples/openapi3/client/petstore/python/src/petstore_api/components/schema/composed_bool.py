@@ -15,6 +15,7 @@ AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
 
+
 class ComposedBool(
     schemas.BoolSchema[schemas.T]
 ):

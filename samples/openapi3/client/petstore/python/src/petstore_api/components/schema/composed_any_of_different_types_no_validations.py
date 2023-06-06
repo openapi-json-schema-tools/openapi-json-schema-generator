@@ -107,6 +107,7 @@ AnyOf = typing.Tuple[
     typing.Type[_15[schemas.U]],
 ]
 
+
 class ComposedAnyOfDifferentTypesNoValidations(
     schemas.AnyTypeSchema[schemas.T],
 ):

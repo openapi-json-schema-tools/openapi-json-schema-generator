@@ -22,6 +22,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class ApiResponse(
     schemas.DictSchema[schemas.T]
 ):

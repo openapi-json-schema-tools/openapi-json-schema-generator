@@ -17,6 +17,7 @@ OneOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
 ]
 
+
 class OneofWithEmptySchema(
     schemas.AnyTypeSchema[schemas.T],
 ):

@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class _200Response(
     schemas.AnyTypeSchema[schemas.T],
 ):

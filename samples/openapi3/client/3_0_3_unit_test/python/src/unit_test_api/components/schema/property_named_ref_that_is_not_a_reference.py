@@ -18,6 +18,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class PropertyNamedRefThatIsNotAReference(
     schemas.AnyTypeSchema[schemas.T],
 ):

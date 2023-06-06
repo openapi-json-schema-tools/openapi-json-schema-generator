@@ -71,6 +71,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class Zebra(
     schemas.DictSchema[schemas.T]
 ):

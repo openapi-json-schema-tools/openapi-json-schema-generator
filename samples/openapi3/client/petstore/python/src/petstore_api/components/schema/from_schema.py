@@ -20,6 +20,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class FromSchema(
     schemas.DictSchema[schemas.T]
 ):

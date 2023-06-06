@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
     }
 )
 
+
 class NoAdditionalProperties(
     schemas.DictSchema[schemas.T]
 ):

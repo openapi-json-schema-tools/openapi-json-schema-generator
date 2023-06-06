@@ -312,6 +312,7 @@ AllOf = typing.Tuple[
     typing.Type[_2[schemas.U]],
 ]
 
+
 class AdditionalPropertiesValidator(
     schemas.DictSchema[schemas.T]
 ):
