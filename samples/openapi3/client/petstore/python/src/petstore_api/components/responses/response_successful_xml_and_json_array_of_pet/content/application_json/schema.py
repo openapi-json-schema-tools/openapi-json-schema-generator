@@ -11,17 +11,16 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.ListSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {tuple}
-        
-        @staticmethod
-        def items() -> typing.Type[ref_pet.RefPet]:
-            return ref_pet.RefPet
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[ref_pet.RefPet] = dataclasses.field(default_factory=lambda: ref_pet.RefPet) # type: ignore
 
     def __new__(
         cls,
@@ -47,5 +46,6 @@ class Schema(
 
     def __getitem__(self, name: int) -> ref_pet.RefPet[frozendict.frozendict]:
         return super().__getitem__(name)
+
 
 from petstore_api.components.schema import ref_pet

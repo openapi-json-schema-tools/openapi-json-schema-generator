@@ -11,223 +11,236 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Integer(
+    schemas.IntSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        format: str = 'int'
+        inclusive_maximum: typing.Union[int, float] = 100
+        inclusive_minimum: typing.Union[int, float] = 10
+
+
+class Int32(
+    schemas.Int32Schema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        format: str = 'int32'
+        inclusive_maximum: typing.Union[int, float] = 200
+        inclusive_minimum: typing.Union[int, float] = 20
+Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+
+
+class Number(
+    schemas.NumberSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        inclusive_maximum: typing.Union[int, float] = 543.2
+        inclusive_minimum: typing.Union[int, float] = 32.1
+
+
+class _Float(
+    schemas.Float32Schema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        format: str = 'float'
+        inclusive_maximum: typing.Union[int, float] = 987.6
+
+
+class Double(
+    schemas.Float64Schema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        format: str = 'double'
+        inclusive_maximum: typing.Union[int, float] = 123.4
+        inclusive_minimum: typing.Union[int, float] = 67.8
+
+
+class String(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'[a-z]',  # noqa: E501
+            flags=re.I,
+        )
+
+
+class PatternWithoutDelimiter(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[A-Z].*'  # noqa: E501
+        )
+Byte: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Binary: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+Date: typing_extensions.TypeAlias = schemas.DateSchema[U]
+
+
+class DateTime(
+    schemas.DateTimeSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        format: str = 'date-time'
+
+
+class Password(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        format: str = 'password'
+        max_length: int = 64
+        min_length: int = 10
+Callback: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "integer": typing.Type[Integer],
+        "int32": typing.Type[Int32],
+        "int64": typing.Type[Int64],
+        "number": typing.Type[Number],
+        "float": typing.Type[_Float],
+        "double": typing.Type[Double],
+        "string": typing.Type[String],
+        "pattern_without_delimiter": typing.Type[PatternWithoutDelimiter],
+        "byte": typing.Type[Byte],
+        "binary": typing.Type[Binary],
+        "date": typing.Type[Date],
+        "dateTime": typing.Type[DateTime],
+        "password": typing.Type[Password],
+        "callback": typing.Type[Callback],
+    }
+)
+
+
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "byte",
             "double",
             "number",
             "pattern_without_delimiter",
-        }
-        
-        class Properties:
-            
-            
-            class Integer(
-                schemas.IntSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    format = 'int'
-                    inclusive_maximum = 100
-                    inclusive_minimum = 10
-            
-            
-            class Int32(
-                schemas.Int32Schema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    format = 'int32'
-                    inclusive_maximum = 200
-                    inclusive_minimum = 20
-            Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            
-            
-            class Number(
-                schemas.NumberSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    inclusive_maximum = 543.2
-                    inclusive_minimum = 32.1
-            
-            
-            class _Float(
-                schemas.Float32Schema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    format = 'float'
-                    inclusive_maximum = 987.6
-            
-            
-            class Double(
-                schemas.Float64Schema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    format = 'double'
-                    inclusive_maximum = 123.4
-                    inclusive_minimum = 67.8
-            
-            
-            class String(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    regex={
-                        'pattern': r'[a-z]',  # noqa: E501
-                        'flags': re.I,
-                    }
-            
-            
-            class PatternWithoutDelimiter(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    regex={
-                        'pattern': r'^[A-Z].*',  # noqa: E501
-                    }
-            Byte: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Binary: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-            Date: typing_extensions.TypeAlias = schemas.DateSchema[U]
-            
-            
-            class DateTime(
-                schemas.DateTimeSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    format = 'date-time'
-            
-            
-            class Password(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    format = 'password'
-                    max_length = 64
-                    min_length = 10
-            Callback: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "integer": Integer,
-                "int32": Int32,
-                "int64": Int64,
-                "number": Number,
-                "float": _Float,
-                "double": Double,
-                "string": String,
-                "pattern_without_delimiter": PatternWithoutDelimiter,
-                "byte": Byte,
-                "binary": Binary,
-                "date": Date,
-                "dateTime": DateTime,
-                "password": Password,
-                "callback": Callback,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def byte(self) -> Schema_.Properties.Byte[str]:
+    def byte(self) -> Byte[str]:
         return self.__getitem__("byte")
     
     @property
-    def double(self) -> Schema_.Properties.Double[decimal.Decimal]:
+    def double(self) -> Double[decimal.Decimal]:
         return self.__getitem__("double")
     
     @property
-    def number(self) -> Schema_.Properties.Number[decimal.Decimal]:
+    def number(self) -> Number[decimal.Decimal]:
         return self.__getitem__("number")
     
     @property
-    def pattern_without_delimiter(self) -> Schema_.Properties.PatternWithoutDelimiter[str]:
+    def pattern_without_delimiter(self) -> PatternWithoutDelimiter[str]:
         return self.__getitem__("pattern_without_delimiter")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> Schema_.Properties.Byte[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> Byte[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> Schema_.Properties.Double[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> Double[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> Schema_.Properties.Number[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> Number[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> Schema_.Properties.PatternWithoutDelimiter[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> PatternWithoutDelimiter[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> Schema_.Properties.Integer[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> Integer[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> Schema_.Properties.Int32[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> Int32[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> Schema_.Properties.Int64[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> Int64[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> Schema_.Properties._Float[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> _Float[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> Schema_.Properties.String[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> String[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> Schema_.Properties.Binary[typing.Union[bytes, schemas.FileIO]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> Binary[typing.Union[bytes, schemas.FileIO]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> Schema_.Properties.Date[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["date"]) -> Date[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> Schema_.Properties.DateTime[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> DateTime[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> Schema_.Properties.Password[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["password"]) -> Password[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> Schema_.Properties.Callback[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> Callback[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -268,97 +281,79 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         byte: typing.Union[
-            Schema_.Properties.Byte[str],
+            Byte[str],
             str
         ],
         double: typing.Union[
-            Schema_.Properties.Double[decimal.Decimal],
+            Double[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         number: typing.Union[
-            Schema_.Properties.Number[decimal.Decimal],
+            Number[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         pattern_without_delimiter: typing.Union[
-            Schema_.Properties.PatternWithoutDelimiter[str],
+            PatternWithoutDelimiter[str],
             str
         ],
         integer: typing.Union[
-            Schema_.Properties.Integer[decimal.Decimal],
+            Integer[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int32: typing.Union[
-            Schema_.Properties.Int32[decimal.Decimal],
+            Int32[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         int64: typing.Union[
-            Schema_.Properties.Int64[decimal.Decimal],
+            Int64[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         string: typing.Union[
-            Schema_.Properties.String[str],
+            String[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         binary: typing.Union[
-            Schema_.Properties.Binary[typing.Union[bytes, schemas.FileIO]],
+            Binary[typing.Union[bytes, schemas.FileIO]],
             schemas.Unset,
             bytes,
             io.FileIO,
             io.BufferedReader
         ] = schemas.unset,
         date: typing.Union[
-            Schema_.Properties.Date[str],
+            Date[str],
             schemas.Unset,
             str,
             datetime.date
         ] = schemas.unset,
         dateTime: typing.Union[
-            Schema_.Properties.DateTime[str],
+            DateTime[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         password: typing.Union[
-            Schema_.Properties.Password[str],
+            Password[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         callback: typing.Union[
-            Schema_.Properties.Callback[str],
+            Callback[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -384,3 +379,4 @@ class Schema(
             inst
         )
         return inst
+

@@ -1,54 +1,26 @@
 {{#if requiredProperties}}
-required = {
+required: typing.FrozenSet[str] = frozenset({
 {{#each requiredProperties}}
     "{{{@key.original}}}",
 {{/each}}
-}
+})
 {{/if}}
 {{#if hasDiscriminatorWithNonEmptyMapping}}
-{{#with discriminator}}
-{{#each mappedModels}}
-{{#if @first}}
-
-@staticmethod
-def discriminator():
-    return {
+    {{#with discriminator}}
+discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+    default_factory=lambda: {
         '{{{propertyName.original}}}': {
-{{/if}}
+        {{#each mappedModels}}
             '{{mappingName}}': {{{modelName}}},
-{{#if @last}}
+        {{/each}}
         }
     }
-{{/if}}
-{{/each}}
-{{/with}}
+)
+    {{/with}}
 {{/if}}
 {{#if properties}}
-
-class Properties:
-{{#each properties}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "Properties" jsonPathPiece.camelCase) }}
-{{/if}}
-{{/each}}
-    __annotations__ = {
-{{#each properties}}
-{{#if refInfo.refClass}}
-        "{{{@key.original}}}": {{jsonPathPiece.snakeCase}},
-{{else}}
-        "{{{@key.original}}}": {{jsonPathPiece.camelCase}},
-{{/if}}
-{{/each}}
-    }
+properties: {{properties.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance({{properties.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#with additionalProperties}}
-{{#if refInfo.refClass}}
-
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+additional_properties: typing.Type[{{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}] = dataclasses.field(default_factory=lambda: {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}) # type: ignore
 {{/with}}

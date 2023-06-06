@@ -10,6 +10,201 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
+class ArrayOfString(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[str],
+                str
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayOfString[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayOfString[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[str]:
+        return super().__getitem__(name)
+
+Items3: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+
+
+class Items2(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items3[decimal.Decimal],
+                decimal.Decimal,
+                int
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Items2[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Items2[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items3[decimal.Decimal]:
+        return super().__getitem__(name)
+
+
+
+class ArrayArrayOfInteger(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items2[tuple],
+                list,
+                tuple
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayArrayOfInteger[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayArrayOfInteger[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items2[tuple]:
+        return super().__getitem__(name)
+
+
+
+class Items4(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[read_only_first.ReadOnlyFirst] = dataclasses.field(default_factory=lambda: read_only_first.ReadOnlyFirst) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                read_only_first.ReadOnlyFirst[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Items4[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Items4[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirst[frozendict.frozendict]:
+        return super().__getitem__(name)
+
+
+
+class ArrayArrayOfModel(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items4[tuple],
+                list,
+                tuple
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayArrayOfModel[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayArrayOfModel[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items4[tuple]:
+        return super().__getitem__(name)
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "array_of_string": typing.Type[ArrayOfString],
+        "array_array_of_integer": typing.Type[ArrayArrayOfInteger],
+        "array_array_of_model": typing.Type[ArrayArrayOfModel],
+    }
+)
+
 
 class ArrayTest(
     schemas.DictSchema[schemas.T]
@@ -21,199 +216,19 @@ class ArrayTest(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            
-            
-            class ArrayOfString(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[str],
-                            str
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayTest.Schema_.Properties.ArrayOfString[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayTest.Schema_.Properties.ArrayOfString[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[str]:
-                    return super().__getitem__(name)
-            
-            
-            class ArrayArrayOfInteger(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    
-                    class Items(
-                        schemas.ListSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {tuple}
-                            Items: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-                    
-                        def __new__(
-                            cls,
-                            arg_: typing.Sequence[
-                                typing.Union[
-                                    Schema_.Items[decimal.Decimal],
-                                    decimal.Decimal,
-                                    int
-                                ]
-                            ],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items[tuple]:
-                            inst = super().__new__(
-                                cls,
-                                arg_,
-                                configuration_=configuration_,
-                            )
-                            inst = typing.cast(
-                                ArrayTest.Schema_.Properties.ArrayArrayOfInteger.Schema_.Items[tuple],
-                                inst
-                            )
-                            return inst
-                    
-                        def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
-                            return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[tuple],
-                            list,
-                            tuple
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayTest.Schema_.Properties.ArrayArrayOfInteger[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayTest.Schema_.Properties.ArrayArrayOfInteger[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[tuple]:
-                    return super().__getitem__(name)
-            
-            
-            class ArrayArrayOfModel(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    
-                    class Items(
-                        schemas.ListSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {tuple}
-                            
-                            @staticmethod
-                            def items() -> typing.Type[read_only_first.ReadOnlyFirst]:
-                                return read_only_first.ReadOnlyFirst
-                    
-                        def __new__(
-                            cls,
-                            arg_: typing.Sequence[
-                                typing.Union[
-                                    read_only_first.ReadOnlyFirst[frozendict.frozendict],
-                                    dict,
-                                    frozendict.frozendict
-                                ]
-                            ],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                        ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items[tuple]:
-                            inst = super().__new__(
-                                cls,
-                                arg_,
-                                configuration_=configuration_,
-                            )
-                            inst = typing.cast(
-                                ArrayTest.Schema_.Properties.ArrayArrayOfModel.Schema_.Items[tuple],
-                                inst
-                            )
-                            return inst
-                    
-                        def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirst[frozendict.frozendict]:
-                            return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[tuple],
-                            list,
-                            tuple
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayTest.Schema_.Properties.ArrayArrayOfModel[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayTest.Schema_.Properties.ArrayArrayOfModel[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[tuple]:
-                    return super().__getitem__(name)
-            __annotations__ = {
-                "array_of_string": ArrayOfString,
-                "array_array_of_integer": ArrayArrayOfInteger,
-                "array_array_of_model": ArrayArrayOfModel,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> Schema_.Properties.ArrayOfString[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfString[tuple]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> Schema_.Properties.ArrayArrayOfInteger[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfInteger[tuple]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> Schema_.Properties.ArrayArrayOfModel[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModel[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -243,43 +258,25 @@ class ArrayTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         array_of_string: typing.Union[
-            Schema_.Properties.ArrayOfString[tuple],
+            ArrayOfString[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         array_array_of_integer: typing.Union[
-            Schema_.Properties.ArrayArrayOfInteger[tuple],
+            ArrayArrayOfInteger[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         array_array_of_model: typing.Union[
-            Schema_.Properties.ArrayArrayOfModel[tuple],
+            ArrayArrayOfModel[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ArrayTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -295,5 +292,6 @@ class ArrayTest(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import read_only_first

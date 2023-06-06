@@ -10,6 +10,52 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+
+
+class ArrayNumber(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[decimal.Decimal],
+                decimal.Decimal,
+                int,
+                float
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayNumber[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayNumber[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
+        return super().__getitem__(name)
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "ArrayNumber": typing.Type[ArrayNumber],
+    }
+)
+
 
 class ArrayOfNumberOnly(
     schemas.DictSchema[schemas.T]
@@ -21,52 +67,13 @@ class ArrayOfNumberOnly(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            
-            
-            class ArrayNumber(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[decimal.Decimal],
-                            decimal.Decimal,
-                            int,
-                            float
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ArrayOfNumberOnly.Schema_.Properties.ArrayNumber[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
-                    return super().__getitem__(name)
-            __annotations__ = {
-                "ArrayNumber": ArrayNumber,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> Schema_.Properties.ArrayNumber[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["ArrayNumber"]) -> ArrayNumber[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -94,31 +101,13 @@ class ArrayOfNumberOnly(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         ArrayNumber: typing.Union[
-            Schema_.Properties.ArrayNumber[tuple],
+            ArrayNumber[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ArrayOfNumberOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -132,3 +121,4 @@ class ArrayOfNumberOnly(
             inst
         )
         return inst
+

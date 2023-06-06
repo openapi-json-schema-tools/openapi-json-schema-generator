@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class EnumWithEscapedCharacters(
     schemas.StrSchema[schemas.T]
 ):
@@ -21,19 +22,22 @@ class EnumWithEscapedCharacters(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        enum_value_to_name = {
-            "foo\nbar": "FOO_LINE_FEED_LF_BAR",
-            "foo\rbar": "FOO_CARRIAGE_RETURN_CR_BAR",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "foo\nbar": "FOO_LINE_FEED_LF_BAR",
+                "foo\rbar": "FOO_CARRIAGE_RETURN_CR_BAR",
+            }
+        )
     
     @schemas.classproperty
-    def FOO_LINE_FEED_LF_BAR(cls):
+    def FOO_LINE_FEED_LF_BAR(cls) -> EnumWithEscapedCharacters[str]:
         return cls("foo\nbar") # type: ignore
     
     @schemas.classproperty
-    def FOO_CARRIAGE_RETURN_CR_BAR(cls):
+    def FOO_CARRIAGE_RETURN_CR_BAR(cls) -> EnumWithEscapedCharacters[str]:
         return cls("foo\rbar") # type: ignore

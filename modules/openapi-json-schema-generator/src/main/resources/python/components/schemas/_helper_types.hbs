@@ -1,5 +1,5 @@
 {{#if types}}
-types = {
+types: typing.FrozenSet[typing.Type] = frozenset({
 {{#each types}}
 {{#eq this "null"}}
     schemas.NoneClass,
@@ -28,5 +28,5 @@ types = {
     schemas.BoolClass,
 {{/eq}}
 {{/each}}
-}
+})
 {{/if}}

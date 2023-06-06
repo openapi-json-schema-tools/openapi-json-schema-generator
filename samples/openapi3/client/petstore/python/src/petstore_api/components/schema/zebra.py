@@ -10,6 +10,67 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
+
+class Type(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "plains": "PLAINS",
+                "mountain": "MOUNTAIN",
+                "grevys": "GREVYS",
+            }
+        )
+    
+    @schemas.classproperty
+    def PLAINS(cls) -> Type[str]:
+        return cls("plains") # type: ignore
+    
+    @schemas.classproperty
+    def MOUNTAIN(cls) -> Type[str]:
+        return cls("mountain") # type: ignore
+    
+    @schemas.classproperty
+    def GREVYS(cls) -> Type[str]:
+        return cls("grevys") # type: ignore
+
+
+class ClassName(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "zebra": "ZEBRA",
+            }
+        )
+    
+    @schemas.classproperty
+    def ZEBRA(cls) -> ClassName[str]:
+        return cls("zebra") # type: ignore
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "type": typing.Type[Type],
+        "className": typing.Type[ClassName],
+    }
+)
+
 
 class Zebra(
     schemas.DictSchema[schemas.T]
@@ -21,77 +82,27 @@ class Zebra(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
-        
-        class Properties:
-            
-            
-            class Type(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "plains": "PLAINS",
-                        "mountain": "MOUNTAIN",
-                        "grevys": "GREVYS",
-                    }
-                
-                @schemas.classproperty
-                def PLAINS(cls):
-                    return cls("plains") # type: ignore
-                
-                @schemas.classproperty
-                def MOUNTAIN(cls):
-                    return cls("mountain") # type: ignore
-                
-                @schemas.classproperty
-                def GREVYS(cls):
-                    return cls("grevys") # type: ignore
-            
-            
-            class ClassName(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "zebra": "ZEBRA",
-                    }
-                
-                @schemas.classproperty
-                def ZEBRA(cls):
-                    return cls("zebra") # type: ignore
-            __annotations__ = {
-                "type": Type,
-                "className": ClassName,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Schema_.Properties.Type[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Type[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -117,26 +128,19 @@ class Zebra(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         type: typing.Union[
-            Schema_.Properties.Type[str],
+            Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AdditionalProperties[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,
@@ -168,3 +172,4 @@ class Zebra(
             inst
         )
         return inst
+

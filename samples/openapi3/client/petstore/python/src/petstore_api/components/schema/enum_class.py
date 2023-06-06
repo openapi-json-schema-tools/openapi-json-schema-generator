@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class EnumClass(
     schemas.StrSchema[schemas.T]
 ):
@@ -21,35 +22,38 @@ class EnumClass(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        default = "-efg"
-        enum_value_to_name = {
-            "_abc": "_ABC",
-            "-efg": "HYPHEN_MINUS_EFG",
-            "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
-            "COUNT_1M": "COUNT_1M",
-            "COUNT_50M": "COUNT_50M",
-        }
+        })
+        default: str = "-efg"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "_abc": "_ABC",
+                "-efg": "HYPHEN_MINUS_EFG",
+                "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
+                "COUNT_1M": "COUNT_1M",
+                "COUNT_50M": "COUNT_50M",
+            }
+        )
     
     @schemas.classproperty
-    def _ABC(cls):
+    def _ABC(cls) -> EnumClass[str]:
         return cls("_abc") # type: ignore
     
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls):
+    def HYPHEN_MINUS_EFG(cls) -> EnumClass[str]:
         return cls("-efg") # type: ignore
     
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls):
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> EnumClass[str]:
         return cls("(xyz)") # type: ignore
     
     @schemas.classproperty
-    def COUNT_1M(cls):
+    def COUNT_1M(cls) -> EnumClass[str]:
         return cls("COUNT_1M") # type: ignore
     
     @schemas.classproperty
-    def COUNT_50M(cls):
+    def COUNT_50M(cls) -> EnumClass[str]:
         return cls("COUNT_50M") # type: ignore

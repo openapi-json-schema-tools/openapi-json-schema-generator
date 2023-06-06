@@ -7,5 +7,5 @@ from petstore_api.shared_imports.server_imports import *
 
 
 @dataclasses.dataclass
-class Server0(server.Server):
-    _url: str = "https://path-server-test.petstore.local/v2"
+class Server0(server.ServerWithoutVariables):
+    url: str = "https://path-server-test.petstore.local/v2"

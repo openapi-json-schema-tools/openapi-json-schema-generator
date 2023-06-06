@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **object_nullable_prop** | None, dict, frozendict.frozendict | [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
 **object_and_items_nullable_prop** | None, dict, frozendict.frozendict | [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
 **object_items_nullable** | dict, frozendict.frozendict | [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
-**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties4](#additionalproperties4) | any string name can be used but the value must be the correct type | [optional]
 
 # properties ArrayNullableProp
 
@@ -52,9 +52,9 @@ None, list, tuple | NoneClass, tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayanditemsnullableprop-items) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
+[items](#properties-arrayanditemsnullableprop-items2) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 
-# properties ArrayAndItemsNullableProp Items
+# properties ArrayAndItemsNullableProp Items2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -71,9 +71,9 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayitemsnullable-items) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
+[items](#properties-arrayitemsnullable-items3) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 
-# properties ArrayItemsNullable Items
+# properties ArrayItemsNullable Items3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -109,9 +109,9 @@ None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties](#properties-objectanditemsnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
 
-# properties ObjectAndItemsNullableProp AdditionalProperties
+# properties ObjectAndItemsNullableProp AdditionalProperties2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -128,16 +128,16 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties](#properties-objectitemsnullable-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional]
 
-# properties ObjectItemsNullable AdditionalProperties
+# properties ObjectItemsNullable AdditionalProperties3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 
-# AdditionalProperties
+# AdditionalProperties4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -10,40 +10,44 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Param: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Param2: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "param": typing.Type[Param],
+        "param2": typing.Type[Param2],
+    }
+)
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "param",
             "param2",
-        }
-        
-        class Properties:
-            Param: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Param2: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "param": Param,
-                "param2": Param2,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def param(self) -> Schema_.Properties.Param[str]:
+    def param(self) -> Param[str]:
         return self.__getitem__("param")
     
     @property
-    def param2(self) -> Schema_.Properties.Param2[str]:
+    def param2(self) -> Param2[str]:
         return self.__getitem__("param2")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param"]) -> Schema_.Properties.Param[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["param"]) -> Param[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> Schema_.Properties.Param2[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["param2"]) -> Param2[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -72,33 +76,15 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         param: typing.Union[
-            Schema_.Properties.Param[str],
+            Param[str],
             str
         ],
         param2: typing.Union[
-            Schema_.Properties.Param2[str],
+            Param2[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -113,3 +99,4 @@ class Schema(
             inst
         )
         return inst
+

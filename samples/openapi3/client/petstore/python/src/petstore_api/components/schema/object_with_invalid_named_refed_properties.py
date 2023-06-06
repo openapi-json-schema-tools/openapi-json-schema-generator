@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectWithInvalidNamedRefedProperties(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,26 +22,14 @@ class ObjectWithInvalidNamedRefedProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "!reference",
             "from",
-        }
-        
-        class Properties:
-        
-            @staticmethod
-            def _from() -> typing.Type[from_schema.FromSchema]:
-                return from_schema.FromSchema
-        
-            @staticmethod
-            def reference() -> typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems]:
-                return array_with_validations_in_items.ArrayWithValidationsInItems
-            __annotations__ = {
-                "from": _from,
-                "!reference": reference,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItems[tuple]: ...
@@ -75,25 +64,7 @@ class ObjectWithInvalidNamedRefedProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithInvalidNamedRefedProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -107,5 +78,13 @@ class ObjectWithInvalidNamedRefedProperties(
         )
         return inst
 
+
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "from": typing.Type[from_schema.FromSchema],
+        "!reference": typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems],
+    }
+)

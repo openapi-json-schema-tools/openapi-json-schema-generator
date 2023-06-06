@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class EnumWithTrueDoesNotMatch1(
     schemas.BoolSchema[schemas.T]
 ):
@@ -21,14 +22,17 @@ class EnumWithTrueDoesNotMatch1(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.BoolClass,
-        }
-        enum_value_to_name = {
-            schemas.BoolClass.TRUE: "TRUE",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                schemas.BoolClass.TRUE: "TRUE",
+            }
+        )
     
     @schemas.classproperty
-    def TRUE(cls):
+    def TRUE(cls) -> EnumWithTrueDoesNotMatch1[schemas.BoolClass]:
         return cls(True) # type: ignore

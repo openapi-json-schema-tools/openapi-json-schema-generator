@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -46,12 +47,12 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
     public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
     public String type;
-    public List<CodegenSchema> allOf = null;
-    public List<CodegenSchema> anyOf = null;
-    public List<CodegenSchema> oneOf = null;
+    public ArrayListWithContext<CodegenSchema> allOf = null;
+    public ArrayListWithContext<CodegenSchema> anyOf = null;
+    public ArrayListWithContext<CodegenSchema> oneOf = null;
     public CodegenSchema not = null;
     public CodegenSchema items;
-    public LinkedHashMap<CodegenKey, CodegenSchema> properties;
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties;
     public CodegenSchema additionalProperties;
     public String description;
     public String format;
@@ -86,6 +87,12 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
+    /**
+     * schema/allOfType/anyOfType/oneOfType/propertiesType/importsType
+     * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
+     */
+    public String instanceType;
+    private ArrayList<CodegenSchema> allSchemas = null;
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
@@ -126,6 +133,118 @@ public class CodegenSchema {
         return refObject;
     }
 
+    /**
+     * Returns all schemas in post order traversal, used by templates to write schema classes
+     * @param schemasBeforeImports the input list that stores this and all required schemas
+     * @return the list that stores this and all required schemas
+     */
+    private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level) {
+        /*
+        post order traversal using alphabetic json schema keywords as the order
+        keywords with schemas:
+        additionalProperties
+        allOf
+        anyOf
+        items
+        not
+        oneOf
+        properties
+        (self)
+
+        excluded:
+        discriminator (not actually applicable because all values would be refs and do not need to be defined)
+        $ref (because it is an import)
+         */
+        if (isBooleanSchemaFalse) {
+            // return early for isBooleanSchemaFalse so not_ will not be written
+            schemasBeforeImports.add(this);
+            return;
+        }
+        if (additionalProperties != null) {
+            additionalProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (allOf != null) {
+            for (CodegenSchema someSchema: allOf) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "allOfType";
+            extraSchema.allOf = allOf;
+            if (allOf.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (anyOf != null) {
+            for (CodegenSchema someSchema: anyOf) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports,level + 1);
+            }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "anyOfType";
+            extraSchema.anyOf = anyOf;
+            if (anyOf.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (items != null) {
+            items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (not != null) {
+            not.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (oneOf != null) {
+            for (CodegenSchema someSchema: oneOf) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "oneOfType";
+            extraSchema.oneOf = oneOf;
+            if (oneOf.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (properties != null) {
+            for (CodegenSchema someSchema: properties.values()) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "propertiesType";
+            extraSchema.properties = properties;
+            if (properties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (refInfo != null && level > 0) {
+            // do not add ref to schemas
+            return;
+        }
+        schemasBeforeImports.add(this);
+        if (level == 0 && imports != null && !imports.isEmpty()) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "importsType";
+            extraSchema.imports = imports;
+            schemasBeforeImports.add(extraSchema);
+        }
+    }
+
+    public ArrayList<CodegenSchema> getSchemas() {
+        if (allSchemas == null) {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            allSchemas = schemasBeforeImports;
+        }
+        return allSchemas;
+    }
+
     public boolean isComplicated() {
         // used by templates
 
@@ -137,7 +256,7 @@ public class CodegenSchema {
 
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", description='").append(description).append('\'');
-        sb.append(", name='").append(jsonPathPiece).append('\'');
+        sb.append(", jsonPathPiece='").append(jsonPathPiece).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
@@ -186,6 +305,7 @@ public class CodegenSchema {
         sb.append(", imports=").append(imports);
         sb.append(", componentModule=").append(componentModule);
         sb.append(", testCases=").append(testCases);
+        sb.append(", instanceType=").append(instanceType);
     }
 
     @Override

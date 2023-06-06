@@ -10,6 +10,49 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
+
+class Op(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "add": "ADD",
+                "replace": "REPLACE",
+                "test": "TEST",
+            }
+        )
+    
+    @schemas.classproperty
+    def ADD(cls) -> Op[str]:
+        return cls("add") # type: ignore
+    
+    @schemas.classproperty
+    def REPLACE(cls) -> Op[str]:
+        return cls("replace") # type: ignore
+    
+    @schemas.classproperty
+    def TEST(cls) -> Op[str]:
+        return cls("test") # type: ignore
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "path": typing.Type[Path],
+        "value": typing.Type[Value],
+        "op": typing.Type[Op],
+    }
+)
+
 
 class JSONPatchRequestAddReplaceTest(
     schemas.DictSchema[schemas.T]
@@ -21,62 +64,27 @@ class JSONPatchRequestAddReplaceTest(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "op",
             "path",
             "value",
-        }
-        
-        class Properties:
-            Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            
-            
-            class Op(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "add": "ADD",
-                        "replace": "REPLACE",
-                        "test": "TEST",
-                    }
-                
-                @schemas.classproperty
-                def ADD(cls):
-                    return cls("add") # type: ignore
-                
-                @schemas.classproperty
-                def REPLACE(cls):
-                    return cls("replace") # type: ignore
-                
-                @schemas.classproperty
-                def TEST(cls):
-                    return cls("test") # type: ignore
-            __annotations__ = {
-                "path": Path,
-                "value": Value,
-                "op": Op,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def op(self) -> Schema_.Properties.Op[str]:
+    def op(self) -> Op[str]:
         return self.__getitem__("op")
     
     @property
-    def path(self) -> Schema_.Properties.Path[str]:
+    def path(self) -> Path[str]:
         return self.__getitem__("path")
     
     @property
-    def value(self) -> Schema_.Properties.Value[typing.Union[
+    def value(self) -> Value[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -89,13 +97,13 @@ class JSONPatchRequestAddReplaceTest(
         return self.__getitem__("value")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> Schema_.Properties.Op[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> Op[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> Schema_.Properties.Path[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["path"]) -> Path[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["value"]) -> Schema_.Properties.Value[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["value"]) -> Value[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -121,24 +129,17 @@ class JSONPatchRequestAddReplaceTest(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         op: typing.Union[
-            Schema_.Properties.Op[str],
+            Op[str],
             str
         ],
         path: typing.Union[
-            Schema_.Properties.Path[str],
+            Path[str],
             str
         ],
         value: typing.Union[
-            Schema_.Properties.Value[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Value[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,
@@ -171,3 +172,4 @@ class JSONPatchRequestAddReplaceTest(
             inst
         )
         return inst
+

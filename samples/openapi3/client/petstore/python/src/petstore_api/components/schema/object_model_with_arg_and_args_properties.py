@@ -10,6 +10,16 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Arg: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Args: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "arg": typing.Type[Arg],
+        "args": typing.Type[Args],
+    }
+)
+
 
 class ObjectModelWithArgAndArgsProperties(
     schemas.DictSchema[schemas.T]
@@ -21,34 +31,28 @@ class ObjectModelWithArgAndArgsProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "arg",
             "args",
-        }
-        
-        class Properties:
-            Arg: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Args: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "arg": Arg,
-                "args": Args,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def arg(self) -> Schema_.Properties.Arg[str]:
+    def arg(self) -> Arg[str]:
         return self.__getitem__("arg")
     
     @property
-    def args(self) -> Schema_.Properties.Args[str]:
+    def args(self) -> Args[str]:
         return self.__getitem__("args")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Schema_.Properties.Arg[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["arg"]) -> Arg[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["args"]) -> Schema_.Properties.Args[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["args"]) -> Args[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -77,33 +81,15 @@ class ObjectModelWithArgAndArgsProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         arg: typing.Union[
-            Schema_.Properties.Arg[str],
+            Arg[str],
             str
         ],
         args: typing.Union[
-            Schema_.Properties.Args[str],
+            Args[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectModelWithArgAndArgsProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -118,3 +104,4 @@ class ObjectModelWithArgAndArgsProperties(
             inst
         )
         return inst
+

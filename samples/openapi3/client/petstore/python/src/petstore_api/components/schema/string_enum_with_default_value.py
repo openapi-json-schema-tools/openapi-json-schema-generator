@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class StringEnumWithDefaultValue(
     schemas.StrSchema[schemas.T]
 ):
@@ -21,25 +22,28 @@ class StringEnumWithDefaultValue(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        default = "placed"
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-        }
+        })
+        default: str = "placed"
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+            }
+        )
     
     @schemas.classproperty
-    def PLACED(cls):
+    def PLACED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("placed") # type: ignore
     
     @schemas.classproperty
-    def APPROVED(cls):
+    def APPROVED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("approved") # type: ignore
     
     @schemas.classproperty
-    def DELIVERED(cls):
+    def DELIVERED(cls) -> StringEnumWithDefaultValue[str]:
         return cls("delivered") # type: ignore

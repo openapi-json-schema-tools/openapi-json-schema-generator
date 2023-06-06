@@ -7,11 +7,11 @@ public class CodegenServer {
     public final String url;
     public final String defaultUrl;
     public final String description;
-    public final LinkedHashMap<CodegenKey, CodegenSchema> variables;
+    public final CodegenSchema variables;
     public final CodegenKey jsonPathPiece;
     public final boolean rootServer;
 
-    public CodegenServer(String url, String description, LinkedHashMap<CodegenKey, CodegenSchema> variables, CodegenKey jsonPathPiece, boolean rootServer) {
+    public CodegenServer(String url, String description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer) {
         this.url = url;
         this.description = description;
         this.variables = variables;
@@ -21,7 +21,7 @@ public class CodegenServer {
             this.defaultUrl = url;
         } else {
             String defaultUrl = url;
-            for (CodegenSchema variable: variables.values()) {
+            for (CodegenSchema variable: variables.properties.values()) {
                 defaultUrl = defaultUrl.replace("{" + variable.jsonPathPiece.original + "}", (String) variable.defaultValue.value);
             }
             this.defaultUrl = defaultUrl;

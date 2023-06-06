@@ -43,6 +43,7 @@ import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
 import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
 import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
 import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.model.ArrayListWithContext;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenEncoding;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
@@ -64,6 +65,7 @@ import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
 import org.openapijsonschematools.codegen.model.EnumValue;
+import org.openapijsonschematools.codegen.model.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.serializer.SerializerUtils;
@@ -487,7 +489,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (modelNameToSchemaCache == null) {
             // Create a cache to efficiently lookup schema based on model name.
             Map<String, Schema> m = new HashMap<>();
-            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, null), schema));
+            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, "#/components/schemas/"+key), schema));
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
@@ -1556,6 +1558,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    HashMap<String, HashMap<String, Integer>> sourceJsonPathToKeyToQty = new HashMap<>();
     Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
 
@@ -1998,7 +2001,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         String discPropName = sourceDiscriminator.getPropertyName();
-        CodegenKey propertyName = getKey(discPropName);
+        CodegenKey propertyName = getKey(discPropName, "misc");
         Map<String, String> mapping = sourceDiscriminator.getMapping();
 
         TreeSet<MappedModel> mappedModels = new TreeSet<>();
@@ -2208,9 +2211,9 @@ public class DefaultCodegen implements CodegenConfig {
 
         PairCacheKey ck = new PairCacheKey(sourceJsonPath, currentJsonPath);
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
+        property.instanceType = "schema";
 
         String ref = p.get$ref();
-        setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
         // put toExampleValue in a try-catch block to log the error as example values are not critical
         try {
             property.example = toExampleValue(p);
@@ -2220,6 +2223,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.example = "ERROR_TO_EXAMPLE_VALUE";
         }
         if (ref != null) {
+            setSchemaLocationInfo(ref, sourceJsonPath, currentJsonPath, property);
             if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
                 // import from $ref
                 property.imports = new TreeSet<>();
@@ -2243,6 +2247,47 @@ public class DefaultCodegen implements CodegenConfig {
         property.format = p.getFormat();
         property.externalDocumentation = p.getExternalDocs();
 
+        /*
+         Order of assigning properties must reverse the order in
+         CodegenSchema.getSchemaa
+         so that jsonPathPiece.camelCase names can be assigned correctly
+         with the root schema having an unmodified jsonPathPiece.className
+         -->
+        (self)
+        properties
+        oneOf
+        not
+        items
+        anyOf
+        allOf
+        additionalProperties
+         */
+        setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
+        HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
+        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
+        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
+        if (oneOfs != null && !oneOfs.isEmpty()) {
+            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
+        }
+        Schema notSchema = p.getNot();
+        if (notSchema != null) {
+            property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
+        }
+        if (p.getItems() != null) {
+            property.items = fromSchema(
+                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
+        }
+        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
+        }
+        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
+        if (allOfs != null && !allOfs.isEmpty()) {
+            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
+        }
+        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
+        // end of properties that need to be ordered to set correct camelCase jsonPathPieces
+
         if (currentJsonPath != null) {
             String[] pathPieces = currentJsonPath.split("/");
             if (pathPieces.length >= 4) {
@@ -2258,12 +2303,9 @@ public class DefaultCodegen implements CodegenConfig {
                             property.schemaIsFromAdditionalProperties = true;
                         }
                     }
-                } else {
+                } else if (currentJsonPath.startsWith("#/components/schemas/"))  {
                     // component schema use case
-                    // TODO set discriminator on any schema instances in the future not just these
-                    if (!currentJsonPath.startsWith("#/components/schemas/")) {
-                        throw new RuntimeException("Invalid currentJsonPath "+ currentJsonPath);
-                    }
+                    // TODO set discriminator on any schema instances in the future not just component schemas
 
                     property.discriminator = createDiscriminator(usedName, p, this.openAPI, currentJsonPath);
                     if (p instanceof ComposedSchema) {
@@ -2302,22 +2344,6 @@ public class DefaultCodegen implements CodegenConfig {
             property.vendorExtensions = ((Schema<?>) p).getExtensions();
         }
 
-        Schema notSchema = p.getNot();
-        if (notSchema != null) {
-            property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
-        }
-        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
-        if (allOfs != null && !allOfs.isEmpty()) {
-            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
-        }
-        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
-        }
-        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
-        if (oneOfs != null && !oneOfs.isEmpty()) {
-            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
-        }
         if (ModelUtils.isAnyType(p)) {
             // The 'null' value is allowed when the OAS schema is 'any type'.
             // See https://github.com/OAI/OpenAPI-Specification/issues/1389
@@ -2326,17 +2352,10 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         property.patternInfo = getPatternInfo(p.getPattern());
-        // handle inner property
-        if (p.getItems() != null) {
-            property.items = fromSchema(
-                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
-        }
-        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
-        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath);
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<>(((Schema<?>) p).getRequired());
         property.optionalProperties = getOptionalProperties(property.properties, required);
-        property.requiredProperties = getRequiredProperties(required, property.properties, p.getAdditionalProperties(), property.additionalProperties);
+        property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties);
 
         property.example = toExampleValue(p);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
@@ -2618,7 +2637,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
-        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
         return new CodegenOperation(
                 deprecated,
                 hasErrorResponseObject,
@@ -2714,13 +2733,10 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/responses/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         Map<String, CodegenHeader> finalHeaders = headers;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
@@ -2823,13 +2839,10 @@ public class DefaultCodegen implements CodegenConfig {
             imports =  new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/headers/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(header.getDescription());
         String unescapedDescription = header.getDescription();
@@ -2907,13 +2920,10 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/parameters/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(parameter.getDescription());
         String unescapedDescription = parameter.getDescription();
@@ -3099,13 +3109,10 @@ public class DefaultCodegen implements CodegenConfig {
                     flowsVendorExtensions
             );
         }
-        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, jsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, jsonPath, jsonPath);
         String[] pathPieces = jsonPath.split("/");
         // #/components/requestBodies/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && jsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && jsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String type = securityScheme.getType().toString();
         String description = securityScheme.getDescription();
@@ -3249,28 +3256,35 @@ public class DefaultCodegen implements CodegenConfig {
      * @param currentJsonPath the current json path
      * @return the properties
      */
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath, HashMap<String, CodegenKey> requiredAndOptionalProperties) {
         if (properties == null || properties.isEmpty()) {
             return null;
         }
 
-        LinkedHashMap<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMap<>();
+        LinkedHashMapWithContext<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMapWithContext<>();
 
+        boolean allAreInline = true;
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
             final String propertyName = entry.getKey();
             final Schema prop = entry.getValue();
             if (prop == null) {
                 LOGGER.warn("Please report the issue. There shouldn't be null property for {}", propertyName);
             } else {
+                if (prop.get$ref() != null) {
+                    allAreInline = false;
+                }
                 final CodegenSchema cp;
 
                 String propertyJsonPath = currentJsonPath + "/properties/" + ModelUtils.encodeSlashes(propertyName);
                 cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
+                requiredAndOptionalProperties.put(propertyName, cp.jsonPathPiece);
 
-                CodegenKey key = getKey(propertyName);
-                propertiesMap.put(key, cp);
+                propertiesMap.put(cp.jsonPathPiece, cp);
             }
         }
+        propertiesMap.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey("properties", "schemaProperty", sourceJsonPath);
+        propertiesMap.setJsonPathPiece(jsonPathPiece);
         return propertiesMap;
     }
 
@@ -3278,24 +3292,24 @@ public class DefaultCodegen implements CodegenConfig {
      * Add variables (properties) to codegen model (list of properties, various flags, etc)
      *
      * @param properties a map of properties (schema)
-     * @param mandatory  a set of required properties' name
+     * @param required  a set of required properties' name
      * @return the optional properties
      */
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties, Set<String> mandatory) {
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties, Set<String> required) {
         if (properties == null) {
             return null;
         }
-        if (mandatory.size() == properties.size()) {
+        if (required.size() == properties.size()) {
             return null;
         }
-        if (mandatory.isEmpty()) {
+        if (required.isEmpty()) {
             return properties;
         }
 
         LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
         for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
             final CodegenKey key = entry.getKey();
-            if (mandatory.contains(key.original)) {
+            if (required.contains(key.original)) {
                 continue;
             }
             final CodegenSchema prop = entry.getValue();
@@ -3350,7 +3364,7 @@ public class DefaultCodegen implements CodegenConfig {
             pathPieces[2] = null;
             if (pathPieces.length == 4) {
                 // #/components/schemas/SomeSchema
-                pathPieces[3] = getKey(pathPieces[3]).snakeCase;
+                pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
             }
             return;
         } else if (pathPieces[2].equals("requestBodies")) {
@@ -3366,21 +3380,21 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
@@ -3396,12 +3410,12 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = getKey(contentType).snakeCase;
+                    pathPieces[7] = toModelFilename(contentType, null);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
             pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
@@ -3449,7 +3463,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCase;
+                pathPieces[7] = toModelFilename(contentType, null);
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], null);
@@ -3457,7 +3471,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                    pathPieces[9] = getKey(contentType).snakeCase;
+                    pathPieces[9] = toModelFilename(contentType, null);
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -3467,13 +3481,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCase;
+                pathPieces[7] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = getKey(contentType).snakeCase;
+                pathPieces[6] = toModelFilename(contentType, null);
             }
         }
     }
@@ -4132,7 +4146,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
-            CodegenKey ck = getKey(contentType);
+            CodegenKey ck = getKey(contentType, "misc");
             cmtContent.put(ck, codegenMt);
         }
         return cmtContent;
@@ -4175,21 +4189,24 @@ public class DefaultCodegen implements CodegenConfig {
                     // property is of type self
                     return null;
                 }
-                return getKey(refPieces[3]).snakeCase;
+                String usedKey = handleSpecialCharacters(refPieces[3]);
+                return toModelFilename(usedKey, ref);
             case "securitySchemes":
                 return toSecuritySchemeFilename(refPieces[3], ref);
         }
         return null;
     }
 
-    private CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath) {
+    private CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPathPiece) {
         // last fragment info
         // requestBody -> requestBody
         // headers -> headerName
         // parameters/i -> i
         // components/parameters/someParam -> someParam
+        // components/securitySchemes/blah -> Blah
+        // schema names
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-        return getKey(usedName, expectedComponentType, currentJsonPath);
+        return getKey(usedName, expectedComponentType, sourceJsonPathPiece);
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, CodegenSchema instance) {
@@ -4204,7 +4221,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (currentJsonPath == null) {
             return;
         }
-        instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath);
+        instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/schemas/A
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
@@ -4236,13 +4253,10 @@ public class DefaultCodegen implements CodegenConfig {
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
-        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath);
+        CodegenKey jsonPathPiece = getJsonPathPiece(expectedComponentType, sourceJsonPath, sourceJsonPath);
         String[] pathPieces = sourceJsonPath.split("/");
         // #/components/requestBodies/A
-        boolean componentModule = false;
-        if (pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
-            componentModule = true;
-        }
+        boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String description = escapeText(requestBody.getDescription());
         String unescapedDescription = requestBody.getDescription();
@@ -4265,43 +4279,64 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenRequestBody;
     }
 
+    @Override
     public CodegenKey getKey(String key, String expectedComponentType) {
         return getKey(key, expectedComponentType, null);
     }
 
-    public CodegenKey getKey(String key, String expectedComponentType, String jsonPath) {
+    public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
         String camelCaseName = null;
         String anchorPiece = null;
-        switch (expectedComponentType) {
+        switch (keyType) {
+            case "schemaProperty":
             case "schemas":
-                snakeCaseName = toModelFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                String suffix = "";
+                if (sourceJsonPath != null) {
+                    HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+                    if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+                        sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+                    }
+                    Integer qty = keyToQty.getOrDefault(usedKey, 0);
+                    qty += 1;
+                    keyToQty.put(usedKey, qty);
+                    if (qty > 1) {
+                        suffix = qty.toString();
+                    }
+                }
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey + suffix, sourceJsonPath);
+                break;
+            case "misc":
+            case "paths":
+            case "verb":
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
-                snakeCaseName = toParameterFilename(usedKey, jsonPath);
+                snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 snakeCaseName = toRequestBodyFilename(usedKey);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
-                snakeCaseName = toHeaderFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
-                snakeCaseName = toResponseModuleName(usedKey, jsonPath);
+                snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
-                snakeCaseName = toSecuritySchemeFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
-                snakeCaseName = toServerFilename(usedKey, jsonPath);
+                snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
                 break;
         }
@@ -4317,22 +4352,7 @@ public class DefaultCodegen implements CodegenConfig {
         );
     }
 
-    @Override
-    public CodegenKey getKey(String key) {
-        String usedKey = handleSpecialCharacters(key);
-        boolean isValid = isValid(usedKey);
-        String camelCase = toModelName(usedKey, null);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
-        return new CodegenKey(
-                usedKey,
-                isValid,
-                toModelFilename(usedKey, null),
-                camelCase,
-                anchorPiece
-        );
-    }
-
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, Object schemaAdditionalProperties, CodegenSchema additionalProperties) {
+    protected LinkedHashMap<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties) {
         if (required.isEmpty()) {
             return null;
         }
@@ -4346,8 +4366,8 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMap<>();
         for (String requiredPropertyName: required) {
             // required property is defined in properties, value is that CodegenSchema
-            CodegenKey key = getKey(requiredPropertyName);
-            if (properties != null && properties.containsKey(key)) {
+            if (properties != null && requiredAndOptionalProperties.containsKey(requiredPropertyName)) {
+                CodegenKey key = requiredAndOptionalProperties.get(requiredPropertyName);
                 // get cp from property
                 CodegenSchema prop = properties.get(key);
                 if (prop != null) {
@@ -4355,26 +4375,29 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     throw new RuntimeException("Property " + requiredPropertyName + " is missing from getVars");
                 }
-            } else if (schemaAdditionalProperties instanceof Boolean && Boolean.FALSE.equals(schemaAdditionalProperties)) {
+            } else if (additionalProperties != null && additionalProperties.isBooleanSchemaFalse) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
+                CodegenKey key = getKey(requiredPropertyName, "schemas");
                 requiredProperties.put(key, null);
+                requiredAndOptionalProperties.put(requiredPropertyName, key);
             } else {
-                // required property is not defined in properties, and additionalProperties is true or unset value is CodegenSchema made from empty schema
-                // required property is not defined in properties, and additionalProperties is schema, value is CodegenSchema made from schema
+                // required property is not defined in properties
                 if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {
                     CodegenSchema prop;
-                    if (schemaAdditionalProperties == null) {
+                    if (additionalProperties == null) {
                         // additionalProperties is null
                         // there is NO schema definition for this so the json paths are null
                         prop = requiredAddPropUnsetSchema;
-                    } else if (schemaAdditionalProperties instanceof Boolean && Boolean.TRUE.equals(schemaAdditionalProperties)) {
+                    } else if (additionalProperties.isBooleanSchemaTrue) {
                         // additionalProperties is True
                         prop = additionalProperties;
                     } else {
                         // additionalProperties is schema
                         prop = additionalProperties;
                     }
+                    CodegenKey key = getKey(requiredPropertyName, "schemas");
                     requiredProperties.put(key, prop);
+                    requiredAndOptionalProperties.put(requiredPropertyName, key);
                 }
             }
         }
@@ -4426,7 +4449,7 @@ public class DefaultCodegen implements CodegenConfig {
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
             CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
-            CodegenKey pathKey = getKey(path);
+            CodegenKey pathKey = getKey(path, "paths");
             codegenPaths.put(pathKey, codegenPathItem);
         }
         // sort them
@@ -4442,44 +4465,44 @@ public class DefaultCodegen implements CodegenConfig {
         Operation specOperation = pathItem.getGet();
         String httpMethod = "get";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPut();
         httpMethod = "put";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPost();
         httpMethod = "post";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getDelete();
         httpMethod = "delete";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getOptions();
         httpMethod = "options";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getHead();
         httpMethod = "head";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPatch();
         httpMethod = "patch";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getTrace();
         httpMethod = "trace";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
-        if (operations != null)
+        if (!operations.isEmpty())
             // sort them
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
@@ -4519,14 +4542,16 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public LinkedHashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
+    public CodegenSchema fromServerVariables(Map<String, ServerVariable> serverVariables, String jsonPath) {
         if (serverVariables == null) {
             return null;
         }
 
-        LinkedHashMap<CodegenKey, CodegenSchema> variables = new LinkedHashMap<>();
+        LinkedHashMap<String, Schema> properties = new LinkedHashMap<>();
+        ArrayList<String> required = new ArrayList<>();
         for (Entry<String, ServerVariable> entry: serverVariables.entrySet()) {
             String variableName = entry.getKey();
+            required.add(variableName);
             ServerVariable variable = entry.getValue();
             StringSchema schema = new StringSchema();
             if (variable.getDescription() != null) {
@@ -4536,12 +4561,14 @@ public class DefaultCodegen implements CodegenConfig {
             if (variable.getEnum() != null) {
                 schema.setEnum(variable.getEnum());
             }
-            String schemaJsonPath = jsonPath + "/" + variableName;
-            CodegenSchema codegenSchema = fromSchema(schema, jsonPath, schemaJsonPath);
-            CodegenKey key = getKey(variableName);
-            variables.put(key, codegenSchema);
+            properties.put(variableName, schema);
         }
-        return variables;
+        ObjectSchema variablesSchema = new ObjectSchema();
+        variablesSchema.setProperties(properties);
+        variablesSchema.setRequired(required);
+        // only listed variables are allowed
+        variablesSchema.setAdditionalProperties(Boolean.FALSE);
+        return fromSchema(variablesSchema, jsonPath, jsonPath);
     }
 
     /**
@@ -4740,17 +4767,24 @@ public class DefaultCodegen implements CodegenConfig {
         return mime != null && JSON_VENDOR_MIME_PATTERN.matcher(mime).matches();
     }
 
-    private List<CodegenSchema> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath, String currentJsonPath) {
+    private ArrayListWithContext<CodegenSchema> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath, String currentJsonPath) {
         if (xOfCollection == null) {
             return null;
         }
-        List<CodegenSchema> xOf = new ArrayList<>();
+        ArrayListWithContext<CodegenSchema> xOf = new ArrayListWithContext<>();
         int i = 0;
+        boolean allAreInline = true;
         for (Schema xOfSchema : xOfCollection) {
+            if (xOfSchema.get$ref() != null) {
+                allAreInline = false;
+            }
             CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + i);
             xOf.add(cp);
             i += 1;
         }
+        xOf.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey(collectionName, "schemaProperty");
+        xOf.setJsonPathPiece(jsonPathPiece);
         return xOf;
     }
 

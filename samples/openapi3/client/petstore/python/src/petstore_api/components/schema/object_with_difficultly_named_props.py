@@ -10,6 +10,18 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+_123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
+_123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "$special[property.name]": typing.Type[SpecialPropertyName],
+        "123-list": typing.Type[_123List],
+        "123Number": typing.Type[_123Number],
+    }
+)
+
 
 class ObjectWithDifficultlyNamedProps(
     schemas.DictSchema[schemas.T]
@@ -23,30 +35,22 @@ class ObjectWithDifficultlyNamedProps(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "123-list",
-        }
-        
-        class Properties:
-            SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            _123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            _123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
-            __annotations__ = {
-                "$special[property.name]": SpecialPropertyName,
-                "123-list": _123List,
-                "123Number": _123Number,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> Schema_.Properties._123List[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> _123List[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> Schema_.Properties.SpecialPropertyName[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["$special[property.name]"]) -> SpecialPropertyName[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> Schema_.Properties._123Number[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["123Number"]) -> _123Number[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -76,25 +80,7 @@ class ObjectWithDifficultlyNamedProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithDifficultlyNamedProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -107,3 +93,4 @@ class ObjectWithDifficultlyNamedProps(
             inst
         )
         return inst
+

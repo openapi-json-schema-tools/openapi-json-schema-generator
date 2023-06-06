@@ -11,15 +11,17 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.Int64Schema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'int64'
-        inclusive_maximum = 5
-        inclusive_minimum = 1
+        })
+        format: str = 'int64'
+        inclusive_maximum: typing.Union[int, float] = 5
+        inclusive_minimum: typing.Union[int, float] = 1

@@ -7,5 +7,5 @@ from unit_test_api.shared_imports.server_imports import *
 
 
 @dataclasses.dataclass
-class Server0(server.Server):
-    _url: str = "https://someserver.com/v1"
+class Server0(server.ServerWithoutVariables):
+    url: str = "https://someserver.com/v1"

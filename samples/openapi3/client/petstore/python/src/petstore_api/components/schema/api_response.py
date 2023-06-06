@@ -10,6 +10,18 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Code: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Type: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Message: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "code": typing.Type[Code],
+        "type": typing.Type[Type],
+        "message": typing.Type[Message],
+    }
+)
+
 
 class ApiResponse(
     schemas.DictSchema[schemas.T]
@@ -21,27 +33,19 @@ class ApiResponse(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            Code: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            Type: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Message: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "code": Code,
-                "type": Type,
-                "message": Message,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["code"]) -> Schema_.Properties.Code[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["code"]) -> Code[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Schema_.Properties.Type[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["type"]) -> Type[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> Schema_.Properties.Message[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> Message[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -71,41 +75,23 @@ class ApiResponse(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         code: typing.Union[
-            Schema_.Properties.Code[decimal.Decimal],
+            Code[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         type: typing.Union[
-            Schema_.Properties.Type[str],
+            Type[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         message: typing.Union[
-            Schema_.Properties.Message[str],
+            Message[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ApiResponse[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -121,3 +107,4 @@ class ApiResponse(
             inst
         )
         return inst
+

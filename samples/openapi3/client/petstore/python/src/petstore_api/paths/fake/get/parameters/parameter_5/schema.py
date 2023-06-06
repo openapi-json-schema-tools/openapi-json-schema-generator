@@ -11,25 +11,29 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.Float64Schema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'double'
-        enum_value_to_name = {
-            1.1: "POSITIVE_1_PT_1",
-            -1.2: "NEGATIVE_1_PT_2",
-        }
+        })
+        format: str = 'double'
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                1.1: "POSITIVE_1_PT_1",
+                -1.2: "NEGATIVE_1_PT_2",
+            }
+        )
     
     @schemas.classproperty
-    def POSITIVE_1_PT_1(cls):
+    def POSITIVE_1_PT_1(cls) -> Schema[decimal.Decimal]:
         return cls(1.1) # type: ignore
     
     @schemas.classproperty
-    def NEGATIVE_1_PT_2(cls):
+    def NEGATIVE_1_PT_2(cls) -> Schema[decimal.Decimal]:
         return cls(-1.2) # type: ignore

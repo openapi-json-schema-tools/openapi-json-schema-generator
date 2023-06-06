@@ -11,6 +11,36 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class ShapeType(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "Triangle": "TRIANGLE",
+            }
+        )
+    
+    @schemas.classproperty
+    def TRIANGLE(cls) -> ShapeType[str]:
+        return cls("Triangle") # type: ignore
+TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "shapeType": typing.Type[ShapeType],
+        "triangleType": typing.Type[TriangleType],
+    }
+)
+
+
 class TriangleInterface(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,52 +51,29 @@ class TriangleInterface(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        required = {
+        required: typing.FrozenSet[str] = frozenset({
             "shapeType",
             "triangleType",
-        }
-        
-        class Properties:
-            
-            
-            class ShapeType(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "Triangle": "TRIANGLE",
-                    }
-                
-                @schemas.classproperty
-                def TRIANGLE(cls):
-                    return cls("Triangle") # type: ignore
-            TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "shapeType": ShapeType,
-                "triangleType": TriangleType,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @property
-    def shapeType(self) -> Schema_.Properties.ShapeType[str]:
+    def shapeType(self) -> ShapeType[str]:
         return self.__getitem__("shapeType")
     
     @property
-    def triangleType(self) -> Schema_.Properties.TriangleType[str]:
+    def triangleType(self) -> TriangleType[str]:
         return self.__getitem__("triangleType")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> Schema_.Properties.ShapeType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> ShapeType[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> Schema_.Properties.TriangleType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["triangleType"]) -> TriangleType[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -93,44 +100,9 @@ class TriangleInterface(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> TriangleInterface[
         typing.Union[
             frozendict.frozendict,
@@ -165,3 +137,4 @@ class TriangleInterface(
             inst
         )
         return inst
+

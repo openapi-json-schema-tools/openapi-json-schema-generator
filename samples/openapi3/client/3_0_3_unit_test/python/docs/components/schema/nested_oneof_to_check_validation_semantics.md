@@ -23,9 +23,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#oneof-_0-oneof-_0) | None | NoneClass |  |
+[_0](#oneof-_0-oneof-_02) | None | NoneClass |  |
 
-# oneof _0 oneof _0
+# oneof _0 oneof _02
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

@@ -10,28 +10,32 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Status: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "name": typing.Type[Name],
+        "status": typing.Type[Status],
+    }
+)
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Status: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "name": Name,
-                "status": Status,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Schema_.Properties.Status[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Status[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -60,35 +64,17 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name[str],
+            Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status[str],
+            Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -103,3 +89,4 @@ class Schema(
             inst
         )
         return inst
+

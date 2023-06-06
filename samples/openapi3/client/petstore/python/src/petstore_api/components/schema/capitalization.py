@@ -10,6 +10,24 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SmallCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
+CapitalCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
+SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
+CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
+SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema[U]
+ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "smallCamel": typing.Type[SmallCamel],
+        "CapitalCamel": typing.Type[CapitalCamel],
+        "small_Snake": typing.Type[SmallSnake],
+        "Capital_Snake": typing.Type[CapitalSnake],
+        "SCA_ETH_Flow_Points": typing.Type[SCAETHFlowPoints],
+        "ATT_NAME": typing.Type[ATTNAME],
+    }
+)
+
 
 class Capitalization(
     schemas.DictSchema[schemas.T]
@@ -21,42 +39,28 @@ class Capitalization(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            SmallCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            CapitalCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "smallCamel": SmallCamel,
-                "CapitalCamel": CapitalCamel,
-                "small_Snake": SmallSnake,
-                "Capital_Snake": CapitalSnake,
-                "SCA_ETH_Flow_Points": SCAETHFlowPoints,
-                "ATT_NAME": ATTNAME,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> Schema_.Properties.SmallCamel[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> SmallCamel[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> Schema_.Properties.CapitalCamel[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> CapitalCamel[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> Schema_.Properties.SmallSnake[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> SmallSnake[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> Schema_.Properties.CapitalSnake[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> CapitalSnake[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> Schema_.Properties.SCAETHFlowPoints[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> SCAETHFlowPoints[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> Schema_.Properties.ATTNAME[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> ATTNAME[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -89,55 +93,37 @@ class Capitalization(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         smallCamel: typing.Union[
-            Schema_.Properties.SmallCamel[str],
+            SmallCamel[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         CapitalCamel: typing.Union[
-            Schema_.Properties.CapitalCamel[str],
+            CapitalCamel[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         small_Snake: typing.Union[
-            Schema_.Properties.SmallSnake[str],
+            SmallSnake[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         Capital_Snake: typing.Union[
-            Schema_.Properties.CapitalSnake[str],
+            CapitalSnake[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         SCA_ETH_Flow_Points: typing.Union[
-            Schema_.Properties.SCAETHFlowPoints[str],
+            SCAETHFlowPoints[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         ATT_NAME: typing.Union[
-            Schema_.Properties.ATTNAME[str],
+            ATTNAME[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Capitalization[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -156,3 +142,4 @@ class Capitalization(
             inst
         )
         return inst
+

@@ -38,13 +38,14 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
 {{#eq types null}}
         # any type
 {{/eq}}
         {{> components/schemas/_helper_types }}
 {{#if format}}
-        format = '{{format}}'
+        format: str = '{{format}}'
 {{/if}}
 {{#if enumValueToName}}
         {{> components/schemas/_helper_schema_enum }}
@@ -68,3 +69,4 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/_helper_property_type_hints }}
 
     {{> components/schemas/_helper_new }}
+

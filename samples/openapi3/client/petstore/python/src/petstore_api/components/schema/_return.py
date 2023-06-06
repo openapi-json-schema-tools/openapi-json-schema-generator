@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Return: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "return": typing.Type[_Return],
+    }
+)
+
 
 class _Return(
     schemas.AnyTypeSchema[schemas.T],
@@ -23,18 +31,14 @@ class _Return(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            _Return: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            __annotations__ = {
-                "return": _Return,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["return"]) -> Schema_.Properties._Return[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["return"]) -> _Return[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -60,44 +64,9 @@ class _Return(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> _Return[
         typing.Union[
             frozendict.frozendict,
@@ -132,3 +101,4 @@ class _Return(
             inst
         )
         return inst
+

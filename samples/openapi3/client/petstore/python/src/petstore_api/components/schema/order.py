@@ -10,6 +10,66 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+Quantity: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+ShipDate: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
+
+
+class Status(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+            }
+        )
+    
+    @schemas.classproperty
+    def PLACED(cls) -> Status[str]:
+        return cls("placed") # type: ignore
+    
+    @schemas.classproperty
+    def APPROVED(cls) -> Status[str]:
+        return cls("approved") # type: ignore
+    
+    @schemas.classproperty
+    def DELIVERED(cls) -> Status[str]:
+        return cls("delivered") # type: ignore
+
+
+class Complete(
+    schemas.BoolSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            schemas.BoolClass,
+        })
+        default: schemas.BoolClass = schemas.BoolClass.FALSE
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "petId": typing.Type[PetId],
+        "quantity": typing.Type[Quantity],
+        "shipDate": typing.Type[ShipDate],
+        "status": typing.Type[Status],
+        "complete": typing.Type[Complete],
+    }
+)
+
 
 class Order(
     schemas.DictSchema[schemas.T]
@@ -21,80 +81,28 @@ class Order(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            Quantity: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            ShipDate: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-            
-            
-            class Status(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "placed": "PLACED",
-                        "approved": "APPROVED",
-                        "delivered": "DELIVERED",
-                    }
-                
-                @schemas.classproperty
-                def PLACED(cls):
-                    return cls("placed") # type: ignore
-                
-                @schemas.classproperty
-                def APPROVED(cls):
-                    return cls("approved") # type: ignore
-                
-                @schemas.classproperty
-                def DELIVERED(cls):
-                    return cls("delivered") # type: ignore
-            
-            
-            class Complete(
-                schemas.BoolSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        schemas.BoolClass,
-                    }
-                    default = schemas.BoolClass.FALSE
-            __annotations__ = {
-                "id": Id,
-                "petId": PetId,
-                "quantity": Quantity,
-                "shipDate": ShipDate,
-                "status": Status,
-                "complete": Complete,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> Schema_.Properties.PetId[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> PetId[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> Schema_.Properties.Quantity[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> Quantity[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> Schema_.Properties.ShipDate[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> ShipDate[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Schema_.Properties.Status[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Status[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> Schema_.Properties.Complete[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> Complete[schemas.BoolClass]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -127,59 +135,41 @@ class Order(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id[decimal.Decimal],
+            Id[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         petId: typing.Union[
-            Schema_.Properties.PetId[decimal.Decimal],
+            PetId[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         quantity: typing.Union[
-            Schema_.Properties.Quantity[decimal.Decimal],
+            Quantity[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
         ] = schemas.unset,
         shipDate: typing.Union[
-            Schema_.Properties.ShipDate[str],
+            ShipDate[str],
             schemas.Unset,
             str,
             datetime.datetime
         ] = schemas.unset,
         status: typing.Union[
-            Schema_.Properties.Status[str],
+            Status[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         complete: typing.Union[
-            Schema_.Properties.Complete[schemas.BoolClass],
+            Complete[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Order[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -198,3 +188,4 @@ class Order(
             inst
         )
         return inst
+

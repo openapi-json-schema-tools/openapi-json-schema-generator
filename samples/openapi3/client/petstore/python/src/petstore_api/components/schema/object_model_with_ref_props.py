@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectModelWithRefProps(
     schemas.DictSchema[schemas.T]
 ):
@@ -23,27 +24,10 @@ class ObjectModelWithRefProps(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-        
-            @staticmethod
-            def my_number() -> typing.Type[number_with_validations.NumberWithValidations]:
-                return number_with_validations.NumberWithValidations
-        
-            @staticmethod
-            def my_string() -> typing.Type[string.String]:
-                return string.String
-        
-            @staticmethod
-            def my_boolean() -> typing.Type[boolean.Boolean]:
-                return boolean.Boolean
-            __annotations__ = {
-                "myNumber": my_number,
-                "myString": my_string,
-                "myBoolean": my_boolean,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> number_with_validations.NumberWithValidations[decimal.Decimal]: ...
@@ -99,25 +83,7 @@ class ObjectModelWithRefProps(
             bool
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectModelWithRefProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -134,6 +100,15 @@ class ObjectModelWithRefProps(
         )
         return inst
 
+
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations
 from petstore_api.components.schema import string
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "myNumber": typing.Type[number_with_validations.NumberWithValidations],
+        "myString": typing.Type[string.String],
+        "myBoolean": typing.Type[boolean.Boolean],
+    }
+)

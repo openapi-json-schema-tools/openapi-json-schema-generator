@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "_class": typing.Type[_Class],
+    }
+)
+
 
 class ClassModel(
     schemas.AnyTypeSchema[schemas.T],
@@ -23,18 +31,14 @@ class ClassModel(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            _Class: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "_class": _Class,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["_class"]) -> Schema_.Properties._Class[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["_class"]) -> _Class[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -60,49 +64,14 @@ class ClassModel(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         _class: typing.Union[
-            Schema_.Properties._Class[str],
+            _Class[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ClassModel[
         typing.Union[
             frozendict.frozendict,
@@ -138,3 +107,4 @@ class ClassModel(
             inst
         )
         return inst
+

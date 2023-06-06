@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Quadrilateral(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,73 +22,25 @@ class Quadrilateral(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'quadrilateralType': {
                     'ComplexQuadrilateral': complex_quadrilateral.ComplexQuadrilateral,
                     'SimpleQuadrilateral': simple_quadrilateral.SimpleQuadrilateral,
                 }
             }
-        
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[simple_quadrilateral.SimpleQuadrilateral]:
-                return simple_quadrilateral.SimpleQuadrilateral
-        
-            @staticmethod
-            def _1() -> typing.Type[complex_quadrilateral.ComplexQuadrilateral]:
-                return complex_quadrilateral.ComplexQuadrilateral
-            classes = [
-                _0,
-                _1,
-            ]
+        )
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Quadrilateral[
         typing.Union[
             frozendict.frozendict,
@@ -123,5 +76,10 @@ class Quadrilateral(
         )
         return inst
 
+
 from petstore_api.components.schema import complex_quadrilateral
 from petstore_api.components.schema import simple_quadrilateral
+OneOf = typing.Tuple[
+    typing.Type[simple_quadrilateral.SimpleQuadrilateral],
+    typing.Type[complex_quadrilateral.ComplexQuadrilateral],
+]

@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Pig(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,73 +22,25 @@ class Pig(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'className': {
                     'BasquePig': basque_pig.BasquePig,
                     'DanishPig': danish_pig.DanishPig,
                 }
             }
-        
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[basque_pig.BasquePig]:
-                return basque_pig.BasquePig
-        
-            @staticmethod
-            def _1() -> typing.Type[danish_pig.DanishPig]:
-                return danish_pig.DanishPig
-            classes = [
-                _0,
-                _1,
-            ]
+        )
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Pig[
         typing.Union[
             frozendict.frozendict,
@@ -123,5 +76,10 @@ class Pig(
         )
         return inst
 
+
 from petstore_api.components.schema import basque_pig
 from petstore_api.components.schema import danish_pig
+OneOf = typing.Tuple[
+    typing.Type[basque_pig.BasquePig],
+    typing.Type[danish_pig.DanishPig],
+]

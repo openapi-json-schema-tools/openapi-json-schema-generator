@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
 
 class Player(
     schemas.DictSchema[schemas.T]
@@ -23,22 +25,13 @@ class Player(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-        
-            @staticmethod
-            def enemy_player() -> typing.Type[Player]:
-                return Player
-            __annotations__ = {
-                "name": Name,
-                "enemyPlayer": enemy_player,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Schema_.Properties.Name[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["enemyPlayer"]) -> Player[frozendict.frozendict]: ...
@@ -70,7 +63,7 @@ class Player(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         name: typing.Union[
-            Schema_.Properties.Name[str],
+            Name[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -81,25 +74,7 @@ class Player(
             frozendict.frozendict
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Player[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -114,3 +89,11 @@ class Player(
             inst
         )
         return inst
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "name": typing.Type[Name],
+        "enemyPlayer": typing.Type[Player],
+    }
+)

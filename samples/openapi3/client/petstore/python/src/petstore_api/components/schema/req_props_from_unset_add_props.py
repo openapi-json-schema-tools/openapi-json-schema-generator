@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ReqPropsFromUnsetAddProps(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,12 +22,13 @@ class ReqPropsFromUnsetAddProps(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "invalid-name",
             "validName",
-        }
+        })
     
     @property
     def validName(self) -> schemas.AnyTypeSchema[typing.Union[
@@ -120,25 +122,7 @@ class ReqPropsFromUnsetAddProps(
             io.BufferedReader
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ReqPropsFromUnsetAddProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -152,3 +136,4 @@ class ReqPropsFromUnsetAddProps(
             inst
         )
         return inst
+

@@ -11,6 +11,102 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class JustSymbol(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
+                "$": "DOLLAR_SIGN",
+            }
+        )
+    
+    @schemas.classproperty
+    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> JustSymbol[str]:
+        return cls(">=") # type: ignore
+    
+    @schemas.classproperty
+    def DOLLAR_SIGN(cls) -> JustSymbol[str]:
+        return cls("$") # type: ignore
+
+
+class Items(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "fish": "FISH",
+                "crab": "CRAB",
+            }
+        )
+    
+    @schemas.classproperty
+    def FISH(cls) -> Items[str]:
+        return cls("fish") # type: ignore
+    
+    @schemas.classproperty
+    def CRAB(cls) -> Items[str]:
+        return cls("crab") # type: ignore
+
+
+class ArrayEnum(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[str],
+                str
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> ArrayEnum[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            ArrayEnum[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[str]:
+        return super().__getitem__(name)
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "just_symbol": typing.Type[JustSymbol],
+        "array_enum": typing.Type[ArrayEnum],
+    }
+)
+
+
 class EnumArrays(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,99 +117,16 @@ class EnumArrays(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            
-            
-            class JustSymbol(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
-                        "$": "DOLLAR_SIGN",
-                    }
-                
-                @schemas.classproperty
-                def GREATER_THAN_SIGN_EQUALS_SIGN(cls):
-                    return cls(">=") # type: ignore
-                
-                @schemas.classproperty
-                def DOLLAR_SIGN(cls):
-                    return cls("$") # type: ignore
-            
-            
-            class ArrayEnum(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    
-                    class Items(
-                        schemas.StrSchema[schemas.T]
-                    ):
-                    
-                    
-                        class Schema_:
-                            types = {
-                                str,
-                            }
-                            enum_value_to_name = {
-                                "fish": "FISH",
-                                "crab": "CRAB",
-                            }
-                        
-                        @schemas.classproperty
-                        def FISH(cls):
-                            return cls("fish") # type: ignore
-                        
-                        @schemas.classproperty
-                        def CRAB(cls):
-                            return cls("crab") # type: ignore
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[str],
-                            str
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> EnumArrays.Schema_.Properties.ArrayEnum[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        EnumArrays.Schema_.Properties.ArrayEnum[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[str]:
-                    return super().__getitem__(name)
-            __annotations__ = {
-                "just_symbol": JustSymbol,
-                "array_enum": ArrayEnum,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> Schema_.Properties.JustSymbol[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> JustSymbol[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> Schema_.Properties.ArrayEnum[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> ArrayEnum[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -142,36 +155,18 @@ class EnumArrays(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         just_symbol: typing.Union[
-            Schema_.Properties.JustSymbol[str],
+            JustSymbol[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         array_enum: typing.Union[
-            Schema_.Properties.ArrayEnum[tuple],
+            ArrayEnum[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> EnumArrays[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -186,3 +181,4 @@ class EnumArrays(
             inst
         )
         return inst
+

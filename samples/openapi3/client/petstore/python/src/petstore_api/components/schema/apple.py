@@ -11,6 +11,45 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Cultivar(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[a-zA-Z\s]*$'  # noqa: E501
+        )
+
+
+class Origin(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^[A-Z\s]*$',  # noqa: E501
+            flags=re.I,
+        )
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "cultivar": typing.Type[Cultivar],
+        "origin": typing.Type[Origin],
+    }
+)
+
+
 class Apple(
     schemas.NoneBase,
     schemas.DictBase,
@@ -24,60 +63,27 @@ class Apple(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             frozendict.frozendict,
-        }
-        required = {
+        })
+        required: typing.FrozenSet[str] = frozenset({
             "cultivar",
-        }
-        
-        class Properties:
-            
-            
-            class Cultivar(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    regex={
-                        'pattern': r'^[a-zA-Z\s]*$',  # noqa: E501
-                    }
-            
-            
-            class Origin(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    regex={
-                        'pattern': r'^[A-Z\s]*$',  # noqa: E501
-                        'flags': re.I,
-                    }
-            __annotations__ = {
-                "cultivar": Cultivar,
-                "origin": Origin,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @property
-    def cultivar(self) -> Schema_.Properties.Cultivar[str]:
+    def cultivar(self) -> Cultivar[str]:
         return self.__getitem__("cultivar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Cultivar[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> Schema_.Properties.Origin[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["origin"]) -> Origin[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -110,30 +116,12 @@ class Apple(
             frozendict.frozendict
         ],
         origin: typing.Union[
-            Schema_.Properties.Origin[str],
+            Origin[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Apple[
         typing.Union[
             schemas.NoneClass,
@@ -157,3 +145,4 @@ class Apple(
             inst
         )
         return inst
+

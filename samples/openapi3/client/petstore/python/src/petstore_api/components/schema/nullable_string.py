@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class NullableString(
     schemas.NoneBase,
     schemas.StrBase,
@@ -24,11 +25,12 @@ class NullableString(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
+        })
 
 
     def __new__(
@@ -59,3 +61,4 @@ class NullableString(
             inst
         )
         return inst
+

@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ParentPet(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,52 +22,26 @@ class ParentPet(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'pet_type': {
                     'ChildCat': child_cat.ChildCat,
                 }
             }
-        
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[grandparent_animal.GrandparentAnimal]:
-                return grandparent_animal.GrandparentAnimal
-            classes = [
-                _0,
-            ]
+        )
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ParentPet[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -80,5 +55,9 @@ class ParentPet(
         )
         return inst
 
+
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import grandparent_animal
+AllOf = typing.Tuple[
+    typing.Type[grandparent_animal.GrandparentAnimal],
+]

@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class IntegerEnumBig(
     schemas.IntSchema[schemas.T]
 ):
@@ -21,25 +22,28 @@ class IntegerEnumBig(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'int'
-        enum_value_to_name = {
-            10: "POSITIVE_10",
-            11: "POSITIVE_11",
-            12: "POSITIVE_12",
-        }
+        })
+        format: str = 'int'
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                10: "POSITIVE_10",
+                11: "POSITIVE_11",
+                12: "POSITIVE_12",
+            }
+        )
     
     @schemas.classproperty
-    def POSITIVE_10(cls):
+    def POSITIVE_10(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(10) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_11(cls):
+    def POSITIVE_11(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(11) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_12(cls):
+    def POSITIVE_12(cls) -> IntegerEnumBig[decimal.Decimal]:
         return cls(12) # type: ignore

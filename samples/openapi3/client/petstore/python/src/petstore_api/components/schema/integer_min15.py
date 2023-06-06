@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class IntegerMin15(
     schemas.Int64Schema[schemas.T]
 ):
@@ -21,9 +22,10 @@ class IntegerMin15(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'int64'
-        inclusive_minimum = 15
+        })
+        format: str = 'int64'
+        inclusive_minimum: typing.Union[int, float] = 15

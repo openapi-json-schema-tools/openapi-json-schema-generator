@@ -10,17 +10,20 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
-    def __getitem__(self, name: str) -> Schema_.AdditionalProperties[decimal.Decimal]:
+    def __getitem__(self, name: str) -> AdditionalProperties[decimal.Decimal]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -29,7 +32,7 @@ class Schema(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            Schema_.AdditionalProperties[decimal.Decimal],
+            AdditionalProperties[decimal.Decimal],
             decimal.Decimal,
             int
         ],
@@ -45,3 +48,4 @@ class Schema(
             inst
         )
         return inst
+

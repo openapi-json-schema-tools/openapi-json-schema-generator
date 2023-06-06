@@ -11,6 +11,21 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Items(
+    schemas.Int64Schema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        format: str = 'int64'
+        inclusive_maximum: typing.Union[int, float] = 7
+
+
 class ArrayWithValidationsInItems(
     schemas.ListSchema[schemas.T]
 ):
@@ -21,28 +36,17 @@ class ArrayWithValidationsInItems(
     """
 
 
-    class Schema_:
-        types = {tuple}
-        max_items = 2
-        
-        
-        class Items(
-            schemas.Int64Schema[schemas.T]
-        ):
-        
-        
-            class Schema_:
-                types = {
-                    decimal.Decimal,
-                }
-                format = 'int64'
-                inclusive_maximum = 7
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        max_items: int = 2
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Schema_.Items[decimal.Decimal],
+                Items[decimal.Decimal],
                 decimal.Decimal,
                 int
             ]
@@ -60,5 +64,6 @@ class ArrayWithValidationsInItems(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Schema_.Items[decimal.Decimal]:
+    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
         return super().__getitem__(name)
+

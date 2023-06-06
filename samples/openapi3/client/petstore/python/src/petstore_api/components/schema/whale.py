@@ -10,6 +10,38 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+HasBaleen: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+
+
+class ClassName(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "whale": "WHALE",
+            }
+        )
+    
+    @schemas.classproperty
+    def WHALE(cls) -> ClassName[str]:
+        return cls("whale") # type: ignore
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "hasBaleen": typing.Type[HasBaleen],
+        "hasTeeth": typing.Type[HasTeeth],
+        "className": typing.Type[ClassName],
+    }
+)
+
 
 class Whale(
     schemas.DictSchema[schemas.T]
@@ -21,51 +53,26 @@ class Whale(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
-        
-        class Properties:
-            HasBaleen: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            
-            
-            class ClassName(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "whale": "WHALE",
-                    }
-                
-                @schemas.classproperty
-                def WHALE(cls):
-                    return cls("whale") # type: ignore
-            __annotations__ = {
-                "hasBaleen": HasBaleen,
-                "hasTeeth": HasTeeth,
-                "className": ClassName,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> Schema_.Properties.HasBaleen[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> HasBaleen[schemas.BoolClass]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> Schema_.Properties.HasTeeth[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> HasTeeth[schemas.BoolClass]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -95,39 +102,21 @@ class Whale(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         hasBaleen: typing.Union[
-            Schema_.Properties.HasBaleen[schemas.BoolClass],
+            HasBaleen[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
         hasTeeth: typing.Union[
-            Schema_.Properties.HasTeeth[schemas.BoolClass],
+            HasTeeth[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Whale[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -143,3 +132,4 @@ class Whale(
             inst
         )
         return inst
+

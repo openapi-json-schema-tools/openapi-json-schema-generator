@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Color: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "color": typing.Type[Color],
+    }
+)
+
 
 class Fruit(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,32 +29,15 @@ class Fruit(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            Color: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "color": Color,
-            }
-        
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[apple.Apple]:
-                return apple.Apple
-        
-            @staticmethod
-            def _1() -> typing.Type[banana.Banana]:
-                return banana.Banana
-            classes = [
-                _0,
-                _1,
-            ]
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Schema_.Properties.Color[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Color[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -72,49 +63,14 @@ class Fruit(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         color: typing.Union[
-            Schema_.Properties.Color[str],
+            Color[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Fruit[
         typing.Union[
             frozendict.frozendict,
@@ -151,5 +107,10 @@ class Fruit(
         )
         return inst
 
+
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana
+OneOf = typing.Tuple[
+    typing.Type[apple.Apple],
+    typing.Type[banana.Banana],
+]

@@ -17,8 +17,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#or items hasValidation}}
 
 
-    class Schema_:
-        types = {tuple}
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 {{#if hasValidation}}
         {{> components/schemas/_helper_validations }}
 {{/if}}
@@ -31,7 +32,8 @@ class {{jsonPathPiece.camelCase}}(
     {{#if refInfo.refClass}}
     {{> components/schemas/_helper_getitem_refclass literal=false key="int" overload=false }}
     {{else}}
-    {{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="int" overload=false }}
+    {{> components/schemas/_helper_getitem_property literal=false key="int" overload=false }}
     {{/if}}
         return super().__getitem__(name)
 {{/with}}
+

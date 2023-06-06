@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
+
 
 class ObjectWithDecimalProperties(
     schemas.DictSchema[schemas.T]
@@ -21,30 +23,16 @@ class ObjectWithDecimalProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-        
-            @staticmethod
-            def length() -> typing.Type[decimal_payload.DecimalPayload]:
-                return decimal_payload.DecimalPayload
-            Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
-        
-            @staticmethod
-            def cost() -> typing.Type[money.Money]:
-                return money.Money
-            __annotations__ = {
-                "length": length,
-                "width": Width,
-                "cost": cost,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["length"]) -> decimal_payload.DecimalPayload[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["width"]) -> Schema_.Properties.Width[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["width"]) -> Width[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["cost"]) -> money.Money[frozendict.frozendict]: ...
@@ -82,7 +70,7 @@ class ObjectWithDecimalProperties(
             str
         ] = schemas.unset,
         width: typing.Union[
-            Schema_.Properties.Width[str],
+            Width[str],
             schemas.Unset,
             str
         ] = schemas.unset,
@@ -93,25 +81,7 @@ class ObjectWithDecimalProperties(
             frozendict.frozendict
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -128,5 +98,14 @@ class ObjectWithDecimalProperties(
         )
         return inst
 
+
 from petstore_api.components.schema import decimal_payload
 from petstore_api.components.schema import money
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "length": typing.Type[decimal_payload.DecimalPayload],
+        "width": typing.Type[Width],
+        "cost": typing.Type[money.Money],
+    }
+)

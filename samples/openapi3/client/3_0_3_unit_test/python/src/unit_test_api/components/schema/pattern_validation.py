@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class PatternValidation(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,53 +22,19 @@ class PatternValidation(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        regex={
-            'pattern': r'^a*$',  # noqa: E501
-        }
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^a*$'  # noqa: E501
+        )
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> PatternValidation[
         typing.Union[
             frozendict.frozendict,
@@ -102,3 +69,4 @@ class PatternValidation(
             inst
         )
         return inst
+

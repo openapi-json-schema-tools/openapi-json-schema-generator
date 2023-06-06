@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class DateTimeTest(
     schemas.DateTimeSchema[schemas.T]
 ):
@@ -21,8 +22,9 @@ class DateTimeTest(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        format = 'date-time'
+        })
+        format: str = 'date-time'

@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Mammal(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,79 +22,26 @@ class Mammal(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'className': {
                     'Pig': pig.Pig,
                     'whale': whale.Whale,
                     'zebra': zebra.Zebra,
                 }
             }
-        
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[whale.Whale]:
-                return whale.Whale
-        
-            @staticmethod
-            def _1() -> typing.Type[zebra.Zebra]:
-                return zebra.Zebra
-        
-            @staticmethod
-            def _2() -> typing.Type[pig.Pig]:
-                return pig.Pig
-            classes = [
-                _0,
-                _1,
-                _2,
-            ]
+        )
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Mammal[
         typing.Union[
             frozendict.frozendict,
@@ -129,6 +77,12 @@ class Mammal(
         )
         return inst
 
+
 from petstore_api.components.schema import pig
 from petstore_api.components.schema import whale
 from petstore_api.components.schema import zebra
+OneOf = typing.Tuple[
+    typing.Type[whale.Whale],
+    typing.Type[zebra.Zebra],
+    typing.Type[pig.Pig],
+]

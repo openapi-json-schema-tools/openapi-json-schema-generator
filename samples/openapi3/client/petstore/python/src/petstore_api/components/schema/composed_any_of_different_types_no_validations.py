@@ -10,6 +10,103 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.DictSchema[U]
+_1: typing_extensions.TypeAlias = schemas.DateSchema[U]
+_2: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
+_3: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+_4: typing_extensions.TypeAlias = schemas.StrSchema[U]
+_5: typing_extensions.TypeAlias = schemas.StrSchema[U]
+_6: typing_extensions.TypeAlias = schemas.DictSchema[U]
+_7: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+_8: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
+
+class _9(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> _9[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            _9[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        return super().__getitem__(name)
+
+_10: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+_11: typing_extensions.TypeAlias = schemas.Float32Schema[U]
+_12: typing_extensions.TypeAlias = schemas.Float64Schema[U]
+_13: typing_extensions.TypeAlias = schemas.IntSchema[U]
+_14: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+_15: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+AnyOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+    typing.Type[_2[schemas.U]],
+    typing.Type[_3[schemas.U]],
+    typing.Type[_4[schemas.U]],
+    typing.Type[_5[schemas.U]],
+    typing.Type[_6[schemas.U]],
+    typing.Type[_7[schemas.U]],
+    typing.Type[_8[schemas.U]],
+    typing.Type[_9[schemas.U]],
+    typing.Type[_10[schemas.U]],
+    typing.Type[_11[schemas.U]],
+    typing.Type[_12[schemas.U]],
+    typing.Type[_13[schemas.U]],
+    typing.Type[_14[schemas.U]],
+    typing.Type[_15[schemas.U]],
+]
+
 
 class ComposedAnyOfDifferentTypesNoValidations(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,152 +118,17 @@ class ComposedAnyOfDifferentTypesNoValidations(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class AnyOf:
-            _0: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            _1: typing_extensions.TypeAlias = schemas.DateSchema[U]
-            _2: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-            _3: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-            _4: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            _5: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            _6: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            _7: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            _8: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-            
-            
-            class _9(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            Schema_.Items[typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]],
-                            dict,
-                            frozendict.frozendict,
-                            str,
-                            datetime.date,
-                            datetime.datetime,
-                            uuid.UUID,
-                            int,
-                            float,
-                            decimal.Decimal,
-                            bool,
-                            None,
-                            list,
-                            tuple,
-                            bytes,
-                            io.FileIO,
-                            io.BufferedReader
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> ComposedAnyOfDifferentTypesNoValidations.Schema_.AnyOf._9[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        ComposedAnyOfDifferentTypesNoValidations.Schema_.AnyOf._9[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    return super().__getitem__(name)
-            _10: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            _11: typing_extensions.TypeAlias = schemas.Float32Schema[U]
-            _12: typing_extensions.TypeAlias = schemas.Float64Schema[U]
-            _13: typing_extensions.TypeAlias = schemas.IntSchema[U]
-            _14: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-            _15: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            classes = [
-                _0,
-                _1,
-                _2,
-                _3,
-                _4,
-                _5,
-                _6,
-                _7,
-                _8,
-                _9,
-                _10,
-                _11,
-                _12,
-                _13,
-                _14,
-                _15,
-            ]
+        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ComposedAnyOfDifferentTypesNoValidations[
         typing.Union[
             frozendict.frozendict,
@@ -201,3 +163,4 @@ class ComposedAnyOfDifferentTypesNoValidations(
             inst
         )
         return inst
+
