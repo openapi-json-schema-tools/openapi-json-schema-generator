@@ -11,6 +11,26 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
+class Bar(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        min_length: int = 4
+        default: str = "bad"
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "bar": typing.Type[Bar],
+    }
+)
+
 class InvalidStringValueForDefault(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,30 +41,14 @@ class InvalidStringValueForDefault(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            
-            
-            class Bar(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    min_length = 4
-                    default = "bad"
-            __annotations__ = {
-                "bar": Bar,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -70,49 +74,14 @@ class InvalidStringValueForDefault(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         bar: typing.Union[
-            Schema_.Properties.Bar[str],
+            Bar[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> InvalidStringValueForDefault[
         typing.Union[
             frozendict.frozendict,
@@ -148,3 +117,4 @@ class InvalidStringValueForDefault(
             inst
         )
         return inst
+

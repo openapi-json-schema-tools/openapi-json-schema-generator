@@ -10,6 +10,192 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+Bar: typing_extensions.TypeAlias = schemas.IntSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "bar": typing.Type[Bar],
+    }
+)
+
+class _0(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        required: typing.FrozenSet[str] = frozenset({
+            "bar",
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+
+    
+    @property
+    def bar(self) -> Bar[decimal.Decimal]:
+        return self.__getitem__("bar")
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[decimal.Decimal]: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["bar"],
+            str
+        ]
+    ):
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _0[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _0[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties2 = typing_extensions.TypedDict(
+    'Properties2',
+    {
+        "foo": typing.Type[Foo],
+    }
+)
+
+class _1(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        required: typing.FrozenSet[str] = frozenset({
+            "foo",
+        })
+        properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
+
+    
+    @property
+    def foo(self) -> Foo[str]:
+        return self.__getitem__("foo")
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[str]: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["foo"],
+            str
+        ]
+    ):
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _1[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _1[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+AllOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+]
 
 class Allof(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,302 +207,17 @@ class Allof(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class AllOf:
-            
-            
-            class _0(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    required = {
-                        "bar",
-                    }
-                    
-                    class Properties:
-                        Bar: typing_extensions.TypeAlias = schemas.IntSchema[U]
-                        __annotations__ = {
-                            "bar": Bar,
-                        }
-            
-                
-                @property
-                def bar(self) -> Schema_.Properties.Bar[decimal.Decimal]:
-                    return self.__getitem__("bar")
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar[decimal.Decimal]: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]: ...
-                
-                def __getitem__(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["bar"],
-                        str
-                    ]
-                ):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> Allof.Schema_.AllOf._0[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        Allof.Schema_.AllOf._0[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            
-            
-            class _1(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    required = {
-                        "foo",
-                    }
-                    
-                    class Properties:
-                        Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
-                        __annotations__ = {
-                            "foo": Foo,
-                        }
-            
-                
-                @property
-                def foo(self) -> Schema_.Properties.Foo[str]:
-                    return self.__getitem__("foo")
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo[str]: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]: ...
-                
-                def __getitem__(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["foo"],
-                        str
-                    ]
-                ):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> Allof.Schema_.AllOf._1[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        Allof.Schema_.AllOf._1[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-                _1,
-            ]
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Allof[
         typing.Union[
             frozendict.frozendict,
@@ -351,3 +252,4 @@ class Allof(
             inst
         )
         return inst
+

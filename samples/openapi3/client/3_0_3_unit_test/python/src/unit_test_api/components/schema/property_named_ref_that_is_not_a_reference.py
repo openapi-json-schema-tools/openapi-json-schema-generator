@@ -10,6 +10,13 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+Ref: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "$ref": typing.Type[Ref],
+    }
+)
 
 class PropertyNamedRefThatIsNotAReference(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,18 +28,14 @@ class PropertyNamedRefThatIsNotAReference(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            Ref: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "$ref": Ref,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["$ref"]) -> Schema_.Properties.Ref[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["$ref"]) -> Ref[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -58,44 +61,9 @@ class PropertyNamedRefThatIsNotAReference(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> PropertyNamedRefThatIsNotAReference[
         typing.Union[
             frozendict.frozendict,
@@ -130,3 +98,4 @@ class PropertyNamedRefThatIsNotAReference(
             inst
         )
         return inst
+

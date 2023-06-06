@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class RefInAdditionalproperties(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,12 +22,10 @@ class RefInAdditionalproperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        @staticmethod
-        def additional_properties() -> typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference]:
-            return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference] = dataclasses.field(default_factory=lambda: property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference) # type: ignore
     
     def __getitem__(self, name: str) -> property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
         frozendict.frozendict,
@@ -46,16 +45,9 @@ class RefInAdditionalproperties(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,
@@ -85,5 +77,6 @@ class RefInAdditionalproperties(
             inst
         )
         return inst
+
 
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

@@ -7,5 +7,5 @@ from this_package.shared_imports.server_imports import *
 
 
 @dataclasses.dataclass
-class Server0(server.Server):
-    _url: str = "http://localhost:3000"
+class Server0(server.ServerWithoutVariables):
+    url: str = "http://localhost:3000"

@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class RefInProperty(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,17 +22,10 @@ class RefInProperty(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-        
-            @staticmethod
-            def a() -> typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference]:
-                return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
-            __annotations__ = {
-                "a": a,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
@@ -70,35 +64,11 @@ class RefInProperty(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         a: typing.Union[
-            property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -118,25 +88,7 @@ class RefInProperty(
             io.BufferedReader
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> RefInProperty[
         typing.Union[
             frozendict.frozendict,
@@ -173,4 +125,11 @@ class RefInProperty(
         )
         return inst
 
+
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "a": typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference],
+    }
+)

@@ -10,6 +10,74 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "foo": typing.Type[Foo],
+    }
+)
+
+class _Not(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[str]: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["foo"],
+            str
+        ]
+    ):
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        foo: typing.Union[
+            Foo[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _Not[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            foo=foo,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _Not[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
 
 class NotMoreComplexSchema(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,132 +89,17 @@ class NotMoreComplexSchema(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        
-        class _Not(
-            schemas.DictSchema[schemas.T]
-        ):
-        
-        
-            class Schema_:
-                types = {frozendict.frozendict}
-                
-                class Properties:
-                    Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
-                    __annotations__ = {
-                        "foo": Foo,
-                    }
-            
-            @typing.overload
-            def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo[str]: ...
-            
-            @typing.overload
-            def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]]: ...
-            
-            def __getitem__(
-                self,
-                name: typing.Union[
-                    typing_extensions.Literal["foo"],
-                    str
-                ]
-            ):
-                # dict_instance[name] accessor
-                return super().__getitem__(name)
-        
-            def __new__(
-                cls,
-                *args_: typing.Union[dict, frozendict.frozendict],
-                foo: typing.Union[
-                    Schema_.Properties.Foo[str],
-                    schemas.Unset,
-                    str
-                ] = schemas.unset,
-                configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                **kwargs: typing.Union[
-                    dict,
-                    frozendict.frozendict,
-                    list,
-                    tuple,
-                    decimal.Decimal,
-                    float,
-                    int,
-                    str,
-                    datetime.date,
-                    datetime.datetime,
-                    uuid.UUID,
-                    bool,
-                    None,
-                    bytes,
-                    io.FileIO,
-                    io.BufferedReader,
-                    schemas.Schema
-                ],
-            ) -> NotMoreComplexSchema.Schema_._Not[frozendict.frozendict]:
-                inst = super().__new__(
-                    cls,
-                    *args_,
-                    foo=foo,
-                    configuration_=configuration_,
-                    **kwargs,
-                )
-                inst = typing.cast(
-                    NotMoreComplexSchema.Schema_._Not[frozendict.frozendict],
-                    inst
-                )
-                return inst
+        not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> NotMoreComplexSchema[
         typing.Union[
             frozendict.frozendict,
@@ -181,3 +134,4 @@ class NotMoreComplexSchema(
             inst
         )
         return inst
+

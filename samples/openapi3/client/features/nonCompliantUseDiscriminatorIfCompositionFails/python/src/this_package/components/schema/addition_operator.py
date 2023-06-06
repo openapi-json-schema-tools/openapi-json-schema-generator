@@ -10,6 +10,30 @@
 from __future__ import annotations
 from this_package.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+A: typing_extensions.TypeAlias = schemas.Float64Schema[U]
+B: typing_extensions.TypeAlias = schemas.Float64Schema[U]
+
+
+class OperatorId(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        default: str = "ADD"
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "a": typing.Type[A],
+        "b": typing.Type[B],
+        "operator_id": typing.Type[OperatorId],
+    }
+)
 
 class AdditionOperator(
     schemas.DictSchema[schemas.T]
@@ -21,56 +45,37 @@ class AdditionOperator(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "a",
             "b",
             "operator_id",
-        }
-        
-        class Properties:
-            A: typing_extensions.TypeAlias = schemas.Float64Schema[U]
-            B: typing_extensions.TypeAlias = schemas.Float64Schema[U]
-            
-            
-            class OperatorId(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    default = "ADD"
-            __annotations__ = {
-                "a": A,
-                "b": B,
-                "operator_id": OperatorId,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def a(self) -> Schema_.Properties.A[decimal.Decimal]:
+    def a(self) -> A[decimal.Decimal]:
         return self.__getitem__("a")
     
     @property
-    def b(self) -> Schema_.Properties.B[decimal.Decimal]:
+    def b(self) -> B[decimal.Decimal]:
         return self.__getitem__("b")
     
     @property
-    def operator_id(self) -> Schema_.Properties.OperatorId[str]:
+    def operator_id(self) -> OperatorId[str]:
         return self.__getitem__("operator_id")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> A[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> B[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> Schema_.Properties.OperatorId[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["operator_id"]) -> OperatorId[str]: ...
     
     def __getitem__(
         self,
@@ -87,19 +92,19 @@ class AdditionOperator(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         a: typing.Union[
-            Schema_.Properties.A[decimal.Decimal],
+            A[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         b: typing.Union[
-            Schema_.Properties.B[decimal.Decimal],
+            B[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         operator_id: typing.Union[
-            Schema_.Properties.OperatorId[str],
+            OperatorId[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
@@ -117,3 +122,4 @@ class AdditionOperator(
             inst
         )
         return inst
+

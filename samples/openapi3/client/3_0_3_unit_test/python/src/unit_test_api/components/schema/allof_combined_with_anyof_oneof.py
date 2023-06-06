@@ -11,6 +11,172 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
+class _03(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        multiple_of: typing.Union[int, float] = 2
+
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _03[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _03[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+AllOf = typing.Tuple[
+    typing.Type[_03[schemas.U]],
+]
+
+class _02(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        multiple_of: typing.Union[int, float] = 3
+
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _02[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _02[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+AnyOf = typing.Tuple[
+    typing.Type[_02[schemas.U]],
+]
+
+class _0(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        multiple_of: typing.Union[int, float] = 5
+
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _0[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _0[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+OneOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+]
+
 class AllofCombinedWithAnyofOneof(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,323 +187,19 @@ class AllofCombinedWithAnyofOneof(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class AllOf:
-            
-            
-            class _0(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    multiple_of = 2
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AllofCombinedWithAnyofOneof.Schema_.AllOf._0[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AllofCombinedWithAnyofOneof.Schema_.AllOf._0[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-            ]
-        
-        class OneOf:
-            
-            
-            class _0(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    multiple_of = 5
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AllofCombinedWithAnyofOneof.Schema_.OneOf._0[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AllofCombinedWithAnyofOneof.Schema_.OneOf._0[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-            ]
-        
-        class AnyOf:
-            
-            
-            class _0(
-                schemas.AnyTypeSchema[schemas.T],
-            ):
-            
-            
-                class Schema_:
-                    # any type
-                    multiple_of = 3
-            
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> AllofCombinedWithAnyofOneof.Schema_.AnyOf._0[
-                    typing.Union[
-                        frozendict.frozendict,
-                        str,
-                        decimal.Decimal,
-                        schemas.BoolClass,
-                        schemas.NoneClass,
-                        tuple,
-                        bytes,
-                        schemas.FileIO
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AllofCombinedWithAnyofOneof.Schema_.AnyOf._0[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-            ]
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
+        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> AllofCombinedWithAnyofOneof[
         typing.Union[
             frozendict.frozendict,
@@ -372,3 +234,4 @@ class AllofCombinedWithAnyofOneof(
             inst
         )
         return inst
+
