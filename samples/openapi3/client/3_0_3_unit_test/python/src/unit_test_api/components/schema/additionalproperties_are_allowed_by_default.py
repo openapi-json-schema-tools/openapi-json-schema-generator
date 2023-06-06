@@ -10,6 +10,16 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+Bar: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "foo": typing.Type[Foo],
+        "bar": typing.Type[Bar],
+    }
+)
+
 
 class AdditionalpropertiesAreAllowedByDefault(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,20 +31,14 @@ class AdditionalpropertiesAreAllowedByDefault(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            Bar: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            __annotations__ = {
-                "foo": Foo,
-                "bar": Bar,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -46,7 +50,7 @@ class AdditionalpropertiesAreAllowedByDefault(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -82,35 +86,11 @@ class AdditionalpropertiesAreAllowedByDefault(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         foo: typing.Union[
-            Schema_.Properties.Foo[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Foo[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -130,16 +110,9 @@ class AdditionalpropertiesAreAllowedByDefault(
             io.BufferedReader
         ] = schemas.unset,
         bar: typing.Union[
-            Schema_.Properties.Bar[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Bar[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -159,25 +132,7 @@ class AdditionalpropertiesAreAllowedByDefault(
             io.BufferedReader
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> AdditionalpropertiesAreAllowedByDefault[
         typing.Union[
             frozendict.frozendict,
@@ -214,3 +169,4 @@ class AdditionalpropertiesAreAllowedByDefault(
             inst
         )
         return inst
+

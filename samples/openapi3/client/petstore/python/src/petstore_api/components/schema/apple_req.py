@@ -10,6 +10,17 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+Cultivar: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Mealy: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "cultivar": typing.Type[Cultivar],
+        "mealy": typing.Type[Mealy],
+    }
+)
+
 
 class AppleReq(
     schemas.DictSchema[schemas.T]
@@ -21,30 +32,24 @@ class AppleReq(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "cultivar",
-        }
-        
-        class Properties:
-            Cultivar: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            Mealy: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            __annotations__ = {
-                "cultivar": Cultivar,
-                "mealy": Mealy,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def cultivar(self) -> Schema_.Properties.Cultivar[str]:
+    def cultivar(self) -> Cultivar[str]:
         return self.__getitem__("cultivar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Schema_.Properties.Cultivar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> Cultivar[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> Schema_.Properties.Mealy[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> Mealy[schemas.BoolClass]: ...
     
     def __getitem__(
         self,
@@ -60,11 +65,11 @@ class AppleReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         cultivar: typing.Union[
-            Schema_.Properties.Cultivar[str],
+            Cultivar[str],
             str
         ],
         mealy: typing.Union[
-            Schema_.Properties.Mealy[schemas.BoolClass],
+            Mealy[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
@@ -82,3 +87,4 @@ class AppleReq(
             inst
         )
         return inst
+

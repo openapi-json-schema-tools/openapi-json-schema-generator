@@ -25,9 +25,11 @@
 {{headerSize}}# Variables
 Key | Type | Description | Notes
 --- | ---- | ----------- | ------
-            {{#each variables}}
+            {{#with variables}}
+                {{#each properties}}
 **{{@key.original}}** | {{> _helper_schema_python_types }} | {{#if description}}{{description}}{{/if}} | {{> components/schemas/_helper_notes_msg defaultUser="client" }}
-            {{/each}}
+                {{/each}}
+            {{/with}}
         {{/if}}
     {{/if}}
     {{#if rootServer}}

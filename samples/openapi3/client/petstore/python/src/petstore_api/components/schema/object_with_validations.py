@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ObjectWithValidations(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,33 +22,16 @@ class ObjectWithValidations(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        min_properties = 2
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        min_properties: int = 2
 
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithValidations[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -60,3 +44,4 @@ class ObjectWithValidations(
             inst
         )
         return inst
+

@@ -11,6 +11,69 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class Shapes(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[shape.Shape] = dataclasses.field(default_factory=lambda: shape.Shape) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                shape.Shape[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Shapes[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Shapes[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> shape.Shape[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        return super().__getitem__(name)
+
+
+
 class Drawing(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,102 +84,11 @@ class Drawing(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-        
-            @staticmethod
-            def main_shape() -> typing.Type[shape.Shape]:
-                return shape.Shape
-        
-            @staticmethod
-            def shape_or_null() -> typing.Type[shape_or_null.ShapeOrNull]:
-                return shape_or_null.ShapeOrNull
-        
-            @staticmethod
-            def nullable_shape() -> typing.Type[nullable_shape.NullableShape]:
-                return nullable_shape.NullableShape
-            
-            
-            class Shapes(
-                schemas.ListSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {tuple}
-                    
-                    @staticmethod
-                    def items() -> typing.Type[shape.Shape]:
-                        return shape.Shape
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Sequence[
-                        typing.Union[
-                            shape.Shape[typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]],
-                            dict,
-                            frozendict.frozendict,
-                            str,
-                            datetime.date,
-                            datetime.datetime,
-                            uuid.UUID,
-                            int,
-                            float,
-                            decimal.Decimal,
-                            bool,
-                            None,
-                            list,
-                            tuple,
-                            bytes,
-                            io.FileIO,
-                            io.BufferedReader
-                        ]
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> Drawing.Schema_.Properties.Shapes[tuple]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        Drawing.Schema_.Properties.Shapes[tuple],
-                        inst
-                    )
-                    return inst
-            
-                def __getitem__(self, name: int) -> shape.Shape[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    return super().__getitem__(name)
-            __annotations__ = {
-                "mainShape": main_shape,
-                "shapeOrNull": shape_or_null,
-                "nullableShape": nullable_shape,
-                "shapes": Shapes,
-            }
-        
-        @staticmethod
-        def additional_properties() -> typing.Type[fruit.Fruit]:
-            return fruit.Fruit
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[fruit.Fruit] = dataclasses.field(default_factory=lambda: fruit.Fruit) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> shape.Shape[typing.Union[
@@ -155,7 +127,7 @@ class Drawing(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> Schema_.Properties.Shapes[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> Shapes[tuple]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> fruit.Fruit[typing.Union[
@@ -186,16 +158,9 @@ class Drawing(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         mainShape: typing.Union[
-            shape.Shape[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            shape.Shape[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -215,16 +180,9 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         shapeOrNull: typing.Union[
-            shape_or_null.ShapeOrNull[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            shape_or_null.ShapeOrNull[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -244,16 +202,9 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         nullableShape: typing.Union[
-            nullable_shape.NullableShape[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            nullable_shape.NullableShape[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -273,23 +224,16 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         shapes: typing.Union[
-            Schema_.Properties.Shapes[tuple],
+            Shapes[tuple],
             schemas.Unset,
             list,
             tuple
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            fruit.Fruit[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            fruit.Fruit[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,
@@ -324,7 +268,17 @@ class Drawing(
         )
         return inst
 
+
 from petstore_api.components.schema import fruit
 from petstore_api.components.schema import nullable_shape
 from petstore_api.components.schema import shape
 from petstore_api.components.schema import shape_or_null
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "mainShape": typing.Type[shape.Shape],
+        "shapeOrNull": typing.Type[shape_or_null.ShapeOrNull],
+        "nullableShape": typing.Type[nullable_shape.NullableShape],
+        "shapes": typing.Type[Shapes],
+    }
+)

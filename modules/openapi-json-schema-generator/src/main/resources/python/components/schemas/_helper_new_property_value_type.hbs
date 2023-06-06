@@ -1,15 +1,15 @@
 {{#if types}}
     {{#eq types.size 1}}
-Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
+{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
     {{else}}
-Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[typing.Union[
+{{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]],
     {{/eq}}
 {{else}}
-Schema_.{{#if propertyClass}}{{propertyClass}}.{{/if}}{{jsonPathPiece.camelCase}}[typing.Union[
-    {{> components/schemas/_helper_schema_python_base_types_newline }}
-]],
+{{jsonPathPiece.camelCase}}[
+    schemas.INPUT_BASE_TYPES
+],
 {{/if}}
 {{#if optional}}
 schemas.Unset,

@@ -21,35 +21,36 @@ class {{jsonPathPiece.camelCase}}(
 {{#or hasValidation enumValueToName format defaultValue}}
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
 {{#eq types null}}
         # any type
 {{/eq}}
         {{> components/schemas/_helper_types }}
 {{#if format}}
-        format = '{{format}}'
+        format: str = '{{format}}'
 {{/if}}
         {{> components/schemas/_helper_validations }}
 {{#if defaultValue}}
     {{#with defaultValue}}
         {{#eq type "string"}}
-        default = "{{{value}}}"
+        default: str = "{{{value}}}"
         {{/eq}}
         {{#eq type "number"}}
-        default = {{{value}}}
+        default: typing.Union[int, float] = {{{value}}}
         {{/eq}}
         {{#eq type "integer"}}
-        default = {{{value}}}
+        default: int  = {{{value}}}
         {{/eq}}
         {{#eq type "boolean"}}
             {{#if value}}
-        default = schemas.BoolClass.TRUE
+        default: schemas.BoolClass = schemas.BoolClass.TRUE
             {{else}}
-        default = schemas.BoolClass.FALSE
+        default: schemas.BoolClass = schemas.BoolClass.FALSE
             {{/if}}
         {{/eq}}
         {{#eq type "null"}}
-        default = schemas.NoneClass.NONE
+        default: schemas.NoneClass = schemas.NoneClass.NONE
         {{/eq}}
     {{/with}}
 {{/if}}

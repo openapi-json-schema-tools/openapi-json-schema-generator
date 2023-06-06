@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class DateWithValidations(
     schemas.DateSchema[schemas.T]
 ):
@@ -21,11 +22,12 @@ class DateWithValidations(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        format = 'date'
-        regex={
-            'pattern': r'^2020.*',  # noqa: E501
-        }
+        })
+        format: str = 'date'
+        pattern: schemas.PatternInfo = schemas.PatternInfo(
+            pattern=r'^2020.*'  # noqa: E501
+        )

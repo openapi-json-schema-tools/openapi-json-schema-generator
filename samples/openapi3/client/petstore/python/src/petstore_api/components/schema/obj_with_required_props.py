@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+A: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "a": typing.Type[A],
+    }
+)
+
 
 class ObjWithRequiredProps(
     schemas.DictSchema[schemas.T]
@@ -21,36 +29,24 @@ class ObjWithRequiredProps(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
-        required = {
+        })
+        required: typing.FrozenSet[str] = frozenset({
             "a",
-        }
-        
-        class Properties:
-            A: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "a": A,
-            }
-        
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase]:
-                return obj_with_required_props_base.ObjWithRequiredPropsBase
-            classes = [
-                _0,
-            ]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
     
     @property
-    def a(self) -> Schema_.Properties.A[str]:
+    def a(self) -> A[str]:
         return self.__getitem__("a")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> Schema_.Properties.A[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["a"]) -> A[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -78,29 +74,11 @@ class ObjWithRequiredProps(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         a: typing.Union[
-            Schema_.Properties.A[str],
+            A[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjWithRequiredProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -115,4 +93,8 @@ class ObjWithRequiredProps(
         )
         return inst
 
+
 from petstore_api.components.schema import obj_with_required_props_base
+AllOf = typing.Tuple[
+    typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
+]

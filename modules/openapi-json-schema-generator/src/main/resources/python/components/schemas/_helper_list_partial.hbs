@@ -1,8 +1,3 @@
 {{#with items}}
-{{#if refInfo.refClass}}
-
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+items: typing.Type[{{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}] = dataclasses.field(default_factory=lambda: {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}) # type: ignore
 {{/with}}

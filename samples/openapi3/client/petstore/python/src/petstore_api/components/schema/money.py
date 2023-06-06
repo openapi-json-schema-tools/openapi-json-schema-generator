@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Amount: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
+
 
 class Money(
     schemas.DictSchema[schemas.T]
@@ -21,26 +23,17 @@ class Money(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "amount",
             "currency",
-        }
-        
-        class Properties:
-            Amount: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
-        
-            @staticmethod
-            def currency() -> typing.Type[currency.Currency]:
-                return currency.Currency
-            __annotations__ = {
-                "amount": Amount,
-                "currency": currency,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def amount(self) -> Schema_.Properties.Amount[str]:
+    def amount(self) -> Amount[str]:
         return self.__getitem__("amount")
     
     @property
@@ -48,7 +41,7 @@ class Money(
         return self.__getitem__("currency")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Schema_.Properties.Amount[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> Amount[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["currency"]) -> currency.Currency[str]: ...
@@ -80,7 +73,7 @@ class Money(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         amount: typing.Union[
-            Schema_.Properties.Amount[str],
+            Amount[str],
             str
         ],
         currency: typing.Union[
@@ -88,25 +81,7 @@ class Money(
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Money[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -122,4 +97,12 @@ class Money(
         )
         return inst
 
+
 from petstore_api.components.schema import currency
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "amount": typing.Type[Amount],
+        "currency": typing.Type[currency.Currency],
+    }
+)

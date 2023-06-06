@@ -2,17 +2,20 @@
 {{#each enumValueToName}}
 
 @schemas.classproperty
-def {{this}}(cls):
     {{#eq @key.type "string"}}
+def {{this}}(cls) -> {{jsonPathPiece.camelCase}}[str]:
     return cls("{{{@key.value}}}") # type: ignore
     {{/eq}}
     {{#eq @key.type "number"}}
+def {{this}}(cls) -> {{jsonPathPiece.camelCase}}[decimal.Decimal]:
     return cls({{{@key.value}}}) # type: ignore
     {{/eq}}
     {{#eq @key.type "integer"}}
+def {{this}}(cls) -> {{jsonPathPiece.camelCase}}[decimal.Decimal]:
     return cls({{{@key.value}}}) # type: ignore
     {{/eq}}
     {{#eq @key.type "boolean"}}
+def {{this}}(cls) -> {{jsonPathPiece.camelCase}}[schemas.BoolClass]:
         {{#if @key.value}}
     return cls(True) # type: ignore
         {{else}}
@@ -20,6 +23,7 @@ def {{this}}(cls):
         {{/if}}
     {{/eq}}
     {{#eq @key.type "null"}}
+def {{this}}(cls) -> {{jsonPathPiece.camelCase}}[schemas.NoneClass]:
     return cls(None) # type: ignore
     {{/eq}}
 {{/each}}

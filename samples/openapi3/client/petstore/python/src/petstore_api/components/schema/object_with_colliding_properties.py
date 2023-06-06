@@ -10,6 +10,16 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "someProp": typing.Type[SomeProp],
+        "someprop": typing.Type[Someprop],
+    }
+)
+
 
 class ObjectWithCollidingProperties(
     schemas.DictSchema[schemas.T]
@@ -23,22 +33,16 @@ class ObjectWithCollidingProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
-            __annotations__ = {
-                "someProp": SomeProp,
-                "someprop": Someprop,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> Schema_.Properties.SomeProp[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Schema_.Properties.Someprop[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop[frozendict.frozendict]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -67,37 +71,19 @@ class ObjectWithCollidingProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            Schema_.Properties.SomeProp[frozendict.frozendict],
+            SomeProp[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         someprop: typing.Union[
-            Schema_.Properties.Someprop[frozendict.frozendict],
+            Someprop[frozendict.frozendict],
             schemas.Unset,
             dict,
             frozendict.frozendict
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithCollidingProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -112,3 +98,4 @@ class ObjectWithCollidingProperties(
             inst
         )
         return inst
+

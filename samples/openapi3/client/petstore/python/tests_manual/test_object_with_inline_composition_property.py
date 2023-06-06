@@ -12,7 +12,7 @@
 import unittest
 
 from petstore_api import schemas, exceptions
-from petstore_api.components.schema.object_with_inline_composition_property import ObjectWithInlineCompositionProperty
+from petstore_api.components.schema import object_with_inline_composition_property
 
 
 class TestObjectWithInlineCompositionProperty(unittest.TestCase):
@@ -20,18 +20,18 @@ class TestObjectWithInlineCompositionProperty(unittest.TestCase):
 
     def test_ObjectWithInlineCompositionProperty(self):
         """Test ObjectWithInlineCompositionProperty"""
-        model = ObjectWithInlineCompositionProperty(someProp='a')
+        model = object_with_inline_composition_property.ObjectWithInlineCompositionProperty(someProp='a')
         self.assertTrue(
             isinstance(
                 model["someProp"],
-                ObjectWithInlineCompositionProperty.Schema_.Properties.SomeProp
+                object_with_inline_composition_property.SomeProp
             )
         )
         self.assertTrue(isinstance(model["someProp"], schemas.StrSchema))
 
         # error thrown on length < 1
         with self.assertRaises(exceptions.ApiValueError):
-            ObjectWithInlineCompositionProperty(someProp='')
+            object_with_inline_composition_property.ObjectWithInlineCompositionProperty(someProp='')
 
 
 if __name__ == '__main__':

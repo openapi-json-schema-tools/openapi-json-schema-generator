@@ -11,6 +11,27 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
+class Alpha(
+    schemas.NumberSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            decimal.Decimal,
+        })
+        inclusive_maximum: typing.Union[int, float] = 3
+        default: typing.Union[int, float] = 5
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "alpha": typing.Type[Alpha],
+    }
+)
+
+
 class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,29 +42,13 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            
-            
-            class Alpha(
-                schemas.NumberSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        decimal.Decimal,
-                    }
-                    inclusive_maximum = 3
-                    default = 5
-            __annotations__ = {
-                "alpha": Alpha,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> Schema_.Properties.Alpha[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["alpha"]) -> Alpha[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -71,32 +76,14 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         alpha: typing.Union[
-            Schema_.Properties.Alpha[decimal.Decimal],
+            Alpha[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int,
             float
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -110,3 +97,4 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
             inst
         )
         return inst
+

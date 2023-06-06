@@ -10,6 +10,17 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Sweet: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "lengthCm": typing.Type[LengthCm],
+        "sweet": typing.Type[Sweet],
+    }
+)
+
 
 class BananaReq(
     schemas.DictSchema[schemas.T]
@@ -21,30 +32,24 @@ class BananaReq(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "lengthCm",
-        }
-        
-        class Properties:
-            LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            Sweet: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-            __annotations__ = {
-                "lengthCm": LengthCm,
-                "sweet": Sweet,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def lengthCm(self) -> Schema_.Properties.LengthCm[decimal.Decimal]:
+    def lengthCm(self) -> LengthCm[decimal.Decimal]:
         return self.__getitem__("lengthCm")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> LengthCm[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> Schema_.Properties.Sweet[schemas.BoolClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["sweet"]) -> Sweet[schemas.BoolClass]: ...
     
     def __getitem__(
         self,
@@ -60,13 +65,13 @@ class BananaReq(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         lengthCm: typing.Union[
-            Schema_.Properties.LengthCm[decimal.Decimal],
+            LengthCm[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         sweet: typing.Union[
-            Schema_.Properties.Sweet[schemas.BoolClass],
+            Sweet[schemas.BoolClass],
             schemas.Unset,
             bool
         ] = schemas.unset,
@@ -84,3 +89,4 @@ class BananaReq(
             inst
         )
         return inst
+

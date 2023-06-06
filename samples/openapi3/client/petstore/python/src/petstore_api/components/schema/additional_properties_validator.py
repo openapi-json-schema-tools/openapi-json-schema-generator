@@ -10,6 +10,308 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
+
+class _0(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    
+    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    ) -> _0[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _0[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
+
+class AdditionalProperties2(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        min_length: int = 3
+
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> AdditionalProperties2[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            AdditionalProperties2[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class _1(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+    
+    def __getitem__(self, name: str) -> AdditionalProperties2[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties2[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    ) -> _1[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _1[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
+
+class AdditionalProperties3(
+    schemas.AnyTypeSchema[schemas.T],
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        # any type
+        max_length: int = 5
+
+
+    def __new__(
+        cls,
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> AdditionalProperties3[
+        typing.Union[
+            frozendict.frozendict,
+            str,
+            decimal.Decimal,
+            schemas.BoolClass,
+            schemas.NoneClass,
+            tuple,
+            bytes,
+            schemas.FileIO
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            AdditionalProperties3[
+                typing.Union[
+                    frozendict.frozendict,
+                    str,
+                    decimal.Decimal,
+                    schemas.BoolClass,
+                    schemas.NoneClass,
+                    tuple,
+                    bytes,
+                    schemas.FileIO
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class _2(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
+    
+    def __getitem__(self, name: str) -> AdditionalProperties3[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties3[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    ) -> _2[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _2[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+AllOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+    typing.Type[_2[schemas.U]],
+]
+
 
 class AdditionalPropertiesValidator(
     schemas.DictSchema[schemas.T]
@@ -21,416 +323,19 @@ class AdditionalPropertiesValidator(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
-        
-        class AllOf:
-            
-            
-            class _0(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[typing.Union[
-                            frozendict.frozendict,
-                            str,
-                            decimal.Decimal,
-                            schemas.BoolClass,
-                            schemas.NoneClass,
-                            tuple,
-                            bytes,
-                            schemas.FileIO
-                        ]],
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                ) -> AdditionalPropertiesValidator.Schema_.AllOf._0[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AdditionalPropertiesValidator.Schema_.AllOf._0[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            
-            
-            class _1(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    
-                    
-                    class AdditionalProperties(
-                        schemas.AnyTypeSchema[schemas.T],
-                    ):
-                    
-                    
-                        class Schema_:
-                            # any type
-                            min_length = 3
-                    
-                    
-                        def __new__(
-                            cls,
-                            *args_: typing.Union[
-                                dict,
-                                frozendict.frozendict,
-                                str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                int,
-                                float,
-                                decimal.Decimal,
-                                bool,
-                                None,
-                                list,
-                                tuple,
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[
-                                dict,
-                                frozendict.frozendict,
-                                list,
-                                tuple,
-                                decimal.Decimal,
-                                float,
-                                int,
-                                str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                bool,
-                                None,
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader,
-                                schemas.Schema
-                            ],
-                        ) -> AdditionalPropertiesValidator.Schema_.AllOf._1.Schema_.AdditionalProperties[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ]:
-                            inst = super().__new__(
-                                cls,
-                                *args_,
-                                configuration_=configuration_,
-                                **kwargs,
-                            )
-                            inst = typing.cast(
-                                AdditionalPropertiesValidator.Schema_.AllOf._1.Schema_.AdditionalProperties[
-                                    typing.Union[
-                                        frozendict.frozendict,
-                                        str,
-                                        decimal.Decimal,
-                                        schemas.BoolClass,
-                                        schemas.NoneClass,
-                                        tuple,
-                                        bytes,
-                                        schemas.FileIO
-                                    ]
-                                ],
-                                inst
-                            )
-                            return inst
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[typing.Union[
-                            frozendict.frozendict,
-                            str,
-                            decimal.Decimal,
-                            schemas.BoolClass,
-                            schemas.NoneClass,
-                            tuple,
-                            bytes,
-                            schemas.FileIO
-                        ]],
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                ) -> AdditionalPropertiesValidator.Schema_.AllOf._1[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AdditionalPropertiesValidator.Schema_.AllOf._1[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            
-            
-            class _2(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    
-                    
-                    class AdditionalProperties(
-                        schemas.AnyTypeSchema[schemas.T],
-                    ):
-                    
-                    
-                        class Schema_:
-                            # any type
-                            max_length = 5
-                    
-                    
-                        def __new__(
-                            cls,
-                            *args_: typing.Union[
-                                dict,
-                                frozendict.frozendict,
-                                str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                int,
-                                float,
-                                decimal.Decimal,
-                                bool,
-                                None,
-                                list,
-                                tuple,
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader
-                            ],
-                            configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                            **kwargs: typing.Union[
-                                dict,
-                                frozendict.frozendict,
-                                list,
-                                tuple,
-                                decimal.Decimal,
-                                float,
-                                int,
-                                str,
-                                datetime.date,
-                                datetime.datetime,
-                                uuid.UUID,
-                                bool,
-                                None,
-                                bytes,
-                                io.FileIO,
-                                io.BufferedReader,
-                                schemas.Schema
-                            ],
-                        ) -> AdditionalPropertiesValidator.Schema_.AllOf._2.Schema_.AdditionalProperties[
-                            typing.Union[
-                                frozendict.frozendict,
-                                str,
-                                decimal.Decimal,
-                                schemas.BoolClass,
-                                schemas.NoneClass,
-                                tuple,
-                                bytes,
-                                schemas.FileIO
-                            ]
-                        ]:
-                            inst = super().__new__(
-                                cls,
-                                *args_,
-                                configuration_=configuration_,
-                                **kwargs,
-                            )
-                            inst = typing.cast(
-                                AdditionalPropertiesValidator.Schema_.AllOf._2.Schema_.AdditionalProperties[
-                                    typing.Union[
-                                        frozendict.frozendict,
-                                        str,
-                                        decimal.Decimal,
-                                        schemas.BoolClass,
-                                        schemas.NoneClass,
-                                        tuple,
-                                        bytes,
-                                        schemas.FileIO
-                                    ]
-                                ],
-                                inst
-                            )
-                            return inst
-                
-                def __getitem__(self, name: str) -> Schema_.AdditionalProperties[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]:
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        Schema_.AdditionalProperties[typing.Union[
-                            frozendict.frozendict,
-                            str,
-                            decimal.Decimal,
-                            schemas.BoolClass,
-                            schemas.NoneClass,
-                            tuple,
-                            bytes,
-                            schemas.FileIO
-                        ]],
-                        dict,
-                        frozendict.frozendict,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        int,
-                        float,
-                        decimal.Decimal,
-                        bool,
-                        None,
-                        list,
-                        tuple,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader
-                    ],
-                ) -> AdditionalPropertiesValidator.Schema_.AllOf._2[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        AdditionalPropertiesValidator.Schema_.AllOf._2[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-                _1,
-                _2,
-            ]
+        })
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -443,3 +348,4 @@ class AdditionalPropertiesValidator(
             inst
         )
         return inst
+

@@ -13,22 +13,22 @@ import unittest
 
 import typing_extensions
 
-from petstore_api.components.schema.obj_with_required_props import ObjWithRequiredProps
-from petstore_api.components.schema.obj_with_required_props_base import ObjWithRequiredPropsBase
+from petstore_api.components.schema import obj_with_required_props
+from petstore_api.components.schema import obj_with_required_props_base
 from petstore_api.configurations import schema_configuration
 
 
 class TestObjWithRequiredProps(unittest.TestCase):
     """ObjWithRequiredProps unit test stubs"""
     configuration_ = schema_configuration.SchemaConfiguration()
-    obj = ObjWithRequiredProps(a='a', b='b')
-    assert isinstance(obj, ObjWithRequiredProps) and isinstance(obj, ObjWithRequiredPropsBase)
+    obj = obj_with_required_props.ObjWithRequiredProps(a='a', b='b')
+    assert isinstance(obj, obj_with_required_props.ObjWithRequiredProps) and isinstance(obj, obj_with_required_props_base.ObjWithRequiredPropsBase)
     a = obj.a
-    orgin_cls = typing_extensions.get_origin(ObjWithRequiredProps.Schema_.Properties.A)
+    orgin_cls = typing_extensions.get_origin(obj_with_required_props.A)
     assert orgin_cls is not None
     assert isinstance(a, orgin_cls)
     b = obj.b
-    orgin_cls = typing_extensions.get_origin(ObjWithRequiredPropsBase.Schema_.Properties.B)
+    orgin_cls = typing_extensions.get_origin(obj_with_required_props_base.B)
     assert orgin_cls is not None
     assert isinstance(a, orgin_cls)
 

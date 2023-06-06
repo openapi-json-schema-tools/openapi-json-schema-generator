@@ -10,6 +10,17 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "petId": typing.Type[PetId],
+    }
+)
+
 
 class NoAdditionalProperties(
     schemas.DictSchema[schemas.T]
@@ -21,30 +32,24 @@ class NoAdditionalProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "id",
-        }
-        
-        class Properties:
-            Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-            __annotations__ = {
-                "id": Id,
-                "petId": PetId,
-            }
-        AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
     @property
-    def id(self) -> Schema_.Properties.Id[decimal.Decimal]:
+    def id(self) -> Id[decimal.Decimal]:
         return self.__getitem__("id")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Schema_.Properties.Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> Schema_.Properties.PetId[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> PetId[decimal.Decimal]: ...
     
     def __getitem__(
         self,
@@ -60,12 +65,12 @@ class NoAdditionalProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         id: typing.Union[
-            Schema_.Properties.Id[decimal.Decimal],
+            Id[decimal.Decimal],
             decimal.Decimal,
             int
         ],
         petId: typing.Union[
-            Schema_.Properties.PetId[decimal.Decimal],
+            PetId[decimal.Decimal],
             schemas.Unset,
             decimal.Decimal,
             int
@@ -84,3 +89,4 @@ class NoAdditionalProperties(
             inst
         )
         return inst
+

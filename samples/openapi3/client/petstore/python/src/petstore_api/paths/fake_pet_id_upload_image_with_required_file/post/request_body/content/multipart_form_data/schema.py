@@ -10,35 +10,39 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
+RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "additionalMetadata": typing.Type[AdditionalMetadata],
+        "requiredFile": typing.Type[RequiredFile],
+    }
+)
+
 
 class Schema(
     schemas.DictSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "requiredFile",
-        }
-        
-        class Properties:
-            AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-            __annotations__ = {
-                "additionalMetadata": AdditionalMetadata,
-                "requiredFile": RequiredFile,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def requiredFile(self) -> Schema_.Properties.RequiredFile[typing.Union[bytes, schemas.FileIO]]:
+    def requiredFile(self) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]:
         return self.__getitem__("requiredFile")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> Schema_.Properties.RequiredFile[typing.Union[bytes, schemas.FileIO]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> Schema_.Properties.AdditionalMetadata[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> AdditionalMetadata[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -67,36 +71,18 @@ class Schema(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         requiredFile: typing.Union[
-            Schema_.Properties.RequiredFile[typing.Union[bytes, schemas.FileIO]],
+            RequiredFile[typing.Union[bytes, schemas.FileIO]],
             bytes,
             io.FileIO,
             io.BufferedReader
         ],
         additionalMetadata: typing.Union[
-            Schema_.Properties.AdditionalMetadata[str],
+            AdditionalMetadata[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -111,3 +97,4 @@ class Schema(
             inst
         )
         return inst
+

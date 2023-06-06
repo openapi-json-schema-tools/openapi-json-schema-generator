@@ -10,6 +10,8 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+
 
 class ArrayTypeMatchesArrays(
     schemas.ListSchema[schemas.T]
@@ -21,24 +23,18 @@ class ArrayTypeMatchesArrays(
     """
 
 
-    class Schema_:
-        types = {tuple}
-        Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Schema_.Items[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]],
+                Items[
+                    schemas.INPUT_BASE_TYPES
+                ],
                 dict,
                 frozendict.frozendict,
                 str,
@@ -70,7 +66,7 @@ class ArrayTypeMatchesArrays(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Schema_.Items[typing.Union[
+    def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -81,3 +77,4 @@ class ArrayTypeMatchesArrays(
         schemas.FileIO
     ]]:
         return super().__getitem__(name)
+

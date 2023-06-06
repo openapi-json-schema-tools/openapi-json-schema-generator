@@ -10,6 +10,24 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+FooNbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+FooBar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+FooBar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+FooRbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+FooTbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+FooFbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "foo\nbar": typing.Type[FooNbar],
+        "foo\"bar": typing.Type[FooBar],
+        "foo\\bar": typing.Type[FooBar],
+        "foo\rbar": typing.Type[FooRbar],
+        "foo\tbar": typing.Type[FooTbar],
+        "foo\fbar": typing.Type[FooFbar],
+    }
+)
+
 
 class PropertiesWithEscapedCharacters(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,43 +39,29 @@ class PropertiesWithEscapedCharacters(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class Properties:
-            FooNbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            FooBar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            FooBar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            FooRbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            FooTbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            FooFbar: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            __annotations__ = {
-                "foo\nbar": FooNbar,
-                "foo\"bar": FooBar,
-                "foo\\bar": FooBar,
-                "foo\rbar": FooRbar,
-                "foo\tbar": FooTbar,
-                "foo\fbar": FooFbar,
-            }
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> Schema_.Properties.FooNbar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> FooNbar[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> Schema_.Properties.FooBar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> FooBar[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> Schema_.Properties.FooBar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> FooBar[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> Schema_.Properties.FooRbar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> FooRbar[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> Schema_.Properties.FooTbar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> FooTbar[decimal.Decimal]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> Schema_.Properties.FooFbar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> FooFbar[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -88,44 +92,9 @@ class PropertiesWithEscapedCharacters(
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> PropertiesWithEscapedCharacters[
         typing.Union[
             frozendict.frozendict,
@@ -160,3 +129,4 @@ class PropertiesWithEscapedCharacters(
             inst
         )
         return inst
+

@@ -8,9 +8,9 @@
 {{else}}
     {{#if jsonPathPiece}}
         {{#if schemaIsFromAdditionalProperties}}
-{{> components/schemas/_helper_getitem_property propertyClass="" literal=true key=@key.original overload=true }}
+{{> components/schemas/_helper_getitem_property literal=true key=@key.original overload=true }}
         {{else}}
-{{> components/schemas/_helper_getitem_property propertyClass=".Properties" literal=true key=@key.original overload=true }}
+{{> components/schemas/_helper_getitem_property literal=true key=@key.original overload=true }}
         {{/if}}
     {{else}}
         {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
@@ -29,7 +29,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) ->
         {{#if refInfo.refClass}}
 {{> components/schemas/_helper_getitem_refclass literal=true key=@key.original overload=true }}
         {{else}}
-{{> components/schemas/_helper_getitem_property propertyClass=".Properties" literal=true key=@key.original overload=true }}
+{{> components/schemas/_helper_getitem_property literal=true key=@key.original overload=true }}
         {{/if}}
     {{/each}}
 {{/if}}
@@ -41,7 +41,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) ->
             {{#if refInfo.refClass}}
 {{> components/schemas/_helper_getitem_refclass literal=false key="str" overload=true }}
             {{else}}
-{{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="str" overload=true }}
+{{> components/schemas/_helper_getitem_property literal=false key="str" overload=true }}
             {{/if}}
         {{/unless}}
     {{else}}
@@ -90,7 +90,7 @@ def __getitem__(
             {{#if refInfo.refClass}}
 {{> components/schemas/_helper_getitem_refclass literal=false key="str" overload=false }}
             {{else}}
-{{> components/schemas/_helper_getitem_property propertyClass="" literal=false key="str" overload=false }}
+{{> components/schemas/_helper_getitem_property literal=false key="str" overload=false }}
             {{/if}}
     # dict_instance[name] accessor
     return super().__getitem__(name)

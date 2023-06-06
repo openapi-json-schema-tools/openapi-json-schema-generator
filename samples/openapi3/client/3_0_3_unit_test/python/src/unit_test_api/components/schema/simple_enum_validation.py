@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class SimpleEnumValidation(
     schemas.NumberSchema[schemas.T]
 ):
@@ -21,24 +22,27 @@ class SimpleEnumValidation(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        enum_value_to_name = {
-            1: "POSITIVE_1",
-            2: "POSITIVE_2",
-            3: "POSITIVE_3",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                1: "POSITIVE_1",
+                2: "POSITIVE_2",
+                3: "POSITIVE_3",
+            }
+        )
     
     @schemas.classproperty
-    def POSITIVE_1(cls):
+    def POSITIVE_1(cls) -> SimpleEnumValidation[decimal.Decimal]:
         return cls(1) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_2(cls):
+    def POSITIVE_2(cls) -> SimpleEnumValidation[decimal.Decimal]:
         return cls(2) # type: ignore
     
     @schemas.classproperty
-    def POSITIVE_3(cls):
+    def POSITIVE_3(cls) -> SimpleEnumValidation[decimal.Decimal]:
         return cls(3) # type: ignore

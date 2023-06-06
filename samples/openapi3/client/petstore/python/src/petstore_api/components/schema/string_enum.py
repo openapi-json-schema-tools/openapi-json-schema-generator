@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class StringEnum(
     schemas.NoneBase,
     schemas.StrBase,
@@ -24,47 +25,50 @@ class StringEnum(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
             str,
-        }
-        enum_value_to_name = {
-            "placed": "PLACED",
-            "approved": "APPROVED",
-            "delivered": "DELIVERED",
-            "single quoted": "SINGLE_QUOTED",
-            "multiple\nlines": "MULTIPLE_LINE_FEED_LF_LINES",
-            "double quote \n with newline": "DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE",
-            schemas.NoneClass.NONE: "NONE",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "placed": "PLACED",
+                "approved": "APPROVED",
+                "delivered": "DELIVERED",
+                "single quoted": "SINGLE_QUOTED",
+                "multiple\nlines": "MULTIPLE_LINE_FEED_LF_LINES",
+                "double quote \n with newline": "DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE",
+                schemas.NoneClass.NONE: "NONE",
+            }
+        )
     
     @schemas.classproperty
-    def PLACED(cls):
+    def PLACED(cls) -> StringEnum[str]:
         return cls("placed") # type: ignore
     
     @schemas.classproperty
-    def APPROVED(cls):
+    def APPROVED(cls) -> StringEnum[str]:
         return cls("approved") # type: ignore
     
     @schemas.classproperty
-    def DELIVERED(cls):
+    def DELIVERED(cls) -> StringEnum[str]:
         return cls("delivered") # type: ignore
     
     @schemas.classproperty
-    def SINGLE_QUOTED(cls):
+    def SINGLE_QUOTED(cls) -> StringEnum[str]:
         return cls("single quoted") # type: ignore
     
     @schemas.classproperty
-    def MULTIPLE_LINE_FEED_LF_LINES(cls):
+    def MULTIPLE_LINE_FEED_LF_LINES(cls) -> StringEnum[str]:
         return cls("multiple\nlines") # type: ignore
     
     @schemas.classproperty
-    def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls):
+    def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls) -> StringEnum[str]:
         return cls("double quote \n with newline") # type: ignore
     
     @schemas.classproperty
-    def NONE(cls):
+    def NONE(cls) -> StringEnum[schemas.NoneClass]:
         return cls(None) # type: ignore
 
 
@@ -96,3 +100,4 @@ class StringEnum(
             inst
         )
         return inst
+

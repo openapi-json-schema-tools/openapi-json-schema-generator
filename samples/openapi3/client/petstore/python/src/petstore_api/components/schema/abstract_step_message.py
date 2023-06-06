@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Discriminator: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "discriminator": typing.Type[Discriminator],
+    }
+)
+
 
 class AbstractStepMessage(
     schemas.DictSchema[schemas.T]
@@ -23,38 +31,25 @@ class AbstractStepMessage(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             frozendict.frozendict,
-        }
-        required = {
+        })
+        required: typing.FrozenSet[str] = frozenset({
             "description",
             "discriminator",
             "sequenceNumber",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'discriminator': {
                     'AbstractStepMessage': AbstractStepMessage,
                 }
             }
-        
-        class Properties:
-            Discriminator: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "discriminator": Discriminator,
-            }
-        
-        class AnyOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[AbstractStepMessage]:
-                return AbstractStepMessage
-            classes = [
-                _0,
-            ]
+        )
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
 
     
     @property
@@ -71,7 +66,7 @@ class AbstractStepMessage(
         return self.__getitem__("description")
     
     @property
-    def discriminator(self) -> Schema_.Properties.Discriminator[str]:
+    def discriminator(self) -> Discriminator[str]:
         return self.__getitem__("discriminator")
     
     @property
@@ -100,7 +95,7 @@ class AbstractStepMessage(
     ]]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> Schema_.Properties.Discriminator[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> Discriminator[str]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.AnyTypeSchema[typing.Union[
@@ -170,7 +165,7 @@ class AbstractStepMessage(
             io.BufferedReader
         ],
         discriminator: typing.Union[
-            Schema_.Properties.Discriminator[str],
+            Discriminator[str],
             str
         ],
         sequenceNumber: typing.Union[
@@ -202,25 +197,7 @@ class AbstractStepMessage(
             io.BufferedReader
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> AbstractStepMessage[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -236,3 +213,7 @@ class AbstractStepMessage(
             inst
         )
         return inst
+
+AnyOf = typing.Tuple[
+    typing.Type[AbstractStepMessage],
+]

@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class UUIDString(
     schemas.UUIDSchema[schemas.T]
 ):
@@ -21,9 +22,10 @@ class UUIDString(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        format = 'uuid'
-        min_length = 1
+        })
+        format: str = 'uuid'
+        min_length: int = 1

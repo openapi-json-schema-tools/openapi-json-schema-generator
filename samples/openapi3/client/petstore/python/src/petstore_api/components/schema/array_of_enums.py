@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class ArrayOfEnums(
     schemas.ListSchema[schemas.T]
 ):
@@ -21,12 +22,10 @@ class ArrayOfEnums(
     """
 
 
-    class Schema_:
-        types = {tuple}
-        
-        @staticmethod
-        def items() -> typing.Type[string_enum.StringEnum]:
-            return string_enum.StringEnum
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[string_enum.StringEnum] = dataclasses.field(default_factory=lambda: string_enum.StringEnum) # type: ignore
 
     def __new__(
         cls,
@@ -58,5 +57,6 @@ class ArrayOfEnums(
         str
     ]]:
         return super().__getitem__(name)
+
 
 from petstore_api.components.schema import string_enum

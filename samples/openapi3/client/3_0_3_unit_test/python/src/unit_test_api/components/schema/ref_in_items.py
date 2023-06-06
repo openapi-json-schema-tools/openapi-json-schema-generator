@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class RefInItems(
     schemas.ListSchema[schemas.T]
 ):
@@ -21,27 +22,18 @@ class RefInItems(
     """
 
 
-    class Schema_:
-        types = {tuple}
-        
-        @staticmethod
-        def items() -> typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference]:
-            return property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference] = dataclasses.field(default_factory=lambda: property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]],
+                property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[
+                    schemas.INPUT_BASE_TYPES
+                ],
                 dict,
                 frozendict.frozendict,
                 str,
@@ -84,5 +76,6 @@ class RefInItems(
         schemas.FileIO
     ]]:
         return super().__getitem__(name)
+
 
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

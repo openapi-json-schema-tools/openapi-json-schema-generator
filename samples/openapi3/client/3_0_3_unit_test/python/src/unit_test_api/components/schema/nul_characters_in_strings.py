@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class NulCharactersInStrings(
     schemas.StrSchema[schemas.T]
 ):
@@ -21,14 +22,17 @@ class NulCharactersInStrings(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        enum_value_to_name = {
-            "hello\x00there": "HELLO_NULL_THERE",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "hello\x00there": "HELLO_NULL_THERE",
+            }
+        )
     
     @schemas.classproperty
-    def HELLO_NULL_THERE(cls):
+    def HELLO_NULL_THERE(cls) -> NulCharactersInStrings[str]:
         return cls("hello\x00there") # type: ignore

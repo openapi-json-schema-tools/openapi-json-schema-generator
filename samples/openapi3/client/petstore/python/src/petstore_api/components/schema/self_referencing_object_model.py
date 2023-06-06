@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class SelfReferencingObjectModel(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,21 +22,11 @@ class SelfReferencingObjectModel(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-        
-            @staticmethod
-            def self_ref() -> typing.Type[SelfReferencingObjectModel]:
-                return SelfReferencingObjectModel
-            __annotations__ = {
-                "selfRef": self_ref,
-            }
-        
-        @staticmethod
-        def additional_properties() -> typing.Type[SelfReferencingObjectModel]:
-            return SelfReferencingObjectModel
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+        additional_properties: typing.Type[SelfReferencingObjectModel] = dataclasses.field(default_factory=lambda: SelfReferencingObjectModel) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> SelfReferencingObjectModel[frozendict.frozendict]: ...
@@ -81,3 +72,10 @@ class SelfReferencingObjectModel(
             inst
         )
         return inst
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "selfRef": typing.Type[SelfReferencingObjectModel],
+    }
+)

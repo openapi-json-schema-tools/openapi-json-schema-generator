@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class NumberWithValidations(
     schemas.NumberSchema[schemas.T]
 ):
@@ -21,9 +22,10 @@ class NumberWithValidations(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        inclusive_maximum = 20
-        inclusive_minimum = 10
+        })
+        inclusive_maximum: typing.Union[int, float] = 20
+        inclusive_minimum: typing.Union[int, float] = 10

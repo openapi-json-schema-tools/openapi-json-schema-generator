@@ -10,6 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+AllOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+]
+
 
 class ComposedNone(
     schemas.NoneSchema[schemas.T]
@@ -21,16 +26,12 @@ class ComposedNone(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             schemas.NoneClass,
-        }
-        
-        class AllOf:
-            _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            classes = [
-                _0,
-            ]
+        })
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
@@ -48,3 +49,4 @@ class ComposedNone(
             inst
         )
         return inst
+

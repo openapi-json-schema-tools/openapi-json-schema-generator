@@ -11,6 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
 class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(
     schemas.IntSchema[schemas.T]
 ):
@@ -21,9 +22,10 @@ class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'int'
-        multiple_of = 0.123456789
+        })
+        format: str = 'int'
+        multiple_of: typing.Union[int, float] = 0.123456789

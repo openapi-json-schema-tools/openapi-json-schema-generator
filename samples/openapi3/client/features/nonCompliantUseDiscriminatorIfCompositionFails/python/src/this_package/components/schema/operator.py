@@ -11,6 +11,7 @@ from __future__ import annotations
 from this_package.shared_imports.schema_imports import *
 
 
+
 class Operator(
     schemas.AnyTypeSchema[schemas.T],
 ):
@@ -21,12 +22,11 @@ class Operator(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        @staticmethod
-        def discriminator():
-            return {
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'operator_id': {
                     'ADD': addition_operator.AdditionOperator,
                     'AdditionOperator': addition_operator.AdditionOperator,
@@ -34,62 +34,15 @@ class Operator(
                     'SubtractionOperator': subtraction_operator.SubtractionOperator,
                 }
             }
-        
-        class OneOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[addition_operator.AdditionOperator]:
-                return addition_operator.AdditionOperator
-        
-            @staticmethod
-            def _1() -> typing.Type[subtraction_operator.SubtractionOperator]:
-                return subtraction_operator.SubtractionOperator
-            classes = [
-                _0,
-                _1,
-            ]
+        )
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Operator[
         typing.Union[
             frozendict.frozendict,
@@ -125,5 +78,10 @@ class Operator(
         )
         return inst
 
+
 from this_package.components.schema import addition_operator
 from this_package.components.schema import subtraction_operator
+OneOf = typing.Tuple[
+    typing.Type[addition_operator.AdditionOperator],
+    typing.Type[subtraction_operator.SubtractionOperator],
+]

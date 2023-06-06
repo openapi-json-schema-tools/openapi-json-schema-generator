@@ -10,6 +10,13 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+_1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+OneOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+]
+
 
 class OneofWithEmptySchema(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,58 +28,17 @@ class OneofWithEmptySchema(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class OneOf:
-            _0: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            _1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-            classes = [
-                _0,
-                _1,
-            ]
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> OneofWithEmptySchema[
         typing.Union[
             frozendict.frozendict,
@@ -107,3 +73,4 @@ class OneofWithEmptySchema(
             inst
         )
         return inst
+

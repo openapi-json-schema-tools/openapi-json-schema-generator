@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Foo(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,17 +22,10 @@ class Foo(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-        
-            @staticmethod
-            def bar() -> typing.Type[bar.Bar]:
-                return bar.Bar
-            __annotations__ = {
-                "bar": bar,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> bar.Bar[str]: ...
@@ -67,25 +61,7 @@ class Foo(
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Foo[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -100,4 +76,11 @@ class Foo(
         )
         return inst
 
+
 from petstore_api.components.schema import bar
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "bar": typing.Type[bar.Bar],
+    }
+)

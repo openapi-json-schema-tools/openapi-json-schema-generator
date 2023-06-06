@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class SelfReferencingArrayModel(
     schemas.ListSchema[schemas.T]
 ):
@@ -21,12 +22,10 @@ class SelfReferencingArrayModel(
     """
 
 
-    class Schema_:
-        types = {tuple}
-        
-        @staticmethod
-        def items() -> typing.Type[SelfReferencingArrayModel]:
-            return SelfReferencingArrayModel
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[SelfReferencingArrayModel] = dataclasses.field(default_factory=lambda: SelfReferencingArrayModel) # type: ignore
 
     def __new__(
         cls,
@@ -52,3 +51,4 @@ class SelfReferencingArrayModel(
 
     def __getitem__(self, name: int) -> SelfReferencingArrayModel[tuple]:
         return super().__getitem__(name)
+

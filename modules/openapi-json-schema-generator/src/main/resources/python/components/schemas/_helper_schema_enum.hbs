@@ -1,23 +1,25 @@
-enum_value_to_name = {
+enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+    default_factory=lambda: {
 {{#each enumValueToName}}
     {{#eq @key.type "string"}}
-    "{{{@key.value}}}": "{{this}}",
+        "{{{@key.value}}}": "{{this}}",
     {{/eq}}
     {{#eq @key.type "number"}}
-    {{{@key.value}}}: "{{this}}",
+        {{{@key.value}}}: "{{this}}",
     {{/eq}}
     {{#eq @key.type "integer"}}
-    {{{@key.value}}}: "{{this}}",
+        {{{@key.value}}}: "{{this}}",
     {{/eq}}
     {{#eq @key.type "boolean"}}
         {{#if @key.value}}
-    schemas.BoolClass.TRUE: "{{this}}",
+        schemas.BoolClass.TRUE: "{{this}}",
         {{else}}
-    schemas.BoolClass.FALSE: "{{this}}",
+        schemas.BoolClass.FALSE: "{{this}}",
         {{/if}}
     {{/eq}}
     {{#eq @key.type "null"}}
-    schemas.NoneClass.NONE: "{{this}}",
+        schemas.NoneClass.NONE: "{{this}}",
     {{/eq}}
 {{/each}}
-}
+    }
+)

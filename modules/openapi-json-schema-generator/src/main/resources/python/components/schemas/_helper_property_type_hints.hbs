@@ -34,12 +34,12 @@ def {{@key.original}}(self) -> {{#if ../refInfo.refModule}}{{../refInfo.refModul
                                 {{#eq types.size 1}}
 
 @property
-def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
     return self.__getitem__("{{{@key.original}}}")
                                 {{else}}
 
 @property
-def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]:
     return self.__getitem__("{{{@key.original}}}")
@@ -47,7 +47,7 @@ def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
                             {{else}}
 
 @property
-def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]:
     return self.__getitem__("{{{@key.original}}}")
@@ -57,12 +57,12 @@ def {{@key.original}}(self) -> Schema_.{{jsonPathPiece.camelCase}}[typing.Union[
                                 {{#eq types.size 1}}
 
 @property
-def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
     return self.__getitem__("{{{@key.original}}}")
                                 {{else}}
 
 @property
-def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]:
     return self.__getitem__("{{{@key.original}}}")
@@ -70,7 +70,7 @@ def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}[ty
                             {{else}}
 
 @property
-def {{@key.original}}(self) -> Schema_.Properties.{{jsonPathPiece.camelCase}}[typing.Union[
+def {{@key.original}}(self) -> {{jsonPathPiece.camelCase}}[typing.Union[
     {{> components/schemas/_helper_schema_python_base_types_newline }}
 ]]:
     return self.__getitem__("{{{@key.original}}}")

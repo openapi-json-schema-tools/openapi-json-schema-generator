@@ -1,59 +1,37 @@
 # coding: utf-8
 {{> _helper_header }}
 
-from {{packageName}}.shared_imports.server_imports import *
 {{#with server}}
     {{#if variables}}
-
-
-class _Variables:
-        {{#each variables}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "_Variables" jsonPathPiece.camelCase) }}
-        {{/each}}
-
-_VariablesSchemas = typing_extensions.TypedDict(
-    '_VariablesSchemas',
-    {
-        {{#each variables}}
-        "{{{@key.original}}}": typing.Type[_Variables.{{jsonPathPiece.camelCase}}],
-        {{/each}}
-    },
-    total=False
-)
-
-Variables = typing_extensions.TypedDict(
-    'Variables',
-    {
-        {{#each variables}}
-        "{{{@key.original}}}": {{#unless enumValueToName}}typing_extensions.Literal["{{defaultValue.value}}"],{{else}}typing_extensions.Literal[
-                {{#each enumValueToName}}
-            "{{{@key.value}}}",
-                {{/each}}
-        ],{{/unless}}
-        {{/each}}
-    },
-    total=False
-)
-
-def _default_variable_schemas() -> _VariablesSchemas:
-    return {
-        {{#each variables}}
-        "{{{@key.original}}}": _Variables.{{jsonPathPiece.camelCase}},
-        {{/each}}
-    }
+from __future__ import annotations
+from {{packageName}}.shared_imports.schema_imports import *
+    {{/if}}
+from {{packageName}}.shared_imports.server_imports import *
+    {{#if variables}}
+        {{#with variables}}
+{{> components/schemas/_helper_getschemas identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
+        {{/with}}
     {{/if}}
 
 
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(server.Server):
+class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}Without{{/if}}Variables):
     {{#if description}}
     '''
     {{description}}
     '''
     {{/if}}
     {{#if variables}}
-    variables: typing.Optional[Variables] = None
-    variable_schemas: _VariablesSchemas = dataclasses.field(default_factory=_default_variable_schemas)
-    {{/if}}
+    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+        {{#with variables}}
+            {{#each properties}}
+        "{{{@key.original}}}": {{jsonPathPiece.camelCase}}.Schema_.default,
+            {{/each}}
+        {{/with}}
+    })
+    variables_cls: typing.Type[Variables] = Variables
     _url: str = "{{url}}"
+    {{else}}
+    url: str = "{{url}}"
+    {{/if}}
 {{/with}}

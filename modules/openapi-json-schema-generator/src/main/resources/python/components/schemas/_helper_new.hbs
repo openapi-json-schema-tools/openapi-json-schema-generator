@@ -11,7 +11,7 @@ def __new__(
         ]
             {{else}}
         typing.Union[
-            {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
         ]
             {{/if}}
         {{/with}}
@@ -47,9 +47,7 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{else}}
-    *args_: typing.Union[
-        {{> _helper_schema_python_types_newline }}
-    ],
+    *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
 {{/if}}
 {{#if types}}
     {{#eq types.size 1}}
@@ -65,11 +63,11 @@ def __new__(
                             {{#if jsonPathPiece}}
                                 {{#if schemaIsFromAdditionalProperties}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
                                 {{else}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
                                 {{/if}}
                             {{else}}
@@ -95,7 +93,7 @@ def __new__(
     ] = schemas.unset,
         {{else}}
     {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass="Properties" optional=true }}
+        {{> components/schemas/_helper_new_property_value_type optional=true }}
     ] = schemas.unset,
         {{/if}}
     {{/if}}
@@ -109,35 +107,31 @@ def __new__(
     ],
         {{else}}
     **kwargs: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type propertyClass=null optional=false }}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
     ],
         {{/if}}
     {{/unless}}
 {{else}}
     {{#eq types null}}
-    **kwargs: typing.Union[
-        {{> components/schemas/_helper_types_all_incl_schema_newline }}
-    ],
+    **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     {{else}}
         {{#contains types "object"}}
-    **kwargs: typing.Union[
-        {{> components/schemas/_helper_types_all_incl_schema_newline }}
-    ],
+    **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         {{/contains}}
     {{/eq}}
 {{/with}}
 {{#if types}}
     {{#eq types.size 1}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}]:
+) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
     {{else}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+) -> {{jsonPathPiece.camelCase}}[
     typing.Union[
         {{> components/schemas/_helper_schema_python_base_types_newline }}
     ]
 ]:
     {{/eq}}
 {{else}}
-) -> {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+) -> {{jsonPathPiece.camelCase}}[
     typing.Union[
         {{> components/schemas/_helper_schema_python_base_types_newline }}
     ]
@@ -190,16 +184,16 @@ def __new__(
     inst = typing.cast(
 {{#if types}}
     {{#eq types.size 1}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[{{> components/schemas/_helper_schema_python_base_types }}],
+        {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
     {{else}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+        {{jsonPathPiece.camelCase}}[
             typing.Union[
                 {{> components/schemas/_helper_schema_python_base_types_newline }}
             ]
         ],
     {{/eq}}
 {{else}}
-        {{#each identifierPieces}}{{#if this.camelCase}}{{this.camelCase}}{{else}}{{this}}{{/if}}{{#unless @last}}.{{/unless}}{{/each}}[
+        {{jsonPathPiece.camelCase}}[
             typing.Union[
                 {{> components/schemas/_helper_schema_python_base_types_newline }}
             ]

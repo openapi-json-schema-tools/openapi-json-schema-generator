@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+B: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "b": typing.Type[B],
+    }
+)
+
 
 class ObjWithRequiredPropsBase(
     schemas.DictSchema[schemas.T]
@@ -21,24 +29,20 @@ class ObjWithRequiredPropsBase(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "b",
-        }
-        
-        class Properties:
-            B: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "b": B,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def b(self) -> Schema_.Properties.B[str]:
+    def b(self) -> B[str]:
         return self.__getitem__("b")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> Schema_.Properties.B[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> B[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -66,29 +70,11 @@ class ObjWithRequiredPropsBase(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         b: typing.Union[
-            Schema_.Properties.B[str],
+            B[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjWithRequiredPropsBase[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -102,3 +88,4 @@ class ObjWithRequiredPropsBase(
             inst
         )
         return inst
+

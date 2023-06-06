@@ -1,73 +1,14 @@
 {{#if allOf}}
-
-class AllOf:
-{{#each allOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "AllOf" jsonPathPiece) }}
-{{/if}}
-{{/each}}
-    classes = [
-{{#each allOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
-        {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
-{{/if}}
-{{#if oneOf}}
-
-class OneOf:
-{{#each oneOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "OneOf" jsonPathPiece) }}
-{{/if}}
-{{/each}}
-    classes = [
-{{#each oneOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
-        {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
+all_of: {{allOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{allOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#if anyOf}}
-
-class AnyOf:
-{{#each anyOf}}
-{{#if refInfo.refClass}}
-
-    {{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-    {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces "AnyOf" jsonPathPiece) }}
+any_of: {{anyOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{anyOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
-{{/each}}
-    classes = [
-{{#each anyOf}}
-    {{#if refInfo.refClass}}
-        {{jsonPathPiece.snakeCase}},
-    {{else}}
-        {{jsonPathPiece.camelCase}},
-    {{/if}}
-{{/each}}
-    ]
+{{#if oneOf}}
+one_of: {{oneOf.jsonPathPiece.camelCase}} = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance({{oneOf.jsonPathPiece.camelCase}})) # type: ignore
 {{/if}}
 {{#if not}}
 {{#with not}}
-{{#if refInfo.refClass}}
-
-{{> components/schemas/_helper_refclass_staticmethod }}
-{{else}}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{/if}}
+not_: typing.Type[{{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}] = dataclasses.field(default_factory=lambda: {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}) # type: ignore
 {{/with}}
 {{/if}}

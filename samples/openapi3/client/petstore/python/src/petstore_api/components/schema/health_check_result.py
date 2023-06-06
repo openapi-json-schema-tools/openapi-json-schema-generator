@@ -11,6 +11,60 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
+class NullableMessage(
+    schemas.NoneBase,
+    schemas.StrBase,
+    schemas.Schema[schemas.T],
+    schemas.NoneStrMixin
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            schemas.NoneClass,
+            str,
+        })
+
+
+    def __new__(
+        cls,
+        arg_: typing.Union[
+            None,
+            str
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> NullableMessage[
+        typing.Union[
+            schemas.NoneClass,
+            str
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            NullableMessage[
+                typing.Union[
+                    schemas.NoneClass,
+                    str
+                ]
+            ],
+            inst
+        )
+        return inst
+
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "NullableMessage": typing.Type[NullableMessage],
+    }
+)
+
+
 class HealthCheckResult(
     schemas.DictSchema[schemas.T]
 ):
@@ -23,61 +77,13 @@ class HealthCheckResult(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        
-        class Properties:
-            
-            
-            class NullableMessage(
-                schemas.NoneBase,
-                schemas.StrBase,
-                schemas.Schema[schemas.T],
-                schemas.NoneStrMixin
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        schemas.NoneClass,
-                        str,
-                    }
-            
-            
-                def __new__(
-                    cls,
-                    arg_: typing.Union[
-                        None,
-                        str
-                    ],
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                ) -> HealthCheckResult.Schema_.Properties.NullableMessage[
-                    typing.Union[
-                        schemas.NoneClass,
-                        str
-                    ]
-                ]:
-                    inst = super().__new__(
-                        cls,
-                        arg_,
-                        configuration_=configuration_,
-                    )
-                    inst = typing.cast(
-                        HealthCheckResult.Schema_.Properties.NullableMessage[
-                            typing.Union[
-                                schemas.NoneClass,
-                                str
-                            ]
-                        ],
-                        inst
-                    )
-                    return inst
-            __annotations__ = {
-                "NullableMessage": NullableMessage,
-            }
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> Schema_.Properties.NullableMessage[typing.Union[
+    def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> NullableMessage[typing.Union[
         schemas.NoneClass,
         str
     ]]: ...
@@ -108,7 +114,7 @@ class HealthCheckResult(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         NullableMessage: typing.Union[
-            Schema_.Properties.NullableMessage[typing.Union[
+            NullableMessage[typing.Union[
                 schemas.NoneClass,
                 str
             ]],
@@ -117,25 +123,7 @@ class HealthCheckResult(
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> HealthCheckResult[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -149,3 +137,4 @@ class HealthCheckResult(
             inst
         )
         return inst
+

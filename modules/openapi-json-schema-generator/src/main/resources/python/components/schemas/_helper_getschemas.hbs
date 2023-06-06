@@ -1,0 +1,27 @@
+{{#each getSchemas}}
+    {{! generate all schemas in post order traversal }}
+    {{#eq instanceType "schema" }}
+{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{else}}
+        {{#eq instanceType "allOfType" }}
+{{> components/schemas/_helper_allof_type }}
+        {{else}}
+            {{#eq instanceType "anyOfType" }}
+{{> components/schemas/_helper_anyof_type }}
+            {{else}}
+                {{#eq instanceType "oneOfType" }}
+{{> components/schemas/_helper_oneof_type }}
+                {{else}}
+                    {{#eq instanceType "propertiesType" }}
+{{> components/schemas/_helper_properties_type }}
+                    {{else}}
+                        {{#eq instanceType "importsType" }}
+
+{{> _helper_imports }}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}

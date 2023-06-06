@@ -10,6 +10,28 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+ClassName: typing_extensions.TypeAlias = schemas.StrSchema[U]
+
+
+class Color(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        default: str = "red"
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "className": typing.Type[ClassName],
+        "color": typing.Type[Color],
+    }
+)
+
 
 class Animal(
     schemas.DictSchema[schemas.T]
@@ -21,49 +43,31 @@ class Animal(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "className",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'className': {
                     'Cat': cat.Cat,
                     'Dog': dog.Dog,
                 }
             }
-        
-        class Properties:
-            ClassName: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            
-            
-            class Color(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    default = "red"
-            __annotations__ = {
-                "className": ClassName,
-                "color": Color,
-            }
+        )
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def className(self) -> Schema_.Properties.ClassName[str]:
+    def className(self) -> ClassName[str]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> Schema_.Properties.ClassName[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> ClassName[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Schema_.Properties.Color[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["color"]) -> Color[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -92,34 +96,16 @@ class Animal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         className: typing.Union[
-            Schema_.Properties.ClassName[str],
+            ClassName[str],
             str
         ],
         color: typing.Union[
-            Schema_.Properties.Color[str],
+            Color[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Animal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -134,6 +120,7 @@ class Animal(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import cat
 from petstore_api.components.schema import dog

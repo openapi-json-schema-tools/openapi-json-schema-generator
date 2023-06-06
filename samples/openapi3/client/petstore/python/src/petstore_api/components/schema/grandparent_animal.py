@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+PetType: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "pet_type": typing.Type[PetType],
+    }
+)
+
 
 class GrandparentAnimal(
     schemas.DictSchema[schemas.T]
@@ -21,33 +29,28 @@ class GrandparentAnimal(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "pet_type",
-        }
-        
-        @staticmethod
-        def discriminator():
-            return {
+        })
+        discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+            default_factory=lambda: {
                 'pet_type': {
                     'ChildCat': child_cat.ChildCat,
                     'ParentPet': parent_pet.ParentPet,
                 }
             }
-        
-        class Properties:
-            PetType: typing_extensions.TypeAlias = schemas.StrSchema[U]
-            __annotations__ = {
-                "pet_type": PetType,
-            }
+        )
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def pet_type(self) -> Schema_.Properties.PetType[str]:
+    def pet_type(self) -> PetType[str]:
         return self.__getitem__("pet_type")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> Schema_.Properties.PetType[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> PetType[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -75,29 +78,11 @@ class GrandparentAnimal(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         pet_type: typing.Union[
-            Schema_.Properties.PetType[str],
+            PetType[str],
             str
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> GrandparentAnimal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -111,6 +96,7 @@ class GrandparentAnimal(
             inst
         )
         return inst
+
 
 from petstore_api.components.schema import child_cat
 from petstore_api.components.schema import parent_pet

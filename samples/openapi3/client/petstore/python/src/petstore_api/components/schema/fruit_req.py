@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+_0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+
 
 class FruitReq(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,66 +23,17 @@ class FruitReq(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class OneOf:
-            _0: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-        
-            @staticmethod
-            def _1() -> typing.Type[apple_req.AppleReq]:
-                return apple_req.AppleReq
-        
-            @staticmethod
-            def _2() -> typing.Type[banana_req.BananaReq]:
-                return banana_req.BananaReq
-            classes = [
-                _0,
-                _1,
-                _2,
-            ]
+        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> FruitReq[
         typing.Union[
             frozendict.frozendict,
@@ -116,5 +69,11 @@ class FruitReq(
         )
         return inst
 
+
 from petstore_api.components.schema import apple_req
 from petstore_api.components.schema import banana_req
+OneOf = typing.Tuple[
+    typing.Type[_0[schemas.U]],
+    typing.Type[apple_req.AppleReq],
+    typing.Type[banana_req.BananaReq],
+]

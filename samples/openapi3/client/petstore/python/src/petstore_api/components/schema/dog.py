@@ -10,6 +10,75 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+Breed: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "breed": typing.Type[Breed],
+    }
+)
+
+
+class _1(
+    schemas.DictSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["breed"]) -> Breed[str]: ...
+    
+    @typing.overload
+    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
+        frozendict.frozendict,
+        str,
+        decimal.Decimal,
+        schemas.BoolClass,
+        schemas.NoneClass,
+        tuple,
+        bytes,
+        schemas.FileIO
+    ]]: ...
+    
+    def __getitem__(
+        self,
+        name: typing.Union[
+            typing_extensions.Literal["breed"],
+            str
+        ]
+    ):
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[dict, frozendict.frozendict],
+        breed: typing.Union[
+            Breed[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> _1[frozendict.frozendict]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            breed=breed,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            _1[frozendict.frozendict],
+            inst
+        )
+        return inst
+
+
 
 class Dog(
     schemas.AnyTypeSchema[schemas.T],
@@ -21,142 +90,17 @@ class Dog(
     """
 
 
-    class Schema_:
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        
-        class AllOf:
-        
-            @staticmethod
-            def _0() -> typing.Type[animal.Animal]:
-                return animal.Animal
-            
-            
-            class _1(
-                schemas.DictSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {frozendict.frozendict}
-                    
-                    class Properties:
-                        Breed: typing_extensions.TypeAlias = schemas.StrSchema[U]
-                        __annotations__ = {
-                            "breed": Breed,
-                        }
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["breed"]) -> Schema_.Properties.Breed[str]: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]]: ...
-                
-                def __getitem__(
-                    self,
-                    name: typing.Union[
-                        typing_extensions.Literal["breed"],
-                        str
-                    ]
-                ):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-            
-                def __new__(
-                    cls,
-                    *args_: typing.Union[dict, frozendict.frozendict],
-                    breed: typing.Union[
-                        Schema_.Properties.Breed[str],
-                        schemas.Unset,
-                        str
-                    ] = schemas.unset,
-                    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-                    **kwargs: typing.Union[
-                        dict,
-                        frozendict.frozendict,
-                        list,
-                        tuple,
-                        decimal.Decimal,
-                        float,
-                        int,
-                        str,
-                        datetime.date,
-                        datetime.datetime,
-                        uuid.UUID,
-                        bool,
-                        None,
-                        bytes,
-                        io.FileIO,
-                        io.BufferedReader,
-                        schemas.Schema
-                    ],
-                ) -> Dog.Schema_.AllOf._1[frozendict.frozendict]:
-                    inst = super().__new__(
-                        cls,
-                        *args_,
-                        breed=breed,
-                        configuration_=configuration_,
-                        **kwargs,
-                    )
-                    inst = typing.cast(
-                        Dog.Schema_.AllOf._1[frozendict.frozendict],
-                        inst
-                    )
-                    return inst
-            classes = [
-                _0,
-                _1,
-            ]
+        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: typing.Union[
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
+        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Dog[
         typing.Union[
             frozendict.frozendict,
@@ -192,4 +136,9 @@ class Dog(
         )
         return inst
 
+
 from petstore_api.components.schema import animal
+AllOf = typing.Tuple[
+    typing.Type[animal.Animal],
+    typing.Type[_1[schemas.U]],
+]

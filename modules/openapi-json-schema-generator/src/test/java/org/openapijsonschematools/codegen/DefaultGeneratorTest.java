@@ -305,11 +305,11 @@ public class DefaultGeneratorTest {
         generator.opts(opts);
         TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
         Assert.assertEquals(paths.size(), 2);
-        CodegenKey firstPathKey = config.getKey("path1/");
-        CodegenKey getKey = config.getKey("get");
+        CodegenKey firstPathKey = config.getKey("path1/", "paths");
+        CodegenKey getKey = config.getKey("get", "verb");
         Assert.assertEquals(firstPathKey.original, "path1/");
         Assert.assertEquals(paths.get(firstPathKey).operations.get(getKey).allParams.size(), 0);
-        CodegenKey secondPathKey = config.getKey("path2/");
+        CodegenKey secondPathKey = config.getKey("path2/", "paths");
         Assert.assertEquals(secondPathKey.original, "path2/");
         Assert.assertEquals(paths.get(secondPathKey).operations.get(getKey).allParams.size(), 1);
     }
@@ -393,7 +393,7 @@ public class DefaultGeneratorTest {
         CodegenRequestBody codegenParameter = config.fromRequestBody(
                 body, "#/paths/~1fake~1StringRegex/post/requestBody");
 
-        CodegenKey ck = config.getKey("*/*");
+        CodegenKey ck = config.getKey("*/*", "misc");
         Assert.assertEquals(codegenParameter.content.get(ck).schema.refInfo.ref.patternInfo.pattern, escapedPattern);
 
         // Validate when converting to response

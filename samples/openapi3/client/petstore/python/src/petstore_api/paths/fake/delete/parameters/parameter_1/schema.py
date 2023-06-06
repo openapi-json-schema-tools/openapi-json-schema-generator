@@ -11,24 +11,28 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class Schema(
     schemas.StrSchema[schemas.T]
 ):
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             str,
-        }
-        enum_value_to_name = {
-            "true": "TRUE",
-            "false": "FALSE",
-        }
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "true": "TRUE",
+                "false": "FALSE",
+            }
+        )
     
     @schemas.classproperty
-    def TRUE(cls):
+    def TRUE(cls) -> Schema[str]:
         return cls("true") # type: ignore
     
     @schemas.classproperty
-    def FALSE(cls):
+    def FALSE(cls) -> Schema[str]:
         return cls("false") # type: ignore

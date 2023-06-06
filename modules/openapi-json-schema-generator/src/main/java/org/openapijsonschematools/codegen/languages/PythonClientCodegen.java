@@ -765,8 +765,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
+    /*
+    This method requires jsonPath to be passed in
+    It handles responses and schemas
+     */
     @Override
     public String toModelName(String name, String jsonPath) {
+        boolean rootEntity = (jsonPath != null && jsonPath.endsWith(name));
         PairCacheKey key = new PairCacheKey(name, jsonPath);
         if (modelNameCache.containsKey(key)) {
             return modelNameCache.get(key);
@@ -809,8 +814,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(camelizedName)) {
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            if (isComponent) {
-                LOGGER.warn("{} (reserved word) cannot be used as component name. Renamed to {}", camelizedName, modelName);
+            if (isComponent && rootEntity) {
+                LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", camelizedName, modelName);
             }
             modelNameCache.put(key, modelName);
             return modelName;
@@ -820,7 +825,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
             String modelName = "_" + camelizedName; // e.g. return => ModelReturn (after camelize)
-            if (isComponent) {
+            if (isComponent && rootEntity) {
                 LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to {}", camelizedName, modelName);
             }
             modelNameCache.put(key, modelName);
@@ -1356,7 +1361,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                cp.jsonPathPiece = getKey(disc.propertyName.original);
+                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc");
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1523,7 +1528,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                cp.jsonPathPiece = getKey(disc.propertyName.original);
+                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc");
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }

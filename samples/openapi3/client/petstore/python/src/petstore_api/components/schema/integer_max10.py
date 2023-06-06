@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+
 class IntegerMax10(
     schemas.Int64Schema[schemas.T]
 ):
@@ -21,9 +22,10 @@ class IntegerMax10(
     """
 
 
-    class Schema_:
-        types = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
             decimal.Decimal,
-        }
-        format = 'int64'
-        inclusive_maximum = 10
+        })
+        format: str = 'int64'
+        inclusive_maximum: typing.Union[int, float] = 10

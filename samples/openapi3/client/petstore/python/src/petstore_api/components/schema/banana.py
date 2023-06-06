@@ -10,6 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "lengthCm": typing.Type[LengthCm],
+    }
+)
+
 
 class Banana(
     schemas.DictSchema[schemas.T]
@@ -21,24 +29,20 @@ class Banana(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "lengthCm",
-        }
-        
-        class Properties:
-            LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-            __annotations__ = {
-                "lengthCm": LengthCm,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def lengthCm(self) -> Schema_.Properties.LengthCm[decimal.Decimal]:
+    def lengthCm(self) -> LengthCm[decimal.Decimal]:
         return self.__getitem__("lengthCm")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> Schema_.Properties.LengthCm[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> LengthCm[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -66,31 +70,13 @@ class Banana(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         lengthCm: typing.Union[
-            Schema_.Properties.LengthCm[decimal.Decimal],
+            LengthCm[decimal.Decimal],
             decimal.Decimal,
             int,
             float
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> Banana[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -104,3 +90,4 @@ class Banana(
             inst
         )
         return inst
+

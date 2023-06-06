@@ -11,6 +11,56 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 
+
+class Foo(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "foo": "FOO",
+            }
+        )
+    
+    @schemas.classproperty
+    def FOO(cls) -> Foo[str]:
+        return cls("foo") # type: ignore
+
+
+class Bar(
+    schemas.StrSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            str,
+        })
+        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
+            default_factory=lambda: {
+                "bar": "BAR",
+            }
+        )
+    
+    @schemas.classproperty
+    def BAR(cls) -> Bar[str]:
+        return cls("bar") # type: ignore
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "foo": typing.Type[Foo],
+        "bar": typing.Type[Bar],
+    }
+)
+
+
 class EnumsInProperties(
     schemas.DictSchema[schemas.T]
 ):
@@ -21,63 +71,23 @@ class EnumsInProperties(
     """
 
 
-    class Schema_:
-        types = {frozendict.frozendict}
-        required = {
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
+        required: typing.FrozenSet[str] = frozenset({
             "bar",
-        }
-        
-        class Properties:
-            
-            
-            class Foo(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "foo": "FOO",
-                    }
-                
-                @schemas.classproperty
-                def FOO(cls):
-                    return cls("foo") # type: ignore
-            
-            
-            class Bar(
-                schemas.StrSchema[schemas.T]
-            ):
-            
-            
-                class Schema_:
-                    types = {
-                        str,
-                    }
-                    enum_value_to_name = {
-                        "bar": "BAR",
-                    }
-                
-                @schemas.classproperty
-                def BAR(cls):
-                    return cls("bar") # type: ignore
-            __annotations__ = {
-                "foo": Foo,
-                "bar": Bar,
-            }
+        })
+        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     
     @property
-    def bar(self) -> Schema_.Properties.Bar[str]:
+    def bar(self) -> Bar[str]:
         return self.__getitem__("bar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Schema_.Properties.Bar[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[str]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Schema_.Properties.Foo[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[str]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -106,34 +116,16 @@ class EnumsInProperties(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         bar: typing.Union[
-            Schema_.Properties.Bar[str],
+            Bar[str],
             str
         ],
         foo: typing.Union[
-            Schema_.Properties.Foo[str],
+            Foo[str],
             schemas.Unset,
             str
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            dict,
-            frozendict.frozendict,
-            list,
-            tuple,
-            decimal.Decimal,
-            float,
-            int,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            bool,
-            None,
-            bytes,
-            io.FileIO,
-            io.BufferedReader,
-            schemas.Schema
-        ],
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> EnumsInProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
@@ -148,3 +140,4 @@ class EnumsInProperties(
             inst
         )
         return inst
+

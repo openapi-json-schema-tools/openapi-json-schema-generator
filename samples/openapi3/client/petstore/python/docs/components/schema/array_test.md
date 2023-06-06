@@ -36,9 +36,9 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofinteger-items) | list, tuple | tuple |  |
+[items](#properties-arrayarrayofinteger-items2) | list, tuple | tuple |  |
 
-# properties ArrayArrayOfInteger Items
+# properties ArrayArrayOfInteger Items2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -60,9 +60,9 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofmodel-items) | list, tuple | tuple |  |
+[items](#properties-arrayarrayofmodel-items4) | list, tuple | tuple |  |
 
-# properties ArrayArrayOfModel Items
+# properties ArrayArrayOfModel Items4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

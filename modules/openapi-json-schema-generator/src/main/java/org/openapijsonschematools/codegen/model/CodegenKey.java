@@ -30,6 +30,18 @@ public class CodegenKey implements Comparable<CodegenKey> {
     }
 
     @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CodegenKey{");
+        sb.append("original=").append(original);
+        sb.append(", isValid=").append(isValid);
+        sb.append(", snakeCase=").append(snakeCase);
+        sb.append(", camelCase=").append(camelCase);
+        sb.append(", anchorPiece=").append(anchorPiece);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(original, isValid, snakeCase, camelCase, anchorPiece);
     }

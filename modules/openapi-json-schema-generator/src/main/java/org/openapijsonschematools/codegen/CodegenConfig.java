@@ -144,7 +144,7 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(Operation operation, String jsonPath);
 
-    CodegenKey getKey(String key);
+    CodegenKey getKey(String key, String keyType);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 
@@ -156,7 +156,7 @@ public interface CodegenConfig {
 
     List<CodegenServer> fromServers(List<Server> servers, String jsonPath);
 
-    HashMap<CodegenKey, CodegenSchema> fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
+    CodegenSchema fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
 
     Map<String, String> typeMapping();
 
