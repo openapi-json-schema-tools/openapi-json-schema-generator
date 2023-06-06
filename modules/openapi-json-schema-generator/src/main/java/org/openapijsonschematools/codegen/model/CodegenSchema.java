@@ -256,7 +256,7 @@ public class CodegenSchema {
 
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append(", description='").append(description).append('\'');
-        sb.append(", name='").append(jsonPathPiece).append('\'');
+        sb.append(", jsonPathPiece='").append(jsonPathPiece).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", title='").append(title).append('\'');
         sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
