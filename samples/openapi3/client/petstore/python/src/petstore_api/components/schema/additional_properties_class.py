@@ -48,10 +48,10 @@ class MapProperty(
         )
         return inst
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
 
 
-class AdditionalProperties(
+class AdditionalProperties3(
     schemas.DictSchema[schemas.T]
 ):
 
@@ -59,9 +59,9 @@ class AdditionalProperties(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+    def __getitem__(self, name: str) -> AdditionalProperties2[str]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -70,10 +70,10 @@ class AdditionalProperties(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[str],
+            AdditionalProperties2[str],
             str
         ],
-    ) -> AdditionalProperties[frozendict.frozendict]:
+    ) -> AdditionalProperties3[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
@@ -81,7 +81,7 @@ class AdditionalProperties(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties[frozendict.frozendict],
+            AdditionalProperties3[frozendict.frozendict],
             inst
         )
         return inst
@@ -96,9 +96,9 @@ class MapOfMapProperty(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
+    def __getitem__(self, name: str) -> AdditionalProperties3[frozendict.frozendict]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -107,7 +107,7 @@ class MapOfMapProperty(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[frozendict.frozendict],
+            AdditionalProperties3[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],
@@ -127,7 +127,7 @@ class MapOfMapProperty(
 Anytype1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 MapWithUndeclaredPropertiesAnytype1: typing_extensions.TypeAlias = schemas.DictSchema[U]
 MapWithUndeclaredPropertiesAnytype2: typing_extensions.TypeAlias = schemas.DictSchema[U]
-AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
 class MapWithUndeclaredPropertiesAnytype3(
@@ -138,9 +138,9 @@ class MapWithUndeclaredPropertiesAnytype3(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties4[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -158,7 +158,7 @@ class MapWithUndeclaredPropertiesAnytype3(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[typing.Union[
+            AdditionalProperties4[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -198,7 +198,7 @@ class MapWithUndeclaredPropertiesAnytype3(
         )
         return inst
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 
 
 class EmptyMap(
@@ -209,7 +209,7 @@ class EmptyMap(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties5] = dataclasses.field(default_factory=lambda: AdditionalProperties5) # type: ignore
 
     def __new__(
         cls,
@@ -227,7 +227,7 @@ class EmptyMap(
         )
         return inst
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema[U]
 
 
 class MapWithUndeclaredPropertiesString(
@@ -238,9 +238,9 @@ class MapWithUndeclaredPropertiesString(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties6] = dataclasses.field(default_factory=lambda: AdditionalProperties6) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+    def __getitem__(self, name: str) -> AdditionalProperties6[str]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -249,7 +249,7 @@ class MapWithUndeclaredPropertiesString(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[str],
+            AdditionalProperties6[str],
             str
         ],
     ) -> MapWithUndeclaredPropertiesString[frozendict.frozendict]:

@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 
 
-class Items(
+class Items2(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -34,14 +34,14 @@ class Items(
             ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items[tuple]:
+    ) -> Items2[tuple]:
         inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(
-            Items[tuple],
+            Items2[tuple],
             inst
         )
         return inst
@@ -59,13 +59,13 @@ class ArrayArrayNumber(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items[tuple],
+                Items2[tuple],
                 list,
                 tuple
             ]
@@ -83,7 +83,7 @@ class ArrayArrayNumber(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items[tuple]:
+    def __getitem__(self, name: int) -> Items2[tuple]:
         return super().__getitem__(name)
 
 Properties = typing_extensions.TypedDict(

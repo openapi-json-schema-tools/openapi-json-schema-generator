@@ -52,9 +52,9 @@ None, list, tuple | NoneClass, tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayanditemsnullableprop-items) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
+[items](#properties-arrayanditemsnullableprop-items2) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 
-# properties ArrayAndItemsNullableProp Items
+# properties ArrayAndItemsNullableProp Items2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -71,9 +71,9 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayitemsnullable-items) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
+[items](#properties-arrayitemsnullable-items3) | None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 
-# properties ArrayItemsNullable Items
+# properties ArrayItemsNullable Items3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -90,9 +90,9 @@ None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict | [AdditionalProperties2](#properties-objectnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
 
-# properties ObjectNullableProp AdditionalProperties
+# properties ObjectNullableProp AdditionalProperties2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -109,9 +109,9 @@ None, dict, frozendict.frozendict | NoneClass, frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties](#properties-objectanditemsnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties3](#properties-objectanditemsnullableprop-additionalproperties3) | any string name can be used but the value must be the correct type | [optional]
 
-# properties ObjectAndItemsNullableProp AdditionalProperties
+# properties ObjectAndItemsNullableProp AdditionalProperties3
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
@@ -128,9 +128,9 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties](#properties-objectitemsnullable-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | None, dict, frozendict.frozendict | [AdditionalProperties4](#properties-objectitemsnullable-additionalproperties4) | any string name can be used but the value must be the correct type | [optional]
 
-# properties ObjectItemsNullable AdditionalProperties
+# properties ObjectItemsNullable AdditionalProperties4
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

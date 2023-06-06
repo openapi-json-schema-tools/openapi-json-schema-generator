@@ -47,10 +47,10 @@ class ArrayOfString(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-Items: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+Items2: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 
 
-class Items(
+class Items3(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -58,31 +58,31 @@ class Items(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items[decimal.Decimal],
+                Items2[decimal.Decimal],
                 decimal.Decimal,
                 int
             ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items[tuple]:
+    ) -> Items3[tuple]:
         inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(
-            Items[tuple],
+            Items3[tuple],
             inst
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
+    def __getitem__(self, name: int) -> Items2[decimal.Decimal]:
         return super().__getitem__(name)
 
 
@@ -95,13 +95,13 @@ class ArrayArrayOfInteger(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+        items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items[tuple],
+                Items3[tuple],
                 list,
                 tuple
             ]
@@ -119,12 +119,12 @@ class ArrayArrayOfInteger(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items[tuple]:
+    def __getitem__(self, name: int) -> Items3[tuple]:
         return super().__getitem__(name)
 
 
 
-class Items(
+class Items5(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -144,14 +144,14 @@ class Items(
             ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items[tuple]:
+    ) -> Items5[tuple]:
         inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(
-            Items[tuple],
+            Items5[tuple],
             inst
         )
         return inst
@@ -169,13 +169,13 @@ class ArrayArrayOfModel(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+        items: typing.Type[Items5] = dataclasses.field(default_factory=lambda: Items5) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items[tuple],
+                Items5[tuple],
                 list,
                 tuple
             ]
@@ -193,7 +193,7 @@ class ArrayArrayOfModel(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items[tuple]:
+    def __getitem__(self, name: int) -> Items5[tuple]:
         return super().__getitem__(name)
 
 Properties = typing_extensions.TypedDict(

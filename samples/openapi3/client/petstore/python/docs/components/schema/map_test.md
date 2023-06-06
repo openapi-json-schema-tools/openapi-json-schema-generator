@@ -25,9 +25,9 @@ dict, frozendict.frozendict | frozendict.frozendict |  |
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, frozendict.frozendict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, frozendict.frozendict | [AdditionalProperties2](#properties-mapmapofstring-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
 
-# properties MapMapOfString AdditionalProperties
+# properties MapMapOfString AdditionalProperties2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

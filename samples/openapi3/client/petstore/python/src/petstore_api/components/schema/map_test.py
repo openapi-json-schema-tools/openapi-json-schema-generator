@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
 
 
-class AdditionalProperties(
+class AdditionalProperties2(
     schemas.DictSchema[schemas.T]
 ):
 
@@ -35,7 +35,7 @@ class AdditionalProperties(
             AdditionalProperties[str],
             str
         ],
-    ) -> AdditionalProperties[frozendict.frozendict]:
+    ) -> AdditionalProperties2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
@@ -43,7 +43,7 @@ class AdditionalProperties(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties[frozendict.frozendict],
+            AdditionalProperties2[frozendict.frozendict],
             inst
         )
         return inst
@@ -58,9 +58,9 @@ class MapMapOfString(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
+    def __getitem__(self, name: str) -> AdditionalProperties2[frozendict.frozendict]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -69,7 +69,7 @@ class MapMapOfString(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[frozendict.frozendict],
+            AdditionalProperties2[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],
@@ -88,7 +88,7 @@ class MapMapOfString(
 
 
 
-class AdditionalProperties(
+class AdditionalProperties3(
     schemas.StrSchema[schemas.T]
 ):
 
@@ -106,11 +106,11 @@ class AdditionalProperties(
         )
     
     @schemas.classproperty
-    def UPPER(cls) -> AdditionalProperties[str]:
+    def UPPER(cls) -> AdditionalProperties3[str]:
         return cls("UPPER") # type: ignore
     
     @schemas.classproperty
-    def LOWER(cls) -> AdditionalProperties[str]:
+    def LOWER(cls) -> AdditionalProperties3[str]:
         return cls("lower") # type: ignore
 
 
@@ -122,9 +122,9 @@ class MapOfEnumString(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+    def __getitem__(self, name: str) -> AdditionalProperties3[str]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -133,7 +133,7 @@ class MapOfEnumString(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[str],
+            AdditionalProperties3[str],
             str
         ],
     ) -> MapOfEnumString[frozendict.frozendict]:
@@ -149,7 +149,7 @@ class MapOfEnumString(
         )
         return inst
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 
 
 class DirectMap(
@@ -160,9 +160,9 @@ class DirectMap(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[schemas.BoolClass]:
+    def __getitem__(self, name: str) -> AdditionalProperties4[schemas.BoolClass]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -171,7 +171,7 @@ class DirectMap(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[schemas.BoolClass],
+            AdditionalProperties4[schemas.BoolClass],
             bool
         ],
     ) -> DirectMap[frozendict.frozendict]:

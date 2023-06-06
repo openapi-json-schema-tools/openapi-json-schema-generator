@@ -1558,6 +1558,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    HashMap<String, HashMap<String, Integer>> sourceJsonPathToKeyToQty = new HashMap<>();
     Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
 
@@ -4283,8 +4284,21 @@ public class DefaultCodegen implements CodegenConfig {
         switch (keyType) {
             case "schemaProperty":
             case "schemas":
+                String suffix = "";
+                if (sourceJsonPath != null) {
+                    HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+                    if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+                        sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+                    }
+                    Integer qty = keyToQty.getOrDefault(usedKey, 0);
+                    qty += 1;
+                    keyToQty.put(usedKey, qty);
+                    if (qty > 1) {
+                        suffix = qty.toString();
+                    }
+                }
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey + suffix, sourceJsonPath);
                 break;
             case "misc":
             case "paths":

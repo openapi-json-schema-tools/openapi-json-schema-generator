@@ -83,7 +83,7 @@ class _0(
 
 
 
-class AdditionalProperties(
+class AdditionalProperties2(
     schemas.AnyTypeSchema[schemas.T],
 ):
 
@@ -99,7 +99,7 @@ class AdditionalProperties(
         *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ) -> AdditionalProperties[
+    ) -> AdditionalProperties2[
         typing.Union[
             frozendict.frozendict,
             str,
@@ -118,7 +118,7 @@ class AdditionalProperties(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties[
+            AdditionalProperties2[
                 typing.Union[
                     frozendict.frozendict,
                     str,
@@ -144,9 +144,9 @@ class _1(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties2[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -164,7 +164,7 @@ class _1(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[typing.Union[
+            AdditionalProperties2[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
@@ -206,7 +206,7 @@ class _1(
 
 
 
-class AdditionalProperties(
+class AdditionalProperties3(
     schemas.AnyTypeSchema[schemas.T],
 ):
 
@@ -222,7 +222,7 @@ class AdditionalProperties(
         *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ) -> AdditionalProperties[
+    ) -> AdditionalProperties3[
         typing.Union[
             frozendict.frozendict,
             str,
@@ -241,7 +241,7 @@ class AdditionalProperties(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties[
+            AdditionalProperties3[
                 typing.Union[
                     frozendict.frozendict,
                     str,
@@ -267,9 +267,9 @@ class _2(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties3[typing.Union[
         frozendict.frozendict,
         str,
         decimal.Decimal,
@@ -287,7 +287,7 @@ class _2(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[typing.Union[
+            AdditionalProperties3[typing.Union[
                 frozendict.frozendict,
                 str,
                 decimal.Decimal,
