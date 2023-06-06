@@ -159,5 +159,5 @@ class SimpleQuadrilateral(
 from petstore_api.components.schema import quadrilateral_interface
 AllOf = typing.Tuple[
     typing.Type[quadrilateral_interface.QuadrilateralInterface],
-    typing.Type[_1],
+    typing.Type[_1[schemas.U]],
 ]

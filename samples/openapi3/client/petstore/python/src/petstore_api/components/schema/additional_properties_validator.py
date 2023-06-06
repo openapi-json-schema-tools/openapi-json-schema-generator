@@ -328,9 +328,9 @@ class _2(
         return inst
 
 AllOf = typing.Tuple[
-    typing.Type[_0],
-    typing.Type[_1],
-    typing.Type[_2],
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+    typing.Type[_2[schemas.U]],
 ]
 
 class AdditionalPropertiesValidator(

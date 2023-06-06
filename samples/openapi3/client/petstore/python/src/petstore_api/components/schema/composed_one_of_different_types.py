@@ -197,9 +197,9 @@ from petstore_api.components.schema import number_with_validations
 OneOf = typing.Tuple[
     typing.Type[number_with_validations.NumberWithValidations],
     typing.Type[animal.Animal],
-    typing.Type[_2],
-    typing.Type[_3],
-    typing.Type[_4],
-    typing.Type[_5],
-    typing.Type[_6],
+    typing.Type[_2[schemas.U]],
+    typing.Type[_3[schemas.U]],
+    typing.Type[_4[schemas.U]],
+    typing.Type[_5[schemas.U]],
+    typing.Type[_6[schemas.U]],
 ]

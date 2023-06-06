@@ -139,5 +139,5 @@ class Cat(
 from petstore_api.components.schema import animal
 AllOf = typing.Tuple[
     typing.Type[animal.Animal],
-    typing.Type[_1],
+    typing.Type[_1[schemas.U]],
 ]

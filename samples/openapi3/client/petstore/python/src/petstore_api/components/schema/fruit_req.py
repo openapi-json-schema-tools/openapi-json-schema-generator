@@ -73,7 +73,7 @@ class FruitReq(
 from petstore_api.components.schema import apple_req
 from petstore_api.components.schema import banana_req
 OneOf = typing.Tuple[
-    typing.Type[_0],
+    typing.Type[_0[schemas.U]],
     typing.Type[apple_req.AppleReq],
     typing.Type[banana_req.BananaReq],
 ]

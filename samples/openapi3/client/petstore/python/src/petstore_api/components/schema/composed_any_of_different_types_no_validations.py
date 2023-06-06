@@ -96,22 +96,22 @@ _13: typing_extensions.TypeAlias = schemas.IntSchema[U]
 _14: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 _15: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 AnyOf = typing.Tuple[
-    typing.Type[_0],
-    typing.Type[_1],
-    typing.Type[_2],
-    typing.Type[_3],
-    typing.Type[_4],
-    typing.Type[_5],
-    typing.Type[_6],
-    typing.Type[_7],
-    typing.Type[_8],
-    typing.Type[_9],
-    typing.Type[_10],
-    typing.Type[_11],
-    typing.Type[_12],
-    typing.Type[_13],
-    typing.Type[_14],
-    typing.Type[_15],
+    typing.Type[_0[schemas.U]],
+    typing.Type[_1[schemas.U]],
+    typing.Type[_2[schemas.U]],
+    typing.Type[_3[schemas.U]],
+    typing.Type[_4[schemas.U]],
+    typing.Type[_5[schemas.U]],
+    typing.Type[_6[schemas.U]],
+    typing.Type[_7[schemas.U]],
+    typing.Type[_8[schemas.U]],
+    typing.Type[_9[schemas.U]],
+    typing.Type[_10[schemas.U]],
+    typing.Type[_11[schemas.U]],
+    typing.Type[_12[schemas.U]],
+    typing.Type[_13[schemas.U]],
+    typing.Type[_14[schemas.U]],
+    typing.Type[_15[schemas.U]],
 ]
 
 class ComposedAnyOfDifferentTypesNoValidations(

@@ -83,7 +83,7 @@ class ShapeOrNull(
 from petstore_api.components.schema import quadrilateral
 from petstore_api.components.schema import triangle
 OneOf = typing.Tuple[
-    typing.Type[_0],
+    typing.Type[_0[schemas.U]],
     typing.Type[triangle.Triangle],
     typing.Type[quadrilateral.Quadrilateral],
 ]

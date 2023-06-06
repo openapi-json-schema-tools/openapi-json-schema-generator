@@ -24,7 +24,7 @@ class _0(
         })
         min_length: int = 1
 AllOf = typing.Tuple[
-    typing.Type[_0],
+    typing.Type[_0[schemas.U]],
 ]
 
 class SomeProp(

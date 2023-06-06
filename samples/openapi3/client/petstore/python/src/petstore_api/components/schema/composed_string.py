@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 AllOf = typing.Tuple[
-    typing.Type[_0],
+    typing.Type[_0[schemas.U]],
 ]
 
 class ComposedString(

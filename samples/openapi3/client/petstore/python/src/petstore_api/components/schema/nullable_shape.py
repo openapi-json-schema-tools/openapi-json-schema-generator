@@ -77,5 +77,5 @@ from petstore_api.components.schema import triangle
 OneOf = typing.Tuple[
     typing.Type[triangle.Triangle],
     typing.Type[quadrilateral.Quadrilateral],
-    typing.Type[_2],
+    typing.Type[_2[schemas.U]],
 ]
