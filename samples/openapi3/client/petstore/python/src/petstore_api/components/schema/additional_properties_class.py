@@ -158,16 +158,9 @@ class MapWithUndeclaredPropertiesAnytype3(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties4[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AdditionalProperties4[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,
@@ -372,16 +365,9 @@ class AdditionalPropertiesClass(
             frozendict.frozendict
         ] = schemas.unset,
         anytype_1: typing.Union[
-            Anytype1[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Anytype1[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,

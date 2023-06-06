@@ -137,16 +137,9 @@ class Zebra(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AdditionalProperties[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,

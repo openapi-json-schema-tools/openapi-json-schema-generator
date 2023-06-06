@@ -138,16 +138,9 @@ class ObjectWithInlineCompositionProperty(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         someProp: typing.Union[
-            SomeProp[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            SomeProp[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,

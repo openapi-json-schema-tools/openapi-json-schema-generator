@@ -136,16 +136,9 @@ class JSONPatchRequestAddReplaceTest(
             str
         ],
         value: typing.Union[
-            Value[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Value[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,

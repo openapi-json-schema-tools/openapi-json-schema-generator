@@ -324,16 +324,9 @@ class User(
             frozendict.frozendict
         ] = schemas.unset,
         anyTypeProp: typing.Union[
-            AnyTypeProp[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AnyTypeProp[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -353,16 +346,9 @@ class User(
             io.BufferedReader
         ] = schemas.unset,
         anyTypeExceptNullProp: typing.Union[
-            AnyTypeExceptNullProp[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AnyTypeExceptNullProp[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -382,16 +368,9 @@ class User(
             io.BufferedReader
         ] = schemas.unset,
         anyTypePropNullable: typing.Union[
-            AnyTypePropNullable[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            AnyTypePropNullable[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,

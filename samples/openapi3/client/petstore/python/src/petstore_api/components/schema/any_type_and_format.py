@@ -663,16 +663,9 @@ class AnyTypeAndFormat(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         uuid: typing.Union[
-            Uuid[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Uuid[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -692,16 +685,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         date: typing.Union[
-            Date[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Date[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -721,16 +707,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         number: typing.Union[
-            Number[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Number[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -750,16 +729,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         binary: typing.Union[
-            Binary[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Binary[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -779,16 +751,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int32: typing.Union[
-            Int32[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Int32[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -808,16 +773,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         int64: typing.Union[
-            Int64[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Int64[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -837,16 +795,9 @@ class AnyTypeAndFormat(
             io.BufferedReader
         ] = schemas.unset,
         double: typing.Union[
-            Double[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            Double[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,

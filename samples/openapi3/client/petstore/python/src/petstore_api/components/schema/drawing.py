@@ -26,16 +26,9 @@ class Shapes(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                shape.Shape[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]],
+                shape.Shape[
+                    schemas.INPUT_BASE_TYPES
+                ],
                 dict,
                 frozendict.frozendict,
                 str,
@@ -165,16 +158,9 @@ class Drawing(
         cls,
         *args_: typing.Union[dict, frozendict.frozendict],
         mainShape: typing.Union[
-            shape.Shape[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            shape.Shape[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -194,16 +180,9 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         shapeOrNull: typing.Union[
-            shape_or_null.ShapeOrNull[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            shape_or_null.ShapeOrNull[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -223,16 +202,9 @@ class Drawing(
             io.BufferedReader
         ] = schemas.unset,
         nullableShape: typing.Union[
-            nullable_shape.NullableShape[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            nullable_shape.NullableShape[
+                schemas.INPUT_BASE_TYPES
+            ],
             schemas.Unset,
             dict,
             frozendict.frozendict,
@@ -259,16 +231,9 @@ class Drawing(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            fruit.Fruit[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
+            fruit.Fruit[
+                schemas.INPUT_BASE_TYPES
+            ],
             dict,
             frozendict.frozendict,
             str,

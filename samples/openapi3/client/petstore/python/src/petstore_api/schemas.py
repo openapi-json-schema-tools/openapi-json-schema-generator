@@ -2641,3 +2641,14 @@ INPUT_TYPES_ALL_INCL_SCHEMA = typing.Union[
     io.BufferedReader,
     Schema
 ]
+
+INPUT_BASE_TYPES = typing.Union[
+    frozendict.frozendict,
+    str,
+    decimal.Decimal,
+    BoolClass,
+    NoneClass,
+    tuple,
+    bytes,
+    FileIO
+]

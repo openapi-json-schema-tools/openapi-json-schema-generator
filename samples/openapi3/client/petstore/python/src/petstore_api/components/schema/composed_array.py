@@ -32,16 +32,9 @@ class ComposedArray(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items[typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]],
+                Items[
+                    schemas.INPUT_BASE_TYPES
+                ],
                 dict,
                 frozendict.frozendict,
                 str,
