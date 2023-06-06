@@ -489,7 +489,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (modelNameToSchemaCache == null) {
             // Create a cache to efficiently lookup schema based on model name.
             Map<String, Schema> m = new HashMap<>();
-            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, null), schema));
+            ModelUtils.getSchemas(openAPI).forEach((key, schema) -> m.put(toModelName(key, "#/components/schemas/"+key), schema));
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
@@ -4274,7 +4274,7 @@ public class DefaultCodegen implements CodegenConfig {
         return getKey(key, expectedComponentType, null);
     }
 
-    public CodegenKey getKey(String key, String keyType, String jsonPath) {
+    public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
@@ -4283,40 +4283,37 @@ public class DefaultCodegen implements CodegenConfig {
         switch (keyType) {
             case "schemaProperty":
             case "schemas":
-                if (jsonPath == null) {
-                    String a = "A";
-                }
-                snakeCaseName = toModelFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "misc":
             case "paths":
             case "verb":
-                snakeCaseName = toModelFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
-                snakeCaseName = toParameterFilename(usedKey, jsonPath);
+                snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 snakeCaseName = toRequestBodyFilename(usedKey);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
-                snakeCaseName = toHeaderFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
-                snakeCaseName = toResponseModuleName(usedKey, jsonPath);
+                snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
-                snakeCaseName = toSecuritySchemeFilename(usedKey, jsonPath);
-                camelCaseName = toModelName(usedKey, jsonPath);
+                snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
+                camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
-                snakeCaseName = toServerFilename(usedKey, jsonPath);
+                snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
                 break;
         }
