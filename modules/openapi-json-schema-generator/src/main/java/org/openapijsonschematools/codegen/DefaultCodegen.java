@@ -3267,8 +3267,7 @@ public class DefaultCodegen implements CodegenConfig {
                 String propertyJsonPath = currentJsonPath + "/properties/" + ModelUtils.encodeSlashes(propertyName);
                 cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
 
-                CodegenKey key = getKey(propertyName);
-                propertiesMap.put(key, cp);
+                propertiesMap.put(cp.jsonPathPiece, cp);
             }
         }
         propertiesMap.setAllAreInline(allAreInline);
@@ -3353,7 +3352,7 @@ public class DefaultCodegen implements CodegenConfig {
             pathPieces[2] = null;
             if (pathPieces.length == 4) {
                 // #/components/schemas/SomeSchema
-                pathPieces[3] = getKey(pathPieces[3]).snakeCase;
+                pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
             }
             return;
         } else if (pathPieces[2].equals("requestBodies")) {
@@ -3369,21 +3368,21 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
@@ -3399,12 +3398,12 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = getKey(contentType).snakeCase;
+                    pathPieces[7] = toModelFilename(contentType, null);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = getKey(contentType).snakeCase;
+                pathPieces[5] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
             pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
@@ -3452,7 +3451,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCase;
+                pathPieces[7] = toModelFilename(contentType, null);
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], null);
@@ -3460,7 +3459,7 @@ public class DefaultCodegen implements CodegenConfig {
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                    pathPieces[9] = getKey(contentType).snakeCase;
+                    pathPieces[9] = toModelFilename(contentType, null);
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -3470,13 +3469,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = getKey(contentType).snakeCase;
+                pathPieces[7] = toModelFilename(contentType, null);
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = getKey(contentType).snakeCase;
+                pathPieces[6] = toModelFilename(contentType, null);
             }
         }
     }
@@ -4178,7 +4177,7 @@ public class DefaultCodegen implements CodegenConfig {
                     // property is of type self
                     return null;
                 }
-                return getKey(refPieces[3]).snakeCase;
+                return getKey(refPieces[3], "schemas").snakeCase;
             case "securitySchemes":
                 return toSecuritySchemeFilename(refPieces[3], ref);
         }
@@ -4346,7 +4345,7 @@ public class DefaultCodegen implements CodegenConfig {
         LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMap<>();
         for (String requiredPropertyName: required) {
             // required property is defined in properties, value is that CodegenSchema
-            CodegenKey key = getKey(requiredPropertyName);
+            CodegenKey key = getKey(requiredPropertyName, "schemas");
             if (properties != null && properties.containsKey(key)) {
                 // get cp from property
                 CodegenSchema prop = properties.get(key);
