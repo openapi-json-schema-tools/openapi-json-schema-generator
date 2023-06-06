@@ -2000,7 +2000,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         String discPropName = sourceDiscriminator.getPropertyName();
-        CodegenKey propertyName = getKey(discPropName);
+        CodegenKey propertyName = getKey(discPropName, "misc");
         Map<String, String> mapping = sourceDiscriminator.getMapping();
 
         TreeSet<MappedModel> mappedModels = new TreeSet<>();
@@ -2626,7 +2626,7 @@ public class DefaultCodegen implements CodegenConfig {
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
 
         ExternalDocumentation externalDocs = operation.getExternalDocs();
-        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1]);
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
         return new CodegenOperation(
                 deprecated,
                 hasErrorResponseObject,
@@ -3271,7 +3271,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         propertiesMap.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey("properties");
+        CodegenKey jsonPathPiece = getKey("properties", "misc");
         propertiesMap.setJsonPathPiece(jsonPathPiece);
         return propertiesMap;
     }
@@ -4134,7 +4134,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             CodegenMediaType codegenMt = new CodegenMediaType(schemaProp, ceMap, schemaTestCases);
-            CodegenKey ck = getKey(contentType);
+            CodegenKey ck = getKey(contentType, "misc");
             cmtContent.put(ck, codegenMt);
         }
         return cmtContent;
@@ -4268,13 +4268,16 @@ public class DefaultCodegen implements CodegenConfig {
         return getKey(key, expectedComponentType, null);
     }
 
-    public CodegenKey getKey(String key, String expectedComponentType, String jsonPath) {
+    public CodegenKey getKey(String key, String keyType, String jsonPath) {
         String usedKey = handleSpecialCharacters(key);
         boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
         String camelCaseName = null;
         String anchorPiece = null;
-        switch (expectedComponentType) {
+        switch (keyType) {
+            case "paths":
+            case "verb":
+            case "misc":
             case "schemas":
                 snakeCaseName = toModelFilename(usedKey, jsonPath);
                 camelCaseName = toModelName(usedKey, jsonPath);
@@ -4425,7 +4428,7 @@ public class DefaultCodegen implements CodegenConfig {
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
             CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
-            CodegenKey pathKey = getKey(path);
+            CodegenKey pathKey = getKey(path, "paths");
             codegenPaths.put(pathKey, codegenPathItem);
         }
         // sort them
@@ -4441,42 +4444,42 @@ public class DefaultCodegen implements CodegenConfig {
         Operation specOperation = pathItem.getGet();
         String httpMethod = "get";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPut();
         httpMethod = "put";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPost();
         httpMethod = "post";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getDelete();
         httpMethod = "delete";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getOptions();
         httpMethod = "options";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getHead();
         httpMethod = "head";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getPatch();
         httpMethod = "patch";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         specOperation = pathItem.getTrace();
         httpMethod = "trace";
         if (specOperation != null) {
-            operations.put(getKey(httpMethod), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
         }
         if (!operations.isEmpty())
             // sort them
@@ -4760,7 +4763,7 @@ public class DefaultCodegen implements CodegenConfig {
             i += 1;
         }
         xOf.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey(collectionName);
+        CodegenKey jsonPathPiece = getKey(collectionName, "misc");
         xOf.setJsonPathPiece(jsonPathPiece);
         return xOf;
     }
