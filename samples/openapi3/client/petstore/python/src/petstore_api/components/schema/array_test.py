@@ -47,47 +47,10 @@ class ArrayOfString(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-Items2: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+Items3: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 
 
-class Items3(
-    schemas.ListSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
-
-    def __new__(
-        cls,
-        arg_: typing.Sequence[
-            typing.Union[
-                Items2[decimal.Decimal],
-                decimal.Decimal,
-                int
-            ]
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items3[tuple]:
-        inst = super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )
-        inst = typing.cast(
-            Items3[tuple],
-            inst
-        )
-        return inst
-
-    def __getitem__(self, name: int) -> Items2[decimal.Decimal]:
-        return super().__getitem__(name)
-
-
-
-class ArrayArrayOfInteger(
+class Items2(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -101,7 +64,44 @@ class ArrayArrayOfInteger(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items3[tuple],
+                Items3[decimal.Decimal],
+                decimal.Decimal,
+                int
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Items2[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Items2[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items3[decimal.Decimal]:
+        return super().__getitem__(name)
+
+
+
+class ArrayArrayOfInteger(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items2[tuple],
                 list,
                 tuple
             ]
@@ -119,12 +119,12 @@ class ArrayArrayOfInteger(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items3[tuple]:
+    def __getitem__(self, name: int) -> Items2[tuple]:
         return super().__getitem__(name)
 
 
 
-class Items5(
+class Items4(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -144,14 +144,14 @@ class Items5(
             ]
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items5[tuple]:
+    ) -> Items4[tuple]:
         inst = super().__new__(
             cls,
             arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(
-            Items5[tuple],
+            Items4[tuple],
             inst
         )
         return inst
@@ -169,13 +169,13 @@ class ArrayArrayOfModel(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items5] = dataclasses.field(default_factory=lambda: Items5) # type: ignore
+        items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore
 
     def __new__(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items5[tuple],
+                Items4[tuple],
                 list,
                 tuple
             ]
@@ -193,7 +193,7 @@ class ArrayArrayOfModel(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items5[tuple]:
+    def __getitem__(self, name: int) -> Items4[tuple]:
         return super().__getitem__(name)
 
 Properties = typing_extensions.TypedDict(

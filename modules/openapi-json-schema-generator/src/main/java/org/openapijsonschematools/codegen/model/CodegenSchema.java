@@ -149,6 +149,7 @@ public class CodegenSchema {
         not
         oneOf
         properties
+        (self)
 
         excluded:
         discriminator (not actually applicable because all values would be refs and do not need to be defined)

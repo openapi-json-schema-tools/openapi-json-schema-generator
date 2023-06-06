@@ -48,10 +48,10 @@ class MapProperty(
         )
         return inst
 
-AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
+AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema[U]
 
 
-class AdditionalProperties3(
+class AdditionalProperties2(
     schemas.DictSchema[schemas.T]
 ):
 
@@ -59,9 +59,9 @@ class AdditionalProperties3(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties2[str]:
+    def __getitem__(self, name: str) -> AdditionalProperties3[str]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -70,10 +70,10 @@ class AdditionalProperties3(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties2[str],
+            AdditionalProperties3[str],
             str
         ],
-    ) -> AdditionalProperties3[frozendict.frozendict]:
+    ) -> AdditionalProperties2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
@@ -81,7 +81,7 @@ class AdditionalProperties3(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties3[frozendict.frozendict],
+            AdditionalProperties2[frozendict.frozendict],
             inst
         )
         return inst
@@ -96,9 +96,9 @@ class MapOfMapProperty(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties3[frozendict.frozendict]:
+    def __getitem__(self, name: str) -> AdditionalProperties2[frozendict.frozendict]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -107,7 +107,7 @@ class MapOfMapProperty(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties3[frozendict.frozendict],
+            AdditionalProperties2[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],

@@ -22,9 +22,9 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarraynumber-items2) | list, tuple | tuple |  |
+[items](#properties-arrayarraynumber-items) | list, tuple | tuple |  |
 
-# properties ArrayArrayNumber Items2
+# properties ArrayArrayNumber Items
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

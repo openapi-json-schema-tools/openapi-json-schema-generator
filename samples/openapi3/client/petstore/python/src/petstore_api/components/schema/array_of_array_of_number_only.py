@@ -10,48 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Items2: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 
 
-class Items2(
-    schemas.ListSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-    def __new__(
-        cls,
-        arg_: typing.Sequence[
-            typing.Union[
-                Items[decimal.Decimal],
-                decimal.Decimal,
-                int,
-                float
-            ]
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-    ) -> Items2[tuple]:
-        inst = super().__new__(
-            cls,
-            arg_,
-            configuration_=configuration_,
-        )
-        inst = typing.cast(
-            Items2[tuple],
-            inst
-        )
-        return inst
-
-    def __getitem__(self, name: int) -> Items[decimal.Decimal]:
-        return super().__getitem__(name)
-
-
-
-class ArrayArrayNumber(
+class Items(
     schemas.ListSchema[schemas.T]
 ):
 
@@ -65,7 +27,45 @@ class ArrayArrayNumber(
         cls,
         arg_: typing.Sequence[
             typing.Union[
-                Items2[tuple],
+                Items2[decimal.Decimal],
+                decimal.Decimal,
+                int,
+                float
+            ]
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+    ) -> Items[tuple]:
+        inst = super().__new__(
+            cls,
+            arg_,
+            configuration_=configuration_,
+        )
+        inst = typing.cast(
+            Items[tuple],
+            inst
+        )
+        return inst
+
+    def __getitem__(self, name: int) -> Items2[decimal.Decimal]:
+        return super().__getitem__(name)
+
+
+
+class ArrayArrayNumber(
+    schemas.ListSchema[schemas.T]
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+
+    def __new__(
+        cls,
+        arg_: typing.Sequence[
+            typing.Union[
+                Items[tuple],
                 list,
                 tuple
             ]
@@ -83,7 +83,7 @@ class ArrayArrayNumber(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items2[tuple]:
+    def __getitem__(self, name: int) -> Items[tuple]:
         return super().__getitem__(name)
 
 Properties = typing_extensions.TypedDict(

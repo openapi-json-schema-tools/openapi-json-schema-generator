@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
-class AdditionalProperties(
+class AdditionalProperties4(
     schemas.NoneBase,
     schemas.DictBase,
     schemas.Schema[schemas.T],
@@ -37,7 +37,7 @@ class AdditionalProperties(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ) -> AdditionalProperties[
+    ) -> AdditionalProperties4[
         typing.Union[
             schemas.NoneClass,
             frozendict.frozendict
@@ -50,7 +50,7 @@ class AdditionalProperties(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties[
+            AdditionalProperties4[
                 typing.Union[
                     schemas.NoneClass,
                     frozendict.frozendict
@@ -595,7 +595,7 @@ class ArrayItemsNullable(
     ]]:
         return super().__getitem__(name)
 
-AdditionalProperties2: typing_extensions.TypeAlias = schemas.DictSchema[U]
+AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
 
 
 class ObjectNullableProp(
@@ -612,10 +612,10 @@ class ObjectNullableProp(
             schemas.NoneClass,
             frozendict.frozendict,
         })
-        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
 
     
-    def __getitem__(self, name: str) -> AdditionalProperties2[frozendict.frozendict]:
+    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -628,7 +628,7 @@ class ObjectNullableProp(
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties2[frozendict.frozendict],
+            AdditionalProperties[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],
@@ -646,6 +646,122 @@ class ObjectNullableProp(
         )
         inst = typing.cast(
             ObjectNullableProp[
+                typing.Union[
+                    schemas.NoneClass,
+                    frozendict.frozendict
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class AdditionalProperties2(
+    schemas.NoneBase,
+    schemas.DictBase,
+    schemas.Schema[schemas.T],
+    schemas.NoneFrozenDictMixin
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            schemas.NoneClass,
+            frozendict.frozendict,
+        })
+
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ) -> AdditionalProperties2[
+        typing.Union[
+            schemas.NoneClass,
+            frozendict.frozendict
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            AdditionalProperties2[
+                typing.Union[
+                    schemas.NoneClass,
+                    frozendict.frozendict
+                ]
+            ],
+            inst
+        )
+        return inst
+
+
+
+class ObjectAndItemsNullableProp(
+    schemas.NoneBase,
+    schemas.DictBase,
+    schemas.Schema[schemas.T],
+    schemas.NoneFrozenDictMixin
+):
+
+
+    @dataclasses.dataclass(frozen=True)
+    class Schema_(metaclass=schemas.SingletonMeta):
+        types: typing.FrozenSet[typing.Type] = frozenset({
+            schemas.NoneClass,
+            frozendict.frozendict,
+        })
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+
+    
+    def __getitem__(self, name: str) -> AdditionalProperties2[typing.Union[
+        schemas.NoneClass,
+        frozendict.frozendict
+    ]]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+
+    def __new__(
+        cls,
+        *args_: typing.Union[
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalProperties2[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+    ) -> ObjectAndItemsNullableProp[
+        typing.Union[
+            schemas.NoneClass,
+            frozendict.frozendict
+        ]
+    ]:
+        inst = super().__new__(
+            cls,
+            *args_,
+            configuration_=configuration_,
+            **kwargs,
+        )
+        inst = typing.cast(
+            ObjectAndItemsNullableProp[
                 typing.Union[
                     schemas.NoneClass,
                     frozendict.frozendict
@@ -707,122 +823,6 @@ class AdditionalProperties3(
 
 
 
-class ObjectAndItemsNullableProp(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
-
-    
-    def __getitem__(self, name: str) -> AdditionalProperties3[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-
-    def __new__(
-        cls,
-        *args_: typing.Union[
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties3[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-    ) -> ObjectAndItemsNullableProp[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
-        inst = super().__new__(
-            cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
-        )
-        inst = typing.cast(
-            ObjectAndItemsNullableProp[
-                typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]
-            ],
-            inst
-        )
-        return inst
-
-
-
-class AdditionalProperties4(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
-
-    def __new__(
-        cls,
-        *args_: typing.Union[
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ) -> AdditionalProperties4[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
-        inst = super().__new__(
-            cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
-        )
-        inst = typing.cast(
-            AdditionalProperties4[
-                typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]
-            ],
-            inst
-        )
-        return inst
-
-
-
 class ObjectItemsNullable(
     schemas.DictSchema[schemas.T]
 ):
@@ -831,9 +831,9 @@ class ObjectItemsNullable(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties4[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties3[typing.Union[
         schemas.NoneClass,
         frozendict.frozendict
     ]]:
@@ -845,7 +845,7 @@ class ObjectItemsNullable(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties4[typing.Union[
+            AdditionalProperties3[typing.Union[
                 schemas.NoneClass,
                 frozendict.frozendict
             ]],
@@ -898,7 +898,7 @@ class NullableClass(
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
         properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> IntegerProp[typing.Union[
@@ -967,7 +967,7 @@ class NullableClass(
     def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullable[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> AdditionalProperties[typing.Union[
+    def __getitem__(self, name: str) -> AdditionalProperties4[typing.Union[
         schemas.NoneClass,
         frozendict.frozendict
     ]]: ...
@@ -1109,7 +1109,7 @@ class NullableClass(
         ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[typing.Union[
+            AdditionalProperties4[typing.Union[
                 schemas.NoneClass,
                 frozendict.frozendict
             ]],

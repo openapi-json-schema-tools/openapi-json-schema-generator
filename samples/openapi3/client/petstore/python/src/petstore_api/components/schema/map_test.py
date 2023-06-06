@@ -10,10 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
 
 
-class AdditionalProperties2(
+class AdditionalProperties(
     schemas.DictSchema[schemas.T]
 ):
 
@@ -21,9 +21,9 @@ class AdditionalProperties2(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties[str]:
+    def __getitem__(self, name: str) -> AdditionalProperties2[str]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -32,10 +32,10 @@ class AdditionalProperties2(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties[str],
+            AdditionalProperties2[str],
             str
         ],
-    ) -> AdditionalProperties2[frozendict.frozendict]:
+    ) -> AdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             *args_,
@@ -43,7 +43,7 @@ class AdditionalProperties2(
             **kwargs,
         )
         inst = typing.cast(
-            AdditionalProperties2[frozendict.frozendict],
+            AdditionalProperties[frozendict.frozendict],
             inst
         )
         return inst
@@ -58,9 +58,9 @@ class MapMapOfString(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     
-    def __getitem__(self, name: str) -> AdditionalProperties2[frozendict.frozendict]:
+    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
@@ -69,7 +69,7 @@ class MapMapOfString(
         *args_: typing.Union[dict, frozendict.frozendict],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
-            AdditionalProperties2[frozendict.frozendict],
+            AdditionalProperties[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],

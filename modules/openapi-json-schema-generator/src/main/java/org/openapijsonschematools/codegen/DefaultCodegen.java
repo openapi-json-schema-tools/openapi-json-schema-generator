@@ -2248,35 +2248,44 @@ public class DefaultCodegen implements CodegenConfig {
         property.externalDocumentation = p.getExternalDocs();
 
         /*
-         Note order of assigning properties must follow the order in
-         CodegenSchema.getAllSchemas
+         Order of assigning properties must reverse the order in
+         CodegenSchema.getSchemaa
          so that jsonPathPiece.camelCase names can be assigned correctly
+         with the root schema having an unmodified jsonPathPiece.className
+         -->
+        (self)
+        properties
+        oneOf
+        not
+        items
+        anyOf
+        allOf
+        additionalProperties
          */
-        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
-        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
-        if (allOfs != null && !allOfs.isEmpty()) {
-            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
-        }
-        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
-        if (anyOfs != null && !anyOfs.isEmpty()) {
-            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
-        }
-        // handle inner property
-        if (p.getItems() != null) {
-            property.items = fromSchema(
-                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
+        setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
+        HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
+        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
+        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
+        if (oneOfs != null && !oneOfs.isEmpty()) {
+            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
         }
         Schema notSchema = p.getNot();
         if (notSchema != null) {
             property.not = fromSchema(notSchema, sourceJsonPath, currentJsonPath + "/not");
         }
-        List<Schema> oneOfs = ((Schema<?>) p).getOneOf();
-        if (oneOfs != null && !oneOfs.isEmpty()) {
-            property.oneOf = getComposedProperties(oneOfs, "oneOf", sourceJsonPath, currentJsonPath);
+        if (p.getItems() != null) {
+            property.items = fromSchema(
+                    p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
-        HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
-        property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
-        setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
+        List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
+        if (anyOfs != null && !anyOfs.isEmpty()) {
+            property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
+        }
+        List<Schema> allOfs = ((Schema<?>) p).getAllOf();
+        if (allOfs != null && !allOfs.isEmpty()) {
+            property.allOf = getComposedProperties(allOfs, "allOf", sourceJsonPath, currentJsonPath);
+        }
+        property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
         if (currentJsonPath != null) {
