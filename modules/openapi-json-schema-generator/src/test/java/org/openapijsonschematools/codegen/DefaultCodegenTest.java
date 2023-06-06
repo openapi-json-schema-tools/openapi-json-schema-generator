@@ -2190,7 +2190,7 @@ public class DefaultCodegenTest {
         assertEquals(mapWithAddPropsUnset.additionalProperties, null);
 
         mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true", "misc"));
-        assertEquals(mapWithAddPropsTrue.additionalProperties, anyTypeSchema);
+        assertNotNull(mapWithAddPropsTrue.additionalProperties);
         assertTrue(mapWithAddPropsTrue.additionalProperties.isBooleanSchemaTrue);
 
         mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false", "misc"));
@@ -2344,12 +2344,6 @@ public class DefaultCodegenTest {
         final DefaultCodegen codegen = new DefaultCodegen();
         codegen.setOpenAPI(openAPI);
 
-        CodegenSchema anyTypeSchema = codegen.fromSchema(
-                new Schema(),
-                "#/components/schemas/AdditionalPropertiesTrue",
-                "#/components/schemas/AdditionalPropertiesTrue/properties/child/additionalProperties"
-        );
-
         Schema sc;
         CodegenSchema cm;
 
@@ -2360,7 +2354,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/AdditionalPropertiesTrue"
         );
         CodegenKey ck = codegen.getKey("child", "misc");
-        assertEquals(cm.properties.get(ck).additionalProperties, anyTypeSchema);
+        CodegenSchema trueSchema = cm.properties.get(ck).additionalProperties;
 
         sc = openAPI.getComponents().getSchemas().get("AdditionalPropertiesAnyType");
         cm = codegen.fromSchema(
@@ -2368,7 +2362,10 @@ public class DefaultCodegenTest {
                 "#/components/schemas/AdditionalPropertiesAnyType",
                 "#/components/schemas/AdditionalPropertiesAnyType"
         );
-        assertEquals(cm.properties.get(ck).additionalProperties, anyTypeSchema);
+        CodegenSchema anyTypeSchema = cm.properties.get(ck).additionalProperties;
+        assertEquals(anyTypeSchema, trueSchema);
+        assertTrue(anyTypeSchema.isBooleanSchemaTrue);
+        assertTrue(trueSchema.isBooleanSchemaTrue);
     }
 
     @Test
