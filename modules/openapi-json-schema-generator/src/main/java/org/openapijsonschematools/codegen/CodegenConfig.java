@@ -144,7 +144,7 @@ public interface CodegenConfig {
 
     CodegenOperation fromOperation(Operation operation, String jsonPath);
 
-    CodegenKey getKey(String key);
+    CodegenKey getKey(String key, String keyType);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
 

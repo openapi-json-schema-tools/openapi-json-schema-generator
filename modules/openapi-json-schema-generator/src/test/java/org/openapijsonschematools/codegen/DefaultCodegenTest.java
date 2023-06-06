@@ -197,7 +197,7 @@ public class DefaultCodegenTest {
         CodegenOperation coUpdate = codegen.fromOperation(updateOperationWithRef, getOperationPath("somepath", "post"));
         Assert.assertTrue(!coUpdate.requestBody.content.isEmpty());
         Assert.assertEquals(coUpdate.requestBody.content.size(), 2);
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         Assert.assertTrue(coUpdate.requestBody.content.containsKey(ck));
         Assert.assertTrue(!coUpdate.produces.isEmpty());
         Assert.assertEquals(coUpdate.produces.size(), 1);
@@ -268,10 +268,10 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
-        CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
+        CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded", "misc");
         Assert.assertNull(codegenParameter.content.get(ck).schema.refInfo);
 
-        CodegenKey propertyKey = codegen.getKey("visitDate");
+        CodegenKey propertyKey = codegen.getKey("visitDate", "misc");
         assertEquals(codegenParameter.content.get(ck).schema.properties.get(propertyKey).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
     }
 
@@ -645,7 +645,7 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
 
-        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenKey ck = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(ck, null, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
         assertEquals(animalModel.hasDiscriminatorWithNonEmptyMapping(), true);
@@ -695,7 +695,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenKey ck = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, new TreeSet<>());
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
@@ -718,7 +718,7 @@ public class DefaultCodegenTest {
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile", null)));
 
-        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenKey petDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -736,7 +736,7 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName, null)));
         }
-        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -754,7 +754,7 @@ public class DefaultCodegenTest {
         for (String myPetName : myPetNames) {
             hs.add(new CodegenDiscriminator.MappedModel(myPetName, codegen.toModelName(myPetName, null)));
         }
-        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         modelName = "MyPets";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -833,7 +833,7 @@ public class DefaultCodegenTest {
 
         String propertyName = "petType";
         String propertyBaseName = propertyName;
-        CodegenKey ck = codegen.getKey(propertyName);
+        CodegenKey ck = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator emptyMapDisc = new CodegenDiscriminator(ck, null, null);
 
         // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
@@ -854,7 +854,7 @@ public class DefaultCodegenTest {
             hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName, null)));
         }
         hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile", null)));
-        CodegenKey petDiscPropName = codegen.getKey(propertyName);
+        CodegenKey petDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
         modelName = "Pet";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -871,7 +871,7 @@ public class DefaultCodegenTest {
         for (String reptileModelName : reptileModelNames) {
             hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName, null)));
         }
-        CodegenKey reptileDiscPropName = codegen.getKey(propertyName);
+        CodegenKey reptileDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator reptileDisc = new CodegenDiscriminator(reptileDiscPropName, null, hs);
         modelName = "Reptile";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -883,7 +883,7 @@ public class DefaultCodegenTest {
         Assert.assertNull(reptile.discriminator);
 
         // the MyPets discriminator contains Cat and Lizard
-        CodegenKey myPetDiscPropName = codegen.getKey(propertyName);
+        CodegenKey myPetDiscPropName = codegen.getKey(propertyName, "misc");
         CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
         hs.clear();
         modelName = "MyPets";
@@ -1275,7 +1275,7 @@ public class DefaultCodegenTest {
         String propertyBaseName = prop;
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        CodegenKey testPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenKey testPropName = new DefaultCodegen().getKey(propertyName, "misc");
         CodegenDiscriminator test = new CodegenDiscriminator(testPropName, mapping, mappedModels);
         assertEquals(discriminator, test);
     }
@@ -1288,7 +1288,7 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1301,7 +1301,7 @@ public class DefaultCodegenTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1340,7 +1340,7 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(cm.discriminator, expectedDiscriminator);
     }
@@ -1411,9 +1411,9 @@ public class DefaultCodegenTest {
         codegen.setOpenAPI(openAPI);
 
         TreeMap<CodegenKey, CodegenPathItem> paths = codegen.fromPaths(openAPI.getPaths());
-        CodegenKey path1 = codegen.getKey("/here");
+        CodegenKey path1 = codegen.getKey("/here", "paths");
         Assert.assertTrue(paths.containsKey(path1));
-        CodegenKey path2 = codegen.getKey("/some/path");
+        CodegenKey path2 = codegen.getKey("/some/path", "paths");
         Assert.assertTrue(paths.containsKey(path2));
     }
 
@@ -1465,7 +1465,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/User",
                 "#/components/schemas/User"
         );
-        CodegenKey key = codegen.getKey("address");
+        CodegenKey key = codegen.getKey("address", "misc");
         Assert.assertTrue(userModel.properties.get(key).nullable);
     }
 
@@ -1723,7 +1723,7 @@ public class DefaultCodegenTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Child", "Child"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName);
+        CodegenKey expectedDiscriminatorPropName = new DefaultCodegen().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1807,7 +1807,7 @@ public class DefaultCodegenTest {
 
         assertEquals(codegenModel.properties.size(), 1);
 
-        Assert.assertEquals(codegenModel.properties.get(codegen.getKey("typeAlias")).refInfo.refClass, "TypeAlias");
+        Assert.assertEquals(codegenModel.properties.get(codegen.getKey("typeAlias", "misc")).refInfo.refClass, "TypeAlias");
     }
 
     @Test
@@ -1856,7 +1856,7 @@ public class DefaultCodegenTest {
 
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(body, "#/paths/~1examples/post/requestBody");
 
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         Assert.assertTrue(codegenParameter.content.get(ck).schema.types.contains("array"));
         Assert.assertTrue(codegenParameter.content.get(ck).schema.items.refInfo != null);
         Assert.assertTrue(codegenParameter.content.get(ck).schema.items.refInfo.refClass != null);
@@ -2047,7 +2047,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("arrayProp");
+        CodegenKey ck = codegen.getKey("arrayProp", "misc");
         assertEquals(cm.properties.get(ck).items.maximum, "7");
 
         String path;
@@ -2058,7 +2058,7 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
         assertEquals(co.pathParams.get(0).schema.refInfo.ref.items.maximum, "7"); // disabled because refed
-        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
         assertEquals(co.requestBody.content.get(applicationJson).schema.refInfo.ref.items.maximum, "7");  // disabled because refed
         assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo.ref.items.maximum, "7");  // disabled because refed
 
@@ -2161,20 +2161,20 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("map_with_additional_properties_unset");
+        CodegenKey ck = codegen.getKey("map_with_additional_properties_unset", "misc");
         mapWithAddPropsUnset = cm.properties.get(ck);
         assertEquals(mapWithAddPropsUnset.additionalProperties, null);
         assertEquals(mapWithAddPropsUnset.refInfo.refClass, "AdditionalPropertiesUnset");
 
-        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true"));
+        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true", "misc"));
         assertEquals(mapWithAddPropsTrue.additionalProperties, null);
         assertEquals(mapWithAddPropsTrue.refInfo.refClass, "AdditionalPropertiesTrue");
 
-        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false"));
+        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false", "misc"));
         assertEquals(mapWithAddPropsFalse.additionalProperties, null);
         assertEquals(mapWithAddPropsFalse.refInfo.refClass, "AdditionalPropertiesFalse");
 
-        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema"));
+        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema", "misc"));
         assertEquals(mapWithAddPropsSchema.additionalProperties, null);
         assertEquals(mapWithAddPropsSchema.refInfo.refClass, "AdditionalPropertiesSchema");
 
@@ -2186,18 +2186,18 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName
         );
 
-        mapWithAddPropsUnset = cm.properties.get(codegen.getKey("map_with_additional_properties_unset"));
+        mapWithAddPropsUnset = cm.properties.get(codegen.getKey("map_with_additional_properties_unset", "misc"));
         assertEquals(mapWithAddPropsUnset.additionalProperties, null);
 
-        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true"));
+        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true", "misc"));
         assertEquals(mapWithAddPropsTrue.additionalProperties, anyTypeSchema);
         assertTrue(mapWithAddPropsTrue.additionalProperties.isBooleanSchemaTrue);
 
-        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false"));
+        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false", "misc"));
         assertNotNull(mapWithAddPropsFalse.additionalProperties);
         assertTrue(mapWithAddPropsFalse.additionalProperties.isBooleanSchemaFalse);
 
-        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema"));
+        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema", "misc"));
         assertEquals(mapWithAddPropsSchema.additionalProperties, stringCp);
     }
 
@@ -2305,36 +2305,36 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
         mapWithAddPropsUnset = co.responses.get("200");
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertEquals(mapWithAddPropsUnset.content.get(ck).schema.refInfo.ref.additionalProperties, null);
         mapWithAddPropsTrue = co.responses.get("201");
-        ck = codegen.getKey("application/xml");
+        ck = codegen.getKey("application/xml", "misc");
         assertNotNull(mapWithAddPropsTrue.content.get(ck).schema.refInfo.ref.additionalProperties);
         assertTrue(mapWithAddPropsTrue.content.get(ck).schema.refInfo.ref.additionalProperties.isBooleanSchemaTrue);
         mapWithAddPropsFalse = co.responses.get("202");
-        ck = codegen.getKey("application/x-www-form-urlencoded");
+        ck = codegen.getKey("application/x-www-form-urlencoded", "misc");
         assertNotNull(mapWithAddPropsFalse.content.get(ck).schema.refInfo.ref.additionalProperties);
         assertTrue(mapWithAddPropsFalse.content.get(ck).schema.refInfo.ref.additionalProperties.isBooleanSchemaFalse);
         mapWithAddPropsSchema = co.responses.get("203");
-        ck = codegen.getKey("application/*");
+        ck = codegen.getKey("application/*", "misc");
         assertNotNull(mapWithAddPropsSchema.content.get(ck).schema.refInfo);
 
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
         mapWithAddPropsUnset = co.responses.get("200");
-        ck = codegen.getKey("application/json");
+        ck = codegen.getKey("application/json", "misc");
         assertEquals(mapWithAddPropsUnset.content.get(ck).schema.additionalProperties, null);
         mapWithAddPropsTrue = co.responses.get("201");
-        ck = codegen.getKey("application/xml");
+        ck = codegen.getKey("application/xml", "misc");
         assertNotNull(mapWithAddPropsTrue.content.get(ck).schema.additionalProperties);
         assertTrue(mapWithAddPropsTrue.content.get(ck).schema.additionalProperties.isBooleanSchemaTrue);
         mapWithAddPropsFalse = co.responses.get("202");
-        ck = codegen.getKey("application/x-www-form-urlencoded");
+        ck = codegen.getKey("application/x-www-form-urlencoded", "misc");
         assertNotNull(mapWithAddPropsFalse.content.get(ck).schema.additionalProperties);
         assertTrue(mapWithAddPropsFalse.content.get(ck).schema.additionalProperties.isBooleanSchemaFalse);
         mapWithAddPropsSchema = co.responses.get("203");
-        ck = codegen.getKey("application/*");
+        ck = codegen.getKey("application/*", "misc");
         assertTrue(mapWithAddPropsSchema.content.get(ck).schema.additionalProperties.types.contains("string"));
     }
 
@@ -2359,7 +2359,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/AdditionalPropertiesTrue",
                 "#/components/schemas/AdditionalPropertiesTrue"
         );
-        CodegenKey ck = codegen.getKey("child");
+        CodegenKey ck = codegen.getKey("child", "misc");
         assertEquals(cm.properties.get(ck).additionalProperties, anyTypeSchema);
 
         sc = openAPI.getComponents().getSchemas().get("AdditionalPropertiesAnyType");
@@ -2407,9 +2407,9 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("nullProp");
+        CodegenKey ck = codegen.getKey("nullProp", "misc");
         assertTrue(cm.properties.get(ck).types.contains("null"));
-        assertTrue(cm.properties.get(codegen.getKey("listOfNulls")).items.types.contains("null"));
+        assertTrue(cm.properties.get(codegen.getKey("listOfNulls", "misc")).items.types.contains("null"));
         assertTrue(cm.additionalProperties.types.contains("null"));
 
         modelName = "ArrayOfNulls";
@@ -2428,7 +2428,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("dateWithValidation");
+        ck = codegen.getKey("dateWithValidation", "misc");
         assertTrue(cm.properties.get(ck).types.contains("string"));
         assertEquals(cm.properties.get(ck).format, "date");
 
@@ -2441,7 +2441,7 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
         assertTrue(co.pathParams.get(0).schema.refInfo.ref.types.contains("string"));
         assertEquals(co.pathParams.get(0).schema.refInfo.ref.format, "date");
-        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
         assertTrue(co.requestBody.content.get(applicationJson).schema.refInfo.ref.types.contains("string"));
         assertEquals(co.requestBody.content.get(applicationJson).schema.refInfo.ref.format, "date");
         assertTrue(co.responses.get("200").content.get(applicationJson).schema.refInfo.ref.types.contains("string"));
@@ -2474,7 +2474,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("dateWithValidation");
+        ck = codegen.getKey("dateWithValidation", "misc");
         assertTrue(cm.properties.get(ck).types.contains("string"));
         assertEquals(cm.properties.get(ck).format, "date-time");
 
@@ -2737,7 +2737,7 @@ public class DefaultCodegenTest {
             path = "/" + modelName;
             operation = openAPI.getPaths().get(path).getPost();
             co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-            CodegenKey ck = codegen.getKey("application/json");
+            CodegenKey ck = codegen.getKey("application/json", "misc");
             assertTrue(co.requestBody.content.get(ck).schema.hasValidation());
             assertTrue(co.responses.get("200").content.get(ck).schema.hasValidation());
         }
@@ -2773,7 +2773,7 @@ public class DefaultCodegenTest {
 
         assertEquals(co.pathParams.get(0).schema.properties.size(), 3);
         assertEquals(co.pathParams.get(0).schema.requiredProperties.size(), 2);
-        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
         assertEquals(co.requestBody.content.get(applicationJson).schema.properties.size(), 3);
         assertEquals(co.requestBody.content.get(applicationJson).schema.requiredProperties.size(), 2);
 
@@ -2788,7 +2788,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("a");
+        CodegenKey ck = codegen.getKey("a", "misc");
         CodegenSchema cp = cm.properties.get(ck);
         assertEquals(cp.properties.size(), 3);
         assertEquals(cp.requiredProperties.size(), 2);
@@ -2869,7 +2869,7 @@ public class DefaultCodegenTest {
                     "#/components/schemas/" + modelName,
                     "#/components/schemas/" + modelName
             );
-            CodegenKey ck = codegen.getKey(hm.get(modelName));
+            CodegenKey ck = codegen.getKey(hm.get(modelName), "misc");
             assertTrue(cm.properties.get(ck).properties == null);
         }
 
@@ -2908,7 +2908,7 @@ public class DefaultCodegenTest {
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
         assertTrue(co.pathParams.get(0).schema.properties == null);
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertTrue(co.requestBody.content.get(ck).schema.properties == null);
 
         path = "/object_with_optional_and_required_props/{objectData}";
@@ -2933,7 +2933,7 @@ public class DefaultCodegenTest {
         path = "/additional_properties/";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"));
-        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
         assertTrue(co.responses.get("200").content.get(applicationJson).schema.properties == null);
 
         path = "/object_with_optional_and_required_props/{objectData}";
@@ -3110,7 +3110,7 @@ public class DefaultCodegenTest {
                 "ComposedHasAllofReqPropNoPropertiesNoRequired",
                 "ComposedHasAllofReqPropHasPropertiesNoRequired"
         ));
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         for (CodegenResponse cr : co.responses.values()) {
             LinkedHashMap<CodegenKey, CodegenSchema> reqProps = cr.content.get(ck).schema.requiredProperties;
             if (modelNamesWithoutRequired.contains(cr.description)) {
@@ -3173,17 +3173,17 @@ public class DefaultCodegenTest {
         assertTrue(cm.types.contains("object"));
 
         CodegenSchema cp;
-        CodegenKey ck = codegen.getKey("UnboundedInteger");
+        CodegenKey ck = codegen.getKey("UnboundedInteger", "misc");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertNull(cp.format);
 
-        ck = codegen.getKey("Int32");
+        ck = codegen.getKey("Int32", "misc");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertEquals(cp.format, "int32");
 
-        ck = codegen.getKey("Int64");
+        ck = codegen.getKey("Int64", "misc");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertEquals(cp.format, "int64");
@@ -3201,7 +3201,7 @@ public class DefaultCodegenTest {
         assertTrue(cpa.schema.types.contains("integer"));
         assertNull(cpa.schema.format);
         CodegenRequestBody crb = co.requestBody;
-        ck = codegen.getKey("application/json");
+        ck = codegen.getKey("application/json", "misc");
         assertTrue(crb.content.get(ck).schema.types.contains("integer"));
         assertNull(crb.content.get(ck).schema.format);
         cr = co.responses.get("200");
@@ -3412,7 +3412,7 @@ public class DefaultCodegenTest {
         path = "/ComposedObject";
         co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         cr = co.responses.get("200");
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertTrue(cr.content.get(ck).schema.types.contains("object"));
 
         path = "/ComposedNumber";
@@ -3463,7 +3463,7 @@ public class DefaultCodegenTest {
         path = "/ComposedObject";
         co = codegen.fromOperation(openAPI.getPaths().get(path).getGet(), getOperationPath(path, "get"));
         crb = co.requestBody;
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertTrue(crb.content.get(ck).schema.types.contains("object"));
 
         path = "/ComposedNumber";
@@ -3564,7 +3564,7 @@ public class DefaultCodegenTest {
         path = "/TxRxByteArray";
         co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
         crb = co.requestBody;
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertTrue(crb.content.get(ck).schema.types.contains("string"));
         assertEquals(crb.content.get(ck).schema.format, "byte");
         CodegenResponse cr = co.responses.get("200");
@@ -3577,7 +3577,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("byteArray");
+        ck = codegen.getKey("byteArray", "misc");
         CodegenSchema pr = m.properties.get(ck);
         assertTrue(pr.types.contains("string"));
         assertEquals(pr.format, "byte");
@@ -3600,10 +3600,10 @@ public class DefaultCodegenTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"));
         //assertTrue(co.hasErrorResponseObject);
         cr = co.responses.get("200");
-        CodegenKey applicationJson = codegen.getKey("application/json");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
         assertTrue(cr.content.get(applicationJson).schema.refInfo.refClass != null);
         cr = co.responses.get("500");
-        CodegenKey applicationApplication = codegen.getKey("application/application");
+        CodegenKey applicationApplication = codegen.getKey("application/application", "misc");
         assertTrue(cr.content.get(applicationApplication).schema.refInfo.refClass != null);
 
         path = "/pet";
@@ -3641,7 +3641,7 @@ public class DefaultCodegenTest {
         CodegenParameter coordinatesInlineSchema = co.queryParams.get(0);
         LinkedHashMap<CodegenKey, CodegenMediaType> content = coordinatesInlineSchema.content;
         assertNotNull(content);
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(ck)));
         CodegenMediaType mt = content.get(ck);
         assertNull(mt.encoding);
@@ -3673,8 +3673,8 @@ public class DefaultCodegenTest {
         CodegenRequestBody bodyParameter = co.requestBody;
         LinkedHashMap<CodegenKey, CodegenMediaType> content = bodyParameter.content;
         assertNotNull(content);
-        CodegenKey jsonKey = codegen.getKey("application/json");
-        CodegenKey textKey = codegen.getKey("text/plain");
+        CodegenKey jsonKey = codegen.getKey("application/json", "misc");
+        CodegenKey textKey = codegen.getKey("text/plain", "misc");
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(jsonKey, textKey)));
         CodegenMediaType mt = content.get(jsonKey);
         assertNull(mt.encoding);
@@ -3695,8 +3695,8 @@ public class DefaultCodegenTest {
         bodyParameter = co.requestBody;
         content = bodyParameter.content;
         assertNotNull(content);
-        CodegenKey applicationJson = codegen.getKey("application/json");
-        CodegenKey textPlain = codegen.getKey("text/plain");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
+        CodegenKey textPlain = codegen.getKey("text/plain", "misc");
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(applicationJson, textPlain)));
         mt = content.get(applicationJson);
         assertNull(mt.encoding);
@@ -3724,7 +3724,7 @@ public class DefaultCodegenTest {
 
         path = "/requestBodyWithEncodingTypes";
         co = codegen.fromOperation(openAPI.getPaths().get(path).getPost(), getOperationPath(path, "post"));
-        CodegenKey applicationXWwwFormUrlencoded = codegen.getKey("application/x-www-form-urlencoded");
+        CodegenKey applicationXWwwFormUrlencoded = codegen.getKey("application/x-www-form-urlencoded", "misc");
         CodegenSchema formSchema = co.requestBody.content.get(applicationXWwwFormUrlencoded).schema;
         assertEquals(formSchema.properties.size(), 6);
 
@@ -3749,7 +3749,7 @@ public class DefaultCodegenTest {
         CodegenParameter coordinatesInlineSchema = co.queryParams.get(0);
         LinkedHashMap<CodegenKey, CodegenMediaType> content = coordinatesInlineSchema.content;
         assertNotNull(content);
-        CodegenKey ck = codegen.getKey("application/json");
+        CodegenKey ck = codegen.getKey("application/json", "misc");
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(ck)));
 
         CodegenParameter schemaParam = co.queryParams.get(2);
@@ -3772,8 +3772,8 @@ public class DefaultCodegenTest {
         assertEquals(header2.refInfo.ref.schema.jsonPathPiece.original, "schema");
 
         content = cr.content;
-        CodegenKey applicationJson = codegen.getKey("application/json");
-        CodegenKey textPlain = codegen.getKey("text/plain");
+        CodegenKey applicationJson = codegen.getKey("application/json", "misc");
+        CodegenKey textPlain = codegen.getKey("text/plain", "misc");
         assertEquals(content.keySet(), new HashSet<>(Arrays.asList(applicationJson, textPlain)));
         CodegenMediaType mt = content.get(applicationJson);
         assertNull(mt.encoding);
@@ -3837,7 +3837,7 @@ public class DefaultCodegenTest {
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
         CodegenRequestBody codegenParameter = codegen.fromRequestBody(reqBody, "#/paths/~1thingy~1{date}/post/requestBody");
 
-        CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded");
+        CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded", "misc");
         Assert.assertNotNull(codegenParameter.content.get(ck).schema.refInfo);
     }
 
@@ -3862,7 +3862,7 @@ public class DefaultCodegenTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("foo");
+        CodegenKey ck = codegen.getKey("foo", "misc");
         Assert.assertEquals(fooRequired.properties.get(ck).jsonPathPiece.original, "foo");
 
         assertEquals(fooRequired.requiredProperties.size(), 1);

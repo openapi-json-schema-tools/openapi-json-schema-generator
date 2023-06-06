@@ -4264,6 +4264,7 @@ public class DefaultCodegen implements CodegenConfig {
         return codegenRequestBody;
     }
 
+    @Override
     public CodegenKey getKey(String key, String expectedComponentType) {
         return getKey(key, expectedComponentType, null);
     }
@@ -4315,21 +4316,6 @@ public class DefaultCodegen implements CodegenConfig {
                 isValid,
                 snakeCaseName,
                 camelCaseName,
-                anchorPiece
-        );
-    }
-
-    @Override
-    public CodegenKey getKey(String key) {
-        String usedKey = handleSpecialCharacters(key);
-        boolean isValid = isValid(usedKey);
-        String camelCase = toModelName(usedKey, null);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
-        return new CodegenKey(
-                usedKey,
-                isValid,
-                toModelFilename(usedKey, null),
-                camelCase,
                 anchorPiece
         );
     }
