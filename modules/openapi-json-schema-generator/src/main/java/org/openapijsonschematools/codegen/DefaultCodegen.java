@@ -4190,6 +4190,8 @@ public class DefaultCodegen implements CodegenConfig {
         // headers -> headerName
         // parameters/i -> i
         // components/parameters/someParam -> someParam
+        // components/securitySchemes/blah -> Blah
+        // schema names
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
         return getKey(usedName, expectedComponentType, currentJsonPath);
     }
