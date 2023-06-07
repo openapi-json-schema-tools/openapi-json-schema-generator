@@ -31,17 +31,23 @@ ServerInfo = typing_extensions.TypedDict(
     total=False
 )
 
-"""
-the default server_index to use at each openapi document json path
-the fallback value is stored in the 'servers' key
-"""
-ServerIndexInfo = typing_extensions.TypedDict(
-    'ServerIndexInfo',
+
+class ServerIndexInfoRequired(typing_extensions.TypedDict):
+    servers: typing_extensions.Literal[0]
+
+ServerIndexInfoOptional = typing_extensions.TypedDict(
+    'ServerIndexInfoOptional',
     {
-        'servers': typing_extensions.Literal[0],
     },
     total=False
 )
+
+
+class ServerIndexInfo(ServerIndexInfoRequired, ServerIndexInfoOptional):
+    """
+    the default server_index to use at each openapi document json path
+    the fallback value is stored in the 'servers' key
+    """
 
 
 class ApiConfiguration(object):

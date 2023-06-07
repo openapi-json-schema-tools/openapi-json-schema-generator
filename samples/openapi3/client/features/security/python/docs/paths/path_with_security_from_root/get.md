@@ -128,8 +128,11 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
+security_index_info: api_configuration.SecurityIndexInfo = {
+}
 used_configuration = api_configuration.ApiConfiguration(
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+    security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
 with this_package.ApiClient(used_configuration) as api_client:
