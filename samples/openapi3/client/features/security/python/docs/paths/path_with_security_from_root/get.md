@@ -129,6 +129,10 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
 }
 
 security_index_info: api_configuration.SecurityIndexInfo = {
+    "security": 0,
+    # only set one "security": 1,
+    # only set one "security": 2,
+    # only set one "security": 3,
 }
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
