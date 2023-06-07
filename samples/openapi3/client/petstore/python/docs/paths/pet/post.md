@@ -29,9 +29,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, frozendict.frozendict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-security_index | typing.Optional[int] | default is None | int values: 0, 1, 2 Allows one to select a different [security](#security) definition
+security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2]
 - [Security](#security)
-server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#server)
+server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers)
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
