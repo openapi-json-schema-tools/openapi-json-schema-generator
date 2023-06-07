@@ -57,18 +57,17 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
     total=False
 )
 
-"""
-the default security_index to use at each openapi document json path
-the fallback value is stored in the 'security' key
-"""
-SecurityIndexInfo = typing_extensions.TypedDict(
-    'SecurityIndexInfo',
-    {
+
+class SecurityIndexInfoRequired(typing_extensions.TypedDict):
 {{#if security}}
-        'security': typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+    security: typing_extensions.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}]
 {{else}}
-        'security': int,
+    security: int
 {{/if}}
+
+SecurityIndexInfoOptional = typing_extensions.TypedDict(
+    'SecurityIndexInfoOptional',
+    {
 {{#each paths}}
     {{#if operations}}
         {{#each operations}}
@@ -81,6 +80,13 @@ SecurityIndexInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+
+class SecurityIndexInfo(SecurityIndexInfoRequired, SecurityIndexInfoOptional):
+    """
+    the default security_index to use at each openapi document json path
+    the fallback value is stored in the 'security' key
+    """
 {{/if}}
 {{#if hasServers}}
 
@@ -111,18 +117,17 @@ ServerInfo = typing_extensions.TypedDict(
     total=False
 )
 
-"""
-the default server_index to use at each openapi document json path
-the fallback value is stored in the 'servers' key
-"""
-ServerIndexInfo = typing_extensions.TypedDict(
-    'ServerIndexInfo',
-    {
+
+class ServerIndexInfoRequired(typing_extensions.TypedDict):
 {{#if servers}}
-        'servers': typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+    servers: typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}]
 {{else}}
-        'servers': int,
+    servers: int
 {{/if}}
+
+ServerIndexInfoOptional = typing_extensions.TypedDict(
+    'ServerIndexInfoOptional',
+    {
 {{#each paths}}
     {{#if servers}}
         "paths/{{@key.original}}/servers": typing_extensions.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
@@ -138,6 +143,13 @@ ServerIndexInfo = typing_extensions.TypedDict(
     },
     total=False
 )
+
+
+class ServerIndexInfo(ServerIndexInfoRequired, ServerIndexInfoOptional):
+    """
+    the default server_index to use at each openapi document json path
+    the fallback value is stored in the 'servers' key
+    """
 {{/if}}
 
 

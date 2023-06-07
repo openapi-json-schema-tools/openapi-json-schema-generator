@@ -37,19 +37,25 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
     total=False
 )
 
-"""
-the default security_index to use at each openapi document json path
-the fallback value is stored in the 'security' key
-"""
-SecurityIndexInfo = typing_extensions.TypedDict(
-    'SecurityIndexInfo',
+
+class SecurityIndexInfoRequired(typing_extensions.TypedDict):
+    security: typing_extensions.Literal[0, 1, 2, 3]
+
+SecurityIndexInfoOptional = typing_extensions.TypedDict(
+    'SecurityIndexInfoOptional',
     {
-        'security': typing_extensions.Literal[0, 1, 2, 3],
         "paths//pathWithOneExplicitSecurity/get/security": typing_extensions.Literal[0],
         "paths//pathWithTwoExplicitSecurity/get/security": typing_extensions.Literal[0, 1],
     },
     total=False
 )
+
+
+class SecurityIndexInfo(SecurityIndexInfoRequired, SecurityIndexInfoOptional):
+    """
+    the default security_index to use at each openapi document json path
+    the fallback value is stored in the 'security' key
+    """
 
 # the server to use at each openapi document json path
 ServerInfo = typing_extensions.TypedDict(
@@ -60,17 +66,23 @@ ServerInfo = typing_extensions.TypedDict(
     total=False
 )
 
-"""
-the default server_index to use at each openapi document json path
-the fallback value is stored in the 'servers' key
-"""
-ServerIndexInfo = typing_extensions.TypedDict(
-    'ServerIndexInfo',
+
+class ServerIndexInfoRequired(typing_extensions.TypedDict):
+    servers: typing_extensions.Literal[0]
+
+ServerIndexInfoOptional = typing_extensions.TypedDict(
+    'ServerIndexInfoOptional',
     {
-        'servers': typing_extensions.Literal[0],
     },
     total=False
 )
+
+
+class ServerIndexInfo(ServerIndexInfoRequired, ServerIndexInfoOptional):
+    """
+    the default server_index to use at each openapi document json path
+    the fallback value is stored in the 'servers' key
+    """
 
 
 class ApiConfiguration(object):
