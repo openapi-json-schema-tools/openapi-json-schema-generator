@@ -28,7 +28,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
-server_index | typing.Optional[int] | default is None | Allows one to select a different server
+security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
+server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -116,9 +117,9 @@ passing server_index in to the endpoint method.
 
 server_index | Class | Description
 ------------ | ----- | ------------
-0 | [Server0](../../../servers/server_0.md) | petstore server
-1 | [Server1](../../../servers/server_1.md) | The local server
-2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+0 | [Server0](../../servers/server_0.md) | petstore server
+1 | [Server1](../../servers/server_1.md) | The local server
+2 | [Server2](../../servers/server_2.md) | staging server with no variables
 
 ## Code Sample
 
@@ -147,8 +148,14 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
+security_index_info: api_configuration.SecurityIndexInfo = {
+    "security": 0,  # default value
+    "paths//pet/{petId}/delete/security": 0,
+    # only set one "paths//pet/{petId}/delete/security": 1,
+}
 used_configuration = api_configuration.ApiConfiguration(
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+    security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

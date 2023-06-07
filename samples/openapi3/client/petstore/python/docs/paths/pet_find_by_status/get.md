@@ -29,7 +29,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
-server_index | typing.Optional[int] | default is None | Allows one to select a different server
+security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2]
+server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -177,8 +178,15 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
+security_index_info: api_configuration.SecurityIndexInfo = {
+    "security": 0,  # default value
+    "paths//pet/findByStatus/get/security": 0,
+    # only set one "paths//pet/findByStatus/get/security": 1,
+    # only set one "paths//pet/findByStatus/get/security": 2,
+}
 used_configuration = api_configuration.ApiConfiguration(
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+    security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

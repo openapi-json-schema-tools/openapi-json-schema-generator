@@ -34,15 +34,41 @@ from {{packageName}}.components.security_schemes import {{refInfo.refModule}}
         {{/gt}}
     {{/neq}}
 {{/neq}}
+{{#neq security null}}
+    {{#gt security.size 1}}
+security_index_info: api_configuration.SecurityIndexInfo = {
+    "security": 0,  # default value
+        {{#each security}}
+    {{#unless @first}}# only set one {{/unless}}"paths/{{path.original}}/{{httpMethod.original}}/security": {{@key}},
+        {{/each}}
+}
+    {{/gt}}
+{{else}}
+    {{#neq rootSecurity null}}
+        {{#gt rootSecurity.size 1}}
+security_index_info: api_configuration.SecurityIndexInfo = {
+            {{#each rootSecurity}}
+    {{#unless @first}}# only set one {{/unless}}"security": {{@key}},
+            {{/each}}
+}
+        {{/gt}}
+    {{/neq}}
+{{/neq}}
 used_configuration = api_configuration.ApiConfiguration(
 {{#neq security null}}
     {{#gt security.size 0}}
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+    {{/gt}}
+    {{#gt security.size 1}}
+    security_index_info=security_index_info
     {{/gt}}
 {{else}}
     {{#neq rootSecurity null}}
         {{#gt rootSecurity.size 0}}
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+        {{/gt}}
+        {{#gt rootSecurity.size 1}}
+    security_index_info=security_index_info
         {{/gt}}
     {{/neq}}
 {{/neq}}

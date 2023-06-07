@@ -25,7 +25,7 @@ petstore_api.paths.fake_redirection.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-server_index | typing.Optional[int] | default is None | Allows one to select a different server
+server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -72,9 +72,9 @@ passing server_index in to the endpoint method.
 
 server_index | Class | Description
 ------------ | ----- | ------------
-0 | [Server0](../../../servers/server_0.md) | petstore server
-1 | [Server1](../../../servers/server_1.md) | The local server
-2 | [Server2](../../../servers/server_2.md) | staging server with no variables
+0 | [Server0](../../servers/server_0.md) | petstore server
+1 | [Server1](../../servers/server_1.md) | The local server
+2 | [Server2](../../servers/server_2.md) | staging server with no variables
 
 ## Code Sample
 
