@@ -89,6 +89,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 
 | OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility  |
 |---------------------------------------|-----------------------------|
+| 2.0.3                                 | 3.0.0 - 3.0.3               |
 | 2.0.2                                 | 3.0.0 - 3.0.3               |
 | 2.0.1                                 | 3.0.0 - 3.0.3               |
 | 2.0.0                                 | 3.0.0 - 3.0.3               |
