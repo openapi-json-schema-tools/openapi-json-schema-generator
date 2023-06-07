@@ -148,8 +148,14 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
+security_index_info: api_configuration.SecurityIndexInfo = {
+    "security": 0,  # default value
+    "paths//pet/{petId}/delete/security": 0,
+    # only set one "paths//pet/{petId}/delete/security": 1,
+}
 used_configuration = api_configuration.ApiConfiguration(
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
+    security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

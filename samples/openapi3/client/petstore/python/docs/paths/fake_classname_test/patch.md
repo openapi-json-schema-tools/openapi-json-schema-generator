@@ -114,7 +114,7 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
 }
 
 used_configuration = api_configuration.ApiConfiguration(
-    security_scheme_info=security_scheme_info
+    security_scheme_info=security_scheme_info,
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:
