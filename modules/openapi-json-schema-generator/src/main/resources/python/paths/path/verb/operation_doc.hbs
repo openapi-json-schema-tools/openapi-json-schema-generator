@@ -233,7 +233,7 @@ server_index | Class | Description
         {{/each}}
     {{else}}
         {{#each ../servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](../../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
         {{/each}}
     {{/if}}
 {{/if}}
