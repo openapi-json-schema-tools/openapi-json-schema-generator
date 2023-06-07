@@ -94,7 +94,6 @@ accept_content_types | typing.Tuple[str] | default is ({{#each produces}}"{{{.}}
 {{#neq security null}}
     {{#gt security.size 0}}
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [{{#each security}}{{@key}}{{#unless @last}}, {{/unless}}{{/each}}]
-- [Security](#security)
     {{/gt}}
 {{else}}
     {{#neq ../security null}}
