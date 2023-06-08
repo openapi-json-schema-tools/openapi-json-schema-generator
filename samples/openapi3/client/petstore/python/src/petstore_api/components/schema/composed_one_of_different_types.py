@@ -27,15 +27,13 @@ class _4(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _4[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             _4[frozendict.frozendict],
@@ -83,7 +81,7 @@ class _5(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _5[tuple]:
         inst = super().__new__(
             cls,
@@ -146,9 +144,8 @@ class ComposedOneOfDifferentTypes(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedOneOfDifferentTypes[
         typing.Union[
             frozendict.frozendict,
@@ -163,9 +160,8 @@ class ComposedOneOfDifferentTypes(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ComposedOneOfDifferentTypes[

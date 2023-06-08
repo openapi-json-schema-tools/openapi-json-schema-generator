@@ -39,13 +39,12 @@ class ObjectWithNoDeclaredPropsNullable(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithNoDeclaredPropsNullable[
         typing.Union[
             schemas.NoneClass,
@@ -54,9 +53,8 @@ class ObjectWithNoDeclaredPropsNullable(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectWithNoDeclaredPropsNullable[
@@ -86,9 +84,8 @@ class AnyTypeExceptNullProp(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeExceptNullProp[
         typing.Union[
             frozendict.frozendict,
@@ -103,9 +100,8 @@ class AnyTypeExceptNullProp(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             AnyTypeExceptNullProp[
@@ -395,155 +391,16 @@ class User(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        username: typing.Union[
-            Username[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        firstName: typing.Union[
-            FirstName[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        lastName: typing.Union[
-            LastName[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        email: typing.Union[
-            Email[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        password: typing.Union[
-            Password[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        phone: typing.Union[
-            Phone[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        userStatus: typing.Union[
-            UserStatus[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        objectWithNoDeclaredProps: typing.Union[
-            ObjectWithNoDeclaredProps[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        objectWithNoDeclaredPropsNullable: typing.Union[
-            ObjectWithNoDeclaredPropsNullable[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            schemas.Unset,
-            None,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        anyTypeProp: typing.Union[
-            AnyTypeProp[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        anyTypeExceptNullProp: typing.Union[
-            AnyTypeExceptNullProp[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        anyTypePropNullable: typing.Union[
-            AnyTypePropNullable[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> User[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            username=username,
-            firstName=firstName,
-            lastName=lastName,
-            email=email,
-            password=password,
-            phone=phone,
-            userStatus=userStatus,
-            objectWithNoDeclaredProps=objectWithNoDeclaredProps,
-            objectWithNoDeclaredPropsNullable=objectWithNoDeclaredPropsNullable,
-            anyTypeProp=anyTypeProp,
-            anyTypeExceptNullProp=anyTypeExceptNullProp,
-            anyTypePropNullable=anyTypePropNullable,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             User[frozendict.frozendict],

@@ -81,23 +81,16 @@ class ObjWithRequiredProps(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        a: typing.Union[
-            A[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            a=a,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjWithRequiredProps[frozendict.frozendict],

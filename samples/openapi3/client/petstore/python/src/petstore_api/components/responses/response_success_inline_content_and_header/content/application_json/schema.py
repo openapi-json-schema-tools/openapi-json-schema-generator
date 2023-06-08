@@ -29,7 +29,7 @@ class Schema(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[
+        arg_: typing.Mapping[
             str,
             typing.Union[
                 AdditionalProperties[decimal.Decimal],
@@ -37,18 +37,12 @@ class Schema(
                 int
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

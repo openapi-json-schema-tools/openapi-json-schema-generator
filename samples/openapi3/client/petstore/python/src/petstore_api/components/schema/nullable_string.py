@@ -39,7 +39,7 @@ class NullableString(
             None,
             str
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NullableString[
         typing.Union[
             schemas.NoneClass,

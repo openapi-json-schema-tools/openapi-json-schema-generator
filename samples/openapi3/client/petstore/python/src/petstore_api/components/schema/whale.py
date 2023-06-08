@@ -129,35 +129,16 @@ class Whale(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        className: typing.Union[
-            ClassName[str],
-            str
-        ],
-        hasBaleen: typing.Union[
-            HasBaleen[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        hasTeeth: typing.Union[
-            HasTeeth[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Whale[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            className=className,
-            hasBaleen=hasBaleen,
-            hasTeeth=hasTeeth,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Whale[frozendict.frozendict],

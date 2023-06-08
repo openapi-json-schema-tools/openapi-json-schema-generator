@@ -221,81 +221,16 @@ class EnumTest(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        enum_string_required: typing.Union[
-            EnumStringRequired[str],
-            str
-        ],
-        enum_string: typing.Union[
-            EnumString[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        enum_integer: typing.Union[
-            EnumInteger[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        enum_number: typing.Union[
-            EnumNumber[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        stringEnum: typing.Union[
-            string_enum.StringEnum[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            schemas.Unset,
-            None,
-            str
-        ] = schemas.unset,
-        IntegerEnum: typing.Union[
-            integer_enum.IntegerEnum[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        StringEnumWithDefaultValue: typing.Union[
-            string_enum_with_default_value.StringEnumWithDefaultValue[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        IntegerEnumWithDefaultValue: typing.Union[
-            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        IntegerEnumOneValue: typing.Union[
-            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            enum_string_required=enum_string_required,
-            enum_string=enum_string,
-            enum_integer=enum_integer,
-            enum_number=enum_number,
-            stringEnum=stringEnum,
-            IntegerEnum=IntegerEnum,
-            StringEnumWithDefaultValue=StringEnumWithDefaultValue,
-            IntegerEnumWithDefaultValue=IntegerEnumWithDefaultValue,
-            IntegerEnumOneValue=IntegerEnumOneValue,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             EnumTest[frozendict.frozendict],

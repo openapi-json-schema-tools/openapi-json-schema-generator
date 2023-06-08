@@ -33,7 +33,7 @@ class Items(
                 float
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
         inst = super().__new__(
             cls,
@@ -70,7 +70,7 @@ class ArrayArrayNumber(
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayNumber[tuple]:
         inst = super().__new__(
             cls,
@@ -148,25 +148,16 @@ class ArrayOfArrayOfNumberOnly(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        ArrayArrayNumber: typing.Union[
-            ArrayArrayNumber[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            ArrayArrayNumber=ArrayArrayNumber,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ArrayOfArrayOfNumberOnly[frozendict.frozendict],

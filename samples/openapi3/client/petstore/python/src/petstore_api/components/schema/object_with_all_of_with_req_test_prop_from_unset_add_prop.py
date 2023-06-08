@@ -133,53 +133,16 @@ class _1(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        test: typing.Union[
-            schemas.AnyTypeSchema[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        name: typing.Union[
-            Name[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            test=test,
-            name=name,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             _1[frozendict.frozendict],
@@ -207,9 +170,8 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithAllOfWithReqTestPropFromUnsetAddProp[
         typing.Union[
             frozendict.frozendict,
@@ -224,9 +186,8 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectWithAllOfWithReqTestPropFromUnsetAddProp[

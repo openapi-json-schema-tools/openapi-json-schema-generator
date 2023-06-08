@@ -92,28 +92,16 @@ class ObjectModelWithArgAndArgsProperties(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        arg: typing.Union[
-            Arg[str],
-            str
-        ],
-        args: typing.Union[
-            Args[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithArgAndArgsProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            arg=arg,
-            args=args,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectModelWithArgAndArgsProperties[frozendict.frozendict],

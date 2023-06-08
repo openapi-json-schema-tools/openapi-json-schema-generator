@@ -19,7 +19,7 @@ def __new__(
         {{/contains}}
         {{#contains types "object"}}
             {{#if requiredAndOptionalProperties}}
-    *arg_: typing.Union[
+    arg_: typing.Union[
         {{requiredAndOptionalProperties.jsonPathPiece.camelCase}},
         typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
     ],
@@ -27,10 +27,10 @@ def __new__(
                 {{#if additionalProperties}}
                     {{#if additionalProperties.isBooleanSchemaFalse }}
                         {{! additionalProperties is False, empty map allowed}}
-    *arg_: typing.Mapping,
+    arg_: typing.Mapping,
                     {{else}}
                         {{! additionalProperties is True/schema}}
-    *arg_: typing.Mapping[
+    arg_: typing.Mapping[
         str,
         typing.Union[
             {{#with additionalProperties}}
@@ -41,7 +41,7 @@ def __new__(
                     {{/if}}
                 {{else}}
                     {{! additionalProperties is unset}}
-    *arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+    arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
                 {{/if}}
             {{/if}}
         {{/contains}}
@@ -62,7 +62,7 @@ def __new__(
         {{/contains}}
     {{else}}
         {{#contains types "object"}}
-    *args_: typing.Union[
+    arg_: typing.Union[
         {{> _helper_schema_python_types_newline }}
     ],
         {{else}}
@@ -72,79 +72,9 @@ def __new__(
         {{/contains}}
     {{/eq}}
 {{else}}
-    *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+    arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
 {{/if}}
-{{#if types}}
-    {{#eq types.size 1}}
-        {{#contains types "object"}}
-            {{#each requiredProperties}}
-                {{#if @key.isValid}}
-                    {{#with this}}
-                        {{#if refInfo.refClass}}
-    {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-    ],
-                        {{else}}
-                            {{#if jsonPathPiece}}
-                                {{#if schemaIsFromAdditionalProperties}}
-    {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type optional=false }}
-    ],
-                                {{else}}
-    {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type optional=false }}
-    ],
-                                {{/if}}
-                            {{else}}
-    {{@key.original}}: typing.Union[
-        schemas.AnyTypeSchema[typing.Union[
-            {{> components/schemas/_helper_schema_python_base_types_newline }}
-        ]],
-        {{> _helper_schema_python_types_newline }}
-    ],
-                            {{/if}}
-                        {{/if}}
-                    {{/with}}
-                {{/if}}
-            {{/each}}
-        {{/contains}}
-    {{/eq}}
-{{/if}}
-{{#each optionalProperties}}
-    {{#if @key.isValid}}
-        {{#if refInfo.refClass}}
-    {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_ref_property_value_type optional=true }}
-    ] = schemas.unset,
-        {{else}}
-    {{@key.original}}: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type optional=true }}
-    ] = schemas.unset,
-        {{/if}}
-    {{/if}}
-{{/each}}
-    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-{{#with additionalProperties}}
-    {{#unless isBooleanSchemaFalse}}
-        {{#if refInfo.refClass}}
-    **kwargs: typing.Union[
-        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-    ],
-        {{else}}
-    **kwargs: typing.Union[
-        {{> components/schemas/_helper_new_property_value_type optional=false }}
-    ],
-        {{/if}}
-    {{/unless}}
-{{else}}
-    {{#eq types null}}
-    **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    {{else}}
-        {{#contains types "object"}}
-    **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        {{/contains}}
-    {{/eq}}
-{{/with}}
+    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
 {{#if types}}
     {{#eq types.size 1}}
 ) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
@@ -164,47 +94,8 @@ def __new__(
 {{/if}}
     inst = super().__new__(
         cls,
-{{#eq types null}}
-        *args_,
-{{else}}
-    {{#contains types "object"}}
-        *args_,
-    {{else}}
         arg_,
-    {{/contains}}
-{{/eq}}
-{{#if types}}
-    {{#eq types.size 1}}
-        {{#contains types "object"}}
-            {{#each requiredProperties}}
-                {{#if @key.isValid}}
-                    {{#with this}}
-        {{@key.original}}={{@key.original}},
-                    {{/with}}
-                {{/if}}
-            {{/each}}
-        {{/contains}}
-    {{/eq}}
-{{/if}}
-{{#each optionalProperties}}
-    {{#if @key.isValid}}
-        {{@key.original}}={{@key.original}},
-    {{/if}}
-{{/each}}
         configuration_=configuration_,
-{{#with additionalProperties}}
-    {{#unless isBooleanSchemaFalse}}
-        **kwargs,
-    {{/unless}}
-{{else}}
-    {{#eq types null}}
-        **kwargs,
-    {{else}}
-        {{#contains types "object"}}
-        **kwargs,
-        {{/contains}}
-    {{/eq}}
-{{/with}}
     )
     inst = typing.cast(
 {{#if types}}

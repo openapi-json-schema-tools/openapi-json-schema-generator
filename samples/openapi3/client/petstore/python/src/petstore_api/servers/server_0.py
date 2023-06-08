@@ -129,25 +129,15 @@ class Variables(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        port: typing.Union[
-            Port[str],
-            str
-        ],
-        server: typing.Union[
-            Server[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            port=port,
-            server=server,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

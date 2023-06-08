@@ -87,28 +87,16 @@ class Schema(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        param: typing.Union[
-            Param[str],
-            str
-        ],
-        param2: typing.Union[
-            Param2[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            param=param,
-            param2=param2,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

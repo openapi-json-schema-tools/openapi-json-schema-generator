@@ -30,7 +30,7 @@ class Map(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[
+        arg_: typing.Mapping[
             str,
             typing.Union[
                 AdditionalProperties[
@@ -54,18 +54,12 @@ class Map(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            animal.Animal[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Map[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Map[frozendict.frozendict],
@@ -157,39 +151,16 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        uuid: typing.Union[
-            Uuid[str],
-            schemas.Unset,
-            str,
-            uuid.UUID
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            DateTime[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        map: typing.Union[
-            Map[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            uuid=uuid,
-            dateTime=dateTime,
-            map=map,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],

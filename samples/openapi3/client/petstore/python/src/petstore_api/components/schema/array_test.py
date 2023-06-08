@@ -31,7 +31,7 @@ class ArrayOfString(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfString[tuple]:
         inst = super().__new__(
             cls,
@@ -69,7 +69,7 @@ class Items2(
                 int
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[tuple]:
         inst = super().__new__(
             cls,
@@ -106,7 +106,7 @@ class ArrayArrayOfInteger(
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfInteger[tuple]:
         inst = super().__new__(
             cls,
@@ -143,7 +143,7 @@ class Items4(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items4[tuple]:
         inst = super().__new__(
             cls,
@@ -180,7 +180,7 @@ class ArrayArrayOfModel(
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfModel[tuple]:
         inst = super().__new__(
             cls,
@@ -280,39 +280,16 @@ class ArrayTest(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        array_of_string: typing.Union[
-            ArrayOfString[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_array_of_integer: typing.Union[
-            ArrayArrayOfInteger[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_array_of_model: typing.Union[
-            ArrayArrayOfModel[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            array_of_string=array_of_string,
-            array_array_of_integer=array_array_of_integer,
-            array_array_of_model=array_array_of_model,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ArrayTest[frozendict.frozendict],

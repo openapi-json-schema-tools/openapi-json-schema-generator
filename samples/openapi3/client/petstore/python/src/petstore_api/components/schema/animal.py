@@ -118,29 +118,16 @@ class Animal(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        className: typing.Union[
-            ClassName[str],
-            str
-        ],
-        color: typing.Union[
-            Color[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Animal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            className=className,
-            color=color,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Animal[frozendict.frozendict],

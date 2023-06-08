@@ -33,7 +33,7 @@ class PhotoUrls(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrls[tuple]:
         inst = super().__new__(
             cls,
@@ -70,7 +70,7 @@ class Tags(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tags[tuple]:
         inst = super().__new__(
             cls,
@@ -209,56 +209,16 @@ class Pet(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        name: typing.Union[
-            Name[str],
-            str
-        ],
-        photoUrls: typing.Union[
-            PhotoUrls[tuple],
-            list,
-            tuple
-        ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        category: typing.Union[
-            category.Category[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        tags: typing.Union[
-            Tags[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        status: typing.Union[
-            Status[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Pet[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            photoUrls=photoUrls,
-            id=id,
-            category=category,
-            tags=tags,
-            status=status,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Pet[frozendict.frozendict],

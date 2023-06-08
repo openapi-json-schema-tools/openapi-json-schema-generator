@@ -173,58 +173,16 @@ class Order(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        petId: typing.Union[
-            PetId[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        quantity: typing.Union[
-            Quantity[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        shipDate: typing.Union[
-            ShipDate[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        status: typing.Union[
-            Status[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        complete: typing.Union[
-            Complete[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Order[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            petId=petId,
-            quantity=quantity,
-            shipDate=shipDate,
-            status=status,
-            complete=complete,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Order[frozendict.frozendict],

@@ -85,23 +85,16 @@ class GrandparentAnimal(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        pet_type: typing.Union[
-            PetType[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> GrandparentAnimal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            pet_type=pet_type,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             GrandparentAnimal[frozendict.frozendict],

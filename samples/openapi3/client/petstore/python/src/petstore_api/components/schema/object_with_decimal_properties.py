@@ -63,37 +63,16 @@ class ObjectWithDecimalProperties(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        length: typing.Union[
-            decimal_payload.DecimalPayload[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        width: typing.Union[
-            Width[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        cost: typing.Union[
-            money.Money[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            length=length,
-            width=width,
-            cost=cost,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectWithDecimalProperties[frozendict.frozendict],

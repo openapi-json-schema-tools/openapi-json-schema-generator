@@ -83,30 +83,16 @@ class ReadOnlyFirst(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        bar: typing.Union[
-            Bar[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        baz: typing.Union[
-            Baz[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReadOnlyFirst[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            bar=bar,
-            baz=baz,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ReadOnlyFirst[frozendict.frozendict],

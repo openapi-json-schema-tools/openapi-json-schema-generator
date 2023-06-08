@@ -75,14 +75,8 @@ class ClassModel(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        _class: typing.Union[
-            _Class[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ClassModel[
         typing.Union[
             frozendict.frozendict,
@@ -97,10 +91,8 @@ class ClassModel(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            _class=_class,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ClassModel[

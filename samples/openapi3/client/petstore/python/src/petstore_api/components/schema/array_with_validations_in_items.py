@@ -51,7 +51,7 @@ class ArrayWithValidationsInItems(
                 int
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithValidationsInItems[tuple]:
         inst = super().__new__(
             cls,

@@ -95,37 +95,16 @@ class ApiResponse(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        code: typing.Union[
-            Code[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        type: typing.Union[
-            Type[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        message: typing.Union[
-            Message[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ApiResponse[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            code=code,
-            type=type,
-            message=message,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ApiResponse[frozendict.frozendict],

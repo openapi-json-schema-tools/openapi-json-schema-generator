@@ -64,38 +64,16 @@ class ObjectModelWithRefProps(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        myNumber: typing.Union[
-            number_with_validations.NumberWithValidations[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        myString: typing.Union[
-            string.String[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        myBoolean: typing.Union[
-            boolean.Boolean[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithRefProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            myNumber=myNumber,
-            myString=myString,
-            myBoolean=myBoolean,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectModelWithRefProps[frozendict.frozendict],

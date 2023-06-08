@@ -71,28 +71,16 @@ class Money(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        amount: typing.Union[
-            Amount[str],
-            str
-        ],
-        currency: typing.Union[
-            currency.Currency[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Money[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            amount=amount,
-            currency=currency,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Money[frozendict.frozendict],

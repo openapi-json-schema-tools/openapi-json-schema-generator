@@ -46,29 +46,16 @@ class SelfReferencingObjectModel(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        selfRef: typing.Union[
-            SelfReferencingObjectModel[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            SelfReferencingObjectModel[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingObjectModel[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            selfRef=selfRef,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             SelfReferencingObjectModel[frozendict.frozendict],

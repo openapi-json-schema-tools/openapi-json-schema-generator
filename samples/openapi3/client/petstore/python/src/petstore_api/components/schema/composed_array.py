@@ -53,7 +53,7 @@ class ComposedArray(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedArray[tuple]:
         inst = super().__new__(
             cls,

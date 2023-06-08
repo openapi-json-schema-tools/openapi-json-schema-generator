@@ -87,26 +87,15 @@ class AppleReq(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        cultivar: typing.Union[
-            Cultivar[str],
-            str
-        ],
-        mealy: typing.Union[
-            Mealy[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AppleReq[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            cultivar=cultivar,
-            mealy=mealy,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

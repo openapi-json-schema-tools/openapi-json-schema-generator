@@ -57,7 +57,7 @@ class EnumFormStringArray(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArray[tuple]:
         inst = super().__new__(
             cls,
@@ -172,31 +172,16 @@ class Schema(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        enum_form_string_array: typing.Union[
-            EnumFormStringArray[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        enum_form_string: typing.Union[
-            EnumFormString[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            enum_form_string_array=enum_form_string_array,
-            enum_form_string=enum_form_string,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

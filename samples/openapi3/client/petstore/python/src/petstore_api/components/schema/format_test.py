@@ -114,7 +114,7 @@ class ArrayWithUniqueItems(
                 float
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithUniqueItems[tuple]:
         inst = super().__new__(
             cls,
@@ -508,153 +508,16 @@ class FormatTest(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        byte: typing.Union[
-            Byte[str],
-            str
-        ],
-        date: typing.Union[
-            Date[str],
-            str,
-            datetime.date
-        ],
-        number: typing.Union[
-            Number[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        password: typing.Union[
-            Password[str],
-            str
-        ],
-        integer: typing.Union[
-            Integer[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        int32: typing.Union[
-            Int32[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        int32withValidations: typing.Union[
-            Int32withValidations[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        int64: typing.Union[
-            Int64[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        float32: typing.Union[
-            Float32[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        double: typing.Union[
-            Double[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        float64: typing.Union[
-            Float64[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        arrayWithUniqueItems: typing.Union[
-            ArrayWithUniqueItems[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        string: typing.Union[
-            String[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        binary: typing.Union[
-            Binary[typing.Union[bytes, schemas.FileIO]],
-            schemas.Unset,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            DateTime[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        uuid: typing.Union[
-            Uuid[str],
-            schemas.Unset,
-            str,
-            uuid.UUID
-        ] = schemas.unset,
-        uuidNoExample: typing.Union[
-            UuidNoExample[str],
-            schemas.Unset,
-            str,
-            uuid.UUID
-        ] = schemas.unset,
-        pattern_with_digits: typing.Union[
-            PatternWithDigits[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        pattern_with_digits_and_delimiter: typing.Union[
-            PatternWithDigitsAndDelimiter[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        noneProp: typing.Union[
-            NoneProp[schemas.NoneClass],
-            schemas.Unset,
-            None
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FormatTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            byte=byte,
-            date=date,
-            number=number,
-            password=password,
-            integer=integer,
-            int32=int32,
-            int32withValidations=int32withValidations,
-            int64=int64,
-            float32=float32,
-            double=double,
-            float64=float64,
-            arrayWithUniqueItems=arrayWithUniqueItems,
-            string=string,
-            binary=binary,
-            dateTime=dateTime,
-            uuid=uuid,
-            uuidNoExample=uuidNoExample,
-            pattern_with_digits=pattern_with_digits,
-            pattern_with_digits_and_delimiter=pattern_with_digits_and_delimiter,
-            noneProp=noneProp,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             FormatTest[frozendict.frozendict],

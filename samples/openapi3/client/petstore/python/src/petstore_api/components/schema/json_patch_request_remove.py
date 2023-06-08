@@ -101,25 +101,15 @@ class JSONPatchRequestRemove(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        op: typing.Union[
-            Op[str],
-            str
-        ],
-        path: typing.Union[
-            Path[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestRemove[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            op=op,
-            path=path,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

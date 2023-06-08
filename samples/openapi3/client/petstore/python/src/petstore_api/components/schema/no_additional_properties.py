@@ -89,28 +89,15 @@ class NoAdditionalProperties(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        petId: typing.Union[
-            PetId[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NoAdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            petId=petId,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

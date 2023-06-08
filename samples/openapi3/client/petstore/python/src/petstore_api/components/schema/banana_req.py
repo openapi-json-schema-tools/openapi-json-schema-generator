@@ -89,28 +89,15 @@ class BananaReq(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        lengthCm: typing.Union[
-            LengthCm[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        sweet: typing.Union[
-            Sweet[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> BananaReq[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            lengthCm=lengthCm,
-            sweet=sweet,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -36,7 +36,7 @@ class AnimalFarm(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnimalFarm[tuple]:
         inst = super().__new__(
             cls,

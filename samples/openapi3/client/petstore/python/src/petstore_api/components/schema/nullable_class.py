@@ -30,13 +30,12 @@ class AdditionalProperties4(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties4[
         typing.Union[
             schemas.NoneClass,
@@ -45,9 +44,8 @@ class AdditionalProperties4(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             AdditionalProperties4[
@@ -86,7 +84,7 @@ class IntegerProp(
             decimal.Decimal,
             int
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> IntegerProp[
         typing.Union[
             schemas.NoneClass,
@@ -135,7 +133,7 @@ class NumberProp(
             int,
             float
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NumberProp[
         typing.Union[
             schemas.NoneClass,
@@ -182,7 +180,7 @@ class BooleanProp(
             None,
             bool
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> BooleanProp[
         typing.Union[
             schemas.NoneClass,
@@ -229,7 +227,7 @@ class StringProp(
             None,
             str
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> StringProp[
         typing.Union[
             schemas.NoneClass,
@@ -279,7 +277,7 @@ class DateProp(
             str,
             datetime.date
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DateProp[
         typing.Union[
             schemas.NoneClass,
@@ -329,7 +327,7 @@ class DatetimeProp(
             str,
             datetime.datetime
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DatetimeProp[
         typing.Union[
             schemas.NoneClass,
@@ -379,7 +377,7 @@ class ArrayNullableProp(
             list,
             tuple
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNullableProp[
         typing.Union[
             schemas.NoneClass,
@@ -422,13 +420,12 @@ class Items2(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[
         typing.Union[
             schemas.NoneClass,
@@ -437,9 +434,8 @@ class Items2(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Items2[
@@ -478,7 +474,7 @@ class ArrayAndItemsNullableProp(
             list,
             tuple
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayAndItemsNullableProp[
         typing.Union[
             schemas.NoneClass,
@@ -521,13 +517,12 @@ class Items3(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items3[
         typing.Union[
             schemas.NoneClass,
@@ -536,9 +531,8 @@ class Items3(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Items3[
@@ -576,7 +570,7 @@ class ArrayItemsNullable(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayItemsNullable[tuple]:
         inst = super().__new__(
             cls,
@@ -621,17 +615,12 @@ class ObjectNullableProp(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectNullableProp[
         typing.Union[
             schemas.NoneClass,
@@ -640,9 +629,8 @@ class ObjectNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectNullableProp[
@@ -675,13 +663,12 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[
         typing.Union[
             schemas.NoneClass,
@@ -690,9 +677,8 @@ class AdditionalProperties2(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             AdditionalProperties2[
@@ -733,21 +719,12 @@ class ObjectAndItemsNullableProp(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties2[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectAndItemsNullableProp[
         typing.Union[
             schemas.NoneClass,
@@ -756,9 +733,8 @@ class ObjectAndItemsNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectAndItemsNullableProp[
@@ -791,13 +767,12 @@ class AdditionalProperties3(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties3[
         typing.Union[
             schemas.NoneClass,
@@ -806,9 +781,8 @@ class AdditionalProperties3(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             AdditionalProperties3[
@@ -842,7 +816,7 @@ class ObjectItemsNullable(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[
+        arg_: typing.Mapping[
             str,
             typing.Union[
                 AdditionalProperties3[typing.Union[
@@ -854,22 +828,12 @@ class ObjectItemsNullable(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties3[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullable[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             ObjectItemsNullable[frozendict.frozendict],
@@ -1124,149 +1088,16 @@ class NullableClass(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        integer_prop: typing.Union[
-            IntegerProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            schemas.Unset,
-            None,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        number_prop: typing.Union[
-            NumberProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            schemas.Unset,
-            None,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        boolean_prop: typing.Union[
-            BooleanProp[typing.Union[
-                schemas.NoneClass,
-                schemas.BoolClass
-            ]],
-            schemas.Unset,
-            None,
-            bool
-        ] = schemas.unset,
-        string_prop: typing.Union[
-            StringProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            schemas.Unset,
-            None,
-            str
-        ] = schemas.unset,
-        date_prop: typing.Union[
-            DateProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            schemas.Unset,
-            None,
-            str,
-            datetime.date
-        ] = schemas.unset,
-        datetime_prop: typing.Union[
-            DatetimeProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            schemas.Unset,
-            None,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        array_nullable_prop: typing.Union[
-            ArrayNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            schemas.Unset,
-            None,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_and_items_nullable_prop: typing.Union[
-            ArrayAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            schemas.Unset,
-            None,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_items_nullable: typing.Union[
-            ArrayItemsNullable[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        object_nullable_prop: typing.Union[
-            ObjectNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            schemas.Unset,
-            None,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        object_and_items_nullable_prop: typing.Union[
-            ObjectAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            schemas.Unset,
-            None,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        object_items_nullable: typing.Union[
-            ObjectItemsNullable[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties4[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NullableClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            integer_prop=integer_prop,
-            number_prop=number_prop,
-            boolean_prop=boolean_prop,
-            string_prop=string_prop,
-            date_prop=date_prop,
-            datetime_prop=datetime_prop,
-            array_nullable_prop=array_nullable_prop,
-            array_and_items_nullable_prop=array_and_items_nullable_prop,
-            array_items_nullable=array_items_nullable,
-            object_nullable_prop=object_nullable_prop,
-            object_and_items_nullable_prop=object_and_items_nullable_prop,
-            object_items_nullable=object_items_nullable,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             NullableClass[frozendict.frozendict],

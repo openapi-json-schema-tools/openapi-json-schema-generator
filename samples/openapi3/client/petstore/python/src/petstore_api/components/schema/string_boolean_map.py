@@ -34,24 +34,19 @@ class StringBooleanMap(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[
+        arg_: typing.Mapping[
             str,
             typing.Union[
                 AdditionalProperties[schemas.BoolClass],
                 bool
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[schemas.BoolClass],
-            bool
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> StringBooleanMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             StringBooleanMap[frozendict.frozendict],

@@ -83,20 +83,15 @@ class Variables(
 
     def __new__(
         cls,
-        *arg_: typing.Union[
+        arg_: typing.Union[
             DictInput,
             typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         ],
-        version: typing.Union[
-            Version[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            version=version,
+            arg_,
             configuration_=configuration_,
         )
         inst = typing.cast(

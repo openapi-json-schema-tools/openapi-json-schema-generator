@@ -134,18 +134,12 @@ class Apple(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg_: typing.Union[
             None,
             dict,
             frozendict.frozendict
         ],
-        origin: typing.Union[
-            Origin[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Apple[
         typing.Union[
             schemas.NoneClass,
@@ -154,10 +148,8 @@ class Apple(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            origin=origin,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             Apple[

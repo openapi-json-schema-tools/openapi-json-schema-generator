@@ -30,7 +30,7 @@ class AdditionalProperties(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[tuple]:
         inst = super().__new__(
             cls,
@@ -69,7 +69,7 @@ class AdditionalPropertiesWithArrayOfEnums(
 
     def __new__(
         cls,
-        *arg_: typing.Mapping[
+        arg_: typing.Mapping[
             str,
             typing.Union[
                 AdditionalProperties[tuple],
@@ -77,18 +77,12 @@ class AdditionalPropertiesWithArrayOfEnums(
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[tuple],
-            list,
-            tuple
-        ],
+        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
+            arg_,
             configuration_=configuration_,
-            **kwargs,
         )
         inst = typing.cast(
             AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
