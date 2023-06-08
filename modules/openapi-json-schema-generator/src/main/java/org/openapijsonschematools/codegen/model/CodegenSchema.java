@@ -84,7 +84,7 @@ public class CodegenSchema {
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
     public String unescapedDescription;
-    public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
@@ -221,9 +221,10 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
+        // todo break them up into separate pieces, required, optional, and combined (if needed)
         if (requiredProperties != null) {
             CodegenSchema extraSchema = new CodegenSchema();
-            extraSchema.instanceType = "requiredPropertiesType";
+            extraSchema.instanceType = "propertiesInputType";
             extraSchema.requiredProperties = requiredProperties;
             if (requiredProperties.allAreInline()) {
                 schemasBeforeImports.add(extraSchema);

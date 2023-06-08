@@ -2290,6 +2290,7 @@ public class DefaultCodegen implements CodegenConfig {
         property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
         // ideally requiredProperties would come before properties
         property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath);
+        property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
         if (currentJsonPath != null) {
@@ -2356,7 +2357,6 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         property.patternInfo = getPatternInfo(p.getPattern());
-        property.optionalProperties = getOptionalProperties(property.properties, required);
 
         property.example = toExampleValue(p);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
@@ -3296,26 +3296,34 @@ public class DefaultCodegen implements CodegenConfig {
      * @param required  a set of required properties' name
      * @return the optional properties
      */
-    protected LinkedHashMap<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMap<CodegenKey, CodegenSchema> properties, Set<String> required) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties, Set<String> required, String sourceJsonPath) {
         if (properties == null) {
             return null;
         }
-        if (required.size() == properties.size()) {
+        boolean allPropertiesAreRequired = (required.size() == properties.size());
+        if (allPropertiesAreRequired) {
             return null;
         }
         if (required.isEmpty()) {
             return properties;
         }
 
-        LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMap<>();
+        LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
+        boolean allAreInline = true;
         for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
             final CodegenKey key = entry.getKey();
             if (required.contains(key.original)) {
                 continue;
             }
             final CodegenSchema prop = entry.getValue();
+            if (prop.refInfo != null) {
+                allAreInline = false;
+            }
             optionalProperties.put(key, prop);
         }
+        optionalProperties.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey("optionalProperties", "schemaProperty", sourceJsonPath);
+        optionalProperties.setJsonPathPiece(jsonPathPiece);
         return optionalProperties;
     }
 
