@@ -1,0 +1,14 @@
+{{requiredProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
+    '{{requiredProperties.jsonPathPiece.camelCase}}',
+    {
+        {{#each requiredProperties}}
+            {{#if this}}
+                {{#if refInfo.refClass}}
+        "{{{@key.original}}}": typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+                {{else}}
+        "{{{@key.original}}}": typing.Type[{{jsonPathPiece.camelCase}}],
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+)

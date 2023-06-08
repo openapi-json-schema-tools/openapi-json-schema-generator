@@ -44,7 +44,7 @@ public class CodegenSchema {
     public Boolean uniqueItems;
     public Integer maxProperties;
     public Integer minProperties;
-    public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
     public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
     public String type;
     public ArrayListWithContext<CodegenSchema> allOf = null;
@@ -221,6 +221,17 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
+        if (requiredProperties != null) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "requiredPropertiesType";
+            extraSchema.requiredProperties = requiredProperties;
+            if (requiredProperties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+
         if (refInfo != null && level > 0) {
             // do not add ref to schemas
             return;

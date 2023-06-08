@@ -15,9 +15,13 @@
                     {{#eq instanceType "propertiesType" }}
 {{> components/schemas/_helper_properties_type }}
                     {{else}}
-                        {{#eq instanceType "importsType" }}
+                        {{#eq instanceType "requiredPropertiesType" }}
+{{> components/schemas/_helper_required_properties_type }}
+                        {{else}}
+                            {{#eq instanceType "importsType" }}
 
 {{> _helper_imports }}
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
