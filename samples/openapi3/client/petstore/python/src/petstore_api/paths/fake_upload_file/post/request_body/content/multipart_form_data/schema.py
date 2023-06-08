@@ -35,7 +35,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "additionalMetadata": typing.Union[
             AdditionalMetadata[str],
-            schemas.Unset,
             str
         ],
     },
@@ -97,7 +96,7 @@ class Schema(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Schema[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:

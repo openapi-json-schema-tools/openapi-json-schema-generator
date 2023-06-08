@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "client": typing.Union[
             Client[str],
-            schemas.Unset,
             str
         ],
     },
@@ -74,7 +73,7 @@ class Client(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Client[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Client[frozendict.frozendict]:

@@ -90,7 +90,6 @@ DictInput = typing_extensions.TypedDict(
             SomeProp[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -166,7 +165,7 @@ class ObjectWithInlineCompositionProperty(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjectWithInlineCompositionProperty[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInlineCompositionProperty[frozendict.frozendict]:

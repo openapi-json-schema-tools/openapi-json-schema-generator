@@ -65,7 +65,7 @@ class ObjectWithDecimalProperties(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjectWithDecimalProperties[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:
@@ -96,17 +96,14 @@ DictInput = typing_extensions.TypedDict(
     {
         "length": typing.Union[
             decimal_payload.DecimalPayload[str],
-            schemas.Unset,
             str
         ],
         "width": typing.Union[
             Width[str],
-            schemas.Unset,
             str
         ],
         "cost": typing.Union[
             money.Money[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],

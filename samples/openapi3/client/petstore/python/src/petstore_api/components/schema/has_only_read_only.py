@@ -24,12 +24,10 @@ DictInput = typing_extensions.TypedDict(
     {
         "bar": typing.Union[
             Bar[str],
-            schemas.Unset,
             str
         ],
         "foo": typing.Union[
             Foo[str],
-            schemas.Unset,
             str
         ],
     },
@@ -85,7 +83,7 @@ class HasOnlyReadOnly(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            HasOnlyReadOnly[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> HasOnlyReadOnly[frozendict.frozendict]:

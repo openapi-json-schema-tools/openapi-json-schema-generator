@@ -56,7 +56,7 @@ class Foo(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Foo[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Foo[frozendict.frozendict]:
@@ -84,7 +84,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "bar": typing.Union[
             bar.Bar[str],
-            schemas.Unset,
             str
         ],
     },

@@ -249,7 +249,7 @@ class MapTest(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            MapTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapTest[frozendict.frozendict]:
@@ -280,25 +280,21 @@ DictInput = typing_extensions.TypedDict(
     {
         "map_map_of_string": typing.Union[
             MapMapOfString[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "map_of_enum_string": typing.Union[
             MapOfEnumString[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "direct_map": typing.Union[
             DirectMap[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "indirect_map": typing.Union[
             string_boolean_map.StringBooleanMap[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],

@@ -55,12 +55,10 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "hasBaleen": typing.Union[
             HasBaleen[schemas.BoolClass],
-            schemas.Unset,
             bool
         ],
         "hasTeeth": typing.Union[
             HasTeeth[schemas.BoolClass],
-            schemas.Unset,
             bool
         ],
     },
@@ -131,7 +129,7 @@ class Whale(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Whale[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Whale[frozendict.frozendict]:

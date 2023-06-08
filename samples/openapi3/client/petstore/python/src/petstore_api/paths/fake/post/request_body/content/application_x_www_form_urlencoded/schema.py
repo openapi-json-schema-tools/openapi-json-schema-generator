@@ -196,61 +196,51 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "integer": typing.Union[
             Integer[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "int32": typing.Union[
             Int32[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "int64": typing.Union[
             Int64[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "float": typing.Union[
             _Float[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
         ],
         "string": typing.Union[
             String[str],
-            schemas.Unset,
             str
         ],
         "binary": typing.Union[
             Binary[typing.Union[bytes, schemas.FileIO]],
-            schemas.Unset,
             bytes,
             io.FileIO,
             io.BufferedReader
         ],
         "date": typing.Union[
             Date[str],
-            schemas.Unset,
             str,
             datetime.date
         ],
         "dateTime": typing.Union[
             DateTime[str],
-            schemas.Unset,
             str,
             datetime.datetime
         ],
         "password": typing.Union[
             Password[str],
-            schemas.Unset,
             str
         ],
         "callback": typing.Union[
             Callback[str],
-            schemas.Unset,
             str
         ],
     },
@@ -375,7 +365,7 @@ class Schema(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Schema[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:

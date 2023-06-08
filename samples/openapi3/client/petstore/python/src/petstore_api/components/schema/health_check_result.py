@@ -71,7 +71,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 str
             ]],
-            schemas.Unset,
             None,
             str
         ],
@@ -129,7 +128,7 @@ class HealthCheckResult(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            HealthCheckResult[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> HealthCheckResult[frozendict.frozendict]:

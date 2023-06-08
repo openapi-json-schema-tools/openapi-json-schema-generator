@@ -97,7 +97,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "ArrayArrayNumber": typing.Union[
             ArrayArrayNumber[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
@@ -150,7 +149,7 @@ class ArrayOfArrayOfNumberOnly(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ArrayOfArrayOfNumberOnly[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnly[frozendict.frozendict]:

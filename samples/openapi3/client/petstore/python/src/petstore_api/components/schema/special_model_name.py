@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "a": typing.Union[
             A[str],
-            schemas.Unset,
             str
         ],
     },
@@ -76,7 +75,7 @@ class SpecialModelName(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            SpecialModelName[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SpecialModelName[frozendict.frozendict]:

@@ -26,18 +26,15 @@ DictInput = typing_extensions.TypedDict(
     {
         "code": typing.Union[
             Code[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "type": typing.Union[
             Type[str],
-            schemas.Unset,
             str
         ],
         "message": typing.Union[
             Message[str],
-            schemas.Unset,
             str
         ],
     },
@@ -97,7 +94,7 @@ class ApiResponse(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ApiResponse[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ApiResponse[frozendict.frozendict]:

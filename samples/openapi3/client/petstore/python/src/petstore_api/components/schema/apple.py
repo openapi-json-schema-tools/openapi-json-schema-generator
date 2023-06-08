@@ -62,7 +62,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "origin": typing.Union[
             Origin[str],
-            schemas.Unset,
             str
         ],
     },

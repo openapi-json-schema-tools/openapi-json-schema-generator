@@ -36,13 +36,11 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "snake_case": typing.Union[
             SnakeCase[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "property": typing.Union[
             _Property[str],
-            schemas.Unset,
             str
         ],
     },

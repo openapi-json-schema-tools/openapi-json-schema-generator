@@ -24,13 +24,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "someProp": typing.Union[
             SomeProp[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "someprop": typing.Union[
             Someprop[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -89,7 +87,7 @@ class ObjectWithCollidingProperties(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjectWithCollidingProperties[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithCollidingProperties[frozendict.frozendict]:

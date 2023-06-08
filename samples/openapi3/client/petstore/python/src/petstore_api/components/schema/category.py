@@ -45,7 +45,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "id": typing.Union[
             Id[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
@@ -113,7 +112,7 @@ class Category(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Category[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Category[frozendict.frozendict]:

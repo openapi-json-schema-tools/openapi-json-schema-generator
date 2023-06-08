@@ -80,19 +80,16 @@ DictInput = typing_extensions.TypedDict(
     {
         "uuid": typing.Union[
             Uuid[str],
-            schemas.Unset,
             str,
             uuid.UUID
         ],
         "dateTime": typing.Union[
             DateTime[str],
-            schemas.Unset,
             str,
             datetime.datetime
         ],
         "map": typing.Union[
             Map[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -153,7 +150,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:

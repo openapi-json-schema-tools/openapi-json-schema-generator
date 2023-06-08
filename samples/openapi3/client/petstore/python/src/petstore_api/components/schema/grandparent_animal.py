@@ -87,7 +87,7 @@ class GrandparentAnimal(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            GrandparentAnimal[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> GrandparentAnimal[frozendict.frozendict]:

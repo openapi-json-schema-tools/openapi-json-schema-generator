@@ -34,7 +34,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "mealy": typing.Union[
             Mealy[schemas.BoolClass],
-            schemas.Unset,
             bool
         ],
     },
@@ -89,7 +88,7 @@ class AppleReq(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            AppleReq[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AppleReq[frozendict.frozendict]:

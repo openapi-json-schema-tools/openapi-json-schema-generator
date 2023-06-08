@@ -211,7 +211,7 @@ class Pet(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Pet[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Pet[frozendict.frozendict]:
@@ -245,25 +245,21 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "id": typing.Union[
             Id[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "category": typing.Union[
             category.Category[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "tags": typing.Union[
             Tags[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
         "status": typing.Union[
             Status[str],
-            schemas.Unset,
             str
         ],
     },

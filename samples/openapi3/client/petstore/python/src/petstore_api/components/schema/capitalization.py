@@ -32,32 +32,26 @@ DictInput = typing_extensions.TypedDict(
     {
         "smallCamel": typing.Union[
             SmallCamel[str],
-            schemas.Unset,
             str
         ],
         "CapitalCamel": typing.Union[
             CapitalCamel[str],
-            schemas.Unset,
             str
         ],
         "small_Snake": typing.Union[
             SmallSnake[str],
-            schemas.Unset,
             str
         ],
         "Capital_Snake": typing.Union[
             CapitalSnake[str],
-            schemas.Unset,
             str
         ],
         "SCA_ETH_Flow_Points": typing.Union[
             SCAETHFlowPoints[str],
-            schemas.Unset,
             str
         ],
         "ATT_NAME": typing.Union[
             ATTNAME[str],
-            schemas.Unset,
             str
         ],
     },
@@ -129,7 +123,7 @@ class Capitalization(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Capitalization[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Capitalization[frozendict.frozendict]:

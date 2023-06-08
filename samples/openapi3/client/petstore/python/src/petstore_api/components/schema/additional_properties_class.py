@@ -281,13 +281,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "map_property": typing.Union[
             MapProperty[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "map_of_map_property": typing.Union[
             MapOfMapProperty[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -295,7 +293,6 @@ DictInput = typing_extensions.TypedDict(
             Anytype1[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -315,31 +312,26 @@ DictInput = typing_extensions.TypedDict(
         ],
         "map_with_undeclared_properties_anytype_1": typing.Union[
             MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "map_with_undeclared_properties_anytype_2": typing.Union[
             MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "map_with_undeclared_properties_anytype_3": typing.Union[
             MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "empty_map": typing.Union[
             EmptyMap[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "map_with_undeclared_properties_string": typing.Union[
             MapWithUndeclaredPropertiesString[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -429,7 +421,7 @@ class AdditionalPropertiesClass(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            AdditionalPropertiesClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:

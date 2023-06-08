@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "JustNumber": typing.Union[
             JustNumber[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
@@ -76,7 +75,7 @@ class NumberOnly(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            NumberOnly[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NumberOnly[frozendict.frozendict]:

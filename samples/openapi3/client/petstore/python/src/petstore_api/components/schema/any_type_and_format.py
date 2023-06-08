@@ -494,7 +494,6 @@ DictInput = typing_extensions.TypedDict(
             Uuid[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -516,7 +515,6 @@ DictInput = typing_extensions.TypedDict(
             Date[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -538,7 +536,6 @@ DictInput = typing_extensions.TypedDict(
             DateTime[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -560,7 +557,6 @@ DictInput = typing_extensions.TypedDict(
             Number[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -582,7 +578,6 @@ DictInput = typing_extensions.TypedDict(
             Binary[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -604,7 +599,6 @@ DictInput = typing_extensions.TypedDict(
             Int32[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -626,7 +620,6 @@ DictInput = typing_extensions.TypedDict(
             Int64[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -648,7 +641,6 @@ DictInput = typing_extensions.TypedDict(
             Double[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -670,7 +662,6 @@ DictInput = typing_extensions.TypedDict(
             _Float[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -850,7 +841,7 @@ class AnyTypeAndFormat(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            AnyTypeAndFormat[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormat[frozendict.frozendict]:

@@ -158,7 +158,7 @@ class Drawing(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Drawing[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Drawing[frozendict.frozendict]:
@@ -194,7 +194,6 @@ DictInput = typing_extensions.TypedDict(
             shape.Shape[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -216,7 +215,6 @@ DictInput = typing_extensions.TypedDict(
             shape_or_null.ShapeOrNull[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -238,7 +236,6 @@ DictInput = typing_extensions.TypedDict(
             nullable_shape.NullableShape[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -258,7 +255,6 @@ DictInput = typing_extensions.TypedDict(
         ],
         "shapes": typing.Union[
             Shapes[tuple],
-            schemas.Unset,
             list,
             tuple
         ],

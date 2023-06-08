@@ -79,7 +79,7 @@ class ObjWithRequiredPropsBase(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjWithRequiredPropsBase[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredPropsBase[frozendict.frozendict]:

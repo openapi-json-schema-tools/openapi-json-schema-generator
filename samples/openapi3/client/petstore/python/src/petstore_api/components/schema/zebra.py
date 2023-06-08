@@ -84,7 +84,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "type": typing.Union[
             Type[str],
-            schemas.Unset,
             str
         ],
     },
@@ -152,7 +151,7 @@ class Zebra(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Zebra[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Zebra[frozendict.frozendict]:

@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "breed": typing.Union[
             Breed[str],
-            schemas.Unset,
             str
         ],
     },
@@ -69,7 +68,7 @@ class _1(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            _1[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:

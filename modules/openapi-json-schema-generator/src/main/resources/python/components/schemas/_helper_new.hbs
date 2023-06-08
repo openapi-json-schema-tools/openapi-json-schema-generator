@@ -21,7 +21,7 @@ def __new__(
             {{#if requiredAndOptionalProperties}}
     arg_: typing.Union[
         {{requiredAndOptionalProperties.jsonPathPiece.camelCase}},
-        typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        {{jsonPathPiece.camelCase}}[frozendict.frozendict],
     ],
             {{else}}
                 {{#if additionalProperties}}

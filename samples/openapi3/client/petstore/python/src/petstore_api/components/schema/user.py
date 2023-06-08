@@ -144,49 +144,40 @@ DictInput = typing_extensions.TypedDict(
     {
         "id": typing.Union[
             Id[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "username": typing.Union[
             Username[str],
-            schemas.Unset,
             str
         ],
         "firstName": typing.Union[
             FirstName[str],
-            schemas.Unset,
             str
         ],
         "lastName": typing.Union[
             LastName[str],
-            schemas.Unset,
             str
         ],
         "email": typing.Union[
             Email[str],
-            schemas.Unset,
             str
         ],
         "password": typing.Union[
             Password[str],
-            schemas.Unset,
             str
         ],
         "phone": typing.Union[
             Phone[str],
-            schemas.Unset,
             str
         ],
         "userStatus": typing.Union[
             UserStatus[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "objectWithNoDeclaredProps": typing.Union[
             ObjectWithNoDeclaredProps[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -195,7 +186,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 frozendict.frozendict
             ]],
-            schemas.Unset,
             None,
             dict,
             frozendict.frozendict
@@ -204,7 +194,6 @@ DictInput = typing_extensions.TypedDict(
             AnyTypeProp[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -226,7 +215,6 @@ DictInput = typing_extensions.TypedDict(
             AnyTypeExceptNullProp[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -248,7 +236,6 @@ DictInput = typing_extensions.TypedDict(
             AnyTypePropNullable[
                 schemas.INPUT_BASE_TYPES
             ],
-            schemas.Unset,
             dict,
             frozendict.frozendict,
             str,
@@ -393,7 +380,7 @@ class User(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            User[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> User[frozendict.frozendict]:

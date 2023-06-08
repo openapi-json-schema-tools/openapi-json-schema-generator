@@ -97,7 +97,7 @@ class FileSchemaTestClass(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            FileSchemaTestClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClass[frozendict.frozendict]:
@@ -126,13 +126,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "file": typing.Union[
             file.File[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
         "files": typing.Union[
             Files[tuple],
-            schemas.Unset,
             list,
             tuple
         ],

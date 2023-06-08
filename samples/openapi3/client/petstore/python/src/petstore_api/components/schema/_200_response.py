@@ -24,13 +24,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "name": typing.Union[
             Name[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "class": typing.Union[
             _Class[str],
-            schemas.Unset,
             str
         ],
     },

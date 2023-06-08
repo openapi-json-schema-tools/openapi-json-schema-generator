@@ -117,13 +117,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "enum_form_string_array": typing.Union[
             EnumFormStringArray[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
         "enum_form_string": typing.Union[
             EnumFormString[str],
-            schemas.Unset,
             str
         ],
     },
@@ -174,7 +172,7 @@ class Schema(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Schema[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:

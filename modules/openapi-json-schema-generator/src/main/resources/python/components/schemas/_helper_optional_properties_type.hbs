@@ -5,11 +5,11 @@
             {{#with this}}
                 {{#if refInfo.refClass}}
         "{{{@key.original}}}": typing.Union[
-            {{> components/schemas/_helper_new_ref_property_value_type optional=true }}
+            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
         ],
                 {{else}}
         "{{{@key.original}}}": typing.Union[
-            {{> components/schemas/_helper_new_property_value_type optional=true }}
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
         ],
                 {{/if}}
             {{/with}}

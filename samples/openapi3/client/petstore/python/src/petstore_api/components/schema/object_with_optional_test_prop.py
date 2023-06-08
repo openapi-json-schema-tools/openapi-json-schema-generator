@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "test": typing.Union[
             Test[str],
-            schemas.Unset,
             str
         ],
     },
@@ -74,7 +73,7 @@ class ObjectWithOptionalTestProp(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjectWithOptionalTestProp[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOptionalTestProp[frozendict.frozendict]:

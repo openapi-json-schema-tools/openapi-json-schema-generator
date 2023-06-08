@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "sourceURI": typing.Union[
             SourceURI[str],
-            schemas.Unset,
             str
         ],
     },
@@ -76,7 +75,7 @@ class File(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            File[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> File[frozendict.frozendict]:

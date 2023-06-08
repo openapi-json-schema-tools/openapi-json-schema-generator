@@ -74,36 +74,30 @@ DictInput = typing_extensions.TypedDict(
     {
         "id": typing.Union[
             Id[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "petId": typing.Union[
             PetId[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "quantity": typing.Union[
             Quantity[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "shipDate": typing.Union[
             ShipDate[str],
-            schemas.Unset,
             str,
             datetime.datetime
         ],
         "status": typing.Union[
             Status[str],
-            schemas.Unset,
             str
         ],
         "complete": typing.Union[
             Complete[schemas.BoolClass],
-            schemas.Unset,
             bool
         ],
     },
@@ -175,7 +169,7 @@ class Order(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Order[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Order[frozendict.frozendict]:

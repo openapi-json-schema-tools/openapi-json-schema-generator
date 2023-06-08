@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "return": typing.Union[
             _Return[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],

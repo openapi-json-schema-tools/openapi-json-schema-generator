@@ -103,7 +103,7 @@ class JSONPatchRequestRemove(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            JSONPatchRequestRemove[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestRemove[frozendict.frozendict]:

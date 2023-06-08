@@ -223,7 +223,7 @@ class EnumTest(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            EnumTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumTest[frozendict.frozendict]:
@@ -263,18 +263,15 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "enum_string": typing.Union[
             EnumString[str],
-            schemas.Unset,
             str
         ],
         "enum_integer": typing.Union[
             EnumInteger[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "enum_number": typing.Union[
             EnumNumber[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
@@ -284,30 +281,25 @@ OptionalDictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 str
             ]],
-            schemas.Unset,
             None,
             str
         ],
         "IntegerEnum": typing.Union[
             integer_enum.IntegerEnum[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "StringEnumWithDefaultValue": typing.Union[
             string_enum_with_default_value.StringEnumWithDefaultValue[str],
-            schemas.Unset,
             str
         ],
         "IntegerEnumWithDefaultValue": typing.Union[
             integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "IntegerEnumOneValue": typing.Union[
             integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],

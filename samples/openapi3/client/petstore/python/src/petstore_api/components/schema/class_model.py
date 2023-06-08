@@ -22,7 +22,6 @@ DictInput = typing_extensions.TypedDict(
     {
         "_class": typing.Union[
             _Class[str],
-            schemas.Unset,
             str
         ],
     },

@@ -254,105 +254,88 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "integer": typing.Union[
             Integer[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "int32": typing.Union[
             Int32[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "int32withValidations": typing.Union[
             Int32withValidations[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "int64": typing.Union[
             Int64[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "float": typing.Union[
             _Float[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
         ],
         "float32": typing.Union[
             Float32[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
         ],
         "double": typing.Union[
             Double[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
         ],
         "float64": typing.Union[
             Float64[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int,
             float
         ],
         "arrayWithUniqueItems": typing.Union[
             ArrayWithUniqueItems[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
         "string": typing.Union[
             String[str],
-            schemas.Unset,
             str
         ],
         "binary": typing.Union[
             Binary[typing.Union[bytes, schemas.FileIO]],
-            schemas.Unset,
             bytes,
             io.FileIO,
             io.BufferedReader
         ],
         "dateTime": typing.Union[
             DateTime[str],
-            schemas.Unset,
             str,
             datetime.datetime
         ],
         "uuid": typing.Union[
             Uuid[str],
-            schemas.Unset,
             str,
             uuid.UUID
         ],
         "uuidNoExample": typing.Union[
             UuidNoExample[str],
-            schemas.Unset,
             str,
             uuid.UUID
         ],
         "pattern_with_digits": typing.Union[
             PatternWithDigits[str],
-            schemas.Unset,
             str
         ],
         "pattern_with_digits_and_delimiter": typing.Union[
             PatternWithDigitsAndDelimiter[str],
-            schemas.Unset,
             str
         ],
         "noneProp": typing.Union[
             NoneProp[schemas.NoneClass],
-            schemas.Unset,
             None
         ],
     },
@@ -510,7 +493,7 @@ class FormatTest(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            FormatTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FormatTest[frozendict.frozendict]:

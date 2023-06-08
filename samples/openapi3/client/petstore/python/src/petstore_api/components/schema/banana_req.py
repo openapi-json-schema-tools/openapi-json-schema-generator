@@ -36,7 +36,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "sweet": typing.Union[
             Sweet[schemas.BoolClass],
-            schemas.Unset,
             bool
         ],
     },
@@ -91,7 +90,7 @@ class BananaReq(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            BananaReq[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> BananaReq[frozendict.frozendict]:

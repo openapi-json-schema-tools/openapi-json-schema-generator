@@ -63,7 +63,7 @@ class Player(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Player[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Player[frozendict.frozendict]:
@@ -90,12 +90,10 @@ DictInput = typing_extensions.TypedDict(
     {
         "name": typing.Union[
             Name[str],
-            schemas.Unset,
             str
         ],
         "enemyPlayer": typing.Union[
             Player[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],

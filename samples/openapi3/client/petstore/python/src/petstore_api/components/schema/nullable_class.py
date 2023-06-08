@@ -866,7 +866,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 decimal.Decimal
             ]],
-            schemas.Unset,
             None,
             decimal.Decimal,
             int
@@ -876,7 +875,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 decimal.Decimal
             ]],
-            schemas.Unset,
             None,
             decimal.Decimal,
             int,
@@ -887,7 +885,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 schemas.BoolClass
             ]],
-            schemas.Unset,
             None,
             bool
         ],
@@ -896,7 +893,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 str
             ]],
-            schemas.Unset,
             None,
             str
         ],
@@ -905,7 +901,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 str
             ]],
-            schemas.Unset,
             None,
             str,
             datetime.date
@@ -915,7 +910,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 str
             ]],
-            schemas.Unset,
             None,
             str,
             datetime.datetime
@@ -925,7 +919,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 tuple
             ]],
-            schemas.Unset,
             None,
             list,
             tuple
@@ -935,14 +928,12 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 tuple
             ]],
-            schemas.Unset,
             None,
             list,
             tuple
         ],
         "array_items_nullable": typing.Union[
             ArrayItemsNullable[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
@@ -951,7 +942,6 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 frozendict.frozendict
             ]],
-            schemas.Unset,
             None,
             dict,
             frozendict.frozendict
@@ -961,14 +951,12 @@ DictInput = typing_extensions.TypedDict(
                 schemas.NoneClass,
                 frozendict.frozendict
             ]],
-            schemas.Unset,
             None,
             dict,
             frozendict.frozendict
         ],
         "object_items_nullable": typing.Union[
             ObjectItemsNullable[frozendict.frozendict],
-            schemas.Unset,
             dict,
             frozendict.frozendict
         ],
@@ -1090,7 +1078,7 @@ class NullableClass(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            NullableClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NullableClass[frozendict.frozendict]:

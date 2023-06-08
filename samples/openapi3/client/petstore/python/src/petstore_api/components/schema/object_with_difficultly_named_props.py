@@ -35,13 +35,11 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "$special[property.name]": typing.Union[
             SpecialPropertyName[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "123Number": typing.Union[
             _123Number[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
@@ -111,7 +109,7 @@ class ObjectWithDifficultlyNamedProps(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ObjectWithDifficultlyNamedProps[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDifficultlyNamedProps[frozendict.frozendict]:

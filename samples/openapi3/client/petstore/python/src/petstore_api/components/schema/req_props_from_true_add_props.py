@@ -143,7 +143,7 @@ class ReqPropsFromTrueAddProps(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ReqPropsFromTrueAddProps[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromTrueAddProps[frozendict.frozendict]:

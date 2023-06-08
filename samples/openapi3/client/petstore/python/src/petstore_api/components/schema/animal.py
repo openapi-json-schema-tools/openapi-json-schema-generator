@@ -45,7 +45,6 @@ OptionalDictInput = typing_extensions.TypedDict(
     {
         "color": typing.Union[
             Color[str],
-            schemas.Unset,
             str
         ],
     },
@@ -120,7 +119,7 @@ class Animal(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Animal[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Animal[frozendict.frozendict]:

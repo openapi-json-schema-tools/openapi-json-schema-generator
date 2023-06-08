@@ -209,19 +209,16 @@ DictInput = typing_extensions.TypedDict(
     {
         "array_of_string": typing.Union[
             ArrayOfString[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
         "array_array_of_integer": typing.Union[
             ArrayArrayOfInteger[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
         "array_array_of_model": typing.Union[
             ArrayArrayOfModel[tuple],
-            schemas.Unset,
             list,
             tuple
         ],
@@ -282,7 +279,7 @@ class ArrayTest(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            ArrayTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTest[frozendict.frozendict]:

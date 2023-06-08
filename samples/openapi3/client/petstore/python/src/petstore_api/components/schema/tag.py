@@ -24,13 +24,11 @@ DictInput = typing_extensions.TypedDict(
     {
         "id": typing.Union[
             Id[decimal.Decimal],
-            schemas.Unset,
             decimal.Decimal,
             int
         ],
         "name": typing.Union[
             Name[str],
-            schemas.Unset,
             str
         ],
     },
@@ -86,7 +84,7 @@ class Tag(
         cls,
         arg_: typing.Union[
             DictInput,
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+            Tag[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tag[frozendict.frozendict]:
