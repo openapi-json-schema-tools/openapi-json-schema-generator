@@ -117,6 +117,20 @@ class Status(
     @schemas.classproperty
     def SOLD(cls) -> Status[str]:
         return cls("sold") # type: ignore
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "name": typing.Union[
+            Name[str],
+            str
+        ],
+        "photoUrls": typing.Union[
+            PhotoUrls[tuple],
+            list,
+            tuple
+        ],
+    }
+)
 
 
 class Pet(

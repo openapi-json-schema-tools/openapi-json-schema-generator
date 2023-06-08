@@ -19,6 +19,17 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[File],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "file": typing.Union[
+            File[typing.Union[bytes, schemas.FileIO]],
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    }
+)
 
 
 class Schema(

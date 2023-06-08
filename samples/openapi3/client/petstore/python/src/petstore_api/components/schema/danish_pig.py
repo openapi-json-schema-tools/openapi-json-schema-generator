@@ -37,6 +37,15 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "className": typing.Union[
+            ClassName[str],
+            str
+        ],
+    }
+)
 
 
 class DanishPig(

@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "lengthCm": typing.Type[LengthCm],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "lengthCm": typing.Union[
+            LengthCm[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+    }
+)
 
 
 class Banana(

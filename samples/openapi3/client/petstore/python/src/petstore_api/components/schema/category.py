@@ -31,6 +31,15 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "name": typing.Union[
+            Name[str],
+            str
+        ],
+    }
+)
 
 
 class Category(

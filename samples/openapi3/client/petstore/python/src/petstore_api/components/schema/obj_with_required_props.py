@@ -17,6 +17,15 @@ Properties = typing_extensions.TypedDict(
         "a": typing.Type[A],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "a": typing.Union[
+            A[str],
+            str
+        ],
+    }
+)
 
 
 class ObjWithRequiredProps(

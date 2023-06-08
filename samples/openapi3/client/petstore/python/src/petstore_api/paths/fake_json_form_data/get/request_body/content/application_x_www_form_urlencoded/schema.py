@@ -19,6 +19,19 @@ Properties = typing_extensions.TypedDict(
         "param2": typing.Type[Param2],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "param": typing.Union[
+            Param[str],
+            str
+        ],
+        "param2": typing.Union[
+            Param2[str],
+            str
+        ],
+    }
+)
 
 
 class Schema(

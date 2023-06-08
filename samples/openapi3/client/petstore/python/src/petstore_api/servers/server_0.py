@@ -73,6 +73,19 @@ Properties = typing_extensions.TypedDict(
         "port": typing.Type[Port],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "port": typing.Union[
+            Port[str],
+            str
+        ],
+        "server": typing.Union[
+            Server[str],
+            str
+        ],
+    }
+)
 
 
 class Variables(

@@ -48,6 +48,15 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "cultivar": typing.Union[
+            Cultivar[str],
+            str
+        ],
+    }
+)
 
 
 class Apple(

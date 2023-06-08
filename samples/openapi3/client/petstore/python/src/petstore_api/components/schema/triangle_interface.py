@@ -39,6 +39,19 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "shapeType": typing.Union[
+            ShapeType[str],
+            str
+        ],
+        "triangleType": typing.Union[
+            TriangleType[str],
+            str
+        ],
+    }
+)
 
 
 class TriangleInterface(

@@ -11,6 +11,19 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "invalid-name": typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+        "validName": typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+    }
+)
 
 
 class ReqPropsFromExplicitAddProps(

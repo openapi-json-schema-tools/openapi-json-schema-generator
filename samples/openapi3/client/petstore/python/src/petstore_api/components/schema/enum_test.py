@@ -126,6 +126,15 @@ class EnumNumber(
     @schemas.classproperty
     def NEGATIVE_1_PT_2(cls) -> EnumNumber[decimal.Decimal]:
         return cls(-1.2) # type: ignore
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "enum_string_required": typing.Union[
+            EnumStringRequired[str],
+            str
+        ],
+    }
+)
 
 
 class EnumTest(

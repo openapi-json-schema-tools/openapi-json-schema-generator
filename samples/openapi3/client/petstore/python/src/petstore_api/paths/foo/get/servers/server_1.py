@@ -40,6 +40,15 @@ Properties = typing_extensions.TypedDict(
         "version": typing.Type[Version],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "version": typing.Union[
+            Version[str],
+            str
+        ],
+    }
+)
 
 
 class Variables(

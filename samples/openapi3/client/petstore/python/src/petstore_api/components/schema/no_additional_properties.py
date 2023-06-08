@@ -20,6 +20,16 @@ Properties = typing_extensions.TypedDict(
         "petId": typing.Type[PetId],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+    }
+)
 
 
 class NoAdditionalProperties(

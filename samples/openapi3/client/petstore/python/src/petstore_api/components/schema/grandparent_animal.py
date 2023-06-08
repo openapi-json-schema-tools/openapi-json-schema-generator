@@ -17,6 +17,15 @@ Properties = typing_extensions.TypedDict(
         "pet_type": typing.Type[PetType],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "pet_type": typing.Union[
+            PetType[str],
+            str
+        ],
+    }
+)
 
 
 class GrandparentAnimal(

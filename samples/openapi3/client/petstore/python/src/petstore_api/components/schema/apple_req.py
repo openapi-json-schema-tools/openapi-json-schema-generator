@@ -20,6 +20,15 @@ Properties = typing_extensions.TypedDict(
         "mealy": typing.Type[Mealy],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "cultivar": typing.Union[
+            Cultivar[str],
+            str
+        ],
+    }
+)
 
 
 class AppleReq(

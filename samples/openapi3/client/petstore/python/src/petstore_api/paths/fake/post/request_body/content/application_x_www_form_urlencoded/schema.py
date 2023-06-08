@@ -166,6 +166,31 @@ Properties = typing_extensions.TypedDict(
         "callback": typing.Type[Callback],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "byte": typing.Union[
+            Byte[str],
+            str
+        ],
+        "double": typing.Union[
+            Double[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "number": typing.Union[
+            Number[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "pattern_without_delimiter": typing.Union[
+            PatternWithoutDelimiter[str],
+            str
+        ],
+    }
+)
 
 
 class Schema(

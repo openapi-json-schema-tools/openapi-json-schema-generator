@@ -21,6 +21,15 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "123-list": typing.Union[
+            _123List[str],
+            str
+        ],
+    }
+)
 
 
 class ObjectWithDifficultlyNamedProps(

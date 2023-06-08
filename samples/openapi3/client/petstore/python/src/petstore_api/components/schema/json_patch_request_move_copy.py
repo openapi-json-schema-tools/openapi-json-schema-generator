@@ -47,6 +47,23 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "from": typing.Union[
+            _From[str],
+            str
+        ],
+        "op": typing.Union[
+            Op[str],
+            str
+        ],
+        "path": typing.Union[
+            Path[str],
+            str
+        ],
+    }
+)
 
 
 class JSONPatchRequestMoveCopy(

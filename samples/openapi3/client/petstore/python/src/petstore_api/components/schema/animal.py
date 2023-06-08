@@ -31,6 +31,15 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "className": typing.Union[
+            ClassName[str],
+            str
+        ],
+    }
+)
 
 
 class Animal(

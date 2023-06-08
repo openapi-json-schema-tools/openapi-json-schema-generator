@@ -52,6 +52,40 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "op": typing.Union[
+            Op[str],
+            str
+        ],
+        "path": typing.Union[
+            Path[str],
+            str
+        ],
+        "value": typing.Union[
+            Value[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    }
+)
 
 
 class JSONPatchRequestAddReplaceTest(

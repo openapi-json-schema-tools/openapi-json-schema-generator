@@ -19,6 +19,19 @@ Properties = typing_extensions.TypedDict(
         "args": typing.Type[Args],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "arg": typing.Union[
+            Arg[str],
+            str
+        ],
+        "args": typing.Union[
+            Args[str],
+            str
+        ],
+    }
+)
 
 
 class ObjectModelWithArgAndArgsProperties(

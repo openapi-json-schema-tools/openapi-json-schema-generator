@@ -39,6 +39,19 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "quadrilateralType": typing.Union[
+            QuadrilateralType[str],
+            str
+        ],
+        "shapeType": typing.Union[
+            ShapeType[str],
+            str
+        ],
+    }
+)
 
 
 class QuadrilateralInterface(

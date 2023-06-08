@@ -20,6 +20,17 @@ Properties = typing_extensions.TypedDict(
         "sweet": typing.Type[Sweet],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "lengthCm": typing.Union[
+            LengthCm[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+    }
+)
 
 
 class BananaReq(

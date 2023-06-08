@@ -225,6 +225,30 @@ Properties = typing_extensions.TypedDict(
         "noneProp": typing.Type[NoneProp],
     }
 )
+RequiredProperties = typing_extensions.TypedDict(
+    'RequiredProperties',
+    {
+        "byte": typing.Union[
+            Byte[str],
+            str
+        ],
+        "date": typing.Union[
+            Date[str],
+            str,
+            datetime.date
+        ],
+        "number": typing.Union[
+            Number[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "password": typing.Union[
+            Password[str],
+            str
+        ],
+    }
+)
 
 
 class FormatTest(
