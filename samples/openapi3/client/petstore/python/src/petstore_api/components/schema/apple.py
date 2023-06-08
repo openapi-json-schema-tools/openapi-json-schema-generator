@@ -70,6 +70,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class Apple(
     schemas.NoneBase,
     schemas.DictBase,

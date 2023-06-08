@@ -21,9 +21,16 @@
                             {{#eq instanceType "optionalPropertiesInputType" }}
 {{> components/schemas/_helper_optional_properties_type }}
                             {{else}}
-                                {{#eq instanceType "importsType" }}
+                                {{#eq instanceType "propertiesInputType" }}
+
+
+class {{requiredAndOptionalProperties.jsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
+    pass
+                                {{else}}
+                                    {{#eq instanceType "importsType" }}
 
 {{> _helper_imports }}
+                                    {{/eq}}
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}

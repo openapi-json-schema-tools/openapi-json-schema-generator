@@ -42,6 +42,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class AppleReq(
     schemas.DictSchema[schemas.T]
 ):

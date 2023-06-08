@@ -68,6 +68,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class Whale(
     schemas.DictSchema[schemas.T]
 ):

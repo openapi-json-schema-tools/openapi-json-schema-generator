@@ -85,6 +85,7 @@ public class CodegenSchema {
     public CodegenKey jsonPathPiece;
     public String unescapedDescription;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredAndOptionalProperties;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
@@ -236,6 +237,19 @@ public class CodegenSchema {
             extraSchema.instanceType = "optionalPropertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
             if (optionalProperties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (requiredProperties != null && optionalProperties != null) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "propertiesInputType";
+            extraSchema.optionalProperties = optionalProperties;
+            extraSchema.requiredProperties = requiredProperties;
+            extraSchema.requiredAndOptionalProperties = requiredAndOptionalProperties;
+            boolean allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+            if (allAreInline) {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);

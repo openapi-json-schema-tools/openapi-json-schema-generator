@@ -50,6 +50,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class ObjectWithDifficultlyNamedProps(
     schemas.DictSchema[schemas.T]
 ):

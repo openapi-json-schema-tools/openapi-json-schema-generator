@@ -53,6 +53,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class Animal(
     schemas.DictSchema[schemas.T]
 ):

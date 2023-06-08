@@ -376,3 +376,7 @@ OptionalDictInput = typing_extensions.TypedDict(
     },
     total=False
 )
+
+
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass

@@ -44,6 +44,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class NoAdditionalProperties(
     schemas.DictSchema[schemas.T]
 ):

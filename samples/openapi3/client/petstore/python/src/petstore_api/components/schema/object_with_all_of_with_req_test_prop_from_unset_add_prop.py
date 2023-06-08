@@ -63,6 +63,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class _1(
     schemas.DictSchema[schemas.T]
 ):

@@ -44,6 +44,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class BananaReq(
     schemas.DictSchema[schemas.T]
 ):

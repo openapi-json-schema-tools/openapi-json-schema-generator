@@ -360,6 +360,10 @@ OptionalDictInput = typing_extensions.TypedDict(
 )
 
 
+class DictInput(RequiredDictInput, OptionalDictInput):
+    pass
+
+
 class FormatTest(
     schemas.DictSchema[schemas.T]
 ):

@@ -2291,6 +2291,18 @@ public class DefaultCodegen implements CodegenConfig {
         // ideally requiredProperties would come before properties
         property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath, ((Schema<?>) p).getProperties());
         property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath);
+        LinkedHashMapWithContext reqAndOptionalProps = new LinkedHashMapWithContext<>();
+        if (property.requiredProperties != null && property.optionalProperties == null) {
+            property.requiredAndOptionalProperties = reqAndOptionalProps;
+            property.requiredAndOptionalProperties.setJsonPathPiece(property.requiredProperties.jsonPathPiece());
+        } else if (property.requiredProperties == null && property.optionalProperties != null) {
+            property.requiredAndOptionalProperties = reqAndOptionalProps;
+            property.requiredAndOptionalProperties.setJsonPathPiece(property.optionalProperties.jsonPathPiece());
+        } else if (property.requiredProperties != null && property.optionalProperties != null) {
+            property.requiredAndOptionalProperties = reqAndOptionalProps;
+            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            property.requiredAndOptionalProperties.setJsonPathPiece(jsonPathPiece);
+        }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
         if (currentJsonPath != null) {
