@@ -1,0 +1,19 @@
+{{optionalProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
+    '{{optionalProperties.jsonPathPiece.camelCase}}',
+    {
+        {{#each optionalProperties}}
+            {{#with this}}
+                {{#if refInfo.refClass}}
+        {{@key.original}}: typing.Union[
+            {{> components/schemas/_helper_new_ref_property_value_type optional=true }}
+        ],
+                {{else}}
+        "{{@key.original}}": typing.Union[
+            {{> components/schemas/_helper_new_property_value_type optional=true }}
+        ],
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    },
+    total=False
+)

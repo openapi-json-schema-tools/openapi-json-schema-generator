@@ -221,12 +221,21 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        // todo break them up into separate pieces, required, optional, and combined (if needed)
         if (requiredProperties != null) {
             CodegenSchema extraSchema = new CodegenSchema();
-            extraSchema.instanceType = "propertiesInputType";
+            extraSchema.instanceType = "requiredPropertiesInputType";
             extraSchema.requiredProperties = requiredProperties;
             if (requiredProperties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (optionalProperties != null) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "optionalPropertiesInputType";
+            extraSchema.optionalProperties = optionalProperties;
+            if (optionalProperties.allAreInline()) {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);

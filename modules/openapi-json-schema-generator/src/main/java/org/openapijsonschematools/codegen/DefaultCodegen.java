@@ -3300,14 +3300,17 @@ public class DefaultCodegen implements CodegenConfig {
         if (properties == null) {
             return null;
         }
-        boolean allPropertiesAreRequired = (required.size() == properties.size());
-        if (allPropertiesAreRequired) {
-            return null;
-        }
         if (required.isEmpty()) {
-            return properties;
+            // all properties optional and there is no required
+            LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
+            optionalProperties.putAll(properties);
+            optionalProperties.setAllAreInline(properties.allAreInline());
+            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            optionalProperties.setJsonPathPiece(jsonPathPiece);
+            return optionalProperties;
         }
 
+        // required exists and it can come from addProps or props
         LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
         boolean allAreInline = true;
         for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
@@ -3321,8 +3324,12 @@ public class DefaultCodegen implements CodegenConfig {
             }
             optionalProperties.put(key, prop);
         }
+        if (optionalProperties.isEmpty()) {
+            // no optional props, all required properties came from props
+            return null;
+        }
         optionalProperties.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey("optionalProperties", "schemaProperty", sourceJsonPath);
+        CodegenKey jsonPathPiece = getKey("OptionalDictInput", "schemaProperty", sourceJsonPath);
         optionalProperties.setJsonPathPiece(jsonPathPiece);
         return optionalProperties;
     }
@@ -4366,12 +4373,24 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         /*
+        requiredProperties use cases:
+        - no required properties: null or empty list
+        - requiredProperties + optionalProperties (properties must exist)
+        - requiredProperties + no optionalProperties
+            - 1. requiredPropsWithDefAllFromProp - required all come from properties
+            - 2. requiredPropsWithDefAllFromAddProp - required all come from addProp and there is no properties
+            - 3. required consume all properties and remainder from addProps
         this should be called after vars and additionalProperties are set
         Features added by storing codegenProperty values:
         - refClass stores reference to additionalProperties definition
         - baseName stores original name (can be invalid in a programming language)
         - nameInSnakeCase can store valid name for a programming language
          */
+        boolean requiredPropsWithDefAllFromProp = true;
+        boolean requiredPropsWithDefAllFromAddProp = true;
+        int propReqProps = 0;
+        int addPropReqProps = 0;
+        int reqPropsWithDef = 0;
         LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMapWithContext<>();
         boolean allAreInline = true;
         for (String requiredPropertyName: required) {
@@ -4381,7 +4400,10 @@ public class DefaultCodegen implements CodegenConfig {
                 // get cp from property
                 CodegenSchema prop = properties.get(key);
                 if (prop != null) {
+                    requiredPropsWithDefAllFromAddProp = false;
                     requiredProperties.put(key, prop);
+                    reqPropsWithDef++;
+                    propReqProps++;
                     if (prop.refInfo != null) {
                         allAreInline = false;
                     }
@@ -4397,6 +4419,9 @@ public class DefaultCodegen implements CodegenConfig {
                 // required property is not defined in properties
                 if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {
                     CodegenSchema prop;
+                    requiredPropsWithDefAllFromProp = false;
+                    reqPropsWithDef++;
+                    addPropReqProps++;
                     if (additionalProperties == null) {
                         // additionalProperties is null
                         // there is NO schema definition for this so the json paths are null
@@ -4417,8 +4442,17 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
+        String keyName;
+        boolean onlyReqPropsCase1 = (requiredPropsWithDefAllFromProp && properties != null && requiredProperties.size() == properties.size());
+        boolean onlyReqPropsCase2 = (requiredPropsWithDefAllFromAddProp && properties == null);
+        boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && requiredProperties.size() == properties.size());
+        if (onlyReqPropsCase1 || onlyReqPropsCase2 || onlyReqPropsCase3) {
+            keyName = "DictInput";
+        } else {
+            keyName = "RequiredDictInput";
+        }
         requiredProperties.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey("requiredProperties", "schemaProperty", sourceJsonPath);
+        CodegenKey jsonPathPiece = getKey(keyName, "schemaProperty", sourceJsonPath);
         requiredProperties.setJsonPathPiece(jsonPathPiece);
         return requiredProperties;
     }
