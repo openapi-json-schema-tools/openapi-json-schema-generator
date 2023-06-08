@@ -170,7 +170,10 @@ class EnumArrays(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         just_symbol: typing.Union[
             JustSymbol[str],
             schemas.Unset,

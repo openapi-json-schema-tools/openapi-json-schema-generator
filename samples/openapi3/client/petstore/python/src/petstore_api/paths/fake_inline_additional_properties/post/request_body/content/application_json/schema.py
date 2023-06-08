@@ -29,7 +29,13 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties[str],
+                str
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties[str],

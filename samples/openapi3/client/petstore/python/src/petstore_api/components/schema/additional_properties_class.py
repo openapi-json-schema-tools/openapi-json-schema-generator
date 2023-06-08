@@ -29,7 +29,13 @@ class MapProperty(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties[str],
+                str
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties[str],
@@ -67,7 +73,13 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties3[str],
+                str
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties3[str],
@@ -104,7 +116,14 @@ class MapOfMapProperty(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties2[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties2[frozendict.frozendict],
@@ -155,7 +174,30 @@ class MapWithUndeclaredPropertiesAnytype3(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties4[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties4[
@@ -206,7 +248,7 @@ class EmptyMap(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
     ) -> EmptyMap[frozendict.frozendict]:
         inst = super().__new__(
@@ -239,7 +281,13 @@ class MapWithUndeclaredPropertiesString(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties6[str],
+                str
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties6[str],
@@ -422,7 +470,10 @@ class AdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         map_property: typing.Union[
             MapProperty[frozendict.frozendict],
             schemas.Unset,

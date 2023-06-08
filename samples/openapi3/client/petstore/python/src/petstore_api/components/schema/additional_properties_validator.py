@@ -38,7 +38,30 @@ class _0(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties[
@@ -154,7 +177,30 @@ class _1(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties2[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties2[
@@ -270,7 +316,30 @@ class _2(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties3[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties3[
@@ -333,7 +402,7 @@ class AdditionalPropertiesValidator(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:

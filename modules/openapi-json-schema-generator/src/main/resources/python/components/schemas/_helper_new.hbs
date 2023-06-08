@@ -18,7 +18,32 @@ def __new__(
     ],
         {{/contains}}
         {{#contains types "object"}}
-    *args_: typing.Union[{{> _helper_schema_python_types }}],
+            {{#if requiredAndOptionalProperties}}
+    *arg_: typing.Union[
+        {{requiredAndOptionalProperties.jsonPathPiece.camelCase}},
+        typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+    ],
+            {{else}}
+                {{#if additionalProperties}}
+                    {{#if additionalProperties.isBooleanSchemaFalse }}
+                        {{! additionalProperties is False, empty map allowed}}
+    *arg_: typing.Mapping,
+                    {{else}}
+                        {{! additionalProperties is True/schema}}
+    *arg_: typing.Mapping[
+        str,
+        typing.Union[
+            {{#with additionalProperties}}
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
+            {{/with}}
+        ]
+    ],
+                    {{/if}}
+                {{else}}
+                    {{! additionalProperties is unset}}
+    *arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+                {{/if}}
+            {{/if}}
         {{/contains}}
         {{#contains types "string"}}
     arg_: {{> _helper_schema_python_types }},

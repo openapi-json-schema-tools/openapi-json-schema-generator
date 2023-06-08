@@ -79,7 +79,10 @@ class Banana(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         lengthCm: typing.Union[
             LengthCm[decimal.Decimal],
             decimal.Decimal,

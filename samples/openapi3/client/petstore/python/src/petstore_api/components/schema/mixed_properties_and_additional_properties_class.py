@@ -30,7 +30,30 @@ class Map(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties[
+                    schemas.INPUT_BASE_TYPES
+                ],
+                dict,
+                frozendict.frozendict,
+                str,
+                datetime.date,
+                datetime.datetime,
+                uuid.UUID,
+                int,
+                float,
+                decimal.Decimal,
+                bool,
+                None,
+                list,
+                tuple,
+                bytes,
+                io.FileIO,
+                io.BufferedReader
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             animal.Animal[frozendict.frozendict],
@@ -134,7 +157,10 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         uuid: typing.Union[
             Uuid[str],
             schemas.Unset,

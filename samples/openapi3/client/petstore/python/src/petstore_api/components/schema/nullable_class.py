@@ -842,7 +842,18 @@ class ObjectItemsNullable(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Mapping[
+            str,
+            typing.Union[
+                AdditionalProperties3[typing.Union[
+                    schemas.NoneClass,
+                    frozendict.frozendict
+                ]],
+                None,
+                dict,
+                frozendict.frozendict
+            ]
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             AdditionalProperties3[typing.Union[
@@ -1113,7 +1124,10 @@ class NullableClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         integer_prop: typing.Union[
             IntegerProp[typing.Union[
                 schemas.NoneClass,

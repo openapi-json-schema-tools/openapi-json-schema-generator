@@ -161,7 +161,10 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         someProp: typing.Union[
             SomeProp[
                 schemas.INPUT_BASE_TYPES

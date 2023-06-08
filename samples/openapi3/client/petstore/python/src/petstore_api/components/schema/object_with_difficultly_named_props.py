@@ -109,7 +109,10 @@ class ObjectWithDifficultlyNamedProps(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> ObjectWithDifficultlyNamedProps[frozendict.frozendict]:

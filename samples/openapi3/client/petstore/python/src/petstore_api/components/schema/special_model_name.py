@@ -74,7 +74,10 @@ class SpecialModelName(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
+        *arg_: typing.Union[
+            DictInput,
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        ],
         a: typing.Union[
             A[str],
             schemas.Unset,
