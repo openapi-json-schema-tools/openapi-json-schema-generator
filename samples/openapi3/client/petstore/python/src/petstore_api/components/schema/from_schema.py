@@ -19,6 +19,23 @@ Properties = typing_extensions.TypedDict(
         "id": typing.Type[Id],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "data": typing.Union[
+            Data[str],
+            schemas.Unset,
+            str
+        ],
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
+)
 
 
 class FromSchema(

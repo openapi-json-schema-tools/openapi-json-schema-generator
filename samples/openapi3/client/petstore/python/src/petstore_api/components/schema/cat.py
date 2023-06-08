@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "declawed": typing.Type[Declawed],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "declawed": typing.Union[
+            Declawed[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
+)
 
 
 class _1(

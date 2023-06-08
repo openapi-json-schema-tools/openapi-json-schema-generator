@@ -41,14 +41,30 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "className": typing.Union[
             ClassName[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "hasBaleen": typing.Union[
+            HasBaleen[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+        "hasTeeth": typing.Union[
+            HasTeeth[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
 )
 
 

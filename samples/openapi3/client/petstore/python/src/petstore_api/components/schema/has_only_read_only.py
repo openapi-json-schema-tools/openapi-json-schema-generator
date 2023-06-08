@@ -19,6 +19,22 @@ Properties = typing_extensions.TypedDict(
         "foo": typing.Type[Foo],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "bar": typing.Union[
+            Bar[str],
+            schemas.Unset,
+            str
+        ],
+        "foo": typing.Union[
+            Foo[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class HasOnlyReadOnly(

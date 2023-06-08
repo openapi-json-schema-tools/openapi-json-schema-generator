@@ -69,6 +69,46 @@ Properties = typing_extensions.TypedDict(
         "complete": typing.Type[Complete],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "petId": typing.Union[
+            PetId[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "quantity": typing.Union[
+            Quantity[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "shipDate": typing.Union[
+            ShipDate[str],
+            schemas.Unset,
+            str,
+            datetime.datetime
+        ],
+        "status": typing.Union[
+            Status[str],
+            schemas.Unset,
+            str
+        ],
+        "complete": typing.Union[
+            Complete[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
+)
 
 
 class Order(

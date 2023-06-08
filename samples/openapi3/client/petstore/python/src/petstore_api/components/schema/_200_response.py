@@ -19,6 +19,23 @@ Properties = typing_extensions.TypedDict(
         "class": typing.Type[_Class],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "name": typing.Union[
+            Name[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "class": typing.Union[
+            _Class[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class _200Response(

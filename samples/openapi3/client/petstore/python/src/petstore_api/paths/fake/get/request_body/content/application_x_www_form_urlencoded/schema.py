@@ -112,6 +112,23 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "enum_form_string_array": typing.Union[
+            EnumFormStringArray[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+        "enum_form_string": typing.Union[
+            EnumFormString[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

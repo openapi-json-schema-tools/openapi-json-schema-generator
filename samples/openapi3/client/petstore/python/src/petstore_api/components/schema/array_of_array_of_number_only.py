@@ -92,6 +92,18 @@ Properties = typing_extensions.TypedDict(
         "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "ArrayArrayNumber": typing.Union[
+            ArrayArrayNumber[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
 
 
 class ArrayOfArrayOfNumberOnly(

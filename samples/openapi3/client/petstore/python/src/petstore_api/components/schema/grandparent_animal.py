@@ -17,8 +17,8 @@ Properties = typing_extensions.TypedDict(
         "pet_type": typing.Type[PetType],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "pet_type": typing.Union[
             PetType[str],

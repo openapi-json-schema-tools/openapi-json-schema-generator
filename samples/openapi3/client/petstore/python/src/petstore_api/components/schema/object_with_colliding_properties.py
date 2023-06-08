@@ -19,6 +19,24 @@ Properties = typing_extensions.TypedDict(
         "someprop": typing.Type[Someprop],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "someProp": typing.Union[
+            SomeProp[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "someprop": typing.Union[
+            Someprop[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)
 
 
 class ObjectWithCollidingProperties(

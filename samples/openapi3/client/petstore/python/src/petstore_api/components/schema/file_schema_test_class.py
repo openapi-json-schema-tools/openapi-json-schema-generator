@@ -134,3 +134,21 @@ Properties = typing_extensions.TypedDict(
         "files": typing.Type[Files],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "file": typing.Union[
+            file.File[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "files": typing.Union[
+            Files[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)

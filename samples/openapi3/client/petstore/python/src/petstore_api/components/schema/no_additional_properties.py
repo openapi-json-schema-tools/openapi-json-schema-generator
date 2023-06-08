@@ -20,8 +20,8 @@ Properties = typing_extensions.TypedDict(
         "petId": typing.Type[PetId],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "id": typing.Union[
             Id[decimal.Decimal],
@@ -29,6 +29,18 @@ RequiredProperties = typing_extensions.TypedDict(
             int
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "petId": typing.Union[
+            PetId[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
 )
 
 

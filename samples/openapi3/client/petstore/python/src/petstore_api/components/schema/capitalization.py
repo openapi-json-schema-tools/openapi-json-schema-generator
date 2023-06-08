@@ -27,6 +27,42 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "smallCamel": typing.Union[
+            SmallCamel[str],
+            schemas.Unset,
+            str
+        ],
+        "CapitalCamel": typing.Union[
+            CapitalCamel[str],
+            schemas.Unset,
+            str
+        ],
+        "small_Snake": typing.Union[
+            SmallSnake[str],
+            schemas.Unset,
+            str
+        ],
+        "Capital_Snake": typing.Union[
+            CapitalSnake[str],
+            schemas.Unset,
+            str
+        ],
+        "SCA_ETH_Flow_Points": typing.Union[
+            SCAETHFlowPoints[str],
+            schemas.Unset,
+            str
+        ],
+        "ATT_NAME": typing.Union[
+            ATTNAME[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Capitalization(

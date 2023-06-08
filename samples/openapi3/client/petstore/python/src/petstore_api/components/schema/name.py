@@ -21,8 +21,8 @@ Properties = typing_extensions.TypedDict(
         "property": typing.Type[_Property],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "name": typing.Union[
             Name[decimal.Decimal],
@@ -30,6 +30,23 @@ RequiredProperties = typing_extensions.TypedDict(
             int
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "snake_case": typing.Union[
+            SnakeCase[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "property": typing.Union[
+            _Property[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )
 
 

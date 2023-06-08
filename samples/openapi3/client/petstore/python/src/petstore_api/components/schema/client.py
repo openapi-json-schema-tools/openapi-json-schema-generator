@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "client": typing.Type[Client],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "client": typing.Union[
+            Client[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Client(

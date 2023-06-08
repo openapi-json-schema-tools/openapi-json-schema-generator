@@ -37,8 +37,8 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "className": typing.Union[
             ClassName[str],

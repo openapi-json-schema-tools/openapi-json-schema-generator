@@ -883,6 +883,123 @@ Properties = typing_extensions.TypedDict(
         "object_items_nullable": typing.Type[ObjectItemsNullable],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "integer_prop": typing.Union[
+            IntegerProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
+            schemas.Unset,
+            None,
+            decimal.Decimal,
+            int
+        ],
+        "number_prop": typing.Union[
+            NumberProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
+            schemas.Unset,
+            None,
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "boolean_prop": typing.Union[
+            BooleanProp[typing.Union[
+                schemas.NoneClass,
+                schemas.BoolClass
+            ]],
+            schemas.Unset,
+            None,
+            bool
+        ],
+        "string_prop": typing.Union[
+            StringProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str
+        ],
+        "date_prop": typing.Union[
+            DateProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str,
+            datetime.date
+        ],
+        "datetime_prop": typing.Union[
+            DatetimeProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str,
+            datetime.datetime
+        ],
+        "array_nullable_prop": typing.Union[
+            ArrayNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
+            schemas.Unset,
+            None,
+            list,
+            tuple
+        ],
+        "array_and_items_nullable_prop": typing.Union[
+            ArrayAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
+            schemas.Unset,
+            None,
+            list,
+            tuple
+        ],
+        "array_items_nullable": typing.Union[
+            ArrayItemsNullable[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+        "object_nullable_prop": typing.Union[
+            ObjectNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            schemas.Unset,
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        "object_and_items_nullable_prop": typing.Union[
+            ObjectAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            schemas.Unset,
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        "object_items_nullable": typing.Union[
+            ObjectItemsNullable[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)
 
 
 class NullableClass(

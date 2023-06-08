@@ -4,11 +4,11 @@
         {{#each optionalProperties}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-        {{@key.original}}: typing.Union[
+        "{{{@key.original}}}": typing.Union[
             {{> components/schemas/_helper_new_ref_property_value_type optional=true }}
         ],
                 {{else}}
-        "{{@key.original}}": typing.Union[
+        "{{{@key.original}}}": typing.Union[
             {{> components/schemas/_helper_new_property_value_type optional=true }}
         ],
                 {{/if}}

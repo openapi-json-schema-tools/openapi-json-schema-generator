@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "color": typing.Union[
+            Color[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Fruit(

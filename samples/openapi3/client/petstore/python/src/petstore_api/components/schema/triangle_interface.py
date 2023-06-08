@@ -39,8 +39,8 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "shapeType": typing.Union[
             ShapeType[str],

@@ -84,3 +84,14 @@ Properties = typing_extensions.TypedDict(
         "bar": typing.Type[bar.Bar],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "bar": typing.Union[
+            bar.Bar[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)

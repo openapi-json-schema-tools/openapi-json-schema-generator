@@ -105,6 +105,23 @@ Properties = typing_extensions.TypedDict(
         "array_enum": typing.Type[ArrayEnum],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "just_symbol": typing.Union[
+            JustSymbol[str],
+            schemas.Unset,
+            str
+        ],
+        "array_enum": typing.Union[
+            ArrayEnum[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
 
 
 class EnumArrays(

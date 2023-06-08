@@ -204,6 +204,30 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "array_of_string": typing.Union[
+            ArrayOfString[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+        "array_array_of_integer": typing.Union[
+            ArrayArrayOfInteger[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+        "array_array_of_model": typing.Union[
+            ArrayArrayOfModel[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
 
 
 class ArrayTest(

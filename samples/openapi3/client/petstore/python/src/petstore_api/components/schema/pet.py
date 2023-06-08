@@ -117,8 +117,8 @@ class Status(
     @schemas.classproperty
     def SOLD(cls) -> Status[str]:
         return cls("sold") # type: ignore
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "name": typing.Union[
             Name[str],
@@ -276,4 +276,33 @@ Properties = typing_extensions.TypedDict(
         "tags": typing.Type[Tags],
         "status": typing.Type[Status],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "category": typing.Union[
+            category.Category[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "tags": typing.Union[
+            Tags[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+        "status": typing.Union[
+            Status[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )

@@ -17,8 +17,8 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "test": typing.Union[
             schemas.AnyTypeSchema[typing.Union[
@@ -49,6 +49,17 @@ RequiredProperties = typing_extensions.TypedDict(
             io.BufferedReader
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "name": typing.Union[
+            Name[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )
 
 
@@ -91,6 +102,9 @@ class _1(
     ]]: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
@@ -106,6 +120,7 @@ class _1(
         self,
         name: typing.Union[
             typing_extensions.Literal["test"],
+            typing_extensions.Literal["name"],
             str
         ]
     ):
@@ -143,6 +158,11 @@ class _1(
             io.FileIO,
             io.BufferedReader
         ],
+        name: typing.Union[
+            Name[str],
+            schemas.Unset,
+            str
+        ] = schemas.unset,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ) -> _1[frozendict.frozendict]:
@@ -150,6 +170,7 @@ class _1(
             cls,
             *args_,
             test=test,
+            name=name,
             configuration_=configuration_,
             **kwargs,
         )

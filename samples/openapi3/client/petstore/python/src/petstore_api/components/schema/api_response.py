@@ -21,6 +21,28 @@ Properties = typing_extensions.TypedDict(
         "message": typing.Type[Message],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "code": typing.Union[
+            Code[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "type": typing.Union[
+            Type[str],
+            schemas.Unset,
+            str
+        ],
+        "message": typing.Union[
+            Message[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class ApiResponse(

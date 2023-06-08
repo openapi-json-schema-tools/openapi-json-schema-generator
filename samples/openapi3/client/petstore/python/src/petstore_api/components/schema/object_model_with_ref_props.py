@@ -112,3 +112,26 @@ Properties = typing_extensions.TypedDict(
         "myBoolean": typing.Type[boolean.Boolean],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "myNumber": typing.Union[
+            number_with_validations.NumberWithValidations[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "myString": typing.Union[
+            string.String[str],
+            schemas.Unset,
+            str
+        ],
+        "myBoolean": typing.Union[
+            boolean.Boolean[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
+)

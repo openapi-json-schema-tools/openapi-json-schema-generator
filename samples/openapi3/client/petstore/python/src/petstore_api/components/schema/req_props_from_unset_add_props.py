@@ -10,8 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "invalid-name": typing.Union[
             schemas.AnyTypeSchema[typing.Union[

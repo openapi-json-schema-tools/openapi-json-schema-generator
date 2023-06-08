@@ -282,3 +282,81 @@ Properties = typing_extensions.TypedDict(
         "shapes": typing.Type[Shapes],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "mainShape": typing.Union[
+            shape.Shape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "shapeOrNull": typing.Union[
+            shape_or_null.ShapeOrNull[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "nullableShape": typing.Union[
+            nullable_shape.NullableShape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "shapes": typing.Union[
+            Shapes[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)

@@ -106,14 +106,14 @@ Properties = typing_extensions.TypedDict(
         "currency": typing.Type[currency.Currency],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "amount": typing.Union[
             Amount[str],
             str
         ],
-        currency: typing.Union[
+        "currency": typing.Union[
             currency.Currency[str],
             str
         ],

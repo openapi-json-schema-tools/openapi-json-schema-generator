@@ -88,15 +88,15 @@ Properties = typing_extensions.TypedDict(
         "!reference": typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
-        !reference: typing.Union[
+        "!reference": typing.Union[
             array_with_validations_in_items.ArrayWithValidationsInItems[tuple],
             list,
             tuple
         ],
-        from: typing.Union[
+        "from": typing.Union[
             from_schema.FromSchema[frozendict.frozendict],
             dict,
             frozendict.frozendict

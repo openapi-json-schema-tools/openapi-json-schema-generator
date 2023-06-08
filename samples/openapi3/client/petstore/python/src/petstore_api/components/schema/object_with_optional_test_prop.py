@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "test": typing.Type[Test],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "test": typing.Union[
+            Test[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class ObjectWithOptionalTestProp(

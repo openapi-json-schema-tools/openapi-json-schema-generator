@@ -80,3 +80,15 @@ Properties = typing_extensions.TypedDict(
         "string": typing.Type[foo.Foo],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "string": typing.Union[
+            foo.Foo[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)

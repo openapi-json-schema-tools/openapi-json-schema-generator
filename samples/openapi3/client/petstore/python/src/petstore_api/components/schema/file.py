@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "sourceURI": typing.Type[SourceURI],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "sourceURI": typing.Union[
+            SourceURI[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class File(

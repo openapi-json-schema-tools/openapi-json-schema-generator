@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "keyword": typing.Type[Keyword],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "keyword": typing.Union[
+            Keyword[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

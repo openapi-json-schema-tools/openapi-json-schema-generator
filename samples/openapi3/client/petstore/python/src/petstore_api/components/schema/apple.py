@@ -48,14 +48,25 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "cultivar": typing.Union[
             Cultivar[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "origin": typing.Union[
+            Origin[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )
 
 

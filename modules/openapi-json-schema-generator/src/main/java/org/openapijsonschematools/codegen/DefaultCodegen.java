@@ -2289,7 +2289,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
         property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
         // ideally requiredProperties would come before properties
-        property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath);
+        property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath, ((Schema<?>) p).getProperties());
         property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 
@@ -4368,7 +4368,7 @@ public class DefaultCodegen implements CodegenConfig {
         );
     }
 
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties) {
         if (required.isEmpty()) {
             return null;
         }
@@ -4445,7 +4445,7 @@ public class DefaultCodegen implements CodegenConfig {
         String keyName;
         boolean onlyReqPropsCase1 = (requiredPropsWithDefAllFromProp && properties != null && requiredProperties.size() == properties.size());
         boolean onlyReqPropsCase2 = (requiredPropsWithDefAllFromAddProp && properties == null);
-        boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && requiredProperties.size() == properties.size());
+        boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && schemaProperties != null && required.containsAll(schemaProperties.keySet()));
         if (onlyReqPropsCase1 || onlyReqPropsCase2 || onlyReqPropsCase3) {
             keyName = "DictInput";
         } else {

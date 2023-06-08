@@ -19,6 +19,24 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[File],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "additionalMetadata": typing.Union[
+            AdditionalMetadata[str],
+            schemas.Unset,
+            str
+        ],
+        "file": typing.Union[
+            File[typing.Union[bytes, schemas.FileIO]],
+            schemas.Unset,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

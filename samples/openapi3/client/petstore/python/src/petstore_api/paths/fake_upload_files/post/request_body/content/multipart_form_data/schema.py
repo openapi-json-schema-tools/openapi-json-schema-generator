@@ -55,6 +55,18 @@ Properties = typing_extensions.TypedDict(
         "files": typing.Type[Files],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "files": typing.Union[
+            Files[tuple],
+            schemas.Unset,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

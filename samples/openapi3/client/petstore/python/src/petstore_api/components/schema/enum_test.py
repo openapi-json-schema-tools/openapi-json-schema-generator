@@ -126,8 +126,8 @@ class EnumNumber(
     @schemas.classproperty
     def NEGATIVE_1_PT_2(cls) -> EnumNumber[decimal.Decimal]:
         return cls(-1.2) # type: ignore
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "enum_string_required": typing.Union[
             EnumStringRequired[str],
@@ -319,4 +319,60 @@ Properties = typing_extensions.TypedDict(
         "IntegerEnumWithDefaultValue": typing.Type[integer_enum_with_default_value.IntegerEnumWithDefaultValue],
         "IntegerEnumOneValue": typing.Type[integer_enum_one_value.IntegerEnumOneValue],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "enum_string": typing.Union[
+            EnumString[str],
+            schemas.Unset,
+            str
+        ],
+        "enum_integer": typing.Union[
+            EnumInteger[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "enum_number": typing.Union[
+            EnumNumber[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "stringEnum": typing.Union[
+            string_enum.StringEnum[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            schemas.Unset,
+            None,
+            str
+        ],
+        "IntegerEnum": typing.Union[
+            integer_enum.IntegerEnum[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "StringEnumWithDefaultValue": typing.Union[
+            string_enum_with_default_value.StringEnumWithDefaultValue[str],
+            schemas.Unset,
+            str
+        ],
+        "IntegerEnumWithDefaultValue": typing.Union[
+            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "IntegerEnumOneValue": typing.Union[
+            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
 )

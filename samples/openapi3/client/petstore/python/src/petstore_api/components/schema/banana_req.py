@@ -20,8 +20,8 @@ Properties = typing_extensions.TypedDict(
         "sweet": typing.Type[Sweet],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "lengthCm": typing.Union[
             LengthCm[decimal.Decimal],
@@ -30,6 +30,17 @@ RequiredProperties = typing_extensions.TypedDict(
             float
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "sweet": typing.Union[
+            Sweet[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
 )
 
 

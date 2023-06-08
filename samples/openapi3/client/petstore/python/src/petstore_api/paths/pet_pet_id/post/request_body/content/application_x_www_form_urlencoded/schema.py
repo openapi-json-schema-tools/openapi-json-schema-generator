@@ -19,6 +19,22 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "name": typing.Union[
+            Name[str],
+            schemas.Unset,
+            str
+        ],
+        "status": typing.Union[
+            Status[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

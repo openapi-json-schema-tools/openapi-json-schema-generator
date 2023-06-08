@@ -37,6 +37,17 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "triangleType": typing.Union[
+            TriangleType[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class _1(

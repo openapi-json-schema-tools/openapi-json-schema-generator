@@ -17,6 +17,18 @@ Properties = typing_extensions.TypedDict(
         "return": typing.Type[_Return],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "return": typing.Union[
+            _Return[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
+)
 
 
 class _Return(

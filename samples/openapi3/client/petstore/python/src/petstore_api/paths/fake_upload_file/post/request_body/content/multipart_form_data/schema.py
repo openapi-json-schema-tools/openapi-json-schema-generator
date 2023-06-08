@@ -19,8 +19,8 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[File],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "file": typing.Union[
             File[typing.Union[bytes, schemas.FileIO]],
@@ -29,6 +29,17 @@ RequiredProperties = typing_extensions.TypedDict(
             io.BufferedReader
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "additionalMetadata": typing.Union[
+            AdditionalMetadata[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )
 
 

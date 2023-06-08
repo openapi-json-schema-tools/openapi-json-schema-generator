@@ -31,14 +31,26 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "name": typing.Union[
             Name[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
 )
 
 

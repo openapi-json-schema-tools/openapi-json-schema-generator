@@ -17,8 +17,8 @@ Properties = typing_extensions.TypedDict(
         "discriminator": typing.Type[Discriminator],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "description": typing.Union[
             schemas.AnyTypeSchema[typing.Union[

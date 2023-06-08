@@ -298,3 +298,33 @@ Properties = typing_extensions.TypedDict(
         "indirect_map": typing.Type[string_boolean_map.StringBooleanMap],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "map_map_of_string": typing.Union[
+            MapMapOfString[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "map_of_enum_string": typing.Union[
+            MapOfEnumString[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "direct_map": typing.Union[
+            DirectMap[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "indirect_map": typing.Union[
+            string_boolean_map.StringBooleanMap[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)

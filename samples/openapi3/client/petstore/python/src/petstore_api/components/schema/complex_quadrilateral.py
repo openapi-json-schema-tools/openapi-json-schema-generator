@@ -37,6 +37,17 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "quadrilateralType": typing.Union[
+            QuadrilateralType[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class _1(

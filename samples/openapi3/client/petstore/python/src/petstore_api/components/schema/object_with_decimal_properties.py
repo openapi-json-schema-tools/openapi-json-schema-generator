@@ -109,3 +109,25 @@ Properties = typing_extensions.TypedDict(
         "cost": typing.Type[money.Money],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "length": typing.Union[
+            decimal_payload.DecimalPayload[str],
+            schemas.Unset,
+            str
+        ],
+        "width": typing.Union[
+            Width[str],
+            schemas.Unset,
+            str
+        ],
+        "cost": typing.Union[
+            money.Money[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)

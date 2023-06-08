@@ -31,14 +31,25 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "className": typing.Union[
             ClassName[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "color": typing.Union[
+            Color[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
 )
 
 

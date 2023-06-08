@@ -73,8 +73,8 @@ Properties = typing_extensions.TypedDict(
         "port": typing.Type[Port],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "port": typing.Union[
             Port[str],

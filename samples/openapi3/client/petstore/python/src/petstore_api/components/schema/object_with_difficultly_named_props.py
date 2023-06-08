@@ -21,14 +21,32 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "123-list": typing.Union[
             _123List[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "$special[property.name]": typing.Union[
+            SpecialPropertyName[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "123Number": typing.Union[
+            _123Number[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
 )
 
 

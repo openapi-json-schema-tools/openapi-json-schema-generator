@@ -17,6 +17,17 @@ Properties = typing_extensions.TypedDict(
         "_class": typing.Type[_Class],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "_class": typing.Union[
+            _Class[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class ClassModel(

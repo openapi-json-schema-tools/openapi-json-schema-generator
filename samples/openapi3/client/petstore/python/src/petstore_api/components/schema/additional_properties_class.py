@@ -271,6 +271,76 @@ Properties = typing_extensions.TypedDict(
         "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "map_property": typing.Union[
+            MapProperty[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "map_of_map_property": typing.Union[
+            MapOfMapProperty[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "anytype_1": typing.Union[
+            Anytype1[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "map_with_undeclared_properties_anytype_1": typing.Union[
+            MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "map_with_undeclared_properties_anytype_2": typing.Union[
+            MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "map_with_undeclared_properties_anytype_3": typing.Union[
+            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "empty_map": typing.Union[
+            EmptyMap[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "map_with_undeclared_properties_string": typing.Union[
+            MapWithUndeclaredPropertiesString[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)
 
 
 class AdditionalPropertiesClass(

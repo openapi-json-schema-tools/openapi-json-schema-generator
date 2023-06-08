@@ -58,6 +58,30 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "uuid": typing.Union[
+            Uuid[str],
+            schemas.Unset,
+            str,
+            uuid.UUID
+        ],
+        "dateTime": typing.Union[
+            DateTime[str],
+            schemas.Unset,
+            str,
+            datetime.datetime
+        ],
+        "map": typing.Union[
+            Map[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(

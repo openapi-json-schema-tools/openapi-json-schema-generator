@@ -85,6 +85,34 @@ Properties = typing_extensions.TypedDict(
         "someProp": typing.Type[SomeProp],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "someProp": typing.Union[
+            SomeProp[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    },
+    total=False
+)
 
 
 class Schema(

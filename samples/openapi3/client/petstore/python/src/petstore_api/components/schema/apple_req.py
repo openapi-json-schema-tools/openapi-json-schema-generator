@@ -20,14 +20,25 @@ Properties = typing_extensions.TypedDict(
         "mealy": typing.Type[Mealy],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
     {
         "cultivar": typing.Union[
             Cultivar[str],
             str
         ],
     }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "mealy": typing.Union[
+            Mealy[schemas.BoolClass],
+            schemas.Unset,
+            bool
+        ],
+    },
+    total=False
 )
 
 

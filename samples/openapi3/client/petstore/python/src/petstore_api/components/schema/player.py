@@ -97,3 +97,20 @@ Properties = typing_extensions.TypedDict(
         "enemyPlayer": typing.Type[Player],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "name": typing.Union[
+            Name[str],
+            schemas.Unset,
+            str
+        ],
+        "enemyPlayer": typing.Union[
+            Player[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)

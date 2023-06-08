@@ -19,8 +19,8 @@ Properties = typing_extensions.TypedDict(
         "param2": typing.Type[Param2],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "param": typing.Union[
             Param[str],

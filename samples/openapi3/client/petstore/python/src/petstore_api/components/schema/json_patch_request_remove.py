@@ -40,8 +40,8 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "op": typing.Union[
             Op[str],

@@ -79,3 +79,15 @@ Properties = typing_extensions.TypedDict(
         "selfRef": typing.Type[SelfReferencingObjectModel],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "selfRef": typing.Union[
+            SelfReferencingObjectModel[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+    },
+    total=False
+)

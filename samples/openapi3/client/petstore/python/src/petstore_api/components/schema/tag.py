@@ -19,6 +19,23 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "name": typing.Union[
+            Name[str],
+            schemas.Unset,
+            str
+        ],
+    },
+    total=False
+)
 
 
 class Tag(

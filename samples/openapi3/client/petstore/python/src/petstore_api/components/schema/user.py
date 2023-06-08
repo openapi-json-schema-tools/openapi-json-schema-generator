@@ -143,6 +143,136 @@ Properties = typing_extensions.TypedDict(
         "anyTypePropNullable": typing.Type[AnyTypePropNullable],
     }
 )
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "username": typing.Union[
+            Username[str],
+            schemas.Unset,
+            str
+        ],
+        "firstName": typing.Union[
+            FirstName[str],
+            schemas.Unset,
+            str
+        ],
+        "lastName": typing.Union[
+            LastName[str],
+            schemas.Unset,
+            str
+        ],
+        "email": typing.Union[
+            Email[str],
+            schemas.Unset,
+            str
+        ],
+        "password": typing.Union[
+            Password[str],
+            schemas.Unset,
+            str
+        ],
+        "phone": typing.Union[
+            Phone[str],
+            schemas.Unset,
+            str
+        ],
+        "userStatus": typing.Union[
+            UserStatus[decimal.Decimal],
+            schemas.Unset,
+            decimal.Decimal,
+            int
+        ],
+        "objectWithNoDeclaredProps": typing.Union[
+            ObjectWithNoDeclaredProps[frozendict.frozendict],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict
+        ],
+        "objectWithNoDeclaredPropsNullable": typing.Union[
+            ObjectWithNoDeclaredPropsNullable[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            schemas.Unset,
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        "anyTypeProp": typing.Union[
+            AnyTypeProp[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "anyTypeExceptNullProp": typing.Union[
+            AnyTypeExceptNullProp[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        "anyTypePropNullable": typing.Union[
+            AnyTypePropNullable[
+                schemas.INPUT_BASE_TYPES
+            ],
+            schemas.Unset,
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    },
+    total=False
+)
 
 
 class User(

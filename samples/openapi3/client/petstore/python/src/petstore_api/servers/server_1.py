@@ -40,8 +40,8 @@ Properties = typing_extensions.TypedDict(
         "version": typing.Type[Version],
     }
 )
-RequiredProperties = typing_extensions.TypedDict(
-    'RequiredProperties',
+DictInput = typing_extensions.TypedDict(
+    'DictInput',
     {
         "version": typing.Union[
             Version[str],
