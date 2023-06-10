@@ -10,9 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-"""todo define mapping here"""
 
 
 class Files(
@@ -57,7 +55,6 @@ Properties = typing_extensions.TypedDict(
         "files": typing.Type[Files],
     }
 )
-"""todo define mapping here"""
 
 
 class Schema(

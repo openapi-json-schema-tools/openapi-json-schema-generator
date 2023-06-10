@@ -10,11 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema[U]
-"""todo define mapping here"""
 DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-"""todo define mapping here"""
 """todo define mapping here"""
 
 
@@ -34,29 +31,9 @@ class Map(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[
-                    schemas.INPUT_BASE_TYPES
-                ],
-                dict,
-                frozendict.frozendict,
-                str,
-                datetime.date,
-                datetime.datetime,
-                uuid.UUID,
-                int,
-                float,
-                decimal.Decimal,
-                bool,
-                None,
-                list,
-                tuple,
-                bytes,
-                io.FileIO,
-                io.BufferedReader
-            ]
+        arg_: typing.Union[
+            DictInput,
+            Map[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Map[frozendict.frozendict]:
@@ -79,7 +56,6 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
-"""todo define mapping here"""
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(
@@ -133,7 +109,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput2,
             MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

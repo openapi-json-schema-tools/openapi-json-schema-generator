@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema[U]
 """todo define mapping here"""
 
@@ -36,13 +35,9 @@ class Address(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[decimal.Decimal],
-                decimal.Decimal,
-                int
-            ]
+        arg_: typing.Union[
+            DictInput,
+            Address[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Address[frozendict.frozendict]:

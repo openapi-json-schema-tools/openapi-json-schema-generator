@@ -10,27 +10,16 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 _0: typing_extensions.TypeAlias = schemas.DictSchema[U]
-"""todo define mapping here"""
 _1: typing_extensions.TypeAlias = schemas.DateSchema[U]
-"""todo define mapping here"""
 _2: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-"""todo define mapping here"""
 _3: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-"""todo define mapping here"""
 _4: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 _5: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 _6: typing_extensions.TypeAlias = schemas.DictSchema[U]
-"""todo define mapping here"""
 _7: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-"""todo define mapping here"""
 _8: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-"""todo define mapping here"""
 
 
 class _9(
@@ -93,17 +82,11 @@ class _9(
     ]]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 _10: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-"""todo define mapping here"""
 _11: typing_extensions.TypeAlias = schemas.Float32Schema[U]
-"""todo define mapping here"""
 _12: typing_extensions.TypeAlias = schemas.Float64Schema[U]
-"""todo define mapping here"""
 _13: typing_extensions.TypeAlias = schemas.IntSchema[U]
-"""todo define mapping here"""
 _14: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-"""todo define mapping here"""
 _15: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 AnyOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
@@ -123,7 +106,6 @@ AnyOf = typing.Tuple[
     typing.Type[_14[schemas.U]],
     typing.Type[_15[schemas.U]],
 ]
-"""todo define mapping here"""
 
 
 class ComposedAnyOfDifferentTypesNoValidations(

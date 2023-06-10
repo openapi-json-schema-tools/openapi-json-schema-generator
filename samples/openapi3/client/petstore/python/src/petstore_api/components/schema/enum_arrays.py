@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class JustSymbol(
@@ -37,7 +36,6 @@ class JustSymbol(
     @schemas.classproperty
     def DOLLAR_SIGN(cls) -> JustSymbol[str]:
         return cls("$") # type: ignore
-"""todo define mapping here"""
 
 
 class Items(
@@ -64,7 +62,6 @@ class Items(
     @schemas.classproperty
     def CRAB(cls) -> Items[str]:
         return cls("crab") # type: ignore
-"""todo define mapping here"""
 
 
 class ArrayEnum(
@@ -108,7 +105,6 @@ Properties = typing_extensions.TypedDict(
         "array_enum": typing.Type[ArrayEnum],
     }
 )
-"""todo define mapping here"""
 
 
 class EnumArrays(

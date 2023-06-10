@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
 """todo define mapping here"""
 
@@ -31,12 +30,9 @@ class AdditionalProperties(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties2[str],
-                str
-            ]
+        arg_: typing.Union[
+            DictInput,
+            AdditionalProperties[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[frozendict.frozendict]:
@@ -70,13 +66,9 @@ class MapMapOfString(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
+        arg_: typing.Union[
+            DictInput2,
+            MapMapOfString[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfString[frozendict.frozendict]:
@@ -91,7 +83,6 @@ class MapMapOfString(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -137,12 +128,9 @@ class MapOfEnumString(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties3[str],
-                str
-            ]
+        arg_: typing.Union[
+            DictInput3,
+            MapOfEnumString[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumString[frozendict.frozendict]:
@@ -157,7 +145,6 @@ class MapOfEnumString(
         )
         return inst
 
-"""todo define mapping here"""
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 """todo define mapping here"""
 
@@ -178,12 +165,9 @@ class DirectMap(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties4[schemas.BoolClass],
-                bool
-            ]
+        arg_: typing.Union[
+            DictInput4,
+            DirectMap[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DirectMap[frozendict.frozendict]:
@@ -198,8 +182,6 @@ class DirectMap(
         )
         return inst
 
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class MapTest(
@@ -257,7 +239,7 @@ class MapTest(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput5,
             MapTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

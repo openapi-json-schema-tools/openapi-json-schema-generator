@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class Cultivar(
@@ -26,7 +25,6 @@ class Cultivar(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^[a-zA-Z\s]*$'  # noqa: E501
         )
-"""todo define mapping here"""
 
 
 class Origin(
@@ -50,7 +48,6 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
-"""todo define mapping here"""
 
 
 class Apple(

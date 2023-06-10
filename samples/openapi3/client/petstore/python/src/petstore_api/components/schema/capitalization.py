@@ -10,17 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 SmallCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 CapitalCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -33,7 +27,6 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
-"""todo define mapping here"""
 
 
 class Capitalization(

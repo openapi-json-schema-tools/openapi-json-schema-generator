@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 JustNumber: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -18,7 +17,6 @@ Properties = typing_extensions.TypedDict(
         "JustNumber": typing.Type[JustNumber],
     }
 )
-"""todo define mapping here"""
 
 
 class NumberOnly(

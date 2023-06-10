@@ -10,11 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 HasBaleen: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-"""todo define mapping here"""
 HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-"""todo define mapping here"""
 
 
 class ClassName(
@@ -44,7 +41,6 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-"""todo define mapping here"""
 
 
 class Whale(

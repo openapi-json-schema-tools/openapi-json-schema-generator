@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class Uuid(
@@ -63,7 +62,6 @@ class Uuid(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Date(
@@ -116,7 +114,6 @@ class Date(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class DateTime(
@@ -169,7 +166,6 @@ class DateTime(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Number(
@@ -222,7 +218,6 @@ class Number(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Binary(
@@ -274,7 +269,6 @@ class Binary(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Int32(
@@ -326,7 +320,6 @@ class Int32(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Int64(
@@ -378,7 +371,6 @@ class Int64(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Double(
@@ -430,7 +422,6 @@ class Double(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class _Float(
@@ -496,7 +487,6 @@ Properties = typing_extensions.TypedDict(
         "float": typing.Type[_Float],
     }
 )
-"""todo define mapping here"""
 
 
 class AnyTypeAndFormat(

@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 """todo define mapping here"""
 
@@ -40,29 +39,9 @@ class _0(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[
-                    schemas.INPUT_BASE_TYPES
-                ],
-                dict,
-                frozendict.frozendict,
-                str,
-                datetime.date,
-                datetime.datetime,
-                uuid.UUID,
-                int,
-                float,
-                decimal.Decimal,
-                bool,
-                None,
-                list,
-                tuple,
-                bytes,
-                io.FileIO,
-                io.BufferedReader
-            ]
+        arg_: typing.Union[
+            DictInput,
+            _0[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _0[frozendict.frozendict]:
@@ -77,7 +56,6 @@ class _0(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties2(
@@ -157,29 +135,9 @@ class _1(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties2[
-                    schemas.INPUT_BASE_TYPES
-                ],
-                dict,
-                frozendict.frozendict,
-                str,
-                datetime.date,
-                datetime.datetime,
-                uuid.UUID,
-                int,
-                float,
-                decimal.Decimal,
-                bool,
-                None,
-                list,
-                tuple,
-                bytes,
-                io.FileIO,
-                io.BufferedReader
-            ]
+        arg_: typing.Union[
+            DictInput2,
+            _1[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:
@@ -194,7 +152,6 @@ class _1(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -274,29 +231,9 @@ class _2(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties3[
-                    schemas.INPUT_BASE_TYPES
-                ],
-                dict,
-                frozendict.frozendict,
-                str,
-                datetime.date,
-                datetime.datetime,
-                uuid.UUID,
-                int,
-                float,
-                decimal.Decimal,
-                bool,
-                None,
-                list,
-                tuple,
-                bytes,
-                io.FileIO,
-                io.BufferedReader
-            ]
+        arg_: typing.Union[
+            DictInput3,
+            _2[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _2[frozendict.frozendict]:
@@ -316,7 +253,6 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
     typing.Type[_2[schemas.U]],
 ]
-"""todo define mapping here"""
 
 
 class AdditionalPropertiesValidator(

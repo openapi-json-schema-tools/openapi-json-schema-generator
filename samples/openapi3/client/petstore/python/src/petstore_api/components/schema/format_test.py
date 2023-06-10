@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class Integer(
@@ -27,9 +26,7 @@ class Integer(
         inclusive_maximum: typing.Union[int, float] = 100
         inclusive_minimum: typing.Union[int, float] = 10
         multiple_of: typing.Union[int, float] = 2
-"""todo define mapping here"""
 Int32: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-"""todo define mapping here"""
 
 
 class Int32withValidations(
@@ -45,9 +42,7 @@ class Int32withValidations(
         format: str = 'int32'
         inclusive_maximum: typing.Union[int, float] = 200
         inclusive_minimum: typing.Union[int, float] = 20
-"""todo define mapping here"""
 Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-"""todo define mapping here"""
 
 
 class Number(
@@ -63,7 +58,6 @@ class Number(
         inclusive_maximum: typing.Union[int, float] = 543.2
         inclusive_minimum: typing.Union[int, float] = 32.1
         multiple_of: typing.Union[int, float] = 32.5
-"""todo define mapping here"""
 
 
 class _Float(
@@ -79,9 +73,7 @@ class _Float(
         format: str = 'float'
         inclusive_maximum: typing.Union[int, float] = 987.6
         inclusive_minimum: typing.Union[int, float] = 54.3
-"""todo define mapping here"""
 Float32: typing_extensions.TypeAlias = schemas.Float32Schema[U]
-"""todo define mapping here"""
 
 
 class Double(
@@ -97,11 +89,8 @@ class Double(
         format: str = 'double'
         inclusive_maximum: typing.Union[int, float] = 123.4
         inclusive_minimum: typing.Union[int, float] = 67.8
-"""todo define mapping here"""
 Float64: typing_extensions.TypeAlias = schemas.Float64Schema[U]
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
-"""todo define mapping here"""
 
 
 class ArrayWithUniqueItems(
@@ -141,7 +130,6 @@ class ArrayWithUniqueItems(
     def __getitem__(self, name: int) -> Items[decimal.Decimal]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 
 
 class String(
@@ -158,19 +146,12 @@ class String(
             pattern=r'[a-z]',  # noqa: E501
             flags=re.I,
         )
-"""todo define mapping here"""
 Byte: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 Binary: typing_extensions.TypeAlias = schemas.BinarySchema[U]
-"""todo define mapping here"""
 Date: typing_extensions.TypeAlias = schemas.DateSchema[U]
-"""todo define mapping here"""
 DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-"""todo define mapping here"""
 Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema[U]
-"""todo define mapping here"""
 UuidNoExample: typing_extensions.TypeAlias = schemas.UUIDSchema[U]
-"""todo define mapping here"""
 
 
 class Password(
@@ -186,7 +167,6 @@ class Password(
         format: str = 'password'
         max_length: int = 64
         min_length: int = 10
-"""todo define mapping here"""
 
 
 class PatternWithDigits(
@@ -202,7 +182,6 @@ class PatternWithDigits(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^\d{10}$'  # noqa: E501
         )
-"""todo define mapping here"""
 
 
 class PatternWithDigitsAndDelimiter(
@@ -219,7 +198,6 @@ class PatternWithDigitsAndDelimiter(
             pattern=r'^image_\d{1,3}$',  # noqa: E501
             flags=re.I,
         )
-"""todo define mapping here"""
 NoneProp: typing_extensions.TypeAlias = schemas.NoneSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -247,7 +225,6 @@ Properties = typing_extensions.TypedDict(
         "noneProp": typing.Type[NoneProp],
     }
 )
-"""todo define mapping here"""
 
 
 class FormatTest(

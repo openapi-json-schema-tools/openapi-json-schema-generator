@@ -10,8 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class AdditionalProperties(
@@ -72,13 +70,9 @@ class AdditionalPropertiesWithArrayOfEnums(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[tuple],
-                list,
-                tuple
-            ]
+        arg_: typing.Union[
+            DictInput,
+            AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:

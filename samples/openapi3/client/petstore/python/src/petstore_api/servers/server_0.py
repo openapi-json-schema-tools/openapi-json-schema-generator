@@ -7,7 +7,6 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.shared_imports.server_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
-"""todo define mapping here"""
 
 
 class Server(
@@ -40,7 +39,6 @@ class Server(
     @schemas.classproperty
     def DEV_HYPHEN_MINUS_PETSTORE(cls) -> Server[str]:
         return cls("dev-petstore") # type: ignore
-"""todo define mapping here"""
 
 
 class Port(

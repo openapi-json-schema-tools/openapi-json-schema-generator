@@ -430,6 +430,8 @@ public class DefaultCodegen implements CodegenConfig {
             this.setEnumUnknownDefaultCase(Boolean.parseBoolean(additionalProperties
                     .get(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE).toString()));
         }
+        requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
+
     }
 
     /***
@@ -1560,7 +1562,7 @@ public class DefaultCodegen implements CodegenConfig {
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
     HashMap<String, HashMap<String, Integer>> sourceJsonPathToKeyToQty = new HashMap<>();
     Map<String, CodegenTag> codegenTagCache = new HashMap<>();
-    private final CodegenSchema requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
+    private CodegenSchema requiredAddPropUnsetSchema = null;
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -2299,6 +2301,10 @@ public class DefaultCodegen implements CodegenConfig {
             property.requiredAndOptionalProperties = reqAndOptionalProps;
             property.requiredAndOptionalProperties.setJsonPathPiece(property.optionalProperties.jsonPathPiece());
         } else if (property.requiredProperties != null && property.optionalProperties != null) {
+            property.requiredAndOptionalProperties = reqAndOptionalProps;
+            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            property.requiredAndOptionalProperties.setJsonPathPiece(jsonPathPiece);
+        } else if (property.additionalProperties != null && !property.additionalProperties.isBooleanSchemaFalse && sourceJsonPath != null) {
             property.requiredAndOptionalProperties = reqAndOptionalProps;
             CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
             property.requiredAndOptionalProperties.setJsonPathPiece(jsonPathPiece);

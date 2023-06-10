@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 """todo define mapping here"""
 
@@ -36,12 +35,9 @@ class StringBooleanMap(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties[schemas.BoolClass],
-                bool
-            ]
+        arg_: typing.Union[
+            DictInput,
+            StringBooleanMap[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> StringBooleanMap[frozendict.frozendict]:

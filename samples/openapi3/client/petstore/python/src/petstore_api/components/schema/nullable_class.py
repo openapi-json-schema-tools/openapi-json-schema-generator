@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties4(
@@ -59,7 +58,6 @@ class AdditionalProperties4(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class IntegerProp(
@@ -109,7 +107,6 @@ class IntegerProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class NumberProp(
@@ -159,7 +156,6 @@ class NumberProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class BooleanProp(
@@ -207,7 +203,6 @@ class BooleanProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class StringProp(
@@ -255,7 +250,6 @@ class StringProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class DateProp(
@@ -306,7 +300,6 @@ class DateProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class DatetimeProp(
@@ -357,9 +350,7 @@ class DatetimeProp(
         )
         return inst
 
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.DictSchema[U]
-"""todo define mapping here"""
 
 
 class ArrayNullableProp(
@@ -409,7 +400,6 @@ class ArrayNullableProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Items2(
@@ -458,7 +448,6 @@ class Items2(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class ArrayAndItemsNullableProp(
@@ -508,7 +497,6 @@ class ArrayAndItemsNullableProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class Items3(
@@ -557,7 +545,6 @@ class Items3(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class ArrayItemsNullable(
@@ -602,7 +589,6 @@ class ArrayItemsNullable(
     ]]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
 """todo define mapping here"""
 
@@ -658,7 +644,6 @@ class ObjectNullableProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties2(
@@ -764,7 +749,6 @@ class ObjectAndItemsNullableProp(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -835,17 +819,9 @@ class ObjectItemsNullable(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[
-            str,
-            typing.Union[
-                AdditionalProperties3[typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]],
-                None,
-                dict,
-                frozendict.frozendict
-            ]
+        arg_: typing.Union[
+            DictInput3,
+            ObjectItemsNullable[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullable[frozendict.frozendict]:
@@ -992,7 +968,7 @@ class NullableClass(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput4,
             NullableClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

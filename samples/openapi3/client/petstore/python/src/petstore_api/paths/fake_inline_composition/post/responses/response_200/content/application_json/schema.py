@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class _0(
@@ -27,7 +26,6 @@ class _0(
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
-"""todo define mapping here"""
 
 
 class Schema(

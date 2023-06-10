@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class ShapeType(
@@ -32,7 +31,6 @@ class ShapeType(
     @schemas.classproperty
     def QUADRILATERAL(cls) -> ShapeType[str]:
         return cls("Quadrilateral") # type: ignore
-"""todo define mapping here"""
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -41,7 +39,6 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
-"""todo define mapping here"""
 
 
 class QuadrilateralInterface(

@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class Items(
@@ -25,7 +24,6 @@ class Items(
         })
         format: str = 'int64'
         inclusive_maximum: typing.Union[int, float] = 7
-"""todo define mapping here"""
 
 
 class ArrayWithValidationsInItems(

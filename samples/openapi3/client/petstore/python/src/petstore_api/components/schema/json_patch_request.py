@@ -10,10 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class Items(
@@ -65,7 +61,6 @@ class Items(
         )
         return inst
 
-"""todo define mapping here"""
 
 
 class JSONPatchRequest(

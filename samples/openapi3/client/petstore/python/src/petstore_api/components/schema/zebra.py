@@ -10,9 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-"""todo define mapping here"""
 
 
 class Type(
@@ -44,7 +42,6 @@ class Type(
     @schemas.classproperty
     def GREVYS(cls) -> Type[str]:
         return cls("grevys") # type: ignore
-"""todo define mapping here"""
 
 
 class ClassName(

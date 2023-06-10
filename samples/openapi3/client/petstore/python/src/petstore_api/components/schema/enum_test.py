@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class EnumString(
@@ -42,7 +41,6 @@ class EnumString(
     @schemas.classproperty
     def EMPTY(cls) -> EnumString[str]:
         return cls("") # type: ignore
-"""todo define mapping here"""
 
 
 class EnumStringRequired(
@@ -74,7 +72,6 @@ class EnumStringRequired(
     @schemas.classproperty
     def EMPTY(cls) -> EnumStringRequired[str]:
         return cls("") # type: ignore
-"""todo define mapping here"""
 
 
 class EnumInteger(
@@ -102,7 +99,6 @@ class EnumInteger(
     @schemas.classproperty
     def NEGATIVE_1(cls) -> EnumInteger[decimal.Decimal]:
         return cls(-1) # type: ignore
-"""todo define mapping here"""
 
 
 class EnumNumber(
@@ -130,12 +126,6 @@ class EnumNumber(
     @schemas.classproperty
     def NEGATIVE_1_PT_2(cls) -> EnumNumber[decimal.Decimal]:
         return cls(-1.2) # type: ignore
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class EnumTest(

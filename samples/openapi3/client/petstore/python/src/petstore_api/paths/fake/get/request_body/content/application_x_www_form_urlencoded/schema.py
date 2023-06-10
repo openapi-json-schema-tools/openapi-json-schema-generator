@@ -10,7 +10,6 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 
 
 class Items(
@@ -38,7 +37,6 @@ class Items(
     @schemas.classproperty
     def DOLLAR_SIGN(cls) -> Items[str]:
         return cls("$") # type: ignore
-"""todo define mapping here"""
 
 
 class EnumFormStringArray(
@@ -75,7 +73,6 @@ class EnumFormStringArray(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 
 
 class EnumFormString(
@@ -115,7 +112,6 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
-"""todo define mapping here"""
 
 
 class Schema(

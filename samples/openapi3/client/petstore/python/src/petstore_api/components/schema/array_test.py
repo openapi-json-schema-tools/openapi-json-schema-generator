@@ -10,9 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 
 
 class ArrayOfString(
@@ -49,9 +47,7 @@ class ArrayOfString(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 Items3: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-"""todo define mapping here"""
 
 
 class Items2(
@@ -89,7 +85,6 @@ class Items2(
     def __getitem__(self, name: int) -> Items3[decimal.Decimal]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 
 
 class ArrayArrayOfInteger(
@@ -127,8 +122,6 @@ class ArrayArrayOfInteger(
     def __getitem__(self, name: int) -> Items2[tuple]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class Items4(
@@ -166,7 +159,6 @@ class Items4(
     def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirst[frozendict.frozendict]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 
 
 class ArrayArrayOfModel(
@@ -212,7 +204,6 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
-"""todo define mapping here"""
 
 
 class ArrayTest(

@@ -10,25 +10,15 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-"""todo define mapping here"""
 Username: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 FirstName: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 LastName: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 Email: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 Password: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 Phone: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 UserStatus: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-"""todo define mapping here"""
 ObjectWithNoDeclaredProps: typing_extensions.TypeAlias = schemas.DictSchema[U]
-"""todo define mapping here"""
 
 
 class ObjectWithNoDeclaredPropsNullable(
@@ -77,11 +67,8 @@ class ObjectWithNoDeclaredPropsNullable(
         )
         return inst
 
-"""todo define mapping here"""
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-"""todo define mapping here"""
 _Not: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-"""todo define mapping here"""
 
 
 class AnyTypeExceptNullProp(
@@ -133,7 +120,6 @@ class AnyTypeExceptNullProp(
         )
         return inst
 
-"""todo define mapping here"""
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -153,7 +139,6 @@ Properties = typing_extensions.TypedDict(
         "anyTypePropNullable": typing.Type[AnyTypePropNullable],
     }
 )
-"""todo define mapping here"""
 
 
 class User(

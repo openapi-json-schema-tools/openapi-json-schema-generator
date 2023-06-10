@@ -10,14 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-"""todo define mapping here"""
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-"""todo define mapping here"""
-"""todo define mapping here"""
 Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
 
 
 class PhotoUrls(
@@ -54,8 +49,6 @@ class PhotoUrls(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
-"""todo define mapping here"""
 
 
 class Tags(
@@ -93,7 +86,6 @@ class Tags(
     def __getitem__(self, name: int) -> tag.Tag[frozendict.frozendict]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
 
 
 class Status(
@@ -125,7 +117,6 @@ class Status(
     @schemas.classproperty
     def SOLD(cls) -> Status[str]:
         return cls("sold") # type: ignore
-"""todo define mapping here"""
 
 
 class Pet(

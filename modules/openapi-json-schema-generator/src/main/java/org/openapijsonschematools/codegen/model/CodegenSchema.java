@@ -246,7 +246,7 @@ public class CodegenSchema {
         boolean typedDictReqAndOptional = (
                 requiredProperties != null && optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse
         );
-        if (typedDictReqAndOptional || !additionalPropertiesIsBooleanSchemaFalse) {
+        if (typedDictReqAndOptional || (additionalProperties != null && !additionalProperties.isBooleanSchemaFalse)) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "propertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
