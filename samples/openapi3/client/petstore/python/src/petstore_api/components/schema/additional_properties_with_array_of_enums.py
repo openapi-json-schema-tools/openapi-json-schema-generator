@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class AdditionalProperties(
@@ -46,6 +48,7 @@ class AdditionalProperties(
     def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 
 
 class AdditionalPropertiesWithArrayOfEnums(

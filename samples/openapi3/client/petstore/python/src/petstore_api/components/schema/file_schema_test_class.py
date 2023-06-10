@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Files(
@@ -47,6 +50,7 @@ class Files(
     def __getitem__(self, name: int) -> file.File[frozendict.frozendict]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 
 
 class FileSchemaTestClass(
@@ -120,20 +124,4 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[file.File],
         "files": typing.Type[Files],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "file": typing.Union[
-            file.File[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "files": typing.Union[
-            Files[tuple],
-            list,
-            tuple
-        ],
-    },
-    total=False
 )

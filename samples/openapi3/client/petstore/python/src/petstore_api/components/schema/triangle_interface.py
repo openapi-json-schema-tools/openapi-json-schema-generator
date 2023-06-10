@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class ShapeType(
@@ -31,6 +32,7 @@ class ShapeType(
     @schemas.classproperty
     def TRIANGLE(cls) -> ShapeType[str]:
         return cls("Triangle") # type: ignore
+"""todo define mapping here"""
 TriangleType: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -39,19 +41,7 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "shapeType": typing.Union[
-            ShapeType[str],
-            str
-        ],
-        "triangleType": typing.Union[
-            TriangleType[str],
-            str
-        ],
-    }
-)
+"""todo define mapping here"""
 
 
 class TriangleInterface(

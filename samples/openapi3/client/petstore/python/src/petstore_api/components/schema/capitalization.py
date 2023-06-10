@@ -10,11 +10,17 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 SmallCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 CapitalCamel: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -27,36 +33,7 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "smallCamel": typing.Union[
-            SmallCamel[str],
-            str
-        ],
-        "CapitalCamel": typing.Union[
-            CapitalCamel[str],
-            str
-        ],
-        "small_Snake": typing.Union[
-            SmallSnake[str],
-            str
-        ],
-        "Capital_Snake": typing.Union[
-            CapitalSnake[str],
-            str
-        ],
-        "SCA_ETH_Flow_Points": typing.Union[
-            SCAETHFlowPoints[str],
-            str
-        ],
-        "ATT_NAME": typing.Union[
-            ATTNAME[str],
-            str
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class Capitalization(

@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -17,17 +18,7 @@ Properties = typing_extensions.TypedDict(
         "lengthCm": typing.Type[LengthCm],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "lengthCm": typing.Union[
-            LengthCm[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-    }
-)
+"""todo define mapping here"""
 
 
 class Banana(

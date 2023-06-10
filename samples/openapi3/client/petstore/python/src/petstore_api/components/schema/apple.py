@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class Cultivar(
@@ -25,6 +26,7 @@ class Cultivar(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^[a-zA-Z\s]*$'  # noqa: E501
         )
+"""todo define mapping here"""
 
 
 class Origin(
@@ -48,29 +50,7 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "cultivar": typing.Union[
-            Cultivar[str],
-            str
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "origin": typing.Union[
-            Origin[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class Apple(

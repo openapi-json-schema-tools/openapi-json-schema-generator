@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 SourceURI: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -17,16 +18,7 @@ Properties = typing_extensions.TypedDict(
         "sourceURI": typing.Type[SourceURI],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "sourceURI": typing.Union[
-            SourceURI[str],
-            str
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class File(

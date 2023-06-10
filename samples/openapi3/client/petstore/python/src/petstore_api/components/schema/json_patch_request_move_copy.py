@@ -11,8 +11,11 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+"""todo define mapping here"""
 _From: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class Op(

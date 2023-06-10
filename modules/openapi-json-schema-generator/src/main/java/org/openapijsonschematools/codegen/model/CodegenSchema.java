@@ -222,7 +222,8 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        if (requiredProperties != null) {
+        boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
+        if (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "requiredPropertiesInputType";
             extraSchema.requiredProperties = requiredProperties;
@@ -232,7 +233,7 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        if (optionalProperties != null) {
+        if (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "optionalPropertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
@@ -242,13 +243,20 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        if (requiredProperties != null && optionalProperties != null) {
+        boolean typedDictReqAndOptional = (
+                requiredProperties != null && optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse
+        );
+        if (typedDictReqAndOptional || !additionalPropertiesIsBooleanSchemaFalse) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "propertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
             extraSchema.requiredProperties = requiredProperties;
             extraSchema.requiredAndOptionalProperties = requiredAndOptionalProperties;
-            boolean allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+            extraSchema.additionalProperties = additionalProperties;
+            boolean allAreInline = true;
+            if (requiredProperties != null && optionalProperties != null && typedDictReqAndOptional) {
+                allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+            }
             if (allAreInline) {
                 schemasBeforeImports.add(extraSchema);
             } else {

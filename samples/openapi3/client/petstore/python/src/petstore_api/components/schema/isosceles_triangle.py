@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class TriangleType(
@@ -37,16 +39,7 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "triangleType": typing.Union[
-            TriangleType[str],
-            str
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class _1(
@@ -103,6 +96,7 @@ class _1(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class IsoscelesTriangle(

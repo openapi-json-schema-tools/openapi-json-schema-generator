@@ -10,4 +10,5 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 ObjectInterface: typing_extensions.TypeAlias = schemas.DictSchema[U]

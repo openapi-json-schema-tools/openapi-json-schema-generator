@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class Integer(
@@ -25,6 +26,7 @@ class Integer(
         format: str = 'int'
         inclusive_maximum: typing.Union[int, float] = 100
         inclusive_minimum: typing.Union[int, float] = 10
+"""todo define mapping here"""
 
 
 class Int32(
@@ -40,7 +42,9 @@ class Int32(
         format: str = 'int32'
         inclusive_maximum: typing.Union[int, float] = 200
         inclusive_minimum: typing.Union[int, float] = 20
+"""todo define mapping here"""
 Int64: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
 
 
 class Number(
@@ -55,6 +59,7 @@ class Number(
         })
         inclusive_maximum: typing.Union[int, float] = 543.2
         inclusive_minimum: typing.Union[int, float] = 32.1
+"""todo define mapping here"""
 
 
 class _Float(
@@ -69,6 +74,7 @@ class _Float(
         })
         format: str = 'float'
         inclusive_maximum: typing.Union[int, float] = 987.6
+"""todo define mapping here"""
 
 
 class Double(
@@ -84,6 +90,7 @@ class Double(
         format: str = 'double'
         inclusive_maximum: typing.Union[int, float] = 123.4
         inclusive_minimum: typing.Union[int, float] = 67.8
+"""todo define mapping here"""
 
 
 class String(
@@ -100,6 +107,7 @@ class String(
             pattern=r'[a-z]',  # noqa: E501
             flags=re.I,
         )
+"""todo define mapping here"""
 
 
 class PatternWithoutDelimiter(
@@ -115,9 +123,13 @@ class PatternWithoutDelimiter(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^[A-Z].*'  # noqa: E501
         )
+"""todo define mapping here"""
 Byte: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 Binary: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+"""todo define mapping here"""
 Date: typing_extensions.TypeAlias = schemas.DateSchema[U]
+"""todo define mapping here"""
 
 
 class DateTime(
@@ -131,6 +143,7 @@ class DateTime(
             str,
         })
         format: str = 'date-time'
+"""todo define mapping here"""
 
 
 class Password(
@@ -146,6 +159,7 @@ class Password(
         format: str = 'password'
         max_length: int = 64
         min_length: int = 10
+"""todo define mapping here"""
 Callback: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -166,90 +180,7 @@ Properties = typing_extensions.TypedDict(
         "callback": typing.Type[Callback],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "byte": typing.Union[
-            Byte[str],
-            str
-        ],
-        "double": typing.Union[
-            Double[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "number": typing.Union[
-            Number[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "pattern_without_delimiter": typing.Union[
-            PatternWithoutDelimiter[str],
-            str
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "integer": typing.Union[
-            Integer[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "int32": typing.Union[
-            Int32[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "int64": typing.Union[
-            Int64[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "float": typing.Union[
-            _Float[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "string": typing.Union[
-            String[str],
-            str
-        ],
-        "binary": typing.Union[
-            Binary[typing.Union[bytes, schemas.FileIO]],
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "date": typing.Union[
-            Date[str],
-            str,
-            datetime.date
-        ],
-        "dateTime": typing.Union[
-            DateTime[str],
-            str,
-            datetime.datetime
-        ],
-        "password": typing.Union[
-            Password[str],
-            str
-        ],
-        "callback": typing.Union[
-            Callback[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class Schema(

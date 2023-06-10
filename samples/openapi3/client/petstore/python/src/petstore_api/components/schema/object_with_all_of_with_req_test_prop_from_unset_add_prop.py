@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -17,53 +19,7 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "test": typing.Union[
-            schemas.AnyTypeSchema[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "name": typing.Union[
-            Name[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class _1(
@@ -149,6 +105,7 @@ class _1(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(

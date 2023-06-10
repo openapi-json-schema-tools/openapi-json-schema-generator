@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties4(
@@ -58,6 +59,7 @@ class AdditionalProperties4(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class IntegerProp(
@@ -107,6 +109,7 @@ class IntegerProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class NumberProp(
@@ -156,6 +159,7 @@ class NumberProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class BooleanProp(
@@ -203,6 +207,7 @@ class BooleanProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class StringProp(
@@ -250,6 +255,7 @@ class StringProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class DateProp(
@@ -300,6 +306,7 @@ class DateProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class DatetimeProp(
@@ -350,7 +357,9 @@ class DatetimeProp(
         )
         return inst
 
+"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.DictSchema[U]
+"""todo define mapping here"""
 
 
 class ArrayNullableProp(
@@ -400,6 +409,7 @@ class ArrayNullableProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Items2(
@@ -448,6 +458,7 @@ class Items2(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ArrayAndItemsNullableProp(
@@ -497,6 +508,7 @@ class ArrayAndItemsNullableProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Items3(
@@ -545,6 +557,7 @@ class Items3(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ArrayItemsNullable(
@@ -589,7 +602,9 @@ class ArrayItemsNullable(
     ]]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
+"""todo define mapping here"""
 
 
 class ObjectNullableProp(
@@ -643,6 +658,7 @@ class ObjectNullableProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties2(
@@ -691,6 +707,7 @@ class AdditionalProperties2(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ObjectAndItemsNullableProp(
@@ -747,6 +764,7 @@ class ObjectAndItemsNullableProp(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -795,6 +813,7 @@ class AdditionalProperties3(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ObjectItemsNullable(
@@ -858,111 +877,7 @@ Properties = typing_extensions.TypedDict(
         "object_items_nullable": typing.Type[ObjectItemsNullable],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "integer_prop": typing.Union[
-            IntegerProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            None,
-            decimal.Decimal,
-            int
-        ],
-        "number_prop": typing.Union[
-            NumberProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            None,
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "boolean_prop": typing.Union[
-            BooleanProp[typing.Union[
-                schemas.NoneClass,
-                schemas.BoolClass
-            ]],
-            None,
-            bool
-        ],
-        "string_prop": typing.Union[
-            StringProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str
-        ],
-        "date_prop": typing.Union[
-            DateProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str,
-            datetime.date
-        ],
-        "datetime_prop": typing.Union[
-            DatetimeProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str,
-            datetime.datetime
-        ],
-        "array_nullable_prop": typing.Union[
-            ArrayNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            None,
-            list,
-            tuple
-        ],
-        "array_and_items_nullable_prop": typing.Union[
-            ArrayAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            None,
-            list,
-            tuple
-        ],
-        "array_items_nullable": typing.Union[
-            ArrayItemsNullable[tuple],
-            list,
-            tuple
-        ],
-        "object_nullable_prop": typing.Union[
-            ObjectNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        "object_and_items_nullable_prop": typing.Union[
-            ObjectAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        "object_items_nullable": typing.Union[
-            ObjectItemsNullable[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class NullableClass(

@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Foo(
@@ -78,14 +80,4 @@ Properties = typing_extensions.TypedDict(
     {
         "bar": typing.Type[bar.Bar],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "bar": typing.Union[
-            bar.Bar[str],
-            str
-        ],
-    },
-    total=False
 )

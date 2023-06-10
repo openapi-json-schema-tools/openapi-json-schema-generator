@@ -10,8 +10,12 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema[U]
+"""todo define mapping here"""
 DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Map(
@@ -75,27 +79,7 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "uuid": typing.Union[
-            Uuid[str],
-            str,
-            uuid.UUID
-        ],
-        "dateTime": typing.Union[
-            DateTime[str],
-            str,
-            datetime.datetime
-        ],
-        "map": typing.Union[
-            Map[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(

@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class _0(
@@ -26,6 +27,7 @@ class _0(
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
+"""todo define mapping here"""
 
 
 class SomeProp(
@@ -83,33 +85,7 @@ Properties = typing_extensions.TypedDict(
         "someProp": typing.Type[SomeProp],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "someProp": typing.Union[
-            SomeProp[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class ObjectWithInlineCompositionProperty(

@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -19,31 +21,7 @@ Properties = typing_extensions.TypedDict(
         "requiredFile": typing.Type[RequiredFile],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "requiredFile": typing.Union[
-            RequiredFile[typing.Union[bytes, schemas.FileIO]],
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "additionalMetadata": typing.Union[
-            AdditionalMetadata[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class Schema(

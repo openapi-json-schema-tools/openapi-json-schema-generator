@@ -10,6 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class QuadrilateralType(
@@ -37,16 +39,7 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "quadrilateralType": typing.Union[
-            QuadrilateralType[str],
-            str
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class _1(
@@ -103,6 +96,7 @@ class _1(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class ComplexQuadrilateral(

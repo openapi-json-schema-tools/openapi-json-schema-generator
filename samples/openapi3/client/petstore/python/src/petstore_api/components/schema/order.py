@@ -10,10 +10,15 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
 PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
 Quantity: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+"""todo define mapping here"""
 ShipDate: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
+"""todo define mapping here"""
 
 
 class Status(
@@ -45,6 +50,7 @@ class Status(
     @schemas.classproperty
     def DELIVERED(cls) -> Status[str]:
         return cls("delivered") # type: ignore
+"""todo define mapping here"""
 
 
 class Complete(
@@ -69,40 +75,7 @@ Properties = typing_extensions.TypedDict(
         "complete": typing.Type[Complete],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "id": typing.Union[
-            Id[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "petId": typing.Union[
-            PetId[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "quantity": typing.Union[
-            Quantity[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "shipDate": typing.Union[
-            ShipDate[str],
-            str,
-            datetime.datetime
-        ],
-        "status": typing.Union[
-            Status[str],
-            str
-        ],
-        "complete": typing.Union[
-            Complete[schemas.BoolClass],
-            bool
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class Order(

@@ -10,9 +10,14 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
+"""todo define mapping here"""
 Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class PhotoUrls(
@@ -49,6 +54,8 @@ class PhotoUrls(
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Tags(
@@ -86,6 +93,7 @@ class Tags(
     def __getitem__(self, name: int) -> tag.Tag[frozendict.frozendict]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 
 
 class Status(
@@ -117,20 +125,7 @@ class Status(
     @schemas.classproperty
     def SOLD(cls) -> Status[str]:
         return cls("sold") # type: ignore
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "name": typing.Union[
-            Name[str],
-            str
-        ],
-        "photoUrls": typing.Union[
-            PhotoUrls[tuple],
-            list,
-            tuple
-        ],
-    }
-)
+"""todo define mapping here"""
 
 
 class Pet(
@@ -240,32 +235,3 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "id": typing.Union[
-            Id[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "category": typing.Union[
-            category.Category[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "tags": typing.Union[
-            Tags[tuple],
-            list,
-            tuple
-        ],
-        "status": typing.Union[
-            Status[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass

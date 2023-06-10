@@ -10,6 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class ObjectModelWithRefProps(
@@ -92,24 +96,4 @@ Properties = typing_extensions.TypedDict(
         "myString": typing.Type[string.String],
         "myBoolean": typing.Type[boolean.Boolean],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "myNumber": typing.Union[
-            number_with_validations.NumberWithValidations[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "myString": typing.Union[
-            string.String[str],
-            str
-        ],
-        "myBoolean": typing.Union[
-            boolean.Boolean[schemas.BoolClass],
-            bool
-        ],
-    },
-    total=False
 )

@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Param: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 Param2: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -19,19 +21,7 @@ Properties = typing_extensions.TypedDict(
         "param2": typing.Type[Param2],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "param": typing.Union[
-            Param[str],
-            str
-        ],
-        "param2": typing.Union[
-            Param2[str],
-            str
-        ],
-    }
-)
+"""todo define mapping here"""
 
 
 class Schema(

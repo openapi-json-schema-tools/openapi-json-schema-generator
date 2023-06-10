@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class Items(
@@ -37,6 +38,7 @@ class Items(
     @schemas.classproperty
     def DOLLAR_SIGN(cls) -> Items[str]:
         return cls("$") # type: ignore
+"""todo define mapping here"""
 
 
 class Schema(

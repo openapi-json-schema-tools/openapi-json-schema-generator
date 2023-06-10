@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class Uuid(
@@ -62,6 +63,7 @@ class Uuid(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Date(
@@ -114,6 +116,7 @@ class Date(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class DateTime(
@@ -166,6 +169,7 @@ class DateTime(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Number(
@@ -218,6 +222,7 @@ class Number(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Binary(
@@ -269,6 +274,7 @@ class Binary(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Int32(
@@ -320,6 +326,7 @@ class Int32(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Int64(
@@ -371,6 +378,7 @@ class Int64(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class Double(
@@ -422,6 +430,7 @@ class Double(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class _Float(
@@ -487,201 +496,7 @@ Properties = typing_extensions.TypedDict(
         "float": typing.Type[_Float],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "uuid": typing.Union[
-            Uuid[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "date": typing.Union[
-            Date[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "date-time": typing.Union[
-            DateTime[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "number": typing.Union[
-            Number[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "binary": typing.Union[
-            Binary[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "int32": typing.Union[
-            Int32[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "int64": typing.Union[
-            Int64[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "double": typing.Union[
-            Double[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "float": typing.Union[
-            _Float[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class AnyTypeAndFormat(

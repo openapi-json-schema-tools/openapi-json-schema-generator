@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+"""todo define mapping here"""
 
 
 class _0(
@@ -75,6 +77,7 @@ class _0(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties2(
@@ -126,6 +129,7 @@ class AdditionalProperties2(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class _1(
@@ -190,6 +194,7 @@ class _1(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -241,6 +246,7 @@ class AdditionalProperties3(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class _2(
@@ -310,6 +316,7 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
     typing.Type[_2[schemas.U]],
 ]
+"""todo define mapping here"""
 
 
 class AdditionalPropertiesValidator(

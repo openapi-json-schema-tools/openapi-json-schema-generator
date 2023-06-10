@@ -10,8 +10,13 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+"""todo define mapping here"""
 _3: typing_extensions.TypeAlias = schemas.DateSchema[U]
+"""todo define mapping here"""
 
 
 class _4(
@@ -41,7 +46,9 @@ class _4(
         )
         return inst
 
+"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+"""todo define mapping here"""
 
 
 class _5(
@@ -106,6 +113,7 @@ class _5(
     ]]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 
 
 class _6(
@@ -122,6 +130,7 @@ class _6(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^2020.*'  # noqa: E501
         )
+"""todo define mapping here"""
 
 
 class ComposedOneOfDifferentTypes(

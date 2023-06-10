@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class ClassName(
@@ -37,15 +38,7 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "className": typing.Union[
-            ClassName[str],
-            str
-        ],
-    }
-)
+"""todo define mapping here"""
 
 
 class BasquePig(

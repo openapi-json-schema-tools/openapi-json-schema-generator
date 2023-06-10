@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class EnumString(
@@ -41,6 +42,7 @@ class EnumString(
     @schemas.classproperty
     def EMPTY(cls) -> EnumString[str]:
         return cls("") # type: ignore
+"""todo define mapping here"""
 
 
 class EnumStringRequired(
@@ -72,6 +74,7 @@ class EnumStringRequired(
     @schemas.classproperty
     def EMPTY(cls) -> EnumStringRequired[str]:
         return cls("") # type: ignore
+"""todo define mapping here"""
 
 
 class EnumInteger(
@@ -99,6 +102,7 @@ class EnumInteger(
     @schemas.classproperty
     def NEGATIVE_1(cls) -> EnumInteger[decimal.Decimal]:
         return cls(-1) # type: ignore
+"""todo define mapping here"""
 
 
 class EnumNumber(
@@ -126,15 +130,12 @@ class EnumNumber(
     @schemas.classproperty
     def NEGATIVE_1_PT_2(cls) -> EnumNumber[decimal.Decimal]:
         return cls(-1.2) # type: ignore
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "enum_string_required": typing.Union[
-            EnumStringRequired[str],
-            str
-        ],
-    }
-)
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class EnumTest(
@@ -258,55 +259,3 @@ Properties = typing_extensions.TypedDict(
         "IntegerEnumOneValue": typing.Type[integer_enum_one_value.IntegerEnumOneValue],
     }
 )
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "enum_string": typing.Union[
-            EnumString[str],
-            str
-        ],
-        "enum_integer": typing.Union[
-            EnumInteger[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "enum_number": typing.Union[
-            EnumNumber[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        "stringEnum": typing.Union[
-            string_enum.StringEnum[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str
-        ],
-        "IntegerEnum": typing.Union[
-            integer_enum.IntegerEnum[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "StringEnumWithDefaultValue": typing.Union[
-            string_enum_with_default_value.StringEnumWithDefaultValue[str],
-            str
-        ],
-        "IntegerEnumWithDefaultValue": typing.Union[
-            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "IntegerEnumOneValue": typing.Union[
-            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass

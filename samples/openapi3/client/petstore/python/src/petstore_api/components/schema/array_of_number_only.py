@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Items: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+"""todo define mapping here"""
 
 
 class ArrayNumber(
@@ -55,17 +57,7 @@ Properties = typing_extensions.TypedDict(
         "ArrayNumber": typing.Type[ArrayNumber],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "ArrayNumber": typing.Union[
-            ArrayNumber[tuple],
-            list,
-            tuple
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class ArrayOfNumberOnly(

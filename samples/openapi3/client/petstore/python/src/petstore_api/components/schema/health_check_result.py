@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 
 
 class NullableMessage(
@@ -63,20 +64,7 @@ Properties = typing_extensions.TypedDict(
         "NullableMessage": typing.Type[NullableMessage],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "NullableMessage": typing.Union[
-            NullableMessage[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class HealthCheckResult(

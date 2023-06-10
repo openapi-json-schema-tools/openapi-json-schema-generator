@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+"""todo define mapping here"""
 
 
 class Schema(

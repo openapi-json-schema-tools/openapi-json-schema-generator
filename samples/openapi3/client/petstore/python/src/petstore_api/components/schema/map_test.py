@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class AdditionalProperties(
@@ -49,6 +51,7 @@ class AdditionalProperties(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class MapMapOfString(
@@ -88,6 +91,7 @@ class MapMapOfString(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class AdditionalProperties3(
@@ -114,6 +118,7 @@ class AdditionalProperties3(
     @schemas.classproperty
     def LOWER(cls) -> AdditionalProperties3[str]:
         return cls("lower") # type: ignore
+"""todo define mapping here"""
 
 
 class MapOfEnumString(
@@ -152,7 +157,9 @@ class MapOfEnumString(
         )
         return inst
 
+"""todo define mapping here"""
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+"""todo define mapping here"""
 
 
 class DirectMap(
@@ -191,6 +198,8 @@ class DirectMap(
         )
         return inst
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class MapTest(
@@ -274,30 +283,4 @@ Properties = typing_extensions.TypedDict(
         "direct_map": typing.Type[DirectMap],
         "indirect_map": typing.Type[string_boolean_map.StringBooleanMap],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "map_map_of_string": typing.Union[
-            MapMapOfString[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "map_of_enum_string": typing.Union[
-            MapOfEnumString[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "direct_map": typing.Union[
-            DirectMap[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "indirect_map": typing.Union[
-            string_boolean_map.StringBooleanMap[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
 )

@@ -11,7 +11,9 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+"""todo define mapping here"""
 Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
 PetId: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',

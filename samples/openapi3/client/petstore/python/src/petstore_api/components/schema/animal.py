@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 ClassName: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class Color(
@@ -31,29 +33,7 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "className": typing.Union[
-            ClassName[str],
-            str
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "color": typing.Union[
-            Color[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class Animal(

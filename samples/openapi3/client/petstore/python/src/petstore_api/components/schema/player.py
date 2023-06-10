@@ -10,7 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Player(
@@ -84,19 +87,4 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
         "enemyPlayer": typing.Type[Player],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "name": typing.Union[
-            Name[str],
-            str
-        ],
-        "enemyPlayer": typing.Union[
-            Player[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
 )

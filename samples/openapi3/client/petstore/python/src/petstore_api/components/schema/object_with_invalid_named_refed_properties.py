@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class ObjectWithInvalidNamedRefedProperties(
@@ -87,20 +90,5 @@ Properties = typing_extensions.TypedDict(
     {
         "from": typing.Type[from_schema.FromSchema],
         "!reference": typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems],
-    }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "!reference": typing.Union[
-            array_with_validations_in_items.ArrayWithValidationsInItems[tuple],
-            list,
-            tuple
-        ],
-        "from": typing.Union[
-            from_schema.FromSchema[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
     }
 )

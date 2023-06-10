@@ -10,7 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
 Width: typing_extensions.TypeAlias = schemas.DecimalSchema[U]
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class ObjectWithDecimalProperties(
@@ -90,23 +94,4 @@ Properties = typing_extensions.TypedDict(
         "width": typing.Type[Width],
         "cost": typing.Type[money.Money],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "length": typing.Union[
-            decimal_payload.DecimalPayload[str],
-            str
-        ],
-        "width": typing.Union[
-            Width[str],
-            str
-        ],
-        "cost": typing.Union[
-            money.Money[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
 )

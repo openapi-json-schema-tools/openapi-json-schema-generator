@@ -10,6 +10,12 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class Shapes(
@@ -72,6 +78,7 @@ class Shapes(
     ]]:
         return super().__getitem__(name)
 
+"""todo define mapping here"""
 
 
 class Drawing(
@@ -186,78 +193,4 @@ Properties = typing_extensions.TypedDict(
         "nullableShape": typing.Type[nullable_shape.NullableShape],
         "shapes": typing.Type[Shapes],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "mainShape": typing.Union[
-            shape.Shape[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "shapeOrNull": typing.Union[
-            shape_or_null.ShapeOrNull[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "nullableShape": typing.Union[
-            nullable_shape.NullableShape[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "shapes": typing.Union[
-            Shapes[tuple],
-            list,
-            tuple
-        ],
-    },
-    total=False
 )

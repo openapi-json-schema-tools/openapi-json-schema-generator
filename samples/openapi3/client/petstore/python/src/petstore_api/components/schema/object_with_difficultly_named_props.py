@@ -10,8 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema[U]
+"""todo define mapping here"""
 _123List: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 _123Number: typing_extensions.TypeAlias = schemas.IntSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -21,35 +24,7 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "123-list": typing.Union[
-            _123List[str],
-            str
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "$special[property.name]": typing.Union[
-            SpecialPropertyName[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "123Number": typing.Union[
-            _123Number[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class ObjectWithDifficultlyNamedProps(

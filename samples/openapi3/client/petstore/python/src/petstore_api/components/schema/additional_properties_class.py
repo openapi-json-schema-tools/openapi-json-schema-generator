@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class MapProperty(
@@ -49,7 +51,9 @@ class MapProperty(
         )
         return inst
 
+"""todo define mapping here"""
 AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class AdditionalProperties2(
@@ -88,6 +92,7 @@ class AdditionalProperties2(
         )
         return inst
 
+"""todo define mapping here"""
 
 
 class MapOfMapProperty(
@@ -127,10 +132,15 @@ class MapOfMapProperty(
         )
         return inst
 
+"""todo define mapping here"""
 Anytype1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+"""todo define mapping here"""
 MapWithUndeclaredPropertiesAnytype1: typing_extensions.TypeAlias = schemas.DictSchema[U]
+"""todo define mapping here"""
 MapWithUndeclaredPropertiesAnytype2: typing_extensions.TypeAlias = schemas.DictSchema[U]
+"""todo define mapping here"""
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+"""todo define mapping here"""
 
 
 class MapWithUndeclaredPropertiesAnytype3(
@@ -224,7 +234,9 @@ class EmptyMap(
         )
         return inst
 
+"""todo define mapping here"""
 AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema[U]
+"""todo define mapping here"""
 
 
 class MapWithUndeclaredPropertiesString(
@@ -276,68 +288,7 @@ Properties = typing_extensions.TypedDict(
         "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "map_property": typing.Union[
-            MapProperty[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "map_of_map_property": typing.Union[
-            MapOfMapProperty[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "anytype_1": typing.Union[
-            Anytype1[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "map_with_undeclared_properties_anytype_1": typing.Union[
-            MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "map_with_undeclared_properties_anytype_2": typing.Union[
-            MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "map_with_undeclared_properties_anytype_3": typing.Union[
-            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "empty_map": typing.Union[
-            EmptyMap[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        "map_with_undeclared_properties_string": typing.Union[
-            MapWithUndeclaredPropertiesString[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
-)
+"""todo define mapping here"""
 
 
 class AdditionalPropertiesClass(

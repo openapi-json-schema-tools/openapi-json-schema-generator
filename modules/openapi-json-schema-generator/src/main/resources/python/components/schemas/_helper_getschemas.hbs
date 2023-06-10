@@ -22,10 +22,14 @@
 {{> components/schemas/_helper_optional_properties_type }}
                             {{else}}
                                 {{#eq instanceType "propertiesInputType" }}
+                                    {{#and requiredAndOptionalProperties requiredProperties optionalProperties additionalProperties additionalProperties.isBooleanSchemaFalse}}
 
 
 class {{requiredAndOptionalProperties.jsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
     pass
+                                    {{else}}
+"""todo define mapping here"""
+                                    {{/and}}
                                 {{else}}
                                     {{#eq instanceType "importsType" }}
 

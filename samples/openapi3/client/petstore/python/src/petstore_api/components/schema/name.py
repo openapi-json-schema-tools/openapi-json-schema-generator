@@ -10,8 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
 Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+"""todo define mapping here"""
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+"""todo define mapping here"""
 _Property: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -21,35 +24,7 @@ Properties = typing_extensions.TypedDict(
         "property": typing.Type[_Property],
     }
 )
-RequiredDictInput = typing_extensions.TypedDict(
-    'RequiredDictInput',
-    {
-        "name": typing.Union[
-            Name[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-    }
-)
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "snake_case": typing.Union[
-            SnakeCase[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        "property": typing.Union[
-            _Property[str],
-            str
-        ],
-    },
-    total=False
-)
-
-
-class DictInput(RequiredDictInput, OptionalDictInput):
-    pass
+"""todo define mapping here"""
 
 
 class Name(

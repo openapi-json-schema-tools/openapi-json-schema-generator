@@ -10,6 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+"""todo define mapping here"""
+"""todo define mapping here"""
+"""todo define mapping here"""
 
 
 class SelfReferencingObjectModel(
@@ -68,15 +71,4 @@ Properties = typing_extensions.TypedDict(
     {
         "selfRef": typing.Type[SelfReferencingObjectModel],
     }
-)
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
-    {
-        "selfRef": typing.Union[
-            SelfReferencingObjectModel[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-    },
-    total=False
 )
