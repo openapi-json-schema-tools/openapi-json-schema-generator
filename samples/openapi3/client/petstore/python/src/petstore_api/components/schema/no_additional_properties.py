@@ -30,20 +30,10 @@ RequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "petId": typing.Union[
-            PetId[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-    },
-    total=False
-)
+# todo optional properties mapping w/ addProps unset
 
 
-class DictInput(RequiredDictInput, OptionalDictInput):
+class DictInput3(RequiredDictInput, OptionalDictInput):
     pass
 
 
@@ -89,7 +79,7 @@ class NoAdditionalProperties(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput3,
             NoAdditionalProperties[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

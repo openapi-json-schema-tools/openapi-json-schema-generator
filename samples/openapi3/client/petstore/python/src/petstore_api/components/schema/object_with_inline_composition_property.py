@@ -137,7 +137,7 @@ class ObjectWithInlineCompositionProperty(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput2,
             ObjectWithInlineCompositionProperty[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

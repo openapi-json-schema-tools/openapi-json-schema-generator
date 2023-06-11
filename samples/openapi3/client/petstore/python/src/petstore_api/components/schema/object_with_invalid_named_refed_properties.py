@@ -89,3 +89,4 @@ Properties = typing_extensions.TypedDict(
         "!reference": typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems],
     }
 )
+# todo required properties mapping w/ addProps unset

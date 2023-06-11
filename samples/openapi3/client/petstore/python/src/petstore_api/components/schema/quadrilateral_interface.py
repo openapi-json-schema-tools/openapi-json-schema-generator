@@ -39,6 +39,7 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class QuadrilateralInterface(

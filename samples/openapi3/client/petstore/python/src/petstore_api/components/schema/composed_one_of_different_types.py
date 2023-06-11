@@ -27,7 +27,10 @@ class _4(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg_: typing.Union[
+            DictInput,
+            _4[frozendict.frozendict],
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _4[frozendict.frozendict]:
         inst = super().__new__(

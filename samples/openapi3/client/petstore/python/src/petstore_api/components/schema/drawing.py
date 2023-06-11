@@ -72,7 +72,30 @@ class Shapes(
     ]]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]
 
 
 class Drawing(

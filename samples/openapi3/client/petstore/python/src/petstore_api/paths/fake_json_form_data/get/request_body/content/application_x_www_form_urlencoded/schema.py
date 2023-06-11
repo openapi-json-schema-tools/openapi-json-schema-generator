@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "param2": typing.Type[Param2],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class Schema(

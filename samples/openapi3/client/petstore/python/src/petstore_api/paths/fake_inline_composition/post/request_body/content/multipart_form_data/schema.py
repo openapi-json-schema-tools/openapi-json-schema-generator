@@ -132,7 +132,7 @@ class Schema(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput2,
             Schema[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

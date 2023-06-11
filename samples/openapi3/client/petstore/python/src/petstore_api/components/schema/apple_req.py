@@ -29,19 +29,10 @@ RequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "mealy": typing.Union[
-            Mealy[schemas.BoolClass],
-            bool
-        ],
-    },
-    total=False
-)
+# todo optional properties mapping w/ addProps unset
 
 
-class DictInput(RequiredDictInput, OptionalDictInput):
+class DictInput3(RequiredDictInput, OptionalDictInput):
     pass
 
 
@@ -87,7 +78,7 @@ class AppleReq(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput3,
             AppleReq[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

@@ -645,7 +645,7 @@ class AnyTypeAndFormat(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput10,
             AnyTypeAndFormat[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

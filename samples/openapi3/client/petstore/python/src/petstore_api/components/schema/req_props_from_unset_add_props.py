@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+# todo required properties mapping w/ addProps unset
 
 
 class ReqPropsFromUnsetAddProps(

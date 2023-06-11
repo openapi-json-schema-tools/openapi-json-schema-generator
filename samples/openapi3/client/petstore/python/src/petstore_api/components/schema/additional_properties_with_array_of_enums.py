@@ -46,7 +46,14 @@ class AdditionalProperties(
     def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
         return super().__getitem__(name)
 
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[tuple],
+        list,
+        tuple
+    ]
+]
 
 
 class AdditionalPropertiesWithArrayOfEnums(

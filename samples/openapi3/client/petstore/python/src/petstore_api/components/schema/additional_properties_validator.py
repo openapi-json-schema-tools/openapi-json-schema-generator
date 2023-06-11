@@ -11,7 +11,30 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
-"""todo define mapping here"""
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]
 
 
 class _0(
@@ -40,7 +63,7 @@ class _0(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput2,
             _0[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
@@ -107,7 +130,30 @@ class AdditionalProperties2(
         )
         return inst
 
-"""todo define mapping here"""
+DictInput4 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties2[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]
 
 
 class _1(
@@ -136,7 +182,7 @@ class _1(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput2,
+            DictInput4,
             _1[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
@@ -203,7 +249,30 @@ class AdditionalProperties3(
         )
         return inst
 
-"""todo define mapping here"""
+DictInput6 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties3[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]
 
 
 class _2(
@@ -232,7 +301,7 @@ class _2(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput3,
+            DictInput6,
             _2[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
@@ -275,7 +344,10 @@ class AdditionalPropertiesValidator(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg_: typing.Union[
+            DictInput7,
+            AdditionalPropertiesValidator[frozendict.frozendict],
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:
         inst = super().__new__(

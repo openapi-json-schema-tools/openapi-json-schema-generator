@@ -590,7 +590,14 @@ class ArrayItemsNullable(
         return super().__getitem__(name)
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
-"""todo define mapping here"""
+DictInput5 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[frozendict.frozendict],
+        dict,
+        frozendict.frozendict
+    ]
+]
 
 
 class ObjectNullableProp(
@@ -692,7 +699,18 @@ class AdditionalProperties2(
         )
         return inst
 
-"""todo define mapping here"""
+DictInput7 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties2[typing.Union[
+            schemas.NoneClass,
+            frozendict.frozendict
+        ]],
+        None,
+        dict,
+        frozendict.frozendict
+    ]
+]
 
 
 class ObjectAndItemsNullableProp(
@@ -797,7 +815,18 @@ class AdditionalProperties3(
         )
         return inst
 
-"""todo define mapping here"""
+DictInput9 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties3[typing.Union[
+            schemas.NoneClass,
+            frozendict.frozendict
+        ]],
+        None,
+        dict,
+        frozendict.frozendict
+    ]
+]
 
 
 class ObjectItemsNullable(
@@ -820,7 +849,7 @@ class ObjectItemsNullable(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput3,
+            DictInput9,
             ObjectItemsNullable[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
@@ -853,7 +882,18 @@ Properties = typing_extensions.TypedDict(
         "object_items_nullable": typing.Type[ObjectItemsNullable],
     }
 )
-"""todo define mapping here"""
+DictInput11 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties4[typing.Union[
+            schemas.NoneClass,
+            frozendict.frozendict
+        ]],
+        None,
+        dict,
+        frozendict.frozendict
+    ]
+]
 
 
 class NullableClass(
@@ -968,7 +1008,7 @@ class NullableClass(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput4,
+            DictInput11,
             NullableClass[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

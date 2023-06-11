@@ -11,7 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties2[str],
+        str
+    ]
+]
 
 
 class AdditionalProperties(
@@ -47,7 +53,14 @@ class AdditionalProperties(
         )
         return inst
 
-"""todo define mapping here"""
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[frozendict.frozendict],
+        dict,
+        frozendict.frozendict
+    ]
+]
 
 
 class MapMapOfString(
@@ -109,7 +122,13 @@ class AdditionalProperties3(
     @schemas.classproperty
     def LOWER(cls) -> AdditionalProperties3[str]:
         return cls("lower") # type: ignore
-"""todo define mapping here"""
+DictInput3 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties3[str],
+        str
+    ]
+]
 
 
 class MapOfEnumString(
@@ -146,7 +165,13 @@ class MapOfEnumString(
         return inst
 
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-"""todo define mapping here"""
+DictInput4 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties4[schemas.BoolClass],
+        bool
+    ]
+]
 
 
 class DirectMap(

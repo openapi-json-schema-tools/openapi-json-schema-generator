@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "lengthCm": typing.Type[LengthCm],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class Banana(

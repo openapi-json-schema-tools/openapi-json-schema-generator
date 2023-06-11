@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "args": typing.Type[Args],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class ObjectModelWithArgAndArgsProperties(

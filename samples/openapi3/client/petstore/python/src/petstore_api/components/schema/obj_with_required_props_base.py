@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "b": typing.Type[B],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class ObjWithRequiredPropsBase(

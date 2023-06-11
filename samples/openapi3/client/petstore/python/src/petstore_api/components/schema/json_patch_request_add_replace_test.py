@@ -52,8 +52,8 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
+DictInput4 = typing_extensions.TypedDict(
+    'DictInput4',
     {
         "op": typing.Union[
             Op[str],
@@ -162,7 +162,7 @@ class JSONPatchRequestAddReplaceTest(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput4,
             JSONPatchRequestAddReplaceTest[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

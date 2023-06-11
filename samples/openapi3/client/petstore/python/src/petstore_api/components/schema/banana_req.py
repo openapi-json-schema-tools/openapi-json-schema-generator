@@ -31,19 +31,10 @@ RequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-OptionalDictInput = typing_extensions.TypedDict(
-    'OptionalDictInput',
-    {
-        "sweet": typing.Union[
-            Sweet[schemas.BoolClass],
-            bool
-        ],
-    },
-    total=False
-)
+# todo optional properties mapping w/ addProps unset
 
 
-class DictInput(RequiredDictInput, OptionalDictInput):
+class DictInput3(RequiredDictInput, OptionalDictInput):
     pass
 
 
@@ -89,7 +80,7 @@ class BananaReq(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput3,
             BananaReq[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

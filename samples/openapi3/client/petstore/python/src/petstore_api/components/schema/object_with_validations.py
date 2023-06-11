@@ -29,7 +29,10 @@ class ObjectWithValidations(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg_: typing.Union[
+            DictInput,
+            ObjectWithValidations[frozendict.frozendict],
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithValidations[frozendict.frozendict]:
         inst = super().__new__(

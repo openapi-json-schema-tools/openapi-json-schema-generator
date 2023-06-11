@@ -47,8 +47,8 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
     {
         "from": typing.Union[
             _From[str],
@@ -118,7 +118,7 @@ class JSONPatchRequestMoveCopy(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput3,
             JSONPatchRequestMoveCopy[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

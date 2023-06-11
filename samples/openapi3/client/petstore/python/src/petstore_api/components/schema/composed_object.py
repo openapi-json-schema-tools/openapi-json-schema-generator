@@ -36,7 +36,10 @@ class ComposedObject(
 
     def __new__(
         cls,
-        arg_: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg_: typing.Union[
+            DictInput2,
+            ComposedObject[frozendict.frozendict],
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedObject[frozendict.frozendict]:
         inst = super().__new__(

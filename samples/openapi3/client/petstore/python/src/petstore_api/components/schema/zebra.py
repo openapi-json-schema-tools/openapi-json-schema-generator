@@ -70,7 +70,7 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-"""todo define mapping here"""
+# todo properties mapping with required and optional and addprops
 
 
 class Zebra(
@@ -128,7 +128,7 @@ class Zebra(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput2,
             Zebra[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

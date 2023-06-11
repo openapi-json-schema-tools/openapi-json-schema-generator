@@ -11,7 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[schemas.BoolClass],
+        bool
+    ]
+]
 
 
 class StringBooleanMap(

@@ -11,7 +11,14 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[decimal.Decimal],
+        decimal.Decimal,
+        int
+    ]
+]
 
 
 class Schema(

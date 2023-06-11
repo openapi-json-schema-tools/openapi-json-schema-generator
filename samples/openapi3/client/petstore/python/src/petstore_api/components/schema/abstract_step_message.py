@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "discriminator": typing.Type[Discriminator],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class AbstractStepMessage(

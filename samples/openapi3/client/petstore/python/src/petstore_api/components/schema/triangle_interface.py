@@ -39,6 +39,7 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class TriangleInterface(

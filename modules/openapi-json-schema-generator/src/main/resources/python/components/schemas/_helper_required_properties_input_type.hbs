@@ -28,7 +28,36 @@
     }
 )
     {{else}}
-# todo required properties mapping w/ addProps set
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each requiredProperties}}
+            {{#with this}}
+                {{#if refInfo.refClass}}
+        typing.Union[
+            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+        ],
+                {{else}}
+                    {{#if jsonPathPiece}}
+        typing.Union[
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
+        ],
+                    {{else}}
+        typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                {{> components/schemas/_helper_schema_python_base_types_newline }}
+            ]],
+            {{> _helper_schema_python_types_newline }}
+        ],
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+        {{#with additionalProperties}}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
+        {{/with}}
+    ]
+]
     {{/if}}
 {{else}}
 # todo required properties mapping w/ addProps unset

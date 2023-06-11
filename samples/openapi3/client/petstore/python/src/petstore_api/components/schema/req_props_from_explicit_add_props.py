@@ -11,7 +11,28 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
-"""todo define mapping here"""
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+        typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+        AdditionalProperties[str],
+        str
+    ]
+]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[str],
+        str
+    ]
+]
 
 
 class ReqPropsFromExplicitAddProps(

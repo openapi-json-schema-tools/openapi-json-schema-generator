@@ -37,6 +37,7 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
+# todo required properties mapping w/ addProps unset
 
 
 class DanishPig(

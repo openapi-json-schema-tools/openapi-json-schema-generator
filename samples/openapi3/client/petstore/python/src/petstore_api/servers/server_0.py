@@ -73,8 +73,8 @@ Properties = typing_extensions.TypedDict(
         "port": typing.Type[Port],
     }
 )
-DictInput = typing_extensions.TypedDict(
-    'DictInput',
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
     {
         "port": typing.Union[
             Port[str],
@@ -130,7 +130,7 @@ class Variables(
     def __new__(
         cls,
         arg_: typing.Union[
-            DictInput,
+            DictInput3,
             Variables[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
