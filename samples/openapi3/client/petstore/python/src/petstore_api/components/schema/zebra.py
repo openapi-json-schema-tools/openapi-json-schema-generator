@@ -71,7 +71,38 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-# todo properties mapping with required and optional and addprops
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ClassName[str],
+            str
+        ],
+        typing.Union[
+            Type[str],
+            str
+        ],
+        AdditionalProperties[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]
 
 
 class Zebra(
