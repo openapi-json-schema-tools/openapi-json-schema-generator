@@ -19,7 +19,20 @@ Properties = typing_extensions.TypedDict(
         "param2": typing.Type[Param2],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Param[str],
+            str
+        ],
+        typing.Union[
+            Param2[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(

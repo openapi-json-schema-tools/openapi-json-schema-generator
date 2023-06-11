@@ -89,4 +89,19 @@ Properties = typing_extensions.TypedDict(
         "!reference": typing.Type[array_with_validations_in_items.ArrayWithValidationsInItems],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            array_with_validations_in_items.ArrayWithValidationsInItems[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            from_schema.FromSchema[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

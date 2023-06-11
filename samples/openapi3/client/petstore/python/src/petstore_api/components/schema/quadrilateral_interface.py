@@ -39,7 +39,20 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            QuadrilateralType[str],
+            str
+        ],
+        typing.Union[
+            ShapeType[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class QuadrilateralInterface(

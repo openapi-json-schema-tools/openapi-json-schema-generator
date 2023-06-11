@@ -17,7 +17,72 @@ Properties = typing_extensions.TypedDict(
         "discriminator": typing.Type[Discriminator],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Discriminator[str],
+            str
+        ],
+        typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class AbstractStepMessage(

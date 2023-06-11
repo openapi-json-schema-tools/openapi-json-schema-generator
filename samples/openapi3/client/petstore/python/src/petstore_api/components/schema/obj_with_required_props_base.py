@@ -17,7 +17,16 @@ Properties = typing_extensions.TypedDict(
         "b": typing.Type[B],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            B[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjWithRequiredPropsBase(

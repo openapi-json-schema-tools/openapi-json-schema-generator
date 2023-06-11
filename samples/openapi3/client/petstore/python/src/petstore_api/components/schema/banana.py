@@ -17,7 +17,18 @@ Properties = typing_extensions.TypedDict(
         "lengthCm": typing.Type[LengthCm],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            LengthCm[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Banana(

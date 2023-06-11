@@ -97,4 +97,17 @@ Properties = typing_extensions.TypedDict(
         "currency": typing.Type[currency.Currency],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Amount[str],
+            str
+        ],
+        typing.Union[
+            currency.Currency[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

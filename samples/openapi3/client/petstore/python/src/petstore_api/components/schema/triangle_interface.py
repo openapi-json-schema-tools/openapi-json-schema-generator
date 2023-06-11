@@ -39,7 +39,20 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ShapeType[str],
+            str
+        ],
+        typing.Union[
+            TriangleType[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class TriangleInterface(

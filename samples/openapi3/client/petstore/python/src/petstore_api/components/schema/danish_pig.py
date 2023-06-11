@@ -37,7 +37,16 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ClassName[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class DanishPig(

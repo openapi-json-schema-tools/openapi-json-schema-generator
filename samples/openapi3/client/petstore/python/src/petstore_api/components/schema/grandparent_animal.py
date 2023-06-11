@@ -17,7 +17,16 @@ Properties = typing_extensions.TypedDict(
         "pet_type": typing.Type[PetType],
     }
 )
-# todo required properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            PetType[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class GrandparentAnimal(
