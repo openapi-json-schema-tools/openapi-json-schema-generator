@@ -304,7 +304,68 @@ Properties = typing_extensions.TypedDict(
         "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput13 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            MapProperty[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapOfMapProperty[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Anytype1[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            EmptyMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class AdditionalPropertiesClass(

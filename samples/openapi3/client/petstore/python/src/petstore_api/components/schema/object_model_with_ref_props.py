@@ -93,4 +93,23 @@ Properties = typing_extensions.TypedDict(
         "myBoolean": typing.Type[boolean.Boolean],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            number_with_validations.NumberWithValidations[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            string.String[str],
+            str
+        ],
+        typing.Union[
+            boolean.Boolean[schemas.BoolClass],
+            bool
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

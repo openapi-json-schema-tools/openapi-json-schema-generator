@@ -85,4 +85,18 @@ Properties = typing_extensions.TypedDict(
         "enemyPlayer": typing.Type[Player],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            Player[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

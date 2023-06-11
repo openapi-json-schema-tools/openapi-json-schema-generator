@@ -204,7 +204,27 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ArrayOfString[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayArrayOfInteger[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayArrayOfModel[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ArrayTest(

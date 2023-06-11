@@ -17,7 +17,18 @@ Properties = typing_extensions.TypedDict(
         "JustNumber": typing.Type[JustNumber],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            JustNumber[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class NumberOnly(

@@ -105,7 +105,21 @@ Properties = typing_extensions.TypedDict(
         "array_enum": typing.Type[ArrayEnum],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            JustSymbol[str],
+            str
+        ],
+        typing.Union[
+            ArrayEnum[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class EnumArrays(

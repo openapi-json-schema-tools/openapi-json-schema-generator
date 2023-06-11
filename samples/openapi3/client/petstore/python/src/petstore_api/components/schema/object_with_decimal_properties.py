@@ -91,4 +91,22 @@ Properties = typing_extensions.TypedDict(
         "cost": typing.Type[money.Money],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            decimal_payload.DecimalPayload[str],
+            str
+        ],
+        typing.Union[
+            Width[str],
+            str
+        ],
+        typing.Union[
+            money.Money[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

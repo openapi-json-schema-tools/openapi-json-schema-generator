@@ -63,7 +63,20 @@ Properties = typing_extensions.TypedDict(
         "NullableMessage": typing.Type[NullableMessage],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            NullableMessage[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class HealthCheckResult(

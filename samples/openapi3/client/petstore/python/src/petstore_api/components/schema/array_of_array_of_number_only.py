@@ -92,7 +92,17 @@ Properties = typing_extensions.TypedDict(
         "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ArrayArrayNumber[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ArrayOfArrayOfNumberOnly(

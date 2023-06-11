@@ -17,7 +17,16 @@ Properties = typing_extensions.TypedDict(
         "_class": typing.Type[_Class],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            _Class[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ClassModel(

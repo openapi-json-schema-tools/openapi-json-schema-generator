@@ -79,4 +79,13 @@ Properties = typing_extensions.TypedDict(
         "bar": typing.Type[bar.Bar],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            bar.Bar[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

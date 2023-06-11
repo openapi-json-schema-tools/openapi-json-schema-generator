@@ -291,4 +291,29 @@ Properties = typing_extensions.TypedDict(
         "indirect_map": typing.Type[string_boolean_map.StringBooleanMap],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput5 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            MapMapOfString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapOfEnumString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            DirectMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            string_boolean_map.StringBooleanMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

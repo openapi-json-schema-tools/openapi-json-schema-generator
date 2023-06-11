@@ -84,7 +84,33 @@ Properties = typing_extensions.TypedDict(
         "someProp": typing.Type[SomeProp],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SomeProp[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithInlineCompositionProperty(

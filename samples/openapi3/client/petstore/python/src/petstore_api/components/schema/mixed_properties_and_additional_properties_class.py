@@ -55,7 +55,27 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Uuid[str],
+            str,
+            uuid.UUID
+        ],
+        typing.Union[
+            DateTime[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Map[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(

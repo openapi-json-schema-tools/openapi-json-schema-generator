@@ -17,7 +17,16 @@ Properties = typing_extensions.TypedDict(
         "sourceURI": typing.Type[SourceURI],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SourceURI[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class File(

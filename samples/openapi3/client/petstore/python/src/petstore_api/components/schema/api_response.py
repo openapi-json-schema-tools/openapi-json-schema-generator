@@ -21,7 +21,25 @@ Properties = typing_extensions.TypedDict(
         "message": typing.Type[Message],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Code[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Type[str],
+            str
+        ],
+        typing.Union[
+            Message[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ApiResponse(

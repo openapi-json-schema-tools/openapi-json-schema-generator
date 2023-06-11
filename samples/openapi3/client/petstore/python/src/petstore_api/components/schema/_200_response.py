@@ -19,7 +19,21 @@ Properties = typing_extensions.TypedDict(
         "class": typing.Type[_Class],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _Class[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _200Response(

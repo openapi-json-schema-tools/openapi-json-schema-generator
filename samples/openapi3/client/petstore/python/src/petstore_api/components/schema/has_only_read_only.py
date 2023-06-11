@@ -19,7 +19,20 @@ Properties = typing_extensions.TypedDict(
         "foo": typing.Type[Foo],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Bar[str],
+            str
+        ],
+        typing.Union[
+            Foo[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class HasOnlyReadOnly(

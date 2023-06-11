@@ -21,7 +21,22 @@ Properties = typing_extensions.TypedDict(
         "someprop": typing.Type[Someprop],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput3 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SomeProp[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Someprop[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithCollidingProperties(

@@ -112,7 +112,21 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            EnumFormStringArray[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            EnumFormString[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(

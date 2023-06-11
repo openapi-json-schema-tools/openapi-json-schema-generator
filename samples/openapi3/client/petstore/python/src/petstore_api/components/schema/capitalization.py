@@ -27,7 +27,36 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SmallCamel[str],
+            str
+        ],
+        typing.Union[
+            CapitalCamel[str],
+            str
+        ],
+        typing.Union[
+            SmallSnake[str],
+            str
+        ],
+        typing.Union[
+            CapitalSnake[str],
+            str
+        ],
+        typing.Union[
+            SCAETHFlowPoints[str],
+            str
+        ],
+        typing.Union[
+            ATTNAME[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Capitalization(

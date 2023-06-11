@@ -69,7 +69,40 @@ Properties = typing_extensions.TypedDict(
         "complete": typing.Type[Complete],
     }
 )
-# todo optional properties mapping w/ addProps unset
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            PetId[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Quantity[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            ShipDate[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Status[str],
+            str
+        ],
+        typing.Union[
+            Complete[schemas.BoolClass],
+            bool
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Order(
