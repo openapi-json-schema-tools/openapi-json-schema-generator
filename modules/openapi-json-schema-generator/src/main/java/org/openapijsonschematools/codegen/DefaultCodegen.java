@@ -2293,21 +2293,17 @@ public class DefaultCodegen implements CodegenConfig {
         // ideally requiredProperties would come before properties
         property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath, ((Schema<?>) p).getProperties());
         property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath);
-        LinkedHashMapWithContext reqAndOptionalProps = new LinkedHashMapWithContext<>();
-        if (property.requiredProperties != null && property.optionalProperties == null) {
-            property.requiredAndOptionalProperties = reqAndOptionalProps;
-            property.requiredAndOptionalProperties.setJsonPathPiece(property.requiredProperties.jsonPathPiece());
-        } else if (property.requiredProperties == null && property.optionalProperties != null) {
-            property.requiredAndOptionalProperties = reqAndOptionalProps;
-            property.requiredAndOptionalProperties.setJsonPathPiece(property.optionalProperties.jsonPathPiece());
-        } else if (property.requiredProperties != null && property.optionalProperties != null) {
-            property.requiredAndOptionalProperties = reqAndOptionalProps;
-            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
-            property.requiredAndOptionalProperties.setJsonPathPiece(jsonPathPiece);
-        } else if (property.additionalProperties != null && !property.additionalProperties.isBooleanSchemaFalse && sourceJsonPath != null) {
-            property.requiredAndOptionalProperties = reqAndOptionalProps;
-            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
-            property.requiredAndOptionalProperties.setJsonPathPiece(jsonPathPiece);
+        if ((property.types == null || property.types.contains("object")) && sourceJsonPath != null) {
+            // only set mapInputJsonPathPiece when object input is possible
+            if (property.requiredProperties != null && property.optionalProperties == null) {
+                property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
+            } else if (property.requiredProperties == null && property.optionalProperties != null) {
+                property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
+            } else if (property.requiredProperties != null && property.optionalProperties != null) {
+                property.mapInputJsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            } else {
+                property.mapInputJsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            }
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
 

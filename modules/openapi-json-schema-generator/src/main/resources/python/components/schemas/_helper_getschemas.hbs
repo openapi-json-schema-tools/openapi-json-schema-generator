@@ -16,20 +16,13 @@
 {{> components/schemas/_helper_properties_type }}
                     {{else}}
                         {{#eq instanceType "requiredPropertiesInputType" }}
-{{> components/schemas/_helper_required_properties_type }}
+{{> components/schemas/_helper_required_properties_input_type }}
                         {{else}}
                             {{#eq instanceType "optionalPropertiesInputType" }}
-{{> components/schemas/_helper_optional_properties_type }}
+{{> components/schemas/_helper_optional_properties_input_type }}
                             {{else}}
                                 {{#eq instanceType "propertiesInputType" }}
-                                    {{#and requiredAndOptionalProperties requiredProperties optionalProperties additionalProperties additionalProperties.isBooleanSchemaFalse}}
-
-
-class {{requiredAndOptionalProperties.jsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
-    pass
-                                    {{else}}
-"""todo define mapping here"""
-                                    {{/and}}
+{{> components/schemas/_helper_properties_input_type }}
                                 {{else}}
                                     {{#eq instanceType "importsType" }}
 

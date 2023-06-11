@@ -1,0 +1,33 @@
+{{#if additionalProperties}}
+    {{#if additionalProperties.isBooleanSchemaFalse}}
+        {{#and requiredProperties optionalProperties}}
+
+
+class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
+    pass
+        {{else}}
+            {{! empty mapping }}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping # mapping must be empty
+        {{/and}}
+    {{else}}
+        {{! addProps True/schema}}
+        {{#and requiredProperties optionalProperties}}
+# todo properties mapping with required and optional and addprops
+        {{else}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#with additionalProperties}}
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
+        {{/with}}
+    ]
+]
+        {{/and}}
+    {{/if}}
+{{else}}
+    {{#and requiredProperties optionalProperties}}
+# todo properties mapping with required and optional and unset addprops
+    {{else}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+    {{/and}}
+{{/if}}

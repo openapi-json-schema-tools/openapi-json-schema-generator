@@ -86,6 +86,7 @@ public class CodegenSchema {
     public String unescapedDescription;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredAndOptionalProperties;
+    public CodegenKey mapInputJsonPathPiece;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
@@ -223,10 +224,13 @@ public class CodegenSchema {
             }
         }
         boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
-        if (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse) {
+        boolean typedDictRequiredPropsUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
+        boolean mappingUseCase = (requiredProperties != null && !additionalPropertiesIsBooleanSchemaFalse && optionalProperties == null);
+        if (typedDictRequiredPropsUseCase || mappingUseCase) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "requiredPropertiesInputType";
             extraSchema.requiredProperties = requiredProperties;
+            extraSchema.additionalProperties = additionalProperties;
             if (requiredProperties.allAreInline()) {
                 schemasBeforeImports.add(extraSchema);
             } else {
