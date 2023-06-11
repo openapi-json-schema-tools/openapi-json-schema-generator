@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "foo": typing.Type[Foo],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class HasOnlyReadOnly(

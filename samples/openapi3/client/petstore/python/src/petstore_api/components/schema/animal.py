@@ -31,6 +31,7 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Animal(

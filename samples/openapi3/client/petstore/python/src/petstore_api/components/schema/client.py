@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "client": typing.Type[Client],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Client(

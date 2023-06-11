@@ -31,6 +31,7 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Category(

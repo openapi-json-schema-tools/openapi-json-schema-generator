@@ -37,6 +37,7 @@ Properties = typing_extensions.TypedDict(
         "triangleType": typing.Type[TriangleType],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class _1(
@@ -93,6 +94,7 @@ class _1(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ScaleneTriangle(

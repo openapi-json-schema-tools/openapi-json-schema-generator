@@ -166,6 +166,7 @@ Properties = typing_extensions.TypedDict(
         "callback": typing.Type[Callback],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Schema(

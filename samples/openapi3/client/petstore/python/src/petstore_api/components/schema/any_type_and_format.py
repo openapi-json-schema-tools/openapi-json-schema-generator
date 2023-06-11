@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Uuid(
@@ -62,6 +63,7 @@ class Uuid(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Date(
@@ -114,6 +116,7 @@ class Date(
         )
         return inst
 
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class DateTime(
@@ -166,6 +169,7 @@ class DateTime(
         )
         return inst
 
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Number(
@@ -218,6 +222,7 @@ class Number(
         )
         return inst
 
+DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Binary(
@@ -269,6 +274,7 @@ class Binary(
         )
         return inst
 
+DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Int32(
@@ -320,6 +326,7 @@ class Int32(
         )
         return inst
 
+DictInput7 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Int64(
@@ -371,6 +378,7 @@ class Int64(
         )
         return inst
 
+DictInput8 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Double(
@@ -422,6 +430,7 @@ class Double(
         )
         return inst
 
+DictInput9 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class _Float(
@@ -487,6 +496,7 @@ Properties = typing_extensions.TypedDict(
         "float": typing.Type[_Float],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class AnyTypeAndFormat(

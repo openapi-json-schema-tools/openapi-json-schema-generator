@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class ObjectWithDifficultlyNamedProps(

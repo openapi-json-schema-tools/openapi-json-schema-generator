@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "color": typing.Type[Color],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class GmFruit(

@@ -63,6 +63,7 @@ Properties = typing_extensions.TypedDict(
         "NullableMessage": typing.Type[NullableMessage],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class HealthCheckResult(

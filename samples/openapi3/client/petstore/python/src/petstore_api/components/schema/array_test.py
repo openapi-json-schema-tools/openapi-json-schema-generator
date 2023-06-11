@@ -204,6 +204,7 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ArrayTest(

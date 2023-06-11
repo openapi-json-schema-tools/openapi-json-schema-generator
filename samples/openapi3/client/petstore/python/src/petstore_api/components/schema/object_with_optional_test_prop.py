@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "test": typing.Type[Test],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ObjectWithOptionalTestProp(

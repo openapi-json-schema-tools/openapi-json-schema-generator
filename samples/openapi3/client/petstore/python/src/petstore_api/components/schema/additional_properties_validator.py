@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 DictInput2 = typing.Mapping[
     str,
@@ -79,6 +80,7 @@ class _0(
         )
         return inst
 
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalProperties2(
@@ -198,6 +200,7 @@ class _1(
         )
         return inst
 
+DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalProperties3(
@@ -322,6 +325,7 @@ AllOf = typing.Tuple[
     typing.Type[_1[schemas.U]],
     typing.Type[_2[schemas.U]],
 ]
+DictInput7 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalPropertiesValidator(

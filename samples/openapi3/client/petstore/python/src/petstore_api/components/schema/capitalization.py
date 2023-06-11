@@ -27,6 +27,7 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Capitalization(

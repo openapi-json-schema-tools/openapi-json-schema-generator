@@ -26,13 +26,6 @@ DictInput = typing.Mapping[
         str
     ]
 ]
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        AdditionalProperties[str],
-        str
-    ]
-]
 
 
 class ReqPropsFromExplicitAddProps(

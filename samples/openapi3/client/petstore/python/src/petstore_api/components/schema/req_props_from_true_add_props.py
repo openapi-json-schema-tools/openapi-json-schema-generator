@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 DictInput2 = typing.Mapping[
     str,
@@ -56,30 +57,6 @@ DictInput2 = typing.Mapping[
             io.FileIO,
             io.BufferedReader
         ],
-        AdditionalProperties[
-            schemas.INPUT_BASE_TYPES
-        ],
-        dict,
-        frozendict.frozendict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        decimal.Decimal,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
-    ]
-]
-DictInput2 = typing.Mapping[
-    str,
-    typing.Union[
         AdditionalProperties[
             schemas.INPUT_BASE_TYPES
         ],

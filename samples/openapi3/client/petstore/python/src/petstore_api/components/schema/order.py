@@ -69,6 +69,7 @@ Properties = typing_extensions.TypedDict(
         "complete": typing.Type[Complete],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Order(

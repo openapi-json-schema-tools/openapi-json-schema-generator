@@ -139,9 +139,13 @@ class MapOfMapProperty(
         )
         return inst
 
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Anytype1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 MapWithUndeclaredPropertiesAnytype1: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 MapWithUndeclaredPropertiesAnytype2: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput7 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 DictInput8 = typing.Mapping[
     str,
@@ -212,6 +216,7 @@ class MapWithUndeclaredPropertiesAnytype3(
         return inst
 
 AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+DictInput11 = typing.Mapping # mapping must be empty
 
 
 class EmptyMap(
@@ -299,6 +304,7 @@ Properties = typing_extensions.TypedDict(
         "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class AdditionalPropertiesClass(

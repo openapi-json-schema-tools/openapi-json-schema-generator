@@ -226,3 +226,4 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
+# todo properties mapping with required and optional and unset addprops

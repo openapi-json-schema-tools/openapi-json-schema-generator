@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput10 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalProperties4(
@@ -350,6 +351,7 @@ class DatetimeProp(
         )
         return inst
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.DictSchema[U]
 
 
@@ -400,6 +402,7 @@ class ArrayNullableProp(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Items2(
@@ -497,6 +500,7 @@ class ArrayAndItemsNullableProp(
         )
         return inst
 
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class Items3(
@@ -589,6 +593,7 @@ class ArrayItemsNullable(
     ]]:
         return super().__getitem__(name)
 
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
 DictInput5 = typing.Mapping[
     str,
@@ -651,6 +656,7 @@ class ObjectNullableProp(
         )
         return inst
 
+DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalProperties2(
@@ -767,6 +773,7 @@ class ObjectAndItemsNullableProp(
         )
         return inst
 
+DictInput8 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AdditionalProperties3(
@@ -885,6 +892,105 @@ Properties = typing_extensions.TypedDict(
 DictInput11 = typing.Mapping[
     str,
     typing.Union[
+        typing.Union[
+            IntegerProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
+            None,
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            NumberProp[typing.Union[
+                schemas.NoneClass,
+                decimal.Decimal
+            ]],
+            None,
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            BooleanProp[typing.Union[
+                schemas.NoneClass,
+                schemas.BoolClass
+            ]],
+            None,
+            bool
+        ],
+        typing.Union[
+            StringProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str
+        ],
+        typing.Union[
+            DateProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str,
+            datetime.date
+        ],
+        typing.Union[
+            DatetimeProp[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            ArrayNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
+            None,
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                tuple
+            ]],
+            None,
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayItemsNullable[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            ObjectNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            ObjectAndItemsNullableProp[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            None,
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            ObjectItemsNullable[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
         AdditionalProperties4[typing.Union[
             schemas.NoneClass,
             frozendict.frozendict

@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "sourceURI": typing.Type[SourceURI],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class File(

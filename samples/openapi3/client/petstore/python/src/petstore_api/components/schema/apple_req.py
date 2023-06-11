@@ -29,7 +29,16 @@ RequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-# todo optional properties mapping w/ addProps unset
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "mealy": typing.Union[
+            Mealy[schemas.BoolClass],
+            bool
+        ],
+    },
+    total=False
+)
 
 
 class DictInput3(RequiredDictInput, OptionalDictInput):

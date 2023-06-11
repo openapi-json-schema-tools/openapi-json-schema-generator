@@ -93,3 +93,4 @@ Properties = typing_extensions.TypedDict(
         "myBoolean": typing.Type[boolean.Boolean],
     }
 )
+# todo optional properties mapping w/ addProps unset

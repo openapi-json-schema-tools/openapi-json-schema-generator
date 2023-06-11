@@ -74,3 +74,4 @@ Properties = typing_extensions.TypedDict(
         "string": typing.Type[foo.Foo],
     }
 )
+# todo optional properties mapping w/ addProps unset

@@ -10,7 +10,9 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -19,6 +21,7 @@ Properties = typing_extensions.TypedDict(
         "someprop": typing.Type[Someprop],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ObjectWithCollidingProperties(

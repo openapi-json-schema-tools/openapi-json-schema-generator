@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "JustNumber": typing.Type[JustNumber],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class NumberOnly(

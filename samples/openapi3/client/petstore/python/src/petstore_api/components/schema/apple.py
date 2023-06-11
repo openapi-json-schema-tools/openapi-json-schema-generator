@@ -48,6 +48,7 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Apple(

@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "return": typing.Type[_Return],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class _Return(

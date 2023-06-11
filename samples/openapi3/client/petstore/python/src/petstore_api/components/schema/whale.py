@@ -41,6 +41,7 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Whale(

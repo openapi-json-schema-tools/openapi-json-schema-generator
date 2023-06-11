@@ -72,30 +72,6 @@ class Shapes(
     ]]:
         return super().__getitem__(name)
 
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        AdditionalProperties[
-            schemas.INPUT_BASE_TYPES
-        ],
-        dict,
-        frozendict.frozendict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        decimal.Decimal,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
-    ]
-]
 
 
 class Drawing(
@@ -211,3 +187,95 @@ Properties = typing_extensions.TypedDict(
         "shapes": typing.Type[Shapes],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            shape.Shape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            shape_or_null.ShapeOrNull[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            nullable_shape.NullableShape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Shapes[tuple],
+            list,
+            tuple
+        ],
+        AdditionalProperties[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]

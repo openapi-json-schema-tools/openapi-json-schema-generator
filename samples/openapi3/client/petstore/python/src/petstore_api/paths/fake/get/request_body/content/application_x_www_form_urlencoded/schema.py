@@ -112,6 +112,7 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Schema(

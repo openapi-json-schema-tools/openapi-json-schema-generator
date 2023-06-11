@@ -91,3 +91,4 @@ Properties = typing_extensions.TypedDict(
         "cost": typing.Type[money.Money],
     }
 )
+# todo optional properties mapping w/ addProps unset

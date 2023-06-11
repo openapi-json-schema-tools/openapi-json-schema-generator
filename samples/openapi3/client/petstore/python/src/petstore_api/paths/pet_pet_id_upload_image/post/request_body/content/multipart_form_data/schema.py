@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[File],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Schema(

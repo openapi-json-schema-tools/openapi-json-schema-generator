@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "keyword": typing.Type[Keyword],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Schema(

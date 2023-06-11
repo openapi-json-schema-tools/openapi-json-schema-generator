@@ -18,7 +18,9 @@ Email: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Password: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Phone: typing_extensions.TypeAlias = schemas.StrSchema[U]
 UserStatus: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 ObjectWithNoDeclaredProps: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ObjectWithNoDeclaredPropsNullable(
@@ -67,8 +69,10 @@ class ObjectWithNoDeclaredPropsNullable(
         )
         return inst
 
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 _Not: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AnyTypeExceptNullProp(
@@ -120,6 +124,7 @@ class AnyTypeExceptNullProp(
         )
         return inst
 
+DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -139,6 +144,7 @@ Properties = typing_extensions.TypedDict(
         "anyTypePropNullable": typing.Type[AnyTypePropNullable],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class User(

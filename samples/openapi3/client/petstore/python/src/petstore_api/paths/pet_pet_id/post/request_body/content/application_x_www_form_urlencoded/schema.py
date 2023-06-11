@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Schema(

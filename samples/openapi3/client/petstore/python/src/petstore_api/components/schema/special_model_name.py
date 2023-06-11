@@ -17,6 +17,7 @@ Properties = typing_extensions.TypedDict(
         "a": typing.Type[A],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class SpecialModelName(

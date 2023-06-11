@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "baz": typing.Type[Baz],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ReadOnlyFirst(

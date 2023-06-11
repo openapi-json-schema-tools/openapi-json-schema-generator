@@ -223,9 +223,9 @@ public class CodegenSchema {
             }
         }
         boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
-        boolean typedDictRequiredPropsUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
+        boolean typedDictUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
         boolean mappingUseCase = (requiredProperties != null && !additionalPropertiesIsBooleanSchemaFalse && optionalProperties == null);
-        if (typedDictRequiredPropsUseCase || mappingUseCase) {
+        if (typedDictUseCase || mappingUseCase) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "requiredPropertiesInputType";
             extraSchema.requiredProperties = requiredProperties;
@@ -236,29 +236,41 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        if (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse) {
+        typedDictUseCase = (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse);
+        mappingUseCase = (optionalProperties != null && !additionalPropertiesIsBooleanSchemaFalse && requiredProperties == null);
+        if (typedDictUseCase || mappingUseCase) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "optionalPropertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
+            extraSchema.additionalProperties = additionalProperties;
             if (optionalProperties.allAreInline()) {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        boolean typedDictReqAndOptional = (
-                requiredProperties != null && optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse
-        );
-        if (typedDictReqAndOptional || (additionalProperties != null && !additionalProperties.isBooleanSchemaFalse)) {
+        boolean requiredPropsAndOptionalPropsSet = (requiredProperties != null && optionalProperties != null);
+        boolean requiredPropsAndOptionalPropsUnset = (requiredProperties == null && optionalProperties == null);
+        if ((requiredPropsAndOptionalPropsSet || requiredPropsAndOptionalPropsUnset) && mapInputJsonPathPiece != null) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "propertiesInputType";
             extraSchema.optionalProperties = optionalProperties;
             extraSchema.requiredProperties = requiredProperties;
             extraSchema.mapInputJsonPathPiece = mapInputJsonPathPiece;
             extraSchema.additionalProperties = additionalProperties;
-            boolean allAreInline = true;
-            if (requiredProperties != null && optionalProperties != null && typedDictReqAndOptional) {
-                allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+            boolean allAreInline;
+            if (requiredPropsAndOptionalPropsSet) {
+                if (additionalProperties == null) {
+                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+                } else {
+                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline() && additionalProperties.refInfo == null);
+                }
+            } else {
+                if (additionalProperties == null) {
+                    allAreInline = true;
+                } else {
+                    allAreInline = additionalProperties.refInfo == null;
+                }
             }
             if (allAreInline) {
                 schemasBeforeImports.add(extraSchema);

@@ -21,6 +21,7 @@ Properties = typing_extensions.TypedDict(
         "message": typing.Type[Message],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ApiResponse(

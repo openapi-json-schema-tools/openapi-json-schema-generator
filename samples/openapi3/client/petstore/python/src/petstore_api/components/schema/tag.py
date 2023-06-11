@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class Tag(

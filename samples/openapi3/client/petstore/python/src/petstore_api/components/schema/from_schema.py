@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "id": typing.Type[Id],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class FromSchema(

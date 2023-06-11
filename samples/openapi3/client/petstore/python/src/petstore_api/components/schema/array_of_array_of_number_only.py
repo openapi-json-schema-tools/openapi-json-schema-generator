@@ -92,6 +92,7 @@ Properties = typing_extensions.TypedDict(
         "ArrayArrayNumber": typing.Type[ArrayArrayNumber],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ArrayOfArrayOfNumberOnly(

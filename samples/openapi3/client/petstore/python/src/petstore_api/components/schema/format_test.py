@@ -225,6 +225,7 @@ Properties = typing_extensions.TypedDict(
         "noneProp": typing.Type[NoneProp],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class FormatTest(

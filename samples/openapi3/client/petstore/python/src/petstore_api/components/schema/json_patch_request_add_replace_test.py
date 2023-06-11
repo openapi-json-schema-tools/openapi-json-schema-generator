@@ -12,6 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 

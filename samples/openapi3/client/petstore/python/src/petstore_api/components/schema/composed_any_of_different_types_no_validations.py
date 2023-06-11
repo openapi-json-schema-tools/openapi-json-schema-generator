@@ -10,15 +10,18 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _0: typing_extensions.TypeAlias = schemas.DictSchema[U]
 _1: typing_extensions.TypeAlias = schemas.DateSchema[U]
 _2: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
 _3: typing_extensions.TypeAlias = schemas.BinarySchema[U]
 _4: typing_extensions.TypeAlias = schemas.StrSchema[U]
 _5: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _6: typing_extensions.TypeAlias = schemas.DictSchema[U]
 _7: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 _8: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -106,6 +109,7 @@ AnyOf = typing.Tuple[
     typing.Type[_14[schemas.U]],
     typing.Type[_15[schemas.U]],
 ]
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ComposedAnyOfDifferentTypesNoValidations(

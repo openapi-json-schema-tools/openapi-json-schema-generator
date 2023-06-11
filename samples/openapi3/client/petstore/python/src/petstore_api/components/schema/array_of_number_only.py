@@ -55,6 +55,7 @@ Properties = typing_extensions.TypedDict(
         "ArrayNumber": typing.Type[ArrayNumber],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class ArrayOfNumberOnly(

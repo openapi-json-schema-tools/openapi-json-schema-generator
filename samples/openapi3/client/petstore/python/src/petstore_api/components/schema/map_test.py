@@ -291,3 +291,4 @@ Properties = typing_extensions.TypedDict(
         "indirect_map": typing.Type[string_boolean_map.StringBooleanMap],
     }
 )
+# todo optional properties mapping w/ addProps unset

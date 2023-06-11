@@ -30,7 +30,17 @@ RequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-# todo optional properties mapping w/ addProps unset
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "petId": typing.Union[
+            PetId[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
+)
 
 
 class DictInput3(RequiredDictInput, OptionalDictInput):

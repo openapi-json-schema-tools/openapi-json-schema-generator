@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "class": typing.Type[_Class],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class _200Response(

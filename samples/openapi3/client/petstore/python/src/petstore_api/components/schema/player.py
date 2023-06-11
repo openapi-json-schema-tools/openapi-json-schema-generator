@@ -85,3 +85,4 @@ Properties = typing_extensions.TypedDict(
         "enemyPlayer": typing.Type[Player],
     }
 )
+# todo optional properties mapping w/ addProps unset

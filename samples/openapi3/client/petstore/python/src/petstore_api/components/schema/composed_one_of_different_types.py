@@ -12,6 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
 _3: typing_extensions.TypeAlias = schemas.DateSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class _4(
@@ -44,6 +45,7 @@ class _4(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -125,6 +127,7 @@ class _6(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^2020.*'  # noqa: E501
         )
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ComposedOneOfDifferentTypes(

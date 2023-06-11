@@ -12,30 +12,6 @@ from petstore_api.shared_imports.schema_imports import *
 
 Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema[U]
 DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        AdditionalProperties[
-            schemas.INPUT_BASE_TYPES
-        ],
-        dict,
-        frozendict.frozendict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        decimal.Decimal,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
-    ]
-]
 
 
 class Map(
@@ -79,6 +55,7 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
+# todo optional properties mapping w/ addProps unset
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(
@@ -150,3 +127,27 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
 
 from petstore_api.components.schema import animal
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ]
+]

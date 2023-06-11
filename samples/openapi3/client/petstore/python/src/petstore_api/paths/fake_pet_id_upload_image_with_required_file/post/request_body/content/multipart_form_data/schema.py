@@ -19,6 +19,7 @@ Properties = typing_extensions.TypedDict(
         "requiredFile": typing.Type[RequiredFile],
     }
 )
+# todo properties mapping with required and optional and unset addprops
 
 
 class Schema(
