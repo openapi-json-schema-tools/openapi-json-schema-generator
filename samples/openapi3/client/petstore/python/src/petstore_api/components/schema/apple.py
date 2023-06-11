@@ -126,8 +126,8 @@ class Apple(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput,
+            Apple[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Apple[

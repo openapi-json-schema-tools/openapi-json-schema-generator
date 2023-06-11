@@ -96,7 +96,10 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        arg_: typing.Union[
+            DictInput3,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[
         typing.Union[
@@ -216,7 +219,10 @@ class AdditionalProperties3(
 
     def __new__(
         cls,
-        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        arg_: typing.Union[
+            DictInput5,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties3[
         typing.Union[

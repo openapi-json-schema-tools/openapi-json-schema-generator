@@ -43,8 +43,8 @@ class ObjectWithNoDeclaredPropsNullable(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput2,
+            ObjectWithNoDeclaredPropsNullable[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithNoDeclaredPropsNullable[
@@ -88,7 +88,10 @@ class AnyTypeExceptNullProp(
 
     def __new__(
         cls,
-        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        arg_: typing.Union[
+            DictInput4,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeExceptNullProp[
         typing.Union[

@@ -39,18 +39,26 @@ def __new__(
     arg_: {{> _helper_schema_python_types }},
         {{/contains}}
     {{else}}
-        {{#contains types "object"}}
     arg_: typing.Union[
-        {{> _helper_schema_python_types_newline }}
+        {{#each types}}
+            {{#eq this "object"}}
+        {{mapInputJsonPathPiece.camelCase}},
+        {{jsonPathPiece.camelCase}}[frozendict.frozendict],
+            {{else}}
+        {{> _helper_schema_python_type_newline }}
+            {{/eq}}
+        {{/each}}
     ],
-        {{else}}
-    arg_: typing.Union[
-        {{> _helper_schema_python_types_newline }}
-    ],
-        {{/contains}}
     {{/eq}}
 {{else}}
+    {{#if mapInputJsonPathPiece}}
+    arg_: typing.Union[
+        {{mapInputJsonPathPiece.camelCase}},
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ],
+    {{else}}
     arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+    {{/if}}
 {{/if}}
     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
 {{#if types}}

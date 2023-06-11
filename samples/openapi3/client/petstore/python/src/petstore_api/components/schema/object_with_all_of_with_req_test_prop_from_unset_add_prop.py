@@ -161,7 +161,10 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
     def __new__(
         cls,
-        arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        arg_: typing.Union[
+            DictInput2,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithAllOfWithReqTestPropFromUnsetAddProp[
         typing.Union[

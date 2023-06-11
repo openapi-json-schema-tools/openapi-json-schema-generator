@@ -33,8 +33,8 @@ class AdditionalProperties4(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput10,
+            AdditionalProperties4[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties4[
@@ -425,8 +425,8 @@ class Items2(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput2,
+            Items2[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[
@@ -523,8 +523,8 @@ class Items3(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput3,
+            Items3[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items3[
@@ -630,8 +630,8 @@ class ObjectNullableProp(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput5,
+            ObjectNullableProp[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectNullableProp[
@@ -679,8 +679,8 @@ class AdditionalProperties2(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput6,
+            AdditionalProperties2[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[
@@ -747,8 +747,8 @@ class ObjectAndItemsNullableProp(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput7,
+            ObjectAndItemsNullableProp[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectAndItemsNullableProp[
@@ -796,8 +796,8 @@ class AdditionalProperties3(
         cls,
         arg_: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput8,
+            AdditionalProperties3[frozendict.frozendict],
         ],
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties3[
