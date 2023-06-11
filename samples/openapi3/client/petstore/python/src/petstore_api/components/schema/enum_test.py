@@ -249,4 +249,55 @@ Properties = typing_extensions.TypedDict(
         "IntegerEnumOneValue": typing.Type[integer_enum_one_value.IntegerEnumOneValue],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            EnumStringRequired[str],
+            str
+        ],
+        typing.Union[
+            EnumString[str],
+            str
+        ],
+        typing.Union[
+            EnumInteger[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            EnumNumber[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            string_enum.StringEnum[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str
+        ],
+        typing.Union[
+            integer_enum.IntegerEnum[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            string_enum_with_default_value.StringEnumWithDefaultValue[str],
+            str
+        ],
+        typing.Union[
+            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

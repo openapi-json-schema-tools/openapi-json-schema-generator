@@ -166,7 +166,81 @@ Properties = typing_extensions.TypedDict(
         "callback": typing.Type[Callback],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Byte[str],
+            str
+        ],
+        typing.Union[
+            Double[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            Number[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            PatternWithoutDelimiter[str],
+            str
+        ],
+        typing.Union[
+            Integer[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Int32[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Int64[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _Float[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            String[str],
+            str
+        ],
+        typing.Union[
+            Binary[typing.Union[bytes, schemas.FileIO]],
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Date[str],
+            str,
+            datetime.date
+        ],
+        typing.Union[
+            DateTime[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Password[str],
+            str
+        ],
+        typing.Union[
+            Callback[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(

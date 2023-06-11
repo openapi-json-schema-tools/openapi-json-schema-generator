@@ -31,7 +31,21 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Category(

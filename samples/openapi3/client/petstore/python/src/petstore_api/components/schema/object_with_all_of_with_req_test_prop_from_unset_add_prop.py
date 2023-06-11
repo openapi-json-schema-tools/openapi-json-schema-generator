@@ -17,7 +17,44 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Name[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _1(

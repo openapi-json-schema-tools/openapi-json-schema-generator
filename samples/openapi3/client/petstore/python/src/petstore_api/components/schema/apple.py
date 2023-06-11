@@ -48,7 +48,20 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Cultivar[str],
+            str
+        ],
+        typing.Union[
+            Origin[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Apple(

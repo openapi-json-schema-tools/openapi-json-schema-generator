@@ -21,7 +21,26 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            _123List[str],
+            str
+        ],
+        typing.Union[
+            SpecialPropertyName[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _123Number[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithDifficultlyNamedProps(

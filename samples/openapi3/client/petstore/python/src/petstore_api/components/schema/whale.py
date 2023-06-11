@@ -41,7 +41,24 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ClassName[str],
+            str
+        ],
+        typing.Union[
+            HasBaleen[schemas.BoolClass],
+            bool
+        ],
+        typing.Union[
+            HasTeeth[schemas.BoolClass],
+            bool
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Whale(

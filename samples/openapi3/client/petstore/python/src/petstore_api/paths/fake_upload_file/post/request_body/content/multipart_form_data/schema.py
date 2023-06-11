@@ -19,7 +19,22 @@ Properties = typing_extensions.TypedDict(
         "file": typing.Type[File],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            File[typing.Union[bytes, schemas.FileIO]],
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            AdditionalMetadata[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(

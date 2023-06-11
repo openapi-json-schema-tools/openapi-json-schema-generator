@@ -226,4 +226,37 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
-# todo properties mapping with required and optional and unset addprops
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            PhotoUrls[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            category.Category[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Tags[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            Status[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
