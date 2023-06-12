@@ -104,7 +104,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     query_params: operation.RequestQueryParameters.Params = {
         'query': "query_example",
     }
-    body = user.User(
+    body = user.User({
         "id": 1,
         "username": "username_example",
         "first_name": "first_name_example",
@@ -118,7 +118,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "any_type_prop": None,
         "any_type_except_null_prop": None,
         "any_type_prop_nullable": None,
-    )
+    })
     try:
         api_response = api_instance.body_with_query_params(
             query_params=query_params,

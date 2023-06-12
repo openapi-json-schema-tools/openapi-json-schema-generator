@@ -81,7 +81,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = [
-        user.User(
+        user.User({
             "id": 1,
             "username": "username_example",
             "first_name": "first_name_example",
@@ -95,7 +95,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             "any_type_prop": None,
             "any_type_except_null_prop": None,
             "any_type_prop_nullable": None,
-        )
+        })
     ]
     try:
         # Creates list of users with given input array

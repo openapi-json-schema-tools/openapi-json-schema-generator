@@ -1285,7 +1285,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (modelName != null) {
             openChars = modelName + "(";
             closeChars = ")";
-            if (schema.getTypes() != null && schema.getTypes().size() == 1 && schema.getTypes().contains("object")) {
+            if (ModelUtils.isTypeObjectSchema(schema)) {
                 openChars = openChars + "{";
                 closeChars = "}" + closeChars;
             }
