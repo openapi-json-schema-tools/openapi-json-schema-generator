@@ -66,12 +66,12 @@ class ObjectWithInvalidNamedRefedProperties(
             DictInput,
             ObjectWithInvalidNamedRefedProperties[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInvalidNamedRefedProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithInvalidNamedRefedProperties[frozendict.frozendict],

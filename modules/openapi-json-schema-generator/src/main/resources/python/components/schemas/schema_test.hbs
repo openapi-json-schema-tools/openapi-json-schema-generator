@@ -12,7 +12,7 @@ from {{packageName}}.configurations import schema_configuration
 
 class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
     """{{jsonPathPiece.camelCase}} unit test stubs"""
-    configuration_ = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration()
 
 {{#each testCases}}
 {{#with this }}
@@ -23,7 +23,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
 {{#with data}}
             {{> components/schemas/_helper_payload_renderer endChar=',' }}
 {{/with}}
-            configuration_=self.configuration_
+            configuration=self.configuration
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
@@ -31,7 +31,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
 {{#with data}}
                 {{> components/schemas/_helper_payload_renderer endChar=','}}
 {{/with}}
-                configuration_=self.configuration_
+                configuration=self.configuration
             )
 {{/if}}
 {{/with}}

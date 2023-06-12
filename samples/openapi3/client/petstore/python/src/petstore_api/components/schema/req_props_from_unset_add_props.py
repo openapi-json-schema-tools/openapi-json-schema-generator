@@ -158,12 +158,12 @@ class ReqPropsFromUnsetAddProps(
             DictInput,
             ReqPropsFromUnsetAddProps[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromUnsetAddProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ReqPropsFromUnsetAddProps[frozendict.frozendict],

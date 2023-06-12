@@ -165,12 +165,12 @@ class Zebra(
             DictInput2,
             Zebra[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Zebra[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Zebra[frozendict.frozendict],

@@ -31,12 +31,12 @@ class Files(
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Files[tuple]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Files[tuple],
@@ -99,12 +99,12 @@ class FileSchemaTestClass(
             DictInput,
             FileSchemaTestClass[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             FileSchemaTestClass[frozendict.frozendict],

@@ -30,12 +30,12 @@ class AdditionalProperties(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[tuple]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalProperties[tuple],
@@ -81,12 +81,12 @@ class AdditionalPropertiesWithArrayOfEnums(
             DictInput,
             AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],

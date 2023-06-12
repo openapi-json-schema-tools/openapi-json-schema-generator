@@ -31,7 +31,7 @@ class Uuid(
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Uuid[
         typing.Union[
             frozendict.frozendict,
@@ -47,7 +47,7 @@ class Uuid(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Uuid[
@@ -87,7 +87,7 @@ class Date(
             DictInput2,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Date[
         typing.Union[
             frozendict.frozendict,
@@ -103,7 +103,7 @@ class Date(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Date[
@@ -143,7 +143,7 @@ class DateTime(
             DictInput3,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DateTime[
         typing.Union[
             frozendict.frozendict,
@@ -159,7 +159,7 @@ class DateTime(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             DateTime[
@@ -199,7 +199,7 @@ class Number(
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Number[
         typing.Union[
             frozendict.frozendict,
@@ -215,7 +215,7 @@ class Number(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Number[
@@ -254,7 +254,7 @@ class Binary(
             DictInput5,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Binary[
         typing.Union[
             frozendict.frozendict,
@@ -270,7 +270,7 @@ class Binary(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Binary[
@@ -309,7 +309,7 @@ class Int32(
             DictInput6,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int32[
         typing.Union[
             frozendict.frozendict,
@@ -325,7 +325,7 @@ class Int32(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Int32[
@@ -364,7 +364,7 @@ class Int64(
             DictInput7,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int64[
         typing.Union[
             frozendict.frozendict,
@@ -380,7 +380,7 @@ class Int64(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Int64[
@@ -419,7 +419,7 @@ class Double(
             DictInput8,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Double[
         typing.Union[
             frozendict.frozendict,
@@ -435,7 +435,7 @@ class Double(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             Double[
@@ -474,7 +474,7 @@ class _Float(
             DictInput9,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Float[
         typing.Union[
             frozendict.frozendict,
@@ -490,7 +490,7 @@ class _Float(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             _Float[
@@ -879,12 +879,12 @@ class AnyTypeAndFormat(
             DictInput10,
             AnyTypeAndFormat[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormat[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AnyTypeAndFormat[frozendict.frozendict],

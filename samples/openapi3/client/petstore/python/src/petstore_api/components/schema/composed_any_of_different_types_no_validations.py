@@ -60,12 +60,12 @@ class _9(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _9[tuple]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             _9[tuple],
@@ -134,7 +134,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedAnyOfDifferentTypesNoValidations[
         typing.Union[
             frozendict.frozendict,
@@ -150,7 +150,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ComposedAnyOfDifferentTypesNoValidations[

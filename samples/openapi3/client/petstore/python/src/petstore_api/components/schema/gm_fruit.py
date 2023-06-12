@@ -77,7 +77,7 @@ class GmFruit(
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> GmFruit[
         typing.Union[
             frozendict.frozendict,
@@ -93,7 +93,7 @@ class GmFruit(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             GmFruit[

@@ -46,7 +46,7 @@ class ShapeOrNull(
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ShapeOrNull[
         typing.Union[
             frozendict.frozendict,
@@ -62,7 +62,7 @@ class ShapeOrNull(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ShapeOrNull[

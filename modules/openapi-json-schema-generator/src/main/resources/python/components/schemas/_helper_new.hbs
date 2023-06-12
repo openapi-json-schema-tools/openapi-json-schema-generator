@@ -60,7 +60,7 @@ def __new__(
     arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
     {{/if}}
 {{/if}}
-    configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
 {{#if types}}
     {{#eq types.size 1}}
 ) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
@@ -81,7 +81,7 @@ def __new__(
     inst = super().__new__(
         cls,
         arg,
-        configuration_=configuration_,
+        configuration=configuration,
     )
     inst = typing.cast(
 {{#if types}}

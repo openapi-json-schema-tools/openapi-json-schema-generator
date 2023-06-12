@@ -40,12 +40,12 @@ class MapProperty(
             DictInput,
             MapProperty[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapProperty[frozendict.frozendict],
@@ -83,12 +83,12 @@ class AdditionalProperties2(
             DictInput2,
             AdditionalProperties2[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalProperties2[frozendict.frozendict],
@@ -126,12 +126,12 @@ class MapOfMapProperty(
             DictInput3,
             MapOfMapProperty[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapOfMapProperty[frozendict.frozendict],
@@ -202,12 +202,12 @@ class MapWithUndeclaredPropertiesAnytype3(
             DictInput8,
             MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
@@ -235,12 +235,12 @@ class EmptyMap(
             DictInput11,
             EmptyMap[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             EmptyMap[frozendict.frozendict],
@@ -278,12 +278,12 @@ class MapWithUndeclaredPropertiesString(
             DictInput12,
             MapWithUndeclaredPropertiesString[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapWithUndeclaredPropertiesString[frozendict.frozendict],
@@ -451,12 +451,12 @@ class AdditionalPropertiesClass(
             DictInput13,
             AdditionalPropertiesClass[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalPropertiesClass[frozendict.frozendict],

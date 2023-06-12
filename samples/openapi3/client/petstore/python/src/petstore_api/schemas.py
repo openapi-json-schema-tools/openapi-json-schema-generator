@@ -1365,7 +1365,7 @@ class Schema(typing.Generic[T]):
             io.BufferedReader,
             bytes
         ],
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
         """
         Schema from_openapi_data_
@@ -1376,7 +1376,7 @@ class Schema(typing.Generic[T]):
         cast_arg = cast_to_allowed_types(arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
         validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
-            configuration=configuration_ or schema_configuration.SchemaConfiguration(),
+            configuration=configuration or schema_configuration.SchemaConfiguration(),
             validated_path_to_schemas=frozendict.frozendict(validated_path_to_schemas)
         )
         path_to_schemas = cls.__get_new_cls(cast_arg, validation_metadata, path_to_type)
@@ -1422,7 +1422,7 @@ class Schema(typing.Generic[T]):
             io.BufferedReader,
             'Schema',
         ],
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             Unset,
             dict,
@@ -1450,7 +1450,7 @@ class Schema(typing.Generic[T]):
         Args:
             arg (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
             kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
-            configuration_: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
+            configuration: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
                 like minItems, minLength etc
 
         Note: double underscores are used here because pycharm thinks that these variables
@@ -1472,7 +1472,7 @@ class Schema(typing.Generic[T]):
             __arg, __from_server, __validated_path_to_schemas, ('args[0]',), __path_to_type)
         __validation_metadata = ValidationMetadata(
             path_to_item=('args[0]',),
-            configuration=configuration_ or schema_configuration.SchemaConfiguration(),
+            configuration=configuration or schema_configuration.SchemaConfiguration(),
             validated_path_to_schemas=frozendict.frozendict(__validated_path_to_schemas)
         )
         __path_to_schemas = cls.__get_new_cls(cast_arg, __validation_metadata, __path_to_type)
@@ -2132,8 +2132,8 @@ class ListSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Sequence[typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: typing.Sequence[typing.Any], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Sequence[typing.Any], **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]) -> ListSchema[tuple]:
         return super().__new__(cls, arg, **kwargs)
@@ -2149,8 +2149,8 @@ class NoneSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({NoneClass})
 
     @classmethod
-    def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: None, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: None, **kwargs: schema_configuration.SchemaConfiguration) -> NoneSchema[NoneClass]:
         return super().__new__(cls, arg, **kwargs)
@@ -2170,8 +2170,8 @@ class NumberSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: typing.Union[int, float], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> NumberSchema[decimal.Decimal]:
         return super().__new__(cls, arg, **kwargs)
@@ -2196,8 +2196,8 @@ class IntSchema(IntBase, NumberSchema[T]):
         format: str = 'int'
 
     @classmethod
-    def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: int, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> IntSchema[decimal.Decimal]:
         inst = super().__new__(cls, arg, **kwargs)
@@ -2239,8 +2239,8 @@ class Float32Schema(
         format: str = 'float'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: float, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float32Schema[decimal.Decimal]:
         inst = super().__new__(cls, arg, **kwargs)
@@ -2256,8 +2256,8 @@ class Float64Schema(
         format: str = 'double'
 
     @classmethod
-    def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: float, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float64Schema[decimal.Decimal]:
         inst = super().__new__(cls, arg, **kwargs)
@@ -2280,8 +2280,8 @@ class StrSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({str})
 
     @classmethod
-    def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None) -> StrSchema[str]:
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: str, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None) -> StrSchema[str]:
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> StrSchema[str]:
         return super().__new__(cls, arg, **kwargs)
@@ -2412,8 +2412,8 @@ class BoolSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({BoolClass})
 
     @classmethod
-    def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: bool, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(cls, arg: bool, **kwargs: ValidationMetadata) -> BoolSchema[bool]:
         return super().__new__(cls, arg, **kwargs)
@@ -2454,7 +2454,7 @@ class AnyTypeSchema(
             io.FileIO,
             io.BufferedReader
         ],
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             str,
             uuid.UUID,
@@ -2482,7 +2482,7 @@ class AnyTypeSchema(
         decimal.Decimal,
         BoolClass
     ]]:
-        return super().__new__(cls, *arg, configuration_=configuration_, **kwargs)
+        return super().__new__(cls, *arg, configuration=configuration, **kwargs)
 
     def __init__(
         self,
@@ -2504,7 +2504,7 @@ class AnyTypeSchema(
             io.FileIO,
             io.BufferedReader
         ],
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[
             str,
             uuid.UUID,
@@ -2549,9 +2549,9 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
     def __new__(
         cls,
         *arg,
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ) -> NotAnyTypeSchema[T]:
-        inst = super().__new__(cls, *arg, configuration_=configuration_)
+        inst = super().__new__(cls, *arg, configuration=configuration)
         return typing.cast(NotAnyTypeSchema[T], inst)
 
 
@@ -2565,16 +2565,16 @@ class DictSchema(
         types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
 
     @classmethod
-    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return super().from_openapi_data_(arg, configuration_=configuration_)
+    def from_openapi_data_(cls, arg: typing.Dict[str, typing.Any], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return super().from_openapi_data_(arg, configuration=configuration)
 
     def __new__(
         cls,
         *arg: typing.Union[dict[str, INPUT_TYPES_ALL_INCL_SCHEMA], frozendict.frozendict[str, INPUT_TYPES_ALL_INCL_SCHEMA]],
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, Schema, Unset, ValidationMetadata],
     ) -> DictSchema[frozendict.frozendict]:
-        return super().__new__(cls, *arg, **kwargs, configuration_=configuration_)
+        return super().__new__(cls, *arg, **kwargs, configuration=configuration)
 
 
 schema_type_classes = frozenset({NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema})

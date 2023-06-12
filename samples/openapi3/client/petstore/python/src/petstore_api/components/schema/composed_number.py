@@ -38,12 +38,12 @@ class ComposedNumber(
     def __new__(
         cls,
         arg: typing.Union[decimal.Decimal, int, float],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedNumber[decimal.Decimal]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ComposedNumber[decimal.Decimal],

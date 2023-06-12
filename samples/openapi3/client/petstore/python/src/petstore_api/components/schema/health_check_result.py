@@ -34,7 +34,7 @@ class NullableMessage(
             None,
             str
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NullableMessage[
         typing.Union[
             schemas.NoneClass,
@@ -44,7 +44,7 @@ class NullableMessage(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             NullableMessage[
@@ -130,12 +130,12 @@ class HealthCheckResult(
             DictInput,
             HealthCheckResult[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> HealthCheckResult[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             HealthCheckResult[frozendict.frozendict],

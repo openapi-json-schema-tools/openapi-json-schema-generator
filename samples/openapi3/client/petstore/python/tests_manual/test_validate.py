@@ -179,7 +179,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=array_with_validations_in_items.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                array_with_validations_in_items.ArrayWithValidationsInItems([7], configuration_=used_configuration)
+                array_with_validations_in_items.ArrayWithValidationsInItems([7], configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -203,7 +203,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=array_with_validations_in_items.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                array_with_validations_in_items.ArrayWithValidationsInItems([item], configuration_=used_configuration)
+                array_with_validations_in_items.ArrayWithValidationsInItems([item], configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     tuple([Decimal('7')]),
                     validation_metadata=ValidationMetadata(
@@ -226,7 +226,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=array_with_validations_in_items.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                array_with_validations_in_items.ArrayWithValidationsInItems.from_openapi_data_([7], configuration_=used_configuration)
+                array_with_validations_in_items.ArrayWithValidationsInItems.from_openapi_data_([7], configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -244,7 +244,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                Foo({'bar': "a"}, configuration_=used_configuration)
+                Foo({'bar': "a"}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
@@ -270,7 +270,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                Foo({'bar': bar}, configuration_=used_configuration)
+                Foo({'bar': bar}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
@@ -289,7 +289,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                Foo.from_openapi_data_({"bar": "a"}, configuration_=used_configuration)
+                Foo.from_openapi_data_({"bar": "a"}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(

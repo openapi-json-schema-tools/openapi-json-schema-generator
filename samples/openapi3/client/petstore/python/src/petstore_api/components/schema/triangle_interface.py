@@ -118,7 +118,7 @@ class TriangleInterface(
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> TriangleInterface[
         typing.Union[
             frozendict.frozendict,
@@ -134,7 +134,7 @@ class TriangleInterface(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             TriangleInterface[

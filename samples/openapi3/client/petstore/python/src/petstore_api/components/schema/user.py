@@ -46,7 +46,7 @@ class ObjectWithNoDeclaredPropsNullable(
             DictInput2,
             ObjectWithNoDeclaredPropsNullable[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithNoDeclaredPropsNullable[
         typing.Union[
             schemas.NoneClass,
@@ -56,7 +56,7 @@ class ObjectWithNoDeclaredPropsNullable(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithNoDeclaredPropsNullable[
@@ -92,7 +92,7 @@ class AnyTypeExceptNullProp(
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeExceptNullProp[
         typing.Union[
             frozendict.frozendict,
@@ -108,7 +108,7 @@ class AnyTypeExceptNullProp(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             AnyTypeExceptNullProp[
@@ -390,12 +390,12 @@ class User(
             DictInput6,
             User[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> User[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             User[frozendict.frozendict],

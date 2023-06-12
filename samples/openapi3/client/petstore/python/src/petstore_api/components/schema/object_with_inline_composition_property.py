@@ -46,7 +46,7 @@ class SomeProp(
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SomeProp[
         typing.Union[
             frozendict.frozendict,
@@ -62,7 +62,7 @@ class SomeProp(
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             SomeProp[
@@ -171,12 +171,12 @@ class ObjectWithInlineCompositionProperty(
             DictInput2,
             ObjectWithInlineCompositionProperty[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInlineCompositionProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
             arg,
-            configuration_=configuration_,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithInlineCompositionProperty[frozendict.frozendict],
