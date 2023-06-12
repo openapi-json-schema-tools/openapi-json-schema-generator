@@ -28,7 +28,7 @@ class TestFruit(unittest.TestCase):
         # banana test
         length_cm = 20.3
         color = 'yellow'
-        fruit = Fruit(lengthCm=length_cm, color=color)
+        fruit = Fruit({'lengthCm': length_cm, 'color': color})
         # check its properties
         self.assertEqual(fruit['lengthCm'], length_cm)
         self.assertEqual(fruit.get('lengthCm'), length_cm)
@@ -78,16 +78,16 @@ class TestFruit(unittest.TestCase):
 
         # including input parameters for two oneOf instances raise an exception
         with self.assertRaises(petstore_api.ApiValueError):
-            Fruit(
-                lengthCm=length_cm,
-                cultivar='granny smith'
-            )
+            Fruit({
+                'lengthCm': length_cm,
+                'cultivar': 'granny smith'
+            })
 
         # make an instance of Fruit, a composed schema oneOf model
         # apple test
         color = 'red'
         cultivar = 'golden delicious'
-        fruit = Fruit(color=color, cultivar=cultivar)
+        fruit = Fruit({'color': color, 'cultivar': cultivar})
         # check its properties
         self.assertEqual(fruit['color'], color)
         self.assertEqual(fruit['cultivar'], cultivar)

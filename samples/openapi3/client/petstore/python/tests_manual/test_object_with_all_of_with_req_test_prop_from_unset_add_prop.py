@@ -11,7 +11,7 @@
 
 import unittest
 
-import petstore_api
+from petstore_api import exceptions
 from petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop import ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 
@@ -19,16 +19,16 @@ class TestObjectWithAllOfWithReqTestPropFromUnsetAddProp(unittest.TestCase):
     """ObjectWithAllOfWithReqTestPropFromUnsetAddProp unit test stubs"""
 
     def test_model_instantiation(self):
-        inst = ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
-            test='a'
-        )
+        inst = ObjectWithAllOfWithReqTestPropFromUnsetAddProp({
+            'test': 'a'
+        })
         assert inst == {'test': 'a'}
 
         # without the required test property an execption is thrown
-        with self.assertRaises(petstore_api.exceptions.ApiTypeError):
-            ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
-                name='a'
-            )
+        with self.assertRaises(exceptions.ApiTypeError):
+            ObjectWithAllOfWithReqTestPropFromUnsetAddProp({
+                'name': 'a'
+            })
 
 
 if __name__ == '__main__':

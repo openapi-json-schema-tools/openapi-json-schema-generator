@@ -17,6 +17,7 @@ import unittest
 import urllib3
 
 import petstore_api
+from petstore_api import exceptions
 from petstore_api import api_client, schemas, api_response
 from petstore_api.configurations import schema_configuration
 
@@ -125,14 +126,14 @@ class DeserializationTests(unittest.TestCase):
 
         # Test with valid regex pattern.
         inst = apple.Apple(
-            cultivar="Akane"
+            {'cultivar': "Akane"}
         )
         assert isinstance(inst, apple.Apple)
 
-        inst = apple.Apple(
-            cultivar="Golden Delicious",
-            origin="cHiLe"
-        )
+        inst = apple.Apple({
+            'cultivar': "Golden Delicious",
+            'origin': "cHiLe"
+        })
         assert isinstance(inst, apple.Apple)
 
         # Test with invalid regex pattern.
@@ -141,19 +142,19 @@ class DeserializationTests(unittest.TestCase):
             petstore_api.ApiValueError,
             err_regex
         ):
-            inst = apple.Apple(
-                cultivar="!@#%@$#Akane"
-            )
+            inst = apple.Apple({
+                'cultivar': "!@#%@$#Akane"
+            })
 
         err_regex = r"Invalid value `.+?`, must match regular expression `.+?` at \('args\[0\]', 'origin'\)"
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
             err_regex
         ):
-            inst = apple.Apple(
-                cultivar="Golden Delicious",
-                origin="!@#%@$#Chile"
-            )
+            inst = apple.Apple({
+                'cultivar': "Golden Delicious",
+                'origin': "!@#%@$#Chile"
+            })
 
     def test_deserialize_mammal(self):
         """
@@ -291,18 +292,18 @@ class DeserializationTests(unittest.TestCase):
             'size': 'medium',
         }
         response = self.__response(data)
-        class ApiResponse(api_response.ApiResponse):
+        class ApiResponseA(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: dog.Dog
             headers: schemas.Unset
 
-        class ResponseFor200(api_client.OpenApiResponse):
-            response_cls=ApiResponse
+        class ResponseFor200A(api_client.OpenApiResponse):
+            response_cls=ApiResponseA
             content={
                 self.json_content_type: api_client.MediaType(schema=dog.Dog),
             }
 
-        deserialized = ResponseFor200.deserialize(response, self.configuration)
+        deserialized = ResponseFor200A.deserialize(response, self.configuration)
         body = deserialized.body
         self.assertTrue(isinstance(body, dog.Dog))
         self.assertEqual(body['className'], 'Dog')
@@ -324,18 +325,18 @@ class DeserializationTests(unittest.TestCase):
             'p2': ['a', 'b', 123],
         }
         response = self.__response(data)
-        class ApiResponse(api_response.ApiResponse):
+        class ApiResponseB(api_response.ApiResponse):
             response: urllib3.HTTPResponse
             body: mammal.Mammal
             headers: schemas.Unset
 
-        class ResponseFor200(api_client.OpenApiResponse):
-            response_cls=ApiResponse
+        class ResponseFor200B(api_client.OpenApiResponse):
+            response_cls=ApiResponseB
             content={
                 self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
             }
 
-        deserialized = ResponseFor200.deserialize(response, self.configuration)
+        deserialized = ResponseFor200B.deserialize(response, self.configuration)
         body = deserialized.body
         self.assertTrue(isinstance(body, zebra.Zebra))
         self.assertEqual(body['className'], 'zebra')
@@ -356,7 +357,7 @@ class DeserializationTests(unittest.TestCase):
             }
 
         with self.assertRaises(
-            petstore_api.exceptions.ApiValueError
+            exceptions.ApiValueError
         ):
             data = {
                 'lengthCm': 21.2,
@@ -466,7 +467,7 @@ class DeserializationTests(unittest.TestCase):
         self.assertTrue(isinstance(deserialized.body, format_test.FormatTest))
 
         with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiValueError,
+            exceptions.ApiValueError,
             r"Invalid value `31`, value must be a multiple of `2` at \('args\[0\]', 'integer'\)"
         ):
             data = {
@@ -504,7 +505,7 @@ class DeserializationTests(unittest.TestCase):
         )
 
         with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiValueError,
+            exceptions.ApiValueError,
             r"Invalid value `31`, value must be a multiple of `2` at \('args\[0\]', 'integer'\)"
         ):
             data = {

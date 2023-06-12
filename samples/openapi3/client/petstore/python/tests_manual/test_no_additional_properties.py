@@ -12,7 +12,7 @@
 import decimal
 import unittest
 
-from petstore_api.components.schema.no_additional_properties import NoAdditionalProperties
+from petstore_api.components.schema import no_additional_properties
 from petstore_api import schemas
 
 class TestNoAdditionalProperties(unittest.TestCase):
@@ -28,7 +28,10 @@ class TestNoAdditionalProperties(unittest.TestCase):
         """Test NoAdditionalProperties"""
 
         # works with only required
-        inst = NoAdditionalProperties(id=1)
+        arg: no_additional_properties.DictInput3 = {
+            'id': 1
+        }
+        inst = no_additional_properties.NoAdditionalProperties(arg)
         id_by_items = inst["id"]
         assert id_by_items == 1
         assert isinstance(id_by_items, (schemas.Int64Schema, decimal.Decimal))
@@ -42,7 +45,11 @@ class TestNoAdditionalProperties(unittest.TestCase):
         assert inst.get("petId", schemas.unset) is schemas.unset
 
         # works with required + optional
-        inst = NoAdditionalProperties(id=1, petId=2)
+        arg: no_additional_properties.DictInput3 = {
+            'petId': 2,
+            'id': 1
+        }
+        inst = no_additional_properties.NoAdditionalProperties(arg)
 
         # needs required
         # TODO cast this to ApiTypeError?
@@ -50,7 +57,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             TypeError,
             r"missing 1 required keyword-only argument: 'id'"
         ):
-            NoAdditionalProperties(petId=2)
+            no_additional_properties.NoAdditionalProperties({'petId': 2})
 
         # may not be passed additional properties
         # TODO cast this to ApiTypeError?
@@ -58,7 +65,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             TypeError,
             r"got an unexpected keyword argument 'invalidArg'"
         ):
-            NoAdditionalProperties(id=2, invalidArg=2)
+            no_additional_properties.NoAdditionalProperties({'id': 2, 'invalidArg': 2})
 
         # plural example
         # TODO cast this to ApiTypeError?
@@ -66,7 +73,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             TypeError,
             r"got an unexpected keyword argument 'firstInvalidArg'"
         ):
-            NoAdditionalProperties(id=2, firstInvalidArg=1, secondInvalidArg=1)
+            no_additional_properties.NoAdditionalProperties({'id': 2, 'firstInvalidArg': 1, 'secondInvalidArg': 1})
 
 
 if __name__ == '__main__':

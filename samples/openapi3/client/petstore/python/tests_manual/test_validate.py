@@ -244,7 +244,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                Foo(bar="a", configuration_=used_configuration)
+                Foo({'bar': "a"}, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
@@ -270,7 +270,7 @@ class TestValidateCalls(unittest.TestCase):
                 "_validate",
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
-                Foo(bar=bar, configuration_=used_configuration)
+                Foo({'bar': bar}, configuration_=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(

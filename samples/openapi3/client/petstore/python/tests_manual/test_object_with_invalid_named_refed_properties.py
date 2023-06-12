@@ -11,7 +11,7 @@
 
 import unittest
 
-import petstore_api
+from petstore_api import exceptions
 from petstore_api.components.schema.object_with_invalid_named_refed_properties import ObjectWithInvalidNamedRefedProperties
 from petstore_api.components.schema.array_with_validations_in_items import ArrayWithValidationsInItems
 from petstore_api.components.schema.from_schema import FromSchema
@@ -24,7 +24,7 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
         array_value = ArrayWithValidationsInItems(
             [4, 5]
         )
-        from_value = FromSchema(data='abc', id=1)
+        from_value = FromSchema({'data': 'abc', 'id': 1})
         kwargs = {
             'from': from_value,
             '!reference': array_value
@@ -46,26 +46,26 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
         array_value = ArrayWithValidationsInItems(
             [4, 5]
         )
-        from_value = FromSchema(data='abc', id=1)
-        with self.assertRaises(petstore_api.exceptions.ApiTypeError):
+        from_value = FromSchema({'data': 'abc', 'id': 1})
+        with self.assertRaises(exceptions.ApiTypeError):
             ObjectWithInvalidNamedRefedProperties(
-                **{
+                {
                     'from': from_value,
                 }
             )
-        with self.assertRaises(petstore_api.exceptions.ApiTypeError):
+        with self.assertRaises(exceptions.ApiTypeError):
             ObjectWithInvalidNamedRefedProperties(
-                **{
+                {
                     '!reference': array_value
                 }
             )
-        with self.assertRaises(petstore_api.exceptions.ApiTypeError):
+        with self.assertRaises(exceptions.ApiTypeError):
             ObjectWithInvalidNamedRefedProperties.from_openapi_data_(
                 {
                     'from': {'data': 'abc', 'id': 1},
                 }
             )
-        with self.assertRaises(petstore_api.exceptions.ApiTypeError):
+        with self.assertRaises(exceptions.ApiTypeError):
             ObjectWithInvalidNamedRefedProperties.from_openapi_data_(
                 {
                     '!reference': [4, 5]

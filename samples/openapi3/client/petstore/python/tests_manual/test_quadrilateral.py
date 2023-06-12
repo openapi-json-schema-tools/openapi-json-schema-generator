@@ -30,9 +30,9 @@ class TestQuadrilateral(unittest.TestCase):
 
     def testQuadrilateral(self):
         """Test Quadrilateral"""
-        instance = Quadrilateral(shapeType="Quadrilateral", quadrilateralType="ComplexQuadrilateral")
+        instance = Quadrilateral({'shapeType': "Quadrilateral", 'quadrilateralType': "ComplexQuadrilateral"})
         assert isinstance(instance, complex_quadrilateral.ComplexQuadrilateral)
-        instance = Quadrilateral(shapeType="Quadrilateral", quadrilateralType="SimpleQuadrilateral")
+        instance = Quadrilateral({'shapeType': "Quadrilateral", 'quadrilateralType': "SimpleQuadrilateral"})
         assert isinstance(instance, simple_quadrilateral.SimpleQuadrilateral)
 
 
