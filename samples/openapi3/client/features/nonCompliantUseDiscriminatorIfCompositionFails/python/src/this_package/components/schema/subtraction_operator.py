@@ -34,6 +34,27 @@ Properties = typing_extensions.TypedDict(
         "operator_id": typing.Type[OperatorId],
     }
 )
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
+    {
+        "a": typing.Union[
+            A[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "b": typing.Union[
+            B[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        "operator_id": typing.Union[
+            OperatorId[str],
+            str
+        ],
+    }
+)
 
 
 class SubtractionOperator(
@@ -91,32 +112,16 @@ class SubtractionOperator(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        a: typing.Union[
-            A[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
+        arg: typing.Union[
+            DictInput3,
+            SubtractionOperator[frozendict.frozendict],
         ],
-        b: typing.Union[
-            B[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        operator_id: typing.Union[
-            OperatorId[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SubtractionOperator[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            a=a,
-            b=b,
-            operator_id=operator_id,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             SubtractionOperator[frozendict.frozendict],

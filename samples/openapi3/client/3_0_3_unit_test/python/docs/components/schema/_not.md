@@ -10,9 +10,9 @@ dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | decimal.Decimal, int | decimal.Decimal |  |
+[_not](#not2) | decimal.Decimal, int | decimal.Decimal |  |
 
-# _Not
+# Not2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

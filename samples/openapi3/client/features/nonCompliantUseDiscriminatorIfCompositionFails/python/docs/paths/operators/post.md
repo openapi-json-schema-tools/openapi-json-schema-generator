@@ -92,9 +92,9 @@ with this_package.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = operator.Operator(
-        a=3.14,
-        b=3.14,
-        operator_id="ADD",
+        "a": 3.14,
+        "b": 3.14,
+        "operator_id": "ADD",
     )
     try:
         api_response = api_instance.post_operators(

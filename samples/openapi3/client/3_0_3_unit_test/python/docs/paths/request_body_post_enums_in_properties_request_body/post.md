@@ -94,10 +94,10 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = enums_in_properties.EnumsInProperties(
-        foo="foo",
-        bar="bar",
-    )
+    body = enums_in_properties.EnumsInProperties({
+        "foo": "foo",
+        "bar": "bar",
+    })
     try:
         api_response = api_instance.post_enums_in_properties_request_body(
             body=body,

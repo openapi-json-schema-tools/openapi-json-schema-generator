@@ -183,10 +183,10 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate(
-        foo=None,
-        bar=None,
-    )
+    body = additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidate({
+        "foo": None,
+        "bar": None,
+    })
     try:
         api_response = api_instance.post_additionalproperties_allows_a_schema_which_should_validate_request_body(
             body=body,

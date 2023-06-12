@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "$ref": typing.Type[Ref],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Ref[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class PropertyNamedRefThatIsNotAReference(
@@ -62,9 +72,11 @@ class PropertyNamedRefThatIsNotAReference(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> PropertyNamedRefThatIsNotAReference[
         typing.Union[
             frozendict.frozendict,
@@ -79,9 +91,8 @@ class PropertyNamedRefThatIsNotAReference(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             PropertyNamedRefThatIsNotAReference[

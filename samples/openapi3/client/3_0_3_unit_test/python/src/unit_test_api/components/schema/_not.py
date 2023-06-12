@@ -10,7 +10,8 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-_Not: typing_extensions.TypeAlias = schemas.IntSchema[U]
+Not2: typing_extensions.TypeAlias = schemas.IntSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class _Not(
@@ -26,14 +27,16 @@ class _Not(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
+        not_: typing.Type[Not2] = dataclasses.field(default_factory=lambda: Not2) # type: ignore
 
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Not[
         typing.Union[
             frozendict.frozendict,
@@ -48,9 +51,8 @@ class _Not(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _Not[
