@@ -14,6 +14,7 @@ import sys
 import unittest
 
 import petstore_api
+from petstore_api import exceptions
 from petstore_api.components.schema.array_with_validations_in_items import ArrayWithValidationsInItems
 
 
@@ -36,13 +37,13 @@ class TestArrayWithValidationsInItems(unittest.TestCase):
             assert inst == (valid_value,)
 
         with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiValueError,
+            exceptions.ApiValueError,
             r"Invalid value `8`, must be a value less than or equal to `7` at \('args\[0\]', 0\)"
         ):
             ArrayWithValidationsInItems([8])
 
         with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiValueError,
+            exceptions.ApiValueError,
             r"Invalid value `\(Decimal\('1'\), Decimal\('2'\), Decimal\('3'\)\)`, number of items must be less than or equal to `2` at \('args\[0\]',\)"
         ):
             ArrayWithValidationsInItems([1, 2, 3])

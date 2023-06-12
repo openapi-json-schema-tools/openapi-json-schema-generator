@@ -38,14 +38,14 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
         assert isinstance(inst, NumberWithValidations)
 
         # we can make an instance that stores object (dict) data
-        inst = ComposedOneOfDifferentTypes(className="Cat", color="black")
+        inst = ComposedOneOfDifferentTypes({'className': "Cat", 'color': "black"})
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert isinstance(inst, Animal)
         assert isinstance(inst, Cat)
         assert isinstance(inst, frozendict.frozendict)
 
         # object that holds 4 properties and is not an Animal
-        inst = ComposedOneOfDifferentTypes(a="a", b="b", c="c", d="d")
+        inst = ComposedOneOfDifferentTypes({'a': "a", 'b': "b", 'c': "c", 'd': "d"})
         assert isinstance(inst, ComposedOneOfDifferentTypes)
         assert not isinstance(inst, Animal)
         assert isinstance(inst, frozendict.frozendict)
