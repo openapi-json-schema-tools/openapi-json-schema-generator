@@ -112,7 +112,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums({
-        key=[
+        "key": [
             enum_class.EnumClass("-efg")
         ],
     })

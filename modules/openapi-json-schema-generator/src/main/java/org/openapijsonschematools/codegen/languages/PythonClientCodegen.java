@@ -1548,10 +1548,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     key = addPropsSchema.getEnum().get(0).toString();
                 }
                 addPropsExample = exampleFromStringOrArraySchema(addPropsSchema, addPropsExample, key);
-                String addPropPrefix = key + "=";
-                if (modelName == null) {
-                    addPropPrefix = ensureQuotes(key) + ": ";
-                }
+                String addPropPrefix = ensureQuotes(key) + ": ";
                 String addPropsModelName = getRefClassWithRefModule(addPropsSchema);
                 if(includedSchemas.contains(schema)) {
                     return "";
