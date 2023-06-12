@@ -132,12 +132,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = order.Order(
-        id=1,
-        pet_id=1,
-        quantity=1,
-        ship_date="2020-02-02T20:20:20.000222Z",
-        status="placed",
-        complete=False,
+        "id": 1,
+        "pet_id": 1,
+        "quantity": 1,
+        "ship_date": "2020-02-02T20:20:20.000222Z",
+        "status": "placed",
+        "complete": False,
     )
     try:
         # Place an order for a pet

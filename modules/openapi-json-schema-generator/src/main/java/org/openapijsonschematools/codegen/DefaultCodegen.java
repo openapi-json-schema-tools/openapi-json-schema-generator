@@ -4329,9 +4329,13 @@ public class DefaultCodegen implements CodegenConfig {
                     if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
                         sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
                     }
-                    Integer qty = keyToQty.getOrDefault(usedKey, 0);
+                    /*
+                    saw use case with component named Client and nested property named client
+                    lowercase to ensure they increment the same key
+                     */
+                    Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
                     qty += 1;
-                    keyToQty.put(usedKey, qty);
+                    keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
                     if (qty > 1) {
                         suffix = qty.toString();
                     }

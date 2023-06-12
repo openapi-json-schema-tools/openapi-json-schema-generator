@@ -275,9 +275,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     # example passing only optional values
     query_params: operation.RequestQueryParameters.Params = {
         'compositionAtRoot': None,
-        'compositionInProperty': dict(
-        some_prop=None,
-    ),
+        'compositionInProperty': {
+        "some_prop": None,
+    },
     }
     body = None
     try:

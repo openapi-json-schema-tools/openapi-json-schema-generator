@@ -10,18 +10,18 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-_Return: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Return2: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "return": typing.Type[_Return],
+        "return": typing.Type[Return2],
     }
 )
 DictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            _Return[decimal.Decimal],
+            Return2[decimal.Decimal],
             decimal.Decimal,
             int
         ],
@@ -49,7 +49,7 @@ class _Return(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["return"]) -> _Return[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["return"]) -> Return2[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[

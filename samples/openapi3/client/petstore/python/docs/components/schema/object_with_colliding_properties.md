@@ -13,7 +13,7 @@ dict, frozendict.frozendict | frozendict.frozendict | component with properties 
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | dict, frozendict.frozendict | [properties.SomeProp](#properties-someprop) |  | [optional]
-**someprop** | dict, frozendict.frozendict | [properties.Someprop](#properties-someprop) |  | [optional]
+**someprop** | dict, frozendict.frozendict | [properties.Someprop2](#properties-someprop2) |  | [optional]
 **any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties SomeProp
@@ -23,7 +23,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict | frozendict.frozendict |  |
 
-# properties Someprop
+# properties Someprop2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

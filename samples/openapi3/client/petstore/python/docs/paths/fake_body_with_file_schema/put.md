@@ -83,10 +83,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = file_schema_test_class.FileSchemaTestClass(
-        file=file.File(
-            source_uri="source_uri_example",
+        "file": file.File(
+            "source_uri": "source_uri_example",
         ),
-        files=[
+        "files": [
             file.File()
         ],
     )

@@ -155,22 +155,22 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = pet.Pet(
-        id=1,
-        category=category.Category(
-            id=1,
-            name="default-name",
+        "id": 1,
+        "category": category.Category(
+            "id": 1,
+            "name": "default-name",
         ),
-        name="doggie",
-        photo_urls=[
+        "name": "doggie",
+        "photo_urls": [
             "photo_urls_example"
         ],
-        tags=[
+        "tags": [
             tag.Tag(
-                id=1,
-                name="name_example",
+                "id": 1,
+                "name": "name_example",
             )
         ],
-        status="available",
+        "status": "available",
     )
     try:
         # Add a new pet to the store

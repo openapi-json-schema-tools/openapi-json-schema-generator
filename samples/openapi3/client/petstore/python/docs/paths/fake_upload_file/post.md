@@ -115,10 +115,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = dict(
-        additional_metadata="additional_metadata_example",
-        file=open('/path/to/file', 'rb'),
-    )
+    body = {
+        "additional_metadata": "additional_metadata_example",
+        "file": open('/path/to/file', 'rb'),
+    }
     try:
         # uploads a file using multipart/form-data
         api_response = api_instance.upload_file(

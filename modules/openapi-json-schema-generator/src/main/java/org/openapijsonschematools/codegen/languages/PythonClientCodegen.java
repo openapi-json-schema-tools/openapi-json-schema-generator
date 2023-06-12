@@ -1285,6 +1285,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (modelName != null) {
             openChars = modelName + "(";
             closeChars = ")";
+            if (schema.getTypes() != null && schema.getTypes().size() == 1 && schema.getTypes().contains("object")) {
+                openChars = openChars + "{";
+                closeChars = "}" + closeChars;
+            }
         }
 
         String fullPrefix = currentIndentation + prefix + openChars;
@@ -1483,8 +1487,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             if (modelName == null) {
-                fullPrefix += "dict(";
-                closeChars = ")";
+                fullPrefix += "{";
+                closeChars = "}";
             }
             if (cycleFound) {
                 return fullPrefix + closeChars;
@@ -1602,7 +1606,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     propSchema,
                     propExample,
                     indentationLevel + 1,
-                    propName + "=",
+                    "\"" + propName + "\": ",
                     exampleLine + 1,
                     includedSchemas)).append(",\n");
         }

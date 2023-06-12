@@ -10,13 +10,13 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Name2: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 _Property: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "name": typing.Type[Name],
+        "name": typing.Type[Name2],
         "snake_case": typing.Type[SnakeCase],
         "property": typing.Type[_Property],
     }
@@ -25,7 +25,7 @@ DictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            Name[decimal.Decimal],
+            Name2[decimal.Decimal],
             decimal.Decimal,
             int
         ],
@@ -65,11 +65,11 @@ class Name(
 
     
     @property
-    def name(self) -> Name[decimal.Decimal]:
+    def name(self) -> Name2[decimal.Decimal]:
         return self.__getitem__("name")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name2[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> SnakeCase[decimal.Decimal]: ...

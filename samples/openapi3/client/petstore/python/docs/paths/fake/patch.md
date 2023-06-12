@@ -96,7 +96,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = client.Client(
-        client="client_example",
+        "client": "client_example",
     )
     try:
         # To test \"client\" model

@@ -13,12 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Someprop2: typing_extensions.TypeAlias = schemas.DictSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
         "someProp": typing.Type[SomeProp],
-        "someprop": typing.Type[Someprop],
+        "someprop": typing.Type[Someprop2],
     }
 )
 DictInput3 = typing.Mapping[
@@ -30,7 +30,7 @@ DictInput3 = typing.Mapping[
             frozendict.frozendict
         ],
         typing.Union[
-            Someprop[frozendict.frozendict],
+            Someprop2[frozendict.frozendict],
             dict,
             frozendict.frozendict
         ],
@@ -60,7 +60,7 @@ class ObjectWithCollidingProperties(
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop2[frozendict.frozendict]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
