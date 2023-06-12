@@ -16,7 +16,7 @@ DictInput = typing.Mapping[
     typing.Union[
         AdditionalProperties[schemas.BoolClass],
         bool
-    ]
+    ],
 ]
 
 

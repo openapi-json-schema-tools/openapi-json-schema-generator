@@ -16,7 +16,7 @@ DictInput = typing.Mapping[
     typing.Union[
         AdditionalProperties[str],
         str
-    ]
+    ],
 ]
 
 

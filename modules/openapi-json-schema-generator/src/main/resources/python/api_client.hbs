@@ -1408,8 +1408,6 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         schema = schemas._get_class(media_type.schema)
         if isinstance(in_data, schema):
             cast_in_data = in_data
-        elif isinstance(in_data, (dict, frozendict.frozendict)) and in_data:
-            cast_in_data = schema(**in_data)
         else:
             cast_in_data = schema(in_data)
         # TODO check for and use encoding if it exists

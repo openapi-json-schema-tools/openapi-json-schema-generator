@@ -13,7 +13,7 @@ import decimal
 import unittest
 
 from petstore_api.components.schema import no_additional_properties
-from petstore_api import schemas
+from petstore_api import schemas, exceptions
 
 class TestNoAdditionalProperties(unittest.TestCase):
     """NoAdditionalProperties unit test stubs"""
@@ -55,25 +55,25 @@ class TestNoAdditionalProperties(unittest.TestCase):
         # TODO cast this to ApiTypeError?
         with self.assertRaisesRegex(
             TypeError,
-            r"missing 1 required keyword-only argument: 'id'"
+            r"missing 1 required argument: \['id'\]"
         ):
             no_additional_properties.NoAdditionalProperties({'petId': 2})
 
         # may not be passed additional properties
         # TODO cast this to ApiTypeError?
         with self.assertRaisesRegex(
-            TypeError,
-            r"got an unexpected keyword argument 'invalidArg'"
+            exceptions.ApiValueError,
+            r"Value is invalid because it is disallowed by AnyTypeSchema"
         ):
-            no_additional_properties.NoAdditionalProperties({'id': 2, 'invalidArg': 2})
+            no_additional_properties.NoAdditionalProperties({'id': 2, 'invalidArg': 1})
 
         # plural example
         # TODO cast this to ApiTypeError?
         with self.assertRaisesRegex(
-            TypeError,
-            r"got an unexpected keyword argument 'firstInvalidArg'"
+            exceptions.ApiValueError,
+            r"Value is invalid because it is disallowed by AnyTypeSchema"
         ):
-            no_additional_properties.NoAdditionalProperties({'id': 2, 'firstInvalidArg': 1, 'secondInvalidArg': 1})
+            no_additional_properties.NoAdditionalProperties({'id': 2, 'firstInvalidArg': 1, 'secondInvalidArg': 3})
 
 
 if __name__ == '__main__':

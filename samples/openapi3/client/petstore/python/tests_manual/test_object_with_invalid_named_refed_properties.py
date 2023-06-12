@@ -31,7 +31,7 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
         }
         # __new__ creation works
         inst = ObjectWithInvalidNamedRefedProperties(
-            **kwargs
+            kwargs
         )
         primitive_data = {
             'from': {'data': 'abc', 'id': 1},

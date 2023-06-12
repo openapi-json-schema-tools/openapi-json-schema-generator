@@ -27,9 +27,9 @@ class TestObjectWithDifficultlyNamedProps(unittest.TestCase):
     def test_ObjectWithDifficultlyNamedProps(self):
         """Test ObjectWithDifficultlyNamedProps"""
         arg = {
-            "$special[property.name]": 'a',
-            "123-list": 1,
-            "123Number": 2,
+            "$special[property.name]": 1,
+            "123-list": 'a',
+            "123Number": 3,
         }
         model = ObjectWithDifficultlyNamedProps(arg)
         assert model == arg

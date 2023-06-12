@@ -77,24 +77,10 @@ DictInput = typing.Mapping[
             dict,
             frozendict.frozendict
         ],
-        AdditionalProperties[
-            schemas.INPUT_BASE_TYPES
+        typing.Union[
+            SelfReferencingObjectModel[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
         ],
-        dict,
-        frozendict.frozendict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        decimal.Decimal,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
     ]
 ]

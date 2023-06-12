@@ -34,7 +34,7 @@ DictInput2 = typing.Mapping[
         bytes,
         io.FileIO,
         io.BufferedReader
-    ]
+    ],
 ]
 
 
@@ -157,7 +157,7 @@ DictInput4 = typing.Mapping[
         bytes,
         io.FileIO,
         io.BufferedReader
-    ]
+    ],
 ]
 
 
@@ -280,7 +280,7 @@ DictInput6 = typing.Mapping[
         bytes,
         io.FileIO,
         io.BufferedReader
-    ]
+    ],
 ]
 
 

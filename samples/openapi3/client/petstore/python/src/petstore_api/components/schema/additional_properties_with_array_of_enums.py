@@ -52,7 +52,7 @@ DictInput = typing.Mapping[
         AdditionalProperties[tuple],
         list,
         tuple
-    ]
+    ],
 ]
 
 

@@ -150,24 +150,8 @@ from petstore_api.components.schema import animal
 DictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalProperties[
-            schemas.INPUT_BASE_TYPES
-        ],
+        animal.Animal[frozendict.frozendict],
         dict,
-        frozendict.frozendict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        decimal.Decimal,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
-    ]
+        frozendict.frozendict
+    ],
 ]

@@ -601,7 +601,7 @@ DictInput5 = typing.Mapping[
         AdditionalProperties[frozendict.frozendict],
         dict,
         frozendict.frozendict
-    ]
+    ],
 ]
 
 
@@ -715,7 +715,7 @@ DictInput7 = typing.Mapping[
         None,
         dict,
         frozendict.frozendict
-    ]
+    ],
 ]
 
 
@@ -832,7 +832,7 @@ DictInput9 = typing.Mapping[
         None,
         dict,
         frozendict.frozendict
-    ]
+    ],
 ]
 
 
@@ -991,13 +991,15 @@ DictInput11 = typing.Mapping[
             dict,
             frozendict.frozendict
         ],
-        AdditionalProperties4[typing.Union[
-            schemas.NoneClass,
+        typing.Union[
+            AdditionalProperties4[typing.Union[
+                schemas.NoneClass,
+                frozendict.frozendict
+            ]],
+            None,
+            dict,
             frozendict.frozendict
-        ]],
-        None,
-        dict,
-        frozendict.frozendict
+        ],
     ]
 ]
 

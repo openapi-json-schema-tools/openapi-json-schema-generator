@@ -16,7 +16,7 @@ DictInput = typing.Mapping[
     typing.Union[
         AdditionalProperties[str],
         str
-    ]
+    ],
 ]
 
 
@@ -59,7 +59,7 @@ DictInput2 = typing.Mapping[
     typing.Union[
         AdditionalProperties3[str],
         str
-    ]
+    ],
 ]
 
 
@@ -102,7 +102,7 @@ DictInput3 = typing.Mapping[
         AdditionalProperties2[frozendict.frozendict],
         dict,
         frozendict.frozendict
-    ]
+    ],
 ]
 
 
@@ -169,7 +169,7 @@ DictInput8 = typing.Mapping[
         bytes,
         io.FileIO,
         io.BufferedReader
-    ]
+    ],
 ]
 
 
@@ -254,7 +254,7 @@ DictInput12 = typing.Mapping[
     typing.Union[
         AdditionalProperties6[str],
         str
-    ]
+    ],
 ]
 
 

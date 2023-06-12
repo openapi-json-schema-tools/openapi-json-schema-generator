@@ -70,7 +70,7 @@ class TestFruit(unittest.TestCase):
             kwargs
         )
 
-        fruit = Fruit(**kwargs)
+        fruit = Fruit(kwargs)
         self.assertEqual(
             fruit,
             kwargs

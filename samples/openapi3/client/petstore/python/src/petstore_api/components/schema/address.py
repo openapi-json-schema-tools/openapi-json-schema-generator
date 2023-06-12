@@ -17,7 +17,7 @@ DictInput = typing.Mapping[
         AdditionalProperties[decimal.Decimal],
         decimal.Decimal,
         int
-    ]
+    ],
 ]
 
 

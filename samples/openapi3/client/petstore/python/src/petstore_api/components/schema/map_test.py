@@ -16,7 +16,7 @@ DictInput = typing.Mapping[
     typing.Union[
         AdditionalProperties2[str],
         str
-    ]
+    ],
 ]
 
 
@@ -59,7 +59,7 @@ DictInput2 = typing.Mapping[
         AdditionalProperties[frozendict.frozendict],
         dict,
         frozendict.frozendict
-    ]
+    ],
 ]
 
 
@@ -127,7 +127,7 @@ DictInput3 = typing.Mapping[
     typing.Union[
         AdditionalProperties3[str],
         str
-    ]
+    ],
 ]
 
 
@@ -170,7 +170,7 @@ DictInput4 = typing.Mapping[
     typing.Union[
         AdditionalProperties4[schemas.BoolClass],
         bool
-    ]
+    ],
 ]
 
 
