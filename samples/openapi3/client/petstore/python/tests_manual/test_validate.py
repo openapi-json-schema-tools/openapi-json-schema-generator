@@ -150,7 +150,7 @@ class TestValidateCalls(unittest.TestCase):
         with patch.object(
             Schema, "_validate", return_value=return_value
         ) as mock_validate:
-            array_holding_any_type.ArrayHoldingAnyType.from_openapi_data_([])
+            array_holding_any_type.ArrayHoldingAnyType([])
             assert mock_validate.call_count == 1
 
     def test_empty_dict_validate(self):
@@ -164,7 +164,7 @@ class TestValidateCalls(unittest.TestCase):
         with patch.object(
             Schema, "_validate", return_value=return_value
         ) as mock_validate:
-            Foo.from_openapi_data_({})
+            Foo({})
             assert mock_validate.call_count == 1
 
     def test_list_validate_direct_instantiation(self):
@@ -226,7 +226,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=array_with_validations_in_items.Items._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                array_with_validations_in_items.ArrayWithValidationsInItems.from_openapi_data_([7], configuration=used_configuration)
+                array_with_validations_in_items.ArrayWithValidationsInItems([7], configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     (Decimal("7"),),
                     validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
@@ -281,7 +281,7 @@ class TestValidateCalls(unittest.TestCase):
                 )
                 mock_inner_validate.assert_not_called()
 
-    def test_dict_validate_from_openapi_data_instantiation(self):
+    def test_dict_validate_instantiation_non_class_inst_data(self):
         with patch.object(Foo, "_validate", side_effect=Foo._validate) as mock_outer_validate:
             with patch.object(
                 Bar,
@@ -289,7 +289,7 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                Foo.from_openapi_data_({"bar": "a"}, configuration=used_configuration)
+                Foo({"bar": "a"}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
                     frozendict.frozendict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(

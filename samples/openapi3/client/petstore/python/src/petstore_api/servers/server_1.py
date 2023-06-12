@@ -107,7 +107,7 @@ class Server1(server.ServerWithVariables):
     '''
     The local server
     '''
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         "version": Version.Schema_.default,
     })
     variables_cls: typing.Type[Variables] = Variables

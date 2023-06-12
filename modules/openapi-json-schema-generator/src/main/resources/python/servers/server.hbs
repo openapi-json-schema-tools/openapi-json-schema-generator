@@ -22,7 +22,7 @@ class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}With
     '''
     {{/if}}
     {{#if variables}}
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         {{#with variables}}
             {{#each properties}}
         "{{{@key.original}}}": {{jsonPathPiece.camelCase}}.Schema_.default,

@@ -19,7 +19,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
 {{#if valid}}
-        {{jsonPathPiece.camelCase}}.from_openapi_data_(
+        {{jsonPathPiece.camelCase}}(
 {{#with data}}
             {{> components/schemas/_helper_payload_renderer endChar=',' }}
 {{/with}}
@@ -27,7 +27,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{jsonPathPiece.camelCase}}.from_openapi_data_(
+            {{jsonPathPiece.camelCase}}(
 {{#with data}}
                 {{> components/schemas/_helper_payload_renderer endChar=','}}
 {{/with}}

@@ -64,7 +64,7 @@ class TestFruit(unittest.TestCase):
             additional_date='2021-01-02',
         )
 
-        fruit = Fruit.from_openapi_data_(kwargs)
+        fruit = Fruit(kwargs)
         self.assertEqual(
             fruit,
             kwargs

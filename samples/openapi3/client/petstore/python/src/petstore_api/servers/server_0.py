@@ -153,7 +153,7 @@ class Server0(server.ServerWithVariables):
     '''
     petstore server
     '''
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         "server": Server.Schema_.default,
         "port": Port.Schema_.default,
     })

@@ -104,7 +104,7 @@ class Variables(
 
 @dataclasses.dataclass
 class Server1(server.ServerWithVariables):
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         "version": Version.Schema_.default,
     })
     variables_cls: typing.Type[Variables] = Variables

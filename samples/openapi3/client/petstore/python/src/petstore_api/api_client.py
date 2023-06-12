@@ -719,13 +719,13 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return cls.schema.from_openapi_data_(extracted_data)
+                return cls.schema(extracted_data)
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data = json.loads(in_data)
                 assert media_type.schema is not None
-                return media_type.schema.from_openapi_data_(cast_in_data)
+                return media_type.schema(cast_in_data)
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
         raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
@@ -940,8 +940,12 @@ class OpenApiResponse(JSONDetector, TypedDictInputVerifier, typing.Generic[T]):
                 content_type = 'multipart/form-data'
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
-            deserialized_body = body_schema.from_openapi_data_(
-                body_data, configuration=configuration)
+            body_schema = schemas._get_class(body_schema)
+            if body_schema is schemas.BinarySchema:
+                deserialized_body = body_schema(body_data)
+            else:
+                deserialized_body = body_schema(
+                    body_data, configuration=configuration)
         elif streamed:
             response.release_conn()
 

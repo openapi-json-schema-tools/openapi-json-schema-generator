@@ -26,7 +26,7 @@ class TestJSONEncoder(unittest.TestCase):
             schemas.DateTimeSchema: '2020-01-01T00:00:00'
         }
         for schema, value in schema_to_value.items():
-            inst = schema.from_openapi_data_(value)
+            inst = schema(value)
             assert value == self.serializer.default(inst)
 
     def test_receive_encode_numeric_types(self):
@@ -39,7 +39,7 @@ class TestJSONEncoder(unittest.TestCase):
             7.14: schemas.NumberSchema,
         }
         for value, schema in value_to_schema.items():
-            inst = schema.from_openapi_data_(value)
+            inst = schema(value)
             pre_serialize_value = self.serializer.default(inst)
             assert value == pre_serialize_value and type(value) == type(pre_serialize_value)
 
