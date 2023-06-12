@@ -162,7 +162,7 @@ class JSONPatchRequestAddReplaceTest(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             JSONPatchRequestAddReplaceTest[frozendict.frozendict],
         ],
@@ -170,7 +170,7 @@ class JSONPatchRequestAddReplaceTest(
     ) -> JSONPatchRequestAddReplaceTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

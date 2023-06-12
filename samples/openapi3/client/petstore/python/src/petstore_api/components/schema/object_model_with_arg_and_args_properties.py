@@ -93,7 +93,7 @@ class ObjectModelWithArgAndArgsProperties(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ObjectModelWithArgAndArgsProperties[frozendict.frozendict],
         ],
@@ -101,7 +101,7 @@ class ObjectModelWithArgAndArgsProperties(
     ) -> ObjectModelWithArgAndArgsProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

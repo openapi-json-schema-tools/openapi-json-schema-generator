@@ -25,7 +25,7 @@ class ArrayOfString(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
@@ -35,7 +35,7 @@ class ArrayOfString(
     ) -> ArrayOfString[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -62,7 +62,7 @@ class Items2(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items3[decimal.Decimal],
                 decimal.Decimal,
@@ -73,7 +73,7 @@ class Items2(
     ) -> Items2[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -99,7 +99,7 @@ class ArrayArrayOfInteger(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items2[tuple],
                 list,
@@ -110,7 +110,7 @@ class ArrayArrayOfInteger(
     ) -> ArrayArrayOfInteger[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -136,7 +136,7 @@ class Items4(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 read_only_first.ReadOnlyFirst[frozendict.frozendict],
                 dict,
@@ -147,7 +147,7 @@ class Items4(
     ) -> Items4[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -173,7 +173,7 @@ class ArrayArrayOfModel(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items4[tuple],
                 list,
@@ -184,7 +184,7 @@ class ArrayArrayOfModel(
     ) -> ArrayArrayOfModel[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -277,7 +277,7 @@ class ArrayTest(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ArrayTest[frozendict.frozendict],
         ],
@@ -285,7 +285,7 @@ class ArrayTest(
     ) -> ArrayTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -61,7 +61,7 @@ class Player(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Player[frozendict.frozendict],
         ],
@@ -69,7 +69,7 @@ class Player(
     ) -> Player[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

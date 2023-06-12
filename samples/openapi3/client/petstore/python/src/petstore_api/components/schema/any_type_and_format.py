@@ -27,7 +27,7 @@ class Uuid(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -46,7 +46,7 @@ class Uuid(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -83,7 +83,7 @@ class Date(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -102,7 +102,7 @@ class Date(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -139,7 +139,7 @@ class DateTime(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -158,7 +158,7 @@ class DateTime(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -195,7 +195,7 @@ class Number(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -214,7 +214,7 @@ class Number(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -250,7 +250,7 @@ class Binary(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput5,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -269,7 +269,7 @@ class Binary(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -305,7 +305,7 @@ class Int32(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput6,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -324,7 +324,7 @@ class Int32(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -360,7 +360,7 @@ class Int64(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput7,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -379,7 +379,7 @@ class Int64(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -415,7 +415,7 @@ class Double(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput8,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -434,7 +434,7 @@ class Double(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -470,7 +470,7 @@ class _Float(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput9,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -489,7 +489,7 @@ class _Float(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -875,7 +875,7 @@ class AnyTypeAndFormat(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput10,
             AnyTypeAndFormat[frozendict.frozendict],
         ],
@@ -883,7 +883,7 @@ class AnyTypeAndFormat(
     ) -> AnyTypeAndFormat[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

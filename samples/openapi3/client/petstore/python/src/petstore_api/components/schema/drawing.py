@@ -24,7 +24,7 @@ class Shapes(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 shape.Shape[
                     schemas.INPUT_BASE_TYPES
@@ -51,7 +51,7 @@ class Shapes(
     ) -> Shapes[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -156,7 +156,7 @@ class Drawing(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Drawing[frozendict.frozendict],
         ],
@@ -164,7 +164,7 @@ class Drawing(
     ) -> Drawing[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

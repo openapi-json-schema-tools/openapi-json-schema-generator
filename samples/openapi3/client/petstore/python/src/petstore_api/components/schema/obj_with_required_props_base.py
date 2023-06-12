@@ -78,7 +78,7 @@ class ObjWithRequiredPropsBase(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ObjWithRequiredPropsBase[frozendict.frozendict],
         ],
@@ -86,7 +86,7 @@ class ObjWithRequiredPropsBase(
     ) -> ObjWithRequiredPropsBase[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

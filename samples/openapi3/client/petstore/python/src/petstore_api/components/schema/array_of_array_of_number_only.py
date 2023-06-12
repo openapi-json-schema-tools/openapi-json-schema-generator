@@ -25,7 +25,7 @@ class Items(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items2[decimal.Decimal],
                 decimal.Decimal,
@@ -37,7 +37,7 @@ class Items(
     ) -> Items[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -63,7 +63,7 @@ class ArrayArrayNumber(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[tuple],
                 list,
@@ -74,7 +74,7 @@ class ArrayArrayNumber(
     ) -> ArrayArrayNumber[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -147,7 +147,7 @@ class ArrayOfArrayOfNumberOnly(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ArrayOfArrayOfNumberOnly[frozendict.frozendict],
         ],
@@ -155,7 +155,7 @@ class ArrayOfArrayOfNumberOnly(
     ) -> ArrayOfArrayOfNumberOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

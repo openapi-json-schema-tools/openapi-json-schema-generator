@@ -88,7 +88,7 @@ class BananaReq(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             BananaReq[frozendict.frozendict],
         ],
@@ -96,7 +96,7 @@ class BananaReq(
     ) -> BananaReq[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

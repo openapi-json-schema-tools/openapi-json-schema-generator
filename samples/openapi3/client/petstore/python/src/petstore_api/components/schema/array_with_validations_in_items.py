@@ -44,7 +44,7 @@ class ArrayWithValidationsInItems(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[decimal.Decimal],
                 decimal.Decimal,
@@ -55,7 +55,7 @@ class ArrayWithValidationsInItems(
     ) -> ArrayWithValidationsInItems[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

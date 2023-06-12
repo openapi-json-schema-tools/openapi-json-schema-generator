@@ -36,7 +36,7 @@ class MapProperty(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             MapProperty[frozendict.frozendict],
         ],
@@ -44,7 +44,7 @@ class MapProperty(
     ) -> MapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -79,7 +79,7 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             AdditionalProperties2[frozendict.frozendict],
         ],
@@ -87,7 +87,7 @@ class AdditionalProperties2(
     ) -> AdditionalProperties2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -122,7 +122,7 @@ class MapOfMapProperty(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             MapOfMapProperty[frozendict.frozendict],
         ],
@@ -130,7 +130,7 @@ class MapOfMapProperty(
     ) -> MapOfMapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -198,7 +198,7 @@ class MapWithUndeclaredPropertiesAnytype3(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput8,
             MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
         ],
@@ -206,7 +206,7 @@ class MapWithUndeclaredPropertiesAnytype3(
     ) -> MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -231,7 +231,7 @@ class EmptyMap(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput11,
             EmptyMap[frozendict.frozendict],
         ],
@@ -239,7 +239,7 @@ class EmptyMap(
     ) -> EmptyMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -274,7 +274,7 @@ class MapWithUndeclaredPropertiesString(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput12,
             MapWithUndeclaredPropertiesString[frozendict.frozendict],
         ],
@@ -282,7 +282,7 @@ class MapWithUndeclaredPropertiesString(
     ) -> MapWithUndeclaredPropertiesString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -447,7 +447,7 @@ class AdditionalPropertiesClass(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput13,
             AdditionalPropertiesClass[frozendict.frozendict],
         ],
@@ -455,7 +455,7 @@ class AdditionalPropertiesClass(
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

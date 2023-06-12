@@ -82,7 +82,7 @@ class Tag(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Tag[frozendict.frozendict],
         ],
@@ -90,7 +90,7 @@ class Tag(
     ) -> Tag[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

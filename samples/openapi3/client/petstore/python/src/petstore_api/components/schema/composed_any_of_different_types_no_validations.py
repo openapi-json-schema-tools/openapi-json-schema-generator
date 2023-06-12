@@ -37,7 +37,7 @@ class _9(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -64,7 +64,7 @@ class _9(
     ) -> _9[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -130,7 +130,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -149,7 +149,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

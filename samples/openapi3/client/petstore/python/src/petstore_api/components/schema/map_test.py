@@ -36,7 +36,7 @@ class AdditionalProperties(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             AdditionalProperties[frozendict.frozendict],
         ],
@@ -44,7 +44,7 @@ class AdditionalProperties(
     ) -> AdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -79,7 +79,7 @@ class MapMapOfString(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             MapMapOfString[frozendict.frozendict],
         ],
@@ -87,7 +87,7 @@ class MapMapOfString(
     ) -> MapMapOfString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -147,7 +147,7 @@ class MapOfEnumString(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             MapOfEnumString[frozendict.frozendict],
         ],
@@ -155,7 +155,7 @@ class MapOfEnumString(
     ) -> MapOfEnumString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -190,7 +190,7 @@ class DirectMap(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             DirectMap[frozendict.frozendict],
         ],
@@ -198,7 +198,7 @@ class DirectMap(
     ) -> DirectMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -263,7 +263,7 @@ class MapTest(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput5,
             MapTest[frozendict.frozendict],
         ],
@@ -271,7 +271,7 @@ class MapTest(
     ) -> MapTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

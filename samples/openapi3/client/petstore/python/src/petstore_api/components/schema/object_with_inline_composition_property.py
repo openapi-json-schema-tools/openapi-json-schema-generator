@@ -42,7 +42,7 @@ class SomeProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -61,7 +61,7 @@ class SomeProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -167,7 +167,7 @@ class ObjectWithInlineCompositionProperty(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             ObjectWithInlineCompositionProperty[frozendict.frozendict],
         ],
@@ -175,7 +175,7 @@ class ObjectWithInlineCompositionProperty(
     ) -> ObjectWithInlineCompositionProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

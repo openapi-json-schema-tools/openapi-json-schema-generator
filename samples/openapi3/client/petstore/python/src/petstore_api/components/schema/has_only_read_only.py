@@ -81,7 +81,7 @@ class HasOnlyReadOnly(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             HasOnlyReadOnly[frozendict.frozendict],
         ],
@@ -89,7 +89,7 @@ class HasOnlyReadOnly(
     ) -> HasOnlyReadOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

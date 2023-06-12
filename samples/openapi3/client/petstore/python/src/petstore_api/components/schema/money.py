@@ -71,7 +71,7 @@ class Money(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Money[frozendict.frozendict],
         ],
@@ -79,7 +79,7 @@ class Money(
     ) -> Money[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

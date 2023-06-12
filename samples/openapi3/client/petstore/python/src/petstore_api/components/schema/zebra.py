@@ -161,7 +161,7 @@ class Zebra(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             Zebra[frozendict.frozendict],
         ],
@@ -169,7 +169,7 @@ class Zebra(
     ) -> Zebra[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

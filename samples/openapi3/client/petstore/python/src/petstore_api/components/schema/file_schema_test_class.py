@@ -24,7 +24,7 @@ class Files(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 file.File[frozendict.frozendict],
                 dict,
@@ -35,7 +35,7 @@ class Files(
     ) -> Files[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -95,7 +95,7 @@ class FileSchemaTestClass(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             FileSchemaTestClass[frozendict.frozendict],
         ],
@@ -103,7 +103,7 @@ class FileSchemaTestClass(
     ) -> FileSchemaTestClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

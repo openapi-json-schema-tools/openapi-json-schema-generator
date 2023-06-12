@@ -108,7 +108,7 @@ class Animal(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Animal[frozendict.frozendict],
         ],
@@ -116,7 +116,7 @@ class Animal(
     ) -> Animal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

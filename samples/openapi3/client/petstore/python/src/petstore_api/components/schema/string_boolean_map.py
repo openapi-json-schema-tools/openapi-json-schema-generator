@@ -41,7 +41,7 @@ class StringBooleanMap(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             StringBooleanMap[frozendict.frozendict],
         ],
@@ -49,7 +49,7 @@ class StringBooleanMap(
     ) -> StringBooleanMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

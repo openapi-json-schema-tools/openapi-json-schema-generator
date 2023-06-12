@@ -154,7 +154,7 @@ class ReqPropsFromUnsetAddProps(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ReqPropsFromUnsetAddProps[frozendict.frozendict],
         ],
@@ -162,7 +162,7 @@ class ReqPropsFromUnsetAddProps(
     ) -> ReqPropsFromUnsetAddProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

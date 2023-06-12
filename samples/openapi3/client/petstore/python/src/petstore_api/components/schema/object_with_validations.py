@@ -30,7 +30,7 @@ class ObjectWithValidations(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ObjectWithValidations[frozendict.frozendict],
         ],
@@ -38,7 +38,7 @@ class ObjectWithValidations(
     ) -> ObjectWithValidations[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

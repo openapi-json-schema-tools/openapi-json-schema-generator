@@ -27,7 +27,7 @@ class PhotoUrls(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
@@ -37,7 +37,7 @@ class PhotoUrls(
     ) -> PhotoUrls[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -63,7 +63,7 @@ class Tags(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 tag.Tag[frozendict.frozendict],
                 dict,
@@ -74,7 +74,7 @@ class Tags(
     ) -> Tags[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -195,7 +195,7 @@ class Pet(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Pet[frozendict.frozendict],
         ],
@@ -203,7 +203,7 @@ class Pet(
     ) -> Pet[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

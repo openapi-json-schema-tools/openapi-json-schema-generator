@@ -63,7 +63,7 @@ class ObjectWithDecimalProperties(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ObjectWithDecimalProperties[frozendict.frozendict],
         ],
@@ -71,7 +71,7 @@ class ObjectWithDecimalProperties(
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -201,7 +201,7 @@ class AbstractStepMessage(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             AbstractStepMessage[frozendict.frozendict],
         ],
@@ -209,7 +209,7 @@ class AbstractStepMessage(
     ) -> AbstractStepMessage[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -86,7 +86,7 @@ class GrandparentAnimal(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             GrandparentAnimal[frozendict.frozendict],
         ],
@@ -94,7 +94,7 @@ class GrandparentAnimal(
     ) -> GrandparentAnimal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

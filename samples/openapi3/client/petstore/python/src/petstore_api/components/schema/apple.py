@@ -124,7 +124,7 @@ class Apple(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput,
             Apple[frozendict.frozendict],
@@ -138,7 +138,7 @@ class Apple(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

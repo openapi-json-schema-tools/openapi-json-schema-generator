@@ -39,7 +39,7 @@ class Shape(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -58,7 +58,7 @@ class Shape(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

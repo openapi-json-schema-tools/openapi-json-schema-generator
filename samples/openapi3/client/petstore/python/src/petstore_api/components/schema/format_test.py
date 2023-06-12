@@ -106,7 +106,7 @@ class ArrayWithUniqueItems(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[decimal.Decimal],
                 decimal.Decimal,
@@ -118,7 +118,7 @@ class ArrayWithUniqueItems(
     ) -> ArrayWithUniqueItems[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -482,7 +482,7 @@ class FormatTest(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             FormatTest[frozendict.frozendict],
         ],
@@ -490,7 +490,7 @@ class FormatTest(
     ) -> FormatTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

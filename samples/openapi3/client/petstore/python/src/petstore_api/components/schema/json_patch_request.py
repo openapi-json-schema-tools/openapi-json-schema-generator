@@ -26,7 +26,7 @@ class Items(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -45,7 +45,7 @@ class Items(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -84,7 +84,7 @@ class JSONPatchRequest(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -111,7 +111,7 @@ class JSONPatchRequest(
     ) -> JSONPatchRequest[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

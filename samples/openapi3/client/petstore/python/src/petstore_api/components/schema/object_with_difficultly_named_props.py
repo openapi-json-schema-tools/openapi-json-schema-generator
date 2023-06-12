@@ -98,7 +98,7 @@ class ObjectWithDifficultlyNamedProps(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ObjectWithDifficultlyNamedProps[frozendict.frozendict],
         ],
@@ -106,7 +106,7 @@ class ObjectWithDifficultlyNamedProps(
     ) -> ObjectWithDifficultlyNamedProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

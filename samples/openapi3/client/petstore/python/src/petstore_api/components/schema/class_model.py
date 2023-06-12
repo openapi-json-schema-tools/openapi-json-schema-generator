@@ -74,7 +74,7 @@ class ClassModel(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -93,7 +93,7 @@ class ClassModel(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

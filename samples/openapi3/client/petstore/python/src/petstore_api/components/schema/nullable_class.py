@@ -31,7 +31,7 @@ class AdditionalProperties4(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput10,
             AdditionalProperties4[frozendict.frozendict],
@@ -45,7 +45,7 @@ class AdditionalProperties4(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -80,7 +80,7 @@ class IntegerProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             decimal.Decimal,
             int
@@ -94,7 +94,7 @@ class IntegerProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -128,7 +128,7 @@ class NumberProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             decimal.Decimal,
             int,
@@ -143,7 +143,7 @@ class NumberProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -177,7 +177,7 @@ class BooleanProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             bool
         ],
@@ -190,7 +190,7 @@ class BooleanProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -224,7 +224,7 @@ class StringProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             str
         ],
@@ -237,7 +237,7 @@ class StringProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -273,7 +273,7 @@ class DateProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             str,
             datetime.date
@@ -287,7 +287,7 @@ class DateProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -323,7 +323,7 @@ class DatetimeProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             str,
             datetime.datetime
@@ -337,7 +337,7 @@ class DatetimeProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -374,7 +374,7 @@ class ArrayNullableProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             list,
             tuple
@@ -388,7 +388,7 @@ class ArrayNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -423,7 +423,7 @@ class Items2(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput2,
             Items2[frozendict.frozendict],
@@ -437,7 +437,7 @@ class Items2(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -472,7 +472,7 @@ class ArrayAndItemsNullableProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             list,
             tuple
@@ -486,7 +486,7 @@ class ArrayAndItemsNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -521,7 +521,7 @@ class Items3(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput3,
             Items3[frozendict.frozendict],
@@ -535,7 +535,7 @@ class Items3(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -563,7 +563,7 @@ class ArrayItemsNullable(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items3[typing.Union[
                     schemas.NoneClass,
@@ -578,7 +578,7 @@ class ArrayItemsNullable(
     ) -> ArrayItemsNullable[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -628,7 +628,7 @@ class ObjectNullableProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput5,
             ObjectNullableProp[frozendict.frozendict],
@@ -642,7 +642,7 @@ class ObjectNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -677,7 +677,7 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput6,
             AdditionalProperties2[frozendict.frozendict],
@@ -691,7 +691,7 @@ class AdditionalProperties2(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -745,7 +745,7 @@ class ObjectAndItemsNullableProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput7,
             ObjectAndItemsNullableProp[frozendict.frozendict],
@@ -759,7 +759,7 @@ class ObjectAndItemsNullableProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -794,7 +794,7 @@ class AdditionalProperties3(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput8,
             AdditionalProperties3[frozendict.frozendict],
@@ -808,7 +808,7 @@ class AdditionalProperties3(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -855,7 +855,7 @@ class ObjectItemsNullable(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput9,
             ObjectItemsNullable[frozendict.frozendict],
         ],
@@ -863,7 +863,7 @@ class ObjectItemsNullable(
     ) -> ObjectItemsNullable[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -1115,7 +1115,7 @@ class NullableClass(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput11,
             NullableClass[frozendict.frozendict],
         ],
@@ -1123,7 +1123,7 @@ class NullableClass(
     ) -> NullableClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

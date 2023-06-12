@@ -86,7 +86,7 @@ class _1(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             _1[frozendict.frozendict],
         ],
@@ -94,7 +94,7 @@ class _1(
     ) -> _1[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -124,7 +124,7 @@ class ComplexQuadrilateral(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -143,7 +143,7 @@ class ComplexQuadrilateral(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -92,7 +92,7 @@ class ApiResponse(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             ApiResponse[frozendict.frozendict],
         ],
@@ -100,7 +100,7 @@ class ApiResponse(
     ) -> ApiResponse[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

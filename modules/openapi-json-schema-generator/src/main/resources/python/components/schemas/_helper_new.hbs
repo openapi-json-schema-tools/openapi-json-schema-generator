@@ -3,7 +3,7 @@ def __new__(
 {{#if types}}
     {{#eq types.size 1}}
         {{#contains types "array"}}
-    arg_: typing.Sequence[
+    arg: typing.Sequence[
         {{#with ../items}}
             {{#if refInfo.refClass}}
         typing.Union[
@@ -18,28 +18,28 @@ def __new__(
     ],
         {{/contains}}
         {{#contains types "object"}}
-    arg_: typing.Union[
+    arg: typing.Union[
         {{mapInputJsonPathPiece.camelCase}},
         {{jsonPathPiece.camelCase}}[frozendict.frozendict],
     ],
         {{/contains}}
         {{#contains types "string"}}
-    arg_: {{> _helper_schema_python_types }},
+    arg: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "number"}}
-    arg_: typing.Union[{{> _helper_schema_python_types }}],
+    arg: typing.Union[{{> _helper_schema_python_types }}],
         {{/contains}}
         {{#contains types "integer"}}
-    arg_: {{> _helper_schema_python_types }},
+    arg: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "boolean"}}
-    arg_: {{> _helper_schema_python_types }},
+    arg: {{> _helper_schema_python_types }},
         {{/contains}}
         {{#contains types "null"}}
-    arg_: {{> _helper_schema_python_types }},
+    arg: {{> _helper_schema_python_types }},
         {{/contains}}
     {{else}}
-    arg_: typing.Union[
+    arg: typing.Union[
         {{#each types}}
             {{#eq this "object"}}
         {{mapInputJsonPathPiece.camelCase}},
@@ -52,12 +52,12 @@ def __new__(
     {{/eq}}
 {{else}}
     {{#if mapInputJsonPathPiece}}
-    arg_: typing.Union[
+    arg: typing.Union[
         {{mapInputJsonPathPiece.camelCase}},
         schemas.INPUT_TYPES_ALL_INCL_SCHEMA
     ],
     {{else}}
-    arg_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+    arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
     {{/if}}
 {{/if}}
     configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
@@ -80,7 +80,7 @@ def __new__(
 {{/if}}
     inst = super().__new__(
         cls,
-        arg_,
+        arg,
         configuration_=configuration_,
     )
     inst = typing.cast(

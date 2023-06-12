@@ -74,7 +74,7 @@ class StringEnum(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             str
         ],
@@ -87,7 +87,7 @@ class StringEnum(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

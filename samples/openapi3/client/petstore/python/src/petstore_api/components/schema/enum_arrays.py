@@ -76,7 +76,7 @@ class ArrayEnum(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
@@ -86,7 +86,7 @@ class ArrayEnum(
     ) -> ArrayEnum[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -168,7 +168,7 @@ class EnumArrays(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             EnumArrays[frozendict.frozendict],
         ],
@@ -176,7 +176,7 @@ class EnumArrays(
     ) -> EnumArrays[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

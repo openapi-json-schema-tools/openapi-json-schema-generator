@@ -30,7 +30,7 @@ class Map(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Map[frozendict.frozendict],
         ],
@@ -38,7 +38,7 @@ class Map(
     ) -> Map[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -128,7 +128,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
         ],
@@ -136,7 +136,7 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

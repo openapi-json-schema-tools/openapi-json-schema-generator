@@ -63,7 +63,7 @@ class _0(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput2,
             _0[frozendict.frozendict],
         ],
@@ -71,7 +71,7 @@ class _0(
     ) -> _0[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -96,7 +96,7 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -115,7 +115,7 @@ class AdditionalProperties2(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -186,7 +186,7 @@ class _1(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             _1[frozendict.frozendict],
         ],
@@ -194,7 +194,7 @@ class _1(
     ) -> _1[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -219,7 +219,7 @@ class AdditionalProperties3(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput5,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -238,7 +238,7 @@ class AdditionalProperties3(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -309,7 +309,7 @@ class _2(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput6,
             _2[frozendict.frozendict],
         ],
@@ -317,7 +317,7 @@ class _2(
     ) -> _2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -354,7 +354,7 @@ class AdditionalPropertiesValidator(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput7,
             AdditionalPropertiesValidator[frozendict.frozendict],
         ],
@@ -362,7 +362,7 @@ class AdditionalPropertiesValidator(
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

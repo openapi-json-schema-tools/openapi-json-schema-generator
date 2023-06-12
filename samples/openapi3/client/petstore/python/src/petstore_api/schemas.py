@@ -46,18 +46,18 @@ class FileIO(io.FileIO):
     Note: this class is not immutable
     """
 
-    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader]):
-        if isinstance(arg_, (io.FileIO, io.BufferedReader)):
-            if arg_.closed:
+    def __new__(cls, arg: typing.Union[io.FileIO, io.BufferedReader]):
+        if isinstance(arg, (io.FileIO, io.BufferedReader)):
+            if arg.closed:
                 raise exceptions.ApiValueError('Invalid file state; file is closed and must be open')
-            arg_.close()
+            arg.close()
             super_cls: typing.Type = super(FileIO, cls)
-            inst = super_cls.__new__(cls, arg_.name)
-            super(FileIO, inst).__init__(arg_.name)
+            inst = super_cls.__new__(cls, arg.name)
+            super(FileIO, inst).__init__(arg.name)
             return inst
-        raise exceptions.ApiValueError('FileIO must be passed arg_ which contains the open file')
+        raise exceptions.ApiValueError('FileIO must be passed arg which contains the open file')
 
-    def __init__(self, arg_: typing.Union[io.FileIO, io.BufferedReader]):
+    def __init__(self, arg: typing.Union[io.FileIO, io.BufferedReader]):
         """
         if this does not exist, then classes with FileIO as a mixin (AnyType etc) will see
         the io.FileIO __init__ signature rather than the __new__ one
@@ -129,11 +129,11 @@ class SingletonMeta(type):
 class Singleton:
     """
     Enums and singletons are the same
-    The same instance is returned for a given key of (cls, arg_)
+    The same instance is returned for a given key of (cls, arg)
     """
     _instances = {}
 
-    def __new__(cls, arg_: typing.Any, **kwargs):
+    def __new__(cls, arg: typing.Any, **kwargs):
         """
         cls base classes: BoolClass, NoneClass, str, decimal.Decimal
         The 3rd key is used in the tuple below for a corner case where an enum contains integer 1
@@ -141,16 +141,16 @@ class Singleton:
         Decimal('1.0') == Decimal('1')
         But if we omitted the 3rd value in the key, then Decimal('1.0') would be stored as Decimal('1')
         and json serializing that instance would be '1' rather than the expected '1.0'
-        Adding the 3rd value, the str of arg_ ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
+        Adding the 3rd value, the str of arg ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
         """
-        key = (cls, arg_, str(arg_))
+        key = (cls, arg, str(arg))
         if key not in cls._instances:
-            if isinstance(arg_, (none_type_, bool, BoolClass, NoneClass)):
+            if isinstance(arg, (none_type_, bool, BoolClass, NoneClass)):
                 inst = super().__new__(cls)
                 cls._instances[key] = inst
             else:
                 super_inst: typing.Type = super()
-                cls._instances[key] = super_inst.__new__(cls, arg_)
+                cls._instances[key] = super_inst.__new__(cls, arg)
         return cls._instances[key]
 
     def __repr__(self):
@@ -1403,7 +1403,7 @@ class Schema(typing.Generic[T]):
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        *arg: typing.Union[
             dict,
             frozendict.frozendict,
             list,
@@ -1448,7 +1448,7 @@ class Schema(typing.Generic[T]):
         Schema __new__
 
         Args:
-            args_ (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
+            arg (int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): the value
             kwargs (str, int/float/decimal.Decimal/str/list/tuple/dict/frozendict.frozendict/bool/None): dict values
             configuration_: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
                 like minItems, minLength etc
@@ -1457,14 +1457,14 @@ class Schema(typing.Generic[T]):
         are instance properties if they are named normally :(
         """
         __kwargs = cls.__remove_unsets(kwargs)
-        if not args_ and not __kwargs:
+        if not arg and not __kwargs:
             raise TypeError(
                 'No input given. args or kwargs must be given.'
             )
-        if not __kwargs and args_ and not isinstance(args_[0], dict):
-            __arg = args_[0]
+        if not __kwargs and arg and not isinstance(arg[0], dict):
+            __arg = arg[0]
         else:
-            __arg = cls.__get_input_dict(*args_, **__kwargs)
+            __arg = cls.__get_input_dict(*arg, **__kwargs)
         __from_server = False
         __validated_path_to_schemas = {}
         __path_to_type = {}
@@ -2135,8 +2135,8 @@ class ListSchema(
     def from_openapi_data_(cls, arg: typing.Sequence[typing.Any], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Sequence[typing.Any], **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]) -> ListSchema[tuple]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Sequence[typing.Any], **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]) -> ListSchema[tuple]:
+        return super().__new__(cls, arg, **kwargs)
 
 
 class NoneSchema(
@@ -2152,8 +2152,8 @@ class NoneSchema(
     def from_openapi_data_(cls, arg: None, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: None, **kwargs: schema_configuration.SchemaConfiguration) -> NoneSchema[NoneClass]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: None, **kwargs: schema_configuration.SchemaConfiguration) -> NoneSchema[NoneClass]:
+        return super().__new__(cls, arg, **kwargs)
 
 
 class NumberSchema(
@@ -2173,8 +2173,8 @@ class NumberSchema(
     def from_openapi_data_(cls, arg: typing.Union[int, float], configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> NumberSchema[decimal.Decimal]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> NumberSchema[decimal.Decimal]:
+        return super().__new__(cls, arg, **kwargs)
 
 
 class IntBase:
@@ -2199,8 +2199,8 @@ class IntSchema(IntBase, NumberSchema[T]):
     def from_openapi_data_(cls, arg: int, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> IntSchema[decimal.Decimal]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> IntSchema[decimal.Decimal]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(IntSchema[decimal.Decimal], inst)
 
 
@@ -2212,8 +2212,8 @@ class Int32Schema(
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'int32'
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int32Schema[decimal.Decimal]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int32Schema[decimal.Decimal]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(Int32Schema[decimal.Decimal], inst)
 
 
@@ -2225,8 +2225,8 @@ class Int64Schema(
         types: typing.FrozenSet[typing.Type] = frozenset({decimal.Decimal})
         format: str = 'int64'
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int64Schema[decimal.Decimal]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int], **kwargs: schema_configuration.SchemaConfiguration) -> Int64Schema[decimal.Decimal]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(Int64Schema[decimal.Decimal], inst)
 
 
@@ -2242,8 +2242,8 @@ class Float32Schema(
     def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float32Schema[decimal.Decimal]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float32Schema[decimal.Decimal]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(Float32Schema[decimal.Decimal], inst)
 
 
@@ -2259,8 +2259,8 @@ class Float64Schema(
     def from_openapi_data_(cls, arg: float, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float64Schema[decimal.Decimal]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[decimal.Decimal, int, float], **kwargs: schema_configuration.SchemaConfiguration) -> Float64Schema[decimal.Decimal]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(Float64Schema[decimal.Decimal], inst)
 
 
@@ -2283,8 +2283,8 @@ class StrSchema(
     def from_openapi_data_(cls, arg: str, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None) -> StrSchema[str]:
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> StrSchema[str]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> StrSchema[str]:
+        return super().__new__(cls, arg, **kwargs)
 
 
 class UUIDSchema(UUIDBase, StrSchema[T]):
@@ -2293,8 +2293,8 @@ class UUIDSchema(UUIDBase, StrSchema[T]):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'uuid'
 
-    def __new__(cls, arg_: typing.Union[str, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> UUIDSchema[str]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[str, uuid.UUID], **kwargs: schema_configuration.SchemaConfiguration) -> UUIDSchema[str]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(UUIDSchema[str], inst)
 
 
@@ -2304,8 +2304,8 @@ class DateSchema(DateBase, StrSchema[T]):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'date'
 
-    def __new__(cls, arg_: typing.Union[str, datetime.date], **kwargs: schema_configuration.SchemaConfiguration) -> DateSchema[str]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[str, datetime.date], **kwargs: schema_configuration.SchemaConfiguration) -> DateSchema[str]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(DateSchema[str], inst)
 
 
@@ -2315,8 +2315,8 @@ class DateTimeSchema(DateTimeBase, StrSchema[T]):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'date-time'
 
-    def __new__(cls, arg_: typing.Union[str, datetime.datetime], **kwargs: schema_configuration.SchemaConfiguration) -> DateTimeSchema[str]:
-        inst = super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: typing.Union[str, datetime.datetime], **kwargs: schema_configuration.SchemaConfiguration) -> DateTimeSchema[str]:
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(DateTimeSchema[str], inst)
 
 
@@ -2326,7 +2326,7 @@ class DecimalSchema(DecimalBase, StrSchema[T]):
         types: typing.FrozenSet[typing.Type] = frozenset({str})
         format: str = 'number'
 
-    def __new__(cls, arg_: str, **kwargs: schema_configuration.SchemaConfiguration) -> DecimalSchema[str]:
+    def __new__(cls, arg: str, **kwargs: schema_configuration.SchemaConfiguration) -> DecimalSchema[str]:
         """
         Note: Decimals may not be passed in because cast_to_allowed_types is only invoked once for payloads
         which can be simple (str) or complex (dicts or lists with nested values)
@@ -2335,7 +2335,7 @@ class DecimalSchema(DecimalBase, StrSchema[T]):
         if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
         where it should stay as Decimal.
         """
-        inst = super().__new__(cls, arg_, **kwargs)
+        inst = super().__new__(cls, arg, **kwargs)
         return typing.cast(DecimalSchema[str], inst)
 
 
@@ -2350,9 +2350,9 @@ class BytesSchema(
     class Schema_(metaclass=SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({bytes})
 
-    def __new__(cls, arg_: bytes, **kwargs: schema_configuration.SchemaConfiguration) -> BytesSchema[bytes]:
+    def __new__(cls, arg: bytes, **kwargs: schema_configuration.SchemaConfiguration) -> BytesSchema[bytes]:
         super_cls: typing.Type = super(Schema, cls)
-        return super_cls.__new__(cls, arg_)
+        return super_cls.__new__(cls, arg)
 
 
 class FileSchema(
@@ -2379,9 +2379,9 @@ class FileSchema(
     class Schema_(metaclass=SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({FileIO})
 
-    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader], **kwargs: schema_configuration.SchemaConfiguration) -> FileSchema[FileIO]:
+    def __new__(cls, arg: typing.Union[io.FileIO, io.BufferedReader], **kwargs: schema_configuration.SchemaConfiguration) -> FileSchema[FileIO]:
         super_cls: typing.Type = super(Schema, cls)
-        return super_cls.__new__(cls, arg_)
+        return super_cls.__new__(cls, arg)
 
 
 class BinarySchema(
@@ -2398,8 +2398,8 @@ class BinarySchema(
             FileSchema,
         )
 
-    def __new__(cls, arg_: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: schema_configuration.SchemaConfiguration) -> BinarySchema[typing.Union[FileIO, bytes]]:
-        return super().__new__(cls, arg_)
+    def __new__(cls, arg: typing.Union[io.FileIO, io.BufferedReader, bytes], **kwargs: schema_configuration.SchemaConfiguration) -> BinarySchema[typing.Union[FileIO, bytes]]:
+        return super().__new__(cls, arg)
 
 
 class BoolSchema(
@@ -2415,8 +2415,8 @@ class BoolSchema(
     def from_openapi_data_(cls, arg: bool, configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return super().from_openapi_data_(arg, configuration_=configuration_)
 
-    def __new__(cls, arg_: bool, **kwargs: ValidationMetadata) -> BoolSchema[bool]:
-        return super().__new__(cls, arg_, **kwargs)
+    def __new__(cls, arg: bool, **kwargs: ValidationMetadata) -> BoolSchema[bool]:
+        return super().__new__(cls, arg, **kwargs)
 
 
 class AnyTypeSchema(
@@ -2436,7 +2436,7 @@ class AnyTypeSchema(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        *arg: typing.Union[
             str,
             uuid.UUID,
             datetime.date,
@@ -2482,11 +2482,11 @@ class AnyTypeSchema(
         decimal.Decimal,
         BoolClass
     ]]:
-        return super().__new__(cls, *args_, configuration_=configuration_, **kwargs)
+        return super().__new__(cls, *arg, configuration_=configuration_, **kwargs)
 
     def __init__(
         self,
-        *args_: typing.Union[
+        *arg: typing.Union[
             str,
             uuid.UUID,
             datetime.date,
@@ -2548,10 +2548,10 @@ class NotAnyTypeSchema(AnyTypeSchema[T]):
 
     def __new__(
         cls,
-        *args_,
+        *arg,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ) -> NotAnyTypeSchema[T]:
-        inst = super().__new__(cls, *args_, configuration_=configuration_)
+        inst = super().__new__(cls, *arg, configuration_=configuration_)
         return typing.cast(NotAnyTypeSchema[T], inst)
 
 
@@ -2570,11 +2570,11 @@ class DictSchema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict[str, INPUT_TYPES_ALL_INCL_SCHEMA], frozendict.frozendict[str, INPUT_TYPES_ALL_INCL_SCHEMA]],
+        *arg: typing.Union[dict[str, INPUT_TYPES_ALL_INCL_SCHEMA], frozendict.frozendict[str, INPUT_TYPES_ALL_INCL_SCHEMA]],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Union[dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, Schema, Unset, ValidationMetadata],
     ) -> DictSchema[frozendict.frozendict]:
-        return super().__new__(cls, *args_, **kwargs, configuration_=configuration_)
+        return super().__new__(cls, *arg, **kwargs, configuration_=configuration_)
 
 
 schema_type_classes = frozenset({NoneSchema, DictSchema, ListSchema, NumberSchema, StrSchema, BoolSchema, AnyTypeSchema})

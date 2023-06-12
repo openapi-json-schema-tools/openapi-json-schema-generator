@@ -98,7 +98,7 @@ class BasquePig(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             BasquePig[frozendict.frozendict],
         ],
@@ -106,7 +106,7 @@ class BasquePig(
     ) -> BasquePig[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

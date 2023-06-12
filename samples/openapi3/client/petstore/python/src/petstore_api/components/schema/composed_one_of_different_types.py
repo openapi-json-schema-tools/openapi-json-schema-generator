@@ -28,7 +28,7 @@ class _4(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             _4[frozendict.frozendict],
         ],
@@ -36,7 +36,7 @@ class _4(
     ) -> _4[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -63,7 +63,7 @@ class _5(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -90,7 +90,7 @@ class _5(
     ) -> _5[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -150,7 +150,7 @@ class ComposedOneOfDifferentTypes(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput3,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -169,7 +169,7 @@ class ComposedOneOfDifferentTypes(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

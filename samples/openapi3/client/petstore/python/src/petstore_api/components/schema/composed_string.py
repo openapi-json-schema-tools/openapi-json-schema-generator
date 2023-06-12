@@ -37,12 +37,12 @@ class ComposedString(
 
     def __new__(
         cls,
-        arg_: str,
+        arg: str,
         configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedString[str]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

@@ -118,7 +118,7 @@ class Whale(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             Whale[frozendict.frozendict],
         ],
@@ -126,7 +126,7 @@ class Whale(
     ) -> Whale[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

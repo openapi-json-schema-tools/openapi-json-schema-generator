@@ -73,7 +73,7 @@ class SpecialModelName(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             SpecialModelName[frozendict.frozendict],
         ],
@@ -81,7 +81,7 @@ class SpecialModelName(
     ) -> SpecialModelName[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

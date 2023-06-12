@@ -41,7 +41,7 @@ class ObjectWithNoDeclaredPropsNullable(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             DictInput2,
             ObjectWithNoDeclaredPropsNullable[frozendict.frozendict],
@@ -55,7 +55,7 @@ class ObjectWithNoDeclaredPropsNullable(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -88,7 +88,7 @@ class AnyTypeExceptNullProp(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput4,
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA
         ],
@@ -107,7 +107,7 @@ class AnyTypeExceptNullProp(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -386,7 +386,7 @@ class User(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput6,
             User[frozendict.frozendict],
         ],
@@ -394,7 +394,7 @@ class User(
     ) -> User[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

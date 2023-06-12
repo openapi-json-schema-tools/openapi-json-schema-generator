@@ -73,7 +73,7 @@ class NumberOnly(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             NumberOnly[frozendict.frozendict],
         ],
@@ -81,7 +81,7 @@ class NumberOnly(
     ) -> NumberOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

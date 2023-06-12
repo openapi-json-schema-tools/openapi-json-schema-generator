@@ -30,7 +30,7 @@ class NullableMessage(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             None,
             str
         ],
@@ -43,7 +43,7 @@ class NullableMessage(
     ]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -126,7 +126,7 @@ class HealthCheckResult(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             HealthCheckResult[frozendict.frozendict],
         ],
@@ -134,7 +134,7 @@ class HealthCheckResult(
     ) -> HealthCheckResult[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(

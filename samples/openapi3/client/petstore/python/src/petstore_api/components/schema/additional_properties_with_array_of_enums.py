@@ -24,7 +24,7 @@ class AdditionalProperties(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 enum_class.EnumClass[str],
                 str
@@ -34,7 +34,7 @@ class AdditionalProperties(
     ) -> AdditionalProperties[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
@@ -77,7 +77,7 @@ class AdditionalPropertiesWithArrayOfEnums(
 
     def __new__(
         cls,
-        arg_: typing.Union[
+        arg: typing.Union[
             DictInput,
             AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
         ],
@@ -85,7 +85,7 @@ class AdditionalPropertiesWithArrayOfEnums(
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            arg_,
+            arg,
             configuration_=configuration_,
         )
         inst = typing.cast(
