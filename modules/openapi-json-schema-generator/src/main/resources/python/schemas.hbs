@@ -1184,7 +1184,8 @@ def _get_discriminated_class_and_exception(
 ) -> typing.Tuple[typing.Optional['Schema'], typing.Optional[Exception]]:
     if not isinstance(arg, frozendict.frozendict):
         return None, None
-    discriminator = cls_schema().discriminator()
+    cls_schema = cls.Schema_()
+    discriminator = cls_schema.discriminator
     disc_prop_name = list(discriminator.keys())[0]
     try:
         __ensure_discriminator_value_present(disc_prop_name, validation_metadata, arg)
@@ -1314,7 +1315,6 @@ class Schema(typing.Generic[T]):
             not in validation_metadata.configuration.disabled_json_schema_python_keywords
         }
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
-        print(f'json_schema_data {json_schema_data}')
         kwargs = {}
         if 'discriminator' in json_schema_data:
             discriminated_cls, ensure_discriminator_value_present_exc = _get_discriminated_class_and_exception(
