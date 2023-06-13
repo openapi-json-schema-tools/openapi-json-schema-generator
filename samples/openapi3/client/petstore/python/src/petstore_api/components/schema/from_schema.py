@@ -19,6 +19,21 @@ Properties = typing_extensions.TypedDict(
         "id": typing.Type[Id],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Data[str],
+            str
+        ],
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class FromSchema(
@@ -67,28 +82,16 @@ class FromSchema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        data: typing.Union[
-            Data[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            FromSchema[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FromSchema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            data=data,
-            id=id,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             FromSchema[frozendict.frozendict],

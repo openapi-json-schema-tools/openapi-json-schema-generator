@@ -11,6 +11,14 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[decimal.Decimal],
+        decimal.Decimal,
+        int
+    ],
+]
 
 
 class Address(
@@ -34,19 +42,16 @@ class Address(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[decimal.Decimal],
-            decimal.Decimal,
-            int
+        arg: typing.Union[
+            DictInput,
+            Address[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Address[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Address[frozendict.frozendict],

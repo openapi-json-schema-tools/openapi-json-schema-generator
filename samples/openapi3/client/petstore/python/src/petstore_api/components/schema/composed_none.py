@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
@@ -36,13 +37,13 @@ class ComposedNone(
 
     def __new__(
         cls,
-        arg_: None,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        arg: None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedNone[schemas.NoneClass]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ComposedNone[schemas.NoneClass],

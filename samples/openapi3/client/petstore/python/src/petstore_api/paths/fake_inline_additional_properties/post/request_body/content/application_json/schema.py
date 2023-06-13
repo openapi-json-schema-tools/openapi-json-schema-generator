@@ -11,6 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[str],
+        str
+    ],
+]
 
 
 class Schema(
@@ -29,18 +36,16 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            Schema[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

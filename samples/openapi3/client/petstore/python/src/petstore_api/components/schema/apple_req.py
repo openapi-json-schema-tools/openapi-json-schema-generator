@@ -20,6 +20,29 @@ Properties = typing_extensions.TypedDict(
         "mealy": typing.Type[Mealy],
     }
 )
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
+    {
+        "cultivar": typing.Union[
+            Cultivar[str],
+            str
+        ],
+    }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "mealy": typing.Union[
+            Mealy[schemas.BoolClass],
+            bool
+        ],
+    },
+    total=False
+)
+
+
+class DictInput3(RequiredDictInput, OptionalDictInput):
+    pass
 
 
 class AppleReq(
@@ -63,24 +86,16 @@ class AppleReq(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        cultivar: typing.Union[
-            Cultivar[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            AppleReq[frozendict.frozendict],
         ],
-        mealy: typing.Union[
-            Mealy[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AppleReq[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            cultivar=cultivar,
-            mealy=mealy,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AppleReq[frozendict.frozendict],

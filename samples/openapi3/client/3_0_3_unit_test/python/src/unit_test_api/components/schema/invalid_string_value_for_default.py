@@ -30,6 +30,16 @@ Properties = typing_extensions.TypedDict(
         "bar": typing.Type[Bar],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Bar[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class InvalidStringValueForDefault(
@@ -75,14 +85,11 @@ class InvalidStringValueForDefault(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        bar: typing.Union[
-            Bar[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> InvalidStringValueForDefault[
         typing.Union[
             frozendict.frozendict,
@@ -97,10 +104,8 @@ class InvalidStringValueForDefault(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            bar=bar,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             InvalidStringValueForDefault[

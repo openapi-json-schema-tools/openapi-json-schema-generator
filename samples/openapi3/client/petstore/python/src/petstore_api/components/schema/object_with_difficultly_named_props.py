@@ -21,6 +21,26 @@ Properties = typing_extensions.TypedDict(
         "123Number": typing.Type[_123Number],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            _123List[str],
+            str
+        ],
+        typing.Union[
+            SpecialPropertyName[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _123Number[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithDifficultlyNamedProps(
@@ -78,15 +98,16 @@ class ObjectWithDifficultlyNamedProps(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ObjectWithDifficultlyNamedProps[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDifficultlyNamedProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithDifficultlyNamedProps[frozendict.frozendict],

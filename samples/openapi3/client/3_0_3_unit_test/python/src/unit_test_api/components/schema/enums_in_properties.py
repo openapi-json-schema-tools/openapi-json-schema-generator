@@ -59,6 +59,20 @@ Properties = typing_extensions.TypedDict(
         "bar": typing.Type[Bar],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Bar[str],
+            str
+        ],
+        typing.Union[
+            Foo[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class EnumsInProperties(
@@ -114,26 +128,16 @@ class EnumsInProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        bar: typing.Union[
-            Bar[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            EnumsInProperties[frozendict.frozendict],
         ],
-        foo: typing.Union[
-            Foo[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumsInProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            bar=bar,
-            foo=foo,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             EnumsInProperties[frozendict.frozendict],

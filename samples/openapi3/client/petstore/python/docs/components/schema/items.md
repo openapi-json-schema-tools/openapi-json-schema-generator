@@ -12,9 +12,9 @@ list, tuple | tuple | component&#x27;s name collides with the inner schema name 
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | dict, frozendict.frozendict | frozendict.frozendict |  |
+[items](#items2) | dict, frozendict.frozendict | frozendict.frozendict |  |
 
-# Items
+# Items2
 
 ## Type Info
 Input Type | Accessed Type | Description | Notes

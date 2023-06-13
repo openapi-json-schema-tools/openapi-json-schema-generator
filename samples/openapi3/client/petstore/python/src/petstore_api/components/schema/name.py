@@ -10,17 +10,37 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Name: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Name2: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 _Property: typing_extensions.TypeAlias = schemas.StrSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "name": typing.Type[Name],
+        "name": typing.Type[Name2],
         "snake_case": typing.Type[SnakeCase],
         "property": typing.Type[_Property],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name2[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            SnakeCase[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _Property[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Name(
@@ -45,11 +65,11 @@ class Name(
 
     
     @property
-    def name(self) -> Name[decimal.Decimal]:
+    def name(self) -> Name2[decimal.Decimal]:
         return self.__getitem__("name")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name2[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> SnakeCase[decimal.Decimal]: ...
@@ -83,15 +103,11 @@ class Name(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        snake_case: typing.Union[
-            SnakeCase[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Name[
         typing.Union[
             frozendict.frozendict,
@@ -106,10 +122,8 @@ class Name(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            snake_case=snake_case,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Name[

@@ -49,6 +49,7 @@ paths:
 components:
   schemas:
     GeoJsonGeometry:
+      type: object
       title: GeoJsonGeometry
       description: GeoJSON geometry
       oneOf:

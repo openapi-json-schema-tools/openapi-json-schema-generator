@@ -10,15 +10,33 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 SomeProp: typing_extensions.TypeAlias = schemas.DictSchema[U]
-Someprop: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+Someprop2: typing_extensions.TypeAlias = schemas.DictSchema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
         "someProp": typing.Type[SomeProp],
-        "someprop": typing.Type[Someprop],
+        "someprop": typing.Type[Someprop2],
     }
 )
+DictInput3 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SomeProp[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Someprop2[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithCollidingProperties(
@@ -42,7 +60,7 @@ class ObjectWithCollidingProperties(
     def __getitem__(self, name: typing_extensions.Literal["someProp"]) -> SomeProp[frozendict.frozendict]: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["someprop"]) -> Someprop2[frozendict.frozendict]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -69,29 +87,16 @@ class ObjectWithCollidingProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        someProp: typing.Union[
-            SomeProp[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        someprop: typing.Union[
-            Someprop[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput3,
+            ObjectWithCollidingProperties[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithCollidingProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            someProp=someProp,
-            someprop=someprop,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithCollidingProperties[frozendict.frozendict],

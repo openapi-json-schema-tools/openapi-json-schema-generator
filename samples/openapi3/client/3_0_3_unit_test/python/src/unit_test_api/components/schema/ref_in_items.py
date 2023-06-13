@@ -29,7 +29,7 @@ class RefInItems(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[
                     schemas.INPUT_BASE_TYPES
@@ -52,12 +52,12 @@ class RefInItems(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> RefInItems[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             RefInItems[tuple],

@@ -17,6 +17,7 @@ import unittest
 import frozendict
 
 import petstore_api
+from petstore_api import exceptions
 from petstore_api.components.schema.format_test import FormatTest
 from petstore_api.schemas import BinarySchema, BytesSchema, Singleton
 
@@ -42,71 +43,95 @@ class TestFormatTest(unittest.TestCase):
         # int32
         # under min
         with self.assertRaises(petstore_api.ApiValueError):
-            model = FormatTest(int32=-2147483649, **required_args)
+            arg = dict(**required_args)
+            arg['int32'] = -2147483649
+            model = FormatTest(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
-            model = FormatTest(int32=2147483648, **required_args)
+            arg = dict(**required_args)
+            arg['int32'] = 2147483648
+            model = FormatTest(arg)
         # valid values in range work
         valid_values = [-2147483648, 2147483647]
         for valid_value in valid_values:
-            model = FormatTest(int32=valid_value, **required_args)
+            arg = dict(**required_args)
+            arg['int32'] = valid_value
+            model = FormatTest(arg)
             assert model["int32"] == valid_value
 
         # int64
         # under min
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(int64=-9223372036854775809, **required_args)
+            arg = dict(**required_args)
+            arg['int64'] = -9223372036854775809
+            FormatTest(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(int64=9223372036854775808, **required_args)
+            arg = dict(**required_args)
+            arg['int64'] = 9223372036854775808
+            FormatTest(arg)
         # valid values in range work
         valid_values = [-9223372036854775808, 9223372036854775807]
         for valid_value in valid_values:
-            model = FormatTest(int64=valid_value, **required_args)
+            arg = dict(**required_args)
+            arg['int64'] = valid_value
+            model = FormatTest(arg)
             assert model["int64"] == valid_value
 
         # float32
         # under min
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(float32=-3.402823466385289e+38, **required_args)
+            arg = dict(**required_args)
+            arg['float32'] = -3.402823466385289e+38
+            FormatTest(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(float32=3.402823466385289e+38, **required_args)
+            arg = dict(**required_args)
+            arg['float32'] = 3.402823466385289e+38
+            FormatTest(arg)
         # valid values in range work
         valid_values = [-3.4028234663852886e+38, 3.4028234663852886e+38]
         for valid_value in valid_values:
-            model = FormatTest(float32=valid_value, **required_args)
+            arg = dict(**required_args)
+            arg['float32'] = valid_value
+            model = FormatTest(arg)
             assert model["float32"] == valid_value
 
         # float64
         # under min, Decimal is used because flat can only store 64bit numbers and the max and min
         # take up more space than 64bit
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(float64=Decimal('-1.7976931348623157082e+308'), **required_args)
+            arg = dict(**required_args)
+            arg['float64'] = Decimal('-1.7976931348623157082e+308')
+            FormatTest(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(float64=Decimal('1.7976931348623157082e+308'), **required_args)
+            arg = dict(**required_args)
+            arg['float64'] = Decimal('1.7976931348623157082e+308')
+            FormatTest(arg)
         valid_values = [-1.7976931348623157E+308, 1.7976931348623157E+308]
         for valid_value in valid_values:
-            model = FormatTest(float64=valid_value, **required_args)
+            arg = dict(**required_args)
+            arg['float64'] = valid_value
+            model = FormatTest(arg)
             assert model["float64"] == valid_value
 
         # unique_items with duplicates throws exception
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest(arrayWithUniqueItems=[0, 1, 1], **required_args)
+            FormatTest({'arrayWithUniqueItems': [0, 1, 1], **required_args})
         # no duplicates works
         values = [0, 1, 2]
-        model = FormatTest(arrayWithUniqueItems=values, **required_args)
+        model = FormatTest({'arrayWithUniqueItems': values, **required_args})
         assert model["arrayWithUniqueItems"] == tuple(values)
 
         # __bool__ value of noneProp is False
-        model = FormatTest(noneProp=None, **required_args)
+        model = FormatTest({'noneProp': None, **required_args})
         assert isinstance(model["noneProp"], Singleton)
         self.assertFalse(model["noneProp"])
         self.assertTrue(model["noneProp"].is_none_())
 
         # binary check
-        model = FormatTest(binary=b'123', **required_args)
+        model = FormatTest({'binary': b'123', **required_args})
         assert isinstance(model["binary"], BinarySchema)
         assert isinstance(model["binary"], BytesSchema)
         assert isinstance(model["binary"], bytes)
@@ -120,17 +145,17 @@ class TestFormatTest(unittest.TestCase):
 
     def test_multiple_of(self):
         with self.assertRaisesRegex(
-            petstore_api.exceptions.ApiValueError,
+            exceptions.ApiValueError,
             r"Invalid value `31`, value must be a multiple of `2` at \('args\[0\]', 'integer'\)"
         ):
-            FormatTest(
-                byte='3',
-                date=datetime.date(2000, 1, 1),
-                password="abcdefghijkl",
-                integer=31,  # Value is supposed to be multiple of '2'. An error must be raised
-                number=65.0,
-                float=62.4
-            )
+            FormatTest({
+                'byte': '3',
+                'date': datetime.date(2000, 1, 1),
+                'password': "abcdefghijkl",
+                'integer': 31,  # Value is supposed to be multiple of '2'. An error must be raised
+                'number': 65.0,
+                'float': 62.4
+            })
 
 
 if __name__ == '__main__':

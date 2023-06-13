@@ -11,6 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class NullableShape(
@@ -33,9 +34,11 @@ class NullableShape(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NullableShape[
         typing.Union[
             frozendict.frozendict,
@@ -50,9 +53,8 @@ class NullableShape(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             NullableShape[

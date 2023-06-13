@@ -143,22 +143,22 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = dict(
-        integer=10,
-        int32=20,
-        int64=1,
-        number=32.1,
-        _float=3.14,
-        double=67.8,
-        string="A",
-        pattern_without_delimiter="AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
-        byte='YQ==',
-        binary=open('/path/to/file', 'rb'),
-        date="1970-01-01",
-        date_time="2020-02-02T20:20:20.222220Z",
-        password="password_example",
-        callback="callback_example",
-    )
+    body = {
+        "integer": 10,
+        "int32": 20,
+        "int64": 1,
+        "number": 32.1,
+        "_float": 3.14,
+        "double": 67.8,
+        "string": "A",
+        "pattern_without_delimiter": "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
+        "byte": 'YQ==',
+        "binary": open('/path/to/file', 'rb'),
+        "date": "1970-01-01",
+        "date_time": "2020-02-02T20:20:20.222220Z",
+        "password": "password_example",
+        "callback": "callback_example",
+    }
     try:
         # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
         api_response = api_instance.endpoint_parameters(

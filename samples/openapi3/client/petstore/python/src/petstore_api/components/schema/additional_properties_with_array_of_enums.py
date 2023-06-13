@@ -24,18 +24,18 @@ class AdditionalProperties(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 enum_class.EnumClass[str],
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalProperties[tuple],
@@ -46,6 +46,14 @@ class AdditionalProperties(
     def __getitem__(self, name: int) -> enum_class.EnumClass[str]:
         return super().__getitem__(name)
 
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[tuple],
+        list,
+        tuple
+    ],
+]
 
 
 class AdditionalPropertiesWithArrayOfEnums(
@@ -69,19 +77,16 @@ class AdditionalPropertiesWithArrayOfEnums(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[tuple],
-            list,
-            tuple
+        arg: typing.Union[
+            DictInput,
+            AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalPropertiesWithArrayOfEnums[frozendict.frozendict],

@@ -47,7 +47,7 @@ class TestAnyTypeSchema(unittest.TestCase):
                     DictSchema,
                 )
 
-        m = Model(a=1, b='hi')
+        m = Model({'a': 1, 'b': 'hi'})
         assert isinstance(m, Model)
         assert isinstance(m, AnyTypeSchema)
         assert isinstance(m, DictSchema)

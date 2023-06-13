@@ -10,13 +10,24 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-_Return: typing_extensions.TypeAlias = schemas.Int32Schema[U]
+Return2: typing_extensions.TypeAlias = schemas.Int32Schema[U]
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "return": typing.Type[_Return],
+        "return": typing.Type[Return2],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Return2[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _Return(
@@ -38,7 +49,7 @@ class _Return(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["return"]) -> _Return[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["return"]) -> Return2[decimal.Decimal]: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
@@ -64,9 +75,11 @@ class _Return(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Return[
         typing.Union[
             frozendict.frozendict,
@@ -81,9 +94,8 @@ class _Return(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _Return[

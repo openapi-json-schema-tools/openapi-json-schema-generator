@@ -61,28 +61,16 @@ class Player(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[
-            Name[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        enemyPlayer: typing.Union[
+        arg: typing.Union[
+            DictInput,
             Player[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Player[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            enemyPlayer=enemyPlayer,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Player[frozendict.frozendict],
@@ -97,3 +85,18 @@ Properties = typing_extensions.TypedDict(
         "enemyPlayer": typing.Type[Player],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            Player[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

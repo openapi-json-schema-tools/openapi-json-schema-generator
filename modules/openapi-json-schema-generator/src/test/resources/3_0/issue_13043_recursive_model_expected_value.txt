@@ -1,4 +1,4 @@
-geo_json_geometry.GeoJsonGeometry(
-        type="GeometryCollection",
-        geometries=[],
-    )
+geo_json_geometry.GeoJsonGeometry({
+        "type": "GeometryCollection",
+        "geometries": [],
+    })

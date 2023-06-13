@@ -155,10 +155,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     path_params = {
         'petId': 1,
     }
-    body = dict(
-        additional_metadata="additional_metadata_example",
-        file=open('/path/to/file', 'rb'),
-    )
+    body = {
+        "additional_metadata": "additional_metadata_example",
+        "file": open('/path/to/file', 'rb'),
+    }
     try:
         # uploads an image
         api_response = api_instance.upload_image(

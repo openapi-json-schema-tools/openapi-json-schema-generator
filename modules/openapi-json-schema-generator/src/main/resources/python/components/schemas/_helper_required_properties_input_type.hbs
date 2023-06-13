@@ -1,0 +1,57 @@
+{{#if additionalProperties}}
+    {{#if additionalProperties.isBooleanSchemaFalse}}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
+    '{{requiredProperties.jsonPathPiece.camelCase}}',
+    {
+        {{#each requiredProperties}}
+            {{#with this}}
+                {{#if refInfo.refClass}}
+        "{{{@key.original}}}": typing.Union[
+            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+        ],
+                {{else}}
+                    {{#if jsonPathPiece}}
+        "{{{@key.original}}}": typing.Union[
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
+        ],
+                    {{else}}
+        "{{{@key.original}}}": typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                {{> components/schemas/_helper_schema_python_base_types_newline }}
+            ]],
+            {{> _helper_schema_python_types_newline }}
+        ],
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    }
+)
+    {{else}}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each requiredProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        {{#with additionalProperties}}
+        {{> components/schemas/_helper_property_value_type }}
+        {{/with}}
+    ]
+]
+    {{/if}}
+{{else}}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each requiredProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
+{{/if}}

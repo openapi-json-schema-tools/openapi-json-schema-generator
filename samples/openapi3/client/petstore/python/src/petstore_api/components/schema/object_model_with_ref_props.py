@@ -64,35 +64,16 @@ class ObjectModelWithRefProps(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        myNumber: typing.Union[
-            number_with_validations.NumberWithValidations[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        myString: typing.Union[
-            string.String[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        myBoolean: typing.Union[
-            boolean.Boolean[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ObjectModelWithRefProps[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithRefProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            myNumber=myNumber,
-            myString=myString,
-            myBoolean=myBoolean,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectModelWithRefProps[frozendict.frozendict],
@@ -112,3 +93,23 @@ Properties = typing_extensions.TypedDict(
         "myBoolean": typing.Type[boolean.Boolean],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            number_with_validations.NumberWithValidations[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            string.String[str],
+            str
+        ],
+        typing.Union[
+            boolean.Boolean[schemas.BoolClass],
+            bool
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

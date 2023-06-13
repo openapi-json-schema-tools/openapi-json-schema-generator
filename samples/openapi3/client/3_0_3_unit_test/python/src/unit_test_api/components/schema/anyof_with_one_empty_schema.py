@@ -11,11 +11,13 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 _0: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 AnyOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
     typing.Type[_1[schemas.U]],
 ]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class AnyofWithOneEmptySchema(
@@ -36,9 +38,11 @@ class AnyofWithOneEmptySchema(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput2,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyofWithOneEmptySchema[
         typing.Union[
             frozendict.frozendict,
@@ -53,9 +57,8 @@ class AnyofWithOneEmptySchema(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AnyofWithOneEmptySchema[

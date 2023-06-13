@@ -11,6 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[str],
+        str
+    ],
+]
 
 
 class MapProperty(
@@ -29,18 +36,16 @@ class MapProperty(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            MapProperty[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapProperty[frozendict.frozendict],
@@ -49,6 +54,13 @@ class MapProperty(
         return inst
 
 AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties3[str],
+        str
+    ],
+]
 
 
 class AdditionalProperties2(
@@ -67,18 +79,16 @@ class AdditionalProperties2(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties3[str],
-            str
+        arg: typing.Union[
+            DictInput2,
+            AdditionalProperties2[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalProperties2[frozendict.frozendict],
@@ -86,6 +96,14 @@ class AdditionalProperties2(
         )
         return inst
 
+DictInput3 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties2[frozendict.frozendict],
+        dict,
+        frozendict.frozendict
+    ],
+]
 
 
 class MapOfMapProperty(
@@ -104,19 +122,16 @@ class MapOfMapProperty(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties2[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
+        arg: typing.Union[
+            DictInput3,
+            MapOfMapProperty[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapProperty[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapOfMapProperty[frozendict.frozendict],
@@ -124,10 +139,38 @@ class MapOfMapProperty(
         )
         return inst
 
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Anytype1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 MapWithUndeclaredPropertiesAnytype1: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 MapWithUndeclaredPropertiesAnytype2: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput7 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+DictInput8 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties4[
+            schemas.INPUT_BASE_TYPES
+        ],
+        dict,
+        frozendict.frozendict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        decimal.Decimal,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ],
+]
 
 
 class MapWithUndeclaredPropertiesAnytype3(
@@ -155,35 +198,16 @@ class MapWithUndeclaredPropertiesAnytype3(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties4[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+        arg: typing.Union[
+            DictInput8,
+            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
@@ -192,6 +216,7 @@ class MapWithUndeclaredPropertiesAnytype3(
         return inst
 
 AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+DictInput11 = typing.Mapping # mapping must be empty
 
 
 class EmptyMap(
@@ -206,13 +231,16 @@ class EmptyMap(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        arg: typing.Union[
+            DictInput11,
+            EmptyMap[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             EmptyMap[frozendict.frozendict],
@@ -221,6 +249,13 @@ class EmptyMap(
         return inst
 
 AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput12 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties6[str],
+        str
+    ],
+]
 
 
 class MapWithUndeclaredPropertiesString(
@@ -239,18 +274,16 @@ class MapWithUndeclaredPropertiesString(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties6[str],
-            str
+        arg: typing.Union[
+            DictInput12,
+            MapWithUndeclaredPropertiesString[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapWithUndeclaredPropertiesString[frozendict.frozendict],
@@ -271,6 +304,68 @@ Properties = typing_extensions.TypedDict(
         "map_with_undeclared_properties_string": typing.Type[MapWithUndeclaredPropertiesString],
     }
 )
+DictInput13 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            MapProperty[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapOfMapProperty[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Anytype1[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            EmptyMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapWithUndeclaredPropertiesString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class AdditionalPropertiesClass(
@@ -352,87 +447,16 @@ class AdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        map_property: typing.Union[
-            MapProperty[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        map_of_map_property: typing.Union[
-            MapOfMapProperty[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        anytype_1: typing.Union[
-            Anytype1[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        map_with_undeclared_properties_anytype_1: typing.Union[
-            MapWithUndeclaredPropertiesAnytype1[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        map_with_undeclared_properties_anytype_2: typing.Union[
-            MapWithUndeclaredPropertiesAnytype2[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        map_with_undeclared_properties_anytype_3: typing.Union[
-            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        empty_map: typing.Union[
-            EmptyMap[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        map_with_undeclared_properties_string: typing.Union[
-            MapWithUndeclaredPropertiesString[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput13,
+            AdditionalPropertiesClass[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            map_property=map_property,
-            map_of_map_property=map_of_map_property,
-            anytype_1=anytype_1,
-            map_with_undeclared_properties_anytype_1=map_with_undeclared_properties_anytype_1,
-            map_with_undeclared_properties_anytype_2=map_with_undeclared_properties_anytype_2,
-            map_with_undeclared_properties_anytype_3=map_with_undeclared_properties_anytype_3,
-            empty_map=empty_map,
-            map_with_undeclared_properties_string=map_with_undeclared_properties_string,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalPropertiesClass[frozendict.frozendict],

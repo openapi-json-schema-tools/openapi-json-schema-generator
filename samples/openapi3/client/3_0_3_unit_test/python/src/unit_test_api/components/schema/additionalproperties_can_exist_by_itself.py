@@ -11,6 +11,13 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[schemas.BoolClass],
+        bool
+    ],
+]
 
 
 class AdditionalpropertiesCanExistByItself(
@@ -34,18 +41,16 @@ class AdditionalpropertiesCanExistByItself(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[schemas.BoolClass],
-            bool
+        arg: typing.Union[
+            DictInput,
+            AdditionalpropertiesCanExistByItself[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalpropertiesCanExistByItself[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalpropertiesCanExistByItself[frozendict.frozendict],

@@ -30,7 +30,7 @@ class TestMammal(unittest.TestCase):
         """Test Mammal"""
 
         # tests that we can make a BasquePig by traveling through discriminator in Pig
-        m = Mammal(className="BasquePig")
+        m = Mammal({'className': "BasquePig"})
         from petstore_api.components.schema import pig
         from petstore_api.components.schema import basque_pig
         assert isinstance(m, Mammal)
@@ -38,16 +38,16 @@ class TestMammal(unittest.TestCase):
         assert isinstance(m, pig.Pig)
 
         # can make a Whale
-        m = Mammal(className="whale")
+        m = Mammal({'className': "whale"})
         from petstore_api.components.schema import whale
         assert isinstance(m, whale.Whale)
 
         # can use the enum value
-        m = Mammal(className=whale.ClassName.WHALE)
+        m = Mammal({'className': whale.ClassName.WHALE})
         assert isinstance(m, whale.Whale)
 
         from petstore_api.components.schema import zebra
-        m = Mammal(className='zebra')
+        m = Mammal({'className': 'zebra'})
         assert isinstance(m, zebra.Zebra)
 
 

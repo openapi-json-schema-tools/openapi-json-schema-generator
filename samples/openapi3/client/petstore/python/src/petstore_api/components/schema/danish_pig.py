@@ -37,6 +37,16 @@ Properties = typing_extensions.TypedDict(
         "className": typing.Type[ClassName],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ClassName[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class DanishPig(
@@ -88,20 +98,16 @@ class DanishPig(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        className: typing.Union[
-            ClassName[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            DanishPig[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DanishPig[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            className=className,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             DanishPig[frozendict.frozendict],

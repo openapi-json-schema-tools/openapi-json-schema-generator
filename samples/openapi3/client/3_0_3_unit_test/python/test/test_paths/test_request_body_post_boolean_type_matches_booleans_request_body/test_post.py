@@ -38,9 +38,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 ""
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -52,9 +52,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 1.1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -66,9 +66,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 None
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -80,9 +80,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 0
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -95,9 +95,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 ]
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -109,9 +109,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 "foo"
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -122,9 +122,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 False
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -153,9 +153,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 
@@ -166,9 +166,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 True
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -198,9 +198,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 }
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+                body = post.request_body.RequestBody.content["application/json"].schema(
                     payload,
-                    configuration_=self.schema_config
+                    configuration=self.schema_config
                 )
                 self.api.post(body=body)
 

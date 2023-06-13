@@ -10,7 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Items: typing_extensions.TypeAlias = schemas.DictSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+Items2: typing_extensions.TypeAlias = schemas.DictSchema[U]
 
 
 class Items(
@@ -28,23 +29,23 @@ class Items(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
-                Items[frozendict.frozendict],
+                Items2[frozendict.frozendict],
                 dict,
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items[tuple],
@@ -52,6 +53,6 @@ class Items(
         )
         return inst
 
-    def __getitem__(self, name: int) -> Items[frozendict.frozendict]:
+    def __getitem__(self, name: int) -> Items2[frozendict.frozendict]:
         return super().__getitem__(name)
 

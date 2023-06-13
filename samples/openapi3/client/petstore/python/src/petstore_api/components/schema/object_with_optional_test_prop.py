@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "test": typing.Type[Test],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Test[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjectWithOptionalTestProp(
@@ -61,21 +71,16 @@ class ObjectWithOptionalTestProp(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        test: typing.Union[
-            Test[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ObjectWithOptionalTestProp[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOptionalTestProp[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            test=test,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithOptionalTestProp[frozendict.frozendict],

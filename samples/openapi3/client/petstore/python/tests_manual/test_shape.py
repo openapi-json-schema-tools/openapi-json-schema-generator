@@ -45,10 +45,10 @@ class TestShape(unittest.TestCase):
     def testShape(self):
         """Test Shape"""
 
-        tri = Shape(
-            shapeType="Triangle",
-            triangleType="EquilateralTriangle"
-        )
+        tri = Shape({
+            'shapeType': "Triangle",
+            'triangleType': "EquilateralTriangle"
+        })
         assert isinstance(tri, equilateral_triangle.EquilateralTriangle)
         assert isinstance(tri, triangle.Triangle)
         assert isinstance(tri, triangle_interface.TriangleInterface)
@@ -57,28 +57,28 @@ class TestShape(unittest.TestCase):
         assert isinstance(tri.shapeType, str)
         assert isinstance(tri.shapeType, Singleton)
 
-        tri = Shape(
-            shapeType="Triangle",
-            triangleType="IsoscelesTriangle"
-        )
+        tri = Shape({
+            'shapeType': "Triangle",
+            'triangleType': "IsoscelesTriangle"
+        })
         assert isinstance(tri, isosceles_triangle.IsoscelesTriangle)
 
-        tri = Shape(
-            shapeType="Triangle",
-            triangleType="ScaleneTriangle"
-        )
+        tri = Shape({
+            'shapeType': "Triangle",
+            'triangleType': "ScaleneTriangle"
+        })
         assert isinstance(tri, scalene_triangle.ScaleneTriangle)
 
-        quad = Shape(
-            shapeType="Quadrilateral",
-            quadrilateralType="ComplexQuadrilateral"
-        )
+        quad = Shape({
+            'shapeType': "Quadrilateral",
+            'quadrilateralType': "ComplexQuadrilateral"
+        })
         assert isinstance(quad, complex_quadrilateral.ComplexQuadrilateral)
 
-        quad = Shape(
-            shapeType="Quadrilateral",
-            quadrilateralType="SimpleQuadrilateral"
-        )
+        quad = Shape({
+            'shapeType': "Quadrilateral",
+            'quadrilateralType': "SimpleQuadrilateral"
+        })
         assert isinstance(quad, simple_quadrilateral.SimpleQuadrilateral)
 
         # data missing
@@ -98,7 +98,7 @@ class TestShape(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Shape(shapeType="Circle")
+            Shape({'shapeType': "Circle"})
 
         # invalid quadrilateral_type (second discriminator)
         err_msg = (
@@ -109,10 +109,10 @@ class TestShape(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Shape(
-                shapeType="Quadrilateral",
-                quadrilateralType="Triangle"
-            )
+            Shape({
+                'shapeType': "Quadrilateral",
+                'quadrilateralType': "Triangle"
+            })
 
 if __name__ == '__main__':
     unittest.main()

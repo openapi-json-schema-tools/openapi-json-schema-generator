@@ -27,6 +27,36 @@ Properties = typing_extensions.TypedDict(
         "ATT_NAME": typing.Type[ATTNAME],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SmallCamel[str],
+            str
+        ],
+        typing.Union[
+            CapitalCamel[str],
+            str
+        ],
+        typing.Union[
+            SmallSnake[str],
+            str
+        ],
+        typing.Union[
+            CapitalSnake[str],
+            str
+        ],
+        typing.Union[
+            SCAETHFlowPoints[str],
+            str
+        ],
+        typing.Union[
+            ATTNAME[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Capitalization(
@@ -91,51 +121,16 @@ class Capitalization(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        smallCamel: typing.Union[
-            SmallCamel[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        CapitalCamel: typing.Union[
-            CapitalCamel[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        small_Snake: typing.Union[
-            SmallSnake[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        Capital_Snake: typing.Union[
-            CapitalSnake[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        SCA_ETH_Flow_Points: typing.Union[
-            SCAETHFlowPoints[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        ATT_NAME: typing.Union[
-            ATTNAME[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            Capitalization[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Capitalization[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            smallCamel=smallCamel,
-            CapitalCamel=CapitalCamel,
-            small_Snake=small_Snake,
-            Capital_Snake=Capital_Snake,
-            SCA_ETH_Flow_Points=SCA_ETH_Flow_Points,
-            ATT_NAME=ATT_NAME,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Capitalization[frozendict.frozendict],

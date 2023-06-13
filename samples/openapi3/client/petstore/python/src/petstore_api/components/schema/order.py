@@ -69,6 +69,40 @@ Properties = typing_extensions.TypedDict(
         "complete": typing.Type[Complete],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            PetId[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Quantity[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            ShipDate[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Status[str],
+            str
+        ],
+        typing.Union[
+            Complete[schemas.BoolClass],
+            bool
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Order(
@@ -133,55 +167,16 @@ class Order(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        petId: typing.Union[
-            PetId[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        quantity: typing.Union[
-            Quantity[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        shipDate: typing.Union[
-            ShipDate[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        status: typing.Union[
-            Status[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        complete: typing.Union[
-            Complete[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            Order[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Order[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            petId=petId,
-            quantity=quantity,
-            shipDate=shipDate,
-            status=status,
-            complete=complete,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Order[frozendict.frozendict],

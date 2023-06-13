@@ -36,22 +36,14 @@ class TestDateTimeWithValidations(unittest.TestCase):
             inst = DateTimeWithValidations(valid_value)
             assert inst == expected_datetime
 
-        # when passing data in with from_openapi_data_ one must use str
-        with self.assertRaisesRegex(
-            petstore_api.ApiTypeError,
-            r"Invalid type. Required value type is str and passed "
-            r"type was <class 'datetime.datetime'> at \('args\[0\]',\)"
-        ):
-            DateTimeWithValidations.from_openapi_data_(datetime(2020, 1, 1))
-
-        # when passing data from_openapi_data_ we can use str
+        # various formats work
         input_value_to_datetime = {
             "2020-01-01T00:00:00": datetime(2020, 1, 1, tzinfo=None),
             "2020-01-01T00:00:00Z": datetime(2020, 1, 1, tzinfo=timezone.utc),
             "2020-01-01T00:00:00+00:00": datetime(2020, 1, 1, tzinfo=timezone.utc)
         }
         for input_value, expected_datetime in input_value_to_datetime.items():
-            inst = DateTimeWithValidations.from_openapi_data_(input_value)
+            inst = DateTimeWithValidations(input_value)
             assert inst.as_datetime_ == expected_datetime
 
         # value error is raised if an invalid string is passed in
@@ -59,7 +51,7 @@ class TestDateTimeWithValidations(unittest.TestCase):
             petstore_api.ApiValueError,
             r"Value does not conform to the required ISO-8601 datetime format. Invalid value 'abcd' for type datetime at \('args\[0\]',\)"
         ):
-            DateTimeWithValidations.from_openapi_data_("abcd")
+            DateTimeWithValidations("abcd")
 
         # value error is raised if a date is passed in
         with self.assertRaisesRegex(
@@ -74,7 +66,7 @@ class TestDateTimeWithValidations(unittest.TestCase):
             petstore_api.ApiValueError,
             error_regex
         ):
-            DateTimeWithValidations.from_openapi_data_("2019-01-01T00:00:00Z")
+            DateTimeWithValidations("2019-01-01T00:00:00Z")
         # pattern checking with date input
         error_regex = r"Invalid value `2019-01-01T00:00:00`, must match regular expression `.+?` at \('args\[0\]',\)"
         with self.assertRaisesRegex(

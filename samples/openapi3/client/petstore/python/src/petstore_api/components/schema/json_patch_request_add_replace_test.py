@@ -12,6 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 Path: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -50,6 +51,40 @@ Properties = typing_extensions.TypedDict(
         "path": typing.Type[Path],
         "value": typing.Type[Value],
         "op": typing.Type[Op],
+    }
+)
+DictInput4 = typing_extensions.TypedDict(
+    'DictInput4',
+    {
+        "op": typing.Union[
+            Op[str],
+            str
+        ],
+        "path": typing.Union[
+            Path[str],
+            str
+        ],
+        "value": typing.Union[
+            Value[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     }
 )
 
@@ -127,45 +162,16 @@ class JSONPatchRequestAddReplaceTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        op: typing.Union[
-            Op[str],
-            str
+        arg: typing.Union[
+            DictInput4,
+            JSONPatchRequestAddReplaceTest[frozendict.frozendict],
         ],
-        path: typing.Union[
-            Path[str],
-            str
-        ],
-        value: typing.Union[
-            Value[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestAddReplaceTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            op=op,
-            path=path,
-            value=value,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             JSONPatchRequestAddReplaceTest[frozendict.frozendict],

@@ -26,7 +26,7 @@ class TestAdditionalPropertiesClass(unittest.TestCase):
         with self.assertRaises(AttributeError):
             inst.map_property
 
-        inst = AdditionalPropertiesClass(map_property={})
+        inst = AdditionalPropertiesClass({'map_property': {}})
         map_property = inst["map_property"]
         assert map_property == {}
 

@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "a": typing.Type[A],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            A[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ObjWithRequiredProps(
@@ -72,20 +82,16 @@ class ObjWithRequiredProps(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        a: typing.Union[
-            A[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            ObjWithRequiredProps[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            a=a,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjWithRequiredProps[frozendict.frozendict],

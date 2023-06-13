@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "pet_type": typing.Type[PetType],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            PetType[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class GrandparentAnimal(
@@ -76,20 +86,16 @@ class GrandparentAnimal(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        pet_type: typing.Union[
-            PetType[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            GrandparentAnimal[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> GrandparentAnimal[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            pet_type=pet_type,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             GrandparentAnimal[frozendict.frozendict],

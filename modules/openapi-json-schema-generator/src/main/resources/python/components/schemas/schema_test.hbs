@@ -12,26 +12,26 @@ from {{packageName}}.configurations import schema_configuration
 
 class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
     """{{jsonPathPiece.camelCase}} unit test stubs"""
-    configuration_ = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration()
 
 {{#each testCases}}
 {{#with this }}
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description}}
 {{#if valid}}
-        {{jsonPathPiece.camelCase}}.from_openapi_data_(
+        {{jsonPathPiece.camelCase}}(
 {{#with data}}
             {{> components/schemas/_helper_payload_renderer endChar=',' }}
 {{/with}}
-            configuration_=self.configuration_
+            configuration=self.configuration
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{jsonPathPiece.camelCase}}.from_openapi_data_(
+            {{jsonPathPiece.camelCase}}(
 {{#with data}}
                 {{> components/schemas/_helper_payload_renderer endChar=','}}
 {{/with}}
-                configuration_=self.configuration_
+                configuration=self.configuration
             )
 {{/if}}
 {{/with}}

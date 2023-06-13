@@ -40,6 +40,19 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
+    {
+        "op": typing.Union[
+            Op[str],
+            str
+        ],
+        "path": typing.Union[
+            Path[str],
+            str
+        ],
+    }
+)
 
 
 class JSONPatchRequestRemove(
@@ -88,23 +101,16 @@ class JSONPatchRequestRemove(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        op: typing.Union[
-            Op[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            JSONPatchRequestRemove[frozendict.frozendict],
         ],
-        path: typing.Union[
-            Path[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestRemove[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            op=op,
-            path=path,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             JSONPatchRequestRemove[frozendict.frozendict],

@@ -30,6 +30,18 @@ Properties = typing_extensions.TypedDict(
         "alpha": typing.Type[Alpha],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Alpha[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
@@ -74,23 +86,16 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        alpha: typing.Union[
-            Alpha[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            alpha=alpha,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing[frozendict.frozendict],

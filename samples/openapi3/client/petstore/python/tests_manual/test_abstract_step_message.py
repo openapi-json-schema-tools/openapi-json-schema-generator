@@ -12,17 +12,20 @@
 import unittest
 
 import petstore_api
-from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
+from petstore_api.components.schema import abstract_step_message
 
 
 class TestAbstractStepMessage(unittest.TestCase):
     """AbstractStepMessage unit test stubs"""
 
     def test_model_instantiation(self):
-        inst = AbstractStepMessage(
-            discriminator='AbstractStepMessage',
-            sequenceNumber=1,
-            description='some description'
+        arg: abstract_step_message.DictInput = {
+            'discriminator': 'AbstractStepMessage',
+            'sequenceNumber': 1,
+            'description': 'some description'
+        }
+        inst = abstract_step_message.AbstractStepMessage(
+            arg
         )
         assert inst == {
             'discriminator': 'AbstractStepMessage',
@@ -47,7 +50,7 @@ class TestAbstractStepMessage(unittest.TestCase):
         ]
         for invalid_kwarg in invalid_kwargs:
             with self.assertRaises(TypeError):
-                AbstractStepMessage(**invalid_kwarg)
+                abstract_step_message.AbstractStepMessage(invalid_kwarg)
 
 if __name__ == '__main__':
     unittest.main()

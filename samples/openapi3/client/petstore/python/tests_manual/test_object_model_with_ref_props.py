@@ -30,7 +30,7 @@ class TestObjectModelWithRefProps(unittest.TestCase):
 
     def testObjectModelWithRefProps(self):
         """Test ObjectModelWithRefProps"""
-        inst = object_model_with_ref_props.ObjectModelWithRefProps(myNumber=15.0, myString="a", myBoolean=True)
+        inst = object_model_with_ref_props.ObjectModelWithRefProps({'myNumber': 15.0, 'myString': "a", 'myBoolean': True})
         assert isinstance(inst, object_model_with_ref_props.ObjectModelWithRefProps)
         assert isinstance(inst, frozendict.frozendict)
         assert set(inst.keys()) == {"myNumber", "myString", "myBoolean"}
