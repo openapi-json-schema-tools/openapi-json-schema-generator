@@ -66,7 +66,7 @@ class _1(
         )
         return inst
 
-AnyOf = typing.Tuple[
+AnyOf2 = typing.Tuple[
     typing.Type[_0[schemas.U]],
     typing.Type[_1[schemas.U]],
 ]
@@ -86,7 +86,7 @@ class Anyof(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
+        any_of: AnyOf2 = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf2)) # type: ignore
 
 
     def __new__(

@@ -69,7 +69,7 @@ class _0(
         )
         return inst
 
-OneOf = typing.Tuple[
+OneOf2 = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
@@ -88,7 +88,7 @@ class NestedOneofToCheckValidationSemantics(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
+        one_of: OneOf2 = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf2)) # type: ignore
 
 
     def __new__(

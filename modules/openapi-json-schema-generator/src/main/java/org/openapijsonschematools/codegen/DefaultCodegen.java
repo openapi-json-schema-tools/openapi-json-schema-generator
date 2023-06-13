@@ -4310,8 +4310,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public CodegenKey getKey(String key, String expectedComponentType) {
-        return getKey(key, expectedComponentType, null);
+    public CodegenKey getKey(String key, String keyType) {
+        return getKey(key, keyType, null);
     }
 
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
@@ -4430,7 +4430,8 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             } else if (additionalProperties != null && additionalProperties.isBooleanSchemaFalse) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                CodegenKey key = getKey(requiredPropertyName, "schemas");
+                // no schema definition: error use case?
+                CodegenKey key = getKey(requiredPropertyName, "schemas", null);
                 requiredProperties.put(key, null);
                 requiredAndOptionalProperties.put(requiredPropertyName, key);
             } else {
@@ -4454,7 +4455,7 @@ public class DefaultCodegen implements CodegenConfig {
                             allAreInline = false;
                         }
                     }
-                    CodegenKey key = getKey(requiredPropertyName, "schemas");
+                    CodegenKey key = getKey(requiredPropertyName, "schemas", sourceJsonPath);
                     requiredProperties.put(key, prop);
                     requiredAndOptionalProperties.put(requiredPropertyName, key);
                 }
@@ -4854,7 +4855,7 @@ public class DefaultCodegen implements CodegenConfig {
             i += 1;
         }
         xOf.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey(collectionName, "schemaProperty");
+        CodegenKey jsonPathPiece = getKey(collectionName, "schemaProperty", sourceJsonPath);
         xOf.setJsonPathPiece(jsonPathPiece);
         return xOf;
     }

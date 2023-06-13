@@ -217,7 +217,7 @@ class _1(
         )
         return inst
 
-AllOf = typing.Tuple[
+AllOf2 = typing.Tuple[
     typing.Type[_0[schemas.U]],
     typing.Type[_1[schemas.U]],
 ]
@@ -237,7 +237,7 @@ class Allof(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
+        all_of: AllOf2 = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf2)) # type: ignore
 
 
     def __new__(

@@ -69,7 +69,7 @@ class _0(
         )
         return inst
 
-AnyOf = typing.Tuple[
+AnyOf2 = typing.Tuple[
     typing.Type[_0[schemas.U]],
 ]
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
@@ -88,7 +88,7 @@ class NestedAnyofToCheckValidationSemantics(
     @dataclasses.dataclass(frozen=True)
     class Schema_(metaclass=schemas.SingletonMeta):
         # any type
-        any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
+        any_of: AnyOf2 = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf2)) # type: ignore
 
 
     def __new__(
