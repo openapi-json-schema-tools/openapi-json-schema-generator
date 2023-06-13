@@ -28,6 +28,20 @@ class NullableMessage(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NullableMessage[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NullableMessage[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -35,12 +49,7 @@ class NullableMessage(
             str
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NullableMessage[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,

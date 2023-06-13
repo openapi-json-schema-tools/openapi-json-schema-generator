@@ -37,7 +37,7 @@ class ComposedString(
 
     def __new__(
         cls,
-        arg: str,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedString[str]:
         inst = super().__new__(

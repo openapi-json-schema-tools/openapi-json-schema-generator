@@ -29,6 +29,23 @@ class AdditionalProperties4(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties4[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput10,
+            AdditionalProperties4[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties4[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -37,12 +54,7 @@ class AdditionalProperties4(
             AdditionalProperties4[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties4[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -78,6 +90,20 @@ class IntegerProp(
         format: str = 'int'
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> IntegerProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> IntegerProp[decimal.Decimal]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -86,12 +112,7 @@ class IntegerProp(
             int
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> IntegerProp[
-        typing.Union[
-            schemas.NoneClass,
-            decimal.Decimal
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -126,6 +147,20 @@ class NumberProp(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NumberProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NumberProp[decimal.Decimal]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -135,12 +170,7 @@ class NumberProp(
             float
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NumberProp[
-        typing.Union[
-            schemas.NoneClass,
-            decimal.Decimal
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -175,6 +205,20 @@ class BooleanProp(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> BooleanProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> BooleanProp[schemas.BoolClass]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -182,12 +226,7 @@ class BooleanProp(
             bool
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> BooleanProp[
-        typing.Union[
-            schemas.NoneClass,
-            schemas.BoolClass
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -222,6 +261,20 @@ class StringProp(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> StringProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> StringProp[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -229,12 +282,7 @@ class StringProp(
             str
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> StringProp[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -271,6 +319,20 @@ class DateProp(
         format: str = 'date'
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> DateProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> DateProp[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -279,12 +341,7 @@ class DateProp(
             datetime.date
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DateProp[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -321,6 +378,20 @@ class DatetimeProp(
         format: str = 'date-time'
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> DatetimeProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> DatetimeProp[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -329,12 +400,7 @@ class DatetimeProp(
             datetime.datetime
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DatetimeProp[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -372,6 +438,26 @@ class ArrayNullableProp(
         items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayNullableProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[
+            typing.Union[
+                Items[frozendict.frozendict],
+                dict,
+                frozendict.frozendict
+            ]
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayNullableProp[tuple]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -380,12 +466,7 @@ class ArrayNullableProp(
             tuple
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayNullableProp[
-        typing.Union[
-            schemas.NoneClass,
-            tuple
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -421,6 +502,23 @@ class Items2(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Items2[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput2,
+            Items2[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Items2[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -429,12 +527,7 @@ class Items2(
             Items2[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items2[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -470,6 +563,30 @@ class ArrayAndItemsNullableProp(
         items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayAndItemsNullableProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[
+            typing.Union[
+                Items2[typing.Union[
+                    schemas.NoneClass,
+                    frozendict.frozendict
+                ]],
+                None,
+                dict,
+                frozendict.frozendict
+            ]
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayAndItemsNullableProp[tuple]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -478,12 +595,7 @@ class ArrayAndItemsNullableProp(
             tuple
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayAndItemsNullableProp[
-        typing.Union[
-            schemas.NoneClass,
-            tuple
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -519,6 +631,23 @@ class Items3(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Items3[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput3,
+            Items3[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Items3[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -527,12 +656,7 @@ class Items3(
             Items3[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items3[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -626,6 +750,23 @@ class ObjectNullableProp(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectNullableProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput5,
+            ObjectNullableProp[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectNullableProp[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -634,12 +775,7 @@ class ObjectNullableProp(
             ObjectNullableProp[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectNullableProp[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -675,6 +811,23 @@ class AdditionalProperties2(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties2[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput6,
+            AdditionalProperties2[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties2[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -683,12 +836,7 @@ class AdditionalProperties2(
             AdditionalProperties2[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties2[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -743,6 +891,23 @@ class ObjectAndItemsNullableProp(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectAndItemsNullableProp[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput7,
+            ObjectAndItemsNullableProp[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectAndItemsNullableProp[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -751,12 +916,7 @@ class ObjectAndItemsNullableProp(
             ObjectAndItemsNullableProp[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectAndItemsNullableProp[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,
@@ -792,6 +952,23 @@ class AdditionalProperties3(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties3[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput8,
+            AdditionalProperties3[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalProperties3[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -800,12 +977,7 @@ class AdditionalProperties3(
             AdditionalProperties3[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties3[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,

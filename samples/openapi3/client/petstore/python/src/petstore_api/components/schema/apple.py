@@ -122,6 +122,23 @@ class Apple(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Apple[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput,
+            Apple[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Apple[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -130,12 +147,7 @@ class Apple(
             Apple[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Apple[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,

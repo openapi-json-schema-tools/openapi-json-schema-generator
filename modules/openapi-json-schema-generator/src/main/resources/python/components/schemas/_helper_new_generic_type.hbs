@@ -1,0 +1,27 @@
+{{#eq this "array"}}
+[tuple]: ...
+{{else}}
+    {{#eq this "object"}}
+[frozendict.frozendict]: ...
+    {{else}}
+        {{#eq this "string"}}
+[str]: ...
+        {{else}}
+            {{#eq this "number"}}
+[decimal.Decimal]: ...
+            {{else}}
+                {{#eq this "integer"}}
+[decimal.Decimal]: ...
+                {{else}}
+                    {{#eq this "boolean"}}
+[schemas.BoolClass]: ...
+                    {{else}}
+                        {{#eq this "null"}}
+[schemas.NoneClass]: ...
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}

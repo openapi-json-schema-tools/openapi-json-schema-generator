@@ -1,3 +1,13 @@
+{{#if types}}
+    {{#gt types.size 1}}
+        {{#each types}}
+@typing.overload
+def __new__(
+    {{> components/schemas/_helper_new_args }}
+) -> {{../jsonPathPiece.camelCase}}{{> components/schemas/_helper_new_generic_type }}
+        {{/each}}
+    {{/gt}}
+{{/if}}
 def __new__(
 {{#if types}}
     {{#eq types.size 1}}
@@ -27,11 +37,7 @@ def __new__(
     {{#eq types.size 1}}
 ) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:
     {{else}}
-) -> {{jsonPathPiece.camelCase}}[
-    typing.Union[
-        {{> components/schemas/_helper_schema_python_base_types_newline }}
-    ]
-]:
+):
     {{/eq}}
 {{else}}
 ) -> {{jsonPathPiece.camelCase}}[

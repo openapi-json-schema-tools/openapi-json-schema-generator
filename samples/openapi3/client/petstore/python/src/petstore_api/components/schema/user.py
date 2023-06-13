@@ -39,6 +39,23 @@ class ObjectWithNoDeclaredPropsNullable(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithNoDeclaredPropsNullable[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[
+            DictInput2,
+            ObjectWithNoDeclaredPropsNullable[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithNoDeclaredPropsNullable[frozendict.frozendict]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -47,12 +64,7 @@ class ObjectWithNoDeclaredPropsNullable(
             ObjectWithNoDeclaredPropsNullable[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithNoDeclaredPropsNullable[
-        typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]
-    ]:
+    ):
         inst = super().__new__(
             cls,
             arg,

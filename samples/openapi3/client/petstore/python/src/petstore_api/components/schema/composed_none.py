@@ -37,7 +37,7 @@ class ComposedNone(
 
     def __new__(
         cls,
-        arg: None,
+        arg: typing.Union[None, schemas.NoneClass],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedNone[schemas.NoneClass]:
         inst = super().__new__(
