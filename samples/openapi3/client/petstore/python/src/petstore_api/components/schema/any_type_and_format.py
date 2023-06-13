@@ -27,10 +27,7 @@ class Uuid(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Uuid[
         typing.Union[
@@ -83,10 +80,7 @@ class Date(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput2,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Date[
         typing.Union[
@@ -139,10 +133,7 @@ class DateTime(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput3,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DateTime[
         typing.Union[
@@ -195,10 +186,7 @@ class Number(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput4,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Number[
         typing.Union[
@@ -250,10 +238,7 @@ class Binary(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput5,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Binary[
         typing.Union[
@@ -305,10 +290,7 @@ class Int32(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput6,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int32[
         typing.Union[
@@ -360,10 +342,7 @@ class Int64(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput7,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int64[
         typing.Union[
@@ -415,10 +394,7 @@ class Double(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput8,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Double[
         typing.Union[
@@ -470,10 +446,7 @@ class _Float(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput9,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Float[
         typing.Union[

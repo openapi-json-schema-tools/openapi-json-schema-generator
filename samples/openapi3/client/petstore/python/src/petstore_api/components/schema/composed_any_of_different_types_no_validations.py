@@ -130,10 +130,7 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput4,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedAnyOfDifferentTypesNoValidations[
         typing.Union[

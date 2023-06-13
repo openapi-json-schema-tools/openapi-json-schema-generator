@@ -1,44 +1,11 @@
 def __new__(
-    cls,
 {{#if types}}
     {{#eq types.size 1}}
-        {{#contains types "array"}}
-    arg: typing.Sequence[
-        {{#with ../items}}
-            {{#if refInfo.refClass}}
-        typing.Union[
-            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-        ]
-            {{else}}
-        typing.Union[
-            {{> components/schemas/_helper_new_property_value_type optional=false }}
-        ]
-            {{/if}}
-        {{/with}}
-    ],
-        {{/contains}}
-        {{#contains types "object"}}
-    arg: typing.Union[
-        {{mapInputJsonPathPiece.camelCase}},
-        {{jsonPathPiece.camelCase}}[frozendict.frozendict],
-    ],
-        {{/contains}}
-        {{#contains types "string"}}
-    arg: {{> _helper_schema_python_types }},
-        {{/contains}}
-        {{#contains types "number"}}
-    arg: typing.Union[{{> _helper_schema_python_types }}],
-        {{/contains}}
-        {{#contains types "integer"}}
-    arg: {{> _helper_schema_python_types }},
-        {{/contains}}
-        {{#contains types "boolean"}}
-    arg: {{> _helper_schema_python_types }},
-        {{/contains}}
-        {{#contains types "null"}}
-    arg: {{> _helper_schema_python_types }},
-        {{/contains}}
+        {{#each types}}
+    {{> components/schemas/_helper_new_args }}
+        {{/each}}
     {{else}}
+    cls,
     arg: typing.Union[
         {{#each types}}
             {{#eq this "object"}}
@@ -49,18 +16,13 @@ def __new__(
             {{/eq}}
         {{/each}}
     ],
+    configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     {{/eq}}
 {{else}}
-    {{#if mapInputJsonPathPiece}}
-    arg: typing.Union[
-        {{mapInputJsonPathPiece.camelCase}},
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ],
-    {{else}}
+    cls,
     arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-    {{/if}}
-{{/if}}
     configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+{{/if}}
 {{#if types}}
     {{#eq types.size 1}}
 ) -> {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}]:

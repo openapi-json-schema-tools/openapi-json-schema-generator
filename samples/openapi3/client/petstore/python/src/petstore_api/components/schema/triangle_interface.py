@@ -114,10 +114,7 @@ class TriangleInterface(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> TriangleInterface[
         typing.Union[

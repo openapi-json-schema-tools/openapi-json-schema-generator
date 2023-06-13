@@ -1,0 +1,44 @@
+cls,
+{{#eq this "array"}}
+arg: typing.Sequence[
+    {{#with ../items}}
+        {{#if refInfo.refClass}}
+    typing.Union[
+        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+    ]
+        {{else}}
+    typing.Union[
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
+    ]
+        {{/if}}
+    {{/with}}
+],
+{{else}}
+    {{#eq this "object"}}
+arg: typing.Union[
+    {{mapInputJsonPathPiece.camelCase}},
+    {{jsonPathPiece.camelCase}}[frozendict.frozendict],
+],
+    {{else}}
+        {{#eq this "string"}}
+arg: {{> _helper_schema_python_types }},
+        {{else}}
+            {{#eq this "number"}}
+arg: typing.Union[{{> _helper_schema_python_types }}],
+            {{else}}
+                {{#eq this "integer"}}
+arg: {{> _helper_schema_python_types }},
+                {{else}}
+                    {{#eq this "boolean"}}
+arg: {{> _helper_schema_python_types }},
+                    {{else}}
+                        {{#eq this "null"}}
+arg: {{> _helper_schema_python_types }},
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}
+configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

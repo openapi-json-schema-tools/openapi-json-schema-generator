@@ -104,10 +104,7 @@ class ChildCat(
 
     def __new__(
         cls,
-        arg: typing.Union[
-            DictInput2,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-        ],
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ChildCat[
         typing.Union[
