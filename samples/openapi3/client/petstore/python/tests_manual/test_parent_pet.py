@@ -10,10 +10,8 @@
 """
 
 
-import sys
 import unittest
 
-import petstore_api
 from petstore_api.components.schema.grandparent_animal import GrandparentAnimal
 from petstore_api.components.schema.parent_pet import ParentPet
 
@@ -33,7 +31,7 @@ class TestParentPet(unittest.TestCase):
         # test that we can make a ParentPet from a ParentPet
         # which requires that we travel back through ParentPet's allOf descendant
         # GrandparentAnimal, and we use the descendant's discriminator to make ParentPet
-        model = ParentPet(pet_type="ParentPet")
+        model = ParentPet({'pet_type': "ParentPet"})
         assert isinstance(model, ParentPet)
         assert isinstance(model, GrandparentAnimal)
 

@@ -48,6 +48,20 @@ Properties = typing_extensions.TypedDict(
         "origin": typing.Type[Origin],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Cultivar[str],
+            str
+        ],
+        typing.Union[
+            Origin[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Apple(
@@ -110,18 +124,12 @@ class Apple(
 
     def __new__(
         cls,
-        *args_: typing.Union[
+        arg: typing.Union[
             None,
-            dict,
-            frozendict.frozendict
+            DictInput,
+            Apple[frozendict.frozendict],
         ],
-        origin: typing.Union[
-            Origin[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Apple[
         typing.Union[
             schemas.NoneClass,
@@ -130,10 +138,8 @@ class Apple(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            origin=origin,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Apple[

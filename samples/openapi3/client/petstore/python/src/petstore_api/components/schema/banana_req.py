@@ -20,6 +20,31 @@ Properties = typing_extensions.TypedDict(
         "sweet": typing.Type[Sweet],
     }
 )
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
+    {
+        "lengthCm": typing.Union[
+            LengthCm[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+    }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "sweet": typing.Union[
+            Sweet[schemas.BoolClass],
+            bool
+        ],
+    },
+    total=False
+)
+
+
+class DictInput3(RequiredDictInput, OptionalDictInput):
+    pass
 
 
 class BananaReq(
@@ -63,26 +88,16 @@ class BananaReq(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        lengthCm: typing.Union[
-            LengthCm[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
+        arg: typing.Union[
+            DictInput3,
+            BananaReq[frozendict.frozendict],
         ],
-        sweet: typing.Union[
-            Sweet[schemas.BoolClass],
-            schemas.Unset,
-            bool
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> BananaReq[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            lengthCm=lengthCm,
-            sweet=sweet,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             BananaReq[frozendict.frozendict],

@@ -17,6 +17,18 @@ Properties = typing_extensions.TypedDict(
         "lengthCm": typing.Type[LengthCm],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            LengthCm[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Banana(
@@ -68,22 +80,16 @@ class Banana(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        lengthCm: typing.Union[
-            LengthCm[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
+        arg: typing.Union[
+            DictInput,
+            Banana[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Banana[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            lengthCm=lengthCm,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Banana[frozendict.frozendict],

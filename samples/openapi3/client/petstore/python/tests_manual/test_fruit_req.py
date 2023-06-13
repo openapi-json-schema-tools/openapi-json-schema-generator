@@ -34,8 +34,9 @@ class TestFruitReq(unittest.TestCase):
         # make an instance of Fruit, a composed schema oneOf model
         # banana test
         length_cm = 20.3
-        fruit = FruitReq(lengthCm=length_cm)
+        fruit = FruitReq({'lengthCm': length_cm})
         # check its properties
+        assert isinstance(fruit, banana_req.BananaReq)
         self.assertEqual(fruit.lengthCm, length_cm)
         self.assertEqual(fruit['lengthCm'], length_cm)
         self.assertEqual(getattr(fruit, 'lengthCm'), length_cm)
@@ -70,23 +71,24 @@ class TestFruitReq(unittest.TestCase):
 
         # including extra parameters raises an exception
         with self.assertRaises(petstore_api.ApiValueError):
-            FruitReq(
-                length_cm=length_cm,
-                unknown_property='some value'
-            )
+            FruitReq({
+                'length_cm': length_cm,
+                'unknown_property': 'some value'
+            })
 
         # including input parameters for two oneOf instances raise an exception
         with self.assertRaises(petstore_api.ApiValueError):
-            FruitReq(
-                length_cm=length_cm,
-                cultivar='granny smith'
-            )
+            FruitReq({
+                'length_cm': length_cm,
+                'cultivar': 'granny smith'
+            })
 
         # make an instance of Fruit, a composed schema oneOf model
         # apple test
         cultivar = 'golden delicious'
-        fruit = FruitReq(cultivar=cultivar)
+        fruit = FruitReq({'cultivar': cultivar})
         # check its properties
+        assert isinstance(fruit, apple_req.AppleReq)
         self.assertEqual(fruit.cultivar, cultivar)
         self.assertEqual(fruit['cultivar'], cultivar)
         self.assertEqual(getattr(fruit, 'cultivar'), cultivar)

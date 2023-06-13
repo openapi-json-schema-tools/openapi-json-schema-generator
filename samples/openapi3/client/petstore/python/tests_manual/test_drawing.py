@@ -34,10 +34,10 @@ class TestDrawing(unittest.TestCase):
         Validate instance can be created
         """
 
-        inst = shape.Shape(
-            shapeType="Triangle",
-            triangleType="IsoscelesTriangle"
-        )
+        inst = shape.Shape({
+            'shapeType': "Triangle",
+            'triangleType': "IsoscelesTriangle"
+        })
         from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
         assert isinstance(inst, IsoscelesTriangle)
 
@@ -46,35 +46,35 @@ class TestDrawing(unittest.TestCase):
         Validate the scenario when the type of a OAS property is 'oneOf', and the 'oneOf'
         schema is specified as a reference ($ref), not an inline 'oneOf' schema.
         """
-        isosceles_triangle = shape.Shape(
-            shapeType="Triangle",
-            triangleType="IsoscelesTriangle"
-        )
+        isosceles_triangle = shape.Shape({
+            'shapeType': "Triangle",
+            'triangleType': "IsoscelesTriangle"
+        })
         from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
         assert isinstance(isosceles_triangle, IsoscelesTriangle)
         from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
 
-        inst = Drawing(
-            mainShape=isosceles_triangle,
-            shapes=[
-                shape.Shape(
-                    shapeType="Triangle",
-                    triangleType="EquilateralTriangle"
-                ),
-                shape.Shape(
-                    shapeType="Triangle",
-                    triangleType="IsoscelesTriangle"
-                ),
-                shape.Shape(
-                    shapeType="Triangle",
-                    triangleType="EquilateralTriangle"
-                ),
-                shape.Shape(
-                    shapeType="Quadrilateral",
-                    quadrilateralType="ComplexQuadrilateral"
-                )
+        inst = Drawing({
+            'mainShape': isosceles_triangle,
+            'shapes': [
+                shape.Shape({
+                    'shapeType': "Triangle",
+                    'triangleType': "EquilateralTriangle"
+                }),
+                shape.Shape({
+                    'shapeType': "Triangle",
+                    'triangleType': "IsoscelesTriangle"
+                }),
+                shape.Shape({
+                    'shapeType': "Triangle",
+                    'triangleType': "EquilateralTriangle"
+                }),
+                shape.Shape({
+                    'shapeType': "Quadrilateral",
+                    'quadrilateralType': "ComplexQuadrilateral"
+                })
             ],
-        )
+        })
         assert isinstance(inst, Drawing)
         assert isinstance(inst["mainShape"], IsoscelesTriangle)
         self.assertEqual(len(inst["shapes"]), 4)
@@ -92,11 +92,11 @@ class TestDrawing(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Drawing(
+            Drawing({
                 # 'mainShape' has type 'Shape', which is a oneOf [triangle, quadrilateral]
                 # So the None value should not be allowed and an exception should be raised.
-                mainShape=None,
-            )
+                'mainShape': None,
+            })
 
         """
         We can pass in a Triangle instance in shapes
@@ -104,15 +104,15 @@ class TestDrawing(unittest.TestCase):
         does validate as a Shape, so this works
         """
         from petstore_api.components.schema.triangle import Triangle
-        inst = Drawing(
-            mainShape=isosceles_triangle,
-            shapes=[
-                Triangle(
-                    shapeType="Triangle",
-                    triangleType="EquilateralTriangle"
-                )
+        inst = Drawing({
+            'mainShape': isosceles_triangle,
+            'shapes': [
+                Triangle({
+                    'shapeType': "Triangle",
+                    'triangleType': "EquilateralTriangle"
+                })
             ]
-        )
+        })
         self.assertEqual(len(inst["shapes"]), 1)
         from petstore_api.components.schema.triangle_interface import TriangleInterface
         shapes = inst["shapes"]
@@ -131,10 +131,10 @@ class TestDrawing(unittest.TestCase):
 
         # Validate we can assign the None value to shape_or_null, because the 'null' type
         # is one of the allowed types in the 'ShapeOrNull' schema.
-        inst = Drawing(
+        inst = Drawing({
             # 'shapeOrNull' has type 'ShapeOrNull', which is a oneOf [null, triangle, quadrilateral]
-            shapeOrNull=None,
-        )
+            'shapeOrNull': None,
+        })
         assert isinstance(inst, Drawing)
         self.assertFalse('mainShape' in inst)
         self.assertTrue('shapeOrNull' in inst)
@@ -150,11 +150,11 @@ class TestDrawing(unittest.TestCase):
 
         # Validate we can assign the None value to nullableShape, because the NullableShape
         # has the 'nullable: true' attribute.
-        inst = Drawing(
+        inst = Drawing({
             # 'nullableShape' has type 'NullableShape', which is a oneOf [triangle, quadrilateral]
             # and the 'nullable: true' attribute.
-            nullableShape=None,
-        )
+            'nullableShape': None,
+        })
         assert isinstance(inst, Drawing)
         self.assertFalse('mainShape' in inst)
         self.assertTrue('nullableShape' in inst)

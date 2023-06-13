@@ -29,10 +29,6 @@ from petstore_api.schemas import AnyTypeSchema, Schema, NoneSchema, StrSchema, S
 class TestCombineNonObjectSchemas(unittest.TestCase):
 
     def test_valid_enum_plus_prim(self):
-        class EnumPlusPrim(IntegerMax10, IntegerEnumOneValue):
-            pass
-
-        # order of base classes does not matter
         class EnumPlusPrim(IntegerEnumOneValue, IntegerMax10):
             pass
 
@@ -55,10 +51,6 @@ class TestCombineNonObjectSchemas(unittest.TestCase):
         assert isinstance(val, decimal.Decimal)
 
     def test_valid_enum_plus_enum(self):
-        class IntegerOneEnum(IntegerEnumOneValue, IntegerEnum):
-            pass
-
-        # order of base classes does not matter
         class IntegerOneEnum(IntegerEnum, IntegerEnumOneValue):
             pass
 

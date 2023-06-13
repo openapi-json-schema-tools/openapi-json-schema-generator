@@ -112,7 +112,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = animal_farm.AnimalFarm([
-        animal.Animal()
+        animal.Animal({})
     ])
     try:
         api_response = api_instance.array_model(

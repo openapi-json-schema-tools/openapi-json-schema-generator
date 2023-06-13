@@ -20,7 +20,7 @@ class TestObjectWithInlineCompositionProperty(unittest.TestCase):
 
     def test_ObjectWithInlineCompositionProperty(self):
         """Test ObjectWithInlineCompositionProperty"""
-        model = object_with_inline_composition_property.ObjectWithInlineCompositionProperty(someProp='a')
+        model = object_with_inline_composition_property.ObjectWithInlineCompositionProperty({'someProp': 'a'})
         self.assertTrue(
             isinstance(
                 model["someProp"],
@@ -31,7 +31,7 @@ class TestObjectWithInlineCompositionProperty(unittest.TestCase):
 
         # error thrown on length < 1
         with self.assertRaises(exceptions.ApiValueError):
-            object_with_inline_composition_property.ObjectWithInlineCompositionProperty(someProp='')
+            object_with_inline_composition_property.ObjectWithInlineCompositionProperty({'someProp': ''})
 
 
 if __name__ == '__main__':

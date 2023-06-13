@@ -64,7 +64,7 @@ class TestUserApi(ApiTestMixin):
                 firstName='first',
                 lastName='last'
             )
-            body = user.User(**value_simple)
+            body = user.User(value_simple)
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )

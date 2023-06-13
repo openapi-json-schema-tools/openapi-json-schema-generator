@@ -253,12 +253,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     ],
         'enum_header_string': "-efg",
     }
-    body = dict(
-        enum_form_string_array=[
+    body = {
+        "enum_form_string_array": [
             "$"
         ],
-        enum_form_string="-efg",
-    )
+        "enum_form_string": "-efg",
+    }
     try:
         # To test enum parameters
         api_response = api_instance.enum_parameters(

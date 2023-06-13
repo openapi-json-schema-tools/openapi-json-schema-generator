@@ -19,6 +19,21 @@ Properties = typing_extensions.TypedDict(
         "class": typing.Type[_Class],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _Class[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _200Response(
@@ -70,15 +85,11 @@ class _200Response(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        name: typing.Union[
-            Name[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _200Response[
         typing.Union[
             frozendict.frozendict,
@@ -93,10 +104,8 @@ class _200Response(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _200Response[

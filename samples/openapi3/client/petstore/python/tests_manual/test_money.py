@@ -19,10 +19,10 @@ class TestMoney(unittest.TestCase):
 
     def test_Money(self):
         """Test Money"""
-        price = Money(
-            currency='usd',
-            amount='10.99'
-        )
+        price = Money({
+            'currency': 'usd',
+            'amount': '10.99'
+        })
         self.assertEqual(price.amount.as_decimal_, decimal.Decimal('10.99'))
         self.assertEqual(
             price,

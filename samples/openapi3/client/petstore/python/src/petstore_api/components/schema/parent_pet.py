@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ParentPet(
@@ -39,15 +40,16 @@ class ParentPet(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ParentPet[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ParentPet[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ParentPet[frozendict.frozendict],

@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "_class": typing.Type[_Class],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            _Class[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ClassModel(
@@ -64,14 +74,11 @@ class ClassModel(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        _class: typing.Union[
-            _Class[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ClassModel[
         typing.Union[
             frozendict.frozendict,
@@ -86,10 +93,8 @@ class ClassModel(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            _class=_class,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ClassModel[

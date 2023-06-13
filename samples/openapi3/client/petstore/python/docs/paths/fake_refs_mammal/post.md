@@ -112,9 +112,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = mammal.Mammal(
-        has_baleen=True,
-        has_teeth=True,
-        class_name="whale",
+        "has_baleen": True,
+        "has_teeth": True,
+        "class_name": "whale",
     )
     try:
         api_response = api_instance.mammal(

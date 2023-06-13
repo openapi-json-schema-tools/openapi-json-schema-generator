@@ -25,7 +25,7 @@ class Items3(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items4[decimal.Decimal],
                 decimal.Decimal,
@@ -33,12 +33,12 @@ class Items3(
                 float
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items3[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items3[tuple],
@@ -63,19 +63,19 @@ class Items2(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items3[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items2[tuple],
@@ -100,19 +100,19 @@ class Items(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items2[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items[tuple],
@@ -142,19 +142,19 @@ class NestedItems(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NestedItems[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             NestedItems[tuple],

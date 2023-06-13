@@ -20,6 +20,31 @@ Properties = typing_extensions.TypedDict(
         "petId": typing.Type[PetId],
     }
 )
+RequiredDictInput = typing_extensions.TypedDict(
+    'RequiredDictInput',
+    {
+        "id": typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+    }
+)
+OptionalDictInput = typing_extensions.TypedDict(
+    'OptionalDictInput',
+    {
+        "petId": typing.Union[
+            PetId[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+    },
+    total=False
+)
+
+
+class DictInput3(RequiredDictInput, OptionalDictInput):
+    pass
 
 
 class NoAdditionalProperties(
@@ -63,26 +88,16 @@ class NoAdditionalProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            decimal.Decimal,
-            int
+        arg: typing.Union[
+            DictInput3,
+            NoAdditionalProperties[frozendict.frozendict],
         ],
-        petId: typing.Union[
-            PetId[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NoAdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            petId=petId,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             NoAdditionalProperties[frozendict.frozendict],

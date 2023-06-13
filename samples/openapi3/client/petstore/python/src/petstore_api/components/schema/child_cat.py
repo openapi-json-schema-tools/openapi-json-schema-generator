@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _1(
@@ -56,21 +66,16 @@ class _1(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[
-            Name[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            _1[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _1[frozendict.frozendict],
@@ -78,6 +83,7 @@ class _1(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ChildCat(
@@ -98,9 +104,11 @@ class ChildCat(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput2,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ChildCat[
         typing.Union[
             frozendict.frozendict,
@@ -115,9 +123,8 @@ class ChildCat(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ChildCat[

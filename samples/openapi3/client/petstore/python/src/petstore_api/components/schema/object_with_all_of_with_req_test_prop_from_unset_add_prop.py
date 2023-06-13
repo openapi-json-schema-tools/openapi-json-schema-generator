@@ -17,6 +17,44 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            schemas.AnyTypeSchema[typing.Union[
+                frozendict.frozendict,
+                str,
+                decimal.Decimal,
+                schemas.BoolClass,
+                schemas.NoneClass,
+                tuple,
+                bytes,
+                schemas.FileIO
+            ]],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Name[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _1(
@@ -58,6 +96,9 @@ class _1(
     ]]: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
         frozendict.frozendict,
         str,
@@ -73,6 +114,7 @@ class _1(
         self,
         name: typing.Union[
             typing_extensions.Literal["test"],
+            typing_extensions.Literal["name"],
             str
         ]
     ):
@@ -81,44 +123,16 @@ class _1(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        test: typing.Union[
-            schemas.AnyTypeSchema[typing.Union[
-                frozendict.frozendict,
-                str,
-                decimal.Decimal,
-                schemas.BoolClass,
-                schemas.NoneClass,
-                tuple,
-                bytes,
-                schemas.FileIO
-            ]],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+        arg: typing.Union[
+            DictInput,
+            _1[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            test=test,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _1[frozendict.frozendict],
@@ -126,6 +140,7 @@ class _1(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
@@ -146,9 +161,11 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput2,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithAllOfWithReqTestPropFromUnsetAddProp[
         typing.Union[
             frozendict.frozendict,
@@ -163,9 +180,8 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ObjectWithAllOfWithReqTestPropFromUnsetAddProp[

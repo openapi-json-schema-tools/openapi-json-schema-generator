@@ -12,6 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 _2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
 _3: typing_extensions.TypeAlias = schemas.DateSchema[U]
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class _4(
@@ -27,15 +28,16 @@ class _4(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            _4[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _4[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _4[frozendict.frozendict],
@@ -43,6 +45,7 @@ class _4(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -60,7 +63,7 @@ class _5(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -83,12 +86,12 @@ class _5(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _5[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _5[tuple],
@@ -124,6 +127,7 @@ class _6(
         pattern: schemas.PatternInfo = schemas.PatternInfo(
             pattern=r'^2020.*'  # noqa: E501
         )
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ComposedOneOfDifferentTypes(
@@ -146,9 +150,11 @@ class ComposedOneOfDifferentTypes(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput3,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedOneOfDifferentTypes[
         typing.Union[
             frozendict.frozendict,
@@ -163,9 +169,8 @@ class ComposedOneOfDifferentTypes(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ComposedOneOfDifferentTypes[

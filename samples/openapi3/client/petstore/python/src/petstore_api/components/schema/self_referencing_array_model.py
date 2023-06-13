@@ -29,19 +29,19 @@ class SelfReferencingArrayModel(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 SelfReferencingArrayModel[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingArrayModel[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             SelfReferencingArrayModel[tuple],

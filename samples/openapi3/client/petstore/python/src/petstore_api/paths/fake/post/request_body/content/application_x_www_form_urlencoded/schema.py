@@ -166,6 +166,81 @@ Properties = typing_extensions.TypedDict(
         "callback": typing.Type[Callback],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Byte[str],
+            str
+        ],
+        typing.Union[
+            Double[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            Number[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            PatternWithoutDelimiter[str],
+            str
+        ],
+        typing.Union[
+            Integer[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Int32[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Int64[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            _Float[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            String[str],
+            str
+        ],
+        typing.Union[
+            Binary[typing.Union[bytes, schemas.FileIO]],
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Date[str],
+            str,
+            datetime.date
+        ],
+        typing.Union[
+            DateTime[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Password[str],
+            str
+        ],
+        typing.Union[
+            Callback[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(
@@ -279,100 +354,16 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        byte: typing.Union[
-            Byte[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            Schema[frozendict.frozendict],
         ],
-        double: typing.Union[
-            Double[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        number: typing.Union[
-            Number[decimal.Decimal],
-            decimal.Decimal,
-            int,
-            float
-        ],
-        pattern_without_delimiter: typing.Union[
-            PatternWithoutDelimiter[str],
-            str
-        ],
-        integer: typing.Union[
-            Integer[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        int32: typing.Union[
-            Int32[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        int64: typing.Union[
-            Int64[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        string: typing.Union[
-            String[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        binary: typing.Union[
-            Binary[typing.Union[bytes, schemas.FileIO]],
-            schemas.Unset,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        date: typing.Union[
-            Date[str],
-            schemas.Unset,
-            str,
-            datetime.date
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            DateTime[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        password: typing.Union[
-            Password[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        callback: typing.Union[
-            Callback[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            byte=byte,
-            double=double,
-            number=number,
-            pattern_without_delimiter=pattern_without_delimiter,
-            integer=integer,
-            int32=int32,
-            int64=int64,
-            string=string,
-            binary=binary,
-            date=date,
-            dateTime=dateTime,
-            password=password,
-            callback=callback,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

@@ -10,15 +10,18 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _0: typing_extensions.TypeAlias = schemas.DictSchema[U]
 _1: typing_extensions.TypeAlias = schemas.DateSchema[U]
 _2: typing_extensions.TypeAlias = schemas.DateTimeSchema[U]
 _3: typing_extensions.TypeAlias = schemas.BinarySchema[U]
 _4: typing_extensions.TypeAlias = schemas.StrSchema[U]
 _5: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 _6: typing_extensions.TypeAlias = schemas.DictSchema[U]
 _7: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 _8: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -34,7 +37,7 @@ class _9(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -57,12 +60,12 @@ class _9(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _9[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _9[tuple],
@@ -106,6 +109,7 @@ AnyOf = typing.Tuple[
     typing.Type[_14[schemas.U]],
     typing.Type[_15[schemas.U]],
 ]
+DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class ComposedAnyOfDifferentTypesNoValidations(
@@ -126,9 +130,11 @@ class ComposedAnyOfDifferentTypesNoValidations(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput4,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedAnyOfDifferentTypesNoValidations[
         typing.Union[
             frozendict.frozendict,
@@ -143,9 +149,8 @@ class ComposedAnyOfDifferentTypesNoValidations(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ComposedAnyOfDifferentTypesNoValidations[

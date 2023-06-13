@@ -29,7 +29,7 @@ class ArrayOfEnums(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 string_enum.StringEnum[typing.Union[
                     schemas.NoneClass,
@@ -39,12 +39,12 @@ class ArrayOfEnums(
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfEnums[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayOfEnums[tuple],

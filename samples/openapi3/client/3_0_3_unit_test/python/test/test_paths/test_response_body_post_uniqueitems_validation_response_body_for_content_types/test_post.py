@@ -64,9 +64,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -103,9 +103,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -181,9 +181,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -220,9 +220,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -281,9 +281,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -318,9 +318,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -355,9 +355,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -461,9 +461,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -532,9 +532,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -569,9 +569,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -612,9 +612,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -645,9 +645,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -763,9 +763,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -865,9 +865,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     
@@ -905,9 +905,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
             assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema.from_openapi_data_(
+            deserialized_response_body = self.response_body_schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             assert api_response.body == deserialized_response_body
     

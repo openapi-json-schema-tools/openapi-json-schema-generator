@@ -37,11 +37,11 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(uuid=valid_value)
+            AnyTypeAndFormat({'uuid': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat(uuid='1')
+            AnyTypeAndFormat({'uuid': '1'})
 
     def test_date(self):
         valid_values = [
@@ -58,11 +58,11 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(date=valid_value)
+            AnyTypeAndFormat({'date': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat(date='1')
+            AnyTypeAndFormat({'date': '1'})
 
     def test_date_time(self):
         valid_values = [
@@ -99,11 +99,11 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(number=valid_value)
+            AnyTypeAndFormat({'number': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat(number='a')
+            AnyTypeAndFormat({'number': 'a'})
 
     def test_int32(self):
         min_bound = decimal.Decimal(-2147483648)
@@ -123,7 +123,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(int32=valid_value)
+            AnyTypeAndFormat({'int32': valid_value})
 
         # invalid values do not work
         invalid_values = (
@@ -135,7 +135,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat(int32=invalid_value)
+                AnyTypeAndFormat({'int32': invalid_value})
 
     def test_int64(self):
         min_bound = decimal.Decimal(-9223372036854775808)
@@ -155,7 +155,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(int64=valid_value)
+            AnyTypeAndFormat({'int64': valid_value})
 
         # invalid values do not work
         invalid_values = (
@@ -167,7 +167,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat(int64=invalid_value)
+                AnyTypeAndFormat({'int64': invalid_value})
 
     def test_float(self):
         min_bound = decimal.Decimal(-3.4028234663852886e+38)
@@ -186,7 +186,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(double=valid_value)
+            AnyTypeAndFormat({'double': valid_value})
 
         # invalid values do not work
         invalid_values = (
@@ -197,7 +197,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat(float=invalid_value)
+                AnyTypeAndFormat({'float': invalid_value})
 
     def test_double(self):
         min_bound = decimal.Decimal(-1.7976931348623157E+308)
@@ -216,7 +216,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             b'abc'
         ]
         for valid_value in valid_values:
-            AnyTypeAndFormat(double=valid_value)
+            AnyTypeAndFormat({'double': valid_value})
 
         with decimal.localcontext() as ctx:
             ctx.prec = 310
@@ -230,7 +230,7 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         # invalid values do not work
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat(double=invalid_value)
+                AnyTypeAndFormat({'double': invalid_value})
 
 
 if __name__ == '__main__':

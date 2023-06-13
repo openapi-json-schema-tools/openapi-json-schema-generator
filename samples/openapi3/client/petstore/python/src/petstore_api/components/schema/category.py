@@ -31,6 +31,21 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Category(
@@ -86,27 +101,16 @@ class Category(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[
-            Name[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            Category[frozendict.frozendict],
         ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Category[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            id=id,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Category[frozendict.frozendict],

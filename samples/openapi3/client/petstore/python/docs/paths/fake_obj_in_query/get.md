@@ -96,9 +96,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     query_params: operation.RequestQueryParameters.Params = {
-        'mapBean': dict(
-        keyword="keyword_example",
-    ),
+        'mapBean': {
+        "keyword": "keyword_example",
+    },
     }
     try:
         # user list

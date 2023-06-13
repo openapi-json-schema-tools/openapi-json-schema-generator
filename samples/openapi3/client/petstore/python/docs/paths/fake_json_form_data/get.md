@@ -89,10 +89,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = dict(
-        param="param_example",
-        param2="param2_example",
-    )
+    body = {
+        "param": "param_example",
+        "param2": "param2_example",
+    }
     try:
         # test json serialization of form data
         api_response = api_instance.json_form_data(

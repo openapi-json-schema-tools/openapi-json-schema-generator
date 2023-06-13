@@ -73,6 +73,19 @@ Properties = typing_extensions.TypedDict(
         "port": typing.Type[Port],
     }
 )
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
+    {
+        "port": typing.Union[
+            Port[str],
+            str
+        ],
+        "server": typing.Union[
+            Server[str],
+            str
+        ],
+    }
+)
 
 
 class Variables(
@@ -116,23 +129,16 @@ class Variables(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        port: typing.Union[
-            Port[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            Variables[frozendict.frozendict],
         ],
-        server: typing.Union[
-            Server[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            port=port,
-            server=server,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Variables[frozendict.frozendict],
@@ -147,7 +153,7 @@ class Server0(server.ServerWithVariables):
     '''
     petstore server
     '''
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         "server": Server.Schema_.default,
         "port": Port.Schema_.default,
     })

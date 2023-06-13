@@ -31,9 +31,12 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
+        arg: api_configuration.server_1.DictInput3 = {
+            'version': 'v2'
+        }
         server_info: api_configuration.ServerInfo = {
             'servers/1': api_configuration.server_1.Server1(
-                variables=api_configuration.server_1.Variables(version='v2')
+                variables=api_configuration.server_1.Variables(arg)
             )
         }
         server_index_info: api_configuration.ServerIndexInfo = {
@@ -81,9 +84,12 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         security_scheme_info = api_configuration.SecuritySchemeInfo(
             api_key=api_configuration.security_scheme_api_key.ApiKey(api_key='abcdefg')
         )
+        arg: api_configuration.pet_find_by_status_server_1.DictInput3 = {
+            'version': 'v2'
+        }
         server_info: api_configuration.ServerInfo = {
             "paths//pet/findByStatus/servers/1": api_configuration.pet_find_by_status_server_1.Server1(
-                variables=api_configuration.pet_find_by_status_server_1.Variables(version='v2')
+                variables=api_configuration.pet_find_by_status_server_1.Variables(arg)
             )
         }
         configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info)
@@ -120,9 +126,12 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
             )
 
     def test_operation_servers(self):
+        arg: api_configuration.foo_get_server_1.DictInput3 = {
+            'version': 'v2'
+        }
         server_info: api_configuration.ServerInfo = {
             "paths//foo/get/servers/1": api_configuration.foo_get_server_1.Server1(
-                variables=api_configuration.foo_get_server_1.Variables(version='v2')
+                variables=api_configuration.foo_get_server_1.Variables(arg)
             )
         }
         config = api_configuration.ApiConfiguration(server_info=server_info)

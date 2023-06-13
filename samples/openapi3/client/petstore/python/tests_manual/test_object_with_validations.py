@@ -41,11 +41,11 @@ class TestObjectWithValidations(unittest.TestCase):
             r"Invalid value `frozendict.frozendict\({'a': 'a'}\)`, number of properties must be greater than or equal to `2` at \('args\[0\]',\)"
         ):
             # number of properties less than 2 fails
-            model = ObjectWithValidations(a='a')
+            model = ObjectWithValidations({'a': 'a'})
 
         # 2 or more properties succeeds
-        model = ObjectWithValidations(a='a', b='b')
-        model = ObjectWithValidations(a='a', b='b', c='c')
+        model = ObjectWithValidations({'a': 'a', 'b': 'b'})
+        model = ObjectWithValidations({'a': 'a', 'b': 'b', 'c': 'c'})
 
 
 if __name__ == '__main__':

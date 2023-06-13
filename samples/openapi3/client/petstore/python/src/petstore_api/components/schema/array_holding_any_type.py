@@ -10,6 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
+DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
 
 
@@ -30,7 +31,7 @@ class ArrayHoldingAnyType(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[
                     schemas.INPUT_BASE_TYPES
@@ -53,12 +54,12 @@ class ArrayHoldingAnyType(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayHoldingAnyType[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayHoldingAnyType[tuple],

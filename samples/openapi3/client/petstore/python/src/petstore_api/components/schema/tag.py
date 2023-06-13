@@ -19,6 +19,21 @@ Properties = typing_extensions.TypedDict(
         "name": typing.Type[Name],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Name[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Tag(
@@ -67,28 +82,16 @@ class Tag(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        name: typing.Union[
-            Name[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            Tag[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tag[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            id=id,
-            name=name,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Tag[frozendict.frozendict],

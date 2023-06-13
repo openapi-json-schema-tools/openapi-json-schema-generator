@@ -11,6 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties2[str],
+        str
+    ],
+]
 
 
 class AdditionalProperties(
@@ -29,18 +36,16 @@ class AdditionalProperties(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties2[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            AdditionalProperties[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             AdditionalProperties[frozendict.frozendict],
@@ -48,6 +53,14 @@ class AdditionalProperties(
         )
         return inst
 
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties[frozendict.frozendict],
+        dict,
+        frozendict.frozendict
+    ],
+]
 
 
 class MapMapOfString(
@@ -66,19 +79,16 @@ class MapMapOfString(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
+        arg: typing.Union[
+            DictInput2,
+            MapMapOfString[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapMapOfString[frozendict.frozendict],
@@ -112,6 +122,13 @@ class AdditionalProperties3(
     @schemas.classproperty
     def LOWER(cls) -> AdditionalProperties3[str]:
         return cls("lower") # type: ignore
+DictInput3 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties3[str],
+        str
+    ],
+]
 
 
 class MapOfEnumString(
@@ -130,18 +147,16 @@ class MapOfEnumString(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties3[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            MapOfEnumString[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumString[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapOfEnumString[frozendict.frozendict],
@@ -150,6 +165,13 @@ class MapOfEnumString(
         return inst
 
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+DictInput4 = typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalProperties4[schemas.BoolClass],
+        bool
+    ],
+]
 
 
 class DirectMap(
@@ -168,18 +190,16 @@ class DirectMap(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties4[schemas.BoolClass],
-            bool
+        arg: typing.Union[
+            DictInput4,
+            DirectMap[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DirectMap[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             DirectMap[frozendict.frozendict],
@@ -243,43 +263,16 @@ class MapTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        map_map_of_string: typing.Union[
-            MapMapOfString[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        map_of_enum_string: typing.Union[
-            MapOfEnumString[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        direct_map: typing.Union[
-            DirectMap[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        indirect_map: typing.Union[
-            string_boolean_map.StringBooleanMap[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput5,
+            MapTest[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            map_map_of_string=map_map_of_string,
-            map_of_enum_string=map_of_enum_string,
-            direct_map=direct_map,
-            indirect_map=indirect_map,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MapTest[frozendict.frozendict],
@@ -298,3 +291,29 @@ Properties = typing_extensions.TypedDict(
         "indirect_map": typing.Type[string_boolean_map.StringBooleanMap],
     }
 )
+DictInput5 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            MapMapOfString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            MapOfEnumString[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            DirectMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            string_boolean_map.StringBooleanMap[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

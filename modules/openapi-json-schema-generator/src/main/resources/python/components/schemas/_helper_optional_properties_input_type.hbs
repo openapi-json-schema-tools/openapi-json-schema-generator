@@ -1,0 +1,49 @@
+{{#if additionalProperties}}
+    {{#if additionalProperties.isBooleanSchemaFalse}}
+{{optionalProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
+    '{{optionalProperties.jsonPathPiece.camelCase}}',
+    {
+        {{#each optionalProperties}}
+            {{#with this}}
+                {{#if refInfo.refClass}}
+        "{{{@key.original}}}": typing.Union[
+            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+        ],
+                {{else}}
+        "{{{@key.original}}}": typing.Union[
+            {{> components/schemas/_helper_new_property_value_type optional=false }}
+        ],
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    },
+    total=False
+)
+    {{else}}
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each optionalProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        {{#with additionalProperties}}
+        {{> components/schemas/_helper_property_value_type }}
+        {{/with}}
+    ]
+]
+    {{/if}}
+{{else}}
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each optionalProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
+{{/if}}

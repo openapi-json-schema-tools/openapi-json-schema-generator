@@ -20,8 +20,8 @@ class TesttPet(unittest.TestCase):
     """ParentPet unit test stubs"""
 
     def testPet(self):
-        cat = category.Category(name='hi', addprop={'a': 1})
-        inst = pet.Pet(photoUrls=[], name='Katsu', category=cat)
+        cat = category.Category({'name': 'hi', 'addprop': {'a': 1}})
+        inst = pet.Pet({'photoUrls': [], 'name': 'Katsu', 'category': cat})
         self.assertEqual(
             inst,
             {

@@ -183,10 +183,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     path_params = {
         'petId': 1,
     }
-    body = dict(
-        name="name_example",
-        status="status_example",
-    )
+    body = {
+        "name": "name_example",
+        "status": "status_example",
+    }
     try:
         # Updates a pet in the store with form data
         api_response = api_instance.update_pet_with_form(

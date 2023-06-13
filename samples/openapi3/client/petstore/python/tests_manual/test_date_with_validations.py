@@ -36,20 +36,11 @@ class TestDateWithValidations(unittest.TestCase):
             inst = DateWithValidations(valid_value)
             assert inst == expected_date
 
-        # when passing data in with from_openapi_data_ one must use str
-        with self.assertRaisesRegex(
-            petstore_api.ApiTypeError,
-            r"Invalid type. Required value type is str and passed "
-            r"type was <class 'datetime.date'> at \('args\[0\]',\)"
-
-        ):
-            DateWithValidations.from_openapi_data_(date(2020, 1, 1))
-
-        # when passing data in from the server we can use str
+        # various formats work
         valid_values = ["2020-01-01", "2020-01", "2020"]
         expected_date = date(2020, 1, 1)
         for valid_value in valid_values:
-            inst = DateWithValidations.from_openapi_data_(valid_value)
+            inst = DateWithValidations(valid_value)
             assert inst.as_date_ == expected_date
 
         # value error is raised if an invalid string is passed in
@@ -57,7 +48,7 @@ class TestDateWithValidations(unittest.TestCase):
             petstore_api.ApiValueError,
             r"Value does not conform to the required ISO-8601 date format. Invalid value '2020-01-01T00:00:00Z' for type date at \('args\[0\]',\)"
         ):
-            DateWithValidations.from_openapi_data_("2020-01-01T00:00:00Z")
+            DateWithValidations("2020-01-01T00:00:00Z")
 
         # value error is raised if a datetime is passed in
         with self.assertRaisesRegex(
@@ -71,7 +62,7 @@ class TestDateWithValidations(unittest.TestCase):
                 petstore_api.ApiValueError,
                 r"Value does not conform to the required ISO-8601 date format. Invalid value 'abcd' for type date at \('args\[0\]',\)"
         ):
-            DateWithValidations.from_openapi_data_("abcd")
+            DateWithValidations("abcd")
 
         # pattern checking for str input
         error_regex = r"Invalid value `2019-01-01`, must match regular expression `.+?` at \('args\[0\]',\)"
@@ -79,7 +70,7 @@ class TestDateWithValidations(unittest.TestCase):
             petstore_api.ApiValueError,
             error_regex
         ):
-            DateWithValidations.from_openapi_data_("2019-01-01")
+            DateWithValidations("2019-01-01")
         # pattern checking for date input
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,

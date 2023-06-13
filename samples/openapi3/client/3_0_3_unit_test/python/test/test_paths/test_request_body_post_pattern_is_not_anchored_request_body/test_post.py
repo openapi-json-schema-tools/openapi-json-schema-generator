@@ -37,9 +37,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 "xxaayy"
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),

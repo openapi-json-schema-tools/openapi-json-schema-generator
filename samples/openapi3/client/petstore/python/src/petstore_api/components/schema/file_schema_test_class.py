@@ -24,19 +24,19 @@ class Files(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 file.File[frozendict.frozendict],
                 dict,
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Files[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Files[tuple],
@@ -95,29 +95,16 @@ class FileSchemaTestClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        file: typing.Union[
-            file.File[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        files: typing.Union[
-            Files[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            FileSchemaTestClass[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            file=file,
-            files=files,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             FileSchemaTestClass[frozendict.frozendict],
@@ -134,3 +121,19 @@ Properties = typing_extensions.TypedDict(
         "files": typing.Type[Files],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            file.File[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Files[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

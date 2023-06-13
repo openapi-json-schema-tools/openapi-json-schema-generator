@@ -51,18 +51,18 @@ class EnumFormStringArray(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArray[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             EnumFormStringArray[tuple],
@@ -112,6 +112,21 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            EnumFormStringArray[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            EnumFormString[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class Schema(
@@ -155,28 +170,16 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        enum_form_string_array: typing.Union[
-            EnumFormStringArray[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        enum_form_string: typing.Union[
-            EnumFormString[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            Schema[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            enum_form_string_array=enum_form_string_array,
-            enum_form_string=enum_form_string,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],

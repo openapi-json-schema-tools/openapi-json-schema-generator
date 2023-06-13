@@ -1285,6 +1285,10 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (modelName != null) {
             openChars = modelName + "(";
             closeChars = ")";
+            if (ModelUtils.isTypeObjectSchema(schema)) {
+                openChars = openChars + "{";
+                closeChars = "}" + closeChars;
+            }
         }
 
         String fullPrefix = currentIndentation + prefix + openChars;
@@ -1361,7 +1365,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc");
+                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc", null);
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1483,8 +1487,8 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
             }
         } else if (ModelUtils.isTypeObjectSchema(schema)) {
             if (modelName == null) {
-                fullPrefix += "dict(";
-                closeChars = ")";
+                fullPrefix += "{";
+                closeChars = "}";
             }
             if (cycleFound) {
                 return fullPrefix + closeChars;
@@ -1528,7 +1532,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                 String schemaName = getSchemaName(mm.modelName);
                 Schema modelSchema = getModelNameToSchemaCache().get(schemaName);
                 CodegenSchema cp = new CodegenSchema();
-                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc");
+                cp.jsonPathPiece = getKey(disc.propertyName.original, "misc", null);
                 cp.example = discPropNameValue;
                 return exampleForObjectModel(modelSchema, fullPrefix, closeChars, cp, indentationLevel, exampleLine, closingIndentation, includedSchemas);
             }
@@ -1544,10 +1548,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     key = addPropsSchema.getEnum().get(0).toString();
                 }
                 addPropsExample = exampleFromStringOrArraySchema(addPropsSchema, addPropsExample, key);
-                String addPropPrefix = key + "=";
-                if (modelName == null) {
-                    addPropPrefix = ensureQuotes(key) + ": ";
-                }
+                String addPropPrefix = ensureQuotes(key) + ": ";
                 String addPropsModelName = getRefClassWithRefModule(addPropsSchema);
                 if(includedSchemas.contains(schema)) {
                     return "";
@@ -1602,7 +1603,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                     propSchema,
                     propExample,
                     indentationLevel + 1,
-                    propName + "=",
+                    "\"" + propName + "\": ",
                     exampleLine + 1,
                     includedSchemas)).append(",\n");
         }

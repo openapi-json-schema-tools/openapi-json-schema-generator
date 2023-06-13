@@ -20,11 +20,11 @@ class TestOperator(unittest.TestCase):
     """Operator unit test stubs"""
 
     def test_discriminator_works(self):
-        op = Operator(
-            operator_id='ADD',
-            a=3.14,
-            b=3.14
-        )
+        op = Operator({
+            'operator_id': 'ADD',
+            'a': 3.14,
+            'b': 3.14
+        })
         assert op == dict(
             operator_id='ADD',
             a=3.14,

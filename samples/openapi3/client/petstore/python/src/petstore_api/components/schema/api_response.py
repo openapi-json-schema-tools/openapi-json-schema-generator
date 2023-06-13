@@ -21,6 +21,25 @@ Properties = typing_extensions.TypedDict(
         "message": typing.Type[Message],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Code[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            Type[str],
+            str
+        ],
+        typing.Union[
+            Message[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ApiResponse(
@@ -73,34 +92,16 @@ class ApiResponse(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        code: typing.Union[
-            Code[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        type: typing.Union[
-            Type[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        message: typing.Union[
-            Message[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ApiResponse[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ApiResponse[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            code=code,
-            type=type,
-            message=message,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ApiResponse[frozendict.frozendict],

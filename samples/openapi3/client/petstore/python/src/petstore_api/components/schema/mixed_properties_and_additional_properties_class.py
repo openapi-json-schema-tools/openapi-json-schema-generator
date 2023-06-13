@@ -30,19 +30,16 @@ class Map(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            animal.Animal[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
+        arg: typing.Union[
+            DictInput,
+            Map[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Map[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Map[frozendict.frozendict],
@@ -58,6 +55,27 @@ Properties = typing_extensions.TypedDict(
         "map": typing.Type[Map],
     }
 )
+DictInput2 = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Uuid[str],
+            str,
+            uuid.UUID
+        ],
+        typing.Union[
+            DateTime[str],
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            Map[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class MixedPropertiesAndAdditionalPropertiesClass(
@@ -110,36 +128,16 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        uuid: typing.Union[
-            Uuid[str],
-            schemas.Unset,
-            str,
-            uuid.UUID
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            DateTime[str],
-            schemas.Unset,
-            str,
-            datetime.datetime
-        ] = schemas.unset,
-        map: typing.Union[
-            Map[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput2,
+            MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            uuid=uuid,
-            dateTime=dateTime,
-            map=map,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
@@ -149,3 +147,11 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
 
 from petstore_api.components.schema import animal
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        animal.Animal[frozendict.frozendict],
+        dict,
+        frozendict.frozendict
+    ],
+]

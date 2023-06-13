@@ -47,6 +47,23 @@ Properties = typing_extensions.TypedDict(
         "op": typing.Type[Op],
     }
 )
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
+    {
+        "from": typing.Union[
+            _From[str],
+            str
+        ],
+        "op": typing.Union[
+            Op[str],
+            str
+        ],
+        "path": typing.Union[
+            Path[str],
+            str
+        ],
+    }
+)
 
 
 class JSONPatchRequestMoveCopy(
@@ -100,23 +117,16 @@ class JSONPatchRequestMoveCopy(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        op: typing.Union[
-            Op[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            JSONPatchRequestMoveCopy[frozendict.frozendict],
         ],
-        path: typing.Union[
-            Path[str],
-            str
-        ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestMoveCopy[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            op=op,
-            path=path,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             JSONPatchRequestMoveCopy[frozendict.frozendict],

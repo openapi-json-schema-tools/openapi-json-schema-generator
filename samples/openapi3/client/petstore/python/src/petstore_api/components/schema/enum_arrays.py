@@ -76,18 +76,18 @@ class ArrayEnum(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayEnum[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayEnum[tuple],
@@ -105,6 +105,21 @@ Properties = typing_extensions.TypedDict(
         "array_enum": typing.Type[ArrayEnum],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            JustSymbol[str],
+            str
+        ],
+        typing.Union[
+            ArrayEnum[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class EnumArrays(
@@ -153,28 +168,16 @@ class EnumArrays(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        just_symbol: typing.Union[
-            JustSymbol[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        array_enum: typing.Union[
-            ArrayEnum[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            EnumArrays[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumArrays[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            just_symbol=just_symbol,
-            array_enum=array_enum,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             EnumArrays[frozendict.frozendict],

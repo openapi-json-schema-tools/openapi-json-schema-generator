@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "sourceURI": typing.Type[SourceURI],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            SourceURI[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class File(
@@ -63,21 +73,16 @@ class File(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        sourceURI: typing.Union[
-            SourceURI[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            File[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> File[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            sourceURI=sourceURI,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             File[frozendict.frozendict],

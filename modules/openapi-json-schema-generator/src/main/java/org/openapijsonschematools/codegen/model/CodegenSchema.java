@@ -44,7 +44,7 @@ public class CodegenSchema {
     public Boolean uniqueItems;
     public Integer maxProperties;
     public Integer minProperties;
-    public LinkedHashMap<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
     public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
     public String type;
     public ArrayListWithContext<CodegenSchema> allOf = null;
@@ -84,7 +84,8 @@ public class CodegenSchema {
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
     public String unescapedDescription;
-    public LinkedHashMap<CodegenKey, CodegenSchema> optionalProperties;
+    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
+    public CodegenKey mapInputJsonPathPiece;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
@@ -221,6 +222,63 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
+        boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
+        boolean typedDictUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
+        boolean mappingUseCase = (requiredProperties != null && !additionalPropertiesIsBooleanSchemaFalse && optionalProperties == null);
+        if (typedDictUseCase || mappingUseCase) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "requiredPropertiesInputType";
+            extraSchema.requiredProperties = requiredProperties;
+            extraSchema.additionalProperties = additionalProperties;
+            if (requiredProperties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        typedDictUseCase = (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse);
+        mappingUseCase = (optionalProperties != null && !additionalPropertiesIsBooleanSchemaFalse && requiredProperties == null);
+        if (typedDictUseCase || mappingUseCase) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "optionalPropertiesInputType";
+            extraSchema.optionalProperties = optionalProperties;
+            extraSchema.additionalProperties = additionalProperties;
+            if (optionalProperties.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+        boolean requiredPropsAndOptionalPropsSet = (requiredProperties != null && optionalProperties != null);
+        boolean requiredPropsAndOptionalPropsUnset = (requiredProperties == null && optionalProperties == null);
+        if ((requiredPropsAndOptionalPropsSet || requiredPropsAndOptionalPropsUnset) && mapInputJsonPathPiece != null) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "propertiesInputType";
+            extraSchema.optionalProperties = optionalProperties;
+            extraSchema.requiredProperties = requiredProperties;
+            extraSchema.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            extraSchema.additionalProperties = additionalProperties;
+            boolean allAreInline;
+            if (requiredPropsAndOptionalPropsSet) {
+                if (additionalProperties == null) {
+                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
+                } else {
+                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline() && additionalProperties.refInfo == null);
+                }
+            } else {
+                if (additionalProperties == null) {
+                    allAreInline = true;
+                } else {
+                    allAreInline = additionalProperties.refInfo == null;
+                }
+            }
+            if (allAreInline) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
+        }
+
         if (refInfo != null && level > 0) {
             // do not add ref to schemas
             return;

@@ -49,7 +49,7 @@ class TestFakeApi(ApiTestMixin):
                 self.json_bytes(json_data)
             )
 
-            cat = animal.Animal(className="Cat", color="black")
+            cat = animal.Animal({'className': "Cat", 'color': "black"})
             body = animal_farm.AnimalFarm([cat])
             api_response = self.api.array_model(body=body)
             self.assert_request_called_with(
@@ -115,9 +115,9 @@ class TestFakeApi(ApiTestMixin):
 
         # serialization + deserialization works
         number = composed_one_of_different_types.ComposedOneOfDifferentTypes(10.0)
-        cat = composed_one_of_different_types.ComposedOneOfDifferentTypes(
-            className="Cat", color="black"
-        )
+        cat = composed_one_of_different_types.ComposedOneOfDifferentTypes({
+            'className': "Cat", 'color': "black"
+        })
         none_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes(None)
         date_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes('1970-01-01')
         cast_to_simple_value = [
@@ -202,7 +202,7 @@ class TestFakeApi(ApiTestMixin):
         # serialization + deserialization works
         from petstore_api.components.schema.mammal import Mammal
         with patch.object(RESTClientObject, 'request') as mock_request:
-            body = Mammal(className="BasquePig")
+            body = Mammal({'className': "BasquePig"})
             value_simple = dict(className='BasquePig')
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
@@ -240,13 +240,13 @@ class TestFakeApi(ApiTestMixin):
         from petstore_api.components.schema import user
         with patch.object(RESTClientObject, 'request') as mock_request:
 
-            value_simple = dict(
-                id=1,
-                username='first last',
-                firstName='first',
-                lastName='last'
-            )
-            body = user.User(**value_simple)
+            value_simple = {
+                'id': 1,
+                'username': 'first last',
+                'firstName': 'first',
+                'lastName': 'last'
+            }
+            body = user.User(value_simple)
             mock_request.return_value = self.response(
                 b''
             )
@@ -801,11 +801,11 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response("")
             body = json_patch_request.JSONPatchRequest(
                 [
-                    json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest(
-                        op='add',
-                        path='/a/b/c',
-                        value='foo',
-                    )
+                    json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest({
+                        'op': 'add',
+                        'path': '/a/b/c',
+                        'value': 'foo',
+                    })
                 ]
             )
             api_response = self.api.json_patch(body=body)

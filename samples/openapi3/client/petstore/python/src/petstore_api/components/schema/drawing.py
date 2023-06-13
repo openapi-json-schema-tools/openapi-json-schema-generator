@@ -24,7 +24,7 @@ class Shapes(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 shape.Shape[
                     schemas.INPUT_BASE_TYPES
@@ -47,12 +47,12 @@ class Shapes(
                 io.BufferedReader
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Shapes[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Shapes[tuple],
@@ -156,111 +156,16 @@ class Drawing(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        mainShape: typing.Union[
-            shape.Shape[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        shapeOrNull: typing.Union[
-            shape_or_null.ShapeOrNull[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        nullableShape: typing.Union[
-            nullable_shape.NullableShape[
-                schemas.INPUT_BASE_TYPES
-            ],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ] = schemas.unset,
-        shapes: typing.Union[
-            Shapes[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            fruit.Fruit[
-                schemas.INPUT_BASE_TYPES
-            ],
-            dict,
-            frozendict.frozendict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            decimal.Decimal,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+        arg: typing.Union[
+            DictInput,
+            Drawing[frozendict.frozendict],
         ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Drawing[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            mainShape=mainShape,
-            shapeOrNull=shapeOrNull,
-            nullableShape=nullableShape,
-            shapes=shapes,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Drawing[frozendict.frozendict],
@@ -282,3 +187,97 @@ Properties = typing_extensions.TypedDict(
         "shapes": typing.Type[Shapes],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            shape.Shape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            shape_or_null.ShapeOrNull[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            nullable_shape.NullableShape[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        typing.Union[
+            Shapes[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            fruit.Fruit[
+                schemas.INPUT_BASE_TYPES
+            ],
+            dict,
+            frozendict.frozendict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            decimal.Decimal,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+    ]
+]

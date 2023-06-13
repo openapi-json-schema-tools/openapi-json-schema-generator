@@ -28,7 +28,7 @@ class TestTriangle(unittest.TestCase):
         """Test Triangle"""
         tri_classes = [EquilateralTriangle, IsoscelesTriangle, ScaleneTriangle]
         for tri_class in tri_classes:
-            tri = Triangle(shapeType="Triangle", triangleType=tri_class.__name__)
+            tri = Triangle({'shapeType': "Triangle", 'triangleType': tri_class.__name__})
             assert isinstance(tri, tri_class)
             assert isinstance(tri, Triangle)
             assert isinstance(tri, TriangleInterface)

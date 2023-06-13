@@ -39,6 +39,20 @@ Properties = typing_extensions.TypedDict(
         "quadrilateralType": typing.Type[QuadrilateralType],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            QuadrilateralType[str],
+            str
+        ],
+        typing.Union[
+            ShapeType[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class QuadrilateralInterface(
@@ -100,9 +114,11 @@ class QuadrilateralInterface(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> QuadrilateralInterface[
         typing.Union[
             frozendict.frozendict,
@@ -117,9 +133,8 @@ class QuadrilateralInterface(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             QuadrilateralInterface[

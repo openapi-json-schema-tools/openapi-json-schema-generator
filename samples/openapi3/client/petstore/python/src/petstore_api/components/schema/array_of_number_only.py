@@ -25,7 +25,7 @@ class ArrayNumber(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[decimal.Decimal],
                 decimal.Decimal,
@@ -33,12 +33,12 @@ class ArrayNumber(
                 float
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNumber[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayNumber[tuple],
@@ -55,6 +55,17 @@ Properties = typing_extensions.TypedDict(
         "ArrayNumber": typing.Type[ArrayNumber],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ArrayNumber[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ArrayOfNumberOnly(
@@ -99,22 +110,16 @@ class ArrayOfNumberOnly(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        ArrayNumber: typing.Union[
-            ArrayNumber[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ArrayOfNumberOnly[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfNumberOnly[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            ArrayNumber=ArrayNumber,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayOfNumberOnly[frozendict.frozendict],

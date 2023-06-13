@@ -20,12 +20,12 @@ class TestAdditionalPropertiesValidator(unittest.TestCase):
 
     def test_additional_properties_validator(self):
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator(tooShort='ab')
+            AdditionalPropertiesValidator({'tooShort': 'ab'})
 
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator(tooLong='abcdef')
+            AdditionalPropertiesValidator({'tooLong': 'abcdef'})
 
-        inst = AdditionalPropertiesValidator(addProp='abc')
+        inst = AdditionalPropertiesValidator({'addProp': 'abc'})
         add_prop = inst['addProp']
         assert add_prop == 'abc'
         assert isinstance(add_prop, str)

@@ -126,11 +126,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = dict(
-        files=[
+    body = {
+        "files": [
             open('/path/to/file', 'rb')
         ],
-    )
+    }
     try:
         # uploads files using multipart/form-data
         api_response = api_instance.upload_files(

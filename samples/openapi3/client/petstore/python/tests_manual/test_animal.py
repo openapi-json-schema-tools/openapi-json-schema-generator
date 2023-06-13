@@ -38,9 +38,9 @@ class TestAnimal(unittest.TestCase):
             r"Only the values \['Cat', 'Dog'\] are allowed at \('args\[0\]', 'className'\)"
         )
         with self.assertRaisesRegex(petstore_api.ApiValueError, regex_err):
-            Animal(className='Fox', color='red')
+            Animal({'className': 'Fox', 'color': 'red'})
 
-        animal = Animal(className='Cat', color='black')
+        animal = Animal({'className': 'Cat', 'color': 'black'})
         assert isinstance(animal, frozendict.frozendict)
         assert isinstance(animal, cat.Cat)
         assert isinstance(animal, cat._1)
@@ -52,7 +52,7 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(animal.className, StrSchema)
 
         # pass in optional param
-        animal = Animal(className='Cat', color='black', declawed=True)
+        animal = Animal({'className': 'Cat', 'color': 'black', 'declawed': True})
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
         assert isinstance(animal, cat.Cat)
@@ -66,7 +66,7 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(animal["declawed"], BoolSchema)
 
         # make a Dog
-        animal = Animal(className='Dog', color='black')
+        animal = Animal({'className': 'Dog', 'color': 'black'})
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
         assert isinstance(animal, dog.Dog)
@@ -78,7 +78,7 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(animal.className, StrSchema)
 
         # pass in optional param
-        animal = Animal(className='Dog', color='black', breed='Labrador')
+        animal = Animal({'className': 'Dog', 'color': 'black', 'breed':'Labrador'})
         assert isinstance(animal, Animal)
         assert isinstance(animal, frozendict.frozendict)
         assert isinstance(animal, dog.Dog)

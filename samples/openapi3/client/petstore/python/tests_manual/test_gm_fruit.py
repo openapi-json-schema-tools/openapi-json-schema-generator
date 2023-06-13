@@ -36,7 +36,7 @@ class TestGmFruit(unittest.TestCase):
         length_cm = 20.3
         color = 'yellow'
         cultivar = 'banaple'
-        fruit = GmFruit(lengthCm=length_cm, color=color, cultivar=cultivar)
+        fruit = GmFruit({'lengthCm': length_cm, 'color': color, 'cultivar': cultivar})
         assert isinstance(fruit, banana.Banana)
         assert isinstance(fruit, apple.Apple)
         assert isinstance(fruit, frozendict.frozendict)
@@ -69,20 +69,20 @@ class TestGmFruit(unittest.TestCase):
         self.assertTrue(getattr(fruit, 'origin', 'some value'), 'some value')
 
         # including extra parameters works
-        GmFruit(
-            color=color,
-            length_cm=length_cm,
-            cultivar=cultivar,
-            unknown_property='some value'
-        )
+        GmFruit({
+            'color': color,
+            'length_cm': length_cm,
+            'cultivar': cultivar,
+            'unknown_property': 'some value'
+        })
 
         # including input parameters for both anyOf instances works
         color = 'orange'
-        fruit = GmFruit(
-            color=color,
-            cultivar=cultivar,
-            length_cm=length_cm
-        )
+        fruit = GmFruit({
+            'color': color,
+            'cultivar': cultivar,
+            'length_cm': length_cm
+        })
         self.assertEqual(fruit['color'], color)
         self.assertEqual(fruit['cultivar'], cultivar)
         self.assertEqual(fruit['length_cm'], length_cm)
@@ -92,7 +92,7 @@ class TestGmFruit(unittest.TestCase):
         color = 'red'
         cultivar = 'golden delicious'
         origin = 'California'
-        fruit = GmFruit(color=color, cultivar=cultivar, origin=origin)
+        fruit = GmFruit({'color': color, 'cultivar': cultivar, 'origin': origin})
         # check its properties
         self.assertEqual(fruit['color'], color)
         self.assertEqual(fruit['cultivar'], cultivar)

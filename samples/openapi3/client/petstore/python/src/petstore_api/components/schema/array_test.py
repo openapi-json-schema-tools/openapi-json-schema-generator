@@ -25,18 +25,18 @@ class ArrayOfString(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfString[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayOfString[tuple],
@@ -62,19 +62,19 @@ class Items2(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items3[decimal.Decimal],
                 decimal.Decimal,
                 int
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items2[tuple],
@@ -99,19 +99,19 @@ class ArrayArrayOfInteger(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items2[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfInteger[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayArrayOfInteger[tuple],
@@ -136,19 +136,19 @@ class Items4(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 read_only_first.ReadOnlyFirst[frozendict.frozendict],
                 dict,
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items4[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Items4[tuple],
@@ -173,19 +173,19 @@ class ArrayArrayOfModel(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items4[tuple],
                 list,
                 tuple
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfModel[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayArrayOfModel[tuple],
@@ -204,6 +204,27 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            ArrayOfString[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayArrayOfInteger[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayArrayOfModel[tuple],
+            list,
+            tuple
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class ArrayTest(
@@ -256,36 +277,16 @@ class ArrayTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        array_of_string: typing.Union[
-            ArrayOfString[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_array_of_integer: typing.Union[
-            ArrayArrayOfInteger[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        array_array_of_model: typing.Union[
-            ArrayArrayOfModel[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            ArrayTest[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            array_of_string=array_of_string,
-            array_array_of_integer=array_array_of_integer,
-            array_array_of_model=array_array_of_model,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ArrayTest[frozendict.frozendict],

@@ -40,9 +40,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     1,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -79,9 +79,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     },
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -130,9 +130,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     },
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -169,9 +169,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     },
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -202,9 +202,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     True,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -235,9 +235,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     2,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -272,9 +272,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     ],
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -306,9 +306,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     1,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -339,9 +339,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     False,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -390,9 +390,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     },
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -423,9 +423,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     False,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -460,9 +460,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     ],
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -493,9 +493,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     True,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -534,9 +534,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     1,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
@@ -573,9 +573,9 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     1,
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema.from_openapi_data_(
+            body = post.request_body.RequestBody.content["application/json"].schema(
                 payload,
-                configuration_=self.schema_config
+                configuration=self.schema_config
             )
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),

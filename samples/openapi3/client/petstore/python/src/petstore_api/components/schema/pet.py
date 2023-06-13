@@ -27,18 +27,18 @@ class PhotoUrls(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 Items[str],
                 str
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrls[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             PhotoUrls[tuple],
@@ -63,19 +63,19 @@ class Tags(
 
     def __new__(
         cls,
-        arg_: typing.Sequence[
+        arg: typing.Sequence[
             typing.Union[
                 tag.Tag[frozendict.frozendict],
                 dict,
                 frozendict.frozendict
             ]
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tags[tuple]:
         inst = super().__new__(
             cls,
-            arg_,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Tags[tuple],
@@ -195,53 +195,16 @@ class Pet(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        name: typing.Union[
-            Name[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            Pet[frozendict.frozendict],
         ],
-        photoUrls: typing.Union[
-            PhotoUrls[tuple],
-            list,
-            tuple
-        ],
-        id: typing.Union[
-            Id[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        category: typing.Union[
-            category.Category[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        tags: typing.Union[
-            Tags[tuple],
-            schemas.Unset,
-            list,
-            tuple
-        ] = schemas.unset,
-        status: typing.Union[
-            Status[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Pet[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            name=name,
-            photoUrls=photoUrls,
-            id=id,
-            category=category,
-            tags=tags,
-            status=status,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Pet[frozendict.frozendict],
@@ -263,3 +226,37 @@ Properties = typing_extensions.TypedDict(
         "status": typing.Type[Status],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Name[str],
+            str
+        ],
+        typing.Union[
+            PhotoUrls[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            Id[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            category.Category[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        typing.Union[
+            Tags[tuple],
+            list,
+            tuple
+        ],
+        typing.Union[
+            Status[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

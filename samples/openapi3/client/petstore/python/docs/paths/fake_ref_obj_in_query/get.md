@@ -90,9 +90,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     query_params: operation.RequestQueryParameters.Params = {
-        'mapBean': foo.Foo(
-        bar=bar.Bar("bar"),
-    ),
+        'mapBean': foo.Foo({
+        "bar": bar.Bar("bar"),
+    }),
     }
     try:
         # user list

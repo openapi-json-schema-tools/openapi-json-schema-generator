@@ -49,22 +49,16 @@ class Schema(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        string: typing.Union[
-            foo.Foo[frozendict.frozendict],
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            Schema[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            string=string,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Schema[frozendict.frozendict],
@@ -80,3 +74,14 @@ Properties = typing_extensions.TypedDict(
         "string": typing.Type[foo.Foo],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            foo.Foo[frozendict.frozendict],
+            dict,
+            frozendict.frozendict
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

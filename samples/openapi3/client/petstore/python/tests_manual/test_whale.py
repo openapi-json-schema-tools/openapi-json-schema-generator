@@ -21,18 +21,18 @@ class TestWhale(unittest.TestCase):
 
     def test_Whale(self):
         # test that the hasBaleen __bool__ method is working, True input
-        whale = Whale(
-            className='whale',
-            hasBaleen=True
-        )
+        whale = Whale({
+            'className': 'whale',
+            'hasBaleen': True
+        })
         assert isinstance(whale["hasBaleen"], BoolClass)
         self.assertTrue(whale["hasBaleen"])
 
         # test that the hasBaleen __bool__ method is working, False input
-        whale = Whale(
-            className='whale',
-            hasBaleen=False
-        )
+        whale = Whale({
+            'className': 'whale',
+            'hasBaleen': False
+        })
         assert isinstance(whale["hasBaleen"], BoolClass)
         self.assertFalse(whale["hasBaleen"])
 

@@ -40,6 +40,15 @@ Properties = typing_extensions.TypedDict(
         "version": typing.Type[Version],
     }
 )
+DictInput3 = typing_extensions.TypedDict(
+    'DictInput3',
+    {
+        "version": typing.Union[
+            Version[str],
+            str
+        ],
+    }
+)
 
 
 class Variables(
@@ -74,18 +83,16 @@ class Variables(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        version: typing.Union[
-            Version[str],
-            str
+        arg: typing.Union[
+            DictInput3,
+            Variables[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Variables[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            version=version,
-            configuration_=configuration_,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             Variables[frozendict.frozendict],
@@ -97,7 +104,7 @@ class Variables(
 
 @dataclasses.dataclass
 class Server1(server.ServerWithVariables):
-    variables: Variables[frozendict.frozendict] = Variables.from_openapi_data_({
+    variables: Variables[frozendict.frozendict] = Variables({
         "version": Version.Schema_.default,
     })
     variables_cls: typing.Type[Variables] = Variables

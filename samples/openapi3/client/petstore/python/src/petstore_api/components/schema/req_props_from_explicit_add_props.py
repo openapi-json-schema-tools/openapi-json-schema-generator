@@ -11,6 +11,23 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema[U]
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+        typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+        typing.Union[
+            AdditionalProperties[str],
+            str
+        ],
+    ]
+]
 
 
 class ReqPropsFromExplicitAddProps(
@@ -58,23 +75,16 @@ class ReqPropsFromExplicitAddProps(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        validName: typing.Union[
-            AdditionalProperties[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            ReqPropsFromExplicitAddProps[frozendict.frozendict],
         ],
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Union[
-            AdditionalProperties[str],
-            str
-        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromExplicitAddProps[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            validName=validName,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             ReqPropsFromExplicitAddProps[frozendict.frozendict],

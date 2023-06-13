@@ -10,10 +10,8 @@
 """
 
 
-import sys
 import unittest
 
-import petstore_api
 from petstore_api.components.schema.object_with_difficultly_named_props import ObjectWithDifficultlyNamedProps
 
 
@@ -28,9 +26,13 @@ class TestObjectWithDifficultlyNamedProps(unittest.TestCase):
 
     def test_ObjectWithDifficultlyNamedProps(self):
         """Test ObjectWithDifficultlyNamedProps"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ObjectWithDifficultlyNamedProps()  # noqa: E501
-        pass
+        arg = {
+            "$special[property.name]": 1,
+            "123-list": 'a',
+            "123Number": 3,
+        }
+        model = ObjectWithDifficultlyNamedProps(arg)
+        assert model == arg
 
 
 if __name__ == '__main__':

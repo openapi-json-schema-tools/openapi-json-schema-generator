@@ -1,0 +1,63 @@
+{{#if additionalProperties}}
+    {{#if additionalProperties.isBooleanSchemaFalse}}
+        {{#and requiredProperties optionalProperties}}
+
+
+class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
+    pass
+        {{else}}
+            {{! empty mapping }}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping # mapping must be empty
+        {{/and}}
+    {{else}}
+        {{! addProps True/schema}}
+        {{#and requiredProperties optionalProperties}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+            {{#each requiredProperties}}
+                {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                {{/with}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                {{/with}}
+            {{/each}}
+            {{#with additionalProperties}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+    ]
+]
+        {{else}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+            {{#with additionalProperties}}
+    {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+]
+        {{/and}}
+    {{/if}}
+{{else}}
+    {{#and requiredProperties optionalProperties}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each requiredProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        {{#each optionalProperties}}
+            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+            {{/with}}
+        {{/each}}
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
+    {{else}}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+    {{/and}}
+{{/if}}

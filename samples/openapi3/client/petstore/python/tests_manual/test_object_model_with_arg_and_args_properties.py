@@ -22,8 +22,9 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
 
     def test_ObjectModelWithArgAndArgsProperties(self):
         """Test ObjectModelWithArgAndArgsProperties"""
-        model = object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties(
-            arg='a', args='as')
+        model = object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties({
+            'arg': 'a', 'args': 'as'
+        })
         origin_cls = typing_extensions.get_origin(object_model_with_arg_and_args_properties.Arg)
         assert origin_cls is not None
         self.assertTrue(

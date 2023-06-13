@@ -212,78 +212,16 @@ class EnumTest(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        enum_string_required: typing.Union[
-            EnumStringRequired[str],
-            str
+        arg: typing.Union[
+            DictInput,
+            EnumTest[frozendict.frozendict],
         ],
-        enum_string: typing.Union[
-            EnumString[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        enum_integer: typing.Union[
-            EnumInteger[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        enum_number: typing.Union[
-            EnumNumber[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
-        ] = schemas.unset,
-        stringEnum: typing.Union[
-            string_enum.StringEnum[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            schemas.Unset,
-            None,
-            str
-        ] = schemas.unset,
-        IntegerEnum: typing.Union[
-            integer_enum.IntegerEnum[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        StringEnumWithDefaultValue: typing.Union[
-            string_enum_with_default_value.StringEnumWithDefaultValue[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        IntegerEnumWithDefaultValue: typing.Union[
-            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        IntegerEnumOneValue: typing.Union[
-            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
-            schemas.Unset,
-            decimal.Decimal,
-            int
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumTest[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            enum_string_required=enum_string_required,
-            enum_string=enum_string,
-            enum_integer=enum_integer,
-            enum_number=enum_number,
-            stringEnum=stringEnum,
-            IntegerEnum=IntegerEnum,
-            StringEnumWithDefaultValue=StringEnumWithDefaultValue,
-            IntegerEnumWithDefaultValue=IntegerEnumWithDefaultValue,
-            IntegerEnumOneValue=IntegerEnumOneValue,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             EnumTest[frozendict.frozendict],
@@ -311,3 +249,55 @@ Properties = typing_extensions.TypedDict(
         "IntegerEnumOneValue": typing.Type[integer_enum_one_value.IntegerEnumOneValue],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            EnumStringRequired[str],
+            str
+        ],
+        typing.Union[
+            EnumString[str],
+            str
+        ],
+        typing.Union[
+            EnumInteger[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            EnumNumber[decimal.Decimal],
+            decimal.Decimal,
+            int,
+            float
+        ],
+        typing.Union[
+            string_enum.StringEnum[typing.Union[
+                schemas.NoneClass,
+                str
+            ]],
+            None,
+            str
+        ],
+        typing.Union[
+            integer_enum.IntegerEnum[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            string_enum_with_default_value.StringEnumWithDefaultValue[str],
+            str
+        ],
+        typing.Union[
+            integer_enum_with_default_value.IntegerEnumWithDefaultValue[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        typing.Union[
+            integer_enum_one_value.IntegerEnumOneValue[decimal.Decimal],
+            decimal.Decimal,
+            int
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]

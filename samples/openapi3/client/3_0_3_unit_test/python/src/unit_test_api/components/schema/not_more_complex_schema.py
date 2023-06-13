@@ -17,6 +17,16 @@ Properties = typing_extensions.TypedDict(
         "foo": typing.Type[Foo],
     }
 )
+DictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            Foo[str],
+            str
+        ],
+        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+    ]
+]
 
 
 class _Not(
@@ -56,21 +66,16 @@ class _Not(
 
     def __new__(
         cls,
-        *args_: typing.Union[dict, frozendict.frozendict],
-        foo: typing.Union[
-            Foo[str],
-            schemas.Unset,
-            str
-        ] = schemas.unset,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput,
+            _Not[frozendict.frozendict],
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Not[frozendict.frozendict]:
         inst = super().__new__(
             cls,
-            *args_,
-            foo=foo,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             _Not[frozendict.frozendict],
@@ -78,6 +83,7 @@ class _Not(
         )
         return inst
 
+DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
 class NotMoreComplexSchema(
@@ -98,9 +104,11 @@ class NotMoreComplexSchema(
 
     def __new__(
         cls,
-        *args_: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration_: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        arg: typing.Union[
+            DictInput2,
+            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+        ],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NotMoreComplexSchema[
         typing.Union[
             frozendict.frozendict,
@@ -115,9 +123,8 @@ class NotMoreComplexSchema(
     ]:
         inst = super().__new__(
             cls,
-            *args_,
-            configuration_=configuration_,
-            **kwargs,
+            arg,
+            configuration=configuration,
         )
         inst = typing.cast(
             NotMoreComplexSchema[

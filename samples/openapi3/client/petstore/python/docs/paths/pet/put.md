@@ -166,24 +166,24 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = pet.Pet(
-        id=1,
-        category=category.Category(
-            id=1,
-            name="default-name",
-        ),
-        name="doggie",
-        photo_urls=[
+    body = pet.Pet({
+        "id": 1,
+        "category": category.Category({
+            "id": 1,
+            "name": "default-name",
+        }),
+        "name": "doggie",
+        "photo_urls": [
             "photo_urls_example"
         ],
-        tags=[
-            tag.Tag(
-                id=1,
-                name="name_example",
-            )
+        "tags": [
+            tag.Tag({
+                "id": 1,
+                "name": "name_example",
+            })
         ],
-        status="available",
-    )
+        "status": "available",
+    })
     try:
         # Update an existing pet
         api_response = api_instance.update_pet(
