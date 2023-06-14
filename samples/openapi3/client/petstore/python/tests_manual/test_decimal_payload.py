@@ -11,10 +11,9 @@
 
 import decimal
 import unittest
-import typing_extensions
 
 import petstore_api
-from petstore_api.schemas import DecimalSchema
+from petstore_api import schemas
 from petstore_api.components.schema.decimal_payload import DecimalPayload
 
 
@@ -24,25 +23,19 @@ class TestDecimalPayload(unittest.TestCase):
     def test_DecimalPayload(self):
         """Test DecimalPayload"""
 
-        m = DecimalPayload('12')
-        origin_cls = typing_extensions.get_origin(DecimalPayload)
-        assert origin_cls is not None
-        assert isinstance(m, origin_cls)
-        assert isinstance(m, DecimalSchema)
+        m = DecimalPayload.validate('12')
         assert isinstance(m, str)
         assert m == '12'
-        assert m.as_decimal_ == decimal.Decimal('12')
+        assert schemas.as_decimal_(m) == decimal.Decimal('12')
 
-        m = DecimalPayload('12.34')
-        assert isinstance(m, origin_cls)
-        assert isinstance(m, DecimalSchema)
+        m = DecimalPayload.validate('12.34')
         assert isinstance(m, str)
         assert m == '12.34'
-        assert m.as_decimal_ == decimal.Decimal('12.34')
+        assert schemas.as_decimal_(m) == decimal.Decimal('12.34')
 
         # passing in a Decimal does not work
         with self.assertRaises(petstore_api.ApiTypeError):
-            DecimalPayload(decimal.Decimal('12.34'))
+            DecimalPayload.validate(decimal.Decimal('12.34'))
 
 
 if __name__ == '__main__':

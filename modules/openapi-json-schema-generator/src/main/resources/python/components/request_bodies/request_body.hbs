@@ -12,13 +12,9 @@
 {{else}}
 from {{packageName}}.shared_imports.header_imports import *
 
-    {{#each content}}
-    {{#with this}}
-        {{#with schema}}
-from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
-        {{/with}}
-    {{/with}}
-    {{/each}}
+    {{#if content}}
+from . import content
+    {{/if}}
 
 class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#each content}}
@@ -27,7 +23,7 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     class {{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
+        {{> components/_helper_content_schema_type paramName="schema" contentTypeModule=../@key.snakeCase }}
             {{/with}}
         {{/with}}
     {{/each}}

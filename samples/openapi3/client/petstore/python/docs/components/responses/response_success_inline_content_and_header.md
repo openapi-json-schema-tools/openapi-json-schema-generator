@@ -27,12 +27,12 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
 
 #### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | decimal.Decimal, int | decimal.Decimal | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+**any_string_name** | int | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## Header Details
 ### headers SomeHeader

@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request_remove
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

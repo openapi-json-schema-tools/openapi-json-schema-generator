@@ -21,9 +21,8 @@ class BaseApi(api_client.Api):
     def _create_users_with_array_input(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            list,
-            tuple
+            request_body.request_body_user_array.content.application_json.schema.SchemaTupleInput,
+            request_body.request_body_user_array.content.application_json.schema.SchemaTuple,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -36,9 +35,8 @@ class BaseApi(api_client.Api):
     def _create_users_with_array_input(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            list,
-            tuple
+            request_body.request_body_user_array.content.application_json.schema.SchemaTupleInput,
+            request_body.request_body_user_array.content.application_json.schema.SchemaTuple,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -50,9 +48,8 @@ class BaseApi(api_client.Api):
     def _create_users_with_array_input(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            list,
-            tuple
+            request_body.request_body_user_array.content.application_json.schema.SchemaTupleInput,
+            request_body.request_body_user_array.content.application_json.schema.SchemaTuple,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,

@@ -4,7 +4,7 @@ petstore_api.components.schema.array_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -12,7 +12,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **array_of_string** | list, tuple | [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]
 **array_array_of_integer** | list, tuple | [properties.ArrayArrayOfInteger](#properties-arrayarrayofinteger) |  | [optional]
 **array_array_of_model** | list, tuple | [properties.ArrayArrayOfModel](#properties-arrayarrayofmodel) |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, immutabledict.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | immutabledict.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties ArrayOfString
 
@@ -48,7 +48,7 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+items | int | int |  | value must be a 64 bit integer
 
 # properties ArrayArrayOfModel
 

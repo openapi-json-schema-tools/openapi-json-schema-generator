@@ -14,7 +14,7 @@ from decimal import Decimal
 import typing
 import unittest
 
-import frozendict
+import immutabledict
 
 import petstore_api
 from petstore_api import schemas
@@ -30,201 +30,144 @@ from petstore_api.schemas import (
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
-    NoneClass,
-    BoolClass
 )
 
 
 class TestAnyTypeSchema(unittest.TestCase):
 
     def testDictSchema(self):
-        class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+        @dataclasses.dataclass(frozen=True)
+        class Model(AnyTypeSchema):            
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                DictSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    DictSchema,
-                )
-
-        m = Model({'a': 1, 'b': 'hi'})
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, DictSchema)
-        assert isinstance(m, frozendict.frozendict)
-        assert m == frozendict.frozendict(a=Decimal(1), b='hi')
+        m = Model.validate({'a': 1, 'b': 'hi'})
+        assert isinstance(m, immutabledict.immutabledict)
+        assert m == immutabledict.immutabledict(a=1, b='hi')
 
     def testListSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                ListSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    ListSchema,
-                )
-
-        m = Model([1, 'hi'])
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, ListSchema)
+        m = Model.validate([1, 'hi'])
         assert isinstance(m, tuple)
-        assert m == tuple([Decimal(1), 'hi'])
+        assert m == tuple([1, 'hi'])
 
     def testStrSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                StrSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    StrSchema,
-                )
-
-        m = Model('hi')
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, StrSchema)
+        m = Model.validate('hi')
         assert isinstance(m, str)
         assert m == 'hi'
 
     def testNumberSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                NumberSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    NumberSchema,
-                )
+        m = Model.validate(1)
+        assert isinstance(m, int)
+        assert m == 1
 
-        m = Model(1)
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, NumberSchema)
-        assert isinstance(m, Decimal)
-        assert m == Decimal(1)
-
-        m = Model(3.14)
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, NumberSchema)
-        assert isinstance(m, Decimal)
+        m = Model.validate(3.14)
+        assert isinstance(m, float)
         assert m == Decimal(3.14)
 
     def testIntSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                IntSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    IntSchema,
-                )
+        m = Model.validate(1)
+        assert isinstance(m, int)
+        assert m == 1
 
-        m = Model(1)
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, IntSchema)
-        assert isinstance(m, Decimal)
-        assert m == Decimal(1)
-
-        with self.assertRaises(petstore_api.ApiValueError):
+        with self.assertRaises(petstore_api.ApiTypeError):
             # can't pass in float into Int
-            Model(3.14)
+            Model.validate(3.14)
 
     def testBoolSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                BoolSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    BoolSchema,
-                )
-
-        m = Model(True)
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, BoolSchema)
-        assert isinstance(m, BoolClass)
+        m = Model.validate(True)
+        assert isinstance(m, bool)
         self.assertTrue(m)
+        assert m is True
 
-        m = Model(False)
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, BoolSchema)
-        assert isinstance(m, BoolClass)
+        m = Model.validate(False)
+        assert isinstance(m, bool)
         self.assertFalse(m)
+        assert m is False
 
     def testNoneSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                NoneSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    NoneSchema,
-                )
-
-        m = Model(None)
-        self.assertTrue(m.is_none_())
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, NoneSchema)
-        assert isinstance(m, NoneClass)
+        m = Model.validate(None)
+        assert m is None
 
     def testDateSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                DateSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    DateSchema,
-                )
-
-        m = Model('1970-01-01')
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, DateSchema)
+        m = Model.validate('1970-01-01')
         assert isinstance(m, str)
         assert m == '1970-01-01'
 
     def testDateTimeSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                DateTimeSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    DateTimeSchema,
-                )
-
-        m = Model('2020-01-01T00:00:00')
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, DateTimeSchema)
+        m = Model.validate('2020-01-01T00:00:00')
         assert isinstance(m, str)
         assert m == '2020-01-01T00:00:00'
 
     def testDecimalSchema(self):
+        @dataclasses.dataclass(frozen=True)
         class Model(AnyTypeSchema):
-            @dataclasses.dataclass(frozen=True)
-            class Schema_:
+            all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
+                AnyTypeSchema,
+                DecimalSchema,
+            )
 
-                all_of: typing.Tuple[typing.Type[schemas.Schema], ...] = (
-                    AnyTypeSchema,
-                    DecimalSchema,
-                )
-
-        m = Model('12.34')
+        m = Model.validate('12.34')
         assert m == '12.34'
-        assert m.as_decimal_ == Decimal('12.34')
-        assert isinstance(m, Model)
-        assert isinstance(m, AnyTypeSchema)
-        assert isinstance(m, DecimalSchema)
         assert isinstance(m, str)
+        assert schemas.as_decimal_(m) == Decimal('12.34')
 
 
 if __name__ == '__main__':

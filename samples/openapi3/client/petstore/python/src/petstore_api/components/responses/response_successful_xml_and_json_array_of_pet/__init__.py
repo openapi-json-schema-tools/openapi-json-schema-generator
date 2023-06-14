@@ -6,16 +6,15 @@
 
 from petstore_api.shared_imports.response_imports import *
 
-from .content.application_xml import schema as application_xml_schema
-from .content.application_json import schema as application_json_schema
+from . import content
 
 
 @dataclasses.dataclass
 class ApiSuccessfulXmlAndJsonArrayOfPet(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml_schema.Schema[tuple],
-        application_json_schema.Schema[tuple],
+        content.application_xml.schema.SchemaTuple,
+        content.application_json.schema.SchemaTuple,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -25,11 +24,11 @@ class SuccessfulXmlAndJsonArrayOfPet(api_client.OpenApiResponse[ApiSuccessfulXml
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[tuple]
+        schema: typing_extensions.TypeAlias = content.application_xml.schema.Schema
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[tuple]
+        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

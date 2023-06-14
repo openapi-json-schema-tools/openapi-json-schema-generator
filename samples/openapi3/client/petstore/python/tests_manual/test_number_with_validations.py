@@ -27,7 +27,7 @@ class TestNumberWithValidations(unittest.TestCase):
         """Test NumberWithValidations"""
         valid_values = [10.0, 15.0, 20.0]
         for valid_value in valid_values:
-            model = NumberWithValidations(valid_value)
+            model = NumberWithValidations.validate(valid_value)
             assert model == valid_value
 
         value_error_msg_pairs = (
@@ -36,7 +36,7 @@ class TestNumberWithValidations(unittest.TestCase):
         )
         for invalid_value, error_msg in value_error_msg_pairs:
             with self.assertRaisesRegex(petstore_api.ApiValueError, error_msg):
-                NumberWithValidations(invalid_value)
+                NumberWithValidations.validate(invalid_value)
 
 
 if __name__ == '__main__':

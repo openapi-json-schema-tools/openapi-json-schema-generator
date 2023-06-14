@@ -10,8 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema[U]
-RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema[U]
+AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema
+RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -19,58 +19,24 @@ Properties = typing_extensions.TypedDict(
         "requiredFile": typing.Type[RequiredFile],
     }
 )
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            RequiredFile[typing.Union[bytes, schemas.FileIO]],
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        typing.Union[
-            AdditionalMetadata[str],
-            str
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class Schema(
-    schemas.DictSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required: typing.FrozenSet[str] = frozenset({
-            "requiredFile",
-        })
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+class SchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def requiredFile(self) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]:
+    def requiredFile(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("requiredFile")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> RequiredFile[typing.Union[bytes, schemas.FileIO]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> typing.Union[bytes, schemas.FileIO]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> AdditionalMetadata[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -82,17 +48,34 @@ class Schema(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    def __new__(
+
+@dataclasses.dataclass(frozen=True)
+class Schema(
+    schemas.DictSchema[SchemaDict]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "requiredFile",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: SchemaDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            Schema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )

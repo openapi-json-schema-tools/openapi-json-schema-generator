@@ -20,18 +20,18 @@ class TestObjectWithInlineCompositionProperty(unittest.TestCase):
 
     def test_ObjectWithInlineCompositionProperty(self):
         """Test ObjectWithInlineCompositionProperty"""
-        model = object_with_inline_composition_property.ObjectWithInlineCompositionProperty({'someProp': 'a'})
+        model = object_with_inline_composition_property.ObjectWithInlineCompositionProperty.validate({'someProp': 'a'})
         self.assertTrue(
             isinstance(
                 model["someProp"],
-                object_with_inline_composition_property.SomeProp
+                str
             )
         )
-        self.assertTrue(isinstance(model["someProp"], schemas.StrSchema))
+        self.assertTrue(isinstance(model["someProp"], str))
 
         # error thrown on length < 1
         with self.assertRaises(exceptions.ApiValueError):
-            object_with_inline_composition_property.ObjectWithInlineCompositionProperty({'someProp': ''})
+            object_with_inline_composition_property.ObjectWithInlineCompositionProperty.validate({'someProp': ''})
 
 
 if __name__ == '__main__':

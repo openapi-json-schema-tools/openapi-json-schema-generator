@@ -6,13 +6,13 @@
 
 from petstore_api.shared_imports.header_imports import *
 
-from .content.application_x_www_form_urlencoded import schema as application_x_www_form_urlencoded_schema
+from . import content
 
 class RequestBody(api_client.RequestBody):
 
 
     class ApplicationXWwwFormUrlencodedMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_x_www_form_urlencoded_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = content.application_x_www_form_urlencoded.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

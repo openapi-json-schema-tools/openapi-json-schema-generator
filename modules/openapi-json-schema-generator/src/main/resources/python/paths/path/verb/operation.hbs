@@ -2,6 +2,12 @@
 
 {{> _helper_header }}
 
+{{#with operation}}
+    {{#or queryParameters headerParameters pathParameters cookieParameters}}
+from __future__ import annotations
+from {{packageName}}.shared_imports.schema_imports import *
+    {{/or}}
+{{/with}}
 from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
@@ -73,18 +79,50 @@ from .security import (
     {{/gt}}
 {{/neq}}
 
+{{#with queryParameters}}
+
+{{> components/schemas/_helper_getschemas }}
+{{/with}}
+{{#with headerParameters}}
+
+{{> components/schemas/_helper_getschemas }}
+{{/with}}
+{{#with pathParameters}}
+
+{{> components/schemas/_helper_getschemas }}
+{{/with}}
+{{#with cookieParameters}}
+
+{{> components/schemas/_helper_getschemas }}
+{{/with}}
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
-{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=queryParams xParamsName="RequestQueryParameters" }}
+query_parameter_classes = (
+{{#each queryParams}}
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
+)
     {{/if}}
     {{#if headerParams}}
-{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=headerParams xParamsName="RequestHeaderParameters" }}
+header_parameter_classes = (
+{{#each headerParams}}
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
+)
     {{/if}}
     {{#if pathParams}}
-{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=pathParams xParamsName="RequestPathParameters" }}
+path_parameter_classes = (
+{{#each pathParams}}
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
+)
     {{/if}}
     {{#if cookieParams}}
-{{> paths/path/verb/_helper_operation_parameter_schema_and_def xParams=cookieParams xParamsName="RequestCookieParameters" }}
+cookie_parameter_classes = (
+{{#each pathParams}}
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
+)
     {{/if}}
 {{/or}}
 {{#neq security null}}
@@ -176,27 +214,47 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-    {{#if queryParams}}
-        self._verify_typed_dict_inputs(RequestQueryParameters.Params, query_params)
+    {{#if pathParameters}}
+        {{#if pathParameters.requiredProperties}}
+        path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
+        {{else}}
+        if path_params is not None:
+            path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
+        {{/if}}
     {{/if}}
-    {{#if headerParams}}
-        self._verify_typed_dict_inputs(RequestHeaderParameters.Params, header_params)
+    {{#if queryParameters}}
+        {{#if queryParameters.requiredProperties}}
+        query_params = {{queryParameters.jsonPathPiece.camelCase}}.validate(query_params)
+        {{else}}
+        if query_params is not None:
+            query_params = {{queryParameters.jsonPathPiece.camelCase}}.validate(query_params)
+        {{/if}}
     {{/if}}
-    {{#if pathParams}}
-        self._verify_typed_dict_inputs(RequestPathParameters.Params, path_params)
+    {{#if headerParameters}}
+        {{#if headerParameters.requiredProperties}}
+        header_params = {{headerParameters.jsonPathPiece.camelCase}}.validate(header_params)
+        {{else}}
+        if header_params is not None:
+            header_params = {{headerParameters.jsonPathPiece.camelCase}}.validate(header_params)
+        {{/if}}
     {{/if}}
-    {{#if cookieParams}}
-        self._verify_typed_dict_inputs(RequestCookieParameters.Params, cookie_params)
+    {{#if cookieParameters}}
+        {{#if cookieParameters.requiredProperties}}
+        cookie_params = {{cookieParameters.jsonPathPiece.camelCase}}.validate(cookie_params)
+        {{else}}
+        if cookie_params is not None:
+            cookie_params = {{cookieParameters.jsonPathPiece.camelCase}}.validate(cookie_params)
+        {{/if}}
     {{/if}}
     {{#or pathParams queryParams}}
         used_path = self._get_used_path(
             path,
         {{#if pathParams}}
-            path_parameters=RequestPathParameters.parameters,
+            path_parameters=path_parameter_classes,
             path_params=path_params{{#if queryParams}},{{/if}}
         {{/if}}
         {{#if queryParams}}
-            query_parameters=RequestQueryParameters.parameters,
+            query_parameters=query_parameter_classes,
             query_params=query_params
         {{/if}}
         )
@@ -206,17 +264,17 @@ class BaseApi(api_client.Api):
     {{#or headerParams requestBody produces}}
         {{#if headerParams}}
         _headers = self._get_headers(
-            {{#if produces}}
-            header_parameters=RequestHeaderParameters.parameters,
+            header_parameters=header_parameter_classes,
             header_params=header_params,
-            accept_content_types=accept_content_types
-            {{else}}
-            header_parameters=RequestHeaderParameters.parameters,
-            header_params=header_params
+            {{#if produces}}
+            accept_content_types=accept_content_types,
             {{/if}}
+            skip_validation=True
         )
         {{else}}
+            {{#or produces requestBody}}
         _headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
+            {{/or}}
         {{/if}}
     {{/or}}
         # TODO add cookie handling

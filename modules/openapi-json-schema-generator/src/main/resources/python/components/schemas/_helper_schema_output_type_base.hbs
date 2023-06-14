@@ -1,0 +1,45 @@
+{{#if types}}
+    {{#each types}}
+        {{#eq this "boolean"}}
+bool{{endChar}}
+        {{else}}
+            {{#eq this "null"}}
+None{{endChar}}
+            {{else}}
+                {{#eq this "string"}}
+                    {{#eq format "binary"}}
+typing.Union[bytes, schemas.FileIO]{{endChar}}
+                    {{else}}
+str{{endChar}}
+                    {{/eq}}
+                {{else}}
+                    {{#eq this "number"}}
+typing.Union[float, int]{{endChar}}
+                    {{else}}
+                        {{#eq this "integer"}}
+int{{endChar}}
+                        {{else}}
+                            {{#eq this "array"}}
+                                {{#if arrayOutputJsonPathPiece}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+                                {{else}}
+typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
+                                {{/if}}
+                            {{else}}
+                                {{#eq this "object"}}
+                                    {{#if mapOutputJsonPathPiece}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
+                                    {{else}}
+immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
+                                    {{/if}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{else}}
+schemas.OUTPUT_BASE_TYPES{{endChar}}
+{{/if}}

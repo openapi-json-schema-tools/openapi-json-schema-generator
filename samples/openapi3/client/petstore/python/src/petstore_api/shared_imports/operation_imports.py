@@ -5,6 +5,6 @@ import typing
 import typing_extensions
 import uuid
 
-import frozendict
+import immutabledict
 
 from petstore_api import schemas, api_response

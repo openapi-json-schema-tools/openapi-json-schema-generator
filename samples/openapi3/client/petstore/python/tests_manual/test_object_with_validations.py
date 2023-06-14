@@ -31,21 +31,21 @@ class TestObjectWithValidations(unittest.TestCase):
 
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
-            r"Invalid value `frozendict.frozendict\({}\)`, number of properties must be greater than or equal to `2` at \('args\[0\]',\)"
+            r"Invalid value `immutabledict\({}\)`, number of properties must be greater than or equal to `2` at \('args\[0\]',\)"
         ):
-            ObjectWithValidations({})
+            ObjectWithValidations.validate({})
 
 
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
-            r"Invalid value `frozendict.frozendict\({'a': 'a'}\)`, number of properties must be greater than or equal to `2` at \('args\[0\]',\)"
+            r"Invalid value `immutabledict\({'a': 'a'}\)`, number of properties must be greater than or equal to `2` at \('args\[0\]',\)"
         ):
             # number of properties less than 2 fails
-            model = ObjectWithValidations({'a': 'a'})
+            ObjectWithValidations.validate({'a': 'a'})
 
         # 2 or more properties succeeds
-        model = ObjectWithValidations({'a': 'a', 'b': 'b'})
-        model = ObjectWithValidations({'a': 'a', 'b': 'b', 'c': 'c'})
+        ObjectWithValidations.validate({'a': 'a', 'b': 'b'})
+        ObjectWithValidations.validate({'a': 'a', 'b': 'b', 'c': 'c'})
 
 
 if __name__ == '__main__':

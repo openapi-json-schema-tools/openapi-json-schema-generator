@@ -18,7 +18,7 @@ from petstore_api import schemas
 @dataclasses.dataclass
 class ApiResponse:
     response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.Schema] = schemas.unset
+    body: typing.Union[schemas.Unset, schemas.OUTPUT_BASE_TYPES] = schemas.unset
     headers: typing.Union[schemas.Unset, typing_extensions.TypedDict] = schemas.unset
 
 

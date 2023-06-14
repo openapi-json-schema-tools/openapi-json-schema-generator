@@ -6,22 +6,13 @@
 
 from petstore_api.shared_imports.response_imports import *
 
-from .content.application_json import schema as application_json_schema
+from . import content
 
 
 @dataclasses.dataclass
 class ApiResponseFor1XX(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]
+    body: schemas.OUTPUT_BASE_TYPES
     headers: schemas.Unset = schemas.unset
 
 
@@ -30,16 +21,7 @@ class ResponseFor1XX(api_client.OpenApiResponse[ApiResponseFor1XX]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]]
+        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

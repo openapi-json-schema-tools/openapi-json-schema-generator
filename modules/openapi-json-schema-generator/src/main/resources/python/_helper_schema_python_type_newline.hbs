@@ -4,7 +4,7 @@ tuple{{#unless @last}},{{/unless}}
 {{/eq}}
 {{#eq this "object"}}
 dict,
-frozendict.frozendict{{#unless @last}},{{/unless}}
+immutabledict.immutabledict{{#unless @last}},{{/unless}}
 {{/eq}}
 {{#eq this "null"}}
 None{{#unless @last}},{{/unless}}
@@ -38,13 +38,11 @@ str{{#unless @last}},{{/unless}}
     {{/eq}}
 {{/eq}}
 {{#eq this "integer"}}
-decimal.Decimal,
 int{{#unless @last}},{{/unless}}
 {{/eq}}
 {{#eq this "number"}}
-decimal.Decimal,
-int,
-float{{#unless @last}},{{/unless}}
+float,
+int{{#unless @last}},{{/unless}}
 {{/eq}}
 {{#eq this "boolean"}}
 bool{{#unless @last}},{{/unless}}

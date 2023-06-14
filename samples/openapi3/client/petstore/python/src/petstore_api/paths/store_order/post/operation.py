@@ -39,9 +39,8 @@ class BaseApi(api_client.Api):
     def _place_order(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.order.OrderDictInput,
+            request_body.content.application_json.schema.order.OrderDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -55,9 +54,8 @@ class BaseApi(api_client.Api):
     def _place_order(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.order.OrderDictInput,
+            request_body.content.application_json.schema.order.OrderDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -70,9 +68,8 @@ class BaseApi(api_client.Api):
     def _place_order(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.order.OrderDictInput,
+            request_body.content.application_json.schema.order.OrderDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

@@ -13,11 +13,10 @@
 import sys
 import unittest
 
-import frozendict
+import immutabledict
 
 import petstore_api
-from petstore_api.schemas import Singleton
-from petstore_api.components.schema.shape import Shape
+from petstore_api.components.schema import shape
 from petstore_api.components.schema import complex_quadrilateral
 from petstore_api.components.schema import simple_quadrilateral
 from petstore_api.components.schema import triangle
@@ -45,41 +44,36 @@ class TestShape(unittest.TestCase):
     def testShape(self):
         """Test Shape"""
 
-        tri = Shape({
+        tri = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "EquilateralTriangle"
         })
-        assert isinstance(tri, equilateral_triangle.EquilateralTriangle)
-        assert isinstance(tri, triangle.Triangle)
-        assert isinstance(tri, triangle_interface.TriangleInterface)
-        assert isinstance(tri, Shape)
-        assert isinstance(tri, frozendict.frozendict)
-        assert isinstance(tri.shapeType, str)
-        assert isinstance(tri.shapeType, Singleton)
+        assert isinstance(tri, immutabledict.immutabledict)
+        assert isinstance(tri['shapeType'], str)
 
-        tri = Shape({
+        tri = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        assert isinstance(tri, isosceles_triangle.IsoscelesTriangle)
+        assert isinstance(tri, immutabledict.immutabledict)
 
-        tri = Shape({
+        tri = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "ScaleneTriangle"
         })
-        assert isinstance(tri, scalene_triangle.ScaleneTriangle)
+        assert isinstance(tri, immutabledict.immutabledict)
 
-        quad = Shape({
+        quad = shape.Shape.validate({
             'shapeType': "Quadrilateral",
             'quadrilateralType': "ComplexQuadrilateral"
         })
-        assert isinstance(quad, complex_quadrilateral.ComplexQuadrilateral)
+        assert isinstance(quad, immutabledict.immutabledict)
 
-        quad = Shape({
+        quad = shape.Shape.validate({
             'shapeType': "Quadrilateral",
             'quadrilateralType': "SimpleQuadrilateral"
         })
-        assert isinstance(quad, simple_quadrilateral.SimpleQuadrilateral)
+        assert isinstance(quad, immutabledict.immutabledict)
 
         # data missing
         with self.assertRaisesRegex(
@@ -87,7 +81,7 @@ class TestShape(unittest.TestCase):
                 r"Cannot deserialize input data due to missing discriminator. The discriminator "
                 r"property 'shapeType' is missing at path: \('args\[0\]',\)"
         ):
-            Shape({})
+            shape.Shape.validate({})
 
         # invalid shape_type (first discriminator). 'Circle' does not exist in the model.
         err_msg = (
@@ -98,7 +92,7 @@ class TestShape(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Shape({'shapeType': "Circle"})
+            shape.Shape.validate({'shapeType': "Circle"})
 
         # invalid quadrilateral_type (second discriminator)
         err_msg = (
@@ -109,7 +103,7 @@ class TestShape(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Shape({
+            shape.Shape.validate({
                 'shapeType': "Quadrilateral",
                 'quadrilateralType': "Triangle"
             })

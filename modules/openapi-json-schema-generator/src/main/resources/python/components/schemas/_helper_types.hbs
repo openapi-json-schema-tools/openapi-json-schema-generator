@@ -2,10 +2,10 @@
 types: typing.FrozenSet[typing.Type] = frozenset({
 {{#each types}}
 {{#eq this "null"}}
-    schemas.NoneClass,
+    schemas.none_type_,
 {{/eq}}
 {{#eq this "object"}}
-    frozendict.frozendict,
+    immutabledict.immutabledict,
 {{/eq}}
 {{#eq this "array"}}
     tuple,
@@ -19,13 +19,14 @@ types: typing.FrozenSet[typing.Type] = frozenset({
     {{/eq}}
 {{/eq}}
 {{#eq this "integer"}}
-    decimal.Decimal,
+    int,
 {{/eq}}
 {{#eq this "number"}}
-    decimal.Decimal,
+    float,
+    int,
 {{/eq}}
 {{#eq this "boolean"}}
-    schemas.BoolClass,
+    bool,
 {{/eq}}
 {{/each}}
 })

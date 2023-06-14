@@ -12,15 +12,15 @@
 import unittest
 
 import petstore_api
-from petstore_api.components.schema.self_referencing_object_model import SelfReferencingObjectModel
+from petstore_api.components.schema import self_referencing_object_model
 
 
 class TestSelfReferencingObjectModel(unittest.TestCase):
     """SelfReferencingObjectModel unit test stubs"""
     def test_instantiation(self):
-        inst = SelfReferencingObjectModel({
-            'selfRef': SelfReferencingObjectModel({}),
-            'someAddProp': SelfReferencingObjectModel({})
+        inst = self_referencing_object_model.SelfReferencingObjectModel.validate({
+            'selfRef': self_referencing_object_model.SelfReferencingObjectModel.validate({}),
+            'someAddProp': self_referencing_object_model.SelfReferencingObjectModel.validate({})
         })
         assert inst == {
             'selfRef': {},
@@ -38,7 +38,7 @@ class TestSelfReferencingObjectModel(unittest.TestCase):
         # error when wrong type passed in
         with self.assertRaises(petstore_api.ApiTypeError):
             for invalid_type_kwarg in invalid_type_kwargs:
-                SelfReferencingObjectModel(invalid_type_kwarg)
+                self_referencing_object_model.SelfReferencingObjectModel.validate(invalid_type_kwarg)
 
 
 

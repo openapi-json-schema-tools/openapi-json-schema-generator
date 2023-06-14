@@ -4,7 +4,7 @@ petstore_api.components.schema.parent_pet
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

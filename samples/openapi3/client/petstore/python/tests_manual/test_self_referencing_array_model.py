@@ -18,8 +18,8 @@ from petstore_api.components.schema.self_referencing_array_model import SelfRefe
 class TestSelfReferencingArrayModel(unittest.TestCase):
     """SelfReferencingArrayModel unit test stubs"""
     def test_instantiation(self):
-        inst = SelfReferencingArrayModel([
-            SelfReferencingArrayModel([])
+        inst = SelfReferencingArrayModel.validate([
+            SelfReferencingArrayModel.validate([])
         ])
         assert inst == (
             (),
@@ -37,7 +37,7 @@ class TestSelfReferencingArrayModel(unittest.TestCase):
         # error when wrong type passed in
         with self.assertRaises(petstore_api.ApiTypeError):
             for invalid_type_arg in invalid_type_args:
-                SelfReferencingArrayModel(invalid_type_arg)
+                SelfReferencingArrayModel.validate(invalid_type_arg)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,18 +1,15 @@
 {{#if additionalProperties}}
     {{#if additionalProperties.isBooleanSchemaFalse}}
+        {{! TypedDict use case }}
 {{optionalProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
     '{{optionalProperties.jsonPathPiece.camelCase}}',
     {
         {{#each optionalProperties}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-        "{{{@key.original}}}": typing.Union[
-            {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-        ],
+        {{> components/schemas/_helper_new_ref_property_value_type prefix=@key.original fullRefModule="" }}
                 {{else}}
-        "{{{@key.original}}}": typing.Union[
-            {{> components/schemas/_helper_new_property_value_type optional=false }}
-        ],
+        {{> components/schemas/_helper_new_property_value_type prefix=@key.original }}
                 {{/if}}
             {{/with}}
         {{/each}}
@@ -20,6 +17,12 @@
     total=False
 )
     {{else}}
+        {{! additionalProperties True/schema }}
+        {{#if additionalProperties.isBooleanSchemaTrue }}
+            {{! addProps True, does not matter what properties are because they are always covered by base types }}
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+        {{else}}
+            {{! addProps schema }}
 {{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[
     str,
     typing.Union[
@@ -33,17 +36,9 @@
         {{/with}}
     ]
 ]
+        {{/if}}
     {{/if}}
 {{else}}
-{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[
-    str,
-    typing.Union[
-        {{#each optionalProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
-        {{/each}}
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
+    {{! addProps unset, does not matter what required props are }}
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 {{/if}}

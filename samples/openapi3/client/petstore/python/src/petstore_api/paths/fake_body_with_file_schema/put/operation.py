@@ -29,9 +29,8 @@ class BaseApi(api_client.Api):
     def _body_with_file_schema(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDictInput,
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -44,9 +43,8 @@ class BaseApi(api_client.Api):
     def _body_with_file_schema(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDictInput,
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -58,9 +56,8 @@ class BaseApi(api_client.Api):
     def _body_with_file_schema(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDictInput,
+            request_body.content.application_json.schema.file_schema_test_class.FileSchemaTestClassDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,

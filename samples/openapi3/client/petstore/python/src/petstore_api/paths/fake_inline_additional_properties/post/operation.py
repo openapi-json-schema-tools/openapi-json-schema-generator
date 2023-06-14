@@ -29,9 +29,8 @@ class BaseApi(api_client.Api):
     def _inline_additional_properties(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.SchemaDictInput,
+            request_body.content.application_json.schema.SchemaDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -44,9 +43,8 @@ class BaseApi(api_client.Api):
     def _inline_additional_properties(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.SchemaDictInput,
+            request_body.content.application_json.schema.SchemaDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -58,9 +56,8 @@ class BaseApi(api_client.Api):
     def _inline_additional_properties(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.SchemaDictInput,
+            request_body.content.application_json.schema.SchemaDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,

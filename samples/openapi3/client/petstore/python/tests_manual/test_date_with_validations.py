@@ -13,6 +13,7 @@
 import unittest
 
 import petstore_api
+from petstore_api import schemas
 from petstore_api.components.schema.date_with_validations import DateWithValidations
 from datetime import date, datetime
 
@@ -33,36 +34,36 @@ class TestDateWithValidations(unittest.TestCase):
         valid_values = [date(2020, 1, 1), '2020-01-01']
         expected_date = '2020-01-01'
         for valid_value in valid_values:
-            inst = DateWithValidations(valid_value)
+            inst = DateWithValidations.validate(valid_value)
             assert inst == expected_date
 
         # various formats work
         valid_values = ["2020-01-01", "2020-01", "2020"]
         expected_date = date(2020, 1, 1)
         for valid_value in valid_values:
-            inst = DateWithValidations(valid_value)
-            assert inst.as_date_ == expected_date
+            inst = DateWithValidations.validate(valid_value)
+            assert schemas.as_date_(inst) == expected_date
 
         # value error is raised if an invalid string is passed in
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
             r"Value does not conform to the required ISO-8601 date format. Invalid value '2020-01-01T00:00:00Z' for type date at \('args\[0\]',\)"
         ):
-            DateWithValidations("2020-01-01T00:00:00Z")
+            DateWithValidations.validate("2020-01-01T00:00:00Z")
 
         # value error is raised if a datetime is passed in
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
             r"Value does not conform to the required ISO-8601 date format. Invalid value '2020-01-01T00:00:00' for type date at \('args\[0\]',\)"
         ):
-            DateWithValidations(datetime(2020, 1, 1))
+            DateWithValidations.validate(datetime(2020, 1, 1))
 
         # value error is raised if an invalid string is passed in
         with self.assertRaisesRegex(
                 petstore_api.ApiValueError,
                 r"Value does not conform to the required ISO-8601 date format. Invalid value 'abcd' for type date at \('args\[0\]',\)"
         ):
-            DateWithValidations("abcd")
+            DateWithValidations.validate("abcd")
 
         # pattern checking for str input
         error_regex = r"Invalid value `2019-01-01`, must match regular expression `.+?` at \('args\[0\]',\)"
@@ -70,13 +71,13 @@ class TestDateWithValidations(unittest.TestCase):
             petstore_api.ApiValueError,
             error_regex
         ):
-            DateWithValidations("2019-01-01")
+            DateWithValidations.validate("2019-01-01")
         # pattern checking for date input
         with self.assertRaisesRegex(
             petstore_api.ApiValueError,
             error_regex
         ):
-            DateWithValidations(date(2019, 1, 1))
+            DateWithValidations.validate(date(2019, 1, 1))
 
 
 if __name__ == '__main__':

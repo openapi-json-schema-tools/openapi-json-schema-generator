@@ -1,0 +1,26 @@
+body: typing.Union[
+{{#each content}}
+    {{#with schema}}
+        {{#eq fullRefModule null}}
+            {{#if refInfo.refClass}}
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join "request_body" "content" ../@key.snakeCase "schema" ".") endChar="," }}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule=(join "request_body" "content" ../@key.snakeCase "schema" ".") endChar="," }}
+            {{else}}
+    {{> components/schemas/_helper_schema_input_type fullRefModule=(join "request_body" "content" ../@key.snakeCase "schema" ".") endChar="," }}
+    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=(join "request_body" "content" ../@key.snakeCase "schema" ".") endChar="," }}
+            {{/if}}
+        {{else}}
+            {{#if refInfo.refClass}}
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join "request_body" fullRefModule "content" ../@key.snakeCase "schema" ".") endChar="," }}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule=(join "request_body" fullRefModule "content" ../@key.snakeCase "schema" ".") endChar="," }}
+            {{else}}
+    {{> components/schemas/_helper_schema_input_type fullRefModule=(join "request_body" fullRefModule "content" ../@key.snakeCase "schema" ".") endChar="," }}
+    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=(join "request_body" fullRefModule "content" ../@key.snakeCase "schema" ".") endChar="," }}
+            {{/if}}
+        {{/eq}}
+    {{/with}}
+{{/each}}
+{{#unless required}}
+    schemas.Unset
+{{/unless}}
+]{{#unless required}} = schemas.unset{{/unless}},

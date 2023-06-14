@@ -1,0 +1,28 @@
+{{#if types}}
+    {{#each types}}
+        {{! only ones that have different types than output}}
+        {{#eq this "string"}}
+            {{#eq format "binary"}}
+typing.Union[io.FileIO, io.BufferedReader]{{endChar}}
+            {{/eq}}
+        {{else}}
+            {{#eq this "array"}}
+                {{#if arrayInputJsonPathPiece}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayInputJsonPathPiece.camelCase}}{{endChar}}
+                {{else}}
+typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA]{{endChar}}
+                {{/if}}
+            {{else}}
+                {{#eq this "object"}}
+                    {{#if mapInputJsonPathPiece}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}}{{endChar}}
+                    {{else}}
+typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]{{endChar}}
+                    {{/if}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{else}}
+schemas.INPUT_TYPES_ALL_INCL_SCHEMA{{endChar}}
+{{/if}}

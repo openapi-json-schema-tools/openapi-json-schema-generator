@@ -12,5 +12,5 @@ from . import schema
 class Parameter1(api_client.QueryParameter):
     name = "compositionInProperty"
     style = api_client.ParameterStyle.FORM
-    schema: typing_extensions.TypeAlias = schema.Schema[frozendict.frozendict]
+    schema: typing_extensions.TypeAlias = schema.Schema
     explode = True

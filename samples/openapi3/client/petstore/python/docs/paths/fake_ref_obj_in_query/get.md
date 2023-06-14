@@ -37,7 +37,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [Parameter0.schema](#parameter0-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
+mapBean | [Parameter0.schema](#parameter0-schema), dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
 
 
 #### Parameter0
@@ -50,7 +50,7 @@ mapBean
 ###### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Foo](../../components/schema/foo.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Foo](../../components/schema/foo.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
 
 ## Return Types
 

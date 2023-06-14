@@ -32,13 +32,13 @@ public class CodegenOperation {
     public final CodegenRequestBody requestBody;
     public final List<CodegenParameter> allParams;
     public final List<CodegenParameter> pathParams;
-    public final boolean hasRequiredPathParams;
+    public final CodegenSchema pathParameters;
     public final List<CodegenParameter> queryParams;
-    public final boolean hasRequiredQueryParams;
+    public final CodegenSchema queryParameters;
     public final List<CodegenParameter> headerParams;
-    public final boolean hasRequiredHeaderParams;
+    public final CodegenSchema headerParameters;
     public final List<CodegenParameter> cookieParams;
-    public final boolean hasRequiredCookieParams;
+    public final CodegenSchema cookieParameters;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
     public final List<HashMap<String, CodegenSecurityRequirementValue>> security;
@@ -54,7 +54,7 @@ public class CodegenOperation {
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, List<CodegenParameter> queryParams, List<CodegenParameter> headerParams, List<CodegenParameter> cookieParams, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
+    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
         this.deprecated = deprecated;
         this.hasErrorResponseObject = hasErrorResponseObject;
         this.summary = summary;
@@ -65,57 +65,13 @@ public class CodegenOperation {
         this.requestBody = requestBody;
         this.allParams = allParams;
         this.pathParams = pathParams;
-        if (pathParams == null) {
-            this.hasRequiredPathParams = false;
-        } else {
-            boolean val = false;
-            for (CodegenParameter p: pathParams) {
-                if (Boolean.TRUE.equals(p.required)) {
-                    val = true;
-                    break;
-                }
-            }
-            this.hasRequiredPathParams = val;
-        }
+        this.pathParameters = pathParameters;
         this.queryParams = queryParams;
-        if (queryParams == null) {
-            this.hasRequiredQueryParams = false;
-        } else {
-            boolean val = false;
-            for (CodegenParameter p: queryParams) {
-                if (Boolean.TRUE.equals(p.required)) {
-                    val = true;
-                    break;
-                }
-            }
-            this.hasRequiredQueryParams = val;
-        }
+        this.queryParameters = queryParameters;
         this.headerParams = headerParams;
-        if (headerParams == null) {
-            this.hasRequiredHeaderParams = false;
-        } else {
-            boolean val = false;
-            for (CodegenParameter p: headerParams) {
-                if (Boolean.TRUE.equals(p.required)) {
-                    val = true;
-                    break;
-                }
-            }
-            this.hasRequiredHeaderParams = val;
-        }
+        this.headerParameters = headerParameters;
         this.cookieParams = cookieParams;
-        if (cookieParams == null) {
-            this.hasRequiredCookieParams = false;
-        } else {
-            boolean val = false;
-            for (CodegenParameter p: cookieParams) {
-                if (Boolean.TRUE.equals(p.required)) {
-                    val = true;
-                    break;
-                }
-            }
-            this.hasRequiredCookieParams = val;
-        }
+        this.cookieParameters = cookieParameters;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
         this.security = security;

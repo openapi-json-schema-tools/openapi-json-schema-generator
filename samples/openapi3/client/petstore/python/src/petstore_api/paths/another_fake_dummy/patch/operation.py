@@ -33,9 +33,8 @@ class BaseApi(api_client.Api):
     def _call_123_test__special_tags(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
+            request_body.request_body_client.content.application_json.schema.client.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -49,9 +48,8 @@ class BaseApi(api_client.Api):
     def _call_123_test__special_tags(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
+            request_body.request_body_client.content.application_json.schema.client.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -64,9 +62,8 @@ class BaseApi(api_client.Api):
     def _call_123_test__special_tags(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            dict,
-            frozendict.frozendict
+            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
+            request_body.request_body_client.content.application_json.schema.client.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

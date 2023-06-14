@@ -6,18 +6,17 @@
 
 from petstore_api.shared_imports.header_imports import *
 
-from .content.application_json import schema as application_json_schema
-from .content.application_xml import schema as application_xml_schema
+from . import content
 
 class Pet(api_client.RequestBody):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = content.application_xml.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

@@ -26,7 +26,7 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, immutabledict.immutabledict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -64,7 +64,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Client](../../components/schema/client.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Client](../../components/schema/client.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
 
 ## Servers
 

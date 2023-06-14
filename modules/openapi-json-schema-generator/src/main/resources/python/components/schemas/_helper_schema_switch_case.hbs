@@ -1,45 +1,46 @@
-{{#or allOf anyOf oneOf not}}
-    {{#if isBooleanSchemaFalse}}
+{{#if isBooleanSchemaFalse}}
 {{> components/schemas/_helper_var_equals_cls }}
-    {{else}}
-{{> components/schemas/_helper_schema_composed_or_anytype }}
-    {{/if}}
 {{else}}
-    {{#if hasMultipleTypes}}
+    {{#or allOf anyOf oneOf not}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
-            {{#or enumValueToName properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping items format}}
+            {{#or enumValueToName hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
             {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
             {{/or}}
         {{else}}
-            {{#each types}}
-                {{#eq this "object"}}
-                    {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
+            {{! types exist }}
+            {{#eq types.size 1}}
+                {{! one type }}
+                {{#each types}}
+                    {{#eq this "object"}}
+                        {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
 {{> components/schemas/_helper_schema_dict }}
-                    {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
-                    {{/or}}
-                {{/eq}}
-                {{#eq this "array"}}
-                    {{#or items hasValidation}}
-{{> components/schemas/_helper_schema_list }}
-                    {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
-                    {{/or}}
-                {{/eq}}
-                {{#neq this "object"}}
-                    {{#neq this "array"}}
-                        {{#or enumValueToName hasValidation defaultValue}}
-{{> components/schemas/_helper_schema_simple }}
                         {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
                         {{/or}}
-                    {{/neq}}
-                {{/neq}}
-            {{/each}}
+                    {{else}}
+                        {{#eq this "array"}}
+                            {{#or items hasValidation}}
+{{> components/schemas/_helper_schema_list }}
+                            {{else}}
+{{> components/schemas/_helper_var_equals_cls }}
+                            {{/or}}
+                        {{else}}
+                            {{#or enumValueToName hasValidation defaultValue}}
+{{> components/schemas/_helper_schema_simple }}
+                            {{else}}
+{{> components/schemas/_helper_var_equals_cls }}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! multiple types }}
+{{> components/schemas/_helper_schema_composed_or_anytype }}
+            {{/eq}}
         {{/eq}}
-    {{/if}}
-{{/or}}
+    {{/or}}
+{{/if}}

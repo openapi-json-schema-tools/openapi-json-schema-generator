@@ -11,31 +11,23 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+from petstore_api.components.schema import foo
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "string": typing.Type[foo.Foo],
+    }
+)
 
-class Schema(
-    schemas.DictSchema[schemas.T]
-):
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+class SchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> foo.Foo[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["string"]) -> foo.FooDict:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -46,37 +38,32 @@ class Schema(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    def __new__(
+
+@dataclasses.dataclass(frozen=True)
+class Schema(
+    schemas.DictSchema[SchemaDict]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: SchemaDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            Schema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import foo
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "string": typing.Type[foo.Foo],
-    }
-)
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            foo.Foo[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]

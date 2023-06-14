@@ -95,12 +95,10 @@ Content-Type | Schema
 ### Headers
 Key | Accessed Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-ref-schema-header | [RefSchemaHeader.schema](../../../components/headers/header_ref_schema_header.md#schema) | | 
 X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#responsefor200-headers-xratelimit-content-applicationjson-schema) | | 
 int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
 X-Expires-After | [headers.header_x_expires_after.schema](#responsefor200-headers-xexpiresafter-schema) | | optional
 ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
-stringHeader | [RefStringHeader.schema](../../../components/headers/header_ref_string_header.md#schema) | | 
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
 ### Body Details
@@ -133,7 +131,7 @@ Content-Type | Schema
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 32 bit integer
+int | int |  | value must be a 32 bit integer
 #### ResponseFor200 headers XExpiresAfter
 
 ##### Description

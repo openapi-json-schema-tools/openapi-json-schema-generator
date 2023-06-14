@@ -257,7 +257,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
                         "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
                         "False", "async", "await",
                         // types
-                        "float", "int", "str", "bool", "dict", "frozendict", "list", "tuple"));
+                        "float", "int", "str", "bool", "dict", "immutabledict", "list", "tuple"));
 
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
@@ -310,13 +310,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         GlobalSettings.setProperty("x-disallow-additional-properties-if-not-present", "false");
 
         // this tells users what openapi types turn in to
-        instantiationTypes.put("object", "frozendict.frozendict");
+        instantiationTypes.put("object", "immutabledict.immutabledict");
         instantiationTypes.put("array", "tuple");
         instantiationTypes.put("string", "str");
-        instantiationTypes.put("number", "decimal.Decimal");
-        instantiationTypes.put("integer", "decimal.Decimal");
-        instantiationTypes.put("boolean", "schemas.BoolClass");
-        instantiationTypes.put("null", "schemas.NoneClass");
+        instantiationTypes.put("number", "typing.Union[float, int]");
+        instantiationTypes.put("integer", "int");
+        instantiationTypes.put("boolean", "bool");
+        instantiationTypes.put("null", "None");
 
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
@@ -592,13 +592,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
                 new HashMap<String, String>() {{
-                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                    put("__init__content.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
                 new HashMap<String, String>() {{
-                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                    put("__init__content_type.hbs", File.separatorChar + "__init__.py");
                 }}
         );
 
@@ -722,7 +722,11 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("api_client.hbs", packagePath(), "api_client.py"));
         supportingFiles.add(new SupportingFile("api_response.hbs", packagePath(), "api_response.py"));
         supportingFiles.add(new SupportingFile("rest.hbs", packagePath(), "rest.py"));
-        supportingFiles.add(new SupportingFile("schemas.hbs", packagePath(), "schemas.py"));
+        supportingFiles.add(new SupportingFile("schemas/__init__.hbs", packagePath() + File.separator + "schemas", "__init__.py"));
+        supportingFiles.add(new SupportingFile("schemas/validation.hbs", packagePath() + File.separator + "schemas", "validation.py"));
+        supportingFiles.add(new SupportingFile("schemas/schema.hbs", packagePath() + File.separator + "schemas", "schema.py"));
+        supportingFiles.add(new SupportingFile("schemas/schemas.hbs", packagePath() + File.separator + "schemas", "schemas.py"));
+        supportingFiles.add(new SupportingFile("schemas/format.hbs", packagePath() + File.separator + "schemas", "format.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
         supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 
@@ -1859,15 +1863,6 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
     }
 
     @Override
-    protected String getImport(String className, CodegenSchema schema) {
-        if (className == null) {
-            return "from " + packageName() + ".components.schema import " + schema.refInfo.refModule;
-        }
-        String[] classPieces = className.split("\\.");
-        return "from " + packageName() + ".components.schema import " + classPieces[0];
-    }
-
-    @Override
     protected String getRefClassWithModule(String ref, String sourceJsonPath) {
         String refModule = toRefModule(ref, sourceJsonPath, "schemas");
         String refClass = toRefClass(ref, sourceJsonPath, "schemas");
@@ -1961,13 +1956,78 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
             // internal in-schema reference, no import needed
             // TODO handle this in the future
-            return null;
+            if (getFilepath(sourceJsonPath).equals(getFilepath(ref))) {
+                // TODO ensure that getFilepath returns the same file for somePath/get/QueryParameters
+                // TODO ensure that getFilepath returns the same file for schemas/SomeSchema...
+                return null;
+            }
         }
         // reference is external, import needed
         // module info is stored in refModule
         if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
             String schemaName = refPieces[3];
             return toModelName(schemaName, ref);
+        }
+        if (ref.startsWith("#/components/parameters/")) {
+            if (refPieces.length == 5) {
+                // #/components/parameters/PathUserName/schema
+                String schemaName = refPieces[4];
+                return toModelName(schemaName, ref);
+            }
+            if (refPieces.length == 7) {
+                // #/components/parameters/PathUserName/content/mediaType/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref);
+            }
+        }
+        if (ref.startsWith("#/components/headers/")) {
+            if (refPieces.length == 5) {
+                // #/components/headers/Int32JsonContentTypeHeader/schema
+                String schemaName = refPieces[4];
+                return toModelName(schemaName, ref);
+            }
+            if (refPieces.length == 7) {
+                // #/components/headers/Int32JsonContentTypeHeader/content/application~1json/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref);
+            }
+        }
+        if (ref.startsWith("#/components/responses/")) {
+            if (refPieces.length == 7) {
+                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref);
+            }
+            if (refPieces.length == 9) {
+                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/content/application~1json/schema
+                String schemaName = refPieces[8];
+                return toModelName(schemaName, ref);
+            }
+        }
+        if (ref.startsWith("#/paths/")) {
+            if (refPieces.length == 7) {
+                // #/paths/~1pet~1{petId}/get/parameters/0/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref);
+            } else if (refPieces.length == 8) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
+                String schemaName = refPieces[7];
+                return toModelName(schemaName, ref);
+            } else if (refPieces.length == 9) {
+                // #/paths/~1pet~1{petId}/get/parameters/0/content/mediaType/schema
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
+                String schemaName = refPieces[8];
+                return toModelName(schemaName, ref);
+            } else if (refPieces.length == 10) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
+                String schemaName = refPieces[9];
+                return toModelName(schemaName, ref);
+            } else if (refPieces.length == 11) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
+                String schemaName = refPieces[10];
+                return toModelName(schemaName, ref);
+            }
+
         }
         return null;
     }

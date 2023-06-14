@@ -54,33 +54,17 @@ which subclasses all validated schema classes. This ensure that
 - one can use isinstance to check if a instance or property is valid to a schema class
   - this means that expensive validation does not need to be run twice
 
-<details>
-    <summary>Reason</summary>
-
-To do that, some changes had to be made. Python bool and NoneType cannot be subclassed,
-so to be able to meet the above design goals, I implemented BoolClass and NoneClass classes
-to allow schemas to subclass them.
-
-In python 0 == False and 1 == True. This is a problem for json schema which is language independent.
-The [json schema test suite](https://github.com/json-schema-org/JSON-Schema-Test-Suite) has
-[explicit tests that require that 0 != False and 1 != True](https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/type.json#L260-L267)
-Using the above described BoolClass and NoneClasses allows those tests to pass.
-- Another example of a package using it's own boolean class is [numpy's bool_](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.bool_)
-</details>
-
-If you need to check is True/False/None, instead use instance.is_true_()/.is_false_()/.is_none_()
-
 Here is the mapping from json schema types to python subclassed types:
 | Json Schema Type | Python Base Class |
 | ---------------- | ----------------- |
-| object           | frozendict.frozendict |
+| object           | immutabledict.immutabledict |
 | array            | tuple |
 | string           | str |
-| number           | decimal.Decimal |
-| integer          | decimal.Decimal |
-| boolean          | BoolClass |
-| null             | NoneClass |
-| AnyType (unset)  | typing.Union[frozendict.frozendict, tuple, str, decimal.Decimal, BoolClass, NoneClass] |
+| number           | float, int |
+| integer          | int |
+| boolean          | bool |
+| null             | None |
+| AnyType (unset)  | typing.Union[immutabledict.immutabledict, tuple, str, float, int, bool, None] |
 
 ### Storage of Json Schema Definition in Python Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if
@@ -88,30 +72,15 @@ type is unset. This data could be stored as
 1. class properties
 2. in a container in the class like in a dict or in a nested class
 
-This data is stored in a nested class named Schema_.
-Storing this data as a nested class ensures that the data is encapsulated, does not collide with
-class properties, and allows for deeper complex inline definitions.
+This data is stored in each class that is written for a schema, in a component or
+other openapi document location. This class is only responsible for storing schema info.
+Output classes like those that store dict payloads are written separately and are
+returned by the Schema.validate method when that method is passed in dict input.
 
 <details>
   <summary>Reason</summary>
 
-If the data were stored at the class property level, then the keywords could collide with
-type object property names. To avoid that, one could make the properties semi or fully private with
-a single or double underscore prefix, but that it a lot of data to put there.
-Better to separate out json schema data from type object properties at the class property level.
-
-If the data were stored in a container that would segregate the different data which is good.
-But json schemas can be inlined to any depth. Those complex deeper schemas would need to be included.
-One could define them higher in the class file and then refer to them in the dict. That would required
-iterating over schemas and adding all of the inner into a collection, and then generate that collection.
-
-The schema definitions are already nested from the json schema definition. The easiest solution is
-to use a nested json schema definition class which holds that data. That way:
-- the data is separated from class properties
-- deeper complicated schemas can still be stored
-
-So a nested class was chosen to store json schema data, this class is named Schema_.
-- The [django project uses this same pattern to store model class metadata in a Meta class](https://docs.djangoproject.com/en/4.1/topics/db/models/#meta-options)
+TODO add reason here
 </details>
 
 ### Json Schema Type Object
@@ -124,7 +93,7 @@ invalid python variable names. Names like:
 - " "
 - "from"
 
-To allow these use cases to work, frozendict.frozendict is used as the base class of type object schemas.
+To allow these use cases to work, immutabledict.immutabledict is used as the base class of type object schemas.
 This means that one can use normal dict methods on instances of these classes.
 
 <details>
@@ -145,9 +114,8 @@ a json schema format constraint exists in the schema.
 See te below accessors for string data:
 - type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
 
-In json schema, type: number with no format validates both integers and floats, so decimal.Decimal is used to store them.
-See te below accessors for number data:
-- type number + format: See .as_float_, .as_int_
+In json schema, type: number with no format validates both integers and floats,
+so int and float values are stored for type number.
 
 <details>
   <summary>String + Date Example</summary>
@@ -363,6 +331,7 @@ Class | Description
 [ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.md) | model with properties that have invalid names for python
 [ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.md) |
 [ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties.md) |
+[ObjectWithOnlyOptionalProps](docs/components/schema/object_with_only_optional_props.md) |
 [ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.md) |
 [ObjectWithValidations](docs/components/schema/object_with_validations.md) |
 [Order](docs/components/schema/order.md) |

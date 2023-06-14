@@ -10,167 +10,197 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
+class ArrayOfStringTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> str:
+        return super().__getitem__(name)
+ArrayOfStringTupleInput = typing.Sequence[
+    str,
+]
+
+
+@dataclasses.dataclass(frozen=True)
 class ArrayOfString(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ArrayOfStringTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayOfStringTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items[str],
-                str
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayOfString[tuple]:
-        return super().__new__(
-            cls,
+        arg: ArrayOfStringTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayOfStringTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
+Items3: typing_extensions.TypeAlias = schemas.Int64Schema
 
-    def __getitem__(self, name: int) -> Items[str]:
+
+class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> int:
         return super().__getitem__(name)
+ItemsTupleInput = typing.Sequence[
+    int,
+]
 
-Items3: typing_extensions.TypeAlias = schemas.Int64Schema[U]
 
-
+@dataclasses.dataclass(frozen=True)
 class Items2(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ItemsTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ItemsTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items3[decimal.Decimal],
-                decimal.Decimal,
-                int
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items2[tuple]:
-        return super().__new__(
-            cls,
+        arg: ItemsTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ItemsTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-    def __getitem__(self, name: int) -> Items3[decimal.Decimal]:
+
+class ArrayArrayOfIntegerTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> ItemsTuple:
         return super().__getitem__(name)
+ArrayArrayOfIntegerTupleInput = typing.Sequence[
+    typing.Union[
+        ItemsTuple,
+        list,
+        tuple
+    ],
+]
 
 
-
+@dataclasses.dataclass(frozen=True)
 class ArrayArrayOfInteger(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ArrayArrayOfIntegerTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayArrayOfIntegerTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items2[tuple],
-                list,
-                tuple
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayArrayOfInteger[tuple]:
-        return super().__new__(
-            cls,
+        arg: ArrayArrayOfIntegerTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayArrayOfIntegerTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-    def __getitem__(self, name: int) -> Items2[tuple]:
+from petstore_api.components.schema import read_only_first
+
+
+class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirstDict:
         return super().__getitem__(name)
+ItemsTupleInput2 = typing.Sequence[
+    typing.Union[
+        read_only_first.ReadOnlyFirstDict,
+        dict,
+        immutabledict.immutabledict
+    ],
+]
 
 
-
+@dataclasses.dataclass(frozen=True)
 class Items4(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ItemsTuple2]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[read_only_first.ReadOnlyFirst] = dataclasses.field(default_factory=lambda: read_only_first.ReadOnlyFirst) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ItemsTuple2
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[read_only_first.ReadOnlyFirst] = dataclasses.field(default_factory=lambda: read_only_first.ReadOnlyFirst) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                read_only_first.ReadOnlyFirst[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items4[tuple]:
-        return super().__new__(
-            cls,
+        arg: ItemsTupleInput2,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ItemsTuple2:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-    def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirst[frozendict.frozendict]:
+
+class ArrayArrayOfModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> ItemsTuple2:
         return super().__getitem__(name)
+ArrayArrayOfModelTupleInput = typing.Sequence[
+    typing.Union[
+        ItemsTuple2,
+        list,
+        tuple
+    ],
+]
 
 
-
+@dataclasses.dataclass(frozen=True)
 class ArrayArrayOfModel(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ArrayArrayOfModelTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayArrayOfModelTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items4[tuple],
-                list,
-                tuple
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayArrayOfModel[tuple]:
-        return super().__new__(
-            cls,
+        arg: ArrayArrayOfModelTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayArrayOfModelTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
-
-    def __getitem__(self, name: int) -> Items4[tuple]:
-        return super().__getitem__(name)
-
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -179,64 +209,24 @@ Properties = typing_extensions.TypedDict(
         "array_array_of_model": typing.Type[ArrayArrayOfModel],
     }
 )
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            ArrayOfString[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            ArrayArrayOfInteger[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            ArrayArrayOfModel[tuple],
-            list,
-            tuple
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class ArrayTest(
-    schemas.DictSchema[schemas.T]
-):
-    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
-    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
-
-    Do not edit the class manually.
-    """
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+class ArrayTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfString[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfStringTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfInteger[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfIntegerTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModel[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModelTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -249,20 +239,37 @@ class ArrayTest(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+ArrayTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    def __new__(
+
+@dataclasses.dataclass(frozen=True)
+class ArrayTest(
+    schemas.DictSchema[ArrayTestDict]
+):
+    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
+    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
+
+    Do not edit the class manually.
+    """
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: ArrayTestDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            ArrayTest[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayTest[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: ArrayTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayTestDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import read_only_first

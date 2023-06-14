@@ -33,10 +33,9 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -50,10 +49,9 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -66,10 +64,9 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

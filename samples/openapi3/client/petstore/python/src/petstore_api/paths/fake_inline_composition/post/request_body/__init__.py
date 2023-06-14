@@ -6,27 +6,17 @@
 
 from petstore_api.shared_imports.header_imports import *
 
-from .content.application_json import schema as application_json_schema
-from .content.multipart_form_data import schema as multipart_form_data_schema
+from . import content
 
 class RequestBody(api_client.RequestBody):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]]
+        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
 
 
     class MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = content.multipart_form_data.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

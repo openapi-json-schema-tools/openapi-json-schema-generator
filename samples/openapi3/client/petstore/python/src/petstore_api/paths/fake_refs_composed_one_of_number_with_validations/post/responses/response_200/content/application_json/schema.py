@@ -10,4 +10,4 @@
 
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import composed_one_of_different_types
-Schema: typing_extensions.TypeAlias = composed_one_of_different_types.ComposedOneOfDifferentTypes[U]
+Schema: typing_extensions.TypeAlias = composed_one_of_different_types.ComposedOneOfDifferentTypes

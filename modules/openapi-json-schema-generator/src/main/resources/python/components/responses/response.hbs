@@ -10,14 +10,14 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
+    {{#if headersObjectSchema}}
+from __future__ import annotations
+from {{packageName}}.shared_imports.schema_imports import *
+    {{/if}}
 from {{packageName}}.shared_imports.response_imports import *
-    {{#if content}}
+    {{#if hasContentSchema}}
 
-    {{#each content}}
-        {{#with this.schema}}
-from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
-        {{/with}}
-    {{/each}}
+from . import content
     {{/if}}
     {{#if headers}}
         {{#unless content}}
@@ -26,8 +26,16 @@ from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@
         {{#each headers}}
 from .headers import {{jsonPathPiece.snakeCase}}
         {{/each}}
-{{> components/responses/_helper_header_schema_and_def xParams=headers xParamsName="Header" }}
+parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
+{{#each headers}}
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
+}
     {{/if}}
+{{#with headersObjectSchema}}
+
+{{> components/schemas/_helper_getschemas }}
+{{/with}}
 
 
 @dataclasses.dataclass
@@ -40,7 +48,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
+        {{> components/_helper_content_schema_output_type paramName=null modulePrefix=../@key.snakeCase }}
                         {{/with}}
                     {{else}}
         schemas.Unset,
@@ -51,7 +59,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
                         {{/with}}
                     {{else}}
     body: schemas.Unset
@@ -61,11 +69,11 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
         {{else}}
     body: schemas.Unset = schemas.unset
         {{/if}}
-    headers: Header.Params
+    headers: {{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
     {{else}}
         {{#or headers content}}
             {{#if headers}}
-    headers: Header.Params
+    headers: {{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
     body: schemas.Unset = schemas.unset
             {{else}}
                 {{#if hasContentSchema}}
@@ -74,7 +82,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-        {{> components/_helper_content_schema_type paramName=null modulePrefix=../@key.snakeCase }}
+        {{> components/_helper_content_schema_output_type paramName=null modulePrefix=../@key.snakeCase }}
                                 {{/with}}
                             {{else}}
         schemas.Unset,
@@ -85,7 +93,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-    {{> components/_helper_content_schema_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
                                 {{/with}}
                             {{else}}
     body: schemas.Unset
@@ -115,7 +123,7 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
     class {{@key.camelCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
-        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
+        {{> components/_helper_content_schema_type paramName="schema" contentTypeModule=../@key.snakeCase }}
             {{else}}
         pass
             {{/with}}
@@ -137,7 +145,8 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
     }
     {{/if}}
     {{#if headers}}
-    headers=Header.parameters
+    headers=parameters
+    headers_schema = {{headersObjectSchema.jsonPathPiece.camelCase}}
     {{/if}}
 {{/if}}
 {{/with}}

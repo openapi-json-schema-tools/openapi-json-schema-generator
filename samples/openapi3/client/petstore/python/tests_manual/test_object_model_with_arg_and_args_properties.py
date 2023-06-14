@@ -22,27 +22,15 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
 
     def test_ObjectModelWithArgAndArgsProperties(self):
         """Test ObjectModelWithArgAndArgsProperties"""
-        model = object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties({
+        model = object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties.validate({
             'arg': 'a', 'args': 'as'
         })
-        origin_cls = typing_extensions.get_origin(object_model_with_arg_and_args_properties.Arg)
-        assert origin_cls is not None
-        self.assertTrue(
-            isinstance(
-                model["arg"],
-                origin_cls
-            )
-        )
-        origin_cls = typing_extensions.get_origin(object_model_with_arg_and_args_properties.Args)
-        assert origin_cls is not None
-        self.assertTrue(
-            isinstance(
-                model["args"],
-                origin_cls
-            )
-        )
-        self.assertTrue(isinstance(model["arg"], schemas.StrSchema))
-        self.assertTrue(isinstance(model["args"], schemas.StrSchema))
+        assert model.arg == 'a'
+        assert model.args == 'as'
+        assert model['arg'] == 'a'
+        assert model['args'] == 'as'
+        self.assertTrue(isinstance(model["arg"], str))
+        self.assertTrue(isinstance(model["args"], str))
 
 
 if __name__ == '__main__':

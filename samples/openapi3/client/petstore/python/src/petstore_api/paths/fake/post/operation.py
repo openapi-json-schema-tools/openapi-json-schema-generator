@@ -39,10 +39,9 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
@@ -56,10 +55,9 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
@@ -72,10 +70,9 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/x-www-form-urlencoded"].schema,
-            schemas.Unset,
-            dict,
-            frozendict.frozendict
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
+            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,

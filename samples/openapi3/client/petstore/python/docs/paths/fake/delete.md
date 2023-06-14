@@ -42,9 +42,9 @@ This is a TypedDict
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 required_string_group | [Parameter0.schema](#parameter0-schema), str | | 
-required_int64_group | [Parameter2.schema](#parameter2-schema), decimal.Decimal, int | | 
+required_int64_group | [Parameter2.schema](#parameter2-schema), int | | 
 string_group | [Parameter3.schema](#parameter3-schema), str | | optional
-int64_group | [Parameter5.schema](#parameter5-schema), decimal.Decimal, int | | optional
+int64_group | [Parameter5.schema](#parameter5-schema), int | | optional
 
 
 #### Parameter0
@@ -69,7 +69,7 @@ Required Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 #### Parameter3
 
@@ -93,7 +93,7 @@ Integer in group parameters
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 ### header_params
 #### RequestHeaderParameters.Params

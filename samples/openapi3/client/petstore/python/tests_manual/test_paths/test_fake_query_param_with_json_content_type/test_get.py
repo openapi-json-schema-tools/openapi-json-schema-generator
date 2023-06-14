@@ -11,6 +11,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import immutabledict
 
 import petstore_api
 from petstore_api.paths.fake_query_param_with_json_content_type.get import operation as get
@@ -96,8 +97,7 @@ class TestFakeQueryParamWithJsonContentType(ApiTestMixin, unittest.TestCase):
             )
 
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, schemas.AnyTypeSchema)
-            assert isinstance(api_response.body, schemas.frozendict.frozendict)
+            assert isinstance(api_response.body, immutabledict.immutabledict)
             assert isinstance(api_response.headers, schemas.Unset)
             assert api_response.response.status == 200
 

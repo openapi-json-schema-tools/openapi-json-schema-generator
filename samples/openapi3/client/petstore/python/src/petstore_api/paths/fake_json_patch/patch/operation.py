@@ -29,10 +29,9 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json-patch+json"].schema,
-            schemas.Unset,
-            list,
-            tuple
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
         server_index: typing.Optional[int] = None,
@@ -45,10 +44,9 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json-patch+json"].schema,
-            schemas.Unset,
-            list,
-            tuple
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
         server_index: typing.Optional[int] = None,
@@ -60,10 +58,9 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json-patch+json"].schema,
-            schemas.Unset,
-            list,
-            tuple
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
+            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
         server_index: typing.Optional[int] = None,

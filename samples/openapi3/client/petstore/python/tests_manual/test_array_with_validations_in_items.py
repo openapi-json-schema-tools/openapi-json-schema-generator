@@ -10,12 +10,10 @@
 """
 
 
-import sys
 import unittest
 
-import petstore_api
 from petstore_api import exceptions
-from petstore_api.components.schema.array_with_validations_in_items import ArrayWithValidationsInItems
+from petstore_api.components.schema import array_with_validations_in_items
 
 
 class TestArrayWithValidationsInItems(unittest.TestCase):
@@ -30,23 +28,23 @@ class TestArrayWithValidationsInItems(unittest.TestCase):
     def testArrayWithValidationsInItems(self):
         """Test ArrayWithValidationsInItems"""
 
-        valid_values = [-1, 5, 7]
+        valid_values = (-1, 5, 7)
         for valid_value in valid_values:
-            inst = ArrayWithValidationsInItems([valid_value])
-            assert isinstance(inst, ArrayWithValidationsInItems)
+            inst = array_with_validations_in_items.ArrayWithValidationsInItems.validate([valid_value])
+            assert isinstance(inst, array_with_validations_in_items.ArrayWithValidationsInItemsTuple)
             assert inst == (valid_value,)
 
         with self.assertRaisesRegex(
             exceptions.ApiValueError,
             r"Invalid value `8`, must be a value less than or equal to `7` at \('args\[0\]', 0\)"
         ):
-            ArrayWithValidationsInItems([8])
+            array_with_validations_in_items.ArrayWithValidationsInItems.validate([8])
 
         with self.assertRaisesRegex(
             exceptions.ApiValueError,
-            r"Invalid value `\(Decimal\('1'\), Decimal\('2'\), Decimal\('3'\)\)`, number of items must be less than or equal to `2` at \('args\[0\]',\)"
+            r"Invalid value `\(1, 2, 3\)`, number of items must be less than or equal to `2` at \('args\[0\]',\)"
         ):
-            ArrayWithValidationsInItems([1, 2, 3])
+            array_with_validations_in_items.ArrayWithValidationsInItems.validate([1, 2, 3])
 
 
 if __name__ == '__main__':

@@ -58,7 +58,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter1.schema](#parameter1-schema), decimal.Decimal, int | | 
+petId | [Parameter1.schema](#parameter1-schema), int | | 
 
 
 #### Parameter1
@@ -71,7 +71,7 @@ Pet id to delete
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 ## Return Types
 

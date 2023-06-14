@@ -33,11 +33,8 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
+            typing.Union[float, int],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -51,11 +48,8 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
+            typing.Union[float, int],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -68,11 +62,8 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            decimal.Decimal,
-            int,
-            float
+            typing.Union[float, int],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

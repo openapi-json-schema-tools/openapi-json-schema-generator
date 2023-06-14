@@ -33,10 +33,8 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/octet-stream"].schema,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            typing.Union[io.FileIO, io.BufferedReader],
+            typing.Union[bytes, schemas.FileIO],
         ],
         content_type: typing_extensions.Literal["application/octet-stream"] = "application/octet-stream",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -50,10 +48,8 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/octet-stream"].schema,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            typing.Union[io.FileIO, io.BufferedReader],
+            typing.Union[bytes, schemas.FileIO],
         ],
         content_type: typing_extensions.Literal["application/octet-stream"] = "application/octet-stream",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -66,10 +62,8 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/octet-stream"].schema,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            typing.Union[io.FileIO, io.BufferedReader],
+            typing.Union[bytes, schemas.FileIO],
         ],
         content_type: typing_extensions.Literal["application/octet-stream"] = "application/octet-stream",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

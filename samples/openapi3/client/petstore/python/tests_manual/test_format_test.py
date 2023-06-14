@@ -10,16 +10,15 @@
 """
 
 
-from decimal import Decimal
 import datetime
 import unittest
 
-import frozendict
+import immutabledict
 
 import petstore_api
 from petstore_api import exceptions
-from petstore_api.components.schema.format_test import FormatTest
-from petstore_api.schemas import BinarySchema, BytesSchema, Singleton
+from petstore_api.components.schema import format_test
+from petstore_api.schemas import none_type_
 
 
 class TestFormatTest(unittest.TestCase):
@@ -31,7 +30,7 @@ class TestFormatTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_FormatTest(self):
+    def testFormatTest(self):
         """Test FormatTest"""
 
         required_args = dict(
@@ -45,18 +44,18 @@ class TestFormatTest(unittest.TestCase):
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
             arg['int32'] = -2147483649
-            model = FormatTest(arg)
+            model = format_test.FormatTest.validate(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
             arg['int32'] = 2147483648
-            model = FormatTest(arg)
+            model = format_test.FormatTest.validate(arg)
         # valid values in range work
         valid_values = [-2147483648, 2147483647]
         for valid_value in valid_values:
             arg = dict(**required_args)
             arg['int32'] = valid_value
-            model = FormatTest(arg)
+            model = format_test.FormatTest.validate(arg)
             assert model["int32"] == valid_value
 
         # int64
@@ -64,80 +63,81 @@ class TestFormatTest(unittest.TestCase):
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
             arg['int64'] = -9223372036854775809
-            FormatTest(arg)
+            format_test.FormatTest.validate(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
             arg['int64'] = 9223372036854775808
-            FormatTest(arg)
+            format_test.FormatTest.validate(arg)
         # valid values in range work
         valid_values = [-9223372036854775808, 9223372036854775807]
         for valid_value in valid_values:
             arg = dict(**required_args)
             arg['int64'] = valid_value
-            model = FormatTest(arg)
+            model = format_test.FormatTest.validate(arg)
             assert model["int64"] == valid_value
 
         # float32
         # under min
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
-            arg['float32'] = -3.402823466385289e+38
-            FormatTest(arg)
+            arg['float32'] = -3.402823466385289e+38 # used math.nextafter to find this value
+            format_test.FormatTest.validate(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
-            arg['float32'] = 3.402823466385289e+38
-            FormatTest(arg)
+            arg['float32'] = 3.402823466385289e+38 # used math.nextafter to find this value
+            format_test.FormatTest.validate(arg)
         # valid values in range work
         valid_values = [-3.4028234663852886e+38, 3.4028234663852886e+38]
         for valid_value in valid_values:
             arg = dict(**required_args)
             arg['float32'] = valid_value
-            model = FormatTest(arg)
+            model = format_test.FormatTest.validate(arg)
             assert model["float32"] == valid_value
 
+        """
+        These tests will only be possible if floats are stored as decima.Decmals
+        because float maxes out at 64 bit storage
         # float64
         # under min, Decimal is used because flat can only store 64bit numbers and the max and min
         # take up more space than 64bit
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
-            arg['float64'] = Decimal('-1.7976931348623157082e+308')
-            FormatTest(arg)
+            arg['float64'] = -1.7976931348623157082e+308
+            FormatTest.validate(arg)
         # over max
         with self.assertRaises(petstore_api.ApiValueError):
             arg = dict(**required_args)
-            arg['float64'] = Decimal('1.7976931348623157082e+308')
-            FormatTest(arg)
+            arg['float64'] = 1.7976931348623157082e+308
+            FormatTest.validate(arg)
         valid_values = [-1.7976931348623157E+308, 1.7976931348623157E+308]
         for valid_value in valid_values:
             arg = dict(**required_args)
             arg['float64'] = valid_value
-            model = FormatTest(arg)
+            model = FormatTest.validate(arg)
             assert model["float64"] == valid_value
+        """
 
         # unique_items with duplicates throws exception
         with self.assertRaises(petstore_api.ApiValueError):
-            FormatTest({'arrayWithUniqueItems': [0, 1, 1], **required_args})
+            format_test.FormatTest.validate({'arrayWithUniqueItems': [0, 1, 1], **required_args})
         # no duplicates works
         values = [0, 1, 2]
-        model = FormatTest({'arrayWithUniqueItems': values, **required_args})
+        model = format_test.FormatTest.validate({'arrayWithUniqueItems': values, **required_args})
         assert model["arrayWithUniqueItems"] == tuple(values)
 
         # __bool__ value of noneProp is False
-        model = FormatTest({'noneProp': None, **required_args})
-        assert isinstance(model["noneProp"], Singleton)
-        self.assertFalse(model["noneProp"])
-        self.assertTrue(model["noneProp"].is_none_())
+        model = format_test.FormatTest.validate({'noneProp': None, **required_args})
+        assert isinstance(model["noneProp"], none_type_)
+        self.assertTrue(model["noneProp"] is None)
 
         # binary check
-        model = FormatTest({'binary': b'123', **required_args})
-        assert isinstance(model["binary"], BinarySchema)
-        assert isinstance(model["binary"], BytesSchema)
+        model = format_test.FormatTest.validate({'binary': b'123', **required_args})
         assert isinstance(model["binary"], bytes)
-        assert model == frozendict.frozendict(
+        assert model == immutabledict.immutabledict(
             binary=b'123',
-            number=Decimal(32.5),
+            number=32.5,
             byte='a',
             date='2021-01-01',
             password='abcdefghij'
@@ -148,7 +148,7 @@ class TestFormatTest(unittest.TestCase):
             exceptions.ApiValueError,
             r"Invalid value `31`, value must be a multiple of `2` at \('args\[0\]', 'integer'\)"
         ):
-            FormatTest({
+            format_test.FormatTest.validate({
                 'byte': '3',
                 'date': datetime.date(2000, 1, 1),
                 'password': "abcdefghijkl",

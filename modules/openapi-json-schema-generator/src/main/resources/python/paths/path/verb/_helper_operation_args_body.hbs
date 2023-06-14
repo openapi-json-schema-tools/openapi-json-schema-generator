@@ -1,0 +1,19 @@
+{{#if refInfo}}
+    {{#with refInfo.ref}}
+        {{#eq fullRefModule "" }}
+{{> paths/path/verb/_helper_operation_args_body fullRefModule=../refInfo.refModule }}
+        {{else}}
+{{> paths/path/verb/_helper_operation_args_body fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+        {{/eq}}
+    {{/with}}
+{{else}}
+    {{#if requiredValue}}
+        {{#if required}}
+{{> paths/path/verb/_helper_operation_args_body_nonref }}
+        {{/if}}
+    {{else}}
+        {{#unless required}}
+{{> paths/path/verb/_helper_operation_args_body_nonref }}
+        {{/unless}}
+    {{/if}}
+{{/if}}

@@ -10,876 +10,717 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-DictInput10 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
+@dataclasses.dataclass(frozen=True)
 class AdditionalProperties4(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties4[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput10,
-            AdditionalProperties4[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties4[frozendict.frozendict]: ...
-
-    def __new__(
+        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            DictInput10,
-            AdditionalProperties4[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class IntegerProp(
-    schemas.NoneBase,
-    schemas.IntBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneDecimalMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            decimal.Decimal,
-        })
-        format: str = 'int'
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        int,
+    })
+    format: str = 'int'
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> IntegerProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[decimal.Decimal, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> IntegerProp[decimal.Decimal]: ...
-
-    def __new__(
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> int: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            decimal.Decimal,
-            int
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class NumberProp(
-    schemas.NoneBase,
-    schemas.NumberBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneDecimalMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            decimal.Decimal,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        float,
+        int,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NumberProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NumberProp[decimal.Decimal]: ...
-
-    def __new__(
+        arg: typing.Union[int, float],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[float, int]: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            decimal.Decimal,
-            int,
-            float
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class BooleanProp(
-    schemas.NoneBase,
-    schemas.BoolBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneBoolMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            schemas.BoolClass,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        bool,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> BooleanProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> BooleanProp[schemas.BoolClass]: ...
-
-    def __new__(
+        arg: bool,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bool: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            bool
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class StringProp(
-    schemas.NoneBase,
-    schemas.StrBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneStrMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            str,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        str,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> StringProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> StringProp[str]: ...
-
-    def __new__(
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            str
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class DateProp(
-    schemas.NoneBase,
-    schemas.DateBase,
-    schemas.StrBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneStrMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            str,
-        })
-        format: str = 'date'
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        str,
+    })
+    format: str = 'date'
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DateProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DateProp[str]: ...
-
-    def __new__(
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            str,
-            datetime.date
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
-
+@dataclasses.dataclass(frozen=True)
 class DatetimeProp(
-    schemas.NoneBase,
-    schemas.DateTimeBase,
-    schemas.StrBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneStrMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            str,
-        })
-        format: str = 'date-time'
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        str,
+    })
+    format: str = 'date-time'
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DatetimeProp[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> DatetimeProp[str]: ...
-
-    def __new__(
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            str,
-            datetime.datetime
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
-
-DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-Items: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Items: typing_extensions.TypeAlias = schemas.DictSchema
 
 
+class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        return super().__getitem__(name)
+ArrayNullablePropTupleInput = typing.Sequence[
+    typing.Union[
+        dict,
+        immutabledict.immutabledict
+    ],
+]
+
+
+@dataclasses.dataclass(frozen=True)
 class ArrayNullableProp(
-    schemas.NoneBase,
-    schemas.ListBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneTupleMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayNullablePropTuple],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            tuple,
-        })
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayNullableProp[schemas.NoneClass]: ...
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        tuple,
+    })
+    items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayNullablePropTuple,
+        }
+    )
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayNullableProp[tuple]: ...
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: ArrayNullablePropTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayNullablePropTuple: ...
 
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            list,
-            tuple
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-
+@dataclasses.dataclass(frozen=True)
 class Items2(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items2[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput2,
-            Items2[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items2[frozendict.frozendict]: ...
-
-    def __new__(
+        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            DictInput2,
-            Items2[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
+class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> typing.Union[
+       None,
+       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        return super().__getitem__(name)
+ArrayAndItemsNullablePropTupleInput = typing.Sequence[
+    typing.Union[
+        None,
+        dict,
+        immutabledict.immutabledict
+    ],
+]
 
+
+@dataclasses.dataclass(frozen=True)
 class ArrayAndItemsNullableProp(
-    schemas.NoneBase,
-    schemas.ListBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneTupleMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayAndItemsNullablePropTuple],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            tuple,
-        })
-        items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
-
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayAndItemsNullableProp[schemas.NoneClass]: ...
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        tuple,
+    })
+    items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayAndItemsNullablePropTuple,
+        }
+    )
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items2[typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]],
-                None,
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayAndItemsNullableProp[tuple]: ...
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: ArrayAndItemsNullablePropTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayAndItemsNullablePropTuple: ...
 
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            list,
-            tuple
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-
+@dataclasses.dataclass(frozen=True)
 class Items3(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items3[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput3,
-            Items3[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Items3[frozendict.frozendict]: ...
-
-    def __new__(
+        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            DictInput3,
-            Items3[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
 
+class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> typing.Union[
+       None,
+       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        return super().__getitem__(name)
+ArrayItemsNullableTupleInput = typing.Sequence[
+    typing.Union[
+        None,
+        dict,
+        immutabledict.immutabledict
+    ],
+]
 
+
+@dataclasses.dataclass(frozen=True)
 class ArrayItemsNullable(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[ArrayItemsNullableTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ArrayItemsNullableTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items3[typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]],
-                None,
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayItemsNullable[tuple]:
-        return super().__new__(
-            cls,
+        arg: ArrayItemsNullableTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayItemsNullableTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
+AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
-    def __getitem__(self, name: int) -> Items3[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]:
+
+class ObjectNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def __getitem__(self, name: str) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        # dict_instance[name] accessor
         return super().__getitem__(name)
-
-DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema[U]
-DictInput5 = typing.Mapping[
+ObjectNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalProperties[frozendict.frozendict],
         dict,
-        frozendict.frozendict
+        immutabledict.immutabledict
     ],
 ]
 
 
+@dataclasses.dataclass(frozen=True)
 class ObjectNullableProp(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[ObjectNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-
-    
-    def __getitem__(self, name: str) -> AdditionalProperties[frozendict.frozendict]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectNullableProp[schemas.NoneClass]: ...
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: ObjectNullablePropDict,
+        }
+    )
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput5,
-            ObjectNullableProp[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectNullableProp[frozendict.frozendict]: ...
-
-    def __new__(
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+    @typing.overload
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            DictInput5,
-            ObjectNullableProp[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg: ObjectNullablePropDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectNullablePropDict: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-
+@dataclasses.dataclass(frozen=True)
 class AdditionalProperties2(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
 
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties2[schemas.NoneClass]: ...
-
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
     @typing.overload
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput6,
-            AdditionalProperties2[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties2[frozendict.frozendict]: ...
-
-    def __new__(
+        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            None,
-            DictInput6,
-            AdditionalProperties2[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().__new__(
-            cls,
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-DictInput7 = typing.Mapping[
+
+class ObjectAndItemsNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def __getitem__(self, name: str) -> typing.Union[
+       None,
+       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalProperties2[typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]],
         None,
         dict,
-        frozendict.frozendict
+        immutabledict.immutabledict
     ],
 ]
 
 
+@dataclasses.dataclass(frozen=True)
 class ObjectAndItemsNullableProp(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
+    schemas.Schema[ObjectAndItemsNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
+    additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: ObjectAndItemsNullablePropDict,
+        }
+    )
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: ObjectAndItemsNullablePropDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectAndItemsNullablePropDict: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 
 
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-        additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+@dataclasses.dataclass(frozen=True)
+class AdditionalProperties3(
+    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        schemas.none_type_,
+        immutabledict.immutabledict,
+    })
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
+
+class ObjectItemsNullableDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def __getitem__(self, name: str) -> AdditionalProperties2[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]:
+    def __getitem__(self, name: str) -> typing.Union[
+       None,
+       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectAndItemsNullableProp[schemas.NoneClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput7,
-            ObjectAndItemsNullableProp[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectAndItemsNullableProp[frozendict.frozendict]: ...
-
-    def __new__(
-        cls,
-        arg: typing.Union[
-            None,
-            DictInput7,
-            ObjectAndItemsNullableProp[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
-
-DictInput8 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-
-
-class AdditionalProperties3(
-    schemas.NoneBase,
-    schemas.DictBase,
-    schemas.Schema[schemas.T],
-    schemas.NoneFrozenDictMixin
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            schemas.NoneClass,
-            frozendict.frozendict,
-        })
-
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties3[schemas.NoneClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput8,
-            AdditionalProperties3[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalProperties3[frozendict.frozendict]: ...
-
-    def __new__(
-        cls,
-        arg: typing.Union[
-            None,
-            DictInput8,
-            AdditionalProperties3[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
-
-DictInput9 = typing.Mapping[
+ObjectItemsNullableDictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalProperties3[typing.Union[
-            schemas.NoneClass,
-            frozendict.frozendict
-        ]],
         None,
         dict,
-        frozendict.frozendict
+        immutabledict.immutabledict
     ],
 ]
 
 
+@dataclasses.dataclass(frozen=True)
 class ObjectItemsNullable(
-    schemas.DictSchema[schemas.T]
+    schemas.DictSchema[ObjectItemsNullableDict]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: ObjectItemsNullableDict
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
-    
-    def __getitem__(self, name: str) -> AdditionalProperties3[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput9,
-            ObjectItemsNullable[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectItemsNullable[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: ObjectItemsNullableDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectItemsNullableDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )
@@ -901,208 +742,94 @@ Properties = typing_extensions.TypedDict(
         "object_items_nullable": typing.Type[ObjectItemsNullable],
     }
 )
-DictInput11 = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            IntegerProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            None,
-            decimal.Decimal,
-            int
-        ],
-        typing.Union[
-            NumberProp[typing.Union[
-                schemas.NoneClass,
-                decimal.Decimal
-            ]],
-            None,
-            decimal.Decimal,
-            int,
-            float
-        ],
-        typing.Union[
-            BooleanProp[typing.Union[
-                schemas.NoneClass,
-                schemas.BoolClass
-            ]],
-            None,
-            bool
-        ],
-        typing.Union[
-            StringProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str
-        ],
-        typing.Union[
-            DateProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str,
-            datetime.date
-        ],
-        typing.Union[
-            DatetimeProp[typing.Union[
-                schemas.NoneClass,
-                str
-            ]],
-            None,
-            str,
-            datetime.datetime
-        ],
-        typing.Union[
-            ArrayNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            None,
-            list,
-            tuple
-        ],
-        typing.Union[
-            ArrayAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                tuple
-            ]],
-            None,
-            list,
-            tuple
-        ],
-        typing.Union[
-            ArrayItemsNullable[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            ObjectNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        typing.Union[
-            ObjectAndItemsNullableProp[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-        typing.Union[
-            ObjectItemsNullable[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        typing.Union[
-            AdditionalProperties4[typing.Union[
-                schemas.NoneClass,
-                frozendict.frozendict
-            ]],
-            None,
-            dict,
-            frozendict.frozendict
-        ],
-    ]
-]
 
 
-class NullableClass(
-    schemas.DictSchema[schemas.T]
-):
-    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
-    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
-
-    Do not edit the class manually.
-    """
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-        additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
+class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> IntegerProp[typing.Union[
-        schemas.NoneClass,
-        decimal.Decimal
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
+       None,
+       int,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> NumberProp[typing.Union[
-        schemas.NoneClass,
-        decimal.Decimal
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
+       None,
+       typing.Union[float, int],
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> BooleanProp[typing.Union[
-        schemas.NoneClass,
-        schemas.BoolClass
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
+       None,
+       bool,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> StringProp[typing.Union[
-        schemas.NoneClass,
-        str
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
+       None,
+       str,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> DateProp[typing.Union[
-        schemas.NoneClass,
-        str
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
+       None,
+       str,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> DatetimeProp[typing.Union[
-        schemas.NoneClass,
-        str
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
+       None,
+       str,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> ArrayNullableProp[typing.Union[
-        schemas.NoneClass,
-        tuple
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
+       None,
+       ArrayNullablePropTuple,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> ArrayAndItemsNullableProp[typing.Union[
-        schemas.NoneClass,
-        tuple
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
+       None,
+       ArrayAndItemsNullablePropTuple,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullable[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> ObjectNullableProp[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
+       None,
+       ObjectNullablePropDict,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> ObjectAndItemsNullableProp[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
+       None,
+       ObjectAndItemsNullablePropDict,
+    ]:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullable[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> AdditionalProperties4[typing.Union[
-        schemas.NoneClass,
-        frozendict.frozendict
-    ]]: ...
+    def __getitem__(self, name: str) -> typing.Union[
+       None,
+       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        ...
     
     def __getitem__(
         self,
@@ -1124,17 +851,107 @@ class NullableClass(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
-
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput11,
-            NullableClass[frozendict.frozendict],
+NullableClassDictInput = typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            None,
+            int
         ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NullableClass[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        typing.Union[
+            None,
+            float,
+            int
+        ],
+        typing.Union[
+            None,
+            bool
+        ],
+        typing.Union[
+            None,
+            str
+        ],
+        typing.Union[
+            None,
+            str,
+            datetime.date
+        ],
+        typing.Union[
+            None,
+            str,
+            datetime.datetime
+        ],
+        typing.Union[
+            ArrayNullablePropTuple,
+            None,
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayAndItemsNullablePropTuple,
+            None,
+            list,
+            tuple
+        ],
+        typing.Union[
+            ArrayItemsNullableTuple,
+            list,
+            tuple
+        ],
+        typing.Union[
+            ObjectNullablePropDict,
+            None,
+            dict,
+            immutabledict.immutabledict
+        ],
+        typing.Union[
+            ObjectAndItemsNullablePropDict,
+            None,
+            dict,
+            immutabledict.immutabledict
+        ],
+        typing.Union[
+            ObjectItemsNullableDict,
+            dict,
+            immutabledict.immutabledict
+        ],
+        typing.Union[
+            None,
+            dict,
+            immutabledict.immutabledict
+        ],
+    ]
+]
+
+
+@dataclasses.dataclass(frozen=True)
+class NullableClass(
+    schemas.DictSchema[NullableClassDict]
+):
+    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
+    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
+
+    Do not edit the class manually.
+    """
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: NullableClassDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: NullableClassDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NullableClassDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )

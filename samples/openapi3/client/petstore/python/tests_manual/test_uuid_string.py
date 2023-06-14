@@ -22,26 +22,20 @@ class TestUUIDString(unittest.TestCase):
     def test_UUIDString(self):
         """Test UUIDString"""
         uuid_value = '12345678-1234-5678-1234-567812345678'
-        u = UUIDString(uuid_value)
+        u = UUIDString.validate(uuid_value)
         self.assertEqual(u, uuid_value)
-        self.assertTrue(isinstance(u, UUIDString))
-        self.assertTrue(isinstance(u, schemas.UUIDSchema))
-        self.assertTrue(isinstance(u, schemas.StrSchema))
         self.assertTrue(isinstance(u, str))
-        self.assertEqual(u.as_uuid_, uuid.UUID(uuid_value))
+        self.assertEqual(schemas.as_uuid_(u), uuid.UUID(uuid_value))
 
         # passing in a uuid also works
-        u = UUIDString(uuid.UUID(uuid_value))
+        u = UUIDString.validate(uuid.UUID(uuid_value))
         self.assertEqual(u, uuid_value)
-        self.assertTrue(isinstance(u, UUIDString))
-        self.assertTrue(isinstance(u, schemas.UUIDSchema))
-        self.assertTrue(isinstance(u, schemas.StrSchema))
         self.assertTrue(isinstance(u, str))
-        self.assertEqual(u.as_uuid_, uuid.UUID(uuid_value))
+        self.assertEqual(schemas.as_uuid_(u), uuid.UUID(uuid_value))
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            UUIDString('1')
+            UUIDString.validate('1')
 
 
 if __name__ == '__main__':

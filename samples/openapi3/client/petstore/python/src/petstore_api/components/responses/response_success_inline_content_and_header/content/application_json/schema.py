@@ -10,41 +10,42 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema[U]
-DictInput = typing.Mapping[
+AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema
+
+
+class SchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def __getitem__(self, name: str) -> int:
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+SchemaDictInput = typing.Mapping[
     str,
-    typing.Union[
-        AdditionalProperties[decimal.Decimal],
-        decimal.Decimal,
-        int
-    ],
+    int,
 ]
 
 
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.DictSchema[schemas.T]
+    schemas.DictSchema[SchemaDict]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: SchemaDict
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-    
-    def __getitem__(self, name: str) -> AdditionalProperties[decimal.Decimal]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            Schema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )

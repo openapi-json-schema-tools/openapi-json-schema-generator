@@ -1,0 +1,1 @@
+{{#eq mode "getitem"}}def __getitem__(self, name: {{#if literal}}typing_extensions.Literal["{{{key}}}"]{{else}}{{key}}{{/if}}) -> {{else}}{{#eq mode "def_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}{{> components/schemas/_helper_schema_output_type_base }}

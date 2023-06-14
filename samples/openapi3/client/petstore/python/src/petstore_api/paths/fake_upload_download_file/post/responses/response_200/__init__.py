@@ -6,13 +6,13 @@
 
 from petstore_api.shared_imports.response_imports import *
 
-from .content.application_octet_stream import schema as application_octet_stream_schema
+from . import content
 
 
 @dataclasses.dataclass
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
+    body: typing.Union[bytes, schemas.FileIO]
     headers: schemas.Unset = schemas.unset
 
 
@@ -21,7 +21,7 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationOctetStreamMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_octet_stream_schema.Schema[typing.Union[bytes, schemas.FileIO]]
+        schema: typing_extensions.TypeAlias = content.application_octet_stream.schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

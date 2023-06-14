@@ -45,7 +45,7 @@ public class CodegenSchema {
     public Integer maxProperties;
     public Integer minProperties;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
-    public LinkedHashMap<EnumValue, String> enumValueToName; // enum info
+    public LinkedHashMapWithContext<EnumValue, String> enumValueToName; // enum info
     public String type;
     public ArrayListWithContext<CodegenSchema> allOf = null;
     public ArrayListWithContext<CodegenSchema> anyOf = null;
@@ -58,6 +58,7 @@ public class CodegenSchema {
     public String format;
     public EnumValue defaultValue;
     public CodegenRefInfo<CodegenSchema> refInfo;  // $ref
+    public String jsonPath;  // the current schema's jsonPath
 
     // openapi 3.0.0
     // note: null is added to types when nullable is true
@@ -86,6 +87,9 @@ public class CodegenSchema {
     public String unescapedDescription;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
     public CodegenKey mapInputJsonPathPiece;
+    public CodegenKey mapOutputJsonPathPiece;
+    public CodegenKey arrayInputJsonPathPiece;
+    public CodegenKey arrayOutputJsonPathPiece;
     public boolean schemaIsFromAdditionalProperties;
     public HashMap<String, SchemaTestCase> testCases = new HashMap<>();
     /**
@@ -97,10 +101,6 @@ public class CodegenSchema {
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
-    }
-
-    public boolean hasMultipleTypes() {
-        return (types != null && types.size() > 1);
     }
 
     public boolean hasDiscriminatorWithNonEmptyMapping() {
@@ -132,6 +132,64 @@ public class CodegenSchema {
             refObject = refObject.refInfo.ref;
         }
         return refObject;
+    }
+
+    public boolean hasAnyRefs() {
+        // todo cache this, also pass in sourceJsonPath because one is looking for external refs
+        if (refInfo != null) {
+            return true;
+        }
+        if (items != null) {
+            boolean schemaHasRef = items.hasAnyRefs();
+            if (schemaHasRef) {
+                return true;
+            }
+        }
+        if (not != null) {
+            boolean schemaHasRef = not.hasAnyRefs();
+            if (schemaHasRef) {
+                return true;
+            }
+        }
+        if (additionalProperties != null) {
+            boolean schemaHasRef = additionalProperties.hasAnyRefs();
+            if (schemaHasRef) {
+                return true;
+            }
+        }
+        if (properties != null) {
+            for (CodegenSchema prop: properties.values()) {
+                boolean schemaHasRef = prop.hasAnyRefs();
+                if (schemaHasRef) {
+                    return true;
+                }
+            }
+        }
+        if (allOf != null) {
+            for (CodegenSchema prop: allOf) {
+                boolean schemaHasRef = prop.hasAnyRefs();
+                if (schemaHasRef) {
+                    return true;
+                }
+            }
+        }
+        if (anyOf != null) {
+            for (CodegenSchema prop: anyOf) {
+                boolean schemaHasRef = prop.hasAnyRefs();
+                if (schemaHasRef) {
+                    return true;
+                }
+            }
+        }
+        if (oneOf != null) {
+            for (CodegenSchema prop: oneOf) {
+                boolean schemaHasRef = prop.hasAnyRefs();
+                if (schemaHasRef) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -190,8 +248,39 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
+        if (enumValueToName != null) {
+            // write the class as a separate entity so enum values do not collide with
+            // json schema keywords
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.jsonPathPiece = jsonPathPiece;
+            extraSchema.instanceType = "enumClass";
+            extraSchema.enumValueToName = enumValueToName;
+            schemasBeforeImports.add(extraSchema);
+        }
+        boolean schemaAllAreInline = true;
         if (items != null) {
             items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "arrayOutputType";
+            extraSchema.items = items;
+            extraSchema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
+            if (items.hasAnyRefs()) {
+                schemaAllAreInline = false;
+                schemasAfterImports.add(extraSchema);
+            } else {
+                schemasBeforeImports.add(extraSchema);
+            }
+        }
+        if (arrayInputJsonPathPiece != null) {
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "arrayInputType";
+            extraSchema.items = items;
+            extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
+            if (items.hasAnyRefs()) {
+                schemasAfterImports.add(extraSchema);
+            } else {
+                schemasBeforeImports.add(extraSchema);
+            }
         }
         if (not != null) {
             not.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
@@ -226,56 +315,99 @@ public class CodegenSchema {
         boolean typedDictUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
         boolean mappingUseCase = (requiredProperties != null && !additionalPropertiesIsBooleanSchemaFalse && optionalProperties == null);
         if (typedDictUseCase || mappingUseCase) {
-            CodegenSchema extraSchema = new CodegenSchema();
-            extraSchema.instanceType = "requiredPropertiesInputType";
-            extraSchema.requiredProperties = requiredProperties;
-            extraSchema.additionalProperties = additionalProperties;
+            CodegenSchema mapIn = new CodegenSchema();
+            mapIn.instanceType = "requiredPropertiesInputType";
+            mapIn.requiredProperties = requiredProperties;
+            mapIn.additionalProperties = additionalProperties;
+
+            CodegenSchema mapOut = new CodegenSchema();
+            mapOut.instanceType = "propertiesOutputType";
+            mapOut.requiredProperties = requiredProperties;
+            mapOut.additionalProperties = additionalProperties;
+            mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             if (requiredProperties.allAreInline()) {
-                schemasBeforeImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece && optionalProperties == null) {
+                    schemasBeforeImports.add(mapOut);
+                }
+                schemasBeforeImports.add(mapIn);
             } else {
-                schemasAfterImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece && optionalProperties == null) {
+                    schemasAfterImports.add(mapOut);
+                    schemaAllAreInline = false;
+                }
+                schemasAfterImports.add(mapIn);
             }
         }
         typedDictUseCase = (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse);
         mappingUseCase = (optionalProperties != null && !additionalPropertiesIsBooleanSchemaFalse && requiredProperties == null);
         if (typedDictUseCase || mappingUseCase) {
-            CodegenSchema extraSchema = new CodegenSchema();
-            extraSchema.instanceType = "optionalPropertiesInputType";
-            extraSchema.optionalProperties = optionalProperties;
-            extraSchema.additionalProperties = additionalProperties;
+            CodegenSchema mapIn = new CodegenSchema();
+            mapIn.instanceType = "optionalPropertiesInputType";
+            mapIn.optionalProperties = optionalProperties;
+            mapIn.additionalProperties = additionalProperties;
+
+            CodegenSchema mapOut = new CodegenSchema();
+            mapOut.instanceType = "propertiesOutputType";
+            mapOut.optionalProperties = optionalProperties;
+            mapOut.additionalProperties = additionalProperties;
+            mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             if (optionalProperties.allAreInline()) {
-                schemasBeforeImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece && requiredProperties == null) {
+                    schemasBeforeImports.add(mapOut);
+                }
+                schemasBeforeImports.add(mapIn);
             } else {
-                schemasAfterImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece && requiredProperties == null) {
+                    schemasAfterImports.add(mapOut);
+                    schemaAllAreInline = false;
+                }
+                schemasAfterImports.add(mapIn);
             }
         }
         boolean requiredPropsAndOptionalPropsSet = (requiredProperties != null && optionalProperties != null);
         boolean requiredPropsAndOptionalPropsUnset = (requiredProperties == null && optionalProperties == null);
         if ((requiredPropsAndOptionalPropsSet || requiredPropsAndOptionalPropsUnset) && mapInputJsonPathPiece != null) {
-            CodegenSchema extraSchema = new CodegenSchema();
-            extraSchema.instanceType = "propertiesInputType";
-            extraSchema.optionalProperties = optionalProperties;
-            extraSchema.requiredProperties = requiredProperties;
-            extraSchema.mapInputJsonPathPiece = mapInputJsonPathPiece;
-            extraSchema.additionalProperties = additionalProperties;
+            CodegenSchema mapIn = new CodegenSchema();
+            mapIn.instanceType = "propertiesInputType";
+            mapIn.optionalProperties = optionalProperties;
+            mapIn.requiredProperties = requiredProperties;
+            mapIn.additionalProperties = additionalProperties;
+            mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
             boolean allAreInline;
+            boolean addPropsHasAnyRefs = false;
+            if (additionalProperties != null) {
+                addPropsHasAnyRefs = additionalProperties.hasAnyRefs();
+            }
             if (requiredPropsAndOptionalPropsSet) {
                 if (additionalProperties == null) {
                     allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline());
                 } else {
-                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline() && additionalProperties.refInfo == null);
+                    allAreInline = (requiredProperties.allAreInline() && optionalProperties.allAreInline() && !addPropsHasAnyRefs);
                 }
             } else {
                 if (additionalProperties == null) {
                     allAreInline = true;
                 } else {
-                    allAreInline = additionalProperties.refInfo == null;
+                    allAreInline = !addPropsHasAnyRefs;
                 }
             }
+            CodegenSchema mapOut = new CodegenSchema();
+            mapOut.instanceType = "propertiesOutputType";
+            mapOut.optionalProperties = optionalProperties;
+            mapOut.requiredProperties = requiredProperties;
+            mapOut.additionalProperties = additionalProperties;
+            mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             if (allAreInline) {
-                schemasBeforeImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece) {
+                    schemasBeforeImports.add(mapOut);
+                }
+                schemasBeforeImports.add(mapIn);
             } else {
-                schemasAfterImports.add(extraSchema);
+                if (mapOutputJsonPathPiece != mapInputJsonPathPiece) {
+                    schemasAfterImports.add(mapOut);
+                    schemaAllAreInline = false;
+                }
+                schemasAfterImports.add(mapIn);
             }
         }
 
@@ -283,7 +415,11 @@ public class CodegenSchema {
             // do not add ref to schemas
             return;
         }
-        schemasBeforeImports.add(this);
+        if (schemaAllAreInline) {
+            schemasBeforeImports.add(this);
+        } else {
+            schemasAfterImports.add(this);
+        }
         if (level == 0 && imports != null && !imports.isEmpty()) {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "importsType";
@@ -328,7 +464,6 @@ public class CodegenSchema {
         sb.append(", exclusiveMaximum=").append(exclusiveMaximum);
         sb.append(", deprecated=").append(deprecated);
         sb.append(", types=").append(types);
-        sb.append(", hasMultipleTypes=").append(hasMultipleTypes());
         sb.append(", readOnly=").append(readOnly);
         sb.append(", writeOnly=").append(writeOnly);
         sb.append(", nullable=").append(nullable);
@@ -364,6 +499,7 @@ public class CodegenSchema {
         sb.append(", componentModule=").append(componentModule);
         sb.append(", testCases=").append(testCases);
         sb.append(", instanceType=").append(instanceType);
+        sb.append(", jsonPath=").append(jsonPath);
     }
 
     @Override
@@ -372,27 +508,6 @@ public class CodegenSchema {
         addInstanceInfo(sb);
         sb.append('}');
         return sb.toString();
-    }
-
-    /**
-     * A method to get all possible types
-     * Also returns additional bytes and file as types when type is unset
-     * @return the allowed types
-     */
-    public LinkedHashSet<String> allTypes() {
-        if (types != null) {
-            return types;
-        }
-        LinkedHashSet<String> allTypes = new LinkedHashSet<>();
-        allTypes.add("null");
-        allTypes.add("boolean");
-        allTypes.add("number");
-        allTypes.add("string");
-        allTypes.add("array");
-        allTypes.add("object");
-        allTypes.add("bytes");
-        allTypes.add("file");
-        return allTypes;
     }
 
     @Override

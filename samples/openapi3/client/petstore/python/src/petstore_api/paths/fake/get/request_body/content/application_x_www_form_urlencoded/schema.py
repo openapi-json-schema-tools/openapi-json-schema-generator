@@ -12,94 +12,100 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
+class ItemsEnums:
+
+    @schemas.classproperty
+    def GREATER_THAN_SIGN(cls) -> str:
+        return Items.validate(">")
+
+    @schemas.classproperty
+    def DOLLAR_SIGN(cls) -> str:
+        return Items.validate("$")
+
+
+@dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    default: str = "$"
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            ">": "GREATER_THAN_SIGN",
+            "$": "DOLLAR_SIGN",
+        }
+    )
+    enums = ItemsEnums
 
 
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        default: str = "$"
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                ">": "GREATER_THAN_SIGN",
-                "$": "DOLLAR_SIGN",
-            }
-        )
-    
-    @schemas.classproperty
-    def GREATER_THAN_SIGN(cls) -> Items[str]:
-        return cls(">") # type: ignore
-    
-    @schemas.classproperty
-    def DOLLAR_SIGN(cls) -> Items[str]:
-        return cls("$") # type: ignore
+class EnumFormStringArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> str:
+        return super().__getitem__(name)
+EnumFormStringArrayTupleInput = typing.Sequence[
+    str,
+]
 
 
+@dataclasses.dataclass(frozen=True)
 class EnumFormStringArray(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[EnumFormStringArrayTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: EnumFormStringArrayTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items[str],
-                str
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> EnumFormStringArray[tuple]:
-        return super().__new__(
-            cls,
+        arg: EnumFormStringArrayTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> EnumFormStringArrayTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-    def __getitem__(self, name: int) -> Items[str]:
-        return super().__getitem__(name)
+
+class EnumFormStringEnums:
+
+    @schemas.classproperty
+    def _ABC(cls) -> str:
+        return EnumFormString.validate("_abc")
+
+    @schemas.classproperty
+    def HYPHEN_MINUS_EFG(cls) -> str:
+        return EnumFormString.validate("-efg")
+
+    @schemas.classproperty
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> str:
+        return EnumFormString.validate("(xyz)")
 
 
-
+@dataclasses.dataclass(frozen=True)
 class EnumFormString(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        default: str = "-efg"
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "_abc": "_ABC",
-                "-efg": "HYPHEN_MINUS_EFG",
-                "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
-            }
-        )
-    
-    @schemas.classproperty
-    def _ABC(cls) -> EnumFormString[str]:
-        return cls("_abc") # type: ignore
-    
-    @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> EnumFormString[str]:
-        return cls("-efg") # type: ignore
-    
-    @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> EnumFormString[str]:
-        return cls("(xyz)") # type: ignore
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    default: str = "-efg"
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "_abc": "_ABC",
+            "-efg": "HYPHEN_MINUS_EFG",
+            "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
+        }
+    )
+    enums = EnumFormStringEnums
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -107,50 +113,20 @@ Properties = typing_extensions.TypedDict(
         "enum_form_string": typing.Type[EnumFormString],
     }
 )
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            EnumFormStringArray[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            EnumFormString[str],
-            str
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class Schema(
-    schemas.DictSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+class SchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArray[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArrayTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> EnumFormString[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -162,17 +138,31 @@ class Schema(
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    def __new__(
+
+@dataclasses.dataclass(frozen=True)
+class Schema(
+    schemas.DictSchema[SchemaDict]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            immutabledict.immutabledict: SchemaDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            Schema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )

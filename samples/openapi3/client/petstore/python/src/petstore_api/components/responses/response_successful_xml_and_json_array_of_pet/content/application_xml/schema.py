@@ -11,36 +11,43 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+from petstore_api.components.schema import pet
 
+
+class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> pet.PetDict:
+        return super().__getitem__(name)
+SchemaTupleInput = typing.Sequence[
+    typing.Union[
+        pet.PetDict,
+        dict,
+        immutabledict.immutabledict
+    ],
+]
+
+
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[SchemaTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[pet.Pet] = dataclasses.field(default_factory=lambda: pet.Pet) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: SchemaTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[pet.Pet] = dataclasses.field(default_factory=lambda: pet.Pet) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                pet.Pet[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[tuple]:
-        return super().__new__(
-            cls,
+        arg: SchemaTupleInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
-
-    def __getitem__(self, name: int) -> pet.Pet[frozendict.frozendict]:
-        return super().__getitem__(name)
-
-
-from petstore_api.components.schema import pet

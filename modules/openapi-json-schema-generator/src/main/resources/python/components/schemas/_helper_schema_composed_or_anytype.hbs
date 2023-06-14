@@ -1,28 +1,15 @@
 
 
+@dataclasses.dataclass(frozen=True)
 class {{jsonPathPiece.camelCase}}(
 {{#eq types null}}
-    {{#if format}}
-        {{#eq format "uuid"}}
-    schemas.UUIDBase,
-        {{/eq}}
-        {{#eq format "date"}}
-    schemas.DateBase,
-        {{/eq}}
-        {{#eq format "date-time"}}
-    schemas.DateTimeBase,
-        {{/eq}}
-        {{#eq format "number"}}
-    schemas.DecimalBase,
-        {{/eq}}
-    {{/if}}
-    schemas.AnyTypeSchema[schemas.T],
+    schemas.AnyTypeSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
 {{else}}
-    {{#if hasMultipleTypes}}
-    {{> components/schemas/_helper_xbase_multiple_types }}
-    {{else}}
+    {{#eq types.size 1}}
     {{> components/schemas/_helper_xbase_one_type }}
-    {{/if}}
+    {{else}}
+    schemas.Schema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
+    {{/eq}}
 {{/eq}}
 ):
 {{#if componentModule}}
@@ -36,37 +23,43 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
 {{#eq types null}}
-        # any type
+    # any type
 {{/eq}}
-        {{> components/schemas/_helper_types }}
+    {{> components/schemas/_helper_types }}
 {{#if format}}
-        format: str = '{{format}}'
+    format: str = '{{format}}'
 {{/if}}
 {{#if enumValueToName}}
-        {{> components/schemas/_helper_schema_enum }}
+    {{> components/schemas/_helper_schema_enum }}
+    enums = {{enumValueToName.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
-        {{> components/schemas/_helper_list_partial identifierPieces=(append identifierPieces "Schema_") }}
+    {{> components/schemas/_helper_list_partial }}
 {{/if}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-        {{> components/schemas/_helper_dict_partial identifierPieces=(append identifierPieces "Schema_") }}
+    {{> components/schemas/_helper_dict_partial }}
 {{/or}}
 {{#if hasValidation}}
-        {{> components/schemas/_helper_validations }}
+    {{> components/schemas/_helper_validations }}
 {{/if}}
 {{#or allOf anyOf oneOf not}}
-        {{> components/schemas/_helper_composed_schemas identifierPieces=(append identifierPieces "Schema_") }}
+    {{> components/schemas/_helper_composed_schemas }}
 {{/or}}
-{{#if enumValueToName}}
-    {{> components/schemas/_helper_enums }}
-{{/if}}
-
-    {{> components/schemas/_helper_property_type_hints }}
+{{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+    {{#if mapOutputJsonPathPiece}}
+            immutabledict.immutabledict: {{mapOutputJsonPathPiece.camelCase}},
+    {{/if}}
+    {{#if arrayOutputJsonPathPiece}}
+            tuple: {{arrayOutputJsonPathPiece.camelCase}},
+    {{/if}}
+        }
+    )
+{{/or}}
 
     {{> components/schemas/_helper_new }}
-

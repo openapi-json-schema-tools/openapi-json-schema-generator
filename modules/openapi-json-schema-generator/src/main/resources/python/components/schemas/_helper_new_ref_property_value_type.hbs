@@ -1,19 +1,95 @@
-{{#with getDeepestRef}}
+{{#if refInfo}}
+    {{#or refInfo.refModuleAlias refInfo.refModule}}
+        {{#with refInfo.ref}}
+            {{#eq fullRefModule "" }}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=../refInfo.refModuleAlias }}
+                {{else}}
+{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=../refInfo.refModule }}
+                {{/if}}
+            {{else}}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
+                {{else}}
+{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+                {{/if}}
+            {{/eq}}
+        {{/with}}
+    {{else}}
+        {{! self reference }}
+        {{#with refInfo.ref}}
+{{> components/schemas/_helper_new_ref_property_value_type }}
+        {{/with}}
+    {{/or}}
+{{else}}
+    {{! no more refs }}
     {{#if types}}
         {{#eq types.size 1}}
-{{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[{{> components/schemas/_helper_schema_python_base_types }}],
+            {{#each types}}
+                {{#eq this "boolean"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}bool,
+                {{else}}
+                    {{#eq this "null"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}None,
+                    {{else}}
+                        {{#eq this "integer"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}int,
+                        {{else}}
+                            {{#eq this "string"}}
+                                {{#eq format null}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}str,
+                                {{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+                                    {{#eq this "object"}}
+                                        {{#if mapOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+                                        {{/if}}
+                                    {{/eq}}
+                                    {{#eq this "array"}}
+                                        {{#if arrayOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayOutputJsonPathPiece.camelCase}},
+                                        {{/if}}
+                                    {{/eq}}
+    {{> _helper_schema_python_types_newline }}
+],
+                                {{/eq}}
+                            {{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+                                {{#eq this "object"}}
+                                    {{#if mapOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+                                    {{/if}}
+                                {{/eq}}
+                                {{#eq this "array"}}
+                                    {{#if arrayOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayOutputJsonPathPiece.camelCase}},
+                                    {{/if}}
+                                {{/eq}}
+    {{> _helper_schema_python_types_newline }}
+],
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
         {{else}}
-{{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[typing.Union[
-    {{> components/schemas/_helper_schema_python_base_types_newline }}
-]],
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+            {{#contains types "object"}}
+                {{#if mapOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+                {{/if}}
+            {{/contains}}
+            {{#contains types "array"}}
+                {{#if arrayOutputJsonPathPiece}}
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayOutputJsonPathPiece.camelCase}},
+                {{/if}}
+            {{/contains}}
+    {{> _helper_schema_python_types_newline }}
+],
         {{/eq}}
     {{else}}
-{{#if ../refInfo.refModule}}{{../refInfo.refModule}}.{{/if}}{{../refInfo.refClass}}[
-    schemas.INPUT_BASE_TYPES
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+    {{> _helper_schema_python_types_newline }}
 ],
     {{/if}}
-{{#if optional}}
-schemas.Unset,
 {{/if}}
-{{> _helper_schema_python_types_newline }}
-{{/with}}

@@ -33,10 +33,11 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            None,
-            str
+            typing.Union[
+                None,
+                str,
+            ],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -50,10 +51,11 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            None,
-            str
+            typing.Union[
+                None,
+                str,
+            ],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -66,10 +68,11 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            request_body.RequestBody.content["application/json"].schema,
-            schemas.Unset,
-            None,
-            str
+            typing.Union[
+                None,
+                str,
+            ],
+            schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
