@@ -88,14 +88,9 @@ class Tag(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tag[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Tag[frozendict.frozendict],
-            inst
-        )
-        return inst
 

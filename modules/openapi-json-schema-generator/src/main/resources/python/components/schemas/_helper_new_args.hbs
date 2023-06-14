@@ -1,0 +1,56 @@
+cls,
+{{#eq this "array"}}
+    {{#if ../items}}
+arg: typing.Sequence[
+        {{#with ../items}}
+            {{#if refInfo.refClass}}
+    typing.Union[
+        {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
+    ]
+            {{else}}
+    typing.Union[
+        {{> components/schemas/_helper_new_property_value_type optional=false }}
+    ]
+            {{/if}}
+        {{/with}}
+],
+    {{else}}
+arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+    {{/if}}
+{{else}}
+    {{#eq this "object"}}
+arg: typing.Union[
+    {{mapInputJsonPathPiece.camelCase}},
+    {{jsonPathPiece.camelCase}}[frozendict.frozendict],
+],
+    {{else}}
+        {{#eq this "string"}}
+arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        {{else}}
+            {{#eq this "number"}}
+arg: typing.Union[decimal.Decimal, float, int],
+            {{else}}
+                {{#eq this "integer"}}
+arg: typing.Union[decimal.Decimal, int],
+                {{else}}
+                    {{#eq this "boolean"}}
+arg: typing.Union[bool, schemas.BoolClass],
+                    {{else}}
+                        {{#eq this "null"}}
+arg: typing.Union[None, schemas.NoneClass],
+                        {{else}}
+                            {{#eq this "bytes"}}
+arg: bytes,
+                            {{else}}
+                                {{#eq this "file"}}
+arg: io.FileIO,
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}
+configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None

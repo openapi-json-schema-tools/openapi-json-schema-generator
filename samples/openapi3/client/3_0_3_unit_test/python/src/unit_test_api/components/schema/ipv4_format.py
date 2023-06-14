@@ -29,44 +29,73 @@ class Ipv4Format(
         format: str = 'ipv4'
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            Ipv4Format[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Ipv4Format[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> Ipv4Format[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Ipv4Format[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Ipv4Format[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 

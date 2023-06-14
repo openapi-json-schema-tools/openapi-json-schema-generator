@@ -25,46 +25,75 @@ class _1(
         inclusive_minimum: typing.Union[int, float] = 2
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            _1[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> _1[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _1[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _1[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 OneOf2 = typing.Tuple[
     typing.Type[_0[schemas.U]],
@@ -89,44 +118,73 @@ class Oneof(
         one_of: OneOf2 = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf2)) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput2,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            Oneof[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Oneof[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> Oneof[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> Oneof[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Oneof[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 

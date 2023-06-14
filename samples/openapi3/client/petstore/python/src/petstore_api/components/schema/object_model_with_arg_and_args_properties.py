@@ -99,14 +99,9 @@ class ObjectModelWithArgAndArgsProperties(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithArgAndArgsProperties[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectModelWithArgAndArgsProperties[frozendict.frozendict],
-            inst
-        )
-        return inst
 

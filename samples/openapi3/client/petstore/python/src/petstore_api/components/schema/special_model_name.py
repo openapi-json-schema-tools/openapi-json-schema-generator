@@ -79,14 +79,9 @@ class SpecialModelName(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SpecialModelName[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            SpecialModelName[frozendict.frozendict],
-            inst
-        )
-        return inst
 

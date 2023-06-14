@@ -33,16 +33,11 @@ class Files(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Files[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Files[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> file.File[frozendict.frozendict]:
         return super().__getitem__(name)
@@ -101,16 +96,11 @@ class FileSchemaTestClass(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClass[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            FileSchemaTestClass[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import file

@@ -107,14 +107,9 @@ class Category(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Category[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Category[frozendict.frozendict],
-            inst
-        )
-        return inst
 

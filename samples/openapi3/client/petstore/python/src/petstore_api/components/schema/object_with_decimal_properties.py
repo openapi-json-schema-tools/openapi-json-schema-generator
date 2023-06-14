@@ -69,16 +69,11 @@ class ObjectWithDecimalProperties(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDecimalProperties[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectWithDecimalProperties[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import decimal_payload

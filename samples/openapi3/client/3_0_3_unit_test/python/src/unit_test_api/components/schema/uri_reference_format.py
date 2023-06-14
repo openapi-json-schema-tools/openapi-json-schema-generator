@@ -29,44 +29,73 @@ class UriReferenceFormat(
         format: str = 'uri-reference'
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            UriReferenceFormat[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> UriReferenceFormat[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> UriReferenceFormat[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> UriReferenceFormat[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            UriReferenceFormat[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 

@@ -30,44 +30,73 @@ class _Not(
         not_: typing.Type[Not2] = dataclasses.field(default_factory=lambda: Not2) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            _Not[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _Not[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> _Not[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> _Not[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _Not[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 

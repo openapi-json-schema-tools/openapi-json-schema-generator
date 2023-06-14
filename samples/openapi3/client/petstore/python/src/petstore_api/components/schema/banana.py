@@ -86,14 +86,9 @@ class Banana(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Banana[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Banana[frozendict.frozendict],
-            inst
-        )
-        return inst
 

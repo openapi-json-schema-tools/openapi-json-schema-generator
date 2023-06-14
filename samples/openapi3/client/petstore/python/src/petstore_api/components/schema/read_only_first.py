@@ -87,14 +87,9 @@ class ReadOnlyFirst(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReadOnlyFirst[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ReadOnlyFirst[frozendict.frozendict],
-            inst
-        )
-        return inst
 

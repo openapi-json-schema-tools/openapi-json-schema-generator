@@ -34,16 +34,11 @@ class _4(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _4[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _4[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
@@ -88,16 +83,11 @@ class _5(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _5[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _5[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,
@@ -148,46 +138,75 @@ class ComposedOneOfDifferentTypes(
         one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[bool, schemas.BoolClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[schemas.BoolClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[decimal.Decimal, float, int],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[decimal.Decimal]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[str]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[tuple]: ...
+
+    @typing.overload
     def __new__(
         cls,
         arg: typing.Union[
             DictInput3,
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA
+            ComposedOneOfDifferentTypes[frozendict.frozendict],
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[
-        typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]
-    ]:
-        inst = super().__new__(
+    ) -> ComposedOneOfDifferentTypes[frozendict.frozendict]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[bytes]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: io.FileIO,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> ComposedOneOfDifferentTypes[schemas.FileIO]: ...
+
+    def __new__(
+        cls,
+        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ComposedOneOfDifferentTypes[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import animal
