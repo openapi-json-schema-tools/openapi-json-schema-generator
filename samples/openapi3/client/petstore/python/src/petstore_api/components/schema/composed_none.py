@@ -40,14 +40,9 @@ class ComposedNone(
         arg: typing.Union[None, schemas.NoneClass],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedNone[schemas.NoneClass]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ComposedNone[schemas.NoneClass],
-            inst
-        )
-        return inst
 

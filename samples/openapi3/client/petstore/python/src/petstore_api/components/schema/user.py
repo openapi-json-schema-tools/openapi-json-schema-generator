@@ -65,21 +65,11 @@ class ObjectWithNoDeclaredPropsNullable(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectWithNoDeclaredPropsNullable[
-                typing.Union[
-                    schemas.NoneClass,
-                    frozendict.frozendict
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
@@ -129,8 +119,7 @@ class AnyTypeExceptNullProp(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeExceptNullProp[tuple]: ...
 
@@ -163,27 +152,11 @@ class AnyTypeExceptNullProp(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AnyTypeExceptNullProp[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
@@ -450,14 +423,9 @@ class User(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> User[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            User[frozendict.frozendict],
-            inst
-        )
-        return inst
 

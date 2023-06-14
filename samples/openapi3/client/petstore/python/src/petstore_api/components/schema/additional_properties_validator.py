@@ -69,16 +69,11 @@ class _0(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _0[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _0[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -125,8 +120,7 @@ class AdditionalProperties2(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[tuple]: ...
 
@@ -159,27 +153,11 @@ class AdditionalProperties2(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalProperties2[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput4 = typing.Mapping[
     str,
@@ -238,16 +216,11 @@ class _1(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _1[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _1[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -294,8 +267,7 @@ class AdditionalProperties3(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties3[tuple]: ...
 
@@ -328,27 +300,11 @@ class AdditionalProperties3(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalProperties3[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput6 = typing.Mapping[
     str,
@@ -407,16 +363,11 @@ class _2(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _2[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _2[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AllOf = typing.Tuple[
     typing.Type[_0[schemas.U]],
@@ -452,14 +403,9 @@ class AdditionalPropertiesValidator(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesValidator[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalPropertiesValidator[frozendict.frozendict],
-            inst
-        )
-        return inst
 

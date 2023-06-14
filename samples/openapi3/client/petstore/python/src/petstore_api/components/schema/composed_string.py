@@ -40,14 +40,9 @@ class ComposedString(
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedString[str]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ComposedString[str],
-            inst
-        )
-        return inst
 

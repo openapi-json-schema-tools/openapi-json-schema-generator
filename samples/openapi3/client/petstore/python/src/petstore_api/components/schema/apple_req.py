@@ -92,14 +92,9 @@ class AppleReq(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AppleReq[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AppleReq[frozendict.frozendict],
-            inst
-        )
-        return inst
 

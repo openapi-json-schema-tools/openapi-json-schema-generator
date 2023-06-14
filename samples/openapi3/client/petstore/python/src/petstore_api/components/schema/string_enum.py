@@ -94,19 +94,9 @@ class StringEnum(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            StringEnum[
-                typing.Union[
-                    schemas.NoneClass,
-                    str
-                ]
-            ],
-            inst
-        )
-        return inst
 

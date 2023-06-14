@@ -56,8 +56,7 @@ class Uuid(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Uuid[tuple]: ...
 
@@ -90,27 +89,11 @@ class Uuid(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Uuid[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -158,8 +141,7 @@ class Date(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Date[tuple]: ...
 
@@ -192,27 +174,11 @@ class Date(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Date[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -260,8 +226,7 @@ class DateTime(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DateTime[tuple]: ...
 
@@ -294,27 +259,11 @@ class DateTime(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            DateTime[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -362,8 +311,7 @@ class Number(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Number[tuple]: ...
 
@@ -396,27 +344,11 @@ class Number(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Number[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput5 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -463,8 +395,7 @@ class Binary(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Binary[tuple]: ...
 
@@ -497,27 +428,11 @@ class Binary(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Binary[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput6 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -564,8 +479,7 @@ class Int32(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int32[tuple]: ...
 
@@ -598,27 +512,11 @@ class Int32(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Int32[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput7 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -665,8 +563,7 @@ class Int64(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Int64[tuple]: ...
 
@@ -699,27 +596,11 @@ class Int64(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Int64[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput8 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -766,8 +647,7 @@ class Double(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Double[tuple]: ...
 
@@ -800,27 +680,11 @@ class Double(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Double[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 DictInput9 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
@@ -867,8 +731,7 @@ class _Float(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _Float[tuple]: ...
 
@@ -901,27 +764,11 @@ class _Float(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _Float[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -1295,14 +1142,9 @@ class AnyTypeAndFormat(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormat[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AnyTypeAndFormat[frozendict.frozendict],
-            inst
-        )
-        return inst
 

@@ -33,16 +33,11 @@ class Schema(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Schema[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> ref_pet.RefPet[frozendict.frozendict]:
         return super().__getitem__(name)

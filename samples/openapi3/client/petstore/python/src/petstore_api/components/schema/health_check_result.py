@@ -50,21 +50,11 @@ class NullableMessage(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            NullableMessage[
-                typing.Union[
-                    schemas.NoneClass,
-                    str
-                ]
-            ],
-            inst
-        )
-        return inst
 
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -141,14 +131,9 @@ class HealthCheckResult(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> HealthCheckResult[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            HealthCheckResult[frozendict.frozendict],
-            inst
-        )
-        return inst
 

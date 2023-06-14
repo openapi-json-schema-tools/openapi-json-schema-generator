@@ -1,18 +1,22 @@
 cls,
 {{#eq this "array"}}
+    {{#if ../items}}
 arg: typing.Sequence[
-    {{#with ../items}}
-        {{#if refInfo.refClass}}
+        {{#with ../items}}
+            {{#if refInfo.refClass}}
     typing.Union[
         {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
     ]
-        {{else}}
+            {{else}}
     typing.Union[
         {{> components/schemas/_helper_new_property_value_type optional=false }}
     ]
-        {{/if}}
-    {{/with}}
+            {{/if}}
+        {{/with}}
 ],
+    {{else}}
+arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+    {{/if}}
 {{else}}
     {{#eq this "object"}}
 arg: typing.Union[

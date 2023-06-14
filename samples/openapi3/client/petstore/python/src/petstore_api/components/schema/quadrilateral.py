@@ -68,8 +68,7 @@ class Quadrilateral(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Quadrilateral[tuple]: ...
 
@@ -102,27 +101,11 @@ class Quadrilateral(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Quadrilateral[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import complex_quadrilateral

@@ -34,16 +34,11 @@ class _4(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _4[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _4[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
@@ -88,16 +83,11 @@ class _5(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> _5[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            _5[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,
@@ -179,8 +169,7 @@ class ComposedOneOfDifferentTypes(
     @typing.overload
     def __new__(
         cls,
-        arg: typing.Sequence[
-        ],
+        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ComposedOneOfDifferentTypes[tuple]: ...
 
@@ -213,27 +202,11 @@ class ComposedOneOfDifferentTypes(
         arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ):
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ComposedOneOfDifferentTypes[
-                typing.Union[
-                    frozendict.frozendict,
-                    str,
-                    decimal.Decimal,
-                    schemas.BoolClass,
-                    schemas.NoneClass,
-                    tuple,
-                    bytes,
-                    schemas.FileIO
-                ]
-            ],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import animal

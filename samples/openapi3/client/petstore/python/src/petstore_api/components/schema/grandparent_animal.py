@@ -92,16 +92,11 @@ class GrandparentAnimal(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> GrandparentAnimal[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            GrandparentAnimal[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import child_cat

@@ -49,29 +49,8 @@ def __new__(
 {{else}}
 ):
 {{/if}}
-    inst = super().__new__(
+    return super().__new__(
         cls,
         arg,
         configuration=configuration,
     )
-    inst = typing.cast(
-{{#if types}}
-    {{#eq types.size 1}}
-        {{jsonPathPiece.camelCase}}[{{> components/schemas/_helper_schema_python_base_types }}],
-    {{else}}
-        {{jsonPathPiece.camelCase}}[
-            typing.Union[
-                {{> components/schemas/_helper_schema_python_base_types_newline }}
-            ]
-        ],
-    {{/eq}}
-{{else}}
-        {{jsonPathPiece.camelCase}}[
-            typing.Union[
-                {{> components/schemas/_helper_schema_python_base_types_newline }}
-            ]
-        ],
-{{/if}}
-        inst
-    )
-    return inst

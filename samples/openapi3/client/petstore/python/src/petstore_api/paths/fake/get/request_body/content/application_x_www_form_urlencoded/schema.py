@@ -59,16 +59,11 @@ class EnumFormStringArray(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArray[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            EnumFormStringArray[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
@@ -176,14 +171,9 @@ class Schema(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Schema[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Schema[frozendict.frozendict],
-            inst
-        )
-        return inst
 

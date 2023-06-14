@@ -35,16 +35,11 @@ class ArrayNumber(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNumber[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayNumber[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[decimal.Decimal]:
         return super().__getitem__(name)
@@ -116,14 +111,9 @@ class ArrayOfNumberOnly(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfNumberOnly[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayOfNumberOnly[frozendict.frozendict],
-            inst
-        )
-        return inst
 

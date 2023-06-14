@@ -35,16 +35,11 @@ class PhotoUrls(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrls[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            PhotoUrls[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
@@ -72,16 +67,11 @@ class Tags(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Tags[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Tags[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> tag.Tag[frozendict.frozendict]:
         return super().__getitem__(name)
@@ -201,16 +191,11 @@ class Pet(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Pet[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Pet[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import category

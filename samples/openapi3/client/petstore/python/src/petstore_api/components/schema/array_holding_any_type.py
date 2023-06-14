@@ -56,16 +56,11 @@ class ArrayHoldingAnyType(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayHoldingAnyType[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayHoldingAnyType[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,
