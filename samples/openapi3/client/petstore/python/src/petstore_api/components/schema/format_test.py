@@ -116,16 +116,11 @@ class ArrayWithUniqueItems(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithUniqueItems[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayWithUniqueItems[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[decimal.Decimal]:
         return super().__getitem__(name)
@@ -488,14 +483,9 @@ class FormatTest(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> FormatTest[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            FormatTest[frozendict.frozendict],
-            inst
-        )
-        return inst
 

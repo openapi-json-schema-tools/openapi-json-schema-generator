@@ -70,16 +70,11 @@ class ObjectModelWithRefProps(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithRefProps[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectModelWithRefProps[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import boolean

@@ -52,16 +52,11 @@ class SelfReferencingObjectModel(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingObjectModel[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            SelfReferencingObjectModel[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 Properties = typing_extensions.TypedDict(
     'Properties',

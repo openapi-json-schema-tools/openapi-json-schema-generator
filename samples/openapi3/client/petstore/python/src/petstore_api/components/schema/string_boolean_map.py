@@ -47,14 +47,9 @@ class StringBooleanMap(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> StringBooleanMap[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            StringBooleanMap[frozendict.frozendict],
-            inst
-        )
-        return inst
 

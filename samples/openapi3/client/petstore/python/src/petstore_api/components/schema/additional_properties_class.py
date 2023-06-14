@@ -42,16 +42,11 @@ class MapProperty(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapProperty[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapProperty[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema[U]
 DictInput2 = typing.Mapping[
@@ -85,16 +80,11 @@ class AdditionalProperties2(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties2[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalProperties2[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput3 = typing.Mapping[
     str,
@@ -128,16 +118,11 @@ class MapOfMapProperty(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapProperty[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapOfMapProperty[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput4 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 Anytype1: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
@@ -204,16 +189,11 @@ class MapWithUndeclaredPropertiesAnytype3(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapWithUndeclaredPropertiesAnytype3[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
 DictInput11 = typing.Mapping # mapping must be empty
@@ -237,16 +217,11 @@ class EmptyMap(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMap[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            EmptyMap[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema[U]
 DictInput12 = typing.Mapping[
@@ -280,16 +255,11 @@ class MapWithUndeclaredPropertiesString(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesString[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapWithUndeclaredPropertiesString[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -453,14 +423,9 @@ class AdditionalPropertiesClass(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClass[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalPropertiesClass[frozendict.frozendict],
-            inst
-        )
-        return inst
 

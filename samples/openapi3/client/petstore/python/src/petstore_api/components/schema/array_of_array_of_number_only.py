@@ -35,16 +35,11 @@ class Items(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Items[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items2[decimal.Decimal]:
         return super().__getitem__(name)
@@ -72,16 +67,11 @@ class ArrayArrayNumber(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayNumber[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayArrayNumber[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[tuple]:
         return super().__getitem__(name)
@@ -153,14 +143,9 @@ class ArrayOfArrayOfNumberOnly(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnly[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayOfArrayOfNumberOnly[frozendict.frozendict],
-            inst
-        )
-        return inst
 

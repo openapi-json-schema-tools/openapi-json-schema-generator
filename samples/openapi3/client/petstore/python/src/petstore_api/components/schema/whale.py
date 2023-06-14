@@ -124,14 +124,9 @@ class Whale(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Whale[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Whale[frozendict.frozendict],
-            inst
-        )
-        return inst
 

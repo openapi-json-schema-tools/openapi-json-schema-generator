@@ -42,16 +42,11 @@ class Items(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Items[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items2[frozendict.frozendict]:
         return super().__getitem__(name)

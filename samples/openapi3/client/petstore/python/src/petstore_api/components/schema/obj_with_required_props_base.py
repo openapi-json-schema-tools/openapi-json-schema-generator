@@ -84,14 +84,9 @@ class ObjWithRequiredPropsBase(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredPropsBase[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjWithRequiredPropsBase[frozendict.frozendict],
-            inst
-        )
-        return inst
 

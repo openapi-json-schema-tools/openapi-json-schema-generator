@@ -81,14 +81,9 @@ class ReqPropsFromExplicitAddProps(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromExplicitAddProps[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ReqPropsFromExplicitAddProps[frozendict.frozendict],
-            inst
-        )
-        return inst
 

@@ -35,16 +35,11 @@ class Items3(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items3[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Items3[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items4[decimal.Decimal]:
         return super().__getitem__(name)
@@ -72,16 +67,11 @@ class Items2(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items2[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Items2[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items3[tuple]:
         return super().__getitem__(name)
@@ -109,16 +99,11 @@ class Items(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Items[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Items[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items2[tuple]:
         return super().__getitem__(name)
@@ -151,16 +136,11 @@ class NestedItems(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> NestedItems[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            NestedItems[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[tuple]:
         return super().__getitem__(name)

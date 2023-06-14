@@ -374,6 +374,27 @@ public class CodegenSchema {
         return sb.toString();
     }
 
+    /**
+     * A method to get all possible types
+     * Also returns additional bytes and file as types when type is unset
+     * @return the allowed types
+     */
+    public LinkedHashSet<String> allTypes() {
+        if (types != null) {
+            return types;
+        }
+        LinkedHashSet<String> allTypes = new LinkedHashSet<>();
+        allTypes.add("null");
+        allTypes.add("boolean");
+        allTypes.add("number");
+        allTypes.add("string");
+        allTypes.add("array");
+        allTypes.add("object");
+        allTypes.add("bytes");
+        allTypes.add("file");
+        return allTypes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -207,16 +207,11 @@ class AbstractStepMessage(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AbstractStepMessage[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AbstractStepMessage[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AnyOf = typing.Tuple[
     typing.Type[AbstractStepMessage],

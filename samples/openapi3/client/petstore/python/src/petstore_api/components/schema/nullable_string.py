@@ -33,6 +33,20 @@ class NullableString(
         })
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NullableString[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> NullableString[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -40,25 +54,10 @@ class NullableString(
             str
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> NullableString[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
-        inst = super().__new__(
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            NullableString[
-                typing.Union[
-                    schemas.NoneClass,
-                    str
-                ]
-            ],
-            inst
-        )
-        return inst
 

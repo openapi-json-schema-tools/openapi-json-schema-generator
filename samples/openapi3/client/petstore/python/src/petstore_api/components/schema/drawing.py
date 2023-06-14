@@ -49,16 +49,11 @@ class Shapes(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Shapes[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Shapes[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> shape.Shape[typing.Union[
         frozendict.frozendict,
@@ -162,16 +157,11 @@ class Drawing(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Drawing[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Drawing[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import fruit

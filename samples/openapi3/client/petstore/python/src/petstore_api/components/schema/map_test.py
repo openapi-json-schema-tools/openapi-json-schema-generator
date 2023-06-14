@@ -42,16 +42,11 @@ class AdditionalProperties(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalProperties[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalProperties[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 DictInput2 = typing.Mapping[
     str,
@@ -85,16 +80,11 @@ class MapMapOfString(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfString[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapMapOfString[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 
@@ -153,16 +143,11 @@ class MapOfEnumString(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumString[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapOfEnumString[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema[U]
 DictInput4 = typing.Mapping[
@@ -196,16 +181,11 @@ class DirectMap(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> DirectMap[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            DirectMap[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 
@@ -269,16 +249,11 @@ class MapTest(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MapTest[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MapTest[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import string_boolean_map

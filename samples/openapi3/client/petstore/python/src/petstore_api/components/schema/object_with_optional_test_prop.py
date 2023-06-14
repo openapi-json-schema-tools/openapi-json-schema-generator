@@ -77,14 +77,9 @@ class ObjectWithOptionalTestProp(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOptionalTestProp[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectWithOptionalTestProp[frozendict.frozendict],
-            inst
-        )
-        return inst
 

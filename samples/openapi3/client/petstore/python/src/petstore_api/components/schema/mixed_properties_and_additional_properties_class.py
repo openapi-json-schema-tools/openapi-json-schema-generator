@@ -36,16 +36,11 @@ class Map(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> Map[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            Map[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -134,16 +129,11 @@ class MixedPropertiesAndAdditionalPropertiesClass(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            MixedPropertiesAndAdditionalPropertiesClass[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import animal

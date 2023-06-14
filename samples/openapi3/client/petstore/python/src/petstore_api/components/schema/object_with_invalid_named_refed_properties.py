@@ -68,16 +68,11 @@ class ObjectWithInvalidNamedRefedProperties(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInvalidNamedRefedProperties[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ObjectWithInvalidNamedRefedProperties[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from petstore_api.components.schema import array_with_validations_in_items

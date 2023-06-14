@@ -104,14 +104,9 @@ class BasquePig(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> BasquePig[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            BasquePig[frozendict.frozendict],
-            inst
-        )
-        return inst
 

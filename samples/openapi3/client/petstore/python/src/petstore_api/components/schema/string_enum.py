@@ -72,6 +72,20 @@ class StringEnum(
         return cls(None) # type: ignore
 
 
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[None, schemas.NoneClass],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> StringEnum[schemas.NoneClass]: ...
+
+    @typing.overload
+    def __new__(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
+    ) -> StringEnum[str]: ...
+
     def __new__(
         cls,
         arg: typing.Union[
@@ -79,25 +93,10 @@ class StringEnum(
             str
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> StringEnum[
-        typing.Union[
-            schemas.NoneClass,
-            str
-        ]
-    ]:
-        inst = super().__new__(
+    ):
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            StringEnum[
-                typing.Union[
-                    schemas.NoneClass,
-                    str
-                ]
-            ],
-            inst
-        )
-        return inst
 

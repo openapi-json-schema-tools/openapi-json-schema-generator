@@ -84,16 +84,11 @@ class ArrayEnum(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayEnum[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayEnum[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[str]:
         return super().__getitem__(name)
@@ -174,14 +169,9 @@ class EnumArrays(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> EnumArrays[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            EnumArrays[frozendict.frozendict],
-            inst
-        )
-        return inst
 

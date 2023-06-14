@@ -118,14 +118,9 @@ class SubtractionOperator(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> SubtractionOperator[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            SubtractionOperator[frozendict.frozendict],
-            inst
-        )
-        return inst
 
