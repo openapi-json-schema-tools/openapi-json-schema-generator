@@ -34,6 +34,14 @@ arg: typing.Union[bool, schemas.BoolClass],
                     {{else}}
                         {{#eq this "null"}}
 arg: typing.Union[None, schemas.NoneClass],
+                        {{else}}
+                            {{#eq this "bytes"}}
+arg: bytes,
+                            {{else}}
+                                {{#eq this "file"}}
+arg: io.FileIO,
+                                {{/eq}}
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}

@@ -7,6 +7,13 @@ def __new__(
 ) -> {{../jsonPathPiece.camelCase}}{{> components/schemas/_helper_new_generic_type }}
         {{/each}}
     {{/gt}}
+{{else}}
+    {{#each allTypes}}
+@typing.overload
+def __new__(
+    {{> components/schemas/_helper_new_args }}
+) -> {{../jsonPathPiece.camelCase}}{{> components/schemas/_helper_new_generic_type }}
+    {{/each}}
 {{/if}}
 def __new__(
 {{#if types}}
@@ -40,11 +47,7 @@ def __new__(
 ):
     {{/eq}}
 {{else}}
-) -> {{jsonPathPiece.camelCase}}[
-    typing.Union[
-        {{> components/schemas/_helper_schema_python_base_types_newline }}
-    ]
-]:
+):
 {{/if}}
     inst = super().__new__(
         cls,

@@ -18,6 +18,14 @@
                     {{else}}
                         {{#eq this "null"}}
 [schemas.NoneClass]: ...
+                            {{else}}
+                                {{#eq this "bytes"}}
+[bytes]: ...
+                                {{else}}
+                                    {{#eq this "file"}}
+[schemas.FileIO]: ...
+                                    {{/eq}}
+                                {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
