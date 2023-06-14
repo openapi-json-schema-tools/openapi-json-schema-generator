@@ -48,16 +48,11 @@ class RefInAdditionalproperties(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> RefInAdditionalproperties[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            RefInAdditionalproperties[frozendict.frozendict],
-            inst
-        )
-        return inst
 
 
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference

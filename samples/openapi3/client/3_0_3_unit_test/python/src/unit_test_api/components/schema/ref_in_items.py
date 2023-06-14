@@ -54,16 +54,11 @@ class RefInItems(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> RefInItems[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            RefInItems[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference[typing.Union[
         frozendict.frozendict,

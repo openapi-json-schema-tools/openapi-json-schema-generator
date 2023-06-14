@@ -56,16 +56,11 @@ class ArrayTypeMatchesArrays(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTypeMatchesArrays[tuple]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            ArrayTypeMatchesArrays[tuple],
-            inst
-        )
-        return inst
 
     def __getitem__(self, name: int) -> Items[typing.Union[
         frozendict.frozendict,

@@ -47,14 +47,9 @@ class AdditionalpropertiesCanExistByItself(
         ],
         configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalpropertiesCanExistByItself[frozendict.frozendict]:
-        inst = super().__new__(
+        return super().__new__(
             cls,
             arg,
             configuration=configuration,
         )
-        inst = typing.cast(
-            AdditionalpropertiesCanExistByItself[frozendict.frozendict],
-            inst
-        )
-        return inst
 
